@@ -34,7 +34,7 @@
   .sidebar::-webkit-scrollbar{width:8px}
   .sidebar::-webkit-scrollbar-thumb{background:#2a2f3a;border-radius:8px}
   .content{flex:1 1 auto;min-width:0;padding:44px 44px 120px}
-  .brand{font-weight:700;font-size:15px;margin-bottom:2px}
+  .brand{font-weight:700;font-size:15px;margin-bottom:2px;padding-right:38px}
   .brand .glass{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
   .brand-sub{color:var(--dim);font-size:12px;margin-bottom:20px}
   .nav-chapter{margin:22px 0 2px;padding-left:2px}
@@ -51,6 +51,12 @@
   .nav-tgl{flex:0 0 auto;background:none;border:0;color:var(--dim);font-size:11px;line-height:1;cursor:pointer;padding:3px 6px;border-radius:6px}
   .nav-tgl:hover{color:var(--text);background:var(--card)}
   .nav-group.closed{display:none}
+  .sb-close{position:absolute;top:22px;right:10px;background:none;border:1px solid var(--line);color:var(--dim);font-size:12px;line-height:1;cursor:pointer;padding:5px 8px;border-radius:8px}
+  .sb-close:hover{color:var(--text);background:var(--card)}
+  .sb-open{display:none;position:fixed;top:14px;left:14px;z-index:50;align-items:center;justify-content:center;width:34px;height:34px;background:rgba(20,24,32,.85);backdrop-filter:blur(8px);border:1px solid var(--line);color:var(--muted);font-size:14px;line-height:1;cursor:pointer;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+  .sb-open:hover{color:var(--text);border-color:var(--accent)}
+  body.nav-off .sidebar{display:none}
+  body.nav-off .sb-open{display:flex}
 
   .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--accent);background:rgba(90,168,255,.1);border:1px solid rgba(90,168,255,.25);padding:5px 12px;border-radius:999px;margin-bottom:18px}
   h1{font-size:32px;line-height:1.22;margin:0 0 12px;letter-spacing:-.5px}
@@ -170,12 +176,14 @@
 
   .footer{margin-top:70px;padding-top:22px;border-top:1px solid var(--line-soft);color:var(--dim);font-size:12.5px}
   .footer a{color:var(--accent)}
-  @media (max-width:900px){.sidebar{display:none}.content{padding:32px 18px 90px}h1{font-size:26px}.r{flex-direction:column;gap:4px}.r .k{flex:none}}
+  @media (max-width:900px){.sidebar{display:none}.sb-open{display:none!important}.content{padding:32px 18px 90px}h1{font-size:26px}.r{flex-direction:column;gap:4px}.r .k{flex:none}}
 </style>
 </head>
 <body>
+<button class="sb-open" id="sbOpen" type="button" aria-label="네비게이션 펼치기">☰</button>
 <div class="wrap">
   <aside class="sidebar">
+    <button class="sb-close" id="sbClose" type="button" aria-label="네비게이션 접기">«</button>
     <div class="brand"><span class="glass">Toolbar · Text · Tab Bar · Sheets · Safe Area Bar · System Materials · Menu</span> 목차별 주석</div>
     <div class="brand-sub">언제 · 기준 · 설계 의도 — iOS 26</div>
     <nav>
@@ -1386,6 +1394,15 @@
   }
   const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const l=map.get(e.target);if(l){l.classList.add('active');reveal(l);}}});},{rootMargin:'-15% 0px -75% 0px'});
   map.forEach((_,el)=>obs.observe(el));
+
+  // 사이드바 전체 접기/펼치기 (상태 기억)
+  function setSidebar(off){
+    document.body.classList.toggle('nav-off',off);
+    try{localStorage.setItem('sbOff',off?'1':'');}catch(e){}
+  }
+  document.getElementById('sbClose').addEventListener('click',()=>setSidebar(true));
+  document.getElementById('sbOpen').addEventListener('click',()=>setSidebar(false));
+  try{if(localStorage.getItem('sbOff'))setSidebar(true);}catch(e){}
 </script>
 </body>
 </html>
