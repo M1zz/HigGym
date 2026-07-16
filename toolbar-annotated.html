@@ -37,8 +37,12 @@
   .brand{font-weight:700;font-size:15px;margin-bottom:2px}
   .brand .glass{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
   .brand-sub{color:var(--dim);font-size:12px;margin-bottom:20px}
-  .nav-title{display:block;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--dim);margin:14px 0 6px;padding-left:4px}
-  .nav-list{list-style:none;margin:0;padding:0}
+  .nav-chapter{margin:22px 0 2px;padding-left:2px}
+  .nav-chapter a{display:flex;align-items:center;gap:9px;font-size:13.5px;font-weight:800;color:var(--text)}
+  .nav-chapter a:hover{color:var(--accent)}
+  .nav-chapter .n{display:inline-flex;align-items:center;justify-content:center;width:21px;height:21px;border-radius:6px;font-family:"SF Mono",monospace;font-size:11px;color:var(--accent);background:rgba(90,168,255,.12);border:1px solid rgba(90,168,255,.25)}
+  .nav-title{display:block;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--dim);margin:12px 0 6px;padding-left:16px}
+  .nav-list{list-style:none;margin:0;padding:0 0 0 12px}
   .nav-list li a{display:block;font-size:12.5px;color:var(--muted);padding:4px 10px;border-radius:8px;border-left:2px solid transparent;transition:.15s}
   .nav-list li a:hover{color:var(--text);background:var(--card)}
   .nav-list li a.active{color:var(--text);background:var(--card-2);border-left-color:var(--accent)}
@@ -48,6 +52,10 @@
   .lede{color:var(--muted);font-size:15.5px;max-width:820px}
 
   section{scroll-margin-top:24px}
+  .ch-head{margin:84px 0 -30px;display:flex;align-items:center;gap:14px;scroll-margin-top:24px}
+  .ch-head .ch-num{flex:0 0 auto;display:flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:11px;font-family:"SF Mono",monospace;font-size:16px;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+  .ch-head h2{font-size:28px;margin:0;letter-spacing:-.4px}
+  .ch-head .ch-sub{color:var(--dim);font-size:13px;margin-left:2px}
   .sec-head{margin:56px 0 8px;padding-top:12px;border-top:1px solid var(--line-soft)}
   .sec-num{color:var(--accent);font-weight:700;font-size:13px;letter-spacing:1px}
   h2{font-size:24px;margin:6px 0 6px;letter-spacing:-.3px}
@@ -90,6 +98,7 @@
     <div class="brand"><span class="glass">Toolbar · Text</span> 목차별 주석</div>
     <div class="brand-sub">언제 · 기준 · 설계 의도 — iOS 26</div>
     <nav>
+      <div class="nav-chapter"><a href="#ch1"><span class="n">1</span> Toolbar</a></div>
       <span class="nav-title">1.1 Items</span>
       <ul class="nav-list">
         <li><a href="#i1">1. Single Trailing Item</a></li>
@@ -127,6 +136,7 @@
         <li><a href="#q5">5. Toolbar Principal</a></li>
         <li><a href="#q6">6. Search + other items</a></li>
       </ul>
+      <div class="nav-chapter"><a href="#ch2"><span class="n">2</span> Text</a></div>
       <span class="nav-title">2.1 Text Behavior</span>
       <ul class="nav-list">
         <li><a href="#x1">1. Line Limit</a></li>
@@ -153,6 +163,12 @@
         <span class="pill" style="color:var(--accent-2);border-color:rgba(123,108,255,.3);background:rgba(123,108,255,.08)">WHY</span> 왜 이런 설계·기본값인지 /
         <span class="pill a">TIP</span> 실무 참고.
       </p>
+    </div>
+
+    <!-- ==================== CHAPTER 1. TOOLBAR ==================== -->
+    <div class="ch-head" id="ch1">
+      <div class="ch-num">1</div>
+      <h2>Toolbar <span class="ch-sub">— Items · Title Display Modes · Scroll Edge Effects · Search</span></h2>
     </div>
 
     <!-- ============ 1.1 ITEMS ============ -->
@@ -465,6 +481,12 @@
         </div>
       </div>
     </section>
+
+    <!-- ==================== CHAPTER 2. TEXT ==================== -->
+    <div class="ch-head" id="ch2">
+      <div class="ch-num">2</div>
+      <h2>Text <span class="ch-sub">— Text Behavior · Text Formatting</span></h2>
+    </div>
 
     <!-- ============ 2.1 TEXT BEHAVIOR ============ -->
     <section>
