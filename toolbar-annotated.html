@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SwiftUI Toolbar & Text — 목차별 상세 주석 (언제 · 기준 · 설계 의도)</title>
+<title>SwiftUI Toolbar · Text · Tab Bar · Sheets · Safe Area Bar · System Materials · Menu — 목차별 상세 주석 (언제 · 기준 · 설계 의도)</title>
 <style>
   :root{
     --bg:#0b0c10; --bg-soft:#14161c; --card:#181b22; --card-2:#1e222b;
@@ -46,6 +46,11 @@
   .nav-list li a{display:block;font-size:12.5px;color:var(--muted);padding:4px 10px;border-radius:8px;border-left:2px solid transparent;transition:.15s}
   .nav-list li a:hover{color:var(--text);background:var(--card)}
   .nav-list li a.active{color:var(--text);background:var(--card-2);border-left-color:var(--accent)}
+  .nav-chapter{display:flex;align-items:center;gap:6px}
+  .nav-chapter a{flex:1;min-width:0}
+  .nav-tgl{flex:0 0 auto;background:none;border:0;color:var(--dim);font-size:11px;line-height:1;cursor:pointer;padding:3px 6px;border-radius:6px}
+  .nav-tgl:hover{color:var(--text);background:var(--card)}
+  .nav-group.closed{display:none}
 
   .kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;color:var(--accent);background:rgba(90,168,255,.1);border:1px solid rgba(90,168,255,.25);padding:5px 12px;border-radius:999px;margin-bottom:18px}
   h1{font-size:32px;line-height:1.22;margin:0 0 12px;letter-spacing:-.5px}
@@ -87,6 +92,82 @@
   .r .v{color:#c7cddb}
   .r .v b{color:var(--text)}
 
+
+  /* ===== 위치 프리뷰 ===== */
+  .entry{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:22px;align-items:start}
+  .entry>.idx,.entry>h3,.entry>.what,.entry>.rows{grid-column:1}
+  .preview{grid-column:2;grid-row:1/span 4;margin:2px 0 0;display:flex;flex-direction:column;align-items:center;gap:9px;width:158px}
+  .preview figcaption{font-size:11px;color:var(--dim);text-align:center;line-height:1.55}
+  .preview figcaption b{color:var(--accent);font-weight:700}
+  .phone{position:relative;width:148px;height:292px;border-radius:24px;border:1px solid var(--line);background:linear-gradient(180deg,#1b1f28,#12151b);overflow:hidden;box-shadow:0 12px 28px rgba(0,0,0,.35)}
+  .island{position:absolute;top:7px;left:50%;transform:translateX(-50%);width:34px;height:9px;border-radius:5px;background:#000}
+  .pnav{position:absolute;top:24px;left:8px;right:8px;height:24px;display:flex;align-items:center;gap:4px;z-index:2}
+  .sp{flex:1}
+  .chev{font-size:11px;color:rgba(255,255,255,.35);line-height:1;padding:0 2px}
+  .cap{display:inline-flex;align-items:center;justify-content:center;gap:4px;height:20px;padding:0 7px;border-radius:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+  .cap.rd{width:20px;padding:0;border-radius:50%;flex:0 0 auto}
+  .cap.search{flex:1;justify-content:flex-start;gap:5px;padding:0 8px}
+  .mag{font-size:10px;color:rgba(255,255,255,.55);line-height:1}
+  .sline{flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.12)}
+  .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.55)}
+  .seg{width:20px;height:13px;border-radius:7px}
+  .seg.on{background:rgba(255,255,255,.28)}
+  .ell{font-size:10px;font-weight:700;color:var(--accent);line-height:1}
+  .ttl{font-size:8.5px;font-weight:700;color:rgba(255,255,255,.8);letter-spacing:.2px;white-space:nowrap}
+  .ln{position:absolute;left:14px;height:6px;border-radius:3px;background:rgba(255,255,255,.06)}
+  .big-ttl{position:absolute;top:56px;left:14px;height:13px;width:76px;border-radius:4px;background:rgba(255,255,255,.2)}
+  .bbar{position:absolute;bottom:12px;left:8px;right:8px;display:flex;align-items:center;gap:6px;z-index:2}
+  .topglass{position:absolute;top:0;left:0;right:0;height:54px;z-index:1}
+  .drawer{position:absolute;top:52px;left:10px;right:10px;height:17px;border-radius:9px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;gap:5px;padding:0 6px;z-index:2}
+  .mtag{position:absolute;font-size:7px;font-weight:700;color:var(--accent);background:rgba(20,24,32,.9);border:1px solid rgba(90,168,255,.45);border-radius:5px;padding:1px 4px;z-index:3}
+  .menu{position:absolute;top:54px;left:38px;width:72px;border-radius:8px;background:#232833;border:1px solid var(--accent);box-shadow:0 8px 20px rgba(0,0,0,.5);padding:6px;z-index:3;display:grid;gap:5px}
+  .menu i{display:block;height:5px;border-radius:3px;background:rgba(255,255,255,.18)}
+  .logo{width:14px;height:14px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  .blob{position:absolute;border-radius:50%;filter:blur(7px);opacity:.55}
+  .hl{background:rgba(90,168,255,.18);border-color:var(--accent);box-shadow:0 0 0 1px rgba(90,168,255,.3),0 0 14px rgba(90,168,255,.35)}
+  .hl .dot{background:var(--accent)}
+  .hl .mag{color:var(--accent)}
+  .hlb{background:rgba(90,168,255,.4);box-shadow:0 0 12px rgba(90,168,255,.4)}
+  .ttl.hlt{color:var(--accent);text-shadow:0 0 10px rgba(90,168,255,.7)}
+  /* Tab Bar 프리뷰 */
+  .tbar{display:flex;align-items:center;justify-content:space-around;height:28px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);flex:1;padding:0 2px;min-width:0}
+  .ti{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0}
+  .ti .ic{width:9px;height:9px;border-radius:3px;background:rgba(255,255,255,.38)}
+  .ti .lb{font-size:5.5px;line-height:1;color:rgba(255,255,255,.5);letter-spacing:.2px;white-space:nowrap}
+  .ti.on .ic{background:var(--accent);box-shadow:0 0 6px rgba(90,168,255,.6)}
+  .ti.on .lb{color:var(--accent)}
+  .bdg{position:absolute;top:-5px;right:-5px;min-width:10px;height:10px;border-radius:5px;background:var(--red);color:#fff;font-size:5.5px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;padding:0 2px;line-height:1;z-index:1}
+  .acc{position:absolute;bottom:46px;left:8px;right:8px;height:20px;border-radius:10px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);display:flex;align-items:center;gap:6px;padding:0 8px;z-index:2}
+  .acc .tri{width:0;height:0;border-left:5px solid rgba(255,255,255,.7);border-top:3.5px solid transparent;border-bottom:3.5px solid transparent;flex:0 0 auto}
+  /* Sheets 프리뷰 */
+  .dimm{position:absolute;inset:0;background:rgba(0,0,0,.42);z-index:3}
+  .sheet{position:absolute;left:3px;right:3px;bottom:3px;border-radius:16px 16px 21px 21px;background:linear-gradient(180deg,#272c37,#1d2129);border:1px solid var(--accent);box-shadow:0 -10px 24px rgba(0,0,0,.45),0 0 14px rgba(90,168,255,.22);z-index:4;overflow:hidden}
+  .grab{width:22px;height:3px;border-radius:2px;background:rgba(255,255,255,.35);margin:5px auto 0}
+  .sln{display:block;height:5px;border-radius:3px;background:rgba(255,255,255,.1);margin:9px 12px 0}
+  .gcard{position:absolute;width:56px;height:42px;border-radius:8px;background:rgba(255,255,255,.05);border:1px solid var(--line-soft);z-index:1}
+  .gcard.src{border:1.5px dashed var(--accent);box-shadow:0 0 10px rgba(90,168,255,.35)}
+  /* Safe Area Bar 프리뷰 */
+  .chip{width:16px;height:8px;border-radius:4px;background:rgba(255,255,255,.2);flex:0 0 auto}
+  .vbar{position:absolute;width:20px;border-radius:10px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);display:flex;flex-direction:column;align-items:center;gap:7px;padding:8px 0;z-index:2}
+  /* System Materials 프리뷰 */
+  .matcard{position:absolute;left:14px;right:14px;height:34px;border-radius:10px;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;padding:0 10px;font-size:8px;color:rgba(255,255,255,.88);z-index:2}
+  /* Text 챕터용 예시 카드 */
+  .tcard{width:158px;background:linear-gradient(180deg,var(--card-2),#171a21);border:1px solid var(--line);border-radius:14px;padding:12px;font-size:10px;line-height:1.6;color:#c7cddb;box-shadow:0 10px 24px rgba(0,0,0,.3)}
+  .tc-cap{font-family:"SF Mono",monospace;font-size:8.5px;color:var(--accent);margin-bottom:7px;letter-spacing:.2px}
+  .clamp2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .trow{display:flex;align-items:center;gap:6px;margin:6px 0}
+  .trow .tl{flex:0 0 44px;font-family:"SF Mono",monospace;font-size:7.5px;color:var(--dim);text-align:right}
+  .trow .tv{flex:1;min-width:0;white-space:nowrap;overflow:hidden;font-size:9.5px;background:rgba(255,255,255,.04);border:1px solid var(--line-soft);border-radius:6px;padding:3px 6px}
+  .tv .e{color:var(--accent);font-weight:700}
+  .fitbox{border:1px dashed rgba(255,255,255,.22);border-radius:8px;padding:4px 8px;margin:5px 0;overflow:hidden;white-space:nowrap;font-family:"SF Mono",monospace}
+  .sel{background:rgba(90,168,255,.3);border-radius:2px;box-shadow:0 0 0 1px rgba(90,168,255,.35)}
+  .hnd{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--accent);vertical-align:middle;margin:0 1px}
+  .rsv{border:1px dashed var(--accent);border-radius:6px;background:rgba(90,168,255,.06)}
+  .mini2{display:flex;gap:8px}
+  .mini2 .mc{flex:1;background:rgba(255,255,255,.03);border:1px solid var(--line-soft);border-radius:8px;padding:7px;font-size:7.5px;line-height:1.5;height:74px;overflow:hidden}
+  .avtr{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-size:7px;font-weight:700;vertical-align:middle}
+  @media (max-width:900px){.entry{display:block}.preview{margin:18px auto 0}}
+
   .footer{margin-top:70px;padding-top:22px;border-top:1px solid var(--line-soft);color:var(--dim);font-size:12.5px}
   .footer a{color:var(--accent)}
   @media (max-width:900px){.sidebar{display:none}.content{padding:32px 18px 90px}h1{font-size:26px}.r{flex-direction:column;gap:4px}.r .k{flex:none}}
@@ -95,10 +176,12 @@
 <body>
 <div class="wrap">
   <aside class="sidebar">
-    <div class="brand"><span class="glass">Toolbar · Text</span> 목차별 주석</div>
+    <div class="brand"><span class="glass">Toolbar · Text · Tab Bar · Sheets · Safe Area Bar · System Materials · Menu</span> 목차별 주석</div>
     <div class="brand-sub">언제 · 기준 · 설계 의도 — iOS 26</div>
     <nav>
-      <div class="nav-chapter"><a href="#ch1"><span class="n">1</span> Toolbar</a></div>
+      <div class="nav-chapter"><a href="#ch1"><span class="n">1</span> Toolbar</a><button class="nav-tgl" type="button" data-tgl="ng1" aria-label="펼치기/접기">▸</button></div>
+      <div class="nav-group closed" id="ng1">
+
       <span class="nav-title">1.1 Items</span>
       <ul class="nav-list">
         <li><a href="#i1">1. Single Trailing Item</a></li>
@@ -136,7 +219,10 @@
         <li><a href="#q5">5. Toolbar Principal</a></li>
         <li><a href="#q6">6. Search + other items</a></li>
       </ul>
-      <div class="nav-chapter"><a href="#ch2"><span class="n">2</span> Text</a></div>
+      </div>
+<div class="nav-chapter"><a href="#ch2"><span class="n">2</span> Text</a><button class="nav-tgl" type="button" data-tgl="ng2" aria-label="펼치기/접기">▸</button></div>
+      <div class="nav-group closed" id="ng2">
+
       <span class="nav-title">2.1 Text Behavior</span>
       <ul class="nav-list">
         <li><a href="#x1">1. Line Limit</a></li>
@@ -150,18 +236,111 @@
         <li><a href="#f1">1. Format Styles (Units)</a></li>
         <li><a href="#f2">2. Name Formatting</a></li>
       </ul>
+      </div>
+<div class="nav-chapter"><a href="#ch3"><span class="n">3</span> Tab Bar</a><button class="nav-tgl" type="button" data-tgl="ng3" aria-label="펼치기/접기">▸</button></div>
+      <div class="nav-group closed" id="ng3">
+
+      <span class="nav-title">3.1 Tab Items</span>
+      <ul class="nav-list">
+        <li><a href="#tb1">1. Title &amp; Icon</a></li>
+        <li><a href="#tb2">2. Icon Only</a></li>
+        <li><a href="#tb3">3. Badge Count</a></li>
+        <li><a href="#tb4">4. Badge Text</a></li>
+      </ul>
+      <span class="nav-title">3.2 Tab Counts</span>
+      <ul class="nav-list">
+        <li><a href="#tc1">1. 2 Tabs</a></li>
+        <li><a href="#tc2">2. 2 Tabs + Minimize</a></li>
+        <li><a href="#tc3">3. 4 Tabs</a></li>
+        <li><a href="#tc4">4. 6 Tabs</a></li>
+      </ul>
+      <span class="nav-title">3.3 Visibility</span>
+      <ul class="nav-list">
+        <li><a href="#tv1">1. Always Visible</a></li>
+        <li><a href="#tv2">2. Hidden on Detail Views</a></li>
+      </ul>
+      <span class="nav-title">3.4 Search</span>
+      <ul class="nav-list">
+        <li><a href="#ts1">1. As Tab Item</a></li>
+        <li><a href="#ts2">2. With Search Role</a></li>
+        <li><a href="#ts3">3. Search Role + Minimize</a></li>
+      </ul>
+      <span class="nav-title">3.5 Bottom Accessory</span>
+      <ul class="nav-list">
+        <li><a href="#ta1">1. 3 Tab Items</a></li>
+        <li><a href="#ta2">2. 3 Tab Items + Minimize</a></li>
+        <li><a href="#ta3">3. Search Role + Minimize</a></li>
+      </ul>
+      </div>
+<div class="nav-chapter"><a href="#ch4"><span class="n">4</span> Sheets</a><button class="nav-tgl" type="button" data-tgl="ng4" aria-label="펼치기/접기">▸</button></div>
+      <div class="nav-group closed" id="ng4">
+
+      <span class="nav-title">4.1 Configurations</span>
+      <ul class="nav-list">
+        <li><a href="#sh1">1. Detent: Large</a></li>
+        <li><a href="#sh2">2. Detent: Medium</a></li>
+        <li><a href="#sh3">3. Detent: Custom</a></li>
+        <li><a href="#sh4">4. Detent: Combo</a></li>
+        <li><a href="#sh5">5. Nonmodal Sheet</a></li>
+      </ul>
+      <span class="nav-title">4.2 Full Screen Cover</span>
+      <ul class="nav-list">
+        <li><a href="#fc1">1. General Behavior</a></li>
+      </ul>
+      <span class="nav-title">4.3 Transitions</span>
+      <ul class="nav-list">
+        <li><a href="#tr1">1. Standard</a></li>
+        <li><a href="#tr2">2. Zoom – Sheet</a></li>
+        <li><a href="#tr3">3. Zoom – Full Screen Cover</a></li>
+      </ul>
+      </div>
+      <div class="nav-chapter"><a href="#ch5"><span class="n">5</span> Safe Area Bar</a><button class="nav-tgl" type="button" data-tgl="ng5" aria-label="펼치기/접기">▸</button></div>
+      <div class="nav-group closed" id="ng5">
+      <span class="nav-title">5.1 Vertical</span>
+      <ul class="nav-list">
+        <li><a href="#va1">1. Top</a></li>
+        <li><a href="#va2">2. Top with Title</a></li>
+        <li><a href="#va3">3. Bottom</a></li>
+        <li><a href="#va4">4. Bottom + Hard Edge + Items</a></li>
+        <li><a href="#va5">5. Top &amp; Bottom + Soft Edge</a></li>
+      </ul>
+      <span class="nav-title">5.2 Horizontal</span>
+      <ul class="nav-list">
+        <li><a href="#ha1">1. Leading, Top, Material</a></li>
+        <li><a href="#ha2">2. Trailing, Center</a></li>
+      </ul>
+      </div>
+      <div class="nav-chapter"><a href="#ch6"><span class="n">6</span> System Materials</a><button class="nav-tgl" type="button" data-tgl="ng6" aria-label="펼치기/접기">▸</button></div>
+      <div class="nav-group closed" id="ng6">
+      <span class="nav-title">6.1 Materials</span>
+      <ul class="nav-list">
+        <li><a href="#m1">1. Materials in Different Backgrounds</a></li>
+      </ul>
+      <span class="nav-title">6.2 Vibrancy</span>
+      <ul class="nav-list">
+        <li><a href="#vb1">1. Vibrancy</a></li>
+      </ul>
+      </div>
+      <div class="nav-chapter"><a href="#ch7"><span class="n">7</span> Menu</a><button class="nav-tgl" type="button" data-tgl="ng7" aria-label="펼치기/접기">▸</button></div>
+      <div class="nav-group closed" id="ng7">
+      <span class="nav-title">7.1 Menu</span>
+      <ul class="nav-list">
+        <li><a href="#mn1">1. Menu Configurations</a></li>
+      </ul>
+      </div>
     </nav>
   </aside>
 
   <main class="content">
     <div id="top">
-      <span class="kicker">● 목차 32개 항목 전체 주석</span>
-      <h1>Toolbar · Text 목차별 설명 — 언제 · 기준 · 설계 의도</h1>
+      <span class="kicker">● 목차 67개 항목 전체 주석</span>
+      <h1>Toolbar · Text · Tab Bar · Sheets · Safe Area Bar · System Materials · Menu 목차별 설명 — 언제 · 기준 · 설계 의도</h1>
       <p class="lede">
         원래 목차 구조를 그대로 유지하고, <b>각 항목마다</b> 세 가지를 달았습니다:
         <span class="pill g">WHEN</span> 언제 · 어떤 기준으로 쓰는지 /
         <span class="pill" style="color:var(--accent-2);border-color:rgba(123,108,255,.3);background:rgba(123,108,255,.08)">WHY</span> 왜 이런 설계·기본값인지 /
         <span class="pill a">TIP</span> 실무 참고.
+        각 항목 오른쪽의 <b>미니 프리뷰</b>는 해당 요소가 화면 어디에 놓이는지(파란 하이라이트)를 보여줍니다.
       </p>
     </div>
 
@@ -188,6 +367,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">trailing은 iOS에서 <b>primary action의 관례적 위치</b>. 오른손 엄지 대각선상에 있고, leading은 뒤로가기가 선점하므로 충돌이 없음. 버튼이 하나면 유리 캡슐도 하나 — 시각적 무게 최소화(content-first).</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">액션 하나짜리 화면에서 굳이 bottom bar를 만들면 과합니다. 하단 바는 "자주·반복해서 누르는" 액션용.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="chev">‹</span><span class="sp"></span><span class="cap rd hl"><span class="dot"></span></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><i class="ln" style="top:255px;right:26px"></i></div><figcaption><b>오른쪽 상단(trailing)</b>에 단일 액션 캡슐 하나</figcaption></figure>
       </div>
 
       <div class="entry" id="i2">
@@ -199,6 +379,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">Liquid Glass에서 <b>묶음 = 의미</b>. 같은 캡슐 안에 있으면 사용자는 "이것들은 한 세트"로 읽습니다. 왼쪽 묶음(도구 세트)과 오른쪽 단일(결정)이 분리돼 있어야 역할이 오독되지 않음.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">leading에 클러스터를 두면 뒤로가기 버튼 자리와 경쟁합니다. 루트 화면이거나 모달처럼 <b>back이 없는 화면</b>에서 주로 쓰는 패턴.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="cap hl"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span><span class="sp"></span><span class="cap rd hl"><span class="dot"></span></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><i class="ln" style="top:255px;right:26px"></i></div><figcaption><b>왼쪽</b> 도구 클러스터 + <b>오른쪽</b> 단일 결정 액션</figcaption></figure>
       </div>
 
       <div class="entry" id="i3">
@@ -210,6 +391,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">두 캡슐 사이의 <b>빈 공간 자체가 정보</b>입니다 — "이 두 묶음은 서로 다른 일"이라는 신호. 전부 한 캡슐에 붙이면 관계없는 기능이 한 덩어리로 보여 인지 부담이 커짐.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">그룹당 2~3개가 적정. 그 이상이면 다음 항목(overflow)이나 bottom bar로 분산을 고려하세요.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="cap hl"><span class="dot"></span><span class="dot"></span></span><span class="sp"></span><span class="cap hl"><span class="dot"></span><span class="dot"></span></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><i class="ln" style="top:255px;right:26px"></i></div><figcaption>양쪽에 <b>독립된 두 클러스터</b> — 사이 여백이 “서로 다른 일” 신호</figcaption></figure>
       </div>
 
       <div class="entry" id="i4">
@@ -221,6 +403,7 @@
           <div class="r why"><div class="k">Why</div><div class="v"><b>Reachability(엄지 도달성)</b>가 이유의 전부. 큰 화면에서 상단은 한 손으로 닿기 어렵고, 하단은 엄지의 홈 그라운드. iOS 26이 검색까지 하단으로 내린 것과 같은 논리이며, 이것이 "하단 배치가 기본 지향"이 된 배경.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">탭바가 있는 화면이라면 하단 공간을 공유하므로 신중히 — 탭바(이동)와 툴바(액션)의 역할 구분을 흐리면 안 됩니다.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><div class="bbar"><span class="sp"></span><span class="cap rd hl" style="width:26px;height:26px"><span class="dot"></span></span></div></div><figcaption><b>하단(.bottomBar)</b> — 엄지가 닿는 자리에 고빈도 액션</figcaption></figure>
       </div>
 
       <div class="entry" id="i5">
@@ -232,6 +415,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">중앙은 시선의 앵커이자 <b>"이 화면이 무엇인가"를 말하는 자리</b>. 제목 대신 컨트롤이 온다는 것은 "이 화면의 정체가 이 컨트롤 값에 따라 바뀐다"는 뜻. 위계상 가장 강한 자리라 남용하면 화면의 초점이 흐려짐.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">principal을 쓰면 제목이 사라지므로, 화면 정체를 컨트롤이 충분히 설명하는지 먼저 확인.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="chev">‹</span><span class="sp"></span><span class="cap hl"><span class="seg on"></span><span class="seg"></span></span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><i class="ln" style="top:255px;right:26px"></i></div><figcaption><b>정중앙(principal)</b> — 제목 자리를 화면을 정의하는 컨트롤이 대체</figcaption></figure>
       </div>
 
       <div class="entry" id="i6">
@@ -243,6 +427,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">두 요소의 <b>위계가 다름</b>을 위치로 표현 — 중앙=화면의 정의, trailing=부가 액션. 같은 줄에 있어도 별개의 유리 캡슐로 분리되어 혼동이 없음.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">principal 컨트롤이 넓으면(긴 세그먼트) trailing과 공간 경쟁이 생기니 아이콘 버튼 1개 정도로 절제.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="chev">‹</span><span class="sp"></span><span class="cap hl"><span class="seg on"></span><span class="seg"></span></span><span class="sp"></span><span class="cap rd hl"><span class="dot"></span></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><i class="ln" style="top:255px;right:26px"></i></div><figcaption>중앙 컨트롤 + <b>오른쪽 보조 액션</b> — 위계를 위치로 분리</figcaption></figure>
       </div>
 
       <div class="entry" id="i7">
@@ -254,6 +439,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">두 원칙의 타협 — 기능은 다 제공하되(완전성), 화면은 어지럽히지 않는다(content-first). 또한 버튼을 무한정 줄여 넣으면 <b>터치 타깃이 손가락 크기 이하</b>로 작아지므로, 시스템이 자동으로 접어 최소 타깃 크기를 보장. "많으면 접는다"가 기본 동작인 이유.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">overflow에 뭐가 들어갈지는 선언 순서/우선순위로 제어 가능. "자주 쓰는 걸 접어버리는" 상황이 안 되게 순서를 설계하세요.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="chev">‹</span><span class="sp"></span><span class="cap hl"><span class="dot"></span><span class="dot"></span><span class="ell">⋯</span></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><i class="ln" style="top:255px;right:26px"></i></div><figcaption>넘치는 아이템은 <b>⋯ 메뉴</b>로 자동으로 접힘</figcaption></figure>
       </div>
 
       <div class="entry" id="i8">
@@ -265,6 +451,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">하단 바는 단순 버튼 줄이 아니라 <b>"현재 페이지의 콕핏"</b>이라는 설계 관점. 자주 보는 정보와 자주 쓰는 조작을 엄지 근처 한 곳에 모으는 것 — reachability를 정보에까지 확장한 것.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">커스텀 뷰도 유리 위에 올라가므로, 뷰 자체에 배경색을 깔면 유리 효과와 충돌합니다. 배경은 시스템에 맡기세요.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><div class="bbar"><span class="cap hl" style="flex:1"><span style="font-size:7.5px;color:var(--muted)">업데이트: 방금 전</span></span><span class="cap rd"><span class="dot"></span></span></div></div><figcaption>하단 바에 <b>상태 정보 + 액션</b> — 현재 페이지의 콕핏</figcaption></figure>
       </div>
 
       <div class="entry" id="i9">
@@ -276,6 +463,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">각 위치에 고유한 의미(위=이동/결정, 중앙=정체성, 아래=빈도)를 부여했기 때문에, 조합해도 <b>일관된 문법</b>으로 읽힘. 위치별 문법이 있어야 사용자가 새 앱에서도 버튼 위치를 예측 가능 — 이것이 시스템 차원에서 위치를 표준화한 이유.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">모든 자리를 채우는 게 목표가 아닙니다. 각 자리의 문법에 맞는 것만 두고 나머지는 비우거나 overflow로.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="cap rd hl"><span class="dot"></span></span><span class="sp"></span><span class="cap hl"><span class="seg on"></span><span class="seg"></span></span><span class="sp"></span><span class="cap rd hl"><span class="dot"></span></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><div class="bbar"><span class="sp"></span><span class="cap rd hl"><span class="dot"></span></span></div></div><figcaption><b>위 · 중앙 · 아래</b> 전 위치 조합 — 자리마다 다른 문법</figcaption></figure>
       </div>
     </section>
 
@@ -296,6 +484,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">진입 시엔 <b>방향감(orientation)</b>이 콘텐츠보다 중요 → 크게. 읽기 시작하면 콘텐츠가 중요 → 스크롤 시 자동으로 접힘(minimization 원칙). "필요할 때 크고, 안 필요하면 물러난다"를 제목에 적용한 것이 이 기본 동작.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">Large는 첫 화면 여백을 크게 차지하므로, 위쪽 콘텐츠가 즉시 보여야 하는 화면(채팅 등)엔 부적합.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="cap rd"><span class="dot"></span></span></div><i class="big-ttl hlb"></i><i class="ln" style="top:84px;right:14px"></i><i class="ln" style="top:99px;right:44px"></i><i class="ln" style="top:114px;right:22px"></i><i class="ln" style="top:129px;right:58px"></i><i class="ln" style="top:144px;right:16px"></i><i class="ln" style="top:159px;right:36px"></i><i class="ln" style="top:174px;right:26px"></i><i class="ln" style="top:189px;right:14px"></i><i class="ln" style="top:204px;right:44px"></i><i class="ln" style="top:219px;right:22px"></i><i class="ln" style="top:234px;right:58px"></i><i class="ln" style="top:249px;right:16px"></i></div><figcaption>내비바 아래 <b>34pt 대형 제목</b> — 스크롤하면 작게 접힘</figcaption></figure>
       </div>
 
       <div class="entry" id="t2">
@@ -307,6 +496,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">Large(존재감 있지만 동적)와 Inline(안정적이지만 존재감 약함)의 <b>중간 지대가 비어 있었기 때문</b>에 추가된 절충안. 특히 유리 툴바에서 제목·아이템의 상대 위치가 고정되는 것이 시각적으로 안정적.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">iOS 26 신규 모드라 공식 가이드가 아직 얇습니다. 실기기에서 large/inline과 비교해보고 결정하는 걸 권장.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><i class="big-ttl hlb" style="position:static;width:62px"></i><span class="sp"></span><span class="cap rd"><span class="dot"></span></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><i class="ln" style="top:255px;right:26px"></i></div><figcaption>큰 제목이 <b>내비바 안에 고정</b> — 스크롤에도 위치 유지</figcaption></figure>
       </div>
 
       <div class="entry" id="t3">
@@ -318,6 +508,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">상세 화면에선 사용자가 이미 맥락을 알고 들어왔으므로 제목의 역할이 작음 → 세로 공간을 아껴 <b>콘텐츠를 한 줄이라도 더</b>(content-first). 위계 표현이기도 함: 제목 크기가 계층 깊이를 암시.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">Large 루트에서 push된 화면이 Inline이면, 크기 변화 자체가 "한 단계 들어왔다"는 내비게이션 신호가 됩니다.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="chev">‹</span><span class="sp"></span><span class="ttl hlt">제목</span><span class="sp"></span><span class="cap rd"><span class="dot"></span></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><i class="ln" style="top:255px;right:26px"></i></div><figcaption>중앙의 <b>17pt 작은 제목</b> — 상세 화면·모달의 기본</figcaption></figure>
       </div>
 
       <div class="entry" id="t4">
@@ -329,6 +520,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">시스템이 우선순위를 정해 <b>제목을 줄이거나 아이템을 접는</b> 자동 협상을 하도록 설계됨 — 개발자가 기기 폭마다 분기하지 않아도 되게. "깨지지 않고 우아하게 줄어든다(graceful degradation)"가 기본 동작인 이유.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">상단에 5개가 필요하다는 건 대개 설계 신호입니다 — 일부를 bottom bar나 overflow로 내리는 걸 먼저 검토하세요.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="chev">‹</span><span class="ttl" style="max-width:24px;overflow:hidden;text-overflow:ellipsis">제목이깁니다</span><span class="sp"></span><span class="cap hl"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span><span class="cap rd hl"><span class="dot"></span></span><span class="cap rd hl"><span class="dot"></span></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><i class="ln" style="top:255px;right:26px"></i></div><figcaption>제목과 <b>아이템 5개</b>의 공간 협상 — 시스템이 자동 조정</figcaption></figure>
       </div>
 
       <div class="entry" id="t5">
@@ -340,6 +532,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">"제목에 대한 액션"을 별도 버튼으로 만들면 제목과 버튼의 관계를 사용자가 유추해야 함. <b>대상 자체를 탭하게</b> 하면 관계 설명이 필요 없음 — 직접 조작(direct manipulation) 원칙. 툴바 버튼 하나를 아끼는 효과도.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">메뉴에는 "제목이 가리키는 대상"에 대한 액션만. 화면 전체 액션을 넣으면 문법이 깨집니다.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="chev">‹</span><span class="sp"></span><span class="ttl hlt">제목 ⌄</span><span class="sp"></span><span class="cap rd"><span class="dot"></span></span></div><div class="menu"><i></i><i style="width:70%"></i><i style="width:55%"></i></div><i class="ln" style="top:110px;right:14px"></i><i class="ln" style="top:125px;right:44px"></i><i class="ln" style="top:140px;right:22px"></i><i class="ln" style="top:155px;right:58px"></i><i class="ln" style="top:170px;right:16px"></i><i class="ln" style="top:185px;right:36px"></i><i class="ln" style="top:200px;right:26px"></i><i class="ln" style="top:215px;right:14px"></i><i class="ln" style="top:230px;right:44px"></i><i class="ln" style="top:245px;right:22px"></i><i class="ln" style="top:260px;right:58px"></i></div><figcaption><b>제목을 탭</b>하면 메뉴가 열림 — 제목이 “바꿀 수 있는 대상”일 때</figcaption></figure>
       </div>
 
       <div class="entry" id="t6">
@@ -351,6 +544,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">제목 자리는 화면 정체성의 자리인데, 정체성이 항상 순수 텍스트인 건 아니므로 <b>자리는 유지하되 내용물만 교체</b>할 수 있게 열어둔 것. 스크롤 축소 등 시스템 동작은 그대로 물려받아 일관성 유지.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">커스텀이어도 "제목처럼" 행동해야 합니다 — 여기에 버튼·입력 필드를 넣는 건 자리의 문법 위반.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="cap rd"><span class="dot"></span></span></div><div style="position:absolute;top:54px;left:14px;display:flex;align-items:center;gap:6px;z-index:2"><span class="logo"></span><i class="big-ttl hlb" style="position:static;width:58px"></i></div><i class="ln" style="top:84px;right:14px"></i><i class="ln" style="top:99px;right:44px"></i><i class="ln" style="top:114px;right:22px"></i><i class="ln" style="top:129px;right:58px"></i><i class="ln" style="top:144px;right:16px"></i><i class="ln" style="top:159px;right:36px"></i><i class="ln" style="top:174px;right:26px"></i><i class="ln" style="top:189px;right:14px"></i><i class="ln" style="top:204px;right:44px"></i><i class="ln" style="top:219px;right:22px"></i><i class="ln" style="top:234px;right:58px"></i><i class="ln" style="top:249px;right:16px"></i></div><figcaption>대형 타이틀 자리에 <b>로고·아바타 등 커스텀 뷰</b></figcaption></figure>
       </div>
     </section>
 
@@ -371,6 +565,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">경계선은 그 자체로 시각 요소라 <b>UI의 존재감을 늘림</b>. 콘텐츠가 "잘리는" 게 아니라 "스며드는" 표현이 유리라는 재질 은유와 맞고, 몰입을 덜 깨기 때문에 이것이 기본값.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">soft에서 컨트롤 가독성이 부족하게 느껴지면 그때 hard로 올리는 순서로 결정하세요.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="topglass" style="background:linear-gradient(180deg,rgba(18,21,27,.97) 35%,rgba(18,21,27,0))"></div><div class="pnav"><span class="chev">‹</span><span class="ttl">제목</span><span class="sp"></span><span class="cap rd"><span class="dot"></span></span></div><i class="ln" style="top:34px;right:14px"></i><i class="ln" style="top:49px;right:44px"></i><i class="ln" style="top:64px;right:22px"></i><i class="ln" style="top:79px;right:58px"></i><i class="ln" style="top:94px;right:16px"></i><i class="ln" style="top:109px;right:36px"></i><i class="ln" style="top:124px;right:26px"></i><i class="ln" style="top:139px;right:14px"></i><i class="ln" style="top:154px;right:44px"></i><i class="ln" style="top:169px;right:22px"></i><i class="ln" style="top:184px;right:58px"></i><i class="ln" style="top:199px;right:16px"></i><i class="ln" style="top:214px;right:36px"></i><i class="ln" style="top:229px;right:26px"></i><i class="ln" style="top:244px;right:14px"></i><i class="ln" style="top:259px;right:44px"></i></div><figcaption>경계선 없이 콘텐츠가 <b>부드럽게 스며드는</b> 페이드 — 기본값</figcaption></figure>
       </div>
 
       <div class="entry" id="s2">
@@ -382,6 +577,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">soft의 번짐은 우아하지만 <b>경계의 위치 정보를 흐림</b>. 구획이 중요한 화면에선 모호함이 오히려 인지 비용 → 명확한 선이 정답. "분위기냐 명료함이냐"에서 명료함을 택하는 옵션.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">한 앱 안에서 화면 성격에 따라 soft/hard를 섞어도 되지만, 같은 종류의 화면끼리는 통일하세요.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="topglass" style="background:rgba(18,21,27,.88);border-bottom:1.5px solid var(--accent);box-shadow:0 2px 10px rgba(90,168,255,.25)"></div><div class="pnav"><span class="chev">‹</span><span class="ttl">제목</span><span class="sp"></span><span class="cap rd"><span class="dot"></span></span></div><i class="ln" style="top:34px;right:14px"></i><i class="ln" style="top:49px;right:44px"></i><i class="ln" style="top:64px;right:22px"></i><i class="ln" style="top:79px;right:58px"></i><i class="ln" style="top:94px;right:16px"></i><i class="ln" style="top:109px;right:36px"></i><i class="ln" style="top:124px;right:26px"></i><i class="ln" style="top:139px;right:14px"></i><i class="ln" style="top:154px;right:44px"></i><i class="ln" style="top:169px;right:22px"></i><i class="ln" style="top:184px;right:58px"></i><i class="ln" style="top:199px;right:16px"></i><i class="ln" style="top:214px;right:36px"></i><i class="ln" style="top:229px;right:26px"></i><i class="ln" style="top:244px;right:14px"></i><i class="ln" style="top:259px;right:44px"></i></div><figcaption><b>선명한 구분선</b>으로 바 영역과 콘텐츠를 분리</figcaption></figure>
       </div>
 
       <div class="entry" id="s3">
@@ -393,6 +589,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">Liquid Glass의 알려진 약점이 <b>"복잡한 배경 위에서의 대비 부족"</b>. 투명함(미학)과 가독성(접근성)이 충돌할 땐 가독성이 이긴다 — 그래서 투명도를 포기하는 탈출구를 시스템이 공식 제공. 접근성 설정(투명도 감소)이 자동 적용되는 것과 같은 철학.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">"예쁜데 안 읽힌다"는 리뷰가 나오면 주저 없이 이 조합으로. 미학보다 가독성이 우선입니다.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><i class="blob" style="top:58px;left:8px;width:64px;height:64px;background:#7b6cff"></i><i class="blob" style="top:120px;right:6px;width:74px;height:74px;background:#ff7ab6"></i><i class="blob" style="top:198px;left:26px;width:60px;height:60px;background:#37d39b"></i><div class="topglass" style="background:#20242e;border-bottom:1.5px solid var(--accent)"></div><div class="pnav"><span class="chev">‹</span><span class="ttl">제목</span><span class="sp"></span><span class="cap rd"><span class="dot"></span></span></div></div><figcaption>사진·영상 등 복잡한 배경 위 — <b>불투명에 가까운 배경</b>으로 가독성 확보</figcaption></figure>
       </div>
 
       <div class="entry" id="s4">
@@ -404,6 +601,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">효과도 결국 시각 요소이므로, <b>불필요한 곳에선 빼는 게 content-first에 부합</b>. 다만 시스템이 기본으로 켜두는 건 "꺼도 안전한 경우"보다 "켜야 안전한 경우"가 압도적으로 많기 때문 — 끄는 건 개발자가 안전을 직접 보증할 때만.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">끈 상태로 다크모드·가로모드·큰 글씨 설정까지 확인하세요. 한 조건에서만 확인하고 끄면 다른 조건에서 깨지기 쉽습니다.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><i class="ln" style="top:30px;right:14px"></i><i class="ln" style="top:45px;right:44px"></i><i class="ln" style="top:60px;right:22px"></i><i class="ln" style="top:75px;right:58px"></i><i class="ln" style="top:90px;right:16px"></i><i class="ln" style="top:105px;right:36px"></i><i class="ln" style="top:120px;right:26px"></i><i class="ln" style="top:135px;right:14px"></i><i class="ln" style="top:150px;right:44px"></i><i class="ln" style="top:165px;right:22px"></i><i class="ln" style="top:180px;right:58px"></i><i class="ln" style="top:195px;right:16px"></i><i class="ln" style="top:210px;right:36px"></i><i class="ln" style="top:225px;right:26px"></i><i class="ln" style="top:240px;right:14px"></i><i class="ln" style="top:255px;right:44px"></i><div class="pnav"><span class="chev">‹</span><span class="ttl">제목</span><span class="sp"></span><span class="cap rd"><span class="dot"></span></span></div></div><figcaption>효과 <b>완전 꺼짐</b> — 콘텐츠가 그대로 바 밑을 통과 (단순 배경 전용)</figcaption></figure>
       </div>
     </section>
 
@@ -424,6 +622,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">기존의 상단 검색은 <b>한 손으로 가장 닿기 어려운 곳</b>에 가장 자주 쓰는 기능을 둔 셈이었음. iOS 26은 이 모순을 해소 — iPhone은 엄지 근처 하단, iPad는 양손 파지 기준 자연스러운 상단 trailing으로 <b>기기별 인체공학에 맞게</b> 시스템이 알아서 배치.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">placement를 명시하지 않은 <code>.searchable()</code>의 automatic도 iOS 26에선 대체로 이 위치로 갑니다.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><div class="bbar"><span class="cap search hl"><span class="mag">⌕</span><span class="sline"></span></span></div></div><figcaption>iPhone은 <b>하단 유리 캡슐</b> · iPad는 상단 trailing</figcaption></figure>
       </div>
 
       <div class="entry" id="q2">
@@ -435,6 +634,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">고빈도 기능이 둘 이상이면 <b>둘 다 하단에 있어야</b> reachability가 일관됨. 이때 <span class="pill">DefaultToolbarItem(kind:.search)</span>으로 검색의 자리를 명시하고 <span class="pill g">ToolbarSpacer</span>로 분리 — 검색(입력)과 버튼(액션)은 성격이 다르므로 <b>다른 캡슐</b>로 보이게 하는 것.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">하단에 검색+버튼 2개 이상이면 과밀입니다. 검색 + 핵심 액션 1개가 균형점.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><div class="bbar"><span class="cap search hl"><span class="mag">⌕</span><span class="sline"></span></span><span class="cap rd hl"><span class="dot"></span></span></div></div><figcaption>하단에서 <b>검색 + 액션</b> 공존 — ToolbarSpacer로 캡슐 분리</figcaption></figure>
       </div>
 
       <div class="entry" id="q3">
@@ -446,6 +646,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">스크롤 시 접히는 게 기본인 이유 — 스크롤 중이라는 건 <b>탐색이 아니라 읽는 중</b>이라는 신호이므로, 안 쓰는 검색바에 세로 공간을 주지 않음(minimization). 필요하면 맨 위로 당겨서 다시 꺼내는 관습이 이미 학습돼 있음.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">iOS 26 신규 화면이면 toolbar 배치를 먼저 고려하고, drawer는 "기존 관습 유지"가 목적일 때 선택하세요.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span><span class="cap rd"><span class="dot"></span></span></div><div class="drawer hl"><span class="mag">⌕</span><span class="sline"></span></div><i class="ln" style="top:88px;right:14px"></i><i class="ln" style="top:103px;right:44px"></i><i class="ln" style="top:118px;right:22px"></i><i class="ln" style="top:133px;right:58px"></i><i class="ln" style="top:148px;right:16px"></i><i class="ln" style="top:163px;right:36px"></i><i class="ln" style="top:178px;right:26px"></i><i class="ln" style="top:193px;right:14px"></i><i class="ln" style="top:208px;right:44px"></i><i class="ln" style="top:223px;right:22px"></i><i class="ln" style="top:238px;right:58px"></i><i class="ln" style="top:253px;right:16px"></i></div><figcaption>제목 <b>아래 서랍</b> — 스크롤하면 접히는 전통 위치</figcaption></figure>
       </div>
 
       <div class="entry" id="q4">
@@ -457,6 +658,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">기본값(접힘)은 공간 절약이 우선이지만, 검색 빈도가 높은 화면에선 <b>"다시 꺼내는 비용"이 "공간 비용"보다 큼</b>. 그 트레이드오프를 화면 성격에 따라 개발자가 뒤집을 수 있게 한 옵션.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">always는 세로 공간을 상시 소모합니다. 검색 빈도가 정말 높은지 데이터로 확인 후 선택하는 걸 권장.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span><span class="cap rd"><span class="dot"></span></span></div><div class="drawer hl"><span class="mag">⌕</span><span class="sline"></span></div><span class="mtag" style="top:44px;right:8px">항상 표시</span><i class="ln" style="top:88px;right:14px"></i><i class="ln" style="top:103px;right:44px"></i><i class="ln" style="top:118px;right:22px"></i><i class="ln" style="top:133px;right:58px"></i><i class="ln" style="top:148px;right:16px"></i><i class="ln" style="top:163px;right:36px"></i><i class="ln" style="top:178px;right:26px"></i><i class="ln" style="top:193px;right:14px"></i><i class="ln" style="top:208px;right:44px"></i><i class="ln" style="top:223px;right:22px"></i><i class="ln" style="top:238px;right:58px"></i><i class="ln" style="top:253px;right:16px"></i></div><figcaption>서랍 검색바를 <b>스크롤해도 고정</b> (.always)</figcaption></figure>
       </div>
 
       <div class="entry" id="q5">
@@ -468,6 +670,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">principal 자리의 문법("화면의 정체성") 그대로 — 검색이 정체성이면 검색이 중앙에 온다. Single Principal Item(1.1.5)과 동일한 논리를 검색에 적용한 것.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">일반 목록 화면의 검색을 여기 두면 "검색 전용 화면"처럼 읽혀 과합니다. 검색이 진짜 주인공일 때만.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="chev">‹</span><span class="sp"></span><span class="cap search hl" style="flex:0 0 74px"><span class="mag">⌕</span><span class="sline"></span></span><span class="sp"></span><span class="cap rd"><span class="dot"></span></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><i class="ln" style="top:255px;right:26px"></i></div><figcaption><b>제목 자리(중앙)</b>를 검색이 차지 — “이 화면 = 검색”일 때</figcaption></figure>
       </div>
 
       <div class="entry" id="q6">
@@ -479,6 +682,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">"기능은 제공하되 평소엔 물러난다"는 <b>minimization 원칙의 검색 버전</b>. 검색이 조연인 화면에서 풀사이즈 검색바는 공간 낭비 — 버튼 크기로 접어두면 다른 액션에 공간을 양보하면서도 한 탭 거리 유지. overflow가 버튼에 하는 일을 검색바에 하는 것.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">.minimize는 "검색을 숨기는" 게 아니라 "접는" 것 — 검색을 거의 안 쓰는 화면이라면 애초에 searchable을 빼는 게 맞습니다.</div></div>
         </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><div class="bbar"><span class="cap rd"><span class="dot"></span></span><span class="cap rd"><span class="dot"></span></span><span class="sp"></span><span class="cap rd hl"><span class="mag">⌕</span></span></div><span class="mtag" style="bottom:36px;right:10px">.minimize</span></div><figcaption>평소엔 <b>돋보기 버튼으로 접힘</b> — 탭하면 검색바로 확장</figcaption></figure>
       </div>
     </section>
 
@@ -505,6 +709,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">SwiftUI Text의 기본은 <b>무제한 줄바꿈</b> — 콘텐츠를 자르지 않는 게 원칙이기 때문. 하지만 목록에서 셀마다 높이가 다르면 스캔 리듬이 깨지고 한 화면에 보이는 항목 수가 줄어듦 → <b>목록의 목적은 훑기(scan)이지 정독이 아니므로</b>, 미리보기 맥락에선 개발자가 명시적으로 제한하는 설계.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">Dynamic Type 큰 글씨 설정에서는 같은 문장도 더 많은 줄을 차지합니다. lineLimit을 정할 땐 접근성 글자 크기에서 핵심 정보가 살아남는지 확인하세요.</div></div>
         </div>
+        <figure class="preview"><div class="tcard"><div class="tc-cap">.lineLimit(2)</div><p class="clamp2" style="margin:0">주문하신 상품이 오늘 오후에 발송될 예정이며 배송 조회는 주문 내역 화면에서 언제든지 확인하실 수 있습니다.</p><div style="margin-top:6px;border-top:1px dashed rgba(90,168,255,.5)"></div><div style="font-size:7.5px;color:var(--dim);margin-top:4px">↑ 3줄째부터는 렌더되지 않음</div></div><figcaption><b>딱 2줄</b>까지만 — 셀 높이가 일정해짐</figcaption></figure>
       </div>
 
       <div class="entry" id="x2">
@@ -516,6 +721,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">기본값이 .tail인 이유 — 자연어 문장은 <b>두괄식으로 앞에 정보가 몰리는</b> 게 일반적이라, 앞을 보존하는 게 평균적으로 손실이 가장 적기 때문. 하지만 식별자(경로·URL·해시)는 앞이 공통 접두사라 앞만 보이면 <b>구분이 불가능</b> — 그래서 모드를 열어둔 것.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">잘림이 자주 일어나는 텍스트라면 truncation 모드를 고르기 전에 "애초에 이 폭·줄 수가 맞는가"를 먼저 의심하세요. 잘림은 최후의 안전장치지 레이아웃 설계 수단이 아닙니다.</div></div>
         </div>
+        <figure class="preview"><div class="tcard"><div class="tc-cap">.truncationMode</div><div class="trow"><span class="tl">.tail</span><span class="tv">오늘 회의는 오후 세<span class="e">…</span></span></div><div class="trow"><span class="tl">.middle</span><span class="tv">Users<span class="e">…</span>report_v2.pdf</span></div><div class="trow"><span class="tl">.head</span><span class="tv"><span class="e">…</span>강남역 3번 출구 앞</span></div></div><figcaption><b>…의 위치</b>가 옵션 — 정보 가치가 어디 있느냐로 선택</figcaption></figure>
       </div>
 
       <div class="entry" id="x3">
@@ -527,6 +733,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">truncation과 scale은 같은 문제의 반대 해법 — <b>잘라도 뜻이 통하면 자르고(문장), 잘리면 뜻이 죽으면 줄인다(값·수치)</b>. 시스템이 자동으로 정하지 않고 개발자에게 맡기는 이유는, 텍스트가 "문장"인지 "값"인지는 의미론이라 코드만으로 판단할 수 없기 때문.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">scaleFactor가 0.5 밑으로 내려가야 들어간다면 축소가 아니라 <b>설계 문제</b>입니다 — 폭을 늘리거나 표기 자체를 줄이는(예: 1,234,000 → 1.2M) 쪽을 검토하세요. 같은 줄의 이웃 텍스트와 크기가 어긋나 보이는 부작용도 확인.</div></div>
         </div>
+        <figure class="preview"><div class="tcard"><div class="tc-cap">.minimumScaleFactor(0.5)</div><div style="font-size:7.5px;color:var(--dim)">적용 전 — 잘려서 정보 파괴</div><div class="fitbox" style="font-size:13px;color:var(--red)">12:34:5…</div><div style="font-size:7.5px;color:var(--dim);margin-top:6px">적용 후 — 줄여서 전부 표시</div><div class="fitbox" style="font-size:10px;color:var(--green)">12:34:56</div></div><figcaption>자르는 대신 <b>글자 크기를 줄여</b> 값 전체를 보존</figcaption></figure>
       </div>
 
       <div class="entry" id="x4">
@@ -538,6 +745,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">최대 제한(2.1.1)만으로는 <b>"짧은 콘텐츠가 레이아웃을 무너뜨리는" 문제</b>를 못 막음 — 그리드에서 카드 높이가 제각각이면 시각적 정렬이 깨짐. 텍스트가 아니라 <b>텍스트가 차지하는 공간</b>을 계약으로 만들어, 콘텐츠와 레이아웃을 분리한 것.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">reservesSpace는 빈 공간을 상시 소모합니다. 균일함이 실제로 필요한 그리드·가로 스크롤 카드에만 쓰고, 세로 목록에서는 대개 최대 제한만으로 충분합니다.</div></div>
         </div>
+        <figure class="preview"><div class="tcard"><div class="tc-cap">lineLimit(3, reservesSpace: true)</div><div class="mini2"><div class="mc">이 카드는 리뷰가 길어서 세 줄 높이를 전부 채웠습니다. 기준 높이.</div><div class="mc">좋아요!<div class="rsv" style="height:36px;margin-top:4px"></div></div></div></div><figcaption>짧은 텍스트에도 <b>같은 높이를 예약</b> — 카드 정렬 유지</figcaption></figure>
       </div>
 
       <div class="entry" id="x5">
@@ -549,6 +757,7 @@
           <div class="r why"><div class="k">Why</div><div class="v">기본이 비활성인 이유 — UI의 텍스트 대부분은 <b>라벨(장치의 일부)이지 콘텐츠(데이터)가 아니기</b> 때문. 버튼 이름이 선택되기 시작하면 롱프레스 제스처(컨텍스트 메뉴 등)와 충돌하고 화면 전체가 "문서"처럼 행동하게 됨. 선택 가능 여부 자체가 "이건 데이터다"라는 신호.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">iOS에서는 부분 선택이 아니라 <b>해당 텍스트 전체가 한 번에 복사</b>됩니다. 코드·주소처럼 통째로 쓰는 값에 적합하고, 긴 본문의 부분 인용이 필요하면 다른 UX(공유 시트 등)를 고려하세요.</div></div>
         </div>
+        <figure class="preview"><div class="tcard"><div class="tc-cap">.textSelection(.enabled)</div><p style="margin:0">쿠폰 코드는 <span class="hnd"></span><span class="sel">WELCOME-2026</span><span class="hnd"></span> 입니다. 길게 눌러 복사하세요.</p></div><figcaption>길게 누르면 <b>전체가 선택·복사</b> — “이건 데이터” 신호</figcaption></figure>
       </div>
     </section>
 
@@ -569,6 +778,7 @@
           <div class="r why"><div class="k">Why</div><div class="v"><span class="pill a">"\(value) km"</span> 식의 문자열 조립은 <b>미국 사용자에게 마일 대신 킬로미터를 강요하는 국제화 버그</b>. Measurement + FormatStyle은 값과 표기를 분리해, 같은 데이터가 로케일에 따라 "5 kilometers" / "3.1 miles" / "5킬로미터"로 렌더링됨. 단위 환산·복수형·기호 위치까지 시스템이 책임지므로 앱은 <b>값만 소유</b>하면 됨.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">width로 밀도를 고르세요 — <b>.wide</b>("5 kilometers", 문장 속), <b>.abbreviated</b>("5 km", 목록·라벨), <b>.narrow</b>("5km", 좁은 공간). 시뮬레이터 로케일을 en_US로 바꿔 마일 변환까지 확인하는 게 검증 포인트.</div></div>
         </div>
+        <figure class="preview"><div class="tcard"><div class="tc-cap">.measurement(width:)</div><div class="trow"><span class="tl">ko_KR</span><span class="tv">5킬로미터</span></div><div class="trow"><span class="tl">en_US</span><span class="tv">3.1 miles</span></div><div class="trow"><span class="tl">.abbrev</span><span class="tv">5 km</span></div></div><figcaption><b>같은 값 하나</b> — 표기는 로케일이 결정</figcaption></figure>
       </div>
 
       <div class="entry" id="f2">
@@ -580,12 +790,563 @@
           <div class="r why"><div class="k">Why</div><div class="v">"이름 성"(John Appleseed) 순서 하드코딩은 <b>한국·일본·중국·헝가리에서 틀린 표기</b>(홍길동을 "길동 홍"으로) — 이름 순서는 데이터가 아니라 문화권 규칙이기 때문. components(givenName·familyName)로 저장하고 표기는 로케일이 결정하게 하면, 같은 데이터가 문화권마다 올바른 순서로 나옴.</div></div>
           <div class="r tip"><div class="k">Tip</div><div class="v">style로 용도를 구분 — <b>.long</b>(경칭 포함), <b>.medium</b>(기본 전체 이름), <b>.short</b>(친근한 호칭), <b>.abbreviated</b>(이니셜 "JA" → 아바타에 최적). 이름을 firstName/lastName 문자열 두 개로 저장하고 있다면 PersonNameComponents로의 이관부터가 시작입니다.</div></div>
         </div>
+        <figure class="preview"><div class="tcard"><div class="tc-cap">.name(style:)</div><div class="trow"><span class="tl">en_US</span><span class="tv">John Appleseed</span></div><div class="trow"><span class="tl">ko_KR</span><span class="tv">홍길동</span></div><div class="trow"><span class="tl">.abbrev</span><span class="tv"><span class="avtr">JA</span> 아바타 이니셜</span></div></div><figcaption><b>성·이름 순서</b>는 문화권 규칙 — 하드코딩 금지</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ==================== CHAPTER 3. TAB BAR ==================== -->
+    <div class="ch-head" id="ch3">
+      <div class="ch-num">3</div>
+      <h2>Tab Bar <span class="ch-sub">— Tab Items · Tab Counts · Visibility · Search · Bottom Accessory</span></h2>
+    </div>
+
+    <!-- ============ 3.1 TAB ITEMS ============ -->
+    <section>
+      <div class="sec-head">
+        <div class="sec-num">3.1</div>
+        <h2>Tab Items</h2>
+        <p class="sec-desc">탭 아이템은 <b>앱 최상위 구조의 라벨</b>입니다. 선택 기준은 두 가지 — 아이콘만으로 의미가 통하는가(라벨 스타일), 사용자를 불러야 할 상태가 있는가(배지).</p>
+      </div>
+
+      <div class="entry" id="tb1">
+        <div class="idx">3.1.1</div>
+        <h3>Label Style: Title &amp; Icon</h3>
+        <p class="what">아이콘 + 한 단어 제목의 <b>표준 탭 아이템</b>. 선택된 탭은 틴트 컬러로 강조.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v"><b>거의 모든 탭.</b> 기본값이자 명확성·접근성 기준의 정답. 다른 스타일은 이 표준에서 벗어날 명확한 이유가 있을 때만.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">아이콘은 빠른 스캔용, 제목은 의미 확정용 — 아이콘만으로는 다의적입니다(하트가 좋아요인지 건강인지). <b>재인(recognition)이 회상(recall)보다 싸다</b>는 원칙: 두 채널을 함께 주면 학습 없이 읽힘.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">제목은 1단어 명사로(홈·보관함·설정). 동사나 문장형 라벨은 탭이 아니라 버튼의 문법입니다.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><div class="bbar"><div class="tbar"><span class="ti on"><span class="ic"></span><span class="lb">홈</span></span><span class="ti"><span class="ic"></span><span class="lb">보관함</span></span><span class="ti"><span class="ic"></span><span class="lb">설정</span></span></div></div></div><figcaption>아이콘 + <b>한 단어 제목</b> — 탭 아이템의 표준형</figcaption></figure>
+      </div>
+      <div class="entry" id="tb2">
+        <div class="idx">3.1.2</div>
+        <h3>Label Style: Icon Only</h3>
+        <p class="what">제목 없이 <b>아이콘만</b>으로 구성된 탭 아이템.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">모든 탭이 <b>보편적으로 합의된 아이콘</b>(홈·검색·프로필)으로 구성되고, 미니멀함이 앱 정체성일 때. 사진·미디어 몰입형 앱에서 드물게 선택.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">라벨 제거는 시각적 소음을 줄이지만 <b>인지 비용을 사용자에게 전가</b>하는 트레이드. 시스템이 옵션으로 열어둔 건 앱 성격에 따라 균형점이 다르기 때문 — 기본 권장은 여전히 제목+아이콘.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">화면 라벨이 없어도 <b>accessibilityLabel은 필수</b>입니다. VoiceOver 사용자에겐 그 라벨이 전부입니다.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><div class="bbar"><div class="tbar"><span class="ti on"><span class="ic"></span></span><span class="ti"><span class="ic"></span></span><span class="ti"><span class="ic"></span></span></div></div></div><figcaption><b>아이콘만</b> — 의미가 보편적일 때만 허용되는 미니멀형</figcaption></figure>
+      </div>
+      <div class="entry" id="tb3">
+        <div class="idx">3.1.3</div>
+        <h3>Label Style: Title &amp; Icon with Badge Count</h3>
+        <p class="what">아이템 우상단에 <b>빨간 숫자 배지</b> (<span class="pill">.badge(3)</span>) — 미처리 항목 개수.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v"><b>“몇 개”가 행동을 결정</b>할 때 — 안 읽은 메시지, 대기 중 알림. 숫자를 보고 들어갈지 말지 판단하는 종류의 정보.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">배지는 사용자를 부르는 <b>인터럽트 장치</b>. 빨강+숫자는 OS 전체에서 “처리 안 된 것”의 규약이라 앱이 따로 학습시킬 필요가 없음. 모든 탭에 배지를 달면 인터럽트 가치가 인플레이션 — 진짜 중요한 알림이 묻힘.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">0이 되면 배지를 <b>제거</b>하세요(“0” 표시 금지). 배지를 확인해도 안 꺼지는 앱은 신뢰를 잃습니다.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><div class="bbar"><div class="tbar"><span class="ti"><span class="ic"></span><span class="lb">홈</span></span><span class="ti on"><span class="bdg">3</span><span class="ic"></span><span class="lb">메일</span></span><span class="ti"><span class="ic"></span><span class="lb">설정</span></span></div></div></div><figcaption>아이템 위 <b>숫자 배지</b> — 미처리 개수의 규약</figcaption></figure>
+      </div>
+      <div class="entry" id="tb4">
+        <div class="idx">3.1.4</div>
+        <h3>Label Style: Title &amp; Icon with Badge Text</h3>
+        <p class="what">숫자 대신 <b>짧은 텍스트 배지</b> (<span class="pill">.badge("NEW")</span>) — 상태형 알림.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">개수가 아니라 <b>상태가 정보</b>일 때 — “NEW”, “LIVE”, 세었을 때 의미가 없는 종류. 새 기능 탭 안내, 라이브 진행 표시 등.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">숫자 배지의 문법(주의를 끄는 빨간 점)을 빌리되 <b>의미를 상태로 확장</b>한 것. 긴 텍스트는 탭 레이아웃을 침범하므로 시스템도 짧은 문자열을 전제로 설계.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">2~4자 이내로. 그리고 <b>상시 붙어 있는 “NEW”는 더 이상 new가 아닙니다</b> — 조건이 끝나면 반드시 제거하세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><div class="bbar"><div class="tbar"><span class="ti"><span class="ic"></span><span class="lb">홈</span></span><span class="ti on"><span class="bdg">N</span><span class="ic"></span><span class="lb">이벤트</span></span><span class="ti"><span class="ic"></span><span class="lb">설정</span></span></div></div></div><figcaption>숫자 대신 <b>짧은 텍스트 배지</b> — 상태를 알림</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ============ 3.2 TAB COUNTS ============ -->
+    <section>
+      <div class="sec-head">
+        <div class="sec-num">3.2</div>
+        <h2>Tab Counts</h2>
+        <p class="sec-desc">탭 수는 <b>앱의 정보 구조 그 자체</b>입니다. 3~5개가 표준 범위 — 그보다 적으면 “탭이 맞는가”, 많으면 “구조가 맞는가”를 물어야 합니다.</p>
+      </div>
+
+      <div class="entry" id="tc1">
+        <div class="idx">3.2.1</div>
+        <h3>2 Tabs</h3>
+        <p class="what">탭이 <b>둘뿐인 최소 구조</b> — 하단 바 전체를 두 목적지가 나눠 씀.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">앱의 세계가 <b>정말 둘로 나뉠 때</b> — “지금 듣기 / 라이브러리”처럼 성격이 뚜렷이 다른 두 영역만 있는 앱.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">탭바는 항상 하단을 차지하는 <b>비싼 부동산</b> — 개수가 적을수록 각 탭의 명확성은 최대. 다만 2개뿐이면 탭 대신 세그먼트 컨트롤로 충분한 구조일 수 있음. 시스템이 개수를 강제하지 않는 건 구조가 앱 도메인의 문제이기 때문.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">두 탭의 사용 빈도가 9:1로 기울면 구조 재검토 신호 — 부탭이 아니라 설정 화면이나 시트여야 할 수도 있습니다.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><div class="bbar"><div class="tbar"><span class="ti on"><span class="ic"></span><span class="lb">듣기</span></span><span class="ti"><span class="ic"></span><span class="lb">보관함</span></span></div></div></div><figcaption><b>탭 2개</b> — 최소 구조, 명확성 최대</figcaption></figure>
+      </div>
+      <div class="entry" id="tc2">
+        <div class="idx">3.2.2</div>
+        <h3>2 Tabs with Minimize Behavior</h3>
+        <p class="what"><span class="pill">.tabBarMinimizeBehavior(.onScrollDown)</span> — 아래로 스크롤하면 탭바가 <b>작게 접힘</b>, 위로 스크롤하면 복원.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v"><b>콘텐츠 몰입이 중요한</b> 피드·리더형 화면. “아래로 스크롤 = 읽는 중, 위로 = 탐색 복귀”가 성립하는 앱.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">Liquid Glass의 minimization 원칙을 탭바에 적용한 것 — <b>이동 장치는 이동할 때만 크면 됩니다</b>. 스크롤 방향으로 사용자 의도를 추론하며, 사라지는 게 아니라 접히는 것이라 위치 단서는 유지됨.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">탭 전환이 잦은 앱(메신저 등)에선 오히려 방해입니다. 콘텐츠 소비형 화면에만 켜세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><div class="bbar"><div class="tbar"><span class="ti on"><span class="ic"></span><span class="lb">듣기</span></span><span class="ti"><span class="ic"></span><span class="lb">보관함</span></span></div></div><span class="mtag" style="bottom:44px;right:10px">스크롤 ↓ 시 접힘</span></div><figcaption>스크롤 내리면 탭바가 <b>작게 접힘</b> — 콘텐츠에 자리 양보</figcaption></figure>
+      </div>
+      <div class="entry" id="tc3">
+        <div class="idx">3.2.3</div>
+        <h3>4 Tabs</h3>
+        <p class="what"><b>3~5개 표준 범위</b>의 전형적 구성 — 대부분의 앱이 도달하는 균형점.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">최상위 영역이 3~5개로 정리되는 <b>대부분의 앱</b>. 고민 없이 쓸 수 있는 안전 범위.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">터치 타깃 크기와 인지 부하의 교차점 — 5개를 넘으면 각 타깃이 엄지 정확도 아래로 좁아지고, 최상위 개념이 많아지면 구조 자체가 안 읽힘. <b>“모든 걸 탭으로”가 아니라 덜 중요한 건 탭 안의 화면으로</b> 내리는 게 원칙.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">4~5번째 탭이 “기타/더보기”가 되고 있다면 정보 구조를 다시 그려야 한다는 신호입니다.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><div class="bbar"><div class="tbar"><span class="ti on"><span class="ic"></span><span class="lb">홈</span></span><span class="ti"><span class="ic"></span><span class="lb">탐색</span></span><span class="ti"><span class="ic"></span><span class="lb">보관함</span></span><span class="ti"><span class="ic"></span><span class="lb">설정</span></span></div></div></div><figcaption><b>3~5개</b>가 표준 구성 — 타깃 크기와 인지 부하의 균형점</figcaption></figure>
+      </div>
+      <div class="entry" id="tc4">
+        <div class="idx">3.2.4</div>
+        <h3>6 Tabs</h3>
+        <p class="what">표준 범위를 넘는 <b>6개 탭</b> — 시스템이 어디까지 수용하는지 보여주는 한계 케이스.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">기능이 정말 많은 대형 앱의 예외적 선택. 이 데모는 “이렇게 쓰라”보다 <b>“이만큼 넣으면 어떻게 되는가”</b>를 보여주는 쪽.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">iPhone 폭에서 6개는 타깃·라벨이 모두 압박됩니다. 그래도 선언적으로 받아두는 이유 — 같은 선언이 <b>iPadOS에선 사이드바로 적응</b>되는 등, 기기별 재배치를 시스템이 처리할 수 있기 때문.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">6개가 필요해 보이면 대개 둘은 같은 개념입니다 — 통합을 먼저, 추가는 마지막에.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><div class="bbar"><div class="tbar"><span class="ti on"><span class="ic"></span><span class="lb">홈</span></span><span class="ti"><span class="ic"></span><span class="lb">탐색</span></span><span class="ti"><span class="ic"></span><span class="lb">클립</span></span><span class="ti"><span class="ic"></span><span class="lb">알림</span></span><span class="ti"><span class="ic"></span><span class="lb">메일</span></span><span class="ti"><span class="ic"></span><span class="lb">설정</span></span></div></div></div><figcaption><b>6개</b> — iPhone에선 과밀, iPad에선 사이드바로 적응되는 한계 케이스</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ============ 3.3 VISIBILITY ============ -->
+    <section>
+      <div class="sec-head">
+        <div class="sec-num">3.3</div>
+        <h2>Visibility</h2>
+        <p class="sec-desc">기준은 <b>화면의 주 작업</b> — 이동이 주 작업이면 탭바를 유지하고, 소비(읽기·보기)가 주 작업이면 물러나게 합니다.</p>
+      </div>
+
+      <div class="entry" id="tv1">
+        <div class="idx">3.3.1</div>
+        <h3>Always Visible</h3>
+        <p class="what">어느 깊이로 들어가도 탭바가 <b>항상 표시</b>되는 기본 동작.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v"><b>기본값.</b> 탭 전환이 언제든 가능해야 하는 대부분의 앱 — 목록→상세 정도의 얕은 계층 구조.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">탭바는 “지금 어디에 있고 어디로 갈 수 있는지”를 보여주는 <b>상시 지도</b> — 항상 보이는 것 자체가 방향 상실을 막는 안정 장치입니다. 깊이 들어가도 “나는 이 탭 안에 있다”는 컨텍스트가 유지됨.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">항상 보이는 만큼 하단 툴바 액션과 공간을 경쟁합니다. 탭바가 있는 화면에선 하단 액션을 절제하세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="chev">‹</span><span class="ttl">제목</span><span class="sp"></span><span class="cap rd"><span class="dot"></span></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><div class="bbar"><div class="tbar" style="border-color:var(--accent);box-shadow:0 0 12px rgba(90,168,255,.3)"><span class="ti on"><span class="ic"></span><span class="lb">홈</span></span><span class="ti"><span class="ic"></span><span class="lb">탐색</span></span><span class="ti"><span class="ic"></span><span class="lb">설정</span></span></div></div></div><figcaption>상세로 들어가도 탭바가 <b>항상 유지</b> — 상시 지도 역할</figcaption></figure>
+      </div>
+      <div class="entry" id="tv2">
+        <div class="idx">3.3.2</div>
+        <h3>Hidden on Detail Views</h3>
+        <p class="what">push된 상세 화면에서 <span class="pill">.toolbar(.hidden, for: .tabBar)</span>로 탭바를 <b>숨김</b>.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">상세가 <b>몰입형</b>일 때 — 사진 전체 화면, 영상 재생, 읽기 화면. 또는 작성 중 화면처럼 탭 전환이 흐름을 깨는 경우.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">목록에선 이동이 주 작업이지만 상세에선 소비가 주 작업 — <b>주 작업이 바뀌면 크롬도 바뀌는</b> 것이 content-first. 탭바가 빠진 공간은 콘텐츠에 반환되고, 뒤로가기가 유일한 출구가 됩니다.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">숨겼다 나타날 때 레이아웃 점프가 없는지 확인하세요. 탭바 높이에 의존하는 하단 UI가 있으면 깨집니다.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="chev">‹</span><span class="ttl">제목</span><span class="sp"></span><span class="cap rd"><span class="dot"></span></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><div class="bbar"><div style="flex:1;height:28px;border:1px dashed rgba(90,168,255,.55);border-radius:14px"></div></div><span class="mtag" style="bottom:20px;right:12px">상세에서 숨김</span></div><figcaption>상세 화면에서 탭바 자리가 <b>콘텐츠에 반환</b>됨</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ============ 3.4 SEARCH ============ -->
+    <section>
+      <div class="sec-head">
+        <div class="sec-num">3.4</div>
+        <h2>Search</h2>
+        <p class="sec-desc">질문은 하나 — 검색이 <b>“하나의 목적지”인가, “별도의 모드”인가</b>. iOS 26은 후자를 위해 search role(분리 캡슐)을 새로 제공합니다.</p>
+      </div>
+
+      <div class="entry" id="ts1">
+        <div class="idx">3.4.1</div>
+        <h3>As Tab Item</h3>
+        <p class="what">검색을 <b>일반 탭 중 하나</b>로 배치 — 다른 탭과 동급의 섹션.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">검색이 탐색과 대등한 <b>주요 목적지</b>일 때 — 앱스토어·미디어 앱처럼 검색 탭 안에 추천·트렌딩 등 자체 콘텐츠가 있는 경우.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">탭은 최상위 구조이므로, 검색을 탭으로 두는 것은 <b>“검색은 우리 앱의 한 세계”라는 선언</b>. 목록을 좁히는 필터형 검색이라면 과합니다 — 그건 화면 안의 <span class="pill">.searchable</span>이 맞음.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">검색 탭에 빈 검색창만 있으면 자리 낭비 — 추천·최근 검색 같은 “검색 전 콘텐츠”를 채우세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><div class="bbar"><div class="tbar"><span class="ti"><span class="ic"></span><span class="lb">홈</span></span><span class="ti"><span class="ic"></span><span class="lb">탐색</span></span><span class="ti on"><span class="ic"></span><span class="lb">검색</span></span><span class="ti"><span class="ic"></span><span class="lb">설정</span></span></div></div></div><figcaption>검색이 <b>일반 탭 중 하나</b> — 동급의 목적지</figcaption></figure>
+      </div>
+      <div class="entry" id="ts2">
+        <div class="idx">3.4.2</div>
+        <h3>With Search Role</h3>
+        <p class="what"><span class="pill">Tab(role: .search)</span> — 시스템이 검색 탭을 인식해 <b>다른 탭과 분리된 유리 캡슐</b>(오른쪽)로 배치. iOS 26 신규.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">iOS 26에서 검색 탭을 둘 때의 <b>새 표준</b>. 역할만 선언하면 위치·모양·전환 동작을 시스템이 알아서 처리.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">탭은 “장소 이동”이지만 검색은 <b>“모드 진입”</b> — 성격이 다른 것을 시각적으로도 분리(별도 캡슐)해 OS 전체에서 일관되게 표현한 것. 탭하면 캡슐이 그 자리에서 검색 필드로 변형되어, 화면 이동 없이 모드가 전환됩니다.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">role만 선언하고 위치·모양 커스텀은 하지 마세요 — 시스템 규약에서 벗어나면 사용자의 기대가 깨집니다.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><div class="bbar"><div class="tbar"><span class="ti on"><span class="ic"></span><span class="lb">홈</span></span><span class="ti"><span class="ic"></span><span class="lb">탐색</span></span><span class="ti"><span class="ic"></span><span class="lb">보관함</span></span></div><span class="cap rd hl"><span class="mag">⌕</span></span></div></div><figcaption>search role — 검색이 <b>분리된 캡슐(오른쪽)</b>로 배치</figcaption></figure>
+      </div>
+      <div class="entry" id="ts3">
+        <div class="idx">3.4.3</div>
+        <h3>Search Role with Minimize Behavior</h3>
+        <p class="what">search role + <span class="pill">tabBarMinimizeBehavior</span> 조합 — 스크롤 시 <b>탭바는 접히고 검색 캡슐은 축소된 채 잔류</b>.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">콘텐츠 몰입(피드)과 <b>검색 상시 접근</b>이 둘 다 필요한 앱 — 브라우징 중에 “아까 그거 찾아야지”가 잦은 사용 패턴.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">접힘(탭바)과 잔류(검색)의 역할 분리 — 소비 중에는 이동이 덜 필요하지만 <b>검색은 소비 중에 오히려 촉발</b>되기 때문. 두 API가 직교로 설계되어 조합이 자연스럽게 성립합니다.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">실기기에서 스크롤 방향 전환 시 접힘/펼침 애니메이션을 확인하세요. 스크롤이 짧은 화면에는 부적합합니다.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><div class="bbar"><div class="tbar"><span class="ti on"><span class="ic"></span><span class="lb">홈</span></span><span class="ti"><span class="ic"></span><span class="lb">탐색</span></span><span class="ti"><span class="ic"></span><span class="lb">보관함</span></span></div><span class="cap rd hl"><span class="mag">⌕</span></span></div><span class="mtag" style="bottom:44px;right:10px">스크롤 시 탭바만 접힘</span></div><figcaption>탭바는 접혀도 <b>검색은 한 탭 거리</b> 유지</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ============ 3.5 BOTTOM ACCESSORY ============ -->
+    <section>
+      <div class="sec-head">
+        <div class="sec-num">3.5</div>
+        <h2>Bottom Accessory</h2>
+        <p class="sec-desc"><span class="pill">.tabViewBottomAccessory</span> — 탭바 <b>위 층에 상주하는 전역 상태 뷰</b>(미니 플레이어 등). 뮤직 앱 패턴을 시스템 API로 표준화한 iOS 26 신규 기능입니다.</p>
+      </div>
+
+      <div class="entry" id="ta1">
+        <div class="idx">3.5.1</div>
+        <h3>3 Tab Items</h3>
+        <p class="what">탭 3개 위에 <b>액세서리 뷰가 상주</b>하는 기본 구성 — 탭을 전환해도 액세서리는 유지.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">어느 탭에 있든 유지되어야 하는 <b>진행 중 상태</b> — 음악 재생, 통화 중, 업로드 진행, 타이머.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">탭을 넘나드는 상태는 특정 화면이 아니라 <b>앱 전역의 소유</b> — 그래서 탭 콘텐츠가 아닌 탭바 계층에 붙입니다. 모두가 각자 구현하던 뮤직 앱 미니 플레이어 패턴을 시스템 API로 표준화한 것.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">액세서리는 한 개, 한 줄 높이로. 배너·광고를 여기 두는 것은 자리의 문법 위반입니다.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><div class="acc hl"><span class="tri"></span><span style="flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.18)"></span><span class="dot"></span></div><div class="bbar"><div class="tbar"><span class="ti on"><span class="ic"></span><span class="lb">홈</span></span><span class="ti"><span class="ic"></span><span class="lb">탐색</span></span><span class="ti"><span class="ic"></span><span class="lb">보관함</span></span></div></div></div><figcaption>탭바 <b>위 층</b>에 전역 상태(미니 플레이어 등)가 상주</figcaption></figure>
+      </div>
+      <div class="entry" id="ta2">
+        <div class="idx">3.5.2</div>
+        <h3>3 Tab Items with Minimize Behavior</h3>
+        <p class="what">액세서리 + 탭바 최소화 — 스크롤하면 탭바가 접히고 <b>액세서리가 그 자리로 내려앉음</b>(inline 배치).</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">콘텐츠 몰입과 전역 상태 유지가 <b>동시에</b> 필요할 때 — 가사·목록을 스크롤하는 동안에도 재생 컨트롤은 남아야 하는 뮤직형 앱.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">핵심은 접힐 때 액세서리가 사라지지 않고 <b>탭바 자리로 승격</b>된다는 것 — “이동 &lt; 상태”라는 우선순위 역전을 시스템이 자동 처리해, 개발자가 두 상태의 레이아웃을 따로 만들지 않아도 됩니다.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">액세서리 뷰는 확장/인라인 두 크기에서 모두 읽혀야 합니다 — <span class="pill">tabViewBottomAccessoryPlacement</span> 환경 값으로 분기하세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><div class="acc hl"><span class="tri"></span><span style="flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.18)"></span><span class="dot"></span></div><div class="bbar"><div class="tbar"><span class="ti on"><span class="ic"></span><span class="lb">홈</span></span><span class="ti"><span class="ic"></span><span class="lb">탐색</span></span><span class="ti"><span class="ic"></span><span class="lb">보관함</span></span></div></div><span class="mtag" style="bottom:70px;right:10px">접히면 탭바 자리로 ↓</span></div><figcaption>탭바가 접히면 액세서리가 <b>그 자리로 내려앉음</b>(inline)</figcaption></figure>
+      </div>
+      <div class="entry" id="ta3">
+        <div class="idx">3.5.3</div>
+        <h3>Tab Items with Search Role and Minimize Behavior</h3>
+        <p class="what">탭 + search role + 액세서리 + 최소화 — <b>하단 시스템의 풀 구성</b>.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">미디어·콘텐츠 대형 앱에서 하단에 <b>이동(탭)·검색·전역 상태(액세서리)</b>를 모두 담아야 할 때.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">하단이라는 한 자리를 세 시스템이 나눠 쓰려면 각자의 규약이 필요 — <b>탭=왼쪽 묶음, 검색=오른쪽 분리 캡슐, 액세서리=위 층</b>. 전부 시스템 관할이라 조합해도 충돌하지 않고, 앱이 좌표를 계산할 일이 없습니다.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">풀 구성은 하단이 무겁습니다. 콘텐츠가 눌리는 느낌이면 최소화 동작을 켜서 소비 중엔 물러나게 하세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><div class="acc hl"><span class="tri"></span><span style="flex:1;height:5px;border-radius:3px;background:rgba(255,255,255,.18)"></span><span class="dot"></span></div><div class="bbar"><div class="tbar"><span class="ti on"><span class="ic"></span><span class="lb">홈</span></span><span class="ti"><span class="ic"></span><span class="lb">탐색</span></span></div><span class="cap rd hl"><span class="mag">⌕</span></span></div><span class="mtag" style="bottom:70px;left:10px">액세서리</span></div><figcaption><b>탭 + 검색 + 액세서리</b> — 하단 시스템의 풀 구성</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ==================== CHAPTER 4. SHEETS ==================== -->
+    <div class="ch-head" id="ch4">
+      <div class="ch-num">4</div>
+      <h2>Sheets <span class="ch-sub">— Configurations · Full Screen Cover · Transitions</span></h2>
+    </div>
+
+    <!-- ============ 4.1 CONFIGURATIONS ============ -->
+    <section>
+      <div class="sec-head">
+        <div class="sec-num">4.1</div>
+        <h2>Configurations</h2>
+        <p class="sec-desc">시트의 핵심 변수는 <b>detent(멈춤 높이)</b>와 <b>모달성</b> — 화면을 얼마나 차지할지, 그리고 뒤 콘텐츠와의 관계(차단 vs 병행)를 어떻게 설정할지가 다섯 케이스의 전부입니다.</p>
+      </div>
+
+      <div class="entry" id="sh1">
+        <div class="idx">4.1.1</div>
+        <h3>Presentation Detent: Large</h3>
+        <p class="what"><span class="pill">.presentationDetents([.large])</span> — 화면을 거의 다 덮는 <b>기본 시트</b>. 뒤 화면이 살짝 물러나 보임.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v"><b>독립된 작업 흐름</b> — 새 항목 작성, 프로필 편집처럼 배경 컨텍스트를 참조할 필요가 없는 작업. 시트의 기본값이자 가장 흔한 형태.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">시트는 <b>“임시 컨텍스트 전환”</b>의 장치 — large는 사실상 새 화면이지만, 뒤가 살짝 보이는 스택 은유로 “끝나면 원래 화면으로 돌아간다”는 감각을 유지합니다. 영구 이동인 push와 구분되는 이유가 이 은유.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">작성 중 데이터가 있는 시트라면 아래로 스와이프 닫기로 인한 손실 주의 — <span class="pill">interactiveDismissDisabled</span> + 확인 다이얼로그를 고려하세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><div class="dimm"></div><div class="sheet" style="top:26px;"><div class="grab"></div><i class="sln" style="width:72%"></i><i class="sln" style="width:52%"></i><i class="sln" style="width:62%"></i><i class="sln" style="width:44%"></i><i class="sln" style="width:56%"></i></div></div><figcaption>화면을 거의 덮는 <b>기본(large) 시트</b> — 뒤가 살짝 보임</figcaption></figure>
+      </div>
+      <div class="entry" id="sh2">
+        <div class="idx">4.1.2</div>
+        <h3>Presentation Detent: Medium</h3>
+        <p class="what"><span class="pill">.presentationDetents([.medium])</span> — 화면 <b>절반 높이</b>에서 멈추는 시트.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v"><b>배경을 보면서</b> 하는 보조 작업 — 지도 위 검색 결과, 필터 패널, 공유 옵션. 원본과 시트를 번갈아 봐야 하는 작업.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">절반 높이는 <b>“원본과의 대화”</b> 은유 — 화면을 나눠 가짐으로써 시트가 배경 콘텐츠에 대한 것임을 형태로 말합니다. 지도 앱이 만든 패턴을 시스템 detent로 표준화한 것.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">medium 시트에서 키보드가 올라오면 시스템이 large로 밀어올립니다 — 입력이 중심인 시트라면 처음부터 large가 자연스럽습니다.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><div class="dimm"></div><div class="sheet" style="top:150px;"><div class="grab"></div><i class="sln" style="width:72%"></i><i class="sln" style="width:52%"></i><i class="sln" style="width:62%"></i></div></div><figcaption><b>절반 높이(medium)</b> — 배경을 참조하며 하는 보조 작업</figcaption></figure>
+      </div>
+      <div class="entry" id="sh3">
+        <div class="idx">4.1.3</div>
+        <h3>Presentation Detent: Custom</h3>
+        <p class="what"><span class="pill">.height(250)</span> · <span class="pill">.fraction(0.3)</span> — 시스템 2단이 아닌 <b>커스텀 높이</b>의 detent.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">콘텐츠에 <b>고유한 높이</b>가 있을 때 — 버튼 몇 개짜리 액션 패널, 재생 컨트롤 등 medium도 과한 작은 UI.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">시트 높이는 콘텐츠가 결정해야 합니다 — medium에 작은 콘텐츠를 넣으면 <b>잉여 공백이 “뭔가 더 있나?”라는 오독</b>을 만듭니다. 다만 자유 높이는 일관성을 해치므로, detent 시스템 안에서 커스텀을 허용하는 절충 설계.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">고정 px보다 <span class="pill">.fraction</span>이나 콘텐츠 크기 기반이 안전합니다 — Dynamic Type 큰 글씨에서 내용이 잘리는지 꼭 확인하세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><div class="dimm"></div><div class="sheet" style="top:208px;"><div class="grab"></div><i class="sln" style="width:72%"></i><i class="sln" style="width:52%"></i></div></div><figcaption><b>콘텐츠 고유 높이</b>에 맞춘 커스텀 detent</figcaption></figure>
+      </div>
+      <div class="entry" id="sh4">
+        <div class="idx">4.1.4</div>
+        <h3>Presentation Detent: Combo</h3>
+        <p class="what"><span class="pill">[.medium, .large]</span> — detent를 <b>여러 개</b> 선언하고 사용자가 끌어서 단계 전환.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v"><b>훑어보기 → 집중</b>의 두 모드가 다 필요한 콘텐츠 — 지도 검색 결과(반쯤 보다가 끌어올려 전체 목록), 상세 정보 패널.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">“지금 얼마나 보고 싶은지”는 시스템이 판단할 수 없는 <b>사용자의 의도</b> — 그래서 높이 선택권 자체를 사용자에게 넘긴 것. 끌어올리는 제스처가 곧 의도 표현이고, 그랩바는 “단계가 더 있다”는 어포던스입니다.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">detent가 여럿인데 그랩바가 안 보이면 발견이 불가능합니다 — <span class="pill">presentationDragIndicator(.visible)</span>로 명시하세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><i class="ln" style="top:210px;right:58px"></i><i class="ln" style="top:225px;right:16px"></i><i class="ln" style="top:240px;right:36px"></i><div class="dimm"></div><div class="sheet" style="top:150px;"><div class="grab"></div><i class="sln" style="width:72%"></i><i class="sln" style="width:52%"></i><i class="sln" style="width:62%"></i></div><span class="mtag" style="bottom:146px;right:10px">↑ 끌어올리면 large</span></div><figcaption><b>medium ↔ large</b> 단계 전환 — 그랩바가 “더 있다”는 신호</figcaption></figure>
+      </div>
+      <div class="entry" id="sh5">
+        <div class="idx">4.1.5</div>
+        <h3>Nonmodal Sheet</h3>
+        <p class="what"><span class="pill">.presentationBackgroundInteraction(.enabled(upThrough: .medium))</span> — 시트가 떠 있는 동안에도 <b>뒤 콘텐츠를 조작 가능</b>. 딤이 없음.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">시트가 <b>도구 팔레트</b> 역할일 때 — 지도를 계속 움직이면서 결과 시트 유지, 본문을 스크롤하면서 서식 패널 사용.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">모달의 본질은 “응답을 요구하고 나머지를 차단” — 하지만 도구 패널은 응답이 아니라 <b>병행 작업</b>입니다. 시트의 형태(하단 패널)만 빌리고 모달성은 제거한 것. 딤이 없는 것이 “뒤를 만져도 된다”는 시각 신호.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">딤이 없어 사용자가 시트의 존재를 잊기 쉽습니다 — 명시적 닫기 버튼을 두고, 시트가 가리는 영역에 핵심 콘텐츠가 없는지 확인하세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><i class="ln" style="top:150px;right:26px"></i><i class="ln" style="top:165px;right:14px"></i><i class="ln" style="top:180px;right:44px"></i><i class="ln" style="top:195px;right:22px"></i><div class="sheet" style="top:208px;"><div class="grab"></div><i class="sln" style="width:72%"></i><i class="sln" style="width:52%"></i></div><span class="mtag" style="top:78px;left:34px">뒤 화면 조작 가능</span></div><figcaption><b>딤(어두운 배경) 없음</b> — 시트 뒤 콘텐츠와 병행 작업</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ============ 4.2 FULL SCREEN COVER ============ -->
+    <section>
+      <div class="sec-head">
+        <div class="sec-num">4.2</div>
+        <h2>Full Screen Cover</h2>
+        <p class="sec-desc">시트의 형제지만 성격은 반대 — <b>뒤를 완전히 가리고, 스와이프로 닫을 수 없는 강한 모달</b>입니다. 선택 기준은 “실수로 이탈하면 안 되는 흐름인가”.</p>
+      </div>
+
+      <div class="entry" id="fc1">
+        <div class="idx">4.2.1</div>
+        <h3>General Behavior</h3>
+        <p class="what"><span class="pill">.fullScreenCover</span> — <b>화면 전체</b>를 덮으며, 아래로 스와이프해도 닫히지 않음.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v"><b>완료 또는 명시적 취소가 필요한 흐름</b> — 온보딩, 로그인, 카메라·전체 화면 미디어, 운동 세션처럼 실수 이탈로 깨지면 안 되는 몰입 화면.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">시트와 달리 뒤가 전혀 안 보이고 제스처 닫기도 없음 — <b>“이 작업을 끝내거나, 명시적으로 나가라”</b>는 강한 모달성입니다. 가벼운 시트와 무거운 커버를 시스템이 굳이 별도 API로 분리한 건, 이 무게 차이가 사용자 기대의 문제이기 때문.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">스와이프가 안 되므로 <b>완료/취소 버튼이 유일한 출구</b> — 닫기 수단을 빼먹으면 사용자가 갇힙니다. 반드시 확인하세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><div class="sheet" style="top:3px;border-radius:21px"><span style="position:absolute;top:7px;left:9px;font-size:9px;color:rgba(255,255,255,.65);line-height:1">✕</span><i class="sln" style="width:46%;margin-top:26px"></i><i class="sln" style="width:70%"></i><i class="sln" style="width:58%"></i><i class="sln" style="width:64%"></i></div><span class="mtag" style="bottom:14px;left:50%;transform:translateX(-50%)">스와이프 닫기 없음</span></div><figcaption><b>화면 전체</b>를 덮는 강한 모달 — 출구는 명시적 버튼뿐</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ============ 4.3 TRANSITIONS ============ -->
+    <section>
+      <div class="sec-head">
+        <div class="sec-num">4.3</div>
+        <h2>Transitions</h2>
+        <p class="sec-desc">전환은 <b>“이 화면이 어디서 왔는가”에 대한 답</b>입니다 — 출처가 의미 없으면 standard(아래에서), 탭한 요소가 곧 열리는 내용이면 zoom(그 자리에서 확대).</p>
+      </div>
+
+      <div class="entry" id="tr1">
+        <div class="idx">4.3.1</div>
+        <h3>Standard</h3>
+        <p class="what">아래에서 위로 올라오는 <b>기본 전환</b> — 모든 시트의 디폴트.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v"><b>대부분의 시트.</b> “+” 버튼으로 여는 작성 화면처럼, 시트 내용이 화면의 특정 요소와 대응하지 않을 때.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">아래에서 올라오는 모션은 <b>“임시 레이어가 위에 쌓인다”</b>는 공간 은유 — OS 전역에서 동일해서 사용자가 “아래로 내리면 닫힌다”를 즉시 예측합니다. 예측 가능성이 곧 이 전환의 가치.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">커스텀 전환을 고민하기 전에 — 출처가 의미 없는 시트라면 standard 그대로가 정답인 경우가 대부분입니다.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;right:14px"></i><i class="ln" style="top:75px;right:44px"></i><i class="ln" style="top:90px;right:22px"></i><i class="ln" style="top:105px;right:58px"></i><i class="ln" style="top:120px;right:16px"></i><i class="ln" style="top:135px;right:36px"></i><div class="dimm"></div><div class="sheet" style="top:150px;"><div class="grab"></div><i class="sln" style="width:72%"></i><i class="sln" style="width:52%"></i><i class="sln" style="width:62%"></i></div><div style="position:absolute;bottom:52px;left:50%;transform:translateX(-50%);color:var(--accent);font-size:16px;z-index:5;line-height:1">↑</div></div><figcaption>아래에서 올라오는 <b>표준 전환</b> — 어디서 열든 동일</figcaption></figure>
+      </div>
+      <div class="entry" id="tr2">
+        <div class="idx">4.3.2</div>
+        <h3>Zoom – Sheet</h3>
+        <p class="what"><span class="pill">.navigationTransition(.zoom(sourceID:in:))</span> — <b>탭한 요소에서 시트가 확대</b>되어 나오는 전환.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">시트 내용이 <b>탭한 요소의 확장</b>일 때 — 카드를 탭해 그 카드의 상세 시트가 열리는 구조.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">눌렀던 것과 열린 것이 <b>같은 것임을 모션으로 증명</b>하는 장치 — 공간적 연속성이 유지되어 “어디서 왔는지”를 설명할 필요가 없습니다. standard는 출처 정보를 버리므로, 출처가 의미 있으면 zoom이 정답.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">sourceID와 namespace 매칭이 어긋나면 standard로 조용히 폴백됩니다 — 실기기에서 확대 출발점이 맞는지 확인하세요. 출처 없는 시트(작성 버튼)에는 부적합.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><div class="gcard src" style="top:56px;left:14px"></div><div class="gcard" style="top:56px;right:14px"></div><div class="dimm"></div><div class="sheet" style="top:150px;"><div class="grab"></div><i class="sln" style="width:72%"></i><i class="sln" style="width:52%"></i><i class="sln" style="width:62%"></i></div><span class="mtag" style="top:104px;left:12px">여기서 확대 ⤢</span></div><figcaption>탭한 카드가 <b>시트로 확대</b>(zoom) — 공간적 연속성</figcaption></figure>
+      </div>
+      <div class="entry" id="tr3">
+        <div class="idx">4.3.3</div>
+        <h3>Zoom – Full Screen Cover</h3>
+        <p class="what">zoom 전환을 <b>full screen cover에 적용</b> — 썸네일이 화면 전체로 확대.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v"><b>사진·영상 썸네일 → 전체 화면 뷰어</b>처럼, 작은 요소가 화면 전체를 차지하는 콘텐츠로 확장될 때.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">사진 앱이 표준화한 패턴 — 확대로 열리고 <b>닫을 때 원래 자리로 축소</b>되어 공간 모델이 왕복 내내 유지됩니다. zoom을 쓰면 풀스크린인데도 아래로 끌어내리는 닫기 제스처가 자연스럽게 연동되는 것도 이 연속성 덕분.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">닫기 축소의 목적지(원래 셀)가 스크롤로 화면 밖에 있을 때의 동작을 확인하세요 — 목적지를 잃은 축소는 어색합니다.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><div class="sheet" style="top:3px;border-radius:21px"><span style="position:absolute;top:7px;left:9px;font-size:9px;color:rgba(255,255,255,.65);line-height:1">✕</span><i class="sln" style="width:46%;margin-top:26px"></i><i class="sln" style="width:70%"></i><i class="sln" style="width:58%"></i><i class="sln" style="width:64%"></i></div><div class="gcard src" style="top:56px;left:14px;background:transparent;z-index:5"></div><span class="mtag" style="top:104px;left:12px;z-index:5">썸네일 → 전체 화면 ⤢</span></div><figcaption>요소가 <b>화면 전체로 확대</b> — 사진 뷰어 패턴</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ==================== CHAPTER 5. SAFE AREA BAR ==================== -->
+    <div class="ch-head" id="ch5">
+      <div class="ch-num">5</div>
+      <h2>Safe Area Bar <span class="ch-sub">— Vertical · Horizontal</span></h2>
+    </div>
+
+    <!-- ============ 5.1 VERTICAL ============ -->
+    <section>
+      <div class="sec-head">
+        <div class="sec-num">5.1</div>
+        <h2>Vertical Safe Area Bars</h2>
+        <p class="sec-desc"><span class="pill">.safeAreaBar(edge:)</span> — 커스텀 뷰를 “바”로 승격시키는 iOS 26 API. 시스템 바처럼 <b>콘텐츠를 자동으로 인셋시키고 스크롤 가장자리 효과에 참여</b>합니다. overlay(가림)와 safeAreaInset(인셋만)의 상위 호환.</p>
+      </div>
+
+      <div class="entry" id="va1">
+        <div class="idx">5.1.1</div>
+        <h3>Top</h3>
+        <p class="what"><span class="pill">.safeAreaBar(edge: .top)</span> — 커스텀 뷰를 <b>상단 safe area</b>에 배치. 스크롤 콘텐츠는 자동으로 그 아래부터 시작.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">시스템 내비바로는 안 되는 <b>상단 상시 UI</b> — 필터 칩 줄, 동기화 상태 배너, 커스텀 헤더처럼 콘텐츠 위에 늘 떠 있어야 하는 것.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">overlay는 콘텐츠를 <b>가리고</b>, safeAreaInset은 밀어내기만 하고 가장자리 효과가 없음 — safeAreaBar는 인셋 + 스크롤 가장자리 효과까지, <b>시스템 바의 인프라 전체를 커스텀 뷰에 개방</b>한 것입니다. 커스텀 UI도 시스템과 같은 문법으로 행동해야 화면이 하나의 시스템으로 읽히기 때문.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">첫 번째 콘텐츠가 바에 가려지지 않는지(자동 인셋), 스크롤 시 콘텐츠가 바 밑으로 지나갈 때의 가독성을 확인하세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><div class="cap hl" style="flex:1;justify-content:flex-start;gap:4px;padding:0 8px"><span class="chip"></span><span class="chip"></span><span class="chip"></span></div></div><i class="ln" style="top:60px;left:14px;right:14px"></i><i class="ln" style="top:75px;left:14px;right:44px"></i><i class="ln" style="top:90px;left:14px;right:22px"></i><i class="ln" style="top:105px;left:14px;right:58px"></i><i class="ln" style="top:120px;left:14px;right:16px"></i><i class="ln" style="top:135px;left:14px;right:36px"></i><i class="ln" style="top:150px;left:14px;right:26px"></i><i class="ln" style="top:165px;left:14px;right:14px"></i><i class="ln" style="top:180px;left:14px;right:44px"></i><i class="ln" style="top:195px;left:14px;right:22px"></i><i class="ln" style="top:210px;left:14px;right:58px"></i><i class="ln" style="top:225px;left:14px;right:16px"></i><i class="ln" style="top:240px;left:14px;right:36px"></i></div><figcaption><b>상단 safe area</b>에 커스텀 바 — 콘텐츠는 자동으로 아래로 밀림</figcaption></figure>
+      </div>
+      <div class="entry" id="va2">
+        <div class="idx">5.1.2</div>
+        <h3>Top with Title</h3>
+        <p class="what">상단 safe area bar 안에 <b>타이틀 텍스트</b>를 넣은 커스텀 헤더 구성.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">시스템 내비게이션 바를 쓰지 않는 화면에서 <b>자체 헤더</b>가 필요할 때 — 브랜드 디자인이 강한 앱, 특수 레이아웃의 홈 화면.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">시스템 내비바를 버리면 제목 배치·인셋·가장자리 효과를 전부 직접 구현해야 했습니다 — safeAreaBar는 그 <b>인프라(인셋+효과)는 시스템이 대고, 내용만 앱이 채우는</b> 절충안. 완전 커스텀과 시스템 동작 사이의 중간 지대.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">시스템 내비바의 공짜 기능(스크롤 시 제목 축소, Dynamic Type 대응)은 따라오지 않습니다 — 큰 글씨 설정에서 헤더가 깨지는지 직접 확인하세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><div class="cap hl" style="flex:1;justify-content:flex-start;gap:4px;padding:0 8px"><span class="ttl hlt">제목</span><span class="sp"></span><span class="chip"></span></div></div><i class="ln" style="top:60px;left:14px;right:14px"></i><i class="ln" style="top:75px;left:14px;right:44px"></i><i class="ln" style="top:90px;left:14px;right:22px"></i><i class="ln" style="top:105px;left:14px;right:58px"></i><i class="ln" style="top:120px;left:14px;right:16px"></i><i class="ln" style="top:135px;left:14px;right:36px"></i><i class="ln" style="top:150px;left:14px;right:26px"></i><i class="ln" style="top:165px;left:14px;right:14px"></i><i class="ln" style="top:180px;left:14px;right:44px"></i><i class="ln" style="top:195px;left:14px;right:22px"></i><i class="ln" style="top:210px;left:14px;right:58px"></i><i class="ln" style="top:225px;left:14px;right:16px"></i><i class="ln" style="top:240px;left:14px;right:36px"></i></div><figcaption>상단 바 안에 <b>타이틀</b> — 시스템 내비바 없는 커스텀 헤더</figcaption></figure>
+      </div>
+      <div class="entry" id="va3">
+        <div class="idx">5.1.3</div>
+        <h3>Bottom</h3>
+        <p class="what"><span class="pill">.safeAreaBar(edge: .bottom)</span> — <b>하단 safe area</b>에 커스텀 바. 콘텐츠 끝이 바 위까지 자동 인셋.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">탭바·툴바가 아닌 <b>커스텀 하단 UI</b> — 재생 컨트롤 바, CTA 버튼 띠, 입력 액세서리처럼 화면 고유의 하단 장치.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">하단은 <b>홈 인디케이터와 겹치는 위험 지역</b> — safe area 계산을 시스템에 맡기면 기기별(인디케이터 유무·높이) 분기가 사라집니다. 자주 쓰는 컨트롤을 엄지 근처에 두는 reachability 방향과도 일치.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">키보드가 올라올 때 바의 거취를 확인하세요 — 입력과 함께 쓰는 바라면 키보드 위로 따라 올라가야 자연스럽습니다.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;left:14px;right:14px"></i><i class="ln" style="top:75px;left:14px;right:44px"></i><i class="ln" style="top:90px;left:14px;right:22px"></i><i class="ln" style="top:105px;left:14px;right:58px"></i><i class="ln" style="top:120px;left:14px;right:16px"></i><i class="ln" style="top:135px;left:14px;right:36px"></i><i class="ln" style="top:150px;left:14px;right:26px"></i><i class="ln" style="top:165px;left:14px;right:14px"></i><i class="ln" style="top:180px;left:14px;right:44px"></i><i class="ln" style="top:195px;left:14px;right:22px"></i><i class="ln" style="top:210px;left:14px;right:58px"></i><i class="ln" style="top:225px;left:14px;right:16px"></i><i class="ln" style="top:240px;left:14px;right:36px"></i><div class="bbar"><div class="cap hl" style="flex:1;justify-content:flex-start;gap:4px;padding:0 8px"><span class="chip"></span><span class="chip"></span><span class="chip"></span></div></div></div><figcaption><b>하단 safe area</b>에 커스텀 바 — 홈 인디케이터 회피는 시스템 몫</figcaption></figure>
+      </div>
+      <div class="entry" id="va4">
+        <div class="idx">5.1.4</div>
+        <h3>Bottom, Hard Scroll Edge Effect, with Toolbar Items</h3>
+        <p class="what">하단 커스텀 바 + <b>hard 가장자리 효과</b> + 시스템 툴바 아이템이 공존하는 구성.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">커스텀 바와 시스템 툴바 아이템이 하단에 함께 있고, 콘텐츠와의 <b>경계가 또렷해야 하는</b> 구조적 화면(표·입력 폼 위).</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">핵심은 <b>커스텀 바도 시스템 바와 같은 가장자리 효과 문법을 따른다</b>는 것 — scrollEdgeEffectStyle이 safeAreaBar에도 적용되므로, 시스템 툴바와 커스텀 바가 하나의 하단 시스템으로 읽힙니다. hard를 고르는 기준은 1.3.2와 동일: 분위기보다 명료함.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">툴바 아이템 + 커스텀 바로 하단이 두 층이 되면 무겁습니다 — 한 층으로 합칠 수 있는지 먼저 검토하세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="ttl">제목</span><span class="sp"></span></div><i class="ln" style="top:60px;left:14px;right:14px"></i><i class="ln" style="top:75px;left:14px;right:44px"></i><i class="ln" style="top:90px;left:14px;right:22px"></i><i class="ln" style="top:105px;left:14px;right:58px"></i><i class="ln" style="top:120px;left:14px;right:16px"></i><i class="ln" style="top:135px;left:14px;right:36px"></i><i class="ln" style="top:150px;left:14px;right:26px"></i><i class="ln" style="top:165px;left:14px;right:14px"></i><i class="ln" style="top:180px;left:14px;right:44px"></i><i class="ln" style="top:195px;left:14px;right:22px"></i><i class="ln" style="top:210px;left:14px;right:58px"></i><i class="ln" style="top:225px;left:14px;right:16px"></i><i class="ln" style="top:240px;left:14px;right:36px"></i><i class="ln" style="top:255px;left:14px;right:26px"></i><div style="position:absolute;bottom:0;left:0;right:0;height:50px;background:rgba(18,21,27,.88);border-top:1.5px solid var(--accent);box-shadow:0 -2px 10px rgba(90,168,255,.25);z-index:1"></div><div class="bbar"><div class="cap hl" style="flex:1;justify-content:flex-start;gap:4px;padding:0 8px"><span class="chip"></span><span class="chip"></span><span class="chip"></span></div><span class="cap rd hl"><span class="dot"></span></span></div></div><figcaption>하단 커스텀 바 + 툴바 아이템 — <b>hard 구분선</b>으로 경계 명시</figcaption></figure>
+      </div>
+      <div class="entry" id="va5">
+        <div class="idx">5.1.5</div>
+        <h3>Top &amp; Bottom, Soft Scroll Edge Effect, with Toolbar Items</h3>
+        <p class="what"><b>상·하단 동시에</b> safe area bar + soft 효과 + 툴바 아이템 — 수직 방향 풀 구성.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">위에는 필터·상태, 아래에는 컨트롤이 <b>동시에 상주</b>해야 하는 대시보드·플레이어형 화면.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">위아래가 <b>같은 효과(soft)로 통일</b>되어야 콘텐츠가 “두 유리 사이를 지나는 하나의 면”으로 읽힙니다 — 위는 soft인데 아래만 hard면 화면의 재질 은유가 깨짐. 인셋이 양 끝에서 자동 적용되어 스크롤 처음과 끝에서 콘텐츠가 가려지지 않는 것도 이 API의 몫.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">상단 바 + 하단 바 + 툴바까지 겹치면 콘텐츠 영역이 급격히 줄어듭니다 — 작은 기기에서 실제 가시 영역을 확인하세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="topglass" style="background:linear-gradient(180deg,rgba(18,21,27,.97) 35%,rgba(18,21,27,0))"></div><div style="position:absolute;bottom:0;left:0;right:0;height:54px;background:linear-gradient(0deg,rgba(18,21,27,.97) 35%,rgba(18,21,27,0));z-index:1"></div><div class="pnav"><div class="cap hl" style="flex:1;justify-content:flex-start;gap:4px;padding:0 8px"><span class="chip"></span><span class="chip"></span><span class="chip"></span></div></div><i class="ln" style="top:34px;left:14px;right:14px"></i><i class="ln" style="top:49px;left:14px;right:44px"></i><i class="ln" style="top:64px;left:14px;right:22px"></i><i class="ln" style="top:79px;left:14px;right:58px"></i><i class="ln" style="top:94px;left:14px;right:16px"></i><i class="ln" style="top:109px;left:14px;right:36px"></i><i class="ln" style="top:124px;left:14px;right:26px"></i><i class="ln" style="top:139px;left:14px;right:14px"></i><i class="ln" style="top:154px;left:14px;right:44px"></i><i class="ln" style="top:169px;left:14px;right:22px"></i><i class="ln" style="top:184px;left:14px;right:58px"></i><i class="ln" style="top:199px;left:14px;right:16px"></i><i class="ln" style="top:214px;left:14px;right:36px"></i><i class="ln" style="top:229px;left:14px;right:26px"></i><i class="ln" style="top:244px;left:14px;right:14px"></i><i class="ln" style="top:259px;left:14px;right:44px"></i><div class="bbar"><div class="cap hl" style="flex:1;justify-content:flex-start;gap:4px;padding:0 8px"><span class="chip"></span><span class="chip"></span><span class="chip"></span></div><span class="cap rd hl"><span class="dot"></span></span></div></div><figcaption><b>상·하단 동시</b> — 양쪽 모두 soft 페이드로 통일</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ============ 5.2 HORIZONTAL ============ -->
+    <section>
+      <div class="sec-head">
+        <div class="sec-num">5.2</div>
+        <h2>Horizontal Safe Area Bars</h2>
+        <p class="sec-desc">safe area는 상하에만 있는 게 아닙니다 — <b>좌우 가장자리(가로 모드의 노치·베젤)에도</b> 같은 문법이 적용됩니다. edge만 바뀌고 개념(인셋 + 효과)은 동일.</p>
+      </div>
+
+      <div class="entry" id="ha1">
+        <div class="idx">5.2.1</div>
+        <h3>Leading, Top Alignment, with Material</h3>
+        <p class="what"><span class="pill">.safeAreaBar(edge: .leading, alignment: .top)</span> + material 배경 — <b>왼쪽 가장자리 위쪽</b>에 세로 바.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">가로 화면·iPad에서 <b>세로 도구 막대</b>가 필요할 때 — 그리기 앱의 도구 팔레트, 세로 탭 스트립, 문서 뷰어의 페이지 도구.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">수직 바와 같은 API를 <b>방향만 바꿔 일반화</b>한 설계 — 개발자가 좌우 safe area(가로 모드 노치)를 따로 계산하지 않아도 됩니다. material 배경은 콘텐츠가 옆을 스쳐 지나갈 때의 가독성 장치로, 상단 바의 가장자리 효과와 같은 역할.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">leading은 RTL 로케일에서 <b>오른쪽</b>이 됩니다 — 물리적 왼쪽이 필요한 도구(왼손 파지 배려 등)라면 의도를 재확인하세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="vbar hl" style="top:26px;left:6px;height:112px"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div><i class="ln" style="top:34px;left:36px;right:14px"></i><i class="ln" style="top:49px;left:36px;right:44px"></i><i class="ln" style="top:64px;left:36px;right:22px"></i><i class="ln" style="top:79px;left:36px;right:58px"></i><i class="ln" style="top:94px;left:36px;right:16px"></i><i class="ln" style="top:109px;left:36px;right:36px"></i><i class="ln" style="top:124px;left:36px;right:26px"></i><i class="ln" style="top:139px;left:36px;right:14px"></i><i class="ln" style="top:154px;left:36px;right:44px"></i><i class="ln" style="top:169px;left:36px;right:22px"></i><i class="ln" style="top:184px;left:36px;right:58px"></i><i class="ln" style="top:199px;left:36px;right:16px"></i><i class="ln" style="top:214px;left:36px;right:36px"></i><i class="ln" style="top:229px;left:36px;right:26px"></i><i class="ln" style="top:244px;left:36px;right:14px"></i><i class="ln" style="top:259px;left:36px;right:44px"></i></div><figcaption><b>왼쪽(leading) 가장자리, 위 정렬</b> — 세로 도구 팔레트</figcaption></figure>
+      </div>
+      <div class="entry" id="ha2">
+        <div class="idx">5.2.2</div>
+        <h3>Trailing, Center Alignment</h3>
+        <p class="what"><span class="pill">.safeAreaBar(edge: .trailing, alignment: .center)</span> — <b>오른쪽 가장자리 정중앙</b>에 배치.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">세로로 긴 제스처 컨트롤 — <b>줌 슬라이더, 인덱스 바, 타임라인 스크러버</b>처럼 위아래로 쓸어올리며 조작하는 것.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">center 정렬의 근거는 <b>엄지의 호(arc)</b> — 오른손 파지 시 화면 오른쪽 중앙이 세로 슬라이드 제스처의 자연 위치입니다. 정렬 옵션이 존재하는 이유: 세로 바의 용도가 위(도구 선택)와 중앙(연속 제스처)에서 다르기 때문에, 위치로 용도를 구분하는 것.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">오른쪽 가장자리는 스크롤 인디케이터의 자리이기도 합니다 — 스크롤 뷰 위에 얹을 땐 간섭하지 않는지 확인하세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="vbar hl" style="top:50%;right:6px;transform:translateY(-50%);height:96px"><span style="width:2px;flex:1;border-radius:1px;background:rgba(255,255,255,.2)"></span><span class="dot" style="position:absolute;top:38px;background:var(--accent)"></span></div><i class="ln" style="top:34px;left:14px;right:38px"></i><i class="ln" style="top:49px;left:14px;right:56px"></i><i class="ln" style="top:64px;left:14px;right:44px"></i><i class="ln" style="top:79px;left:14px;right:64px"></i><i class="ln" style="top:94px;left:14px;right:40px"></i><i class="ln" style="top:109px;left:14px;right:54px"></i><i class="ln" style="top:124px;left:14px;right:48px"></i><i class="ln" style="top:139px;left:14px;right:38px"></i><i class="ln" style="top:154px;left:14px;right:56px"></i><i class="ln" style="top:169px;left:14px;right:44px"></i><i class="ln" style="top:184px;left:14px;right:64px"></i><i class="ln" style="top:199px;left:14px;right:40px"></i><i class="ln" style="top:214px;left:14px;right:54px"></i><i class="ln" style="top:229px;left:14px;right:48px"></i><i class="ln" style="top:244px;left:14px;right:38px"></i><i class="ln" style="top:259px;left:14px;right:56px"></i></div><figcaption><b>오른쪽(trailing) 가장자리, 중앙 정렬</b> — 엄지 호에 맞는 세로 컨트롤</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ==================== CHAPTER 6. SYSTEM MATERIALS ==================== -->
+    <div class="ch-head" id="ch6">
+      <div class="ch-num">6</div>
+      <h2>System Materials <span class="ch-sub">— Materials · Vibrancy</span></h2>
+    </div>
+
+    <!-- ============ 6.1 MATERIALS ============ -->
+    <section>
+      <div class="sec-head">
+        <div class="sec-num">6.1</div>
+        <h2>Materials</h2>
+        <p class="sec-desc">material은 색이 아니라 <b>배경과의 관계</b>입니다 — 뒤를 블러·채도 조정으로 비추는 반투명 레이어라서, 같은 material도 배경에 따라 표정이 달라집니다. 이 데모가 “여러 배경 위”를 보여주는 이유.</p>
+      </div>
+
+      <div class="entry" id="m1">
+        <div class="idx">6.1.1</div>
+        <h3>Materials in Different Backgrounds</h3>
+        <p class="what"><span class="pill">.ultraThinMaterial</span> ~ <span class="pill">.thickMaterial</span> — 뒤 배경을 비추는 <b>두께가 다른 반투명 레이어</b>. 밝은 배경, 사진, 다크모드 어디서든 자동 적응.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">콘텐츠 위에 <b>떠 있는 레이어</b>(바·카드·패널)의 배경이 필요한 모든 곳. 두께 선택 기준은 하나 — <b>뒤로 지나갈 콘텐츠가 복잡할수록 두껍게</b>(1.3.3의 가독성 논리와 동일).</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">고정 색 배경은 배경과 단절된 “스티커”처럼 보입니다 — material은 뒤를 비춤으로써 <b>“이 레이어는 콘텐츠 위에 떠 있다”는 깊이 관계</b>를 형태로 표현합니다. 라이트/다크·배경 밝기에 맞춰 시스템이 자동 보정하므로, 개발자가 배경별 색을 계산하지 않아도 대비가 유지됨 — material이 “색”이 아니라 “재질”인 이유.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">material에 색을 얹어 커스텀하지 말고 <b>두께로만 고르세요</b>. 그 위의 텍스트·아이콘은 다음 항목(vibrancy)과 세트로 써야 완성됩니다.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><i class="blob" style="top:30px;left:6px;width:70px;height:70px;background:#7b6cff;opacity:.7"></i><i class="blob" style="top:90px;right:2px;width:84px;height:84px;background:#ff7ab6;opacity:.65"></i><i class="blob" style="top:180px;left:16px;width:76px;height:76px;background:#37d39b;opacity:.6"></i><i class="blob" style="top:236px;right:20px;width:60px;height:60px;background:#f5b451;opacity:.6"></i><div class="matcard hl" style="top:56px;background:rgba(255,255,255,.06)"><span>ultraThin — 배경이 많이 비침</span></div><div class="matcard hl" style="top:126px;background:rgba(30,34,43,.55)"><span>regular — 균형</span></div><div class="matcard hl" style="top:196px;background:rgba(30,34,43,.88)"><span>thick — 거의 불투명</span></div></div><figcaption><b>같은 material, 다른 두께</b> — 뒤가 복잡할수록 두껍게</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ============ 6.2 VIBRANCY ============ -->
+    <section>
+      <div class="sec-head">
+        <div class="sec-num">6.2</div>
+        <h2>Vibrancy</h2>
+        <p class="sec-desc">material이 “유리”라면 vibrancy는 <b>유리에 새기는 법</b> — material 위의 콘텐츠가 배경색을 끌어와 렌더링되어, 분리되지 않고 또렷해집니다.</p>
+      </div>
+
+      <div class="entry" id="vb1">
+        <div class="idx">6.2.1</div>
+        <h3>Vibrancy</h3>
+        <p class="what">material 위의 텍스트·심볼이 <b>배경색을 혼합해 렌더링</b>되는 효과 — <span class="pill">.foregroundStyle(.secondary)</span> 같은 시맨틱 스타일이 material 위에서 자동으로 vibrant해짐.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">material 배경 위에 올라가는 <b>모든 텍스트와 아이콘</b> — 특히 보조 정보(secondary·tertiary). 유리 바 안의 라벨, 카드 위의 캡션.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">material 위에 불투명 고정 회색을 얹으면 배경과 <b>단절되어 탁해집니다</b> — vibrancy는 뒤 색을 섞어 “유리에 새겨진” 통합감과 가독 대비를 동시에 확보합니다. primary/secondary/tertiary 계층이 vibrancy 강도와 연결되어, <b>색이 아니라 위계로</b> 정보를 구분하는 시스템 철학의 텍스트 버전.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">material 위에서는 커스텀 고정색 대신 <b>시맨틱 스타일(.primary/.secondary)</b>을 쓰세요 — vibrancy가 자동 적용됩니다. 고정 hex를 쓰는 순간 이 효과를 전부 잃습니다.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><i class="blob" style="top:30px;left:6px;width:70px;height:70px;background:#7b6cff;opacity:.7"></i><i class="blob" style="top:90px;right:2px;width:84px;height:84px;background:#ff7ab6;opacity:.65"></i><i class="blob" style="top:180px;left:16px;width:76px;height:76px;background:#37d39b;opacity:.6"></i><i class="blob" style="top:236px;right:20px;width:60px;height:60px;background:#f5b451;opacity:.6"></i><div class="matcard hl" style="top:96px;height:88px;background:rgba(30,34,43,.5);flex-direction:column;align-items:flex-start;justify-content:center;gap:9px"><span style="color:rgba(255,255,255,.92)">vibrant — 배경과 섞여 또렷</span><span style="color:rgba(255,255,255,.6)">vibrant secondary — 위계 표현</span><span style="color:#77787c">고정 회색 — 탁하고 분리됨</span></div></div><figcaption>material 위 텍스트 — <b>vibrancy가 배경색을 끌어와</b> 대비와 통합감을 동시에</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ==================== CHAPTER 7. MENU ==================== -->
+    <div class="ch-head" id="ch7">
+      <div class="ch-num">7</div>
+      <h2>Menu <span class="ch-sub">— Menu Configurations</span></h2>
+    </div>
+
+    <!-- ============ 7.1 MENU ============ -->
+    <section>
+      <div class="sec-head">
+        <div class="sec-num">7.1</div>
+        <h2>Menu</h2>
+        <p class="sec-desc">메뉴는 <b>“요청할 때만 나타나는 UI”</b>의 대표 장치입니다 — 평소엔 버튼 하나의 존재감, 탭하면 전체 선택지. minimization 원칙이 액션 목록에 적용된 형태입니다.</p>
+      </div>
+
+      <div class="entry" id="mn1">
+        <div class="idx">7.1.1</div>
+        <h3>Menu Configurations</h3>
+        <p class="what"><span class="pill">Menu</span> — 버튼을 탭하면 열리는 액션 목록. 아이콘·섹션(<span class="pill">Divider</span>)·서브메뉴·<span class="pill">role(.destructive)</span>·Toggle/Picker 포함까지 조합 가능.</p>
+        <div class="rows">
+          <div class="r when"><div class="k">When</div><div class="v">한 컨트롤에 <b>여러 관련 액션을 접을 때</b> — 더보기(⋯) 버튼, 정렬·필터 옵션, 항목별 액션. 화면에 버튼을 늘어놓기엔 많고, 시트를 열기엔 가벼운 중간 지대. 툴바 overflow(1.1.7)가 자동으로 만드는 것도 결국 이 메뉴.</div></div>
+          <div class="r why"><div class="k">Why</div><div class="v">배치 규약이 시스템 전역에서 동일해 <b>학습이 필요 없는 것</b>이 메뉴의 가치 — 자주 쓰는 항목은 버튼 가까운 쪽(열리는 방향에 따라 위/아래), 관련 항목은 섹션으로 묶고, 파괴적 액션은 Divider로 분리해 빨간색. 아이콘을 곁들이는 이유는 텍스트보다 <b>스캔이 빠르기 때문</b> — 메뉴는 정독이 아니라 훑는 UI입니다.</div></div>
+          <div class="r tip"><div class="k">Tip</div><div class="v">서브메뉴는 1단까지만 — 2단부터는 발견 불가능해집니다. 항목이 8개를 넘으면 메뉴가 아니라 <b>구조 문제</b>: 섹션을 나누거나 일부를 시트·화면으로 승격하세요.</div></div>
+        </div>
+        <figure class="preview"><div class="phone"><i class="island"></i><div class="pnav"><span class="sp"></span><span class="cap rd hl"><span class="ell">⋯</span></span></div><div style="position:absolute;top:50px;right:10px;width:88px;border-radius:11px;background:#242a35;border:1px solid var(--accent);box-shadow:0 10px 24px rgba(0,0,0,.55),0 0 12px rgba(90,168,255,.25);z-index:3;padding:3px 0"><div style="display:flex;align-items:center;gap:5px;padding:4px 6px"><span style="width:7px;height:7px;border-radius:2px;background:rgba(255,255,255,.4);flex:0 0 auto"></span><i style="flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.35);max-width:60px"></i></div><div style="display:flex;align-items:center;gap:5px;padding:4px 6px"><span style="width:7px;height:7px;border-radius:2px;background:rgba(255,255,255,.4);flex:0 0 auto"></span><i style="flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.35);max-width:44px"></i></div><div style="display:flex;align-items:center;gap:5px;padding:4px 6px"><span style="width:7px;height:7px;border-radius:2px;background:rgba(255,255,255,.4);flex:0 0 auto"></span><i style="flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.35);max-width:52px"></i><span style="font-size:6px;color:rgba(255,255,255,.4);line-height:1">›</span></div><div style="height:1px;background:rgba(255,255,255,.12);margin:3px 0"></div><div style="display:flex;align-items:center;gap:5px;padding:4px 6px"><span style="width:7px;height:7px;border-radius:2px;background:rgba(255,107,107,.75);flex:0 0 auto"></span><i style="flex:1;height:4px;border-radius:2px;background:rgba(255,107,107,.75);max-width:48px"></i></div></div><i class="ln" style="top:150px;right:14px"></i><i class="ln" style="top:165px;right:44px"></i><i class="ln" style="top:180px;right:22px"></i><i class="ln" style="top:195px;right:58px"></i><i class="ln" style="top:210px;right:16px"></i><i class="ln" style="top:225px;right:36px"></i><i class="ln" style="top:240px;right:26px"></i><i class="ln" style="top:255px;right:14px"></i></div><figcaption>⋯ 버튼에서 열리는 <b>액션 목록</b> — 섹션 구분, 서브메뉴(›), 파괴적 액션은 분리 + 빨강</figcaption></figure>
       </div>
     </section>
 
     <div class="footer">
-      <b>SwiftUI Toolbar · Text — 목차 32개 항목 전체 주석 (iOS 26 / WWDC25)</b> · 언제 · 기준 · 설계 의도<br>
+      <b>SwiftUI Toolbar · Text · Tab Bar · Sheets · Safe Area Bar · System Materials · Menu — 목차 67개 항목 전체 주석 (iOS 26 / WWDC25)</b> · 언제 · 기준 · 설계 의도<br>
       참고: Apple HIG <a href="https://developer.apple.com/design/human-interface-guidelines/toolbars">Toolbars</a> ·
+      <a href="https://developer.apple.com/design/human-interface-guidelines/tab-bars">Tab bars</a> ·
+      <a href="https://developer.apple.com/design/human-interface-guidelines/sheets">Sheets</a> ·
+      <a href="https://developer.apple.com/design/human-interface-guidelines/layout">Layout</a> ·
+      <a href="https://developer.apple.com/design/human-interface-guidelines/materials">Materials</a> ·
+      <a href="https://developer.apple.com/design/human-interface-guidelines/menus">Menus</a> ·
       <a href="https://developer.apple.com/design/human-interface-guidelines/navigation-and-search">Navigation & search</a> ·
       <a href="https://developer.apple.com/design/human-interface-guidelines/typography">Typography</a>,
       WWDC25 <a href="https://developer.apple.com/videos/play/wwdc2025/219/">Meet Liquid Glass</a> ·
@@ -601,7 +1362,29 @@
   const links=[...document.querySelectorAll('.nav-list a')];
   const map=new Map();
   links.forEach(l=>{const id=l.getAttribute('href').slice(1);const el=document.getElementById(id);if(el)map.set(el,l);});
-  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const l=map.get(e.target);if(l)l.classList.add('active');}});},{rootMargin:'-15% 0px -75% 0px'});
+
+  const tgls=[...document.querySelectorAll('.nav-tgl')];
+  function setGroup(g,open){
+    g.classList.toggle('closed',!open);
+    const b=tgls.find(t=>t.dataset.tgl===g.id);
+    if(b)b.textContent=open?'▾':'▸';
+  }
+  tgls.forEach(b=>b.addEventListener('click',()=>{
+    const g=document.getElementById(b.dataset.tgl);
+    setGroup(g,g.classList.contains('closed'));
+  }));
+  // 챕터 제목 클릭 시에도 해당 그룹을 펼침
+  document.querySelectorAll('.nav-chapter a').forEach(a=>a.addEventListener('click',()=>{
+    const g=a.parentElement.nextElementSibling;
+    if(g&&g.classList.contains('nav-group'))setGroup(g,true);
+  }));
+  // 현재 보고 있는 챕터만 펼침(아코디언)
+  function reveal(link){
+    const g=link.closest('.nav-group');
+    if(!g)return;
+    document.querySelectorAll('.nav-group').forEach(x=>setGroup(x,x===g));
+  }
+  const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.remove('active'));const l=map.get(e.target);if(l){l.classList.add('active');reveal(l);}}});},{rootMargin:'-15% 0px -75% 0px'});
   map.forEach((_,el)=>obs.observe(el));
 </script>
 </body>
