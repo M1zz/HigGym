@@ -183,6 +183,16 @@
   .footer{margin-top:70px;padding-top:22px;border-top:1px solid var(--line-soft);color:var(--dim);font-size:12.5px}
   .footer a{color:var(--accent)}
   @media (max-width:900px){.sidebar{display:none}.sb-open{display:none!important}.content{padding:32px 18px 90px}h1{font-size:26px}.r{flex-direction:column;gap:4px}.r .k{flex:none}}
+
+  /* ===== 페이지 모드 (누르면 해당 항목만 표시) ===== */
+  .pg-hide{display:none!important}
+  .pager{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:48px;padding-top:18px;border-top:1px solid var(--line-soft)}
+  .pager button{background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--text);font-size:13px;padding:9px 14px;border-radius:10px;cursor:pointer;max-width:42%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:.15s}
+  .pager button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
+  .pager button:disabled{opacity:.3;cursor:default}
+  .pager .pg-info{color:var(--dim);font-size:12px;white-space:nowrap}
+  .brand{cursor:pointer}
+  @media (max-width:900px){.pg-hide{display:revert!important}.pager{display:none}}
 </style>
 </head>
 <body>
@@ -358,7 +368,7 @@
         <span class="pill g">적절한 예</span> 실제 앱 기준 좋은 사례 2개 /
         <span class="pill" style="color:var(--red);border-color:rgba(255,107,107,.3);background:rgba(255,107,107,.08)">잘못된 예</span> 흔한 오용 사례 2개.
         각 항목 오른쪽의 <b>미니 프리뷰</b>는 해당 요소가 화면 어디에 놓이는지(파란 하이라이트)를 보여줍니다.<br>
-        본문은 <b>iOS 26(WWDC25) 기준</b>이며, 그 이후 바뀐 내용은 <span class="pill a">iOS 27 업데이트</span> 행으로 구분해 반영했습니다 (WWDC26 발표 + iOS 27 베타·보도 기준, 최종 업데이트 2026-07-17). 전체 출처는 <a href="#refs">맨 아래 참고자료</a>에 있습니다.
+        본문은 <b>iOS 26(WWDC25) 기준</b>이며, 그 이후 바뀐 내용은 <span class="pill a">iOS 27 업데이트</span> 행으로 구분해 반영했습니다 (WWDC26 발표 + iOS 27 베타·보도 기준, 최종 업데이트 2026-07-17). 전체 출처는 <a href="#refs">참고자료 페이지</a>에 있습니다. 왼쪽 목차를 누르면 해당 항목 페이지로 바로 이동합니다.
       </p>
     </div>
 
@@ -1590,6 +1600,77 @@
   document.getElementById('sbClose').addEventListener('click',()=>setSidebar(true));
   document.getElementById('sbOpen').addEventListener('click',()=>setSidebar(false));
   try{if(localStorage.getItem('sbOff'))setSidebar(true);}catch(e){}
+
+  // ===== 페이지 모드: 스크롤 대신 누르면 해당 항목만 표시 =====
+  const isMobile=()=>matchMedia('(max-width:900px)').matches;
+  const topEl=document.getElementById('top');
+  const refsEl=document.getElementById('refs');
+  const chHeads=[...document.querySelectorAll('.ch-head')];
+  const sectionEls=[...document.querySelectorAll('main section')];
+  const entryEls=[...document.querySelectorAll('.entry')];
+  const seq=['top',...entryEls.map(e=>e.id),'refs'];
+
+  const pager=document.createElement('div');
+  pager.className='pager';
+  pager.innerHTML='<button type="button" id="pgPrev">←</button><span class="pg-info" id="pgInfo"></span><button type="button" id="pgNext">→</button>';
+  document.querySelector('.content').appendChild(pager);
+  const pgPrev=document.getElementById('pgPrev'),pgNext=document.getElementById('pgNext'),pgInfo=document.getElementById('pgInfo');
+
+  function titleOf(id){
+    if(id==='top')return '개요';
+    if(id==='refs')return '참고자료';
+    const e=document.getElementById(id);
+    const idx=e.querySelector('.idx'),h=e.querySelector('h3');
+    return (idx?idx.textContent+' ':'')+(h?h.childNodes[0].textContent.trim():'');
+  }
+  function chapterOf(sec){
+    let p=sec.previousElementSibling;
+    while(p&&!p.classList.contains('ch-head'))p=p.previousElementSibling;
+    return p;
+  }
+  function firstEntryOfChapter(chId){
+    const ch=document.getElementById(chId);
+    let p=ch&&ch.nextElementSibling;
+    while(p){const e=p.querySelector&&p.querySelector('.entry');if(e)return e.id;p=p.nextElementSibling;}
+    return 'top';
+  }
+  let cur='top';
+  function showPage(id){
+    if(/^ch\d+$/.test(id))id=firstEntryOfChapter(id);
+    if(!seq.includes(id))id='top';
+    [topEl,refsEl,...chHeads,...sectionEls].forEach(el=>el&&el.classList.add('pg-hide'));
+    entryEls.forEach(e=>e.classList.add('pg-hide'));
+    if(id==='top'){topEl.classList.remove('pg-hide');}
+    else if(id==='refs'){refsEl.classList.remove('pg-hide');}
+    else{
+      const e=document.getElementById(id),sec=e.closest('section');
+      sec.classList.remove('pg-hide');e.classList.remove('pg-hide');
+      const ch=chapterOf(sec);if(ch)ch.classList.remove('pg-hide');
+    }
+    const i=seq.indexOf(id);
+    pgPrev.disabled=i<=0;pgNext.disabled=i>=seq.length-1;
+    pgPrev.textContent=i>0?'← '+titleOf(seq[i-1]):'←';
+    pgNext.textContent=i<seq.length-1?titleOf(seq[i+1])+' →':'→';
+    pgInfo.textContent=(id!=='top'&&id!=='refs')?(i+' / '+entryEls.length):titleOf(id);
+    links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id));
+    const al=links.find(l=>l.getAttribute('href')==='#'+id);
+    if(al)reveal(al);
+    window.scrollTo(0,0);
+    return id;
+  }
+  function route(){cur=showPage((location.hash||'#top').slice(1));}
+  pgPrev.addEventListener('click',()=>{const i=seq.indexOf(cur);if(i>0)location.hash=seq[i-1];});
+  pgNext.addEventListener('click',()=>{const i=seq.indexOf(cur);if(i<seq.length-1)location.hash=seq[i+1];});
+  document.querySelector('.brand').addEventListener('click',()=>{if(!isMobile())location.hash='top';});
+  document.addEventListener('click',ev=>{
+    const a=ev.target.closest('a[href^="#"]');
+    if(!a||isMobile())return;
+    ev.preventDefault();
+    const id=a.getAttribute('href').slice(1);
+    if(location.hash==='#'+id)route();else location.hash=id;
+  });
+  window.addEventListener('hashchange',route);
+  if(!isMobile())route();
 </script>
 </body>
 </html>
