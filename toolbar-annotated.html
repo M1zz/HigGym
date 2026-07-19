@@ -101,6 +101,8 @@
   .r.ok .k{color:var(--green)}
   .r.ng{border-color:rgba(255,107,107,.2);background:rgba(255,107,107,.03)}
   .r.ng .k{color:var(--red)}
+  .r.crit{border-color:rgba(245,180,81,.25);background:rgba(245,180,81,.03)}
+  .r.crit .k{color:var(--amber)}
   .r.ref{background:transparent;border-style:dashed}
   .r.ref .k{color:var(--dim)}
   .r.ref .v{font-size:12.5px;color:var(--dim)}
@@ -358,12 +360,25 @@
         <li><a href="#mn1">1. Menu Configurations</a></li>
       </ul>
       </div>
+      <div class="nav-chapter"><a href="#ch8"><span class="n">8</span> 디자인 원칙 &amp; 기준</a><button class="nav-tgl" type="button" data-tgl="ng8" aria-label="펼치기/접기">▸</button></div>
+      <div class="nav-group closed" id="ng8">
+      <span class="nav-title">8.1 원칙별 기준과 사례</span>
+      <ul class="nav-list">
+        <li><a href="#p1">1. Content-First · Minimization</a></li>
+        <li><a href="#p2">2. Reachability</a></li>
+        <li><a href="#p3">3. 위치·묶음의 문법</a></li>
+        <li><a href="#p4">4. 가독성 &gt; 미학</a></li>
+        <li><a href="#p5">5. 공간은 계약, 텍스트는 가변</a></li>
+        <li><a href="#p6">6. 데이터와 표기의 분리</a></li>
+        <li><a href="#p7">7. 직접 조작</a></li>
+      </ul>
+      </div>
     </nav>
   </aside>
 
   <main class="content">
     <div id="top">
-      <span class="kicker">● 목차 68개 항목 전체 주석</span>
+      <span class="kicker">● 목차 68개 항목 전체 주석 + 디자인 원칙 7</span>
       <h1>Toolbar · Text · Tab Bar · Sheets · Safe Area Bar · System Materials · Menu 목차별 설명 — 언제 · 기준 · 설계 의도</h1>
       <p class="lede">
         원래 목차 구조를 그대로 유지하고, <b>각 항목마다</b> 다섯 가지를 달았습니다:
@@ -1592,8 +1607,106 @@
       </div>
     </section>
 
+    <!-- ==================== CHAPTER 8. 디자인 원칙 & 기준 ==================== -->
+    <div class="ch-head" id="ch8">
+      <div class="ch-num">8</div>
+      <h2>디자인 원칙 &amp; 기준 <span class="ch-sub">— 잘된 예 · 나쁜 예로 검증하기</span></h2>
+    </div>
+
+    <section>
+      <div class="sec-head">
+        <div class="sec-num">8.1</div>
+        <h2>원칙별 기준과 사례</h2>
+        <p class="sec-desc">1~7장 68개 항목의 적절한 예·잘못된 예를 관통하는 원칙은 결국 <b>일곱 가지</b>입니다. 각 원칙마다 <b>판단 기준을 한 문장</b>으로 정의하고, 그 기준을 통과한 <span class="pill g">적절한 예</span>와 기준을 위반한 <span class="pill" style="color:var(--red);border-color:rgba(255,107,107,.3);background:rgba(255,107,107,.08)">잘못된 예</span>를 대조합니다. 괄호 번호는 본문의 해당 항목.</p>
+      </div>
+
+      <div class="entry" id="p1">
+        <div class="idx">8.1.1</div>
+        <h3>Content-First · Minimization — UI는 콘텐츠를 위해 물러난다</h3>
+        <p class="what">크롬(제목·바·버튼)은 콘텐츠를 돕는 수단이지 주인공이 아님. <b>안 쓰는 순간에는 접히거나 사라져야</b> 함.</p>
+        <div class="rows">
+          <div class="r crit"><div class="k">기준</div><div class="v"><b>"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?"</b> 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.</div></div>
+          <div class="r ok"><div class="k">적절한 예</div><div class="v">① <b>Large 타이틀의 스크롤 축소</b> (1.2.1) — 진입 순간엔 방향감이 과업에 기여하므로 크게, 읽기 시작하면 기여가 끝나므로 inline으로 접혀 공간을 콘텐츠에 반납. "지금 기여하는가" 기준을 순간마다 다시 묻는 동작 ② <b>Overflow 자동 접힘</b> (1.1.7)과 <b>Menu</b> (7.1.1) — 드물게 쓰는 액션은 지금의 과업에 기여할 확률이 낮으므로 접어둠. 기능의 완전성은 유지하면서 화면 점유는 기여도에 비례 ③ <b>searchToolbarBehavior(.minimize)</b> (1.4.6) — 검색이 조연인 화면에서 돋보기 버튼 크기로 접어 한 탭 거리는 유지하되 평소 점유는 최소.</div></div>
+          <div class="r ng"><div class="k">잘못된 예</div><div class="v">① <b>액션이 하나뿐인 화면에 bottom bar 신설</b> (1.1.1 위반) — 하단 바 전체가 상시 세로 공간을 차지하지만 기여하는 건 버튼 하나. "기여하지 않는 순간에도 화면을 점유"하는 기준 위반 ② <b>저빈도 검색 화면에 drawer <code>.always</code></b> (1.4.4 위반) — 대부분의 순간 과업에 기여하지 않는 검색바가 세로 한 줄을 상시 소모 ③ <b>leading·principal·trailing·bottom 전부 채우기</b> (1.1.9 위반) — "자리가 있으니 채운다"는 기준의 정반대.</div></div>
+          <div class="r ref"><div class="k">참고 자료</div><div class="v"><a href="https://developer.apple.com/videos/play/wwdc2025/219/" target="_blank" rel="noopener">WWDC25 — Meet Liquid Glass</a> · <a href="https://developer.apple.com/videos/play/wwdc2025/356/" target="_blank" rel="noopener">WWDC25 — Get to know the new design system</a> · <a href="https://developer.apple.com/design/human-interface-guidelines/toolbars" target="_blank" rel="noopener">Apple HIG — Toolbars</a></div></div>
+        </div>
+      </div>
+
+      <div class="entry" id="p2">
+        <div class="idx">8.1.2</div>
+        <h3>Reachability — 빈도가 높을수록 엄지에 가깝게</h3>
+        <p class="what">큰 화면에서 상단은 한 손으로 닿기 어려움. <b>사용 빈도가 배치 높이를 결정</b>한다는 원칙.</p>
+        <div class="rows">
+          <div class="r crit"><div class="k">기준</div><div class="v"><b>"자주·반복해서 누르는가?"</b> 그렇다면 하단(엄지의 홈 그라운드). 가끔 쓰는 확정성 액션(완료·저장)이라면 상단. 빈도와 높이가 반비례해야 한다.</div></div>
+          <div class="r ok"><div class="k">적절한 예</div><div class="v">① <b>메일의 "새 메일 작성"을 bottom bar에</b> (1.1.4) — 메일함에서 가장 자주 반복되는 액션이므로 기준상 하단이 정답. 실제 iOS 메일 앱의 배치 ② <b>iOS 26의 검색 하단 이동</b> (1.4.1) — 고빈도 기능인 검색이 기존엔 가장 닿기 어려운 상단에 있었음. 빈도-높이 반비례 기준에 맞게 시스템 차원에서 교정한 사례. iPad는 양손 파지 기준으로 상단 trailing — 같은 기준을 기기 인체공학에 맞게 적용.</div></div>
+          <div class="r ng"><div class="k">잘못된 예</div><div class="v">① <b>1회성 "완료" 버튼을 bottom bar에</b> — 완료는 화면당 한 번 누르는 저빈도 확정 액션이므로 기준상 상단 trailing 자리. 하단에 두면 고빈도 자리를 낭비하고, 탭바(이동)와 인접해 역할 혼동까지 유발 (1.1.4 Tip 위반) ② <b>가장 자주 쓰는 액션을 상단 구석에 두고 하단은 비움</b> — 카메라 앱의 셔터를 상단 trailing에 두는 격. 빈도 최상위 컨트롤이 도달성 최하위 위치에 있어 한 손 사용 시 매번 그립을 바꾸게 됨.</div></div>
+          <div class="r ref"><div class="k">참고 자료</div><div class="v"><a href="https://developer.apple.com/design/human-interface-guidelines/navigation-and-search" target="_blank" rel="noopener">Apple HIG — Navigation &amp; search</a> · <a href="https://developer.apple.com/videos/play/wwdc2025/323/" target="_blank" rel="noopener">WWDC25 — Build a SwiftUI app with the new design</a></div></div>
+        </div>
+      </div>
+
+      <div class="entry" id="p3">
+        <div class="idx">8.1.3</div>
+        <h3>위치·묶음의 문법 — 자리와 캡슐 자체가 의미다</h3>
+        <p class="what">leading=이동 · principal=정체성 · trailing=확정 · bottom=빈도. 그리고 <b>같은 유리 캡슐 = 한 세트</b>. 위치와 묶음이 곧 언어.</p>
+        <div class="rows">
+          <div class="r crit"><div class="k">기준</div><div class="v"><b>"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?"</b> 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.</div></div>
+          <div class="r ok"><div class="k">적절한 예</div><div class="v">① <b>"지도/목록" 세그먼트를 principal에</b> (1.1.5) — 이 컨트롤 값에 따라 화면 전체 내용이 바뀌므로 "화면의 정체성"이라는 principal의 문법과 정확히 일치 ② <b>도구 클러스터(leading)와 완료 버튼(trailing)의 분리</b> (1.1.2) — 보기 전환·정렬·필터는 한 캡슐(한 세트=도구), 완료는 별도 단일 캡슐(결정). 캡슐 사이의 빈 공간이 "서로 다른 일"이라는 정보를 전달 (1.1.3).</div></div>
+          <div class="r ng"><div class="k">잘못된 예</div><div class="v">① <b>단순 공유 버튼을 principal에</b> (1.1.5 위반) — 공유는 화면의 정체성이 아니라 부가 액션. 위계상 가장 강한 중앙 자리에 두면 제목까지 사라지면서 "이 화면이 무엇인지"를 말할 장치가 없어짐 ② <b>관계없는 기능들을 한 캡슐에 몰아넣기</b> (1.1.3 위반) — 정렬·공유·설정·삭제를 한 유리 캡슐에 붙이면 사용자는 "한 세트"로 읽음. 묶음이 거짓 정보가 되어 인지 부담 증가 ③ <b>Custom Large Title 자리에 버튼·입력 필드</b> (1.2.6 위반) — 제목 자리는 "화면 정체성" 문법. 인터랙티브 컨트롤을 넣으면 자리의 문법이 깨짐.</div></div>
+          <div class="r ref"><div class="k">참고 자료</div><div class="v"><a href="https://developer.apple.com/design/human-interface-guidelines/toolbars" target="_blank" rel="noopener">Apple HIG — Toolbars</a> · <a href="https://developer.apple.com/videos/play/wwdc2025/356/" target="_blank" rel="noopener">WWDC25 — Get to know the new design system</a></div></div>
+        </div>
+      </div>
+
+      <div class="entry" id="p4">
+        <div class="idx">8.1.4</div>
+        <h3>가독성 &gt; 미학 — 투명함과 읽힘이 충돌하면 읽힘이 이긴다</h3>
+        <p class="what">Liquid Glass의 투명함은 미학이고, 컨트롤이 읽히는 건 기능. <b>충돌 시 우선순위는 항상 가독성·접근성.</b></p>
+        <div class="rows">
+          <div class="r crit"><div class="k">기준</div><div class="v"><b>"최악의 배경(사진·고대비 그래픽) 위에서, 그리고 접근성 설정(큰 글씨·투명도 감소)에서도 읽히고 눌리는가?"</b> 가장 좋은 조건이 아니라 가장 나쁜 조건이 검증 기준이다.</div></div>
+          <div class="r ok"><div class="k">적절한 예</div><div class="v">① <b>사진·영상 위 Hard + Thick Material</b> (1.3.3) — 복잡한 배경에서 반투명 유리의 대비가 부족해지면 투명도(미학)를 포기하고 불투명 배경으로 가독성을 확보. "예쁜데 안 읽힌다"에 대한 공식 탈출구 ② <b>Overflow의 최소 터치 타깃 보장</b> (1.1.7) — 아이템이 많다고 버튼을 무한정 축소하면 손가락 크기 이하로 작아지므로, 시스템이 자동으로 접어 "눌리는가" 기준을 지킴.</div></div>
+          <div class="r ng"><div class="k">잘못된 예</div><div class="v">① <b>사진 피드 화면에서 scroll edge effect를 hidden으로</b> (1.3.4 위반) — 밝은 화면 한 조건에서만 확인하고 끄면, 흰 사진이 바 뒤를 지나는 순간 컨트롤이 사라짐. "최악의 배경에서 검증" 기준을 건너뛴 경우 ② <b>접근성 큰 글씨를 확인하지 않은 lineLimit(1)</b> (2.1.1 위반) — 기본 글자 크기에선 멀쩡해 보여도 Dynamic Type 최대 설정에선 핵심 정보가 첫 어절만 남고 잘림 ③ <b>유리 툴바 위 커스텀 뷰에 불투명 배경색</b> (1.1.8 위반) — 시스템이 배경 대비를 관리하는 유리 위에 임의 배경을 얹으면 재질 계층이 깨지고 다크모드·투명도 감소 설정에서 대비가 예측 불가능해짐.</div></div>
+          <div class="r ref"><div class="k">참고 자료</div><div class="v"><a href="https://developer.apple.com/design/human-interface-guidelines/materials" target="_blank" rel="noopener">Apple HIG — Materials</a> · <a href="https://developer.apple.com/videos/play/wwdc2025/219/" target="_blank" rel="noopener">WWDC25 — Meet Liquid Glass</a></div></div>
+        </div>
+      </div>
+
+      <div class="entry" id="p5">
+        <div class="idx">8.1.5</div>
+        <h3>공간은 계약, 텍스트는 가변 — 의미론이 처리 방식을 정한다</h3>
+        <p class="what">공간은 유한한데 텍스트 길이는 예측 불가. 잘림·축소·예약 중 무엇을 쓸지는 <b>그 텍스트가 "문장"인지 "값"인지</b>가 정한다.</p>
+        <div class="rows">
+          <div class="r crit"><div class="k">기준</div><div class="v"><b>"잘려도 뜻이 통하는가?"</b> 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 <b>안전장치이지 레이아웃 설계 수단이 아니다.</b></div></div>
+          <div class="r ok"><div class="k">적절한 예</div><div class="v">① <b>메일 목록의 본문 2줄 미리보기</b> (2.1.1) — 본문은 문장이라 잘려도 앞부분으로 뜻이 통하고, 전문은 상세 화면이 담당. 목록의 목적(훑기)에 맞게 높이를 계약으로 고정한 정석 ② <b>타이머·금액에 minimumScaleFactor</b> (2.1.3) — "12:34:56"은 잘리는 순간 정보가 파괴되는 "값"이므로 자르지 않고 줄임 ③ <b>파일 경로에 .middle truncation</b> (2.1.2) — 경로는 앞이 공통 접두사라 앞만 보이면 구분 불가. 정보 가치가 양 끝에 있으니 가운데를 접는 것이 기준에 맞는 선택.</div></div>
+          <div class="r ng"><div class="k">잘못된 예</div><div class="v">① <b>금액·타이머를 기본 .tail로 자르기</b> (2.1.3 위반) — "₩1,234,0…"은 뜻이 통하는 게 아니라 틀린 값을 보여주는 것. "잘려도 뜻이 통하는가"에 노(No)인 텍스트에 문장용 해법을 적용한 오류 ② <b>scaleFactor 0.3까지 내려 우겨넣기</b> (2.1.3 위반) — 절반 이하로 줄여야 들어간다면 축소가 아니라 설계 문제. 폭을 늘리거나 표기를 줄이는(1,234,000 → 1.2M) 게 정답 ③ <b>세로 목록 전체에 reservesSpace</b> (2.1.4 위반) — 공간 예약의 목적은 그리드·가로 카드의 균일성. 균일성이 필요 없는 세로 목록에선 짧은 셀마다 빈 공간만 상시 소모.</div></div>
+          <div class="r ref"><div class="k">참고 자료</div><div class="v"><a href="https://developer.apple.com/design/human-interface-guidelines/typography" target="_blank" rel="noopener">Apple HIG — Typography</a></div></div>
+        </div>
+      </div>
+
+      <div class="entry" id="p6">
+        <div class="idx">8.1.6</div>
+        <h3>데이터와 표기의 분리 — 값은 앱이, 표기는 로케일이</h3>
+        <p class="what">단위·이름·날짜의 표기 규칙은 문화권마다 다름. <b>앱은 값만 소유하고 표기는 시스템(FormatStyle)에 위임</b>해야 함.</p>
+        <div class="rows">
+          <div class="r crit"><div class="k">기준</div><div class="v"><b>"데이터를 문자열로 직접 조립하고 있는가? 그 표기 규칙이 문화권마다 다른가?"</b> 둘 다 예스라면 국제화 버그가 이미 심어진 것 — FormatStyle로 옮겨야 한다.</div></div>
+          <div class="r ok"><div class="k">적절한 예</div><div class="v">① <b>Measurement + .measurement 포맷</b> (2.2.1) — 앱은 "5km"라는 문자열이 아니라 거리 값만 소유. 같은 데이터가 한국에선 "5킬로미터", 미국에선 "3.1 miles"로 자동 렌더링 — 값과 표기의 분리 기준 그대로 ② <b>PersonNameComponents + .abbreviated로 아바타 이니셜</b> (2.2.2) — 이니셜 추출 규칙조차 문화권마다 다르므로 직접 substring 하지 않고 시스템에 위임.</div></div>
+          <div class="r ng"><div class="k">잘못된 예</div><div class="v">① <b><code>"\(distance) km"</code> 문자열 조립</b> (2.2.1 위반) — 표기 규칙(단위계)이 문화권마다 다른데 문자열로 굳혔으니 기준의 두 조건을 모두 위반. 미국 사용자에게 킬로미터를 강요하는 국제화 버그 ② <b>"이름 성" 순서 하드코딩</b> (2.2.2 위반) — "\(firstName) \(lastName)"은 홍길동을 "길동 홍"으로 표기. 이름 순서는 데이터가 아니라 문화권 규칙인데 앱이 소유해버린 경우.</div></div>
+          <div class="r ref"><div class="k">참고 자료</div><div class="v"><a href="https://developer.apple.com/documentation/foundation/formatstyle" target="_blank" rel="noopener">Apple Developer Documentation — FormatStyle</a> · <a href="https://developer.apple.com/documentation/foundation/personnamecomponents" target="_blank" rel="noopener">Apple Developer Documentation — PersonNameComponents</a></div></div>
+        </div>
+      </div>
+
+      <div class="entry" id="p7">
+        <div class="idx">8.1.7</div>
+        <h3>직접 조작 — 대상에 대한 액션은 대상 자체에</h3>
+        <p class="what">액션의 대상이 화면에 보인다면, 별도 버튼을 만들어 관계를 유추시키지 말고 <b>대상을 직접 조작하게</b> 한다.</p>
+        <div class="rows">
+          <div class="r crit"><div class="k">기준</div><div class="v"><b>"이 액션의 대상이 화면에 보이는가? 사용자가 버튼과 대상의 관계를 유추해야 하는가?"</b> 대상이 보이는데 유추가 필요하다면, 액션을 대상 위로 옮겨야 한다.</div></div>
+          <div class="r ok"><div class="k">적절한 예</div><div class="v">① <b>toolbarTitleMenu</b> (1.2.5) — 현재 폴더 이름(=대상)이 제목으로 보이므로, 이름변경·전환은 제목을 탭해서. 대상과 액션이 한 몸이라 관계 설명이 필요 없고, 툴바 버튼 하나도 절약 ② <b>인증 코드·주소에 textSelection(.enabled)</b> (2.1.5) — "복사"라는 액션의 대상이 그 텍스트 자체이므로, 별도 복사 버튼 대신 텍스트를 길게 눌러 직접 가져가게 함.</div></div>
+          <div class="r ng"><div class="k">잘못된 예</div><div class="v">① <b>제목 옆에 별도 "폴더 변경" 버튼</b> (1.2.5 위반) — 대상(폴더 제목)이 화면에 보이는데 액션은 떨어진 버튼에 있어, 사용자가 "이 버튼이 저 제목에 대한 것"임을 유추해야 함 ② <b>title menu에 설정·로그아웃 같은 화면 전체 액션</b> (1.2.5 위반) — 제목 메뉴는 "제목이 가리키는 대상"에 대한 액션 자리. 무관한 액션을 넣으면 대상-액션 결합이라는 문법 자체가 거짓이 되어 이후의 모든 title menu를 못 믿게 만듦.</div></div>
+          <div class="r ref"><div class="k">참고 자료</div><div class="v"><a href="https://developer.apple.com/documentation/swiftui/view/toolbartitlemenu(content:)" target="_blank" rel="noopener">Apple Developer Documentation — toolbarTitleMenu</a> · <a href="https://developer.apple.com/design/human-interface-guidelines/toolbars" target="_blank" rel="noopener">Apple HIG — Toolbars</a></div></div>
+        </div>
+      </div>
+    </section>
+
     <div class="footer" id="refs">
-      <b>SwiftUI Toolbar · Text · Tab Bar · Sheets · Safe Area Bar · System Materials · Menu — 목차 68개 항목 전체 주석</b><br>
+      <b>SwiftUI Toolbar · Text · Tab Bar · Sheets · Safe Area Bar · System Materials · Menu — 목차 68개 항목 전체 주석 + 디자인 원칙 7</b><br>
       본문 기준: iOS 26 (WWDC25) · <span style="color:var(--amber)">iOS 27 업데이트</span> 행: WWDC26 발표 및 iOS 27 베타·보도 기준 · 최종 업데이트 2026-07-17<br>
       이 문서의 텍스트는 아래 출처들을 AI(Claude)가 종합·재구성한 것입니다. 원문 인용이 아니므로 정확한 문구는 출처를 확인하세요.
 
