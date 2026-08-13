@@ -200,9 +200,22 @@
   .pager .pg-info{color:var(--dim);font-size:12px;white-space:nowrap}
   .brand{cursor:pointer}
   @media (max-width:900px){.pg-hide{display:revert!important}.pager{display:none}}
+
+  /* ===== 언어 토글 / language toggle ===== */
+  .lang-tgl{
+    position:fixed;top:14px;right:14px;z-index:60;display:inline-flex;align-items:center;gap:6px;
+    background:rgba(20,24,32,.85);backdrop-filter:blur(8px);border:1px solid var(--line);
+    color:var(--muted);font-family:inherit;font-size:12px;font-weight:700;letter-spacing:.4px;
+    padding:7px 11px;border-radius:10px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:.15s
+  }
+  .lang-tgl:hover{color:var(--text);border-color:var(--accent)}
+  .lang-tgl .on{color:var(--accent)}
+  .lang-tgl .sep{color:var(--dim);font-weight:400}
+  @media (max-width:900px){.lang-tgl{top:10px;right:10px;padding:6px 9px;font-size:11px}}
 </style>
 </head>
 <body>
+<button class="lang-tgl" id="langTgl" type="button" aria-label="한국어 / English"><span data-lang-ko>한국어</span><span class="sep">·</span><span data-lang-en>EN</span></button>
 <button class="sb-open" id="sbOpen" type="button" aria-label="네비게이션 펼치기">☰</button>
 <div class="wrap">
   <aside class="sidebar">
@@ -1750,7 +1763,111 @@
     </div>
   </main>
 </div>
+<script src="i18n-en.js"></script>
 <script>
+  // ===== 언어 전환 (?lang=en · 토글 · localStorage) =====
+  window.HG=(function(){
+    const EN=window.I18N_EN||{};
+    const orig=new Map();
+    const KO_TITLE=document.title;
+    const KEYS=['when','why','tip','ok','ng','u27','crit','ref'];
+    const qa=(s,r)=>[...(r||document).querySelectorAll(s)];
+
+    function setHTML(node,html){
+      if(!node||html==null)return;
+      if(!orig.has(node))orig.set(node,node.innerHTML);
+      node.innerHTML=html;
+    }
+    function setAttr(node,name,val){
+      if(!node||val==null)return;
+      const k=node.__i18nAttr||(node.__i18nAttr={});
+      if(!(name in k))k[name]=node.getAttribute(name);
+      node.setAttribute(name,val);
+    }
+    function restore(){
+      orig.forEach((html,node)=>{node.innerHTML=html;});
+      orig.clear();
+      qa('[aria-label]').forEach(n=>{
+        const k=n.__i18nAttr;
+        if(k)Object.keys(k).forEach(a=>{k[a]==null?n.removeAttribute(a):n.setAttribute(a,k[a]);delete k[a];});
+      });
+      document.title=KO_TITLE;
+    }
+
+    function applyEN(){
+      const d=EN;
+      if(!d||!d.entries)return false;
+      const meta=d.meta||{};
+      if(meta.title)document.title=meta.title;
+      setHTML(document.querySelector('.brand'),meta.brand);
+      setHTML(document.querySelector('.brand-sub'),meta.brandSub);
+      setHTML(document.querySelector('#top .kicker'),meta.kicker);
+      setHTML(document.querySelector('#top h1'),meta.h1);
+      setHTML(document.querySelector('#top .lede'),meta.lede);
+      setHTML(document.getElementById('refs'),meta.refs);
+      Object.entries(meta.aria||{}).forEach(([sel,v])=>setAttr(document.querySelector(sel),'aria-label',v));
+
+      Object.entries(d.labels||{}).forEach(([k,v])=>qa('.r.'+k+'>.k').forEach(n=>setHTML(n,v)));
+      Object.entries(d.nav||{}).forEach(([href,v])=>qa('a[href="'+href+'"]').forEach(a=>setHTML(a,v)));
+      Object.entries(d.navTitles||{}).forEach(([ko,v])=>qa('.nav-title').forEach(n=>{if(n.textContent.trim()===ko)setHTML(n,v);}));
+
+      Object.entries(d.ch||{}).forEach(([id,v])=>{
+        const el=document.getElementById(id);
+        if(el)setHTML(el.querySelector('h2'),v);
+      });
+      qa('.sec-head').forEach(h=>{
+        const num=h.querySelector('.sec-num');
+        const v=(d.sec||{})[num?num.textContent.trim():''];
+        if(!v)return;
+        setHTML(h.querySelector('h2'),v.h2);
+        setHTML(h.querySelector('.sec-desc'),v.desc);
+      });
+      Object.entries(d.entries).forEach(([id,e])=>{
+        const el=document.getElementById(id);
+        if(!el)return;
+        setHTML(el.querySelector('h3'),e.h3);
+        setHTML(el.querySelector('.what'),e.what);
+        KEYS.forEach(k=>{if(e[k])setHTML(el.querySelector('.r.'+k+'>.v'),e[k]);});
+        if(e.cap){const caps=qa('figcaption',el);e.cap.forEach((c,i)=>{if(caps[i])setHTML(caps[i],c);});}
+      });
+      return true;
+    }
+
+    let lang='ko',applied=false;
+    const tgl=document.getElementById('langTgl');
+    function setLang(l,syncURL){
+      const next=(l==='en'&&EN.entries)?'en':'ko';
+      if(next==='en'&&!applied)applied=applyEN();
+      else if(next==='ko'&&applied){restore();applied=false;}
+      lang=applied?'en':'ko';
+      document.documentElement.lang=lang;
+      if(tgl){
+        const ko=tgl.querySelector('[data-lang-ko]'),en=tgl.querySelector('[data-lang-en]');
+        if(ko)ko.classList.toggle('on',lang==='ko');
+        if(en)en.classList.toggle('on',lang==='en');
+      }
+      try{localStorage.setItem('hgLang',lang);}catch(e){}
+      if(syncURL!==false){
+        try{
+          const u=new URL(location.href);
+          if(lang==='en')u.searchParams.set('lang','en');else u.searchParams.delete('lang');
+          history.replaceState(null,'',u.pathname+u.search+u.hash);
+        }catch(e){}
+      }
+      document.dispatchEvent(new CustomEvent('hg:lang',{detail:lang}));
+    }
+    function initial(){
+      let p=null;
+      try{p=new URLSearchParams(location.search).get('lang');}catch(e){}
+      if(p==='en'||p==='ko')return p;
+      try{const s=localStorage.getItem('hgLang');if(s==='en'||s==='ko')return s;}catch(e){}
+      return 'ko';
+    }
+    if(tgl)tgl.addEventListener('click',()=>setLang(lang==='en'?'ko':'en'));
+    setLang(initial());
+    return {get lang(){return lang;},set:setLang,t:(ko,en)=>lang==='en'?en:ko};
+  })();
+
   const links=[...document.querySelectorAll('.nav-list a')];
   const map=new Map();
   links.forEach(l=>{const id=l.getAttribute('href').slice(1);const el=document.getElementById(id);if(el)map.set(el,l);});
@@ -1804,8 +1921,8 @@
   const pgPrev=document.getElementById('pgPrev'),pgNext=document.getElementById('pgNext'),pgInfo=document.getElementById('pgInfo');
 
   function titleOf(id){
-    if(id==='top')return '개요';
-    if(id==='refs')return '참고자료';
+    if(id==='top')return HG.t('개요','Overview');
+    if(id==='refs')return HG.t('참고자료','References');
     const e=document.getElementById(id);
     const idx=e.querySelector('.idx'),h=e.querySelector('h3');
     return (idx?idx.textContent+' ':'')+(h?h.childNodes[0].textContent.trim():'');
@@ -1857,6 +1974,7 @@
     if(location.hash==='#'+id)route();else location.hash=id;
   });
   window.addEventListener('hashchange',route);
+  document.addEventListener('hg:lang',()=>{if(!isMobile())cur=showPage(cur);});
   if(!isMobile())route();
 </script>
 </body>
