@@ -1,0 +1,14 @@
+.DS_Store
+
+# XcodeGen이 project.yml에서 생성하므로 추적하지 않는다
+HigGymApp/HigGym.xcodeproj/
+
+# 빌드 산출물
+HigGymApp/build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+
+# 파이썬 캐시
+__pycache__/
+*.pyc

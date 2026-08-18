@@ -1,0 +1,3432 @@
+{
+  "generatedFrom": "toolbar-annotated.html + Tools/mistakes_data.py",
+  "categories": [
+    {
+      "id": "clutter",
+      "title": "군더더기",
+      "desc": "지워도 아무도 못 하게 되는 일이 없는 것이 화면을 차지하고 있다",
+      "principle": "8.1.1",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다."
+    },
+    {
+      "id": "reach",
+      "title": "손이 안 닿는 자리",
+      "desc": "자주 누르는 것이 엄지에서 먼 곳에 있다",
+      "principle": "8.1.2",
+      "criterion": "**\"자주·반복해서 누르는가?\"** 그렇다면 하단(엄지의 홈 그라운드). 가끔 쓰는 확정성 액션(완료·저장)이라면 상단. 빈도와 높이가 반비례해야 한다."
+    },
+    {
+      "id": "grammar",
+      "title": "자리·묶음의 거짓말",
+      "desc": "자리와 캡슐이 실제와 다른 의미를 말하고 있다",
+      "principle": "8.1.3",
+      "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다."
+    },
+    {
+      "id": "legible",
+      "title": "안 읽힘",
+      "desc": "최악의 배경·설정에서 컨트롤이나 글자가 읽히지 않는다",
+      "principle": "8.1.4",
+      "criterion": "**\"최악의 배경(사진·고대비 그래픽) 위에서, 그리고 접근성 설정(큰 글씨·투명도 감소)에서도 읽히고 눌리는가?\"** 가장 좋은 조건이 아니라 가장 나쁜 조건이 검증 기준이다."
+    },
+    {
+      "id": "text",
+      "title": "글자가 깨짐",
+      "desc": "레이아웃이 텍스트가 변한다는 사실을 계산에 넣지 않았다",
+      "principle": "8.1.5",
+      "criterion": "**\"잘려도 뜻이 통하는가?\"** 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 **안전장치이지 레이아웃 설계 수단이 아니다.**"
+    },
+    {
+      "id": "locale",
+      "title": "표기를 앱이 소유",
+      "desc": "값과 표기를 한 문자열에 담아 문화권 규칙을 앱이 정해버렸다",
+      "principle": "8.1.6",
+      "criterion": "**\"데이터를 문자열로 직접 조립하고 있는가? 그 표기 규칙이 문화권마다 다른가?\"** 둘 다 예스라면 국제화 버그가 이미 심어진 것 — FormatStyle로 옮겨야 한다."
+    },
+    {
+      "id": "direct",
+      "title": "대상과 액션이 떨어짐",
+      "desc": "액션이 그 대상 위에 있지 않아 대상을 두 번 지정하게 만든다",
+      "principle": "8.1.7",
+      "criterion": "**\"이 액션의 대상이 화면에 보이는가? 사용자가 버튼과 대상의 관계를 유추해야 하는가?\"** 대상이 보이는데 유추가 필요하다면, 액션을 대상 위로 옮겨야 한다."
+    },
+    {
+      "id": "structure",
+      "title": "구조가 거짓말을 함",
+      "desc": "이동 구조가 실제 사용 빈도·목적지와 어긋난다",
+      "principle": "",
+      "criterion": ""
+    }
+  ],
+  "mistakes": [
+    {
+      "id": "m001",
+      "number": 1,
+      "title": "자리가 비어 보인다고 장식 버튼을 채운다",
+      "why": "툴바가 휑하면 미완성처럼 보인다. 공유·별표처럼 '있으면 좋은' 것을 넣어 균형을 맞추고 싶어진다.",
+      "fix": "액션이 하나면 캡슐도 하나로 둔다. 빈 자리는 실패가 아니라 콘텐츠의 자리다.",
+      "category": "clutter",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "1.1.1",
+          "title": "Single Trailing Item",
+          "entryID": "i1"
+        },
+        {
+          "index": "1.1.9",
+          "title": "Mixed Toolbar Items",
+          "entryID": "i9"
+        },
+        {
+          "index": "8.1.1",
+          "title": "Content-First · Minimization — UI는 콘텐츠를 위해 물러난다",
+          "entryID": "p1"
+        }
+      ],
+      "demoEntryID": "i1",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m002",
+      "number": 2,
+      "title": "유일한 액션을 시스템 자리 대신 플로팅 버튼으로 띄운다",
+      "why": "시스템 툴바보다 눈에 띄고 브랜드 색을 입히기도 좋아 보인다.",
+      "fix": "시스템이 정해둔 trailing 자리에 둔다. 사용자는 이미 그 자리를 찾을 줄 안다.",
+      "category": "grammar",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.",
+      "sources": [
+        {
+          "index": "1.1.1",
+          "title": "Single Trailing Item",
+          "entryID": "i1"
+        }
+      ],
+      "demoEntryID": "i1",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m003",
+      "number": 3,
+      "title": "성격이 다른 액션을 한 캡슐에 묶는다",
+      "why": "개수가 맞아 보기 좋고, 어차피 같은 툴바 안이니 한 덩어리로 정리하는 게 깔끔해 보인다.",
+      "fix": "묶음은 곧 '한 세트'라는 선언이다. 도구는 도구끼리, 확정 액션은 따로 떼어 놓는다.",
+      "category": "grammar",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.",
+      "sources": [
+        {
+          "index": "1.1.2",
+          "title": "Leading Cluster and Trailing Item",
+          "entryID": "i2"
+        },
+        {
+          "index": "1.1.3",
+          "title": "Leading and Trailing Clusters",
+          "entryID": "i3"
+        },
+        {
+          "index": "8.1.3",
+          "title": "위치·묶음의 문법 — 자리와 캡슐 자체가 의미다",
+          "entryID": "p3"
+        }
+      ],
+      "demoEntryID": "i2",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": [
+        {
+          "heading": "증상",
+          "body": "삭제 사고가 유독 이 화면에서만 났다. 로그를 보면 사용자는 정렬을 누르려다 삭제를 눌렀다. 버튼은 충분히 컸고, 라벨도 정확했고, 아이콘도 표준이었다. 그런데도 틀린 것을 눌렀다."
+        },
+        {
+          "heading": "그때는 왜 그게 맞아 보였나",
+          "body": "툴바 아이템이 셋이었다. 셋을 한 그룹으로 묶으면 캡슐 하나로 깔끔하게 떨어지고, 좌우 균형도 맞는다. 어차피 다 같은 화면의 툴바 안이니 한 덩어리로 정리하는 게 정돈된 설계라고 생각했다. 리뷰에서도 아무도 문제 삼지 않았다 — 보기에 좋았으니까."
+        },
+        {
+          "heading": "무엇이 부러졌나",
+          "body": "Liquid Glass에서 **한 캡슐 안에 있다는 것 자체가 정보**다. 사용자는 라벨을 하나씩 읽고 판단하지 않는다. 묶음을 먼저 보고 \"이건 한 세트\"라고 읽은 다음, 그 안에서는 대충 손을 뻗는다. 삭제를 정렬·격자와 같은 캡슐에 넣은 순간 우리는 \"이 셋은 서로 바꿔 눌러도 괜찮은 것들\"이라고 말한 셈이 됐다. 사용자는 그 말을 믿었을 뿐이다."
+        },
+        {
+          "heading": "기준",
+          "body": "이 컨트롤의 역할이 그 자리의 문법과 일치하는가? **한 캡슐에 묶인 것들이 정말 한 세트인가?** 묶음은 시각적 정리가 아니라 의미의 선언이다."
+        },
+        {
+          "heading": "고친 뒤",
+          "body": "기능은 하나도 빼지 않았다. 보기 전환과 정렬은 leading 묶음으로, 삭제는 trailing 메뉴 안 구분선 아래로 옮기고 `role: .destructive`를 줬다. 버튼 개수도, 화면도 그대로다. 달라진 건 묶는 방법뿐인데 오탭 신고가 사라졌다."
+        },
+        {
+          "heading": "남는 것",
+          "body": "캡슐을 그릴 때마다 묻는다. \"이 안의 것들을 사용자가 한 세트로 읽어도 사실인가?\" 아니라면 예쁘게 떨어지더라도 나눈다."
+        }
+      ]
+    },
+    {
+      "id": "m004",
+      "number": 4,
+      "title": "push된 상세 화면의 leading에 클러스터를 둔다",
+      "why": "루트 화면에서 잘 동작하던 배치를 상세 화면에도 그대로 복사한다.",
+      "fix": "leading은 뒤로가기가 선점한 자리다. 상세에서는 trailing이나 하단으로 옮긴다.",
+      "category": "grammar",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.",
+      "sources": [
+        {
+          "index": "1.1.2",
+          "title": "Leading Cluster and Trailing Item",
+          "entryID": "i2"
+        }
+      ],
+      "demoEntryID": "i2",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m005",
+      "number": 5,
+      "title": "같은 기능을 두 자리에 중복 배치한다",
+      "why": "어디서든 닿게 해주는 게 친절이라고 생각한다.",
+      "fix": "한 기능은 한 자리에. 두 자리에 있으면 두 기능처럼 읽힌다.",
+      "category": "clutter",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "1.1.3",
+          "title": "Leading and Trailing Clusters",
+          "entryID": "i3"
+        },
+        {
+          "index": "1.1.9",
+          "title": "Mixed Toolbar Items",
+          "entryID": "i9"
+        }
+      ],
+      "demoEntryID": "i3",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m006",
+      "number": 6,
+      "title": "한 달에 한 번 쓸 설정을 하단 바에 둔다",
+      "why": "하단이 누르기 편하다는 말을 '중요한 걸 아래로'로 옮겨 읽는다.",
+      "fix": "기준은 중요도가 아니라 빈도다. 자주 누르는 것만 아래로 내린다.",
+      "category": "reach",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"자주·반복해서 누르는가?\"** 그렇다면 하단(엄지의 홈 그라운드). 가끔 쓰는 확정성 액션(완료·저장)이라면 상단. 빈도와 높이가 반비례해야 한다.",
+      "sources": [
+        {
+          "index": "1.1.4",
+          "title": "Single Bottom Item",
+          "entryID": "i4"
+        }
+      ],
+      "demoEntryID": "i4",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m007",
+      "number": 7,
+      "title": "삭제 같은 파괴적 액션을 가장 누르기 쉬운 하단에 단독으로 둔다",
+      "why": "자주 쓰는 액션이라는 데이터를 보고 도달성 기준을 그대로 적용한다.",
+      "fix": "되돌릴 수 없는 액션은 일부러 한 단계 멀리 둔다. 도달성은 무해한 액션에만 적용한다.",
+      "category": "reach",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "**\"자주·반복해서 누르는가?\"** 그렇다면 하단(엄지의 홈 그라운드). 가끔 쓰는 확정성 액션(완료·저장)이라면 상단. 빈도와 높이가 반비례해야 한다.",
+      "sources": [
+        {
+          "index": "1.1.4",
+          "title": "Single Bottom Item",
+          "entryID": "i4"
+        }
+      ],
+      "demoEntryID": "i4",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": [
+        {
+          "heading": "증상",
+          "body": "\"복구해 주세요\"라는 문의가 늘었다. 대부분 같은 문장으로 시작했다. \"누른 적 없는데 지워졌어요.\" 재현이 안 돼서 한동안 사용자 착각으로 분류했다."
+        },
+        {
+          "heading": "그때는 왜 그게 맞아 보였나",
+          "body": "이벤트 로그상 삭제는 이 화면에서 세 번째로 많이 쓰는 액션이었다. 빈도가 높을수록 엄지에 가깝게 — 우리가 방금 배운 기준을 그대로 적용했다. 하단 바에 삭제 하나만 두니 화면도 단순해졌다. 기준을 지켰다고 생각했다."
+        },
+        {
+          "heading": "무엇이 부러졌나",
+          "body": "도달성 기준에는 말하지 않은 전제가 있었다. **잘못 눌러도 되는 액션**에만 해당한다는 것. 하단은 스크롤하다가, 앱을 쥐다가, 주머니에서 꺼내다가 엄지가 지나가는 자리다. 그 자리에 되돌릴 수 없는 액션을 두면 빈도가 높은 만큼 사고도 자주 난다. 우리는 빈도만 보고 결과의 무게를 보지 않았다."
+        },
+        {
+          "heading": "기준",
+          "body": "자주·반복해서 누르는가? 그렇다면 하단. 단 **되돌릴 수 있는가**를 함께 묻는다. 되돌릴 수 없는 액션은 일부러 한 단계 멀리 둔다."
+        },
+        {
+          "heading": "고친 뒤",
+          "body": "하단은 새 메일 작성이 가져갔다 — 이쪽이 진짜 고빈도였다. 삭제는 행을 왼쪽으로 미는 스와이프로 옮겼다. 대상 위에서 일어나니 무엇을 지우는지도 분명해졌다. 오삭제 문의는 다음 배포에서 거의 사라졌고, 삭제 자체의 사용량은 줄지 않았다."
+        },
+        {
+          "heading": "남는 것",
+          "body": "\"자주 쓴다\"는 데이터는 자리를 정해주지 않는다. **자주 쓰는데 잘못 눌러도 되는가**까지 물어야 자리가 나온다."
+        }
+      ]
+    },
+    {
+      "id": "m008",
+      "number": 8,
+      "title": "화면 정체성과 무관한 버튼을 정중앙(principal)에 둔다",
+      "why": "가장 잘 보이는 자리이니 가장 중요한 버튼을 두는 게 맞다고 생각한다.",
+      "fix": "중앙은 '이 화면이 무엇인가'를 말하는 자리다. 액션이 아니라 화면을 정의하는 컨트롤만 둔다.",
+      "category": "grammar",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.",
+      "sources": [
+        {
+          "index": "1.1.5",
+          "title": "Single Principal Item",
+          "entryID": "i5"
+        },
+        {
+          "index": "8.1.3",
+          "title": "위치·묶음의 문법 — 자리와 캡슐 자체가 의미다",
+          "entryID": "p3"
+        }
+      ],
+      "demoEntryID": "i5",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m009",
+      "number": 9,
+      "title": "브랜드 로고를 제목 자리에 넣고 제목을 없앤다",
+      "why": "모든 화면에 브랜드를 노출하고 싶다는 요구를 제목 자리로 해결한다.",
+      "fix": "로고는 진입 화면 한 곳이면 충분하다. 나머지 화면은 지금 어디인지를 말해야 한다.",
+      "category": "clutter",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "1.1.5",
+          "title": "Single Principal Item",
+          "entryID": "i5"
+        }
+      ],
+      "demoEntryID": "i5",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m010",
+      "number": 10,
+      "title": "넓은 세그먼트와 trailing 버튼 셋을 한 줄에 함께 넣는다",
+      "why": "각각은 다 필요한 것들이라 넣고 보면 어떻게든 들어갈 거라 생각한다.",
+      "fix": "한 줄의 폭은 유한한 계약이다. 중앙이 넓으면 trailing은 아이콘 하나로 절제한다.",
+      "category": "text",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"잘려도 뜻이 통하는가?\"** 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 **안전장치이지 레이아웃 설계 수단이 아니다.**",
+      "sources": [
+        {
+          "index": "1.1.6",
+          "title": "Principal and Trailing Item",
+          "entryID": "i6"
+        },
+        {
+          "index": "1.2.4",
+          "title": "Inline with 5 Toolbar Items",
+          "entryID": "t4"
+        }
+      ],
+      "demoEntryID": "i6",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m011",
+      "number": 11,
+      "title": "자주 쓰는 액션이 선언 순서 탓에 overflow로 접힌다",
+      "why": "아이템을 만든 순서대로 코드에 적었을 뿐 우선순위를 따로 생각하지 않는다.",
+      "fix": "선언 순서가 곧 우선순위다. 접혀도 되는 것을 뒤로 보낸다.",
+      "category": "structure",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "1.1.7",
+          "title": "Trailing Overflowing Cluster",
+          "entryID": "i7"
+        }
+      ],
+      "demoEntryID": "i7",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": [
+        {
+          "heading": "증상",
+          "body": "문서 편집 화면에서 저장 사용량이 절반으로 떨어졌다. 기능은 그대로였고 버그도 없었다. 사용자 세션을 보니 저장을 하려고 ⋯ 메뉴를 열고 있었다. 한 단계가 더 생긴 것이다."
+        },
+        {
+          "heading": "그때는 왜 그게 맞아 보였나",
+          "body": "툴바 아이템을 코드에 적을 때 만들어진 순서대로 적었다. 별표, 깃발, 프린트를 먼저 붙였고 저장은 나중에 추가된 기능이라 뒤에 붙였다. 시뮬레이터에서는 다 보였다 — 큰 기기에서 개발했으니까."
+        },
+        {
+          "heading": "무엇이 부러졌나",
+          "body": "폭이 모자라면 시스템은 **뒤쪽부터** ⋯ 안으로 접는다. 그러니 선언 순서가 곧 우선순위 선언이다. 우리는 우선순위를 정한 적이 없다고 생각했지만, 코드를 적는 순간 이미 정해버렸다. 게다가 접히는 지점은 기기 폭·글자 크기·언어에 따라 달라져서, 한 기기에서 멀쩡하면 문제를 못 만난다."
+        },
+        {
+          "heading": "기준",
+          "body": "접기는 시스템이 최소 터치 크기를 지키는 방식이다. 막을 게 아니라 **무엇이 접혀도 되는지 먼저 정한다**."
+        },
+        {
+          "heading": "고친 뒤",
+          "body": "저장과 이동을 앞으로 보내고 별표·깃발·프린트를 뒤로 돌렸다. 아이템 개수는 그대로 다섯이다. 좁은 기기에서는 여전히 셋이 접히지만, 접히는 게 어쩌다 쓰는 것들로 바뀌었다. 저장 사용량은 원래대로 돌아왔다."
+        },
+        {
+          "heading": "남는 것",
+          "body": "툴바 배열을 적을 때 순서를 한 번 더 본다. 그 순서가 \"무엇을 포기할 것인가\"에 대한 답이기 때문이다."
+        }
+      ]
+    },
+    {
+      "id": "m012",
+      "number": 12,
+      "title": "overflow를 피하려고 아이콘을 우겨넣어 터치 타깃을 줄인다",
+      "why": "메뉴 안에 숨는 순간 아무도 못 찾을 것 같아 전부 노출하려 한다.",
+      "fix": "시스템이 접는 건 최소 터치 크기를 지키려는 것이다. 접히게 두고 순서를 설계한다.",
+      "category": "reach",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "**\"자주·반복해서 누르는가?\"** 그렇다면 하단(엄지의 홈 그라운드). 가끔 쓰는 확정성 액션(완료·저장)이라면 상단. 빈도와 높이가 반비례해야 한다.",
+      "sources": [
+        {
+          "index": "1.1.7",
+          "title": "Trailing Overflowing Cluster",
+          "entryID": "i7"
+        }
+      ],
+      "demoEntryID": "i7",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m013",
+      "number": 13,
+      "title": "유리 툴바 위 커스텀 뷰에 불투명 배경색을 깐다",
+      "why": "배경이 비쳐서 안 읽히길래 색을 깔아 대비를 직접 확보한다.",
+      "fix": "대비는 시스템 재료에 맡긴다. 임의 배경은 다크모드·투명도 감소 설정에서 예측을 잃는다.",
+      "category": "legible",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"최악의 배경(사진·고대비 그래픽) 위에서, 그리고 접근성 설정(큰 글씨·투명도 감소)에서도 읽히고 눌리는가?\"** 가장 좋은 조건이 아니라 가장 나쁜 조건이 검증 기준이다.",
+      "sources": [
+        {
+          "index": "1.1.8",
+          "title": "Custom Views in Bottom Toolbar",
+          "entryID": "i8"
+        },
+        {
+          "index": "8.1.4",
+          "title": "가독성 > 미학 — 투명함과 읽힘이 충돌하면 읽힘이 이긴다",
+          "entryID": "p4"
+        }
+      ],
+      "demoEntryID": "i8",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m014",
+      "number": 14,
+      "title": "시스템 바 자리에 광고·프로모션을 얹는다",
+      "why": "사용자 눈이 가장 오래 머무는 자리라 노출 지표가 잘 나온다.",
+      "fix": "하단 바는 조작을 위한 콕핏이다. 프로모션은 콘텐츠 흐름 안으로 넣는다.",
+      "category": "grammar",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.",
+      "sources": [
+        {
+          "index": "1.1.8",
+          "title": "Custom Views in Bottom Toolbar",
+          "entryID": "i8"
+        },
+        {
+          "index": "3.5.1",
+          "title": "3 Tab Items",
+          "entryID": "ta1"
+        }
+      ],
+      "demoEntryID": "i8",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m015",
+      "number": 15,
+      "title": "네 자리를 다 채우는 것이 완성이라고 생각한다",
+      "why": "leading·principal·trailing·bottom이 준비돼 있으니 비워두면 기능을 덜 쓴 것 같다.",
+      "fix": "쓰지 않은 자리는 낭비가 아니라 절제다. 한 자리를 쓸 때마다 근거를 요구한다.",
+      "category": "clutter",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "1.1.9",
+          "title": "Mixed Toolbar Items",
+          "entryID": "i9"
+        },
+        {
+          "index": "8.1.1",
+          "title": "Content-First · Minimization — UI는 콘텐츠를 위해 물러난다",
+          "entryID": "p1"
+        }
+      ],
+      "demoEntryID": "i9",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m016",
+      "number": 16,
+      "title": "깊이와 무관하게 모든 화면의 제목 크기를 똑같이 쓴다",
+      "why": "화면마다 다르면 들쭉날쭉해 보여서, 하나로 통일하는 게 일관성이라고 생각한다.",
+      "fix": "제목 크기가 곧 깊이 신호다. 루트는 크게, 상세는 작게 — 일관성은 규칙에 있지 값에 있지 않다.",
+      "category": "structure",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "1.2.1",
+          "title": "Large",
+          "entryID": "t1"
+        },
+        {
+          "index": "1.2.2",
+          "title": "Inline Large",
+          "entryID": "t2"
+        }
+      ],
+      "demoEntryID": "t1",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Get to know the new design system",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/356/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m017",
+      "number": 17,
+      "title": "대화·피드처럼 콘텐츠가 급한 화면에 대형 제목을 쓴다",
+      "why": "기본값이니까 그대로 둔다.",
+      "fix": "첫 화면부터 콘텐츠가 밀린다면 inline로 내린다. 기본값도 선택이다.",
+      "category": "clutter",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "1.2.1",
+          "title": "Large",
+          "entryID": "t1"
+        }
+      ],
+      "demoEntryID": "t1",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Get to know the new design system",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/356/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m018",
+      "number": 18,
+      "title": "축소 애니메이션이 거슬려서 전 화면을 inlineLarge로 고정한다",
+      "why": "스크롤할 때마다 제목이 줄어드는 게 산만해 보인다.",
+      "fix": "그 축소가 '콘텐츠를 보는 중'이라는 신호다. 끄려면 대신 무엇이 깊이를 말할지 정한다.",
+      "category": "structure",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "1.2.2",
+          "title": "Inline Large",
+          "entryID": "t2"
+        }
+      ],
+      "demoEntryID": "t2",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Get to know the new design system",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/356/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m019",
+      "number": 19,
+      "title": "제목이 계속 잘리는데 문구를 다듬지 않는다",
+      "why": "기획서에 적힌 이름이라 손대면 안 되는 값이라고 여긴다.",
+      "fix": "제목은 UI 문자열이다. 잘리는 이름은 이름이 잘못된 것이다.",
+      "category": "text",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"잘려도 뜻이 통하는가?\"** 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 **안전장치이지 레이아웃 설계 수단이 아니다.**",
+      "sources": [
+        {
+          "index": "1.2.3",
+          "title": "Inline",
+          "entryID": "t3"
+        },
+        {
+          "index": "1.2.4",
+          "title": "Inline with 5 Toolbar Items",
+          "entryID": "t4"
+        }
+      ],
+      "demoEntryID": "t3",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Get to know the new design system",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/356/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m020",
+      "number": 20,
+      "title": "아이템 다섯 개를 다 노출하려고 내비바를 직접 구현한다",
+      "why": "시스템이 접어버리니 커스텀으로 만들면 전부 보여줄 수 있다.",
+      "fix": "시스템 바를 다시 만드는 순간 접근성·회전·Dynamic Type을 전부 떠안는다. 개수를 줄인다.",
+      "category": "structure",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "1.2.4",
+          "title": "Inline with 5 Toolbar Items",
+          "entryID": "t4"
+        }
+      ],
+      "demoEntryID": "t4",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Get to know the new design system",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/356/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m021",
+      "number": 21,
+      "title": "제목 메뉴에 화면과 무관한 전역 설정을 넣는다",
+      "why": "어느 화면에서나 설정에 가고 싶어서 늘 보이는 제목에 붙인다.",
+      "fix": "제목 메뉴는 '제목이 가리키는 대상'의 액션 자리다. 무관한 것을 넣으면 그 문법 자체를 못 믿게 된다.",
+      "category": "direct",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 액션의 대상이 화면에 보이는가? 사용자가 버튼과 대상의 관계를 유추해야 하는가?\"** 대상이 보이는데 유추가 필요하다면, 액션을 대상 위로 옮겨야 한다.",
+      "sources": [
+        {
+          "index": "1.2.5",
+          "title": "Inline with Toolbar Title Menu",
+          "entryID": "t5"
+        },
+        {
+          "index": "8.1.7",
+          "title": "직접 조작 — 대상에 대한 액션은 대상 자체에",
+          "entryID": "p7"
+        }
+      ],
+      "demoEntryID": "t5",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Get to know the new design system",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/356/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m022",
+      "number": 22,
+      "title": "표시(⌄) 없이 제목을 탭 가능하게 만든다",
+      "why": "화살표가 없어야 화면이 깔끔하다.",
+      "fix": "누를 수 있다는 사실은 스스로 말해야 한다. 아무도 누르지 않는 기능은 없는 기능이다.",
+      "category": "grammar",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.",
+      "sources": [
+        {
+          "index": "1.2.5",
+          "title": "Inline with Toolbar Title Menu",
+          "entryID": "t5"
+        }
+      ],
+      "demoEntryID": "t5",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Get to know the new design system",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/356/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m023",
+      "number": 23,
+      "title": "타이틀 자리에 검색창·버튼까지 넣어 미니 대시보드를 만든다",
+      "why": "상단은 늘 보이니 중요한 걸 모아두면 편할 거라 생각한다.",
+      "fix": "제목 자리는 정체성을 말하는 자리다. 조작 장치는 툴바·콘텐츠 영역으로 내린다.",
+      "category": "grammar",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.",
+      "sources": [
+        {
+          "index": "1.2.6",
+          "title": "Custom Large Title",
+          "entryID": "t6"
+        },
+        {
+          "index": "8.1.3",
+          "title": "위치·묶음의 문법 — 자리와 캡슐 자체가 의미다",
+          "entryID": "p3"
+        }
+      ],
+      "demoEntryID": "t6",
+      "refs": [
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        },
+        {
+          "title": "WWDC25 — Get to know the new design system",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/356/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m024",
+      "number": 24,
+      "title": "표·그리드처럼 구획이 중요한 화면에 soft를 쓴다",
+      "why": "부드러운 페이드가 더 세련돼 보인다.",
+      "fix": "경계가 정보인 화면에서는 hard로 어디까지가 콘텐츠인지 분명히 한다.",
+      "category": "legible",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "**\"최악의 배경(사진·고대비 그래픽) 위에서, 그리고 접근성 설정(큰 글씨·투명도 감소)에서도 읽히고 눌리는가?\"** 가장 좋은 조건이 아니라 가장 나쁜 조건이 검증 기준이다.",
+      "sources": [
+        {
+          "index": "1.3.1",
+          "title": "Soft",
+          "entryID": "s1"
+        }
+      ],
+      "demoEntryID": "s1",
+      "refs": [
+        {
+          "title": "Apple HIG — Materials",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/materials"
+        },
+        {
+          "title": "WWDC25 — Meet Liquid Glass",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/219/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m025",
+      "number": 25,
+      "title": "입력창 위에 soft를 남겨 입력 영역의 시작점을 흐린다",
+      "why": "상단에 쓴 설정을 하단에도 똑같이 적용한다.",
+      "fix": "입력은 경계가 생명이다. 하단만 hard로 바꾼다.",
+      "category": "legible",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"최악의 배경(사진·고대비 그래픽) 위에서, 그리고 접근성 설정(큰 글씨·투명도 감소)에서도 읽히고 눌리는가?\"** 가장 좋은 조건이 아니라 가장 나쁜 조건이 검증 기준이다.",
+      "sources": [
+        {
+          "index": "1.3.1",
+          "title": "Soft",
+          "entryID": "s1"
+        },
+        {
+          "index": "5.1.4",
+          "title": "Bottom, Hard Scroll Edge Effect, with Toolbar Items",
+          "entryID": "va4"
+        }
+      ],
+      "demoEntryID": "s1",
+      "refs": [
+        {
+          "title": "Apple HIG — Materials",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/materials"
+        },
+        {
+          "title": "WWDC25 — Meet Liquid Glass",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/219/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m026",
+      "number": 26,
+      "title": "은은한 사진 피드에 hard를 넣어 몰입을 끊는다",
+      "why": "가독성이 중요하다는 원칙을 모든 화면에 일괄 적용한다.",
+      "fix": "배경이 이미 어둡고 잔잔하면 soft로 충분하다. 방어는 필요한 곳에만.",
+      "category": "clutter",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "1.3.2",
+          "title": "Hard",
+          "entryID": "s2"
+        }
+      ],
+      "demoEntryID": "s2",
+      "refs": [
+        {
+          "title": "Apple HIG — Materials",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/materials"
+        },
+        {
+          "title": "WWDC25 — Meet Liquid Glass",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/219/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m027",
+      "number": 27,
+      "title": "화면마다 soft/hard를 무원칙하게 섞는다",
+      "why": "화면별로 따로 만들다 보니 그때그때 예뻐 보이는 쪽을 고른다.",
+      "fix": "'언제 hard인가'를 한 문장으로 정해두고 전 화면에 적용한다.",
+      "category": "structure",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "1.3.2",
+          "title": "Hard",
+          "entryID": "s2"
+        },
+        {
+          "index": "5.1.5",
+          "title": "Top & Bottom, Soft Scroll Edge Effect, with Toolbar Items",
+          "entryID": "va5"
+        }
+      ],
+      "demoEntryID": "s2",
+      "refs": [
+        {
+          "title": "Apple HIG — Materials",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/materials"
+        },
+        {
+          "title": "WWDC25 — Meet Liquid Glass",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/219/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m028",
+      "number": 28,
+      "title": "글자가 묻히는데 투명한 쪽이 예뻐서 그대로 둔다",
+      "why": "디자인 시안에서 가장 아름다웠던 상태를 지키고 싶다.",
+      "fix": "읽힘과 미학이 충돌하면 읽힘이 이긴다. 시안이 아니라 최악의 배경에서 판정한다.",
+      "category": "legible",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "**\"최악의 배경(사진·고대비 그래픽) 위에서, 그리고 접근성 설정(큰 글씨·투명도 감소)에서도 읽히고 눌리는가?\"** 가장 좋은 조건이 아니라 가장 나쁜 조건이 검증 기준이다.",
+      "sources": [
+        {
+          "index": "1.3.3",
+          "title": "Hard with Thick Material Toolbar Background",
+          "entryID": "s3"
+        }
+      ],
+      "demoEntryID": "s3",
+      "refs": [
+        {
+          "title": "Apple HIG — Materials",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/materials"
+        },
+        {
+          "title": "WWDC25 — Meet Liquid Glass",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/219/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m029",
+      "number": 29,
+      "title": "사진 피드에서 가장자리 효과를 끈다",
+      "why": "어두운 샘플 사진 한 장으로 확인했더니 문제가 없었다.",
+      "fix": "흰 사진이 바 뒤를 지나는 순간으로 판정한다. 최악의 조건이 기준이다.",
+      "category": "legible",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "**\"최악의 배경(사진·고대비 그래픽) 위에서, 그리고 접근성 설정(큰 글씨·투명도 감소)에서도 읽히고 눌리는가?\"** 가장 좋은 조건이 아니라 가장 나쁜 조건이 검증 기준이다.",
+      "sources": [
+        {
+          "index": "1.3.4",
+          "title": "Scroll Edge Effect Hidden",
+          "entryID": "s4"
+        },
+        {
+          "index": "8.1.4",
+          "title": "가독성 > 미학 — 투명함과 읽힘이 충돌하면 읽힘이 이긴다",
+          "entryID": "p4"
+        }
+      ],
+      "demoEntryID": "s4",
+      "refs": [
+        {
+          "title": "Apple HIG — Materials",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/materials"
+        },
+        {
+          "title": "WWDC25 — Meet Liquid Glass",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/219/"
+        }
+      ],
+      "story": [
+        {
+          "heading": "증상",
+          "body": "앱스토어 리뷰에 \"가끔 상단 버튼이 안 보인다\"는 문장이 반복해서 올라왔다. 재현이 안 됐다. 우리 기기에서는 언제나 잘 보였으니까."
+        },
+        {
+          "heading": "그때는 왜 그게 맞아 보였나",
+          "body": "사진이 주인공인 화면이라 유리 아래 번지는 페이드가 콘텐츠를 방해한다고 느꼈다. 효과를 끄니 사진이 화면 끝까지 시원하게 흘렀다. 디자인 리뷰에서 쓴 샘플 사진은 어두운 야경과 실내 사진이었고, 그 위에서 흰 글자 버튼은 완벽하게 읽혔다."
+        },
+        {
+          "heading": "무엇이 부러졌나",
+          "body": "가장자리 효과는 장식이 아니라 **콘텐츠와 컨트롤이 겹치는 순간을 위한 안전장치**다. 우리는 그것을 취향의 문제로 다뤘다. 사용자의 앨범에는 눈 사진도, 흰 배경 제품 컷도, 스캔한 문서도 있었다. 그 사진이 상단 바 뒤를 지나는 몇 초 동안 흰 글자 버튼은 실제로 사라졌다. 재현이 안 된 게 아니라, 우리가 그 조건을 한 번도 만들지 않았다."
+        },
+        {
+          "heading": "기준",
+          "body": "**최악의 배경에서도 컨트롤이 읽히는가?** 투명함과 읽힘이 충돌하면 읽힘이 이긴다. 그리고 판정은 우리가 고른 사진이 아니라 사용자가 가진 사진에서 한다."
+        },
+        {
+          "heading": "고친 뒤",
+          "body": "`.hard`로 바꿨다. 콘텐츠와 바 사이에 선명한 경계가 생기면서 대비를 배경에 의존하지 않게 됐다. 어두운 사진에서는 차이를 거의 못 느끼고, 흰 사진에서만 경계가 일한다. 리뷰의 그 문장은 다음 버전에서 사라졌다."
+        },
+        {
+          "heading": "남는 것",
+          "body": "배경을 바꿔가며 보는 스위치를 검수 화면에 상시로 뒀다. 어두운 단색 · 사진 · 흰 배경 — 셋 중 하나에서 깨지면 통과가 아니다."
+        }
+      ]
+    },
+    {
+      "id": "m030",
+      "number": 30,
+      "title": "거의 쓰지 않는 검색을 상시 노출한다",
+      "why": "검색이 있으면 좋은 앱처럼 보이고, 없으면 빠뜨린 것 같다.",
+      "fix": "쓰이지 않는 순간에도 세로 한 줄을 먹는다. 항목이 늘어난 뒤에 넣는다.",
+      "category": "clutter",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "1.4.1",
+          "title": "Placement: Toolbar",
+          "entryID": "q1"
+        },
+        {
+          "index": "1.4.4",
+          "title": "Placement: Navigation Bar Drawer: Always",
+          "entryID": "q4"
+        },
+        {
+          "index": "1.4.6",
+          "title": "Integrating System Search Bar w/ Other Toolbar Items",
+          "entryID": "q6"
+        },
+        {
+          "index": "8.1.1",
+          "title": "Content-First · Minimization — UI는 콘텐츠를 위해 물러난다",
+          "entryID": "p1"
+        }
+      ],
+      "demoEntryID": "q1",
+      "refs": [
+        {
+          "title": "Apple HIG — Navigation & search",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/navigation-and-search"
+        },
+        {
+          "title": "nil coalescing — SwiftUI Search Enhancements",
+          "url": "https://nilcoalescing.com/blog/SwiftUISearchEnhancementsIniOSAndiPadOS26/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m031",
+      "number": 31,
+      "title": "iPhone에서 검색을 커스텀으로 상단에 고정한다",
+      "why": "웹·안드로이드와 같은 위치라 익숙하고, 예전 iOS도 그랬다.",
+      "fix": "iOS 26은 검색을 엄지 쪽으로 내렸다. 시스템 배치를 따른다.",
+      "category": "reach",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"자주·반복해서 누르는가?\"** 그렇다면 하단(엄지의 홈 그라운드). 가끔 쓰는 확정성 액션(완료·저장)이라면 상단. 빈도와 높이가 반비례해야 한다.",
+      "sources": [
+        {
+          "index": "1.4.1",
+          "title": "Placement: Toolbar",
+          "entryID": "q1"
+        }
+      ],
+      "demoEntryID": "q1",
+      "refs": [
+        {
+          "title": "Apple HIG — Navigation & search",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/navigation-and-search"
+        },
+        {
+          "title": "nil coalescing — SwiftUI Search Enhancements",
+          "url": "https://nilcoalescing.com/blog/SwiftUISearchEnhancementsIniOSAndiPadOS26/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m032",
+      "number": 32,
+      "title": "검색 필드와 액션 버튼을 같은 캡슐에 묶는다",
+      "why": "하단 한 줄을 알뜰하게 쓰려고 한 덩어리로 합친다.",
+      "fix": "입력과 액션은 다른 종류다. 캡슐을 나눠 성격을 구분한다.",
+      "category": "grammar",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.",
+      "sources": [
+        {
+          "index": "1.4.2",
+          "title": "Placement: Toolbar (w/ an item in the bottom toolbar)",
+          "entryID": "q2"
+        }
+      ],
+      "demoEntryID": "q2",
+      "refs": [
+        {
+          "title": "Apple HIG — Navigation & search",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/navigation-and-search"
+        },
+        {
+          "title": "nil coalescing — SwiftUI Search Enhancements",
+          "url": "https://nilcoalescing.com/blog/SwiftUISearchEnhancementsIniOSAndiPadOS26/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m033",
+      "number": 33,
+      "title": "하단에 검색과 버튼 셋을 몰아 넣는다",
+      "why": "도달성이 좋은 자리이니 중요한 것을 다 내려보낸다.",
+      "fix": "과밀은 오탭을 만든다. 하단에 내려보낼 것은 한두 개로 정한다.",
+      "category": "reach",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"자주·반복해서 누르는가?\"** 그렇다면 하단(엄지의 홈 그라운드). 가끔 쓰는 확정성 액션(완료·저장)이라면 상단. 빈도와 높이가 반비례해야 한다.",
+      "sources": [
+        {
+          "index": "1.4.2",
+          "title": "Placement: Toolbar (w/ an item in the bottom toolbar)",
+          "entryID": "q2"
+        }
+      ],
+      "demoEntryID": "q2",
+      "refs": [
+        {
+          "title": "Apple HIG — Navigation & search",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/navigation-and-search"
+        },
+        {
+          "title": "nil coalescing — SwiftUI Search Enhancements",
+          "url": "https://nilcoalescing.com/blog/SwiftUISearchEnhancementsIniOSAndiPadOS26/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m034",
+      "number": 34,
+      "title": "검색이 핵심인 앱인데 스크롤하면 사라지는 서랍에 둔다",
+      "why": "예전부터 쓰던 위치이고 기본값이라 그대로 둔다.",
+      "fix": "주 사용 방식이면 늘 손에 닿아야 한다. 툴바나 always로 올린다.",
+      "category": "structure",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "1.4.3",
+          "title": "Placement: Navigation Bar Drawer",
+          "entryID": "q3"
+        }
+      ],
+      "demoEntryID": "q3",
+      "refs": [
+        {
+          "title": "Apple HIG — Navigation & search",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/navigation-and-search"
+        },
+        {
+          "title": "nil coalescing — SwiftUI Search Enhancements",
+          "url": "https://nilcoalescing.com/blog/SwiftUISearchEnhancementsIniOSAndiPadOS26/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m035",
+      "number": 35,
+      "title": "검색을 두 자리에 동시에 제공한다",
+      "why": "새 배치로 옮기면서 예전 것을 지우지 못했다.",
+      "fix": "옮겼으면 옛 자리는 지운다. 두 개의 검색은 두 개의 기능처럼 읽힌다.",
+      "category": "clutter",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "1.4.3",
+          "title": "Placement: Navigation Bar Drawer",
+          "entryID": "q3"
+        },
+        {
+          "index": "1.4.4",
+          "title": "Placement: Navigation Bar Drawer: Always",
+          "entryID": "q4"
+        },
+        {
+          "index": "1.4.5",
+          "title": "Placement: Toolbar Principal",
+          "entryID": "q5"
+        }
+      ],
+      "demoEntryID": "q3",
+      "refs": [
+        {
+          "title": "Apple HIG — Navigation & search",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/navigation-and-search"
+        },
+        {
+          "title": "nil coalescing — SwiftUI Search Enhancements",
+          "url": "https://nilcoalescing.com/blog/SwiftUISearchEnhancementsIniOSAndiPadOS26/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m036",
+      "number": 36,
+      "title": "일반 목록 화면의 제목을 지우고 중앙을 검색에 내준다",
+      "why": "검색을 강조하고 싶어 가장 강한 자리에 놓는다.",
+      "fix": "검색이 그 화면의 목적일 때만 중앙이다. 아니면 제목을 지키고 툴바로 내린다.",
+      "category": "grammar",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.",
+      "sources": [
+        {
+          "index": "1.4.5",
+          "title": "Placement: Toolbar Principal",
+          "entryID": "q5"
+        }
+      ],
+      "demoEntryID": "q5",
+      "refs": [
+        {
+          "title": "Apple HIG — Navigation & search",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/navigation-and-search"
+        },
+        {
+          "title": "nil coalescing — SwiftUI Search Enhancements",
+          "url": "https://nilcoalescing.com/blog/SwiftUISearchEnhancementsIniOSAndiPadOS26/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m037",
+      "number": 37,
+      "title": "핵심 정보가 잘리는데 전체를 볼 경로를 만들지 않는다",
+      "why": "목록은 요약이니 잘려도 상세에서 보면 된다고 가정한다. 그런데 그 상세가 없다.",
+      "fix": "잘린 값이 주소·금액처럼 결정에 쓰이면, 더보기·상세·툴팁 중 하나는 반드시 만든다.",
+      "category": "text",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "**\"잘려도 뜻이 통하는가?\"** 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 **안전장치이지 레이아웃 설계 수단이 아니다.**",
+      "sources": [
+        {
+          "index": "2.1.1",
+          "title": "Line Limit",
+          "entryID": "x1"
+        },
+        {
+          "index": "2.1.4",
+          "title": "Line Limit (Range · Reserve Space)",
+          "entryID": "x4"
+        }
+      ],
+      "demoEntryID": "x1",
+      "refs": [
+        {
+          "title": "Apple HIG — Typography",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/typography"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m038",
+      "number": 38,
+      "title": "한 줄 고정과 글자 축소를 겹쳐 큰 글씨 설정에서 판독 불가로 만든다",
+      "why": "기본 글자 크기에서는 잘 보이고, 두 설정 다 '넘침을 막는 장치'라 함께 쓰면 더 안전할 것 같다.",
+      "fix": "Dynamic Type 최대에서 한 번 열어본다. 두 장치를 겹치면 남는 건 첫 어절뿐이다.",
+      "category": "text",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "**\"잘려도 뜻이 통하는가?\"** 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 **안전장치이지 레이아웃 설계 수단이 아니다.**",
+      "sources": [
+        {
+          "index": "2.1.1",
+          "title": "Line Limit",
+          "entryID": "x1"
+        },
+        {
+          "index": "8.1.4",
+          "title": "가독성 > 미학 — 투명함과 읽힘이 충돌하면 읽힘이 이긴다",
+          "entryID": "p4"
+        }
+      ],
+      "demoEntryID": "x1",
+      "refs": [
+        {
+          "title": "Apple HIG — Typography",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/typography"
+        },
+        {
+          "title": "Apple HIG — Materials",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/materials"
+        }
+      ],
+      "story": [
+        {
+          "heading": "증상",
+          "body": "배송 사고가 한 건 접수됐다. 사용자는 주소를 확인하고 결제했다고 했다. 우리 화면에서는 주소가 한 줄로 잘 보였다. 사용자의 스크린샷에서는 \"서울특별시 성동…\"까지만 있었다."
+        },
+        {
+          "heading": "그때는 왜 그게 맞아 보였나",
+          "body": "카드 높이를 일정하게 맞추고 싶었다. `lineLimit(1)`로 줄 수를 묶고, 잘리는 게 걱정돼 `minimumScaleFactor`까지 걸었다. 두 장치 다 \"넘침을 막는 도구\"이니 함께 쓰면 더 안전할 거라고 생각했다. 실제로 기본 글자 크기에서는 아무 문제가 없었다."
+        },
+        {
+          "heading": "무엇이 부러졌나",
+          "body": "두 장치는 서로를 돕지 않고 **서로를 가린다**. 글자가 커지면 축소가 먼저 일해서 폰트를 줄이고, 그래도 안 들어가면 한 줄 제한이 나머지를 잘라낸다. 접근성 최대 설정에서 남은 것은 첫 어절과 말줄임표뿐이었다. 게다가 축소 덕분에 \"잘렸다\"는 신호조차 약해져서, 사용자는 그게 주소 전체라고 믿었다."
+        },
+        {
+          "heading": "기준",
+          "body": "**잘려도 뜻이 통하는가?** 통하지 않는 값(주소·금액·계좌·코드)에는 문장용 해법을 쓰지 않는다. 그리고 레이아웃은 글자가 두 배로 커져도 버텨야 한다."
+        },
+        {
+          "heading": "고친 뒤",
+          "body": "주소는 `lineLimit(2...3)`으로 바꿨다. 카드 높이가 들쭉날쭉해지는 건 감수했다 — 균일함보다 값이 중요하다. 금액처럼 짧고 반드시 다 보여야 하는 값만 축소를 남겼다. 이후 접근성 최대 설정을 검수 체크리스트에 넣었다."
+        },
+        {
+          "heading": "남는 것",
+          "body": "새 화면을 만들 때 마지막에 Dynamic Type을 최대로 올려 한 번 훑는다. 30초면 되고, 거기서 걸리는 건 대개 사고로 이어질 것들이다."
+        }
+      ]
+    },
+    {
+      "id": "m039",
+      "number": 39,
+      "title": "끝자리가 구분자인 값에 tail 자르기를 쓴다",
+      "why": "tail이 기본값이고, 대부분의 문장에서 잘 동작한다.",
+      "fix": "무엇이 식별에 쓰이는지로 정한다. 주문번호·파일명은 끝이 살아야 하므로 middle이다.",
+      "category": "text",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"잘려도 뜻이 통하는가?\"** 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 **안전장치이지 레이아웃 설계 수단이 아니다.**",
+      "sources": [
+        {
+          "index": "2.1.2",
+          "title": "Truncation",
+          "entryID": "x2"
+        }
+      ],
+      "demoEntryID": "x2",
+      "refs": [
+        {
+          "title": "Apple HIG — Typography",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/typography"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m040",
+      "number": 40,
+      "title": "사람 이름에 middle 자르기를 쓴다",
+      "why": "경로에서 middle이 좋았으니 이름에도 좋을 거라 옮겨 적는다.",
+      "fix": "이름은 앞이 결정적이다. \"김…수\"는 아무도 식별하지 못한다.",
+      "category": "text",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "**\"잘려도 뜻이 통하는가?\"** 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 **안전장치이지 레이아웃 설계 수단이 아니다.**",
+      "sources": [
+        {
+          "index": "2.1.2",
+          "title": "Truncation",
+          "entryID": "x2"
+        }
+      ],
+      "demoEntryID": "x2",
+      "refs": [
+        {
+          "title": "Apple HIG — Typography",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/typography"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m041",
+      "number": 41,
+      "title": "본문 문단에 글자 축소를 걸어 화면마다 크기가 달라진다",
+      "why": "넘치는 문제를 한 줄로 막아주는 편리한 도구로 쓴다.",
+      "fix": "축소는 짧고 반드시 다 보여야 하는 값 전용이다. 문단은 줄 수로 다룬다.",
+      "category": "text",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"잘려도 뜻이 통하는가?\"** 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 **안전장치이지 레이아웃 설계 수단이 아니다.**",
+      "sources": [
+        {
+          "index": "2.1.3",
+          "title": "Scale to Fit",
+          "entryID": "x3"
+        }
+      ],
+      "demoEntryID": "x3",
+      "refs": [
+        {
+          "title": "Apple HIG — Typography",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/typography"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m042",
+      "number": 42,
+      "title": "0.3까지 축소를 허용해 넣을 수 있으면 됐다고 본다",
+      "why": "잘리는 것보다는 작게라도 다 보이는 게 낫다고 판단한다.",
+      "fix": "절반 이하로 줄여야 들어간다면 축소가 아니라 설계 문제다. 폭을 늘리거나 표기를 줄인다.",
+      "category": "legible",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "**\"최악의 배경(사진·고대비 그래픽) 위에서, 그리고 접근성 설정(큰 글씨·투명도 감소)에서도 읽히고 눌리는가?\"** 가장 좋은 조건이 아니라 가장 나쁜 조건이 검증 기준이다.",
+      "sources": [
+        {
+          "index": "2.1.3",
+          "title": "Scale to Fit",
+          "entryID": "x3"
+        },
+        {
+          "index": "8.1.5",
+          "title": "공간은 계약, 텍스트는 가변 — 의미론이 처리 방식을 정한다",
+          "entryID": "p5"
+        }
+      ],
+      "demoEntryID": "x3",
+      "refs": [
+        {
+          "title": "Apple HIG — Typography",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/typography"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m043",
+      "number": 43,
+      "title": "금액·타이머를 기본 tail로 잘라 틀린 값을 보여준다",
+      "why": "다른 텍스트와 같은 규칙을 적용하면 일관돼 보인다.",
+      "fix": "\"₩1,234,0…\"은 요약이 아니라 오답이다. 잘리면 안 되는 값은 잘리지 않게 설계한다.",
+      "category": "text",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "**\"잘려도 뜻이 통하는가?\"** 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 **안전장치이지 레이아웃 설계 수단이 아니다.**",
+      "sources": [
+        {
+          "index": "2.1.3",
+          "title": "Scale to Fit",
+          "entryID": "x3"
+        },
+        {
+          "index": "8.1.5",
+          "title": "공간은 계약, 텍스트는 가변 — 의미론이 처리 방식을 정한다",
+          "entryID": "p5"
+        }
+      ],
+      "demoEntryID": "x3",
+      "refs": [
+        {
+          "title": "Apple HIG — Typography",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/typography"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m044",
+      "number": 44,
+      "title": "항상 한 줄인 텍스트에 세 줄을 예약한다",
+      "why": "레이아웃이 흔들리는 게 싫어 넉넉하게 잡아둔다.",
+      "fix": "공간 예약은 균일성이 필요한 그리드·카드에서 값을 한다. 세로 목록에선 빈 자리만 남는다.",
+      "category": "clutter",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "2.1.4",
+          "title": "Line Limit (Range · Reserve Space)",
+          "entryID": "x4"
+        },
+        {
+          "index": "8.1.5",
+          "title": "공간은 계약, 텍스트는 가변 — 의미론이 처리 방식을 정한다",
+          "entryID": "p5"
+        }
+      ],
+      "demoEntryID": "x4",
+      "refs": [
+        {
+          "title": "Apple HIG — Typography",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/typography"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m045",
+      "number": 45,
+      "title": "버튼 라벨에까지 텍스트 선택을 허용한다",
+      "why": "화면 전체에 한 번에 걸면 편하다.",
+      "fix": "탭과 길게 누르기가 충돌한다. 옮겨 적을 값에만 선별해 건다.",
+      "category": "direct",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "**\"이 액션의 대상이 화면에 보이는가? 사용자가 버튼과 대상의 관계를 유추해야 하는가?\"** 대상이 보이는데 유추가 필요하다면, 액션을 대상 위로 옮겨야 한다.",
+      "sources": [
+        {
+          "index": "2.1.5",
+          "title": "Text Selection",
+          "entryID": "x5"
+        }
+      ],
+      "demoEntryID": "x5",
+      "refs": [
+        {
+          "title": "Apple HIG — Typography",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/typography"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m046",
+      "number": 46,
+      "title": "운송장 번호·인증 코드를 선택할 수 없게 둔다",
+      "why": "읽기 전용 텍스트라 아무 설정도 하지 않는다.",
+      "fix": "사용자가 화면을 보며 손으로 옮겨 적고 있다면 그건 기능이 빠진 것이다.",
+      "category": "direct",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 액션의 대상이 화면에 보이는가? 사용자가 버튼과 대상의 관계를 유추해야 하는가?\"** 대상이 보이는데 유추가 필요하다면, 액션을 대상 위로 옮겨야 한다.",
+      "sources": [
+        {
+          "index": "2.1.5",
+          "title": "Text Selection",
+          "entryID": "x5"
+        }
+      ],
+      "demoEntryID": "x5",
+      "refs": [
+        {
+          "title": "Apple HIG — Typography",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/typography"
+        }
+      ],
+      "story": [
+        {
+          "heading": "증상",
+          "body": "사용성 테스트에서 참가자가 화면을 보며 운송장 번호를 종이에 옮겨 적었다. 그리고 택배사 앱을 열어 손으로 입력했다. 열여섯 자리를 두 번 확인하면서."
+        },
+        {
+          "heading": "그때는 왜 그게 맞아 보였나",
+          "body": "읽기 전용 텍스트였다. 사용자가 편집할 값이 아니니 아무 설정도 필요 없다고 생각했다. `Text`는 기본이 선택 불가이고, 우리는 기본값을 바꿀 이유를 찾지 못했다."
+        },
+        {
+          "heading": "무엇이 부러졌나",
+          "body": "읽기 전용이라는 건 **수정할 수 없다**는 뜻이지 **손댈 일이 없다**는 뜻이 아니다. 이 값은 다른 앱으로 옮겨지기 위해 존재한다. 옮길 방법을 주지 않으면 사용자가 눈과 손으로 대신한다. 그 과정에서 오타가 나면 그건 사용자의 실수가 아니라 우리가 시킨 일이다."
+        },
+        {
+          "heading": "기준",
+          "body": "액션은 대상 위에 있어야 한다. 그리고 **옮겨 적을 일이 있는 값**에는 선택·복사를 연다."
+        },
+        {
+          "heading": "고친 뒤",
+          "body": "운송장 번호에 `textSelection(.enabled)`을 주고, 그 아래 복사 버튼을 하나 뒀다. 길게 눌러 선택하는 사람과 버튼을 누르는 사람 둘 다 챙긴다. 인증 코드·주문번호·계좌번호에도 같은 처리를 했다. 반대로 버튼 라벨처럼 탭이 우선인 곳에는 절대 걸지 않았다 — 길게 누르기와 충돌한다."
+        },
+        {
+          "heading": "남는 것",
+          "body": "화면에 숫자·코드가 보이면 묻는다. \"이걸 사용자가 어딘가에 옮겨 적을까?\" 답이 예이면 복사 경로를 만든다."
+        }
+      ]
+    },
+    {
+      "id": "m047",
+      "number": 47,
+      "title": "단위를 문자열로 붙여 쓴다",
+      "why": "화면에 보일 문자열을 그대로 만드는 게 가장 빠르고 확실해 보인다.",
+      "fix": "값은 Measurement로 들고 표기는 로케일에 맡긴다. 마일권 사용자에게 km를 강요하지 않는다.",
+      "category": "locale",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "**\"데이터를 문자열로 직접 조립하고 있는가? 그 표기 규칙이 문화권마다 다른가?\"** 둘 다 예스라면 국제화 버그가 이미 심어진 것 — FormatStyle로 옮겨야 한다.",
+      "sources": [
+        {
+          "index": "2.2.1",
+          "title": "Format Styles (Units)",
+          "entryID": "f1"
+        },
+        {
+          "index": "8.1.6",
+          "title": "데이터와 표기의 분리 — 값은 앱이, 표기는 로케일이",
+          "entryID": "p6"
+        }
+      ],
+      "demoEntryID": "f1",
+      "refs": [
+        {
+          "title": "Apple Docs — FormatStyle",
+          "url": "https://developer.apple.com/documentation/foundation/formatstyle"
+        },
+        {
+          "title": "Apple Developer Documentation — PersonNameComponents",
+          "url": "https://developer.apple.com/documentation/foundation/personnamecomponents"
+        }
+      ],
+      "story": [
+        {
+          "heading": "증상",
+          "body": "미국 출시 첫 주에 리뷰가 달렸다. \"How far is 5 km?\" 매장 목록의 거리가 전부 킬로미터였다. 온도도, 무게도 마찬가지였다."
+        },
+        {
+          "heading": "그때는 왜 그게 맞아 보였나",
+          "body": "화면에 보일 문자열을 그대로 만드는 게 가장 빠르고 확실했다. `\"\\(distance) km\"` — 한 줄이면 끝이고 눈으로 확인도 된다. 국제화는 문구 번역의 문제라고 생각했고, 그건 나중에 파일 하나 추가하면 되는 일로 미뤄뒀다."
+        },
+        {
+          "heading": "무엇이 부러졌나",
+          "body": "번역해야 할 것은 문구만이 아니었다. **단위계·소수점·자릿수 구분·순서**가 전부 문화권 규칙이다. 우리는 그 규칙을 문자열 안에 굳혀서 앱이 소유해버렸다. 그러자 로케일을 바꿔도 표기가 따라오지 않았고, 고치려면 화면마다 조건문을 넣어야 했다. 한 줄을 아끼려다 화면 수만큼의 분기를 만든 셈이다."
+        },
+        {
+          "heading": "기준",
+          "body": "값과 표기를 한 문자열에 담고 있지 않은가? **앱은 값만 들고, 표기는 시스템에 맡긴다.**"
+        },
+        {
+          "heading": "고친 뒤",
+          "body": "거리를 `Measurement<UnitLength>`로 바꾸고 `.formatted(.measurement(width:usage:))`로 렌더링했다. 미국 사용자에게는 마일이, 한국 사용자에게는 킬로미터가 나온다. 앱 코드는 로케일을 모른다. 이름은 `PersonNameComponents`, 날짜·금액은 `FormatStyle`로 같은 정리를 했다."
+        },
+        {
+          "heading": "남는 것",
+          "body": "문자열 보간 안에 단위·통화·구분자가 들어가 있으면 리뷰에서 잡는다. 그건 대부분 국제화 버그의 씨앗이다."
+        }
+      ]
+    },
+    {
+      "id": "m048",
+      "number": 48,
+      "title": "이름을 \"이름 성\" 순서로 조립한다",
+      "why": "영어권 서비스를 기준으로 시작했고, 한글은 나중에 붙이면 된다고 생각한다.",
+      "fix": "순서는 데이터가 아니라 문화권 규칙이다. PersonNameComponents로 두고 표기를 맡긴다.",
+      "category": "locale",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "**\"데이터를 문자열로 직접 조립하고 있는가? 그 표기 규칙이 문화권마다 다른가?\"** 둘 다 예스라면 국제화 버그가 이미 심어진 것 — FormatStyle로 옮겨야 한다.",
+      "sources": [
+        {
+          "index": "2.2.2",
+          "title": "Name Formatting",
+          "entryID": "f2"
+        },
+        {
+          "index": "8.1.6",
+          "title": "데이터와 표기의 분리 — 값은 앱이, 표기는 로케일이",
+          "entryID": "p6"
+        }
+      ],
+      "demoEntryID": "f2",
+      "refs": [
+        {
+          "title": "Apple Docs — FormatStyle",
+          "url": "https://developer.apple.com/documentation/foundation/formatstyle"
+        },
+        {
+          "title": "Apple Developer Documentation — PersonNameComponents",
+          "url": "https://developer.apple.com/documentation/foundation/personnamecomponents"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m049",
+      "number": 49,
+      "title": "탭 라벨에 긴 이름을 넣는다",
+      "why": "기능 이름을 정확히 전달하고 싶어 서비스 용어를 그대로 쓴다.",
+      "fix": "탭 라벨은 한 단어다. 한 단어로 못 줄이면 그건 탭이 아닐 가능성이 높다.",
+      "category": "text",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"잘려도 뜻이 통하는가?\"** 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 **안전장치이지 레이아웃 설계 수단이 아니다.**",
+      "sources": [
+        {
+          "index": "3.1.1",
+          "title": "Label Style: Title & Icon",
+          "entryID": "tb1"
+        }
+      ],
+      "demoEntryID": "tb1",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        },
+        {
+          "title": "WWDC25 — Get to know the new design system",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/356/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m050",
+      "number": 50,
+      "title": "모호한 아이콘에 처음 보는 신조어 라벨을 붙인다",
+      "why": "브랜드 고유의 개념이라 우리 용어를 쓰는 게 맞다고 본다.",
+      "fix": "아이콘과 라벨 중 하나는 이미 아는 것이어야 한다. 둘 다 새로우면 아무 정보도 없다.",
+      "category": "legible",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"최악의 배경(사진·고대비 그래픽) 위에서, 그리고 접근성 설정(큰 글씨·투명도 감소)에서도 읽히고 눌리는가?\"** 가장 좋은 조건이 아니라 가장 나쁜 조건이 검증 기준이다.",
+      "sources": [
+        {
+          "index": "3.1.1",
+          "title": "Label Style: Title & Icon",
+          "entryID": "tb1"
+        },
+        {
+          "index": "3.1.2",
+          "title": "Label Style: Icon Only",
+          "entryID": "tb2"
+        }
+      ],
+      "demoEntryID": "tb1",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        },
+        {
+          "title": "WWDC25 — Get to know the new design system",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/356/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m051",
+      "number": 51,
+      "title": "라벨 없이 비슷하게 생긴 윤곽 아이콘을 나열한다",
+      "why": "아이콘만 있는 탭바가 절제돼 보이고 공간도 아낀다.",
+      "fix": "라벨을 뺄 수 있는 건 누구나 아는 소수의 아이콘뿐이다.",
+      "category": "legible",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"최악의 배경(사진·고대비 그래픽) 위에서, 그리고 접근성 설정(큰 글씨·투명도 감소)에서도 읽히고 눌리는가?\"** 가장 좋은 조건이 아니라 가장 나쁜 조건이 검증 기준이다.",
+      "sources": [
+        {
+          "index": "3.1.2",
+          "title": "Label Style: Icon Only",
+          "entryID": "tb2"
+        }
+      ],
+      "demoEntryID": "tb2",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        },
+        {
+          "title": "WWDC25 — Get to know the new design system",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/356/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m052",
+      "number": 52,
+      "title": "처리해도 줄지 않는 상시 배지를 붙인다",
+      "why": "유입이 늘어서 마케팅 지표가 좋아진다.",
+      "fix": "배지는 '처리할 것이 남았다'는 약속이다. 한 번 거짓말하면 이후의 모든 배지를 무시당한다.",
+      "category": "clutter",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "3.1.3",
+          "title": "Label Style: Title & Icon with Badge Count",
+          "entryID": "tb3"
+        },
+        {
+          "index": "3.1.4",
+          "title": "Label Style: Title & Icon with Badge Text",
+          "entryID": "tb4"
+        }
+      ],
+      "demoEntryID": "tb3",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        },
+        {
+          "title": "WWDC25 — Get to know the new design system",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/356/"
+        }
+      ],
+      "story": [
+        {
+          "heading": "증상",
+          "body": "공지 탭의 배지를 없애자 오히려 공지 열람률이 올랐다. 배지를 붙였던 6개월 동안 사람들은 그 빨간 점을 보지 않는 법을 배웠다."
+        },
+        {
+          "heading": "그때는 왜 그게 맞아 보였나",
+          "body": "새 소식 탭의 진입률이 낮았다. 배지를 붙이자 첫 주 진입률이 눈에 띄게 뛰었다. 숫자가 좋아졌으니 상시로 두기로 했다. 읽어도 사라지지 않게 한 것도 의도였다 — 사라지면 다시 안 들어올 테니까."
+        },
+        {
+          "heading": "무엇이 부러졌나",
+          "body": "배지는 시각 요소가 아니라 **약속**이다. \"여기 처리할 것이 남아 있다.\" 사용자는 그 약속을 믿고 탭했다가 아무것도 처리할 게 없다는 걸 확인한다. 두 번, 세 번 반복되면 학습이 끝난다. 그때 잃는 것은 이 배지 하나가 아니라 **그 앱의 모든 배지**다. 나중에 진짜 급한 알림에 배지를 달아도 아무도 보지 않는다."
+        },
+        {
+          "heading": "기준",
+          "body": "배지가 가리키는 것이 **셀 수 있고 줄어드는 대상**인가? 0이 되면 사라지는가? 아니라면 그건 배지가 아니라 광고다."
+        },
+        {
+          "heading": "고친 뒤",
+          "body": "배지를 실제 미확인 항목 수에 연결했다. 읽으면 줄고 0이 되면 시스템이 알아서 감춘다. 첫 주 진입률은 예전보다 낮았지만, 3개월 뒤의 열람률은 배지를 붙였던 때보다 높았다. 신뢰가 돌아오는 데는 시간이 걸린다."
+        },
+        {
+          "heading": "남는 것",
+          "body": "배지를 붙이자는 제안이 나오면 딱 하나만 묻는다. \"이 숫자는 무엇을 하면 줄어듭니까?\" 답이 없으면 붙이지 않는다."
+        }
+      ]
+    },
+    {
+      "id": "m053",
+      "number": 53,
+      "title": "세 자리 숫자를 배지에 그대로 노출한다",
+      "why": "정확한 숫자를 알려주는 게 정직해 보인다.",
+      "fix": "128과 99+는 같은 뜻이다. 라벨을 침범하면 정확도는 의미가 없다.",
+      "category": "text",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "**\"잘려도 뜻이 통하는가?\"** 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 **안전장치이지 레이아웃 설계 수단이 아니다.**",
+      "sources": [
+        {
+          "index": "3.1.4",
+          "title": "Label Style: Title & Icon with Badge Text",
+          "entryID": "tb4"
+        },
+        {
+          "index": "3.1.3",
+          "title": "Label Style: Title & Icon with Badge Count",
+          "entryID": "tb3"
+        }
+      ],
+      "demoEntryID": "tb4",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        },
+        {
+          "title": "WWDC25 — Get to know the new design system",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/356/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m054",
+      "number": 54,
+      "title": "세그먼트로 충분한 화면을 억지로 두 탭으로 나눈다",
+      "why": "탭이 둘 이상이어야 앱 구조가 있어 보인다.",
+      "fix": "탭은 서로 다른 세계다. 같은 화면의 두 상태라면 세그먼트가 맞다.",
+      "category": "structure",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "3.2.1",
+          "title": "2 Tabs",
+          "entryID": "tc1"
+        }
+      ],
+      "demoEntryID": "tc1",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m055",
+      "number": 55,
+      "title": "빈도 9:1의 부기능을 탭으로 승격한다",
+      "why": "새로 만든 기능이라 눈에 띄는 자리에 두고 싶다.",
+      "fix": "탭은 상시 점유다. 가끔 쓰는 기능은 설정·시트·화면 안 진입점으로 충분하다.",
+      "category": "structure",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "3.2.1",
+          "title": "2 Tabs",
+          "entryID": "tc1"
+        },
+        {
+          "index": "3.4.1",
+          "title": "As Tab Item",
+          "entryID": "ts1"
+        }
+      ],
+      "demoEntryID": "tc1",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        },
+        {
+          "title": "Michael Tsai — Search vs. Primary Action",
+          "url": "https://mjtsai.com/blog/2026/01/09/search-vs-primary-action-in-the-ios-26-tab-bar/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m056",
+      "number": 56,
+      "title": "스크롤이 짧거나 전환이 잦은 화면에 탭바 최소화를 건다",
+      "why": "새로 생긴 동작이라 일단 전 화면에 켜 본다.",
+      "fix": "접힘·복원이 반복되면 동작만 남고 이득이 없다. 긴 읽기 화면에만 켠다.",
+      "category": "clutter",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "3.2.2",
+          "title": "2 Tabs with Minimize Behavior",
+          "entryID": "tc2"
+        },
+        {
+          "index": "3.4.3",
+          "title": "Search Role with Minimize Behavior",
+          "entryID": "ts3"
+        }
+      ],
+      "demoEntryID": "tc2",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        },
+        {
+          "title": "9to5Mac — iOS 27 design changes",
+          "url": "https://9to5mac.com/2026/05/13/ios-27s-new-design-leak-sounds-a-lot-like-what-ive-been-wanting-most/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m057",
+      "number": 57,
+      "title": "남는 자리를 '더보기' 잡동사니 탭으로 채운다",
+      "why": "어디에도 못 넣은 기능들을 모아둘 곳이 필요하다.",
+      "fix": "'더보기'는 정보 구조를 못 정했다는 자백이다. 각 기능의 집을 정한다.",
+      "category": "structure",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "3.2.3",
+          "title": "4 Tabs",
+          "entryID": "tc3"
+        }
+      ],
+      "demoEntryID": "tc3",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m058",
+      "number": 58,
+      "title": "프로모션 전용 탭을 만들어 광고를 구조로 위장한다",
+      "why": "상시 노출되는 자리라 캠페인 성과가 확실하다.",
+      "fix": "탭은 목적지다. 목적지가 아닌 것을 탭으로 만들면 구조 전체를 못 믿게 된다.",
+      "category": "structure",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "3.2.3",
+          "title": "4 Tabs",
+          "entryID": "tc3"
+        }
+      ],
+      "demoEntryID": "tc3",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m059",
+      "number": 59,
+      "title": "iPhone에서 여섯 개 탭을 강행한다",
+      "why": "주요 기능이 여섯이라 하나도 뺄 수 없다.",
+      "fix": "3~5개가 표준 범위다. 여섯이 필요하다면 구조를 다시 짜야 한다는 신호다.",
+      "category": "reach",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"자주·반복해서 누르는가?\"** 그렇다면 하단(엄지의 홈 그라운드). 가끔 쓰는 확정성 액션(완료·저장)이라면 상단. 빈도와 높이가 반비례해야 한다.",
+      "sources": [
+        {
+          "index": "3.2.4",
+          "title": "6 Tabs",
+          "entryID": "tc4"
+        }
+      ],
+      "demoEntryID": "tc4",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m060",
+      "number": 60,
+      "title": "회사 조직도를 그대로 탭 구조로 옮긴다",
+      "why": "팀별로 화면을 나눠 만들다 보니 조직 그대로 탭이 생긴다.",
+      "fix": "사용자는 조직도를 모른다. 사용자의 목적으로 나눈다.",
+      "category": "structure",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "3.2.4",
+          "title": "6 Tabs",
+          "entryID": "tc4"
+        }
+      ],
+      "demoEntryID": "tc4",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m061",
+      "number": 61,
+      "title": "전체화면 미디어 뷰어에서도 탭바를 유지한다",
+      "why": "어디서든 이동할 수 있는 게 좋다고 생각한다.",
+      "fix": "몰입이 목적인 화면에서는 숨긴다. 유일한 예외 지대다.",
+      "category": "clutter",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "3.3.1",
+          "title": "Always Visible",
+          "entryID": "tv1"
+        }
+      ],
+      "demoEntryID": "tv1",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m062",
+      "number": 62,
+      "title": "결제·작성 진행 중에도 탭 이동을 열어둔다",
+      "why": "사용자를 가두지 않는 것이 친절이라고 본다.",
+      "fix": "작성 내용이 날아가는 이탈은 친절이 아니다. 진행 중에는 탭바를 숨긴다.",
+      "category": "structure",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "3.3.1",
+          "title": "Always Visible",
+          "entryID": "tv1"
+        }
+      ],
+      "demoEntryID": "tv1",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m063",
+      "number": 63,
+      "title": "얕은 2뎁스 설정 화면에서 탭바를 숨긴다",
+      "why": "상세 화면에서는 숨기는 게 규칙이라고 외워서 적용한다.",
+      "fix": "몰입할 것이 없는 화면에서 숨기면 이동성만 잃는다.",
+      "category": "structure",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "3.3.2",
+          "title": "Hidden on Detail Views",
+          "entryID": "tv2"
+        }
+      ],
+      "demoEntryID": "tv2",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m064",
+      "number": 64,
+      "title": "탭바를 숨기고 하단에 유사 탭바를 커스텀으로 다시 만든다",
+      "why": "시스템 탭바가 원하는 모양이 아니어서 직접 만든다.",
+      "fix": "같은 자리에 같은 역할을 두 번 구현한 것이다. 시스템 것을 쓰고 모양을 포기한다.",
+      "category": "structure",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "3.3.2",
+          "title": "Hidden on Detail Views",
+          "entryID": "tv2"
+        }
+      ],
+      "demoEntryID": "tv2",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m065",
+      "number": 65,
+      "title": "검색 탭이 빈 검색창 하나로 끝난다",
+      "why": "검색은 중요하니 최상위 자리를 줬는데 채울 내용은 준비하지 못했다.",
+      "fix": "탭이라면 최근 검색·추천처럼 그 자체로 한 세계여야 한다. 아니면 role: .search로 내린다.",
+      "category": "structure",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "3.4.1",
+          "title": "As Tab Item",
+          "entryID": "ts1"
+        }
+      ],
+      "demoEntryID": "ts1",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        },
+        {
+          "title": "Michael Tsai — Search vs. Primary Action",
+          "url": "https://mjtsai.com/blog/2026/01/09/search-vs-primary-action-in-the-ios-26-tab-bar/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m066",
+      "number": 66,
+      "title": "분리 캡슐의 위치와 모양을 커스텀으로 흉내 낸다",
+      "why": "시스템이 주는 모양이 브랜드와 안 맞아 보인다.",
+      "fix": "그 자리의 의미는 시스템 규약에서 나온다. 흉내 내면 의미 없이 모양만 남는다.",
+      "category": "grammar",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.",
+      "sources": [
+        {
+          "index": "3.4.2",
+          "title": "With Search Role",
+          "entryID": "ts2"
+        }
+      ],
+      "demoEntryID": "ts2",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        },
+        {
+          "title": "nil coalescing — SwiftUI Search Enhancements",
+          "url": "https://nilcoalescing.com/blog/SwiftUISearchEnhancementsIniOSAndiPadOS26/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m067",
+      "number": 67,
+      "title": "검색 캡슐 자리에 작성 버튼을 넣는다",
+      "why": "가장 눈에 띄는 분리 자리라 핵심 액션을 두고 싶다.",
+      "fix": "그 자리는 '어디로 가는가'를 말한다. 액션은 툴바로.",
+      "category": "grammar",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.",
+      "sources": [
+        {
+          "index": "3.4.2",
+          "title": "With Search Role",
+          "entryID": "ts2"
+        },
+        {
+          "index": "3.4.4",
+          "title": "Prominent Role — iOS 27 신규 (WWDC26)",
+          "entryID": "ts4"
+        }
+      ],
+      "demoEntryID": "ts2",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        },
+        {
+          "title": "nil coalescing — SwiftUI Search Enhancements",
+          "url": "https://nilcoalescing.com/blog/SwiftUISearchEnhancementsIniOSAndiPadOS26/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m068",
+      "number": 68,
+      "title": "탭을 눌렀는데 이동 없이 시트만 뜬다",
+      "why": "작성 기능을 가장 잘 보이는 자리에 두고 싶어 탭 모양을 빌린다.",
+      "fix": "탭은 목적지의 약속이다. 지키지 못할 약속이면 탭이 아닌 것으로 만든다.",
+      "category": "structure",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "3.4.4",
+          "title": "Prominent Role — iOS 27 신규 (WWDC26)",
+          "entryID": "ts4"
+        }
+      ],
+      "demoEntryID": "ts4",
+      "refs": [
+        {
+          "title": "Apple Docs — TabRole.prominent",
+          "url": "https://developer.apple.com/documentation/swiftui/tabrole/prominent"
+        },
+        {
+          "title": "Sagar Unagar — .prominent Is Not a FAB",
+          "url": "https://www.sagarunagar.com/blog/swiftui-prominent-tab-is-not-a-floating-action-button"
+        }
+      ],
+      "story": [
+        {
+          "heading": "증상",
+          "body": "가운데 작성 탭을 넣은 뒤로 이탈이 늘었다. 세션 기록에는 같은 패턴이 반복됐다. 작성 탭을 누른다 → 시트가 뜬다 → 닫는다 → 다시 작성 탭을 누른다. 사용자는 \"그 탭에 뭐가 있는지\" 확인하려 했고, 확인할 수 없었다."
+        },
+        {
+          "heading": "그때는 왜 그게 맞아 보였나",
+          "body": "작성이 가장 중요한 액션이었고, 탭바 가운데는 가장 눈에 띄고 가장 누르기 쉬운 자리였다. 다른 앱들도 그렇게 하고 있었다. 탭처럼 생긴 자리에 액션을 넣는 게 관습처럼 보였다."
+        },
+        {
+          "heading": "무엇이 부러졌나",
+          "body": "탭바는 \"이 앱은 어떤 세계들로 이루어져 있는가\"를 말하는 지도다. 탭 하나하나가 **목적지**라는 약속이고, 사용자는 그래서 탭을 눌러 둘러본다. 이동하지 않는 탭은 그 약속을 깬다. 더 나쁜 것은 선택 상태가 원래 탭으로 되돌아가는 순간이다 — 사용자는 자기가 뭘 잘못 눌렀다고 느낀다."
+        },
+        {
+          "heading": "기준",
+          "body": "탭은 **어디로 가는가**에 답하는 자리다. 액션은 툴바가 맡는다. 눌러서 돌아올 곳이 없다면 그건 탭이 아니다."
+        },
+        {
+          "heading": "고친 뒤",
+          "body": "작성을 하단 툴바 버튼으로 내렸다. 탭바에는 목적지만 남았고 개수는 셋으로 줄었다. 작성 사용량은 떨어지지 않았다 — 여전히 엄지 자리에 있으니까. 대신 \"이 탭에 뭐가 있지\" 하고 헤매는 왕복이 사라졌다."
+        },
+        {
+          "heading": "남는 것",
+          "body": "탭 후보가 생기면 그 탭의 **첫 화면 스크린샷**을 그려본다. 그릴 게 없으면 탭이 아니다."
+        }
+      ]
+    },
+    {
+      "id": "m069",
+      "number": 69,
+      "title": "액세서리에 두 줄짜리 복잡한 패널을 넣는다",
+      "why": "상시 노출되는 자리라 정보를 더 담고 싶다.",
+      "fix": "액세서리는 한 줄 높이의 상태 표시다. 더 필요하면 눌러서 여는 화면으로.",
+      "category": "clutter",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "3.5.1",
+          "title": "3 Tab Items",
+          "entryID": "ta1"
+        }
+      ],
+      "demoEntryID": "ta1",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m070",
+      "number": 70,
+      "title": "액세서리가 접힌 상태(inline)를 대응하지 않는다",
+      "why": "펼친 상태만 디자인하고 접힘은 시스템이 알아서 할 거라 생각한다.",
+      "fix": "두 크기 모두 디자인한다. 접히면 무엇을 남길지 먼저 정한다.",
+      "category": "text",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"잘려도 뜻이 통하는가?\"** 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 **안전장치이지 레이아웃 설계 수단이 아니다.**",
+      "sources": [
+        {
+          "index": "3.5.2",
+          "title": "3 Tab Items with Minimize Behavior",
+          "entryID": "ta2"
+        }
+      ],
+      "demoEntryID": "ta2",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m071",
+      "number": 71,
+      "title": "하단 요소를 다 켜고 위계는 설계하지 않는다",
+      "why": "탭·검색 캡슐·액세서리·최소화가 다 좋은 기능이라 전부 쓴다.",
+      "fix": "하단은 이미 포화 상태다. 무엇을 포기할지 먼저 정한다.",
+      "category": "clutter",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "3.5.3",
+          "title": "Tab Items with Search Role and Minimize Behavior",
+          "entryID": "ta3"
+        }
+      ],
+      "demoEntryID": "ta3",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m072",
+      "number": 72,
+      "title": "작은 화면에서 검증하지 않고 풀 구성을 밀어붙인다",
+      "why": "개발 기기가 큰 화면이라 문제를 만나지 못한다.",
+      "fix": "가장 작은 기기에서 한 번 연다. 겹침과 잘림은 거기서만 보인다.",
+      "category": "text",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"잘려도 뜻이 통하는가?\"** 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 **안전장치이지 레이아웃 설계 수단이 아니다.**",
+      "sources": [
+        {
+          "index": "3.5.3",
+          "title": "Tab Items with Search Role and Minimize Behavior",
+          "entryID": "ta3"
+        },
+        {
+          "index": "4.1.3",
+          "title": "Presentation Detent: Custom",
+          "entryID": "sh3"
+        }
+      ],
+      "demoEntryID": "ta3",
+      "refs": [
+        {
+          "title": "Apple HIG — Tab bars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m073",
+      "number": 73,
+      "title": "항목 두 개짜리 선택지에 전체 높이 시트를 쓴다",
+      "why": "시트를 만들 때 기본값이 large라 그대로 둔다.",
+      "fix": "덮는 만큼 맥락을 뺏는다. 내용 높이에 맞는 detent를 고른다.",
+      "category": "clutter",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "4.1.1",
+          "title": "Presentation Detent: Large",
+          "entryID": "sh1"
+        }
+      ],
+      "demoEntryID": "sh1",
+      "refs": [
+        {
+          "title": "Apple HIG — Sheets",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/sheets"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m074",
+      "number": 74,
+      "title": "뒤 화면을 보면서 해야 하는 작업을 전부 덮는다",
+      "why": "시트는 집중을 위한 것이니 다 덮는 게 맞다고 본다.",
+      "fix": "참조가 필요한 작업이면 medium으로 남기거나 비모달로 연다.",
+      "category": "structure",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "4.1.1",
+          "title": "Presentation Detent: Large",
+          "entryID": "sh1"
+        }
+      ],
+      "demoEntryID": "sh1",
+      "refs": [
+        {
+          "title": "Apple HIG — Sheets",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/sheets"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m075",
+      "number": 75,
+      "title": "긴 폼을 medium에 우겨넣어 이중 스크롤을 만든다",
+      "why": "시트가 화면을 다 덮지 않는 쪽이 가벼워 보인다.",
+      "fix": "스크롤 안의 스크롤은 조작을 잃게 만든다. 길면 large나 별도 화면으로.",
+      "category": "structure",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "4.1.2",
+          "title": "Presentation Detent: Medium",
+          "entryID": "sh2"
+        }
+      ],
+      "demoEntryID": "sh2",
+      "refs": [
+        {
+          "title": "Apple HIG — Sheets",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/sheets"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m076",
+      "number": 76,
+      "title": "뒤를 조작할 수 있는데 딤을 깔아 모달처럼 보이게 한다",
+      "why": "딤이 있어야 시트에 시선이 모여 완성도 있어 보인다.",
+      "fix": "신호와 동작을 일치시킨다. 만질 수 있으면 어둡게 하지 않는다.",
+      "category": "grammar",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.",
+      "sources": [
+        {
+          "index": "4.1.2",
+          "title": "Presentation Detent: Medium",
+          "entryID": "sh2"
+        },
+        {
+          "index": "4.1.5",
+          "title": "Nonmodal Sheet",
+          "entryID": "sh5"
+        }
+      ],
+      "demoEntryID": "sh2",
+      "refs": [
+        {
+          "title": "Apple HIG — Sheets",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/sheets"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m077",
+      "number": 77,
+      "title": "기기별 검증 없는 고정 픽셀 높이를 쓴다",
+      "why": "시안에 적힌 250pt를 그대로 옮긴다.",
+      "fix": "작은 화면에서는 넘치고 큰 화면에서는 뜬다. fraction이나 시스템 2단으로.",
+      "category": "text",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"잘려도 뜻이 통하는가?\"** 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 **안전장치이지 레이아웃 설계 수단이 아니다.**",
+      "sources": [
+        {
+          "index": "4.1.3",
+          "title": "Presentation Detent: Custom",
+          "entryID": "sh3"
+        }
+      ],
+      "demoEntryID": "sh3",
+      "refs": [
+        {
+          "title": "Apple HIG — Sheets",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/sheets"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m078",
+      "number": 78,
+      "title": "확장 가능하다는 단서(그랩바)를 숨긴다",
+      "why": "선 하나가 없는 쪽이 깔끔하다.",
+      "fix": "끌 수 있다는 사실을 아무도 모르면 그 detent는 없는 것이다.",
+      "category": "grammar",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.",
+      "sources": [
+        {
+          "index": "4.1.4",
+          "title": "Presentation Detent: Combo",
+          "entryID": "sh4"
+        }
+      ],
+      "demoEntryID": "sh4",
+      "refs": [
+        {
+          "title": "Apple HIG — Sheets",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/sheets"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m079",
+      "number": 79,
+      "title": "확정이 필요한 결제 시트를 비모달로 연다",
+      "why": "뒤를 확인하며 진행할 수 있으면 더 편할 거라 생각한다.",
+      "fix": "뒤에서 값이 바뀌면 결제 대상이 흔들린다. 확정 순간은 모달로 잠근다.",
+      "category": "structure",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "4.1.5",
+          "title": "Nonmodal Sheet",
+          "entryID": "sh5"
+        }
+      ],
+      "demoEntryID": "sh5",
+      "refs": [
+        {
+          "title": "Apple HIG — Sheets",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/sheets"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m080",
+      "number": 80,
+      "title": "간단한 확인 팝업을 전체 화면으로 덮는다",
+      "why": "중요한 결정이니 화면 전체로 강조하고 싶다.",
+      "fix": "무게는 크기가 아니라 문구로 준다. 확인은 alert나 작은 시트로.",
+      "category": "clutter",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "4.2.1",
+          "title": "General Behavior",
+          "entryID": "fc1"
+        }
+      ],
+      "demoEntryID": "fc1",
+      "refs": [
+        {
+          "title": "Apple HIG — Sheets",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/sheets"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m081",
+      "number": 81,
+      "title": "닫기 버튼 없는 전체 화면 커버를 만든다",
+      "why": "시트처럼 쓸어내려 닫히겠거니 하고 넘어간다.",
+      "fix": "전체 화면 커버는 스와이프로 닫히지 않는다. 출구를 직접 만든다.",
+      "category": "structure",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "4.2.1",
+          "title": "General Behavior",
+          "entryID": "fc1"
+        }
+      ],
+      "demoEntryID": "fc1",
+      "refs": [
+        {
+          "title": "Apple HIG — Sheets",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/sheets"
+        }
+      ],
+      "story": [
+        {
+          "heading": "증상",
+          "body": "\"앱이 멈췄어요\"라는 문의가 왔다. 크래시 로그는 깨끗했다. 재현해 보니 멈춘 게 아니라 **나갈 수가 없었다**. 편집기를 연 사용자는 아래로 쓸어내리고, 좌우로 밀고, 화면 가장자리를 눌러보다 앱을 강제 종료했다."
+        },
+        {
+          "heading": "그때는 왜 그게 맞아 보였나",
+          "body": "작성 화면은 몰입이 필요하니 전체 화면으로 덮기로 했다. 시트를 쓰던 습관대로 닫기는 스와이프로 되겠거니 생각했다. 개발 중에는 늘 시뮬레이터를 재실행했기 때문에 아무도 \"닫기\"를 눌러본 적이 없었다."
+        },
+        {
+          "heading": "무엇이 부러졌나",
+          "body": "`fullScreenCover`는 **일부러** 스와이프로 닫히지 않는다. 작성 중인 내용을 실수로 날리지 않게 하려는 설계다. 즉 그 대신 출구를 직접 만들라는 계약이 붙어 있는데, 우리는 이득만 받고 의무를 안 지켰다. 결과적으로 사용자를 가둔 화면이 됐다."
+        },
+        {
+          "heading": "기준",
+          "body": "덮는 화면일수록 **나가는 길**을 먼저 설계한다. 시트의 습관은 여기서 통하지 않는다."
+        },
+        {
+          "heading": "고친 뒤",
+          "body": "상단 leading에 취소, trailing에 완료를 붙였다. 취소에는 작성 중인 내용이 있을 때만 확인 alert를 띄운다. 화면을 여는 코드보다 닫는 코드를 먼저 쓰는 순서로 바꿨다."
+        },
+        {
+          "heading": "남는 것",
+          "body": "전체 화면을 덮는 코드를 쓸 때는 그 자리에서 닫기 버튼까지 함께 쓴다. 나중에 붙이면 대개 잊는다."
+        }
+      ]
+    },
+    {
+      "id": "m082",
+      "number": 82,
+      "title": "카드를 탭해 여는 상세인데 기본 전환을 쓴다",
+      "why": "기본값이고, 전환은 취향의 영역이라고 생각한다.",
+      "fix": "어디서 열렸는지가 정보다. 출처가 분명한 카드라면 zoom이 정답이다.",
+      "category": "direct",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 액션의 대상이 화면에 보이는가? 사용자가 버튼과 대상의 관계를 유추해야 하는가?\"** 대상이 보이는데 유추가 필요하다면, 액션을 대상 위로 옮겨야 한다.",
+      "sources": [
+        {
+          "index": "4.3.1",
+          "title": "Standard",
+          "entryID": "tr1"
+        }
+      ],
+      "demoEntryID": "tr1",
+      "refs": [
+        {
+          "title": "Apple HIG — Sheets",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/sheets"
+        },
+        {
+          "title": "Michael Tsai — SwiftUI in appleOS 27",
+          "url": "https://mjtsai.com/blog/2026/06/19/swiftui-in-appleos-27/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m083",
+      "number": 83,
+      "title": "출처가 없는 요소에 zoom 전환을 건다",
+      "why": "zoom이 화려하고 최신 API라 여기저기 써보고 싶다.",
+      "fix": "확대될 시각적 대응물이 있을 때만 쓴다. 작성 버튼·텍스트 행에는 맞지 않는다.",
+      "category": "grammar",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.",
+      "sources": [
+        {
+          "index": "4.3.2",
+          "title": "Zoom – Sheet",
+          "entryID": "tr2"
+        },
+        {
+          "index": "4.3.3",
+          "title": "Zoom – Full Screen Cover",
+          "entryID": "tr3"
+        }
+      ],
+      "demoEntryID": "tr2",
+      "refs": [
+        {
+          "title": "Apple HIG — Sheets",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/sheets"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m084",
+      "number": 84,
+      "title": "닫을 때 원래 위치로 돌아가지 않게 만든다",
+      "why": "여는 애니메이션만 신경 쓰고 닫는 쪽은 기본으로 둔다.",
+      "fix": "돌아갈 자리를 잃으면 목록에서 내가 어디 있었는지도 잃는다.",
+      "category": "direct",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 액션의 대상이 화면에 보이는가? 사용자가 버튼과 대상의 관계를 유추해야 하는가?\"** 대상이 보이는데 유추가 필요하다면, 액션을 대상 위로 옮겨야 한다.",
+      "sources": [
+        {
+          "index": "4.3.3",
+          "title": "Zoom – Full Screen Cover",
+          "entryID": "tr3"
+        }
+      ],
+      "demoEntryID": "tr3",
+      "refs": [
+        {
+          "title": "Apple HIG — Sheets",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/sheets"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m085",
+      "number": 85,
+      "title": "커스텀 바를 ZStack으로 얹어 콘텐츠 첫 줄을 가린다",
+      "why": "화면 위에 올리는 가장 간단한 방법이라 먼저 손이 간다.",
+      "fix": "safeAreaBar로 얹으면 콘텐츠가 알아서 비켜난다. 그 자동 인셋이 이 API의 전부다.",
+      "category": "structure",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "5.1.1",
+          "title": "Top",
+          "entryID": "va1"
+        }
+      ],
+      "demoEntryID": "va1",
+      "refs": [
+        {
+          "title": "Apple HIG — Layout",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/layout"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m086",
+      "number": 86,
+      "title": "커스텀 바가 콘텐츠 영역을 과하게 잠식한다",
+      "why": "바마다 필요한 것을 담다 보니 높이가 계속 자란다.",
+      "fix": "상하 바 합계가 화면의 3할을 넘으면 콘텐츠가 압사한다. 총량으로 관리한다.",
+      "category": "clutter",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "5.1.1",
+          "title": "Top",
+          "entryID": "va1"
+        },
+        {
+          "index": "5.1.5",
+          "title": "Top & Bottom, Soft Scroll Edge Effect, with Toolbar Items",
+          "entryID": "va5"
+        }
+      ],
+      "demoEntryID": "va1",
+      "refs": [
+        {
+          "title": "Apple HIG — Layout",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/layout"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m087",
+      "number": 87,
+      "title": "시스템 내비바와 커스텀 헤더를 동시에 띄운다",
+      "why": "커스텀 헤더를 넣으면서 시스템 제목을 끄는 것을 잊는다.",
+      "fix": "헤더는 하나다. 커스텀을 쓰면 시스템 제목은 비운다.",
+      "category": "clutter",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "5.1.2",
+          "title": "Top with Title",
+          "entryID": "va2"
+        }
+      ],
+      "demoEntryID": "va2",
+      "refs": [
+        {
+          "title": "Apple HIG — Layout",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/layout"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m088",
+      "number": 88,
+      "title": "커스텀 헤더가 Dynamic Type을 무시한다",
+      "why": "고정 크기로 그려야 시안과 픽셀이 맞는다.",
+      "fix": "큰 글씨 설정에서 한 번 연다. 시스템 헤더가 공짜로 해주던 일이다.",
+      "category": "text",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"잘려도 뜻이 통하는가?\"** 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 **안전장치이지 레이아웃 설계 수단이 아니다.**",
+      "sources": [
+        {
+          "index": "5.1.2",
+          "title": "Top with Title",
+          "entryID": "va2"
+        }
+      ],
+      "demoEntryID": "va2",
+      "refs": [
+        {
+          "title": "Apple HIG — Layout",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/layout"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m089",
+      "number": 89,
+      "title": "홈 인디케이터 영역을 침범한다",
+      "why": "화면 끝까지 꽉 채우는 편이 시원해 보인다.",
+      "fix": "그 자리는 시스템 제스처의 것이다. 버튼을 두면 오작동이 난다.",
+      "category": "reach",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"자주·반복해서 누르는가?\"** 그렇다면 하단(엄지의 홈 그라운드). 가끔 쓰는 확정성 액션(완료·저장)이라면 상단. 빈도와 높이가 반비례해야 한다.",
+      "sources": [
+        {
+          "index": "5.1.3",
+          "title": "Bottom",
+          "entryID": "va3"
+        }
+      ],
+      "demoEntryID": "va3",
+      "refs": [
+        {
+          "title": "Apple HIG — Layout",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/layout"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m090",
+      "number": 90,
+      "title": "좁은 iPhone 화면에 세로 바를 붙인다",
+      "why": "iPad에서 좋았던 도구 팔레트를 그대로 가져온다.",
+      "fix": "가로 폭이 좁으면 세로 바는 콘텐츠를 잠식한다. 좌우 동시 사용은 특히 금물.",
+      "category": "clutter",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
+      "sources": [
+        {
+          "index": "5.2.1",
+          "title": "Leading, Top Alignment, with Material",
+          "entryID": "ha1"
+        },
+        {
+          "index": "5.2.2",
+          "title": "Trailing, Center Alignment",
+          "entryID": "ha2"
+        }
+      ],
+      "demoEntryID": "ha1",
+      "refs": [
+        {
+          "title": "Apple HIG — Layout",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/layout"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m091",
+      "number": 91,
+      "title": "가장자리 바를 불투명 단색으로 채운다",
+      "why": "반투명은 뒤가 비쳐 지저분해 보인다.",
+      "fix": "재료를 쓰면 뒤 콘텐츠의 흐름이 이어진다. 단색은 화면을 둘로 자른다.",
+      "category": "legible",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "**\"최악의 배경(사진·고대비 그래픽) 위에서, 그리고 접근성 설정(큰 글씨·투명도 감소)에서도 읽히고 눌리는가?\"** 가장 좋은 조건이 아니라 가장 나쁜 조건이 검증 기준이다.",
+      "sources": [
+        {
+          "index": "5.2.1",
+          "title": "Leading, Top Alignment, with Material",
+          "entryID": "ha1"
+        }
+      ],
+      "demoEntryID": "ha1",
+      "refs": [
+        {
+          "title": "Apple HIG — Layout",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/layout"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m092",
+      "number": 92,
+      "title": "오른손 엄지에 가려지는 자리에 핵심 버튼을 둔다",
+      "why": "오른쪽 가장자리는 도달성이 좋은 자리라고만 생각한다.",
+      "fix": "닿는 것과 보이는 것은 다르다. 조작 중 가려지는지 손으로 확인한다.",
+      "category": "reach",
+      "severity": "subtle",
+      "severityLabel": "놓치기 쉽다",
+      "criterion": "**\"자주·반복해서 누르는가?\"** 그렇다면 하단(엄지의 홈 그라운드). 가끔 쓰는 확정성 액션(완료·저장)이라면 상단. 빈도와 높이가 반비례해야 한다.",
+      "sources": [
+        {
+          "index": "5.2.2",
+          "title": "Trailing, Center Alignment",
+          "entryID": "ha2"
+        }
+      ],
+      "demoEntryID": "ha2",
+      "refs": [
+        {
+          "title": "Apple HIG — Layout",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/layout"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m093",
+      "number": 93,
+      "title": "스크린샷에서 색을 뽑아 반투명 색을 하드코딩한다",
+      "why": "디자인 툴에서 뽑은 값이 가장 정확해 보인다.",
+      "fix": "그 값은 그 배경에서만 맞다. 시스템 재료를 쓰면 배경이 바뀌어도 따라온다.",
+      "category": "legible",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "**\"최악의 배경(사진·고대비 그래픽) 위에서, 그리고 접근성 설정(큰 글씨·투명도 감소)에서도 읽히고 눌리는가?\"** 가장 좋은 조건이 아니라 가장 나쁜 조건이 검증 기준이다.",
+      "sources": [
+        {
+          "index": "6.1.1",
+          "title": "Materials in Different Backgrounds",
+          "entryID": "m1"
+        }
+      ],
+      "demoEntryID": "m1",
+      "refs": [
+        {
+          "title": "Apple HIG — Materials",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/materials"
+        },
+        {
+          "title": "WWDC25 — Meet Liquid Glass",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/219/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m094",
+      "number": 94,
+      "title": "재료 위에 재료를 겹친다",
+      "why": "카드마다 재료를 쓰다 보면 자연스럽게 중첩된다.",
+      "fix": "겹칠수록 탁해진다. 한 레이어에 하나만.",
+      "category": "legible",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"최악의 배경(사진·고대비 그래픽) 위에서, 그리고 접근성 설정(큰 글씨·투명도 감소)에서도 읽히고 눌리는가?\"** 가장 좋은 조건이 아니라 가장 나쁜 조건이 검증 기준이다.",
+      "sources": [
+        {
+          "index": "6.1.1",
+          "title": "Materials in Different Backgrounds",
+          "entryID": "m1"
+        }
+      ],
+      "demoEntryID": "m1",
+      "refs": [
+        {
+          "title": "Apple HIG — Materials",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/materials"
+        },
+        {
+          "title": "WWDC25 — Meet Liquid Glass",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/219/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m095",
+      "number": 95,
+      "title": "재료 위 글자에 고정 회색을 지정한다",
+      "why": "secondary가 너무 흐려 보여 직접 밝기를 조절한다.",
+      "fix": "vibrancy는 배경을 섞어 스스로 대비를 맞춘다. 고정 색은 어느 배경에선가 반드시 깨진다.",
+      "category": "legible",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"최악의 배경(사진·고대비 그래픽) 위에서, 그리고 접근성 설정(큰 글씨·투명도 감소)에서도 읽히고 눌리는가?\"** 가장 좋은 조건이 아니라 가장 나쁜 조건이 검증 기준이다.",
+      "sources": [
+        {
+          "index": "6.2.1",
+          "title": "Vibrancy",
+          "entryID": "vb1"
+        }
+      ],
+      "demoEntryID": "vb1",
+      "refs": [
+        {
+          "title": "Apple HIG — Materials",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/materials"
+        },
+        {
+          "title": "WWDC25 — Meet Liquid Glass",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/219/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m096",
+      "number": 96,
+      "title": "삭제를 메뉴의 일반 항목들 사이에 섞어 둔다",
+      "why": "항목 순서를 기능 흐름대로 정리하다 보니 중간에 놓인다.",
+      "fix": "파괴적 액션은 구분선 아래·맨 끝에 두고 role: .destructive를 준다.",
+      "category": "grammar",
+      "severity": "critical",
+      "severityLabel": "사고로 이어진다",
+      "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.",
+      "sources": [
+        {
+          "index": "7.1.1",
+          "title": "Menu Configurations",
+          "entryID": "mn1"
+        }
+      ],
+      "demoEntryID": "mn1",
+      "refs": [
+        {
+          "title": "Apple HIG — Menus",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/menus"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m097",
+      "number": 97,
+      "title": "서브메뉴를 3단으로 중첩한다",
+      "why": "메뉴는 접혀 있으니 얼마든 넣어도 화면을 어지럽히지 않는다고 생각한다.",
+      "fix": "접힌 곳에서도 길을 잃는다. 두 단계를 넘으면 화면으로 꺼낸다.",
+      "category": "structure",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "",
+      "sources": [
+        {
+          "index": "7.1.1",
+          "title": "Menu Configurations",
+          "entryID": "mn1"
+        }
+      ],
+      "demoEntryID": "mn1",
+      "refs": [
+        {
+          "title": "Apple HIG — Menus",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/menus"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m098",
+      "number": 98,
+      "title": "한 번 누르는 완료 버튼을 하단 바에 둔다",
+      "why": "가장 중요한 확정 액션이니 가장 좋은 자리를 준다.",
+      "fix": "완료는 화면당 한 번이다. 고빈도 자리를 낭비하고 탭바와 역할까지 헷갈리게 만든다.",
+      "category": "reach",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"자주·반복해서 누르는가?\"** 그렇다면 하단(엄지의 홈 그라운드). 가끔 쓰는 확정성 액션(완료·저장)이라면 상단. 빈도와 높이가 반비례해야 한다.",
+      "sources": [
+        {
+          "index": "8.1.2",
+          "title": "Reachability — 빈도가 높을수록 엄지에 가깝게",
+          "entryID": "p2"
+        },
+        {
+          "index": "1.1.4",
+          "title": "Single Bottom Item",
+          "entryID": "i4"
+        }
+      ],
+      "demoEntryID": "i4",
+      "refs": [
+        {
+          "title": "Apple HIG — Navigation & search",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/navigation-and-search"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": []
+    },
+    {
+      "id": "m099",
+      "number": 99,
+      "title": "가장 자주 쓰는 액션을 상단 구석에 두고 하단은 비운다",
+      "why": "상단이 눈에 먼저 들어오니 중요한 것을 위에 둔다는 감각으로 배치한다.",
+      "fix": "카메라 셔터를 상단에 두는 격이다. 빈도 최상위는 엄지 자리로 내린다.",
+      "category": "reach",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"자주·반복해서 누르는가?\"** 그렇다면 하단(엄지의 홈 그라운드). 가끔 쓰는 확정성 액션(완료·저장)이라면 상단. 빈도와 높이가 반비례해야 한다.",
+      "sources": [
+        {
+          "index": "8.1.2",
+          "title": "Reachability — 빈도가 높을수록 엄지에 가깝게",
+          "entryID": "p2"
+        }
+      ],
+      "demoEntryID": "p2",
+      "refs": [
+        {
+          "title": "Apple HIG — Navigation & search",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/navigation-and-search"
+        },
+        {
+          "title": "WWDC25 — Build a SwiftUI app with the new design",
+          "url": "https://developer.apple.com/videos/play/wwdc2025/323/"
+        }
+      ],
+      "story": [
+        {
+          "heading": "증상",
+          "body": "한 손 사용 비율이 높은 앱인데, 핵심 액션의 사용량이 기대의 절반이었다. 세션을 보면 사람들은 그 버튼을 쓰기 전에 잠깐 멈춘다. 기기를 고쳐 쥐는 시간이었다."
+        },
+        {
+          "heading": "그때는 왜 그게 맞아 보였나",
+          "body": "중요한 것은 위에 둔다 — 오래된 감각이다. 화면을 위에서 아래로 읽으니 시선이 먼저 닿는 곳에 핵심을 두는 게 맞다고 생각했다. 디자인 시안을 데스크톱 화면에서 보면 상단 우측이 가장 먼저 눈에 들어오기도 했다."
+        },
+        {
+          "heading": "무엇이 부러졌나",
+          "body": "**보이는 것과 닿는 것은 다르다.** 큰 화면에서 상단 trailing은 한 손으로 닿지 않는다. 사용자는 그 버튼을 누를 때마다 기기를 고쳐 쥐거나 다른 손을 쓴다. 몇 번은 하지만 하루에 스무 번은 하지 않는다. 그래서 기능이 덜 쓰인다 — 발견되지 않아서가 아니라 **비싸서**."
+        },
+        {
+          "heading": "기준",
+          "body": "자주·반복해서 누르는가? 그렇다면 하단. 가끔 쓰는 확정성 액션(완료·저장)이라면 상단. **빈도와 높이는 반비례**해야 한다."
+        },
+        {
+          "heading": "고친 뒤",
+          "body": "핵심 액션을 하단 바로 내리고, 상단에는 가끔 쓰는 설정만 남겼다. 시안에서는 덜 강조돼 보였지만 실사용량은 올라갔다. 카메라 앱의 셔터가 왜 아래에 있는지 그제야 몸으로 이해했다."
+        },
+        {
+          "heading": "남는 것",
+          "body": "새 화면의 액션을 배치하기 전에 \"이걸 하루에 몇 번 누르는가\"를 먼저 적는다. 그 숫자가 높이를 정한다."
+        }
+      ]
+    },
+    {
+      "id": "m100",
+      "number": 100,
+      "title": "대상이 화면에 보이는데 액션은 떨어진 버튼에 둔다",
+      "why": "버튼을 모아두면 정리돼 보이고 구현도 단순하다.",
+      "fix": "대상 위에 붙인다 — 제목 메뉴·스와이프·컨텍스트 메뉴. 두 번 지정하게 만들지 않는다.",
+      "category": "direct",
+      "severity": "common",
+      "severityLabel": "자주 밟는다",
+      "criterion": "**\"이 액션의 대상이 화면에 보이는가? 사용자가 버튼과 대상의 관계를 유추해야 하는가?\"** 대상이 보이는데 유추가 필요하다면, 액션을 대상 위로 옮겨야 한다.",
+      "sources": [
+        {
+          "index": "8.1.7",
+          "title": "직접 조작 — 대상에 대한 액션은 대상 자체에",
+          "entryID": "p7"
+        },
+        {
+          "index": "1.2.5",
+          "title": "Inline with Toolbar Title Menu",
+          "entryID": "t5"
+        }
+      ],
+      "demoEntryID": "t5",
+      "refs": [
+        {
+          "title": "Apple Developer Documentation — toolbarTitleMenu",
+          "url": "https://developer.apple.com/documentation/swiftui/view/toolbartitlemenu(content:"
+        },
+        {
+          "title": "Apple HIG — Toolbars",
+          "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars"
+        }
+      ],
+      "story": []
+    }
+  ]
+}
