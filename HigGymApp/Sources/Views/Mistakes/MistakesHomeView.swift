@@ -107,7 +107,7 @@ struct MistakesHomeView: View {
             }
             GeometryReader { geo in
                 ZStack(alignment: .leading) {
-                    Capsule().fill(Color.white.opacity(0.06))
+                    Capsule().fill(Color.hgFill)
                     Capsule()
                         .fill(.hgBrand)
                         .frame(width: geo.size.width * CGFloat(done) / CGFloat(total))

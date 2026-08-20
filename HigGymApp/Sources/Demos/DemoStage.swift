@@ -54,7 +54,7 @@ struct EntryDemoStage: View {
             }
             .padding(.horizontal, 7)
             .background(.ultraThinMaterial, in: .capsule)
-            .overlay(Capsule().strokeBorder(.white.opacity(0.18), lineWidth: 1))
+            .overlay(Capsule().strokeBorder(Color.hgHairline, lineWidth: 1))
             .shadow(color: .black.opacity(0.35), radius: 10, y: 4)
             .padding(.bottom, 10)
         } else {
@@ -70,7 +70,7 @@ struct EntryDemoStage: View {
         }
         .padding(.vertical, 7)
         .background(.ultraThinMaterial, in: .capsule)
-        .overlay(Capsule().strokeBorder(.white.opacity(0.18), lineWidth: 1))
+        .overlay(Capsule().strokeBorder(Color.hgHairline, lineWidth: 1))
         .shadow(color: .black.opacity(0.35), radius: 10, y: 4)
         .padding(demo.chromeEdge.padding, 8)
     }
@@ -253,7 +253,7 @@ private struct DemoGuideSheet: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(13)
-        .background(Color.white.opacity(0.02), in: .rect(cornerRadius: 12))
+        .background(Color.hgFill, in: .rect(cornerRadius: 12))
         .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(Color.hgLine, lineWidth: 1))
     }
 }

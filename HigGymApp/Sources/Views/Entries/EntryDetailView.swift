@@ -126,7 +126,7 @@ struct EntryDetailView: View {
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(13)
-            .background(Color.white.opacity(0.015), in: .rect(cornerRadius: 12))
+            .background(Color.hgFill, in: .rect(cornerRadius: 12))
             .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(Color.hgLine, lineWidth: 1))
         }
     }

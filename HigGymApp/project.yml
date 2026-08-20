@@ -30,7 +30,6 @@ targets:
         CFBundleVersion: "1"
         UILaunchScreen:
           UIColorName: ""
-        UIUserInterfaceStyle: Dark
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
         ITSAppUsesNonExemptEncryption: false

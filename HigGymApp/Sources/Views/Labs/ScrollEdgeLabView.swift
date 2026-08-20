@@ -104,7 +104,9 @@ struct ScrollEdgeLabView: View {
     private var backdropView: some View {
         switch backdrop {
         case .calm:
-            Color.hgBackground
+            // 앱 모드를 따라가면 안 된다 — 여기서 판정하는 건 앱 크롬이 아니라
+            // **바 뒤로 지나가는 콘텐츠**다. 조건을 고정해야 세 배경의 비교가 성립한다.
+            Color(red: 0.07, green: 0.08, blue: 0.11)
         case .white:
             Color.white
         case .photo:

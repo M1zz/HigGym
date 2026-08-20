@@ -20,7 +20,7 @@ struct StageChrome<Controls: View>: ViewModifier {
                 }
                 .padding(.vertical, 8)
                 .background(.ultraThinMaterial, in: .capsule)
-                .overlay(Capsule().strokeBorder(.white.opacity(0.16), lineWidth: 1))
+                .overlay(Capsule().strokeBorder(Color.hgHairline, lineWidth: 1))
                 .padding(.leading, 10)
                 .shadow(color: .black.opacity(0.4), radius: 10, y: 4)
             }
