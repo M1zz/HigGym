@@ -45,14 +45,9 @@ struct PrinciplesView: View {
     }
 
     private var intro: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text("68개 항목을 관통하는 7가지")
-                .font(.system(size: 20, weight: .bold))
-                .foregroundStyle(.hgText)
-            Text("원칙마다 **판단 기준이 한 문장**으로 정의돼 있습니다. 실습의 실시간 판정도, 퀴즈의 해설도 전부 이 기준을 근거로 삼습니다.")
-                .font(.system(size: 13.5))
-                .foregroundStyle(.hgMuted)
-        }
+        Text("68개 항목을 관통하는 7가지입니다. 원칙마다 **판단 기준이 한 문장**으로 정의돼 있고, 실습의 실시간 판정도 퀴즈의 해설도 전부 이 기준을 근거로 삼습니다.")
+            .font(.system(size: 14))
+            .foregroundStyle(.hgMuted)
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.bottom, 4)
     }

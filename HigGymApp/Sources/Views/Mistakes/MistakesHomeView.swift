@@ -77,14 +77,9 @@ struct MistakesHomeView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: 12) {
-            VStack(alignment: .leading, spacing: 7) {
-                Text("직접 밟아봐야 안 밟는다")
-                    .font(.system(size: 22, weight: .bold))
-                    .foregroundStyle(.hgText)
-                Text("본문 68개 항목의 **잘못된 예 154개**를 실수 단위로 추려 100편으로 묶었습니다. 각 실수마다 그때는 왜 그게 맞아 보였는지, 판단 기준이 무엇인지, 그리고 **직접 어겨볼 화면**이 붙습니다.")
-                    .font(.system(size: 14))
-                    .foregroundStyle(.hgMuted)
-            }
+            Text("본문 68개 항목의 **잘못된 예 154개**를 실수 단위로 추려 100편으로 묶었습니다. 실수마다 그때는 왜 그게 맞아 보였는지, 판단 기준이 무엇인지, 그리고 **직접 어겨볼 화면**이 붙습니다.")
+                .font(.system(size: 14))
+                .foregroundStyle(.hgMuted)
 
             progressBar
         }

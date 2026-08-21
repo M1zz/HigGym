@@ -97,18 +97,10 @@ struct EntriesHomeView: View {
     }
 
     private var intro: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("그림이 먼저입니다")
-                .font(.system(size: 22, weight: .bold))
-                .foregroundStyle(.hgText)
-            Text("각 항목은 문서와 똑같은 목업으로 시작합니다. 그림의 **아무 부위나 눌러보세요** — 그 자리가 무엇을 말하는지, 어느 항목이 근거인지 바로 알려줍니다.")
-                .font(.system(size: 14))
-                .foregroundStyle(.hgMuted)
-            Text("그림으로 배치를 읽었다면 **예제 보기**로 같은 화면을 실제로 만져보세요. 68개 항목 전부에 동작하는 예제가 있습니다.")
-                .font(.system(size: 14))
-                .foregroundStyle(.hgMuted)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        Text("항목마다 문서와 같은 목업이 먼저 나옵니다. 그림의 **아무 부위나 누르면** 그 자리가 무엇을 말하는지 알려주고, **예제 보기**로 같은 화면을 직접 만져볼 수 있습니다.")
+            .font(.system(size: 14))
+            .foregroundStyle(.hgMuted)
+            .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 

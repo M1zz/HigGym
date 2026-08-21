@@ -46,14 +46,9 @@ struct LabsHomeView: View {
     }
 
     private var header: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("직접 어겨봐야 기준이 몸에 남습니다")
-                .font(.system(size: 22, weight: .bold))
-                .foregroundStyle(.hgText)
-            Text("설정을 바꾸면 문서와 같은 목업이 바로 다시 그려지고, 지금 구성이 어떤 기준을 지키고 어기는지 함께 판정합니다. 실제 SwiftUI 화면으로도 대조할 수 있습니다.")
-                .font(.system(size: 14))
-                .foregroundStyle(.hgMuted)
-        }
+        Text("설정을 바꾸면 문서와 같은 목업이 바로 다시 그려지고, 지금 구성이 어떤 기준을 지키고 어기는지 함께 판정합니다. 실제 SwiftUI 화면으로도 대조할 수 있습니다.")
+            .font(.system(size: 14))
+            .foregroundStyle(.hgMuted)
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.bottom, 6)
     }
