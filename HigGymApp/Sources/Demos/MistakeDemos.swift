@@ -550,12 +550,13 @@ private struct M038: View {
                 ForEach(Array(rows.enumerated()), id: \.offset) { _, row in
                     VStack(alignment: .leading, spacing: 4) {
                         Text(row.0)
-                            .font(.system(size: 13, weight: .semibold))
+                            // 고정 크기 폰트는 Dynamic Type 을 따르지 않는다 — 상대 폰트여야 슬라이더가 일한다.
+                            .font(.subheadline.weight(.semibold))
                             .foregroundStyle(.secondary)
                         if clamped {
-                            Text(row.1).font(.system(size: 16)).lineLimit(1).minimumScaleFactor(0.4)
+                            Text(row.1).font(.body).lineLimit(1).minimumScaleFactor(0.4)
                         } else {
-                            Text(row.1).font(.system(size: 16)).lineLimit(2...3)
+                            Text(row.1).font(.body).lineLimit(2...3)
                         }
                     }
                     .padding(.vertical, 4)

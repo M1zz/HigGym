@@ -151,11 +151,21 @@ struct LessonPlayerView: View {
         VStack(spacing: 0) {
             taskCard
 
-            lesson.knob.surface(.recommended)
+            practiceScreen
                 .clipShape(.rect(cornerRadius: 18))
                 .overlay(RoundedRectangle(cornerRadius: 18).strokeBorder(Color.hgLine, lineWidth: 1))
                 .padding(.horizontal, 8)
                 .padding(.bottom, 6)
+        }
+    }
+
+    /// ① 에서 만져볼 화면 — 언제나 **고친 쪽**이다. 기준을 지킨 화면을 먼저 손에 쥐어야
+    /// 나중에 어긴 화면을 봤을 때 무엇이 사라졌는지 알아본다.
+    @ViewBuilder
+    private var practiceScreen: some View {
+        switch lesson.source {
+        case .sampleApp(let knob): knob.surface(.recommended)
+        case .pair(let pair):      pair.view(broken: false)
         }
     }
 
@@ -234,15 +244,15 @@ struct LessonPlayerView: View {
                     .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(Color.hgLine, lineWidth: 1))
                 }
 
-                block("이 앱이 한 결정", lesson.decision.decision, .hgAccent, "checkmark.circle")
-                block("왜 그렇게 했나", lesson.decision.why, .hgAccent2, "lightbulb")
-                block("뒤집으면", lesson.decision.ifFlipped, .hgRed, "exclamationmark.triangle")
+                block("이 앱이 한 결정", lesson.decision, .hgAccent, "checkmark.circle")
+                block("왜 그렇게 했나", lesson.why, .hgAccent2, "lightbulb")
+                block("뒤집으면", lesson.ifFlipped, .hgRed, "exclamationmark.triangle")
 
                 HStack(spacing: 6) {
                     Text("근거")
                         .font(.system(size: 11, weight: .bold))
                         .foregroundStyle(.hgDim)
-                    ForEach(lesson.decision.sources, id: \.self) { Pill(text: $0) }
+                    ForEach(lesson.sources, id: \.self) { Pill(text: $0) }
                     Spacer()
                     Button {
                         showReference = true
@@ -273,8 +283,18 @@ struct LessonPlayerView: View {
 
     // MARK: ④ 비교
 
+    @ViewBuilder
     private var compareStep: some View {
-        ABCompareView(knob: lesson.knob, diff: lesson.diff)
+        switch lesson.source {
+        case .sampleApp(let knob):
+            ABCompareView(knob: knob, diff: lesson.diff)
+        case .pair(let pair):
+            ABCompareView(
+                diff: lesson.diff,
+                broken: { pair.view(broken: true) },
+                fixed: { pair.view(broken: false) }
+            )
+        }
     }
 
     // MARK: ⑤ 배운 것
@@ -305,7 +325,7 @@ struct LessonPlayerView: View {
                     Text("이 레슨의 기준")
                         .font(.system(size: 11, weight: .bold))
                         .foregroundStyle(.hgDim)
-                    MarkdownText(raw: lesson.decision.why, font: .system(size: 12.5), color: .hgDim)
+                    MarkdownText(raw: lesson.why, font: .system(size: 12.5), color: .hgDim)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
@@ -425,7 +445,7 @@ private struct LessonReferenceSheet: View {
     private let store = ContentStore.shared
 
     private var entries: [Entry] {
-        lesson.decision.sources.compactMap { index in
+        lesson.sources.compactMap { index in
             (store.entries + store.principles).first { $0.index == index }
         }
     }

@@ -15,7 +15,7 @@ struct CourseHomeView: View {
                     intro
                     resumeCard
 
-                    SectionLabel("여덟 편", accent: .hgAccent)
+                    SectionLabel("\(Lesson.all.count)편", accent: .hgAccent)
                     ForEach(Lesson.all) { lesson in
                         LessonRow(lesson: lesson, note: notebook.note(for: lesson)) {
                             playing = lesson
@@ -103,7 +103,7 @@ struct CourseHomeView: View {
     }
 
     private var footnote: some View {
-        Text("여덟 편이 다루는 화면은 전부 같은 앱 한 벌입니다. 결정 하나만 뒤집어 같은 앱이 어떻게 나빠지는지 봅니다. 더 넓은 자료(항목 68 · 실수 100 · 원칙 7)는 **자료** 탭에 있습니다.")
+        Text("앞의 여덟 편은 같은 앱 한 벌에서 결정 하나씩을 뒤집습니다. 뒤의 다섯 편은 그 앱으로는 볼 수 없는 것들 — 오버플로 순서 · 사진 위 가장자리 효과 · 큰 글씨에서의 잘림 · 배지 · 가짜 탭입니다. 더 넓은 자료(항목 68 · 실수 100 · 원칙 7)는 **자료** 탭에 있습니다.")
             .font(.system(size: 12))
             .foregroundStyle(.hgDim)
             .padding(.top, 4)

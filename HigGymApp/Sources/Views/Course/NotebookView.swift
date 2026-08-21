@@ -121,7 +121,7 @@ private struct NoteCard: View {
             }
 
             HStack(spacing: 6) {
-                ForEach(lesson.decision.sources, id: \.self) { Pill(text: $0) }
+                ForEach(lesson.sources, id: \.self) { Pill(text: $0) }
                 Spacer()
                 Button(action: onEdit) {
                     Label("다시 하기", systemImage: "arrow.counterclockwise")
