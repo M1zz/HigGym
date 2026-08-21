@@ -11,6 +11,8 @@ final class ProgressStore {
         static let answered = "higgym.answeredCount"
         static let visitedLabs = "higgym.visitedLabs"
         static let checkedMistakes = "higgym.checkedMistakes"
+        static let liveCorrect = "higgym.liveCorrectIDs"
+        static let liveAnswered = "higgym.liveAnsweredIDs"
     }
 
     private(set) var correctIDs: Set<String>
@@ -19,6 +21,9 @@ final class ProgressStore {
     private(set) var visitedLabs: Set<String>
     /// "이건 나도 해봤다"고 체크한 실수들 — 100편을 훑는 진행도의 근거.
     private(set) var checkedMistakes: Set<String>
+    /// 화면을 보고 판단하는 퀴즈의 성적 — 문장 퀴즈와 섞이지 않게 따로 센다.
+    private(set) var liveCorrectIDs: Set<String>
+    private(set) var liveAnsweredIDs: Set<String>
 
     private let defaults: UserDefaults
 
@@ -29,6 +34,8 @@ final class ProgressStore {
         answeredCount = defaults.integer(forKey: Key.answered)
         visitedLabs = Set(defaults.stringArray(forKey: Key.visitedLabs) ?? [])
         checkedMistakes = Set(defaults.stringArray(forKey: Key.checkedMistakes) ?? [])
+        liveCorrectIDs = Set(defaults.stringArray(forKey: Key.liveCorrect) ?? [])
+        liveAnsweredIDs = Set(defaults.stringArray(forKey: Key.liveAnswered) ?? [])
     }
 
     var correctCount: Int { correctIDs.count }
@@ -53,6 +60,20 @@ final class ProgressStore {
         guard !visitedLabs.contains(lab.rawValue) else { return }
         visitedLabs.insert(lab.rawValue)
         defaults.set(Array(visitedLabs), forKey: Key.visitedLabs)
+    }
+
+    /// 같은 문항을 다시 풀면 최근 결과로 덮어쓴다 — 맞힌 적 있다는 사실보다 지금 맞히는지가 중요하다.
+    func recordLive(_ id: String, correct: Bool) {
+        liveAnsweredIDs.insert(id)
+        if correct { liveCorrectIDs.insert(id) } else { liveCorrectIDs.remove(id) }
+        defaults.set(Array(liveAnsweredIDs), forKey: Key.liveAnswered)
+        defaults.set(Array(liveCorrectIDs), forKey: Key.liveCorrect)
+    }
+
+    func liveMastery(kind: LiveQuestion.Kind) -> Double {
+        let ids = LiveQuizBank.questions(kind: kind).map(\.id)
+        guard !ids.isEmpty else { return 0 }
+        return Double(ids.filter { liveCorrectIDs.contains($0) }.count) / Double(ids.count)
     }
 
     func toggleMistake(_ id: String) {

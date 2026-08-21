@@ -64,6 +64,27 @@ enum DebugLaunch {
         #endif
     }
 
+    /// 실전 퀴즈·샘플 앱을 바로 연다 — 스크린샷 검증용. (HG_LIVE=pick|reason · HG_CASE=1)
+    static var liveKind: LiveQuestion.Kind? {
+        #if DEBUG
+        switch ProcessInfo.processInfo.environment["HG_LIVE"] {
+        case "pick":   .pickScreen
+        case "reason": .reason
+        default:       nil
+        }
+        #else
+        nil
+        #endif
+    }
+
+    static var caseStudy: Bool {
+        #if DEBUG
+        ProcessInfo.processInfo.environment["HG_CASE"] == "1"
+        #else
+        false
+        #endif
+    }
+
     /// 특정 실수 상세를 바로 연다 — 스크린샷 검증용. (HG_MISTAKE=3)
     static var mistakeNumber: Int? {
         #if DEBUG

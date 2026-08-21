@@ -3,6 +3,8 @@ import SwiftUI
 struct QuizHomeView: View {
     @Environment(ProgressStore.self) private var progress
     @State private var session: QuizSession?
+    @State private var liveKind: LiveQuestion.Kind?
+    @State private var caseStudy = false
 
     private let bank = QuizBank.shared
     private let store = ContentStore.shared
@@ -12,6 +14,7 @@ struct QuizHomeView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
                     scoreCard
+                    liveSection
                     modeSection
                     chapterSection
                     bankInfo
@@ -21,6 +24,8 @@ struct QuizHomeView: View {
             .background(Color.hgBackground)
             .navigationTitle("퀴즈")
             .onAppear {
+                if let kind = DebugLaunch.liveKind { liveKind = kind }
+                if DebugLaunch.caseStudy { caseStudy = true }
                 if DebugLaunch.autoQuiz, session == nil {
                     let mode: QuizSession.Mode = DebugLaunch.quizKind.map { .kind($0) } ?? .mixed(10)
                     session = QuizSession(mode: mode, bank: bank, progress: progress)
@@ -28,6 +33,12 @@ struct QuizHomeView: View {
             }
             .fullScreenCover(item: $session) { session in
                 QuizPlayView(session: session) { self.session = nil }
+            }
+            .fullScreenCover(item: $liveKind) { kind in
+                LiveQuizPlayView(kind: kind) { liveKind = nil }
+            }
+            .fullScreenCover(isPresented: $caseStudy) {
+                CaseStudyView()
             }
         }
     }
@@ -64,6 +75,78 @@ struct QuizHomeView: View {
                 .font(.system(size: 11))
                 .foregroundStyle(.hgDim)
         }
+    }
+
+    // MARK: 실전 — 화면을 보고 판단하기
+
+    /// 문장을 읽고 고르는 훈련과 화면을 보고 고르는 훈련은 다른 근육을 쓴다.
+    /// 실무에서 판단하는 대상은 언제나 화면이므로 이쪽을 위에 둔다.
+    private var liveSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            SectionLabel("실전 — 화면으로 판단하기", accent: .hgGreen)
+
+            Button { caseStudy = true } label: {
+                VStack(alignment: .leading, spacing: 9) {
+                    HStack(spacing: 13) {
+                        Image(systemName: "iphone.gen3")
+                            .font(.system(size: 17, weight: .semibold))
+                            .foregroundStyle(.white)
+                            .frame(width: 40, height: 40)
+                            .background(.hgBrand, in: .rect(cornerRadius: 11))
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("샘플 앱 뜯어보기")
+                                .font(.system(size: 16, weight: .bold))
+                                .foregroundStyle(.hgText)
+                            Text("완성된 노트 앱을 직접 써보고, 결정 8개의 이유를 짚어봅니다")
+                                .font(.system(size: 12.5))
+                                .foregroundStyle(.hgMuted)
+                                .multilineTextAlignment(.leading)
+                        }
+                        Spacer(minLength: 4)
+                        Image(systemName: "chevron.right")
+                            .font(.system(size: 12, weight: .semibold))
+                            .foregroundStyle(.hgDim)
+                    }
+                }
+                .padding(14)
+                .background(Color.hgCard, in: .rect(cornerRadius: 14))
+                .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(Color.hgGreen.opacity(0.4), lineWidth: 1))
+            }
+            .buttonStyle(.plain)
+
+            liveRow(.pickScreen, "기준을 주면 어느 화면이 맞는지 고릅니다", .hgAccent)
+            liveRow(.reason, "화면을 보고 왜 그렇게 만들었는지 고릅니다", .hgAccent2)
+        }
+    }
+
+    private func liveRow(_ kind: LiveQuestion.Kind, _ subtitle: String, _ tint: Color) -> some View {
+        Button { liveKind = kind } label: {
+            HStack(spacing: 13) {
+                Image(systemName: kind.symbol)
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundStyle(tint)
+                    .frame(width: 38, height: 38)
+                    .background(tint.opacity(0.12), in: .rect(cornerRadius: 10))
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(kind.title)
+                        .font(.system(size: 15, weight: .semibold))
+                        .foregroundStyle(.hgText)
+                    Text(subtitle)
+                        .font(.system(size: 12.5))
+                        .foregroundStyle(.hgMuted)
+                        .multilineTextAlignment(.leading)
+                }
+                Spacer(minLength: 8)
+                MasteryBar(value: progress.liveMastery(kind: kind))
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 12, weight: .semibold))
+                    .foregroundStyle(.hgDim)
+            }
+            .padding(13)
+            .background(Color.hgCard, in: .rect(cornerRadius: 14))
+            .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(Color.hgLine, lineWidth: 1))
+        }
+        .buttonStyle(.plain)
     }
 
     // MARK: 모드
@@ -196,6 +279,10 @@ private struct MasteryBar: View {
                 }
         }
     }
+}
+
+extension LiveQuestion.Kind: Identifiable {
+    var id: String { rawValue }
 }
 
 extension QuizSession: Identifiable {
