@@ -2,6 +2,8 @@ import SwiftUI
 
 /// 8장 원칙 7개 — 실습 판정과 퀴즈 해설이 모두 여기서 나온다.
 struct PrinciplesView: View {
+    var onClose: (() -> Void)?
+
     private let store = ContentStore.shared
     @State private var query = ""
     @State private var path: [Entry] = []
@@ -31,6 +33,13 @@ struct PrinciplesView: View {
             }
             .background(Color.hgBackground)
             .navigationTitle("디자인 원칙")
+            .toolbar {
+                if let onClose {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button("닫기", systemImage: "xmark", action: onClose)
+                    }
+                }
+            }
             .searchable(text: $query, prompt: "원칙·기준 검색")
             .navigationDestination(for: Entry.self) { PrincipleDetailView(principle: $0) }
             .navigationDestination(for: Mistake.self) { MistakeDetailView(mistake: $0) }

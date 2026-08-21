@@ -5,6 +5,8 @@ import SwiftUI
 /// 목록은 훑는 곳이고, 배우는 건 상세와 예제에서 일어난다. 그래서 행은 최대한 조용하게 두고
 /// 번호 · 실수 한 줄 · 심각도 · 확인 여부만 싣는다.
 struct MistakesHomeView: View {
+    var onClose: (() -> Void)?
+
     private let store = MistakeStore.shared
 
     @Environment(ProgressStore.self) private var progress
@@ -57,6 +59,13 @@ struct MistakesHomeView: View {
             }
             .background(Color.hgBackground)
             .navigationTitle("실수 100")
+            .toolbar {
+                if let onClose {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button("닫기", systemImage: "xmark", action: onClose)
+                    }
+                }
+            }
             .searchable(text: $query, prompt: "실수·근거 항목 검색")
             .navigationDestination(for: Mistake.self) { MistakeDetailView(mistake: $0) }
             .navigationDestination(for: MistakeStoryRoute.self) { MistakeStoryView(mistake: $0.mistake) }

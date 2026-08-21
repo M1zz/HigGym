@@ -3,6 +3,9 @@ import SwiftUI
 /// 68개 항목 브라우저 — 앱의 기본 화면.
 /// 각 항목은 문서와 똑같은 목업으로 먼저 보여주고, 설명은 그 그림에 붙는다.
 struct EntriesHomeView: View {
+    /// 자료 탭에서 전체 화면으로 열릴 때의 출구. 탭 안에 있을 때는 nil.
+    var onClose: (() -> Void)?
+
     @Environment(Router.self) private var router
     private let store = ContentStore.shared
 
@@ -48,6 +51,13 @@ struct EntriesHomeView: View {
             }
             .background(Color.hgBackground)
             .navigationTitle("항목")
+            .toolbar {
+                if let onClose {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button("닫기", systemImage: "xmark", action: onClose)
+                    }
+                }
+            }
             .searchable(text: $query, prompt: "항목·상황 검색")
             .navigationDestination(for: Entry.self) { EntryDetailView(entry: $0) }
             .navigationDestination(for: Mistake.self) { MistakeDetailView(mistake: $0) }

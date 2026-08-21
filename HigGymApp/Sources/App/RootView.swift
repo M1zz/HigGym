@@ -4,15 +4,15 @@ import SwiftUI
 @MainActor
 @Observable
 final class Router {
-    enum TabID: Hashable { case entries, mistakes, labs, quiz, principles }
+    enum TabID: Hashable { case course, notebook, library }
 
-    var tab: TabID = .entries
+    var tab: TabID = .course
     var entryPath: [Entry] = []
     /// 실습은 push 가 아니라 전체 화면으로 띄운다 — LabScaffold 주석 참고.
     var presentedLab: LabID?
 
     func open(_ lab: LabID) {
-        tab = .labs
+        tab = .library
         presentedLab = lab
     }
 }
@@ -34,12 +34,12 @@ enum DebugLaunch {
     static var tab: Router.TabID? {
         #if DEBUG
         switch ProcessInfo.processInfo.environment["HG_TAB"] {
-        case "entries":    .entries
-        case "mistakes":   .mistakes
-        case "quiz":       .quiz
-        case "principles": .principles
-        case "labs":       .labs
-        default:           nil
+        case "course":   .course
+        case "notebook": .notebook
+        case "library":  .library
+        // 자료 안으로 들어간 옛 탭 이름들도 받아준다 — 검증 스크립트를 다시 쓰지 않게.
+        case "entries", "mistakes", "principles", "labs", "quiz": .library
+        default: nil
         }
         #else
         nil
@@ -59,6 +59,33 @@ enum DebugLaunch {
     static var entryIndex: String? {
         #if DEBUG
         ProcessInfo.processInfo.environment["HG_ENTRY"]
+        #else
+        nil
+        #endif
+    }
+
+    /// 특정 레슨을 바로 연다 — 스크린샷 검증용. (HG_LESSON=L2)
+    static var lessonID: String? {
+        #if DEBUG
+        ProcessInfo.processInfo.environment["HG_LESSON"]
+        #else
+        nil
+        #endif
+    }
+
+    /// 레슨의 특정 단계에서 시작한다 — 스크린샷 검증용. (HG_STEP=0~4)
+    static var lessonStep: Int? {
+        #if DEBUG
+        ProcessInfo.processInfo.environment["HG_STEP"].flatMap(Int.init)
+        #else
+        nil
+        #endif
+    }
+
+    /// 자료 탭에서 어떤 자료를 열 것인가 — 스크린샷 검증용. (HG_LIB=entries|mistakes|principles|labs|quiz)
+    static var libraryTarget: String? {
+        #if DEBUG
+        ProcessInfo.processInfo.environment["HG_LIB"]
         #else
         nil
         #endif
@@ -162,22 +189,17 @@ struct RootView: View {
         }
     }
 
+    /// 학습이 앱의 본문이고, 노트는 학습자가 쓴 것, 자료는 필요할 때 여는 뒤편이다.
     private var tabs: some View {
         TabView(selection: $router.tab) {
-            Tab("항목", systemImage: "square.grid.2x2.fill", value: Router.TabID.entries) {
-                EntriesHomeView()
+            Tab("학습", systemImage: "graduationcap.fill", value: Router.TabID.course) {
+                CourseHomeView()
             }
-            Tab("실수", systemImage: "exclamationmark.triangle.fill", value: Router.TabID.mistakes) {
-                MistakesHomeView()
+            Tab("노트", systemImage: "text.book.closed.fill", value: Router.TabID.notebook) {
+                NotebookView()
             }
-            Tab("실습", systemImage: "hammer.fill", value: Router.TabID.labs) {
-                LabsHomeView()
-            }
-            Tab("퀴즈", systemImage: "checkmark.circle.fill", value: Router.TabID.quiz) {
-                QuizHomeView()
-            }
-            Tab("원칙", systemImage: "list.bullet.rectangle.portrait", value: Router.TabID.principles) {
-                PrinciplesView()
+            Tab("자료", systemImage: "books.vertical.fill", value: Router.TabID.library) {
+                LibraryView()
             }
         }
         .environment(router)

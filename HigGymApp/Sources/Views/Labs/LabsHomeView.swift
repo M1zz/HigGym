@@ -12,6 +12,8 @@ func labDestination(_ lab: LabID) -> some View {
 }
 
 struct LabsHomeView: View {
+    var onClose: (() -> Void)?
+
     @Environment(Router.self) private var router
     @Environment(ProgressStore.self) private var progress
 
@@ -38,6 +40,13 @@ struct LabsHomeView: View {
             }
             .background(Color.hgBackground)
             .navigationTitle("실습실")
+            .toolbar {
+                if let onClose {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button("닫기", systemImage: "xmark", action: onClose)
+                    }
+                }
+            }
         }
         .fullScreenCover(item: $router.presentedLab) { lab in
             labDestination(lab)

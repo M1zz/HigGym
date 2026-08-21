@@ -1,6 +1,9 @@
 import SwiftUI
 
 struct QuizHomeView: View {
+    /// 자료 탭 안으로 push 될 때는 바깥 스택을 쓴다 — 스택을 겹치면 안쪽 툴바가 바깥으로 끌려 올라간다.
+    var embedded = false
+
     @Environment(ProgressStore.self) private var progress
     @State private var session: QuizSession?
     @State private var liveKind: LiveQuestion.Kind?
@@ -10,8 +13,11 @@ struct QuizHomeView: View {
     private let store = ContentStore.shared
 
     var body: some View {
-        NavigationStack {
-            ScrollView {
+        if embedded { content } else { NavigationStack { content } }
+    }
+
+    private var content: some View {
+        ScrollView {
                 VStack(alignment: .leading, spacing: 18) {
                     scoreCard
                     liveSection
@@ -40,7 +46,6 @@ struct QuizHomeView: View {
             .fullScreenCover(isPresented: $caseStudy) {
                 CaseStudyView()
             }
-        }
     }
 
     // MARK: 성적

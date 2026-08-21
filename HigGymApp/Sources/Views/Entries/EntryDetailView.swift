@@ -4,8 +4,8 @@ import SwiftUI
 struct EntryDetailView: View {
     let entry: Entry
 
-    @Environment(Router.self) private var router
     @State private var selectedPart: MockupPart?
+    @State private var presentedLab: LabID?
     @State private var runningDemo: EntryDemo?
 
     private var lab: LabID? { LabID.forSection(entry.section) }
@@ -36,6 +36,7 @@ struct EntryDetailView: View {
             EntryDemoStage(entry: entry, demo: demo)
         }
         .onAppear { if DebugLaunch.autoDemo { runningDemo = demo } }
+        .fullScreenCover(item: $presentedLab) { labDestination($0) }
     }
 
     // MARK: 목업 — 이 화면의 근간
@@ -184,7 +185,7 @@ struct EntryDetailView: View {
 
     private func labLink(_ lab: LabID) -> some View {
         Button {
-            router.open(lab)
+            presentedLab = lab
         } label: {
             HStack(spacing: 10) {
                 Image(systemName: lab.symbol)

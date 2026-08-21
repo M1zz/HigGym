@@ -3,8 +3,7 @@ import SwiftUI
 struct QuizResultView: View {
     let session: QuizSession
     let onClose: () -> Void
-
-    @Environment(Router.self) private var router
+    @State private var presentedLab: LabID?
 
     private var score: Double {
         session.results.isEmpty ? 0 : Double(session.correctCount) / Double(session.results.count)
@@ -31,6 +30,7 @@ struct QuizResultView: View {
             }
             .padding(18)
         }
+        .fullScreenCover(item: $presentedLab) { labDestination($0) }
     }
 
     private var wrongResults: [(question: Question, correct: Bool)] {
@@ -83,7 +83,7 @@ struct QuizResultView: View {
                     if let lab = result.question.lab {
                         Button {
                             onClose()
-                            router.open(lab)
+                            presentedLab = lab
                         } label: {
                             Label(lab.title, systemImage: "hammer.fill")
                                 .font(.system(size: 12, weight: .semibold))

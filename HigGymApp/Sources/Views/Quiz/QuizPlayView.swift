@@ -5,7 +5,7 @@ struct QuizPlayView: View {
     let onClose: () -> Void
 
     @Environment(ProgressStore.self) private var progress
-    @Environment(Router.self) private var router
+    @State private var presentedLab: LabID?
 
     var body: some View {
         NavigationStack {
@@ -27,6 +27,7 @@ struct QuizPlayView: View {
                 }
             }
         }
+        .fullScreenCover(item: $presentedLab) { labDestination($0) }
     }
 
     private var empty: some View {
@@ -186,7 +187,7 @@ struct QuizPlayView: View {
             if let lab = question.lab {
                 Button {
                     onClose()
-                    router.open(lab)
+                    presentedLab = lab
                 } label: {
                     Label("\(lab.title)에서 직접 확인하기", systemImage: "hammer.fill")
                         .font(.system(size: 13.5, weight: .semibold))

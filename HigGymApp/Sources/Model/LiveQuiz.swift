@@ -60,20 +60,20 @@ struct LiveOption: Identifiable {
 extension NoteAppConfig.Knob {
     /// 이 결정이 드러나는 화면. 목록에서 안 보이는 결정(본문 선택·편집기 출구)은 그 화면을 직접 연다.
     @MainActor @ViewBuilder
-    func surface(_ config: NoteAppConfig) -> some View {
+    func surface(_ config: NoteAppConfig, spotlight: NoteAppConfig.Knob? = nil) -> some View {
         switch self {
         case .selection:
             NavigationStack {
-                NoteDetailScreen(note: SampleNotes.all[2], config: config)
+                NoteDetailScreen(note: SampleNotes.all[2], config: config, spotlight: spotlight)
             }
         case .editorExit:
-            NoteEditorScreen(config: config)
+            NoteEditorScreen(config: config, spotlight: spotlight)
         case .date:
             // 표기가 로케일을 따라가는지 보려면 로케일을 눈에 보이게 바꿔야 한다.
-            SampleNoteApp(config: config)
+            SampleNoteApp(config: config, spotlight: spotlight)
                 .environment(\.locale, Locale(identifier: "en_US"))
         default:
-            SampleNoteApp(config: config)
+            SampleNoteApp(config: config, spotlight: spotlight)
         }
     }
 }
