@@ -45,7 +45,7 @@ struct MistakesHomeView: View {
 
                         if filtered.isEmpty {
                             Text("해당하는 실수가 없습니다")
-                                .font(.system(size: 13))
+                                .font(.subheadline)
                                 .foregroundStyle(.hgDim)
                                 .frame(maxWidth: .infinity, alignment: .center)
                                 .padding(.vertical, 30)
@@ -87,7 +87,7 @@ struct MistakesHomeView: View {
     private var header: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("본문 68개 항목의 **잘못된 예 154개**를 실수 단위로 추려 100편으로 묶었습니다. 실수마다 그때는 왜 그게 맞아 보였는지, 판단 기준이 무엇인지, 그리고 **직접 어겨볼 화면**이 붙습니다.")
-                .font(.system(size: 14))
+                .font(.subheadline)
                 .foregroundStyle(.hgMuted)
 
             progressBar
@@ -102,11 +102,11 @@ struct MistakesHomeView: View {
         return VStack(alignment: .leading, spacing: 7) {
             HStack {
                 Text("겪어본 것으로 표시한 실수")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
                 Spacer()
                 Text("\(done) / \(total)")
-                    .font(.system(size: 13, weight: .bold, design: .monospaced))
+                    .font(.system(.subheadline, design: .monospaced, weight: .bold))
                     .foregroundStyle(done > 0 ? .hgAccent : .hgDim)
             }
             GeometryReader { geo in
@@ -150,7 +150,7 @@ struct MistakesHomeView: View {
             HStack(spacing: 8) {
                 if let category, let info = store.category(category) {
                     Text(info.desc)
-                        .font(.system(size: 11.5))
+                        .font(.caption)
                         .foregroundStyle(.hgDim)
                         .lineLimit(2)
                 }
@@ -159,7 +159,7 @@ struct MistakesHomeView: View {
                     withAnimation(.snappy) { onlyStories.toggle() }
                 } label: {
                     Label("회고 있는 것만", systemImage: onlyStories ? "checkmark.square.fill" : "square")
-                        .font(.system(size: 11.5, weight: .semibold))
+                        .font(.caption.weight(.semibold))
                         .foregroundStyle(onlyStories ? .hgAmber : .hgDim)
                 }
                 .buttonStyle(.plain)
@@ -168,7 +168,7 @@ struct MistakesHomeView: View {
                     withAnimation(.snappy) { onlyUnchecked.toggle() }
                 } label: {
                     Label("안 본 것만", systemImage: onlyUnchecked ? "checkmark.square.fill" : "square")
-                        .font(.system(size: 11.5, weight: .semibold))
+                        .font(.caption.weight(.semibold))
                         .foregroundStyle(onlyUnchecked ? .hgAccent : .hgDim)
                 }
                 .buttonStyle(.plain)
@@ -181,9 +181,9 @@ struct MistakesHomeView: View {
     private func chip(title: String, count: Int, color: Color, active: Bool, action: @escaping () -> Void) -> some View {
         Button(action: { withAnimation(.snappy) { action() } }) {
             HStack(spacing: 5) {
-                Text(title).font(.system(size: 12.5, weight: .semibold))
+                Text(title).font(.footnote.weight(.semibold))
                 Text("\(count)")
-                    .font(.system(size: 10.5, weight: .bold, design: .monospaced))
+                    .font(.system(.caption, design: .monospaced, weight: .bold))
                     .opacity(0.75)
             }
             .foregroundStyle(active ? .white : color)
@@ -205,34 +205,34 @@ private struct MistakeRow: View {
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
             Text("\(mistake.number)")
-                .font(.system(size: 12, weight: .bold, design: .monospaced))
+                .font(.system(.footnote, design: .monospaced, weight: .bold))
                 .foregroundStyle(checked ? .hgDim : mistake.level.color)
                 .frame(width: 28, height: 24)
                 .background((checked ? Color.hgDim : mistake.level.color).opacity(0.12), in: .rect(cornerRadius: 7))
 
             VStack(alignment: .leading, spacing: 5) {
                 Text(mistake.title)
-                    .font(.system(size: 14.5, weight: .semibold))
+                    .font(.callout.weight(.semibold))
                     .foregroundStyle(checked ? .hgMuted : .hgText)
                     .multilineTextAlignment(.leading)
                     .strikethrough(checked, color: .hgDim)
 
                 HStack(spacing: 6) {
                     Label(mistake.severityLabel, systemImage: mistake.level.symbol)
-                        .font(.system(size: 10.5, weight: .semibold))
+                        .font(.caption.weight(.semibold))
                         .foregroundStyle(mistake.level.color)
                     if mistake.hasStory {
                         Label("회고", systemImage: "text.book.closed.fill")
-                            .font(.system(size: 10, weight: .bold))
+                            .font(.caption.weight(.bold))
                             .foregroundStyle(.hgAmber)
                     }
                     if MistakeDemos.demo(for: mistake) != nil {
                         Label("전용 예제", systemImage: "rectangle.split.2x1.fill")
-                            .font(.system(size: 10, weight: .bold))
+                            .font(.caption.weight(.bold))
                             .foregroundStyle(.hgGreen)
                     }
                     Text(mistake.sources.map(\.index).joined(separator: " · "))
-                        .font(.system(size: 10.5, design: .monospaced))
+                        .font(.system(.caption, design: .monospaced))
                         .foregroundStyle(.hgDim)
                         .lineLimit(1)
                 }
@@ -241,7 +241,7 @@ private struct MistakeRow: View {
             Spacer(minLength: 0)
 
             Image(systemName: checked ? "checkmark.circle.fill" : "chevron.right")
-                .font(.system(size: checked ? 15 : 12, weight: .semibold))
+                .font((checked ? Font.callout : Font.footnote).weight(.semibold))
                 .foregroundStyle(checked ? .hgGreen : .hgDim)
                 .padding(.top, 2)
         }

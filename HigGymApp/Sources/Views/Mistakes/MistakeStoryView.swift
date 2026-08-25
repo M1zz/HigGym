@@ -32,10 +32,10 @@ struct MistakeStoryView: View {
                                 .fill(tint(for: section.heading))
                                 .frame(width: 3, height: 15)
                             Text(section.heading)
-                                .font(.system(size: 15, weight: .bold))
+                                .font(.callout.weight(.bold))
                                 .foregroundStyle(.hgText)
                         }
-                        MarkdownText(raw: section.body, font: .system(size: 15), color: .hgMuted)
+                        MarkdownText(raw: section.body, font: .callout, color: .hgMuted)
                             .lineSpacing(4)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -54,14 +54,14 @@ struct MistakeStoryView: View {
         VStack(alignment: .leading, spacing: 9) {
             HStack(spacing: 7) {
                 Text("실수 #\(mistake.number)")
-                    .font(.system(size: 11, weight: .bold, design: .monospaced))
+                    .font(.system(.caption, design: .monospaced, weight: .bold))
                     .foregroundStyle(.hgDim)
                 Label(mistake.severityLabel, systemImage: mistake.level.symbol)
-                    .font(.system(size: 11, weight: .semibold))
+                    .font(.caption.weight(.semibold))
                     .foregroundStyle(mistake.level.color)
             }
             Text(mistake.title)
-                .font(.system(size: 22, weight: .bold))
+                .font(.title2.weight(.bold))
                 .foregroundStyle(.hgText)
                 .fixedSize(horizontal: false, vertical: true)
         }
@@ -73,9 +73,9 @@ struct MistakeStoryView: View {
         VStack(alignment: .leading, spacing: 8) {
             Divider().background(Color.hgLine)
             Text("근거 · " + mistake.sources.map(\.index).joined(separator: " · "))
-                .font(.system(size: 11, design: .monospaced))
+                .font(.system(.caption, design: .monospaced))
                 .foregroundStyle(.hgDim)
-            MarkdownText(raw: mistake.criterion, font: .system(size: 12.5), color: .hgDim)
+            MarkdownText(raw: mistake.criterion, font: .footnote, color: .hgDim)
         }
         .padding(.top, 6)
     }

@@ -26,7 +26,7 @@ struct LiveMockup: View {
                 callout(part)
             } else if let caption {
                 Text(caption)
-                    .font(.system(size: 11.5))
+                    .font(.caption)
                     .foregroundStyle(.hgDim)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, 16)
@@ -42,14 +42,14 @@ struct LiveMockup: View {
         VStack(alignment: .leading, spacing: 5) {
             HStack(spacing: 6) {
                 Text(part.name)
-                    .font(.system(size: 13, weight: .bold))
+                    .font(.subheadline.weight(.bold))
                     .foregroundStyle(.hgAmber)
                 Spacer()
                 Text(part.source)
-                    .font(.system(size: 10, design: .monospaced))
+                    .font(.system(.caption, design: .monospaced))
                     .foregroundStyle(.hgDim)
             }
-            MarkdownText(raw: part.meaning, font: .system(size: 12.5), color: .hgText)
+            MarkdownText(raw: part.meaning, font: .footnote, color: .hgText)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(12)

@@ -37,7 +37,7 @@ struct MistakeComparisonScreen<Bad: View, Good: View, Controls: View>: View {
 
     private var header: some View {
         Text(title)
-            .font(.system(size: 15, weight: .bold))
+            .font(.callout.weight(.bold))
             .foregroundStyle(.hgText)
             .multilineTextAlignment(.center)
             .frame(maxWidth: .infinity)

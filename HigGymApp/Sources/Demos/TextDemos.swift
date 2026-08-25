@@ -174,7 +174,7 @@ private struct TextDemoScaffold<Controls: View, Sample: View>: View {
     private func labeled<V: View>(_ label: String, @ViewBuilder content: () -> V) -> some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(label)
-                .font(.system(size: 11, weight: .semibold, design: .monospaced))
+                .font(.system(.caption, design: .monospaced, weight: .semibold))
                 .foregroundStyle(.secondary)
             content()
         }
@@ -216,7 +216,7 @@ private struct LineLimitDemo: View {
             DemoNote(text: "제한을 넘는 내용은 사라집니다. **몇 줄이면 뜻이 통하는가**가 이 값을 정하는 기준입니다.")
         } sample: {
             Text(DemoData.longText)
-                .font(.system(size: 14))
+                .font(.subheadline)
                 .lineLimit(limit)
         }
     }
@@ -246,7 +246,7 @@ private struct TruncationDemo: View {
     var body: some View {
         TextDemoScaffold(title: "Truncation", width: $width, typeSize: $typeSize) {
             VStack(alignment: .leading, spacing: 6) {
-                Text("잘리는 자리").font(.system(size: 11, weight: .bold)).foregroundStyle(.secondary)
+                Text("잘리는 자리").font(.caption.weight(.bold)).foregroundStyle(.secondary)
                 Picker("모드", selection: $mode) {
                     Text("head").tag(Text.TruncationMode.head)
                     Text("middle").tag(Text.TruncationMode.middle)
@@ -258,7 +258,7 @@ private struct TruncationDemo: View {
             DemoNote(text: "정답은 취향이 아니라 **무엇이 식별에 쓰이는가**입니다. 경로는 끝(파일명)이, 제목은 앞이 결정적입니다.")
         } sample: {
             Text(sample.text)
-                .font(.system(size: 14, design: sample == .path ? .monospaced : .default))
+                .font(.system(.subheadline, design: sample == .path ? .monospaced : .default))
                 .lineLimit(1)
                 .truncationMode(mode)
         }
@@ -277,7 +277,7 @@ private struct ScaleToFitDemo: View {
         TextDemoScaffold(title: "Scale to Fit", width: $width, typeSize: $typeSize) {
             VStack(alignment: .leading, spacing: 2) {
                 Text("minimumScaleFactor \(factor, specifier: "%.2f")")
-                    .font(.system(size: 11, weight: .semibold, design: .monospaced))
+                    .font(.system(.caption, design: .monospaced, weight: .semibold))
                     .foregroundStyle(.secondary)
                 Slider(value: $factor, in: 0.3...1.0)
             }
@@ -287,7 +287,7 @@ private struct ScaleToFitDemo: View {
                 : "짧고 반드시 다 보여야 하는 값에는 축소가 맞습니다 — 금액·수치·코드.")
         } sample: {
             Text(long ? DemoData.longText : "₩1,284,000")
-                .font(.system(size: 28, weight: .semibold))
+                .font(.title.weight(.semibold))
                 .lineLimit(1)
                 .minimumScaleFactor(factor)
         }
@@ -316,9 +316,9 @@ private struct LineLimitRangeDemo: View {
 
                     ForEach(0..<4, id: \.self) { i in
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("카드 \(i + 1)").font(.system(size: 14, weight: .semibold))
+                            Text("카드 \(i + 1)").font(.subheadline.weight(.semibold))
                             Text(short ? "한 줄." : DemoData.longText)
-                                .font(.system(size: 13))
+                                .font(.subheadline)
                                 .foregroundStyle(.secondary)
                                 .modifier(RangeLimit(reserve: reserve))
                         }
@@ -364,12 +364,12 @@ private struct TextSelectionDemo: View {
 
                     VStack(alignment: .leading, spacing: 8) {
                         Text("인증 코드")
-                            .font(.system(size: 11, weight: .bold))
+                            .font(.caption.weight(.bold))
                             .foregroundStyle(.secondary)
                         Text("HG-2026-4F7K-9QX2")
-                            .font(.system(size: 20, weight: .semibold, design: .monospaced))
+                            .font(.system(.title3, design: .monospaced, weight: .semibold))
                         Text(DemoData.longText)
-                            .font(.system(size: 13))
+                            .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -427,18 +427,18 @@ private struct MeasurementFormatDemo: View {
                 VStack(alignment: .leading, spacing: 18) {
                     VStack(alignment: .leading, spacing: 6) {
                         Text("앱이 들고 있는 값")
-                            .font(.system(size: 11, weight: .bold))
+                            .font(.caption.weight(.bold))
                             .foregroundStyle(.secondary)
                         Text("Measurement(value: \(value, specifier: "%.1f"), unit: .kilometers)")
-                            .font(.system(size: 12, design: .monospaced))
+                            .font(.system(.footnote, design: .monospaced))
                     }
 
                     VStack(alignment: .leading, spacing: 6) {
                         Text("화면에 나가는 표기")
-                            .font(.system(size: 11, weight: .bold))
+                            .font(.caption.weight(.bold))
                             .foregroundStyle(.tint)
                         Text(distance.formatted(.measurement(width: width, usage: .road).locale(locale.locale)))
-                            .font(.system(size: 30, weight: .semibold))
+                            .font(.title.weight(.semibold))
                             .contentTransition(.numericText())
                             .animation(.snappy, value: value)
                     }
@@ -447,13 +447,13 @@ private struct MeasurementFormatDemo: View {
 
                     VStack(alignment: .leading, spacing: 2) {
                         Text("값 \(value, specifier: "%.1f") km")
-                            .font(.system(size: 11, weight: .semibold, design: .monospaced))
+                            .font(.system(.caption, design: .monospaced, weight: .semibold))
                             .foregroundStyle(.secondary)
                         Slider(value: $value, in: 0.1...42)
                     }
 
                     VStack(alignment: .leading, spacing: 6) {
-                        Text("너비").font(.system(size: 11, weight: .bold)).foregroundStyle(.secondary)
+                        Text("너비").font(.caption.weight(.bold)).foregroundStyle(.secondary)
                         Picker("너비", selection: $width) {
                             Text("wide").tag(Measurement<UnitLength>.FormatStyle.UnitWidth.wide)
                             Text("abbreviated").tag(Measurement<UnitLength>.FormatStyle.UnitWidth.abbreviated)
@@ -495,10 +495,10 @@ private struct NameFormatDemo: View {
                 VStack(alignment: .leading, spacing: 18) {
                     VStack(alignment: .leading, spacing: 6) {
                         Text("앱이 들고 있는 값")
-                            .font(.system(size: 11, weight: .bold))
+                            .font(.caption.weight(.bold))
                             .foregroundStyle(.secondary)
                         Text("givenName: \(name.givenName ?? "") · familyName: \(name.familyName ?? "")")
-                            .font(.system(size: 12, design: .monospaced))
+                            .font(.system(.footnote, design: .monospaced))
                     }
 
                     HStack(spacing: 12) {
@@ -508,17 +508,17 @@ private struct NameFormatDemo: View {
                         )
                         VStack(alignment: .leading, spacing: 3) {
                             Text("화면에 나가는 표기")
-                                .font(.system(size: 11, weight: .bold))
+                                .font(.caption.weight(.bold))
                                 .foregroundStyle(.tint)
                             Text(name.formatted(.name(style: style).locale(locale.locale)))
-                                .font(.system(size: 24, weight: .semibold))
+                                .font(.title2.weight(.semibold))
                         }
                     }
 
                     Divider()
 
                     VStack(alignment: .leading, spacing: 6) {
-                        Text("스타일").font(.system(size: 11, weight: .bold)).foregroundStyle(.secondary)
+                        Text("스타일").font(.caption.weight(.bold)).foregroundStyle(.secondary)
                         Picker("스타일", selection: $style) {
                             Text("short").tag(PersonNameComponents.FormatStyle.Style.short)
                             Text("medium").tag(PersonNameComponents.FormatStyle.Style.medium)

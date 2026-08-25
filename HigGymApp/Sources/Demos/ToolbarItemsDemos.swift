@@ -228,7 +228,7 @@ private struct LeadingClusterDemo: View {
         NavigationStack {
             List {
                 ForEach(Array(lines.enumerated()), id: \.offset) { _, line in
-                    Text(line).font(.system(size: 15))
+                    Text(line).font(.callout)
                 }
                 Button {
                     withAnimation {
@@ -292,8 +292,8 @@ private struct TwoClustersDemo: View {
                         LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 12)], spacing: 12) {
                             ForEach(rows) { mail in
                                 VStack(alignment: .leading, spacing: 4) {
-                                    Text(mail.sender).font(.system(size: 13, weight: .semibold))
-                                    Text(mail.subject).font(.system(size: 12)).foregroundStyle(.secondary)
+                                    Text(mail.sender).font(.subheadline.weight(.semibold))
+                                    Text(mail.subject).font(.footnote).foregroundStyle(.secondary)
                                         .lineLimit(2)
                                 }
                                 .frame(maxWidth: .infinity, minHeight: 66, alignment: .topLeading)
@@ -370,7 +370,7 @@ private struct BottomItemDemo: View {
                 .safeAreaInset(edge: .top) {
                     if sent > 0 {
                         Text("보낸 메일 \(sent)통")
-                            .font(.system(size: 12, weight: .semibold))
+                            .font(.footnote.weight(.semibold))
                             .foregroundStyle(.secondary)
                             .padding(.vertical, 5)
                     }
@@ -479,7 +479,7 @@ struct DemoMapCanvas: View {
             }
             ForEach(0..<pins, id: \.self) { i in
                 Image(systemName: "mappin.circle.fill")
-                    .font(.system(size: 26))
+                    .font(.title2)
                     .foregroundStyle(.red, .white)
                     .offset(x: CGFloat((i % 3) - 1) * 90, y: CGFloat(i) * 52 - 110)
             }
@@ -593,7 +593,7 @@ private struct CustomBottomViewsDemo: View {
                 ToolbarItem(placement: .bottomBar) {
                     HStack(spacing: 12) {
                         Text("30장")
-                            .font(.system(size: 12, weight: .medium))
+                            .font(.footnote.weight(.medium))
                             .monospacedDigit()
                             .foregroundStyle(.secondary)
 
@@ -658,7 +658,7 @@ private struct MixedToolbarDemo: View {
                         .pickerStyle(.segmented)
                         .frame(width: 130)
                     } else {
-                        Text("문서").font(.system(size: 17, weight: .semibold))
+                        Text("문서").font(.headline)
                     }
                 }
                 ToolbarItemGroup(placement: .topBarTrailing) {

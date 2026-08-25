@@ -77,10 +77,10 @@ struct NotebookView: View {
     private var empty: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("아직 쓴 글이 없습니다")
-                .font(.system(size: 16, weight: .semibold))
+                .font(.callout.weight(.semibold))
                 .foregroundStyle(.hgText)
             Text("**학습** 탭에서 레슨을 하나 마치면, 그때 쓴 느낀 점과 배운 것이 여기에 쌓입니다. 쌓인 글은 텍스트로 복사하거나 **마크다운 파일로 내보낼** 수 있습니다.")
-                .font(.system(size: 13.5))
+                .font(.subheadline)
                 .foregroundStyle(.hgMuted)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -104,10 +104,10 @@ struct NotebookView: View {
     private func stat(_ label: String, _ value: String) -> some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(value)
-                .font(.system(size: 18, weight: .bold, design: .rounded))
+                .font(.system(.headline, design: .rounded, weight: .bold))
                 .foregroundStyle(.hgAccent)
             Text(label)
-                .font(.system(size: 11))
+                .font(.caption)
                 .foregroundStyle(.hgDim)
         }
     }
@@ -122,16 +122,16 @@ private struct NoteCard: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 8) {
                 Text("\(lesson.number)")
-                    .font(.system(size: 11, weight: .bold, design: .monospaced))
+                    .font(.system(.caption, design: .monospaced, weight: .bold))
                     .foregroundStyle(.hgAccent)
                 Text(lesson.title)
-                    .font(.system(size: 14.5, weight: .bold))
+                    .font(.callout.weight(.bold))
                     .foregroundStyle(.hgText)
                     .multilineTextAlignment(.leading)
                 Spacer(minLength: 4)
                 if note.isCompleted {
                     Image(systemName: "checkmark.circle.fill")
-                        .font(.system(size: 14))
+                        .font(.subheadline)
                         .foregroundStyle(.hgGreen)
                 }
             }
@@ -148,7 +148,7 @@ private struct NoteCard: View {
                 Spacer()
                 Button(action: onEdit) {
                     Label("다시 하기", systemImage: "arrow.counterclockwise")
-                        .font(.system(size: 11.5, weight: .semibold))
+                        .font(.caption.weight(.semibold))
                         .foregroundStyle(.hgAccent)
                 }
                 .buttonStyle(.plain)
@@ -163,10 +163,10 @@ private struct NoteCard: View {
     private func passage(_ label: String, _ body: String, _ tint: Color) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(label)
-                .font(.system(size: 10.5, weight: .bold))
+                .font(.caption.weight(.bold))
                 .foregroundStyle(tint)
             Text(body)
-                .font(.system(size: 13.5))
+                .font(.subheadline)
                 .foregroundStyle(.hgText)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }

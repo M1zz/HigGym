@@ -268,7 +268,7 @@ private struct CustomLargeTitleDemo: View {
                 ToolbarItem(placement: .principal) {
                     HStack(spacing: 6) {
                         DemoAvatar(initial: "하", size: 22)
-                        Text("김하늘").font(.system(size: 15, weight: .semibold))
+                        Text("김하늘").font(.callout.weight(.semibold))
                         Circle()
                             .fill(online ? .green : .gray)
                             .frame(width: 7, height: 7)
@@ -276,7 +276,7 @@ private struct CustomLargeTitleDemo: View {
                 }
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(online ? "자리 비움" : "온라인") { withAnimation { online.toggle() } }
-                        .font(.system(size: 14))
+                        .font(.subheadline)
                 }
             }
         }
@@ -286,11 +286,11 @@ private struct CustomLargeTitleDemo: View {
         HStack(spacing: 12) {
             DemoAvatar(initial: "하", size: 54)
             VStack(alignment: .leading, spacing: 3) {
-                Text("김하늘").font(.system(size: 26, weight: .bold))
+                Text("김하늘").font(.title2.weight(.bold))
                 HStack(spacing: 5) {
                     Circle().fill(online ? .green : .gray).frame(width: 7, height: 7)
                     Text(online ? "온라인" : "자리 비움")
-                        .font(.system(size: 13))
+                        .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
             }

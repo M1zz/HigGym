@@ -96,11 +96,11 @@ struct TabBarLabView: View {
 
             SectionLabel("동작", accent: .hgGreen)
             Toggle("스크롤 내리면 탭바 접기 (minimize)", isOn: $minimize)
-                .font(.system(size: 14)).foregroundStyle(.hgText).tint(.hgAccent)
+                .font(.subheadline).foregroundStyle(.hgText).tint(.hgAccent)
             Toggle("하단 액세서리 (미니 플레이어)", isOn: $accessory)
-                .font(.system(size: 14)).foregroundStyle(.hgText).tint(.hgAccent)
+                .font(.subheadline).foregroundStyle(.hgText).tint(.hgAccent)
             Toggle("상세 화면에서 탭바 숨기기", isOn: $hideOnDetail)
-                .font(.system(size: 14)).foregroundStyle(.hgText).tint(.hgAccent)
+                .font(.subheadline).foregroundStyle(.hgText).tint(.hgAccent)
         }
     }
 
@@ -346,11 +346,11 @@ private struct AccessoryModifier: ViewModifier {
                         .fill(.hgBrand)
                         .frame(width: 26, height: 26)
                     VStack(alignment: .leading, spacing: 1) {
-                        Text("재생 중인 항목").font(.system(size: 12, weight: .semibold))
-                        Text("전역 상태").font(.system(size: 10)).foregroundStyle(.secondary)
+                        Text("재생 중인 항목").font(.footnote.weight(.semibold))
+                        Text("전역 상태").font(.caption).foregroundStyle(.secondary)
                     }
                     Spacer()
-                    Image(systemName: "play.fill").font(.system(size: 14))
+                    Image(systemName: "play.fill").font(.subheadline)
                 }
                 .padding(.horizontal, 14)
             }

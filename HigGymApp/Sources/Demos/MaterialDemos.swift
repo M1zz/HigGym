@@ -72,10 +72,10 @@ private struct MaterialDemoScreen: View {
                         ForEach(DemoMaterial.allCases) { option in
                             HStack {
                                 Text(option.rawValue)
-                                    .font(.system(size: 13, weight: .semibold, design: .monospaced))
+                                    .font(.system(.subheadline, design: .monospaced, weight: .semibold))
                                 Spacer()
                                 Text("이 글자가 읽히는가")
-                                    .font(.system(size: 13))
+                                    .font(.subheadline)
                                     .foregroundStyle(.secondary)
                             }
                             .padding(.horizontal, 14)
@@ -94,9 +94,9 @@ private struct MaterialDemoScreen: View {
     private var card: some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("선택한 재료 · \(thickness.rawValue)")
-                .font(.system(size: 18, weight: .bold))
+                .font(.headline.weight(.bold))
             Text(DemoData.longText)
-                .font(.system(size: 13))
+                .font(.subheadline)
                 .foregroundStyle(.secondary)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -147,19 +147,19 @@ private struct VibrancyDemoScreen: View {
     private func sample(title: String, vibrant: Bool) -> some View {
         VStack(alignment: .leading, spacing: 7) {
             Text(title)
-                .font(.system(size: 11, weight: .bold, design: .monospaced))
+                .font(.system(.caption, design: .monospaced, weight: .bold))
                 .foregroundStyle(vibrant ? AnyShapeStyle(.tint) : AnyShapeStyle(Color(white: 0.55)))
 
             HStack(spacing: 10) {
                 Image(systemName: "square.stack.3d.up")
-                    .font(.system(size: 20))
+                    .font(.title3)
                     .foregroundStyle(vibrant ? AnyShapeStyle(.primary) : AnyShapeStyle(Color(white: 0.85)))
                 VStack(alignment: .leading, spacing: 3) {
                     Text("시스템 재료 위의 제목")
-                        .font(.system(size: 15, weight: .semibold))
+                        .font(.callout.weight(.semibold))
                         .foregroundStyle(vibrant ? AnyShapeStyle(.primary) : AnyShapeStyle(Color(white: 0.85)))
                     Text("보조 설명 — 배경색을 혼합해 렌더링되는지, 고정된 회색인지")
-                        .font(.system(size: 12))
+                        .font(.footnote)
                         .foregroundStyle(vibrant ? AnyShapeStyle(.secondary) : AnyShapeStyle(Color(white: 0.6)))
                 }
             }

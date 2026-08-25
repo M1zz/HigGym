@@ -119,13 +119,13 @@ private struct PrincipleToggleBar: View {
                 Image(systemName: compliant ? "checkmark.seal.fill" : "exclamationmark.triangle.fill")
                     .foregroundStyle(compliant ? .green : .orange)
                 Text(compliant ? "기준을 지킨 구성" : "기준을 어긴 구성")
-                    .font(.system(size: 14, weight: .bold))
+                    .font(.subheadline.weight(.bold))
                 Spacer()
                 Toggle("", isOn: $compliant.animation(.snappy))
                     .labelsHidden()
             }
             Text(.init(compliant ? complianceText : violationText))
-                .font(.system(size: 13))
+                .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
@@ -195,14 +195,14 @@ private struct ContentFirstDemo: View {
     private var banner: some View {
         HStack(spacing: 10) {
             Image(systemName: "megaphone.fill")
-                .font(.system(size: 20))
+                .font(.title3)
                 .foregroundStyle(.orange)
             VStack(alignment: .leading, spacing: 2) {
-                Text("이번 주 특별 혜택!").font(.system(size: 14, weight: .bold))
-                Text("지금 가입하면 3개월 무료").font(.system(size: 12)).foregroundStyle(.secondary)
+                Text("이번 주 특별 혜택!").font(.subheadline.weight(.bold))
+                Text("지금 가입하면 3개월 무료").font(.footnote).foregroundStyle(.secondary)
             }
             Spacer()
-            Image(systemName: "xmark").font(.system(size: 12)).foregroundStyle(.secondary)
+            Image(systemName: "xmark").font(.footnote).foregroundStyle(.secondary)
         }
         .padding(12)
         .background(.orange.opacity(0.14), in: .rect(cornerRadius: 12))
@@ -229,10 +229,10 @@ private struct ReachabilityDemo: View {
 
                     HStack {
                         Text("과제 · 작성 5번 누르기")
-                            .font(.system(size: 13, weight: .semibold))
+                            .font(.subheadline.weight(.semibold))
                         Spacer()
                         Text("\(composed) / 5")
-                            .font(.system(size: 14, weight: .bold, design: .monospaced))
+                            .font(.system(.subheadline, design: .monospaced, weight: .bold))
                             .foregroundStyle(composed >= 5 ? .green : .secondary)
                     }
                     if composed >= 5 {
@@ -342,7 +342,7 @@ private struct LegibilityDemo: View {
                         HStack(spacing: 10) {
                             DemoPhoto(index: i).frame(width: 42, height: 42).clipShape(.rect(cornerRadius: 8))
                             Text("바 아래로 지나가는 항목 \(i + 1)")
-                                .font(.system(size: 14))
+                                .font(.subheadline)
                             Spacer()
                         }
                         .padding(10)
@@ -412,7 +412,7 @@ private struct ElasticTextDemo: View {
 
                     VStack(alignment: .leading, spacing: 2) {
                         Text("Dynamic Type · \(typeSize.demoLabel)")
-                            .font(.system(size: 11, weight: .semibold, design: .monospaced))
+                            .font(.system(.caption, design: .monospaced, weight: .semibold))
                             .foregroundStyle(.secondary)
                         Slider(
                             value: Binding(
@@ -443,12 +443,12 @@ private struct ElasticTextDemo: View {
             DemoAvatar(initial: String(name.prefix(1)), size: 36)
             VStack(alignment: .leading, spacing: 3) {
                 if compliant {
-                    Text(name).font(.system(size: 15, weight: .semibold)).lineLimit(2)
-                    Text(subject).font(.system(size: 13)).foregroundStyle(.secondary)
+                    Text(name).font(.callout.weight(.semibold)).lineLimit(2)
+                    Text(subject).font(.subheadline).foregroundStyle(.secondary)
                         .lineLimit(2, reservesSpace: true)
                 } else {
-                    Text(name).font(.system(size: 15, weight: .semibold)).lineLimit(1)
-                    Text(subject).font(.system(size: 13)).foregroundStyle(.secondary).lineLimit(1)
+                    Text(name).font(.callout.weight(.semibold)).lineLimit(1)
+                    Text(subject).font(.subheadline).foregroundStyle(.secondary).lineLimit(1)
                 }
             }
             .frame(width: compliant ? nil : 150, alignment: .leading)
@@ -521,11 +521,11 @@ private struct DataVsPresentationDemo: View {
     private func row(_ label: String, _ value: String) -> some View {
         HStack {
             Text(label)
-                .font(.system(size: 12, weight: .bold))
+                .font(.footnote.weight(.bold))
                 .foregroundStyle(.secondary)
                 .frame(width: 44, alignment: .leading)
             Text(value)
-                .font(.system(size: 18, weight: .semibold))
+                .font(.headline)
             Spacer()
         }
         .padding(12)

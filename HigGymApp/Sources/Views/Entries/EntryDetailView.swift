@@ -56,7 +56,7 @@ struct EntryDetailView: View {
             .frame(maxWidth: .infinity)
 
             if !entry.caption.isEmpty {
-                MarkdownText(raw: entry.caption, font: .system(size: 12), color: .hgDim)
+                MarkdownText(raw: entry.caption, font: .footnote, color: .hgDim)
                     .multilineTextAlignment(.center)
             }
 
@@ -64,7 +64,7 @@ struct EntryDetailView: View {
                 partCallout(part)
             } else {
                 Text("그림의 부위를 눌러보세요")
-                    .font(.system(size: 11.5))
+                    .font(.caption)
                     .foregroundStyle(.hgDim)
             }
         }
@@ -78,14 +78,14 @@ struct EntryDetailView: View {
         VStack(alignment: .leading, spacing: 6) {
             HStack(spacing: 6) {
                 Text(part.name)
-                    .font(.system(size: 13, weight: .bold))
+                    .font(.subheadline.weight(.bold))
                     .foregroundStyle(.hgAmber)
                 Spacer()
                 Text(part.source)
-                    .font(.system(size: 10, design: .monospaced))
+                    .font(.system(.caption, design: .monospaced))
                     .foregroundStyle(.hgDim)
             }
-            MarkdownText(raw: part.meaning, font: .system(size: 12.5), color: .hgText)
+            MarkdownText(raw: part.meaning, font: .footnote, color: .hgText)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(13)
@@ -98,9 +98,9 @@ struct EntryDetailView: View {
     private var summary: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(entry.title)
-                .font(.system(size: 20, weight: .bold))
+                .font(.title3.weight(.bold))
                 .foregroundStyle(.hgText)
-            MarkdownText(raw: entry.summary, font: .system(size: 14), color: .hgMuted)
+            MarkdownText(raw: entry.summary, font: .subheadline, color: .hgMuted)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -121,9 +121,9 @@ struct EntryDetailView: View {
         if !body.isEmpty {
             VStack(alignment: .leading, spacing: 6) {
                 Label(label, systemImage: symbol)
-                    .font(.system(size: 11, weight: .bold))
+                    .font(.caption.weight(.bold))
                     .foregroundStyle(tint)
-                MarkdownText(raw: body, font: .system(size: 13.5), color: .hgText)
+                MarkdownText(raw: body, font: .subheadline, color: .hgText)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(13)
@@ -137,10 +137,10 @@ struct EntryDetailView: View {
         if !items.isEmpty {
             VStack(alignment: .leading, spacing: 7) {
                 Label(label, systemImage: symbol)
-                    .font(.system(size: 11, weight: .bold))
+                    .font(.caption.weight(.bold))
                     .foregroundStyle(tint)
                 ForEach(Array(items.enumerated()), id: \.offset) { _, item in
-                    MarkdownText(raw: item, font: .system(size: 13), color: .hgText)
+                    MarkdownText(raw: item, font: .subheadline, color: .hgText)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
@@ -155,23 +155,23 @@ struct EntryDetailView: View {
     private var mistakeLinks: some View {
         VStack(alignment: .leading, spacing: 8) {
             Label("여기서 나온 실수 \(mistakes.count)개", systemImage: "exclamationmark.triangle.fill")
-                .font(.system(size: 11, weight: .bold))
+                .font(.caption.weight(.bold))
                 .foregroundStyle(.hgAmber)
 
             ForEach(mistakes) { mistake in
                 NavigationLink(value: mistake) {
                     HStack(spacing: 9) {
                         Text("#\(mistake.number)")
-                            .font(.system(size: 11, weight: .bold, design: .monospaced))
+                            .font(.system(.caption, design: .monospaced, weight: .bold))
                             .foregroundStyle(mistake.level.color)
                         Text(mistake.title)
-                            .font(.system(size: 13))
+                            .font(.subheadline)
                             .foregroundStyle(.hgText)
                             .multilineTextAlignment(.leading)
                             .lineLimit(2)
                         Spacer(minLength: 0)
                         Image(systemName: "chevron.right")
-                            .font(.system(size: 11, weight: .semibold))
+                            .font(.caption.weight(.semibold))
                             .foregroundStyle(.hgDim)
                     }
                     .padding(11)
@@ -189,21 +189,21 @@ struct EntryDetailView: View {
         } label: {
             HStack(spacing: 10) {
                 Image(systemName: lab.symbol)
-                    .font(.system(size: 15, weight: .semibold))
+                    .font(.callout.weight(.semibold))
                     .foregroundStyle(.white)
                     .frame(width: 36, height: 36)
                     .background(.hgBrand, in: .rect(cornerRadius: 10))
                 VStack(alignment: .leading, spacing: 1) {
                     Text("\(lab.title)에서 직접 해보기")
-                        .font(.system(size: 14, weight: .semibold))
+                        .font(.subheadline.weight(.semibold))
                         .foregroundStyle(.hgText)
                     Text(lab.subtitle)
-                        .font(.system(size: 11.5))
+                        .font(.caption)
                         .foregroundStyle(.hgDim)
                 }
                 Spacer()
                 Image(systemName: "chevron.right")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
             }
             .padding(12)
@@ -216,16 +216,16 @@ struct EntryDetailView: View {
     private var references: some View {
         VStack(alignment: .leading, spacing: 7) {
             Label("참고 자료", systemImage: "link")
-                .font(.system(size: 11, weight: .bold))
+                .font(.caption.weight(.bold))
                 .foregroundStyle(.hgDim)
             ForEach(entry.refs, id: \.url) { ref in
                 if let url = URL(string: ref.url) {
                     Link(destination: url) {
                         HStack(spacing: 5) {
                             Text(ref.title)
-                                .font(.system(size: 12))
+                                .font(.footnote)
                                 .multilineTextAlignment(.leading)
-                            Image(systemName: "arrow.up.right").font(.system(size: 9))
+                            Image(systemName: "arrow.up.right").font(.caption)
                         }
                         .foregroundStyle(.hgAccent)
                     }

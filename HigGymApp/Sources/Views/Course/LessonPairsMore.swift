@@ -88,7 +88,7 @@ struct AdBarScreen: View {
                             log.tap("이벤트 페이지로 이동")
                         } label: {
                             Label("이번 주 혜택 보기", systemImage: "gift.fill")
-                                .font(.system(size: 13, weight: .semibold))
+                                .font(.subheadline.weight(.semibold))
                         }
                         Spacer()
                         Button("새 글", systemImage: "square.and.pencil") { wrote += 1 }
@@ -110,11 +110,11 @@ struct AdBarScreen: View {
         } label: {
             HStack(spacing: 10) {
                 Image(systemName: "gift.fill")
-                    .font(.system(size: 18))
+                    .font(.body)
                     .foregroundStyle(.orange)
                 VStack(alignment: .leading, spacing: 2) {
-                    Text("이번 주 혜택").font(.system(size: 14, weight: .semibold))
-                    Text("스크롤로 지나칠 수 있는 자리").font(.system(size: 12)).foregroundStyle(.secondary)
+                    Text("이번 주 혜택").font(.subheadline.weight(.semibold))
+                    Text("스크롤로 지나칠 수 있는 자리").font(.footnote).foregroundStyle(.secondary)
                 }
                 Spacer()
             }
@@ -142,12 +142,12 @@ struct CustomNavBarScreen: View {
                     // 직접 만든 헤더 — 높이도 글자도 고정이라 큰 글씨에서 무너진다.
                     HStack(spacing: 6) {
                         Text("보고서 초안")
-                            .font(.system(size: 17, weight: .semibold))
+                            .font(.headline)
                             .lineLimit(1)
                         Spacer(minLength: 4)
                         ForEach(actions, id: \.0) { action in
                             Button { log.tap(action.0) } label: {
-                                Image(systemName: action.1).font(.system(size: 15))
+                                Image(systemName: action.1).font(.callout)
                             }
                         }
                     }
@@ -214,7 +214,7 @@ struct MapControlsScreen: View {
                         .frame(height: 120)
                         .overlay(alignment: .leading) {
                             Text(band == 0 ? "눈 덮인 지역" : "구역 \(band)")
-                                .font(.system(size: 11))
+                                .font(.caption)
                                 .foregroundStyle(.black.opacity(0.35))
                                 .padding(.leading, 12)
                         }
@@ -233,7 +233,7 @@ struct MapControlsScreen: View {
             Divider().frame(height: 16)
             Button("경로", systemImage: "arrow.triangle.turn.up.right.diamond.fill") { log.tap("경로 안내") }
         }
-        .font(.system(size: 13, weight: .semibold))
+        .font(.subheadline.weight(.semibold))
         .foregroundStyle(broken ? .white : .primary)
         .padding(.horizontal, 14)
         .padding(.vertical, 10)

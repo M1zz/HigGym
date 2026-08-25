@@ -52,7 +52,7 @@ struct LiveQuizPlayView: View {
                 option.screen?()
                 Button { zoomed = nil } label: {
                     Label("닫기", systemImage: "xmark")
-                        .font(.system(size: 12, weight: .bold))
+                        .font(.footnote.weight(.bold))
                         .foregroundStyle(.white)
                         .padding(.horizontal, 12).padding(.vertical, 8)
                         .background(Color.hgAccent, in: .capsule)
@@ -77,7 +77,7 @@ struct LiveQuizPlayView: View {
         HStack(spacing: 10) {
             Button(action: onClose) {
                 Image(systemName: "xmark")
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.hgMuted)
                     .frame(width: 32, height: 32)
                     .background(Color.hgCard, in: .circle)
@@ -86,10 +86,10 @@ struct LiveQuizPlayView: View {
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(kind.title)
-                    .font(.system(size: 14, weight: .bold))
+                    .font(.subheadline.weight(.bold))
                     .foregroundStyle(.hgText)
                 Text(questions.isEmpty ? "" : "\(min(index + 1, questions.count)) / \(questions.count)")
-                    .font(.system(size: 11, design: .monospaced))
+                    .font(.system(.caption, design: .monospaced))
                     .foregroundStyle(.hgDim)
             }
 
@@ -97,7 +97,7 @@ struct LiveQuizPlayView: View {
 
             if !results.isEmpty {
                 Text("\(results.filter { $0 }.count)")
-                    .font(.system(size: 15, weight: .bold, design: .rounded))
+                    .font(.system(.callout, design: .rounded, weight: .bold))
                     .foregroundStyle(.hgGreen)
             }
         }
@@ -110,11 +110,11 @@ struct LiveQuizPlayView: View {
     private func promptCard(_ question: LiveQuestion) -> some View {
         VStack(alignment: .leading, spacing: 7) {
             Label(question.kind == .pickScreen ? "기준" : "질문", systemImage: question.kind.symbol)
-                .font(.system(size: 11, weight: .bold))
+                .font(.caption.weight(.bold))
                 .foregroundStyle(.hgAccent2)
-            MarkdownText(raw: question.prompt, font: .system(size: 15.5), color: .hgText)
+            MarkdownText(raw: question.prompt, font: .callout, color: .hgText)
             Label(question.lookAt, systemImage: "eye")
-                .font(.system(size: 11.5))
+                .font(.caption)
                 .foregroundStyle(.hgDim)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -147,7 +147,7 @@ struct LiveQuizPlayView: View {
                 .overlay(alignment: .topTrailing) {
                     if answered {
                         Image(systemName: option.isCorrect ? "checkmark.circle.fill" : "xmark.circle.fill")
-                            .font(.system(size: 20))
+                            .font(.title3)
                             .foregroundStyle(option.isCorrect ? .hgGreen : .hgRed)
                             .background(Circle().fill(.background))
                             .padding(6)
@@ -158,7 +158,7 @@ struct LiveQuizPlayView: View {
                 if answered { zoomed = option } else { withAnimation(.snappy(duration: 0.15)) { chosen = position } }
             } label: {
                 Label(answered ? "크게 보기" : option.label, systemImage: answered ? "arrow.up.left.and.arrow.down.right" : (picked ? "largecircle.fill.circle" : "circle"))
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.footnote.weight(.semibold))
                     .foregroundStyle(answered ? .hgAccent : (picked ? .hgAccent : .hgMuted))
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 7)
@@ -167,7 +167,7 @@ struct LiveQuizPlayView: View {
             .buttonStyle(.plain)
 
             if answered {
-                MarkdownText(raw: option.note, font: .system(size: 11), color: .hgMuted)
+                MarkdownText(raw: option.note, font: .caption, color: .hgMuted)
                     .multilineTextAlignment(.center)
             }
         }
@@ -210,16 +210,16 @@ struct LiveQuizPlayView: View {
                     Image(systemName: answered
                           ? (option.isCorrect ? "checkmark.circle.fill" : (picked ? "xmark.circle.fill" : "circle"))
                           : (picked ? "largecircle.fill.circle" : "circle"))
-                        .font(.system(size: 15))
+                        .font(.callout)
                         .foregroundStyle(tint == .hgLine ? .hgDim : tint)
                     Text(option.label)
-                        .font(.system(size: 14))
+                        .font(.subheadline)
                         .foregroundStyle(.hgText)
                         .multilineTextAlignment(.leading)
                     Spacer(minLength: 0)
                 }
                 if show {
-                    MarkdownText(raw: option.note, font: .system(size: 12), color: .hgMuted)
+                    MarkdownText(raw: option.note, font: .footnote, color: .hgMuted)
                         .padding(.leading, 24)
                 }
             }
@@ -237,16 +237,16 @@ struct LiveQuizPlayView: View {
         let correct = chosen == question.correctIndex
         return VStack(alignment: .leading, spacing: 9) {
             Label(correct ? "맞았습니다" : "다시 보세요", systemImage: correct ? "checkmark.seal.fill" : "xmark.octagon.fill")
-                .font(.system(size: 13, weight: .bold))
+                .font(.subheadline.weight(.bold))
                 .foregroundStyle(correct ? .hgGreen : .hgRed)
 
-            MarkdownText(raw: question.explanation, font: .system(size: 13.5), color: .hgText)
+            MarkdownText(raw: question.explanation, font: .subheadline, color: .hgText)
 
             HStack(spacing: 6) {
                 ForEach(question.sources, id: \.self) { Pill(text: $0) }
                 if let number = question.mistakeNumber {
                     Label("실수 #\(number)", systemImage: "exclamationmark.triangle.fill")
-                        .font(.system(size: 10.5, weight: .bold))
+                        .font(.caption.weight(.bold))
                         .foregroundStyle(.hgAmber)
                         .padding(.horizontal, 8).padding(.vertical, 3)
                         .background(Color.hgAmber.opacity(0.12), in: .capsule)
@@ -279,7 +279,7 @@ struct LiveQuizPlayView: View {
             }
         } label: {
             Text(answered ? (index + 1 < questions.count ? "다음 문항" : "결과 보기") : "확인")
-                .font(.system(size: 16, weight: .semibold))
+                .font(.callout.weight(.semibold))
                 .foregroundStyle(.white)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 14)
@@ -308,13 +308,13 @@ private struct LiveQuizResultView: View {
             Spacer()
 
             Text("\(correct) / \(results.count)")
-                .font(.system(size: 44, weight: .bold, design: .rounded))
+                .font(.system(.largeTitle, design: .rounded, weight: .bold))
                 .foregroundStyle(.hgAccent)
 
             Text(correct == results.count
                  ? "전부 맞혔습니다. 이제 같은 판단을 실무 화면에서 해보세요."
                  : "틀린 문항의 화면을 다시 열어 두 쪽을 나란히 보면 차이가 남습니다.")
-                .font(.system(size: 14))
+                .font(.subheadline)
                 .foregroundStyle(.hgMuted)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, 30)
@@ -324,7 +324,7 @@ private struct LiveQuizResultView: View {
             VStack(spacing: 10) {
                 Button(action: onRetry) {
                     Text("다시 풀기")
-                        .font(.system(size: 16, weight: .semibold))
+                        .font(.callout.weight(.semibold))
                         .foregroundStyle(.white)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 14)
@@ -334,7 +334,7 @@ private struct LiveQuizResultView: View {
 
                 Button(action: onClose) {
                     Text("닫기")
-                        .font(.system(size: 15))
+                        .font(.callout)
                         .foregroundStyle(.hgMuted)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 12)

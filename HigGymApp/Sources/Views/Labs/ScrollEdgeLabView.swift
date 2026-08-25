@@ -72,9 +72,9 @@ struct ScrollEdgeLabView: View {
                                 .frame(width: 44, height: 44)
                             VStack(alignment: .leading, spacing: 4) {
                                 Text("항목 \(i + 1)")
-                                    .font(.system(size: 14, weight: .semibold))
+                                    .font(.subheadline.weight(.semibold))
                                 Text("바 뒤로 지나가는 콘텐츠")
-                                    .font(.system(size: 12))
+                                    .font(.footnote)
                                     .opacity(0.75)
                             }
                             Spacer()
@@ -146,10 +146,10 @@ struct ScrollEdgeLabView: View {
             Toggle(isOn: $thickMaterial) {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("툴바 배경을 두꺼운 material로")
-                        .font(.system(size: 14))
+                        .font(.subheadline)
                         .foregroundStyle(.hgText)
                     Text("투명함을 포기하고 대비를 확보하는 공식 탈출구 (1.3.3)")
-                        .font(.system(size: 11.5))
+                        .font(.caption)
                         .foregroundStyle(.hgDim)
                 }
             }

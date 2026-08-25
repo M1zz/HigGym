@@ -55,7 +55,7 @@ struct PrinciplesView: View {
 
     private var intro: some View {
         Text("68개 항목을 관통하는 7가지입니다. 원칙마다 **판단 기준이 한 문장**으로 정의돼 있고, 실습의 실시간 판정도 퀴즈의 해설도 전부 이 기준을 근거로 삼습니다.")
-            .font(.system(size: 14))
+            .font(.subheadline)
             .foregroundStyle(.hgMuted)
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.bottom, 4)
@@ -80,21 +80,21 @@ private struct PrincipleCard: View {
                 Pill(text: principle.index, color: .hgAccent2)
                 Spacer()
                 Image(systemName: "chevron.right")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
             }
 
             Text(parts.name)
-                .font(.system(size: 16, weight: .bold))
+                .font(.callout.weight(.bold))
                 .foregroundStyle(.hgText)
 
             if let tagline = parts.tagline {
                 Text(tagline)
-                    .font(.system(size: 13))
+                    .font(.subheadline)
                     .foregroundStyle(.hgAccent)
             }
 
-            MarkdownText(raw: principle.criterion, font: .system(size: 13), color: .hgMuted)
+            MarkdownText(raw: principle.criterion, font: .subheadline, color: .hgMuted)
                 .lineLimit(3)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -116,9 +116,9 @@ private struct PrincipleDetailView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Pill(text: principle.index, color: .hgAccent2)
                     Text(principle.title)
-                        .font(.system(size: 20, weight: .bold))
+                        .font(.title3.weight(.bold))
                         .foregroundStyle(.hgText)
-                    MarkdownText(raw: principle.summary, font: .system(size: 14), color: .hgMuted)
+                    MarkdownText(raw: principle.summary, font: .subheadline, color: .hgMuted)
                 }
 
                 block("기준", principle.criterion, .hgAmber, "scope")
@@ -153,9 +153,9 @@ private struct PrincipleDetailView: View {
     private func block(_ title: String, _ body: String, _ tint: Color, _ symbol: String) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Label(title, systemImage: symbol)
-                .font(.system(size: 12, weight: .bold))
+                .font(.footnote.weight(.bold))
                 .foregroundStyle(tint)
-            MarkdownText(raw: body, font: .system(size: 14.5), color: .hgText)
+            MarkdownText(raw: body, font: .callout, color: .hgText)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(15)
@@ -168,11 +168,11 @@ private struct PrincipleDetailView: View {
     ) -> some View {
         VStack(alignment: .leading, spacing: 9) {
             Label(title, systemImage: symbol)
-                .font(.system(size: 12, weight: .bold))
+                .font(.footnote.weight(.bold))
                 .foregroundStyle(tint)
 
             ForEach(Array(items.enumerated()), id: \.offset) { _, item in
-                MarkdownText(raw: item, font: .system(size: 13.5), color: .hgText)
+                MarkdownText(raw: item, font: .subheadline, color: .hgText)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(13)
                     .background(Color.hgCard, in: .rect(cornerRadius: 12))
@@ -189,16 +189,16 @@ private struct PrincipleDetailView: View {
     private var references: some View {
         VStack(alignment: .leading, spacing: 8) {
             Label("참고 자료", systemImage: "link")
-                .font(.system(size: 12, weight: .bold))
+                .font(.footnote.weight(.bold))
                 .foregroundStyle(.hgDim)
             ForEach(principle.refs, id: \.url) { ref in
                 Link(destination: URL(string: ref.url) ?? URL(string: "https://developer.apple.com")!) {
                     HStack(spacing: 6) {
                         Text(ref.title)
-                            .font(.system(size: 12.5))
+                            .font(.footnote)
                             .multilineTextAlignment(.leading)
                         Image(systemName: "arrow.up.right")
-                            .font(.system(size: 10))
+                            .font(.caption)
                     }
                     .foregroundStyle(.hgAccent)
                 }

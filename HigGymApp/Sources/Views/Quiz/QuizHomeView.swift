@@ -54,10 +54,10 @@ struct QuizHomeView: View {
         VStack(alignment: .leading, spacing: 14) {
             HStack(alignment: .firstTextBaseline, spacing: 8) {
                 Text("\(progress.correctCount)")
-                    .font(.system(size: 34, weight: .bold, design: .rounded))
+                    .font(.system(.largeTitle, design: .rounded, weight: .bold))
                     .foregroundStyle(.hgAccent)
                 Text("문제를 맞혔습니다")
-                    .font(.system(size: 14))
+                    .font(.subheadline)
                     .foregroundStyle(.hgMuted)
                 Spacer()
             }
@@ -74,10 +74,10 @@ struct QuizHomeView: View {
     private func stat(_ label: String, _ value: String) -> some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(value)
-                .font(.system(size: 17, weight: .semibold, design: .rounded))
+                .font(.system(.headline, design: .rounded))
                 .foregroundStyle(.hgText)
             Text(label)
-                .font(.system(size: 11))
+                .font(.caption)
                 .foregroundStyle(.hgDim)
         }
     }
@@ -94,22 +94,22 @@ struct QuizHomeView: View {
                 VStack(alignment: .leading, spacing: 9) {
                     HStack(spacing: 13) {
                         Image(systemName: "iphone.gen3")
-                            .font(.system(size: 17, weight: .semibold))
+                            .font(.headline)
                             .foregroundStyle(.white)
                             .frame(width: 40, height: 40)
                             .background(.hgBrand, in: .rect(cornerRadius: 11))
                         VStack(alignment: .leading, spacing: 2) {
                             Text("샘플 앱 뜯어보기")
-                                .font(.system(size: 16, weight: .bold))
+                                .font(.callout.weight(.bold))
                                 .foregroundStyle(.hgText)
                             Text("완성된 노트 앱을 직접 써보고, 결정 8개의 이유를 짚어봅니다")
-                                .font(.system(size: 12.5))
+                                .font(.footnote)
                                 .foregroundStyle(.hgMuted)
                                 .multilineTextAlignment(.leading)
                         }
                         Spacer(minLength: 4)
                         Image(systemName: "chevron.right")
-                            .font(.system(size: 12, weight: .semibold))
+                            .font(.footnote.weight(.semibold))
                             .foregroundStyle(.hgDim)
                     }
                 }
@@ -128,23 +128,23 @@ struct QuizHomeView: View {
         Button { liveKind = kind } label: {
             HStack(spacing: 13) {
                 Image(systemName: kind.symbol)
-                    .font(.system(size: 16, weight: .semibold))
+                    .font(.callout.weight(.semibold))
                     .foregroundStyle(tint)
                     .frame(width: 38, height: 38)
                     .background(tint.opacity(0.12), in: .rect(cornerRadius: 10))
                 VStack(alignment: .leading, spacing: 2) {
                     Text(kind.title)
-                        .font(.system(size: 15, weight: .semibold))
+                        .font(.callout.weight(.semibold))
                         .foregroundStyle(.hgText)
                     Text(subtitle)
-                        .font(.system(size: 12.5))
+                        .font(.footnote)
                         .foregroundStyle(.hgMuted)
                         .multilineTextAlignment(.leading)
                 }
                 Spacer(minLength: 8)
                 MasteryBar(value: progress.liveMastery(kind: kind))
                 Image(systemName: "chevron.right")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
             }
             .padding(13)
@@ -195,21 +195,21 @@ struct QuizHomeView: View {
         } label: {
             HStack(spacing: 13) {
                 Image(systemName: symbol)
-                    .font(.system(size: 16, weight: .semibold))
+                    .font(.callout.weight(.semibold))
                     .foregroundStyle(tint)
                     .frame(width: 38, height: 38)
                     .background(tint.opacity(0.12), in: .rect(cornerRadius: 10))
                 VStack(alignment: .leading, spacing: 2) {
                     Text(title)
-                        .font(.system(size: 15, weight: .semibold))
+                        .font(.callout.weight(.semibold))
                         .foregroundStyle(.hgText)
                     Text(subtitle)
-                        .font(.system(size: 12.5))
+                        .font(.footnote)
                         .foregroundStyle(.hgMuted)
                 }
                 Spacer()
                 Image(systemName: "chevron.right")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
             }
             .padding(13)
@@ -231,17 +231,17 @@ struct QuizHomeView: View {
                 } label: {
                     HStack(spacing: 12) {
                         Text("\(chapter.number)")
-                            .font(.system(size: 13, weight: .bold, design: .monospaced))
+                            .font(.system(.subheadline, design: .monospaced, weight: .bold))
                             .foregroundStyle(.white)
                             .frame(width: 28, height: 28)
                             .background(.hgBrand, in: .rect(cornerRadius: 8))
 
                         VStack(alignment: .leading, spacing: 2) {
                             Text(chapter.title)
-                                .font(.system(size: 14, weight: .semibold))
+                                .font(.subheadline.weight(.semibold))
                                 .foregroundStyle(.hgText)
                             Text(chapter.subtitle)
-                                .font(.system(size: 11))
+                                .font(.caption)
                                 .foregroundStyle(.hgDim)
                                 .lineLimit(1)
                         }
@@ -260,7 +260,7 @@ struct QuizHomeView: View {
 
     private var bankInfo: some View {
         Text("문항은 문서의 68개 항목과 8장 원칙 7개에서 자동 생성된 것과, 실무 시나리오로 직접 쓴 것이 함께 들어 있습니다. 해설에는 항상 본문 항목 번호가 붙습니다.")
-            .font(.system(size: 12))
+            .font(.footnote)
             .foregroundStyle(.hgDim)
             .padding(.top, 4)
     }
@@ -272,7 +272,7 @@ private struct MasteryBar: View {
     var body: some View {
         VStack(alignment: .trailing, spacing: 3) {
             Text("\(Int(value * 100))%")
-                .font(.system(size: 10, weight: .semibold, design: .monospaced))
+                .font(.system(.caption, design: .monospaced, weight: .semibold))
                 .foregroundStyle(value > 0 ? .hgGreen : .hgDim)
             Capsule()
                 .fill(Color.hgLine)

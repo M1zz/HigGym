@@ -230,7 +230,7 @@ private struct MiniStatus: View {
 
     var body: some View {
         Text(text)
-            .font(.system(size: 13, weight: .semibold))
+            .font(.subheadline.weight(.semibold))
             .foregroundStyle(tint)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.horizontal, 16)
@@ -312,8 +312,8 @@ private struct M003: View {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 150), spacing: 10)], spacing: 10) {
                     ForEach(rows) { mail in
                         VStack(alignment: .leading, spacing: 3) {
-                            Text(mail.sender).font(.system(size: 13, weight: .semibold))
-                            Text(mail.subject).font(.system(size: 12)).foregroundStyle(.secondary).lineLimit(2)
+                            Text(mail.sender).font(.subheadline.weight(.semibold))
+                            Text(mail.subject).font(.footnote).foregroundStyle(.secondary).lineLimit(2)
                         }
                         .frame(maxWidth: .infinity, minHeight: 60, alignment: .topLeading)
                         .padding(10)
@@ -526,7 +526,7 @@ private struct M038: View {
             controls: {
                 ComparisonControls {
                     Text("Dynamic Type · \(typeSize.demoLabel)")
-                        .font(.system(size: 11, weight: .semibold, design: .monospaced))
+                        .font(.system(.caption, design: .monospaced, weight: .semibold))
                         .foregroundStyle(.hgDim)
                     Slider(
                         value: Binding(
@@ -596,7 +596,7 @@ private struct M046: View {
                 Section("운송장") {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(number)
-                            .font(.system(size: 17, weight: .semibold, design: .monospaced))
+                            .font(.system(.headline, design: .monospaced))
                             .modifier(SelectionMod(enabled: selectable))
                         if selectable {
                             Button {
@@ -604,12 +604,12 @@ private struct M046: View {
                                 withAnimation { copied = true }
                             } label: {
                                 Label(copied ? "복사됨" : "복사", systemImage: copied ? "checkmark" : "doc.on.doc")
-                                    .font(.system(size: 13, weight: .semibold))
+                                    .font(.subheadline.weight(.semibold))
                             }
                             .buttonStyle(.borderless)
                         } else {
                             Text("길게 눌러보세요")
-                                .font(.system(size: 12))
+                                .font(.footnote)
                                 .foregroundStyle(.secondary)
                         }
                     }
@@ -673,12 +673,12 @@ private struct M047: View {
                     ForEach(["성수점", "합정점", "한남점"], id: \.self) { (name: String) in
                         HStack {
                             VStack(alignment: .leading, spacing: 2) {
-                                Text(name).font(.system(size: 15, weight: .semibold))
-                                Text("영업 중").font(.system(size: 12)).foregroundStyle(.secondary)
+                                Text(name).font(.callout.weight(.semibold))
+                                Text("영업 중").font(.footnote).foregroundStyle(.secondary)
                             }
                             Spacer()
                             Text(text)
-                                .font(.system(size: 15, weight: .semibold, design: .rounded))
+                                .font(.system(.callout, design: .rounded, weight: .semibold))
                                 .foregroundStyle(hardcoded ? AnyShapeStyle(.primary) : AnyShapeStyle(.tint))
                         }
                         .padding(.vertical, 3)
@@ -840,7 +840,7 @@ private struct M081: View {
                         .safeAreaInset(edge: .bottom) {
                             // 실제 앱에는 없는 비상구 — 교재가 사용자를 가두지 않기 위한 장치.
                             Button("예제에서 나가기") { badEditing = false }
-                                .font(.system(size: 12, weight: .semibold))
+                                .font(.footnote.weight(.semibold))
                                 .foregroundStyle(.red)
                                 .padding(.vertical, 8)
                                 .padding(.horizontal, 14)
@@ -890,10 +890,10 @@ private struct M081: View {
     private var editorBody: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text("아래로 쓸어내려 보세요 — 닫히지 않습니다.")
-                .font(.system(size: 13))
+                .font(.subheadline)
                 .foregroundStyle(.secondary)
             TextEditor(text: $text)
-                .font(.system(size: 15))
+                .font(.callout)
                 .scrollContentBackground(.hidden)
                 .background(.quaternary.opacity(0.4), in: .rect(cornerRadius: 12))
         }

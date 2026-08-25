@@ -49,7 +49,7 @@ struct StageChrome<Controls: View>: ViewModifier {
     private func button(_ symbol: String, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Image(systemName: symbol)
-                .font(.system(size: 13, weight: .bold))
+                .font(.subheadline.weight(.bold))
                 .foregroundStyle(.white)
                 .frame(width: 34, height: 30)
         }
@@ -76,15 +76,15 @@ struct RunStageCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             Text(title)
-                .font(.system(size: 15, weight: .semibold))
+                .font(.callout.weight(.semibold))
                 .foregroundStyle(.hgText)
             Text(body_)
-                .font(.system(size: 13))
+                .font(.subheadline)
                 .foregroundStyle(.hgMuted)
 
             Button(action: action) {
                 Label("전체 화면으로 실행", systemImage: "play.fill")
-                    .font(.system(size: 15, weight: .semibold))
+                    .font(.callout.weight(.semibold))
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 12)
                     .background(.hgBrand, in: .rect(cornerRadius: 12))

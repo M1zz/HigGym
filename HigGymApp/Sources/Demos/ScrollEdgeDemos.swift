@@ -103,8 +103,8 @@ private struct ScrollEdgeDemoScreen: View {
                 .frame(width: 46, height: 46)
                 .clipShape(.rect(cornerRadius: 9))
             VStack(alignment: .leading, spacing: 3) {
-                Text("항목 \(i + 1)").font(.system(size: 14, weight: .semibold))
-                Text("바 뒤로 지나가는 콘텐츠").font(.system(size: 12)).opacity(0.75)
+                Text("항목 \(i + 1)").font(.subheadline.weight(.semibold))
+                Text("바 뒤로 지나가는 콘텐츠").font(.footnote).opacity(0.75)
             }
             Spacer()
         }

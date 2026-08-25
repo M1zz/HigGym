@@ -113,7 +113,7 @@ struct CaseStudyView: View {
     private func button(_ symbol: String, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Image(systemName: symbol)
-                .font(.system(size: 13, weight: .bold))
+                .font(.subheadline.weight(.bold))
                 .foregroundStyle(.primary)
                 .frame(width: 32, height: 28)
                 .contentShape(.rect)
@@ -173,10 +173,10 @@ private struct DecisionSheet: View {
     private var intro: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text("먼저 그냥 써보세요")
-                .font(.system(size: 17, weight: .bold))
+                .font(.headline.weight(.bold))
                 .foregroundStyle(.hgText)
             Text("노트를 열고, 쓰고, 밀어서 지우고, 검색해 보세요. 이 시트를 내려도 앱은 그대로 동작합니다. 그다음 아래 결정을 하나씩 눌러 **왜 그 자리인지** 확인하세요 — 누르면 그 자리에 테두리가 켜집니다.")
-                .font(.system(size: 13.5))
+                .font(.subheadline)
                 .foregroundStyle(.hgMuted)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -193,14 +193,14 @@ private struct DecisionCard: View {
             VStack(alignment: .leading, spacing: 9) {
                 HStack(spacing: 8) {
                     Image(systemName: expanded ? "smallcircle.filled.circle" : "circle")
-                        .font(.system(size: 13))
+                        .font(.subheadline)
                         .foregroundStyle(expanded ? .hgAmber : .hgDim)
                     VStack(alignment: .leading, spacing: 2) {
                         Text(decision.place)
-                            .font(.system(size: 11, weight: .bold))
+                            .font(.caption.weight(.bold))
                             .foregroundStyle(expanded ? .hgAmber : .hgDim)
                         Text(decision.decision)
-                            .font(.system(size: 14.5, weight: .semibold))
+                            .font(.callout.weight(.semibold))
                             .foregroundStyle(.hgText)
                             .multilineTextAlignment(.leading)
                     }
@@ -232,9 +232,9 @@ private struct DecisionCard: View {
     private func labeled(_ title: String, _ body: String, _ tint: Color) -> some View {
         VStack(alignment: .leading, spacing: 3) {
             Text(title)
-                .font(.system(size: 10.5, weight: .bold))
+                .font(.caption.weight(.bold))
                 .foregroundStyle(tint)
-            MarkdownText(raw: body, font: .system(size: 13), color: .hgMuted)
+            MarkdownText(raw: body, font: .subheadline, color: .hgMuted)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }

@@ -75,7 +75,7 @@ private struct OverflowOrderScreen: View {
             List {
                 Section {
                     LabeledContent("저장한 횟수", value: "\(saved)")
-                        .font(.system(size: 14))
+                        .font(.subheadline)
                 }
                 Section("문서") {
                     ForEach(DemoData.mail.prefix(8)) { DemoMailRow(mail: $0) }
@@ -228,7 +228,7 @@ private struct StickyBadgeScreen: View {
                 if broken {
                     Section {
                         Text("읽은 소식 \(read)개 — 배지는 그대로입니다")
-                            .font(.system(size: 13))
+                            .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
                 }

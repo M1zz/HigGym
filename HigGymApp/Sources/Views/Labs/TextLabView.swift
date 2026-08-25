@@ -85,7 +85,7 @@ struct TextLabView: View {
     private var preview: some View {
         VStack(spacing: 10) {
             Text("실제 렌더링")
-                .font(.system(size: 11, weight: .bold))
+                .font(.caption.weight(.bold))
                 .foregroundStyle(.hgDim)
                 .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -105,7 +105,7 @@ struct TextLabView: View {
             .animation(.snappy(duration: 0.2), value: width)
 
             Text("폭 \(Int(width))pt · Dynamic Type \(typeSizeLabel)")
-                .font(.system(size: 11, design: .monospaced))
+                .font(.system(.caption, design: .monospaced))
                 .foregroundStyle(.hgDim)
         }
         .frame(maxWidth: .infinity)
@@ -119,7 +119,7 @@ struct TextLabView: View {
             Image(systemName: sample.isSentence ? "text.alignleft" : "number")
                 .foregroundStyle(sample.isSentence ? .hgGreen : .hgAmber)
             Text(sample.semantics)
-                .font(.system(size: 13, weight: .medium))
+                .font(.subheadline.weight(.medium))
                 .foregroundStyle(.hgText)
             Spacer()
         }
@@ -140,18 +140,18 @@ struct TextLabView: View {
             SectionLabel("공간", accent: .hgAccent)
             VStack(alignment: .leading, spacing: 4) {
                 Text("폭 \(Int(width))pt")
-                    .font(.system(size: 12, design: .monospaced))
+                    .font(.system(.footnote, design: .monospaced))
                     .foregroundStyle(.hgMuted)
                 Slider(value: $width, in: 90...340, step: 1)
                     .tint(.hgAccent)
             }
 
             Stepper("lineLimit \(lineLimit)", value: $lineLimit, in: 1...4)
-                .font(.system(size: 14))
+                .font(.subheadline)
                 .foregroundStyle(.hgText)
 
             Toggle("reservesSpace — 짧아도 높이 유지", isOn: $reservesSpace)
-                .font(.system(size: 14))
+                .font(.subheadline)
                 .foregroundStyle(.hgText)
                 .tint(.hgAccent)
 
@@ -163,7 +163,7 @@ struct TextLabView: View {
 
             VStack(alignment: .leading, spacing: 4) {
                 Text("minimumScaleFactor \(scaleFactor, format: .number.precision(.fractionLength(2)))")
-                    .font(.system(size: 12, design: .monospaced))
+                    .font(.system(.footnote, design: .monospaced))
                     .foregroundStyle(.hgMuted)
                 Slider(value: $scaleFactor, in: 0.3...1.0, step: 0.05)
                     .tint(.hgAccent)
@@ -388,7 +388,7 @@ private struct FormatStyleSection: View {
         VStack(alignment: .leading, spacing: 12) {
             SectionLabel("값은 앱이, 표기는 로케일이", accent: .hgAccent2)
             Text("아래 값들은 앱이 문자열을 만들지 않습니다. 같은 데이터가 로케일에 따라 다르게 렌더링되는 것을 확인하세요.")
-                .font(.system(size: 12.5))
+                .font(.footnote)
                 .foregroundStyle(.hgDim)
 
             Picker("로케일", selection: $isUS) {
@@ -415,11 +415,11 @@ private struct FormatStyleSection: View {
     private func row(_ code: String, _ value: String) -> some View {
         HStack(alignment: .top, spacing: 10) {
             Text(code)
-                .font(.system(size: 11, design: .monospaced))
+                .font(.system(.caption, design: .monospaced))
                 .foregroundStyle(.hgDim)
                 .frame(maxWidth: .infinity, alignment: .leading)
             Text(value)
-                .font(.system(size: 13, weight: .semibold))
+                .font(.subheadline.weight(.semibold))
                 .foregroundStyle(.hgAccent)
         }
         .padding(10)

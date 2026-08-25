@@ -509,9 +509,9 @@ private struct TabAccessory: ViewModifier {
                             .frame(width: 26, height: 26)
                         VStack(alignment: .leading, spacing: 1) {
                             Text("Liquid Glass")
-                                .font(.system(size: 12, weight: .semibold))
+                                .font(.footnote.weight(.semibold))
                             Text(playing ? "재생 중" : "일시정지")
-                                .font(.system(size: 10))
+                                .font(.caption)
                                 .foregroundStyle(.secondary)
                         }
                         Spacer()
@@ -519,7 +519,7 @@ private struct TabAccessory: ViewModifier {
                             withAnimation { playing.toggle() }
                         } label: {
                             Image(systemName: playing ? "pause.fill" : "play.fill")
-                                .font(.system(size: 15))
+                                .font(.callout)
                                 .frame(width: 32, height: 32)
                                 .contentShape(.rect)
                         }
@@ -547,15 +547,15 @@ private struct DemoPlayerSheet: View {
                 .frame(width: 180, height: 180)
 
             VStack(spacing: 4) {
-                Text("Liquid Glass").font(.system(size: 20, weight: .bold))
-                Text("탭을 옮겨도 이 상태는 유지됩니다").font(.system(size: 13)).foregroundStyle(.secondary)
+                Text("Liquid Glass").font(.title3.weight(.bold))
+                Text("탭을 옮겨도 이 상태는 유지됩니다").font(.subheadline).foregroundStyle(.secondary)
             }
 
             Button {
                 withAnimation { playing.toggle() }
             } label: {
                 Image(systemName: playing ? "pause.circle.fill" : "play.circle.fill")
-                    .font(.system(size: 56))
+                    .font(.largeTitle)
             }
             .buttonStyle(.plain)
 

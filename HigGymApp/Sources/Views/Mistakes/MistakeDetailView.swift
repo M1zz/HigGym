@@ -65,11 +65,11 @@ struct MistakeDetailView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 7) {
                 Text("#\(mistake.number)")
-                    .font(.system(size: 11, weight: .bold, design: .monospaced))
+                    .font(.system(.caption, design: .monospaced, weight: .bold))
                     .foregroundStyle(.hgDim)
                 if let category {
                     Label(category.title, systemImage: category.symbol)
-                        .font(.system(size: 11, weight: .bold))
+                        .font(.caption.weight(.bold))
                         .foregroundStyle(category.color)
                         .padding(.horizontal, 8)
                         .padding(.vertical, 3)
@@ -77,12 +77,12 @@ struct MistakeDetailView: View {
                 }
                 Spacer()
                 Label(mistake.severityLabel, systemImage: mistake.level.symbol)
-                    .font(.system(size: 11, weight: .semibold))
+                    .font(.caption.weight(.semibold))
                     .foregroundStyle(mistake.level.color)
             }
 
             Text(mistake.title)
-                .font(.system(size: 21, weight: .bold))
+                .font(.title3.weight(.bold))
                 .foregroundStyle(.hgText)
                 .fixedSize(horizontal: false, vertical: true)
         }
@@ -93,18 +93,18 @@ struct MistakeDetailView: View {
         VStack(alignment: .leading, spacing: 7) {
             HStack(spacing: 6) {
                 Label("판단 기준", systemImage: "scope")
-                    .font(.system(size: 11, weight: .bold))
+                    .font(.caption.weight(.bold))
                     .foregroundStyle(.hgAccent2)
                 Spacer()
                 if let principle = category?.principle, !principle.isEmpty {
                     Text("원칙 \(principle)")
-                        .font(.system(size: 10, design: .monospaced))
+                        .font(.system(.caption, design: .monospaced))
                         .foregroundStyle(.hgDim)
                 }
             }
             MarkdownText(
                 raw: mistake.criterion.isEmpty ? (category?.desc ?? "") : mistake.criterion,
-                font: .system(size: 14),
+                font: .subheadline,
                 color: .hgText
             )
         }
@@ -117,9 +117,9 @@ struct MistakeDetailView: View {
     private func block(_ title: String, _ body: String, _ tint: Color, _ symbol: String) -> some View {
         VStack(alignment: .leading, spacing: 7) {
             Label(title, systemImage: symbol)
-                .font(.system(size: 11, weight: .bold))
+                .font(.caption.weight(.bold))
                 .foregroundStyle(tint)
-            MarkdownText(raw: body, font: .system(size: 14), color: .hgText)
+            MarkdownText(raw: body, font: .subheadline, color: .hgText)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(14)
@@ -132,21 +132,21 @@ struct MistakeDetailView: View {
         NavigationLink(value: MistakeStoryRoute(mistake: mistake)) {
             HStack(spacing: 12) {
                 Image(systemName: "text.book.closed.fill")
-                    .font(.system(size: 16, weight: .semibold))
+                    .font(.callout.weight(.semibold))
                     .foregroundStyle(.white)
                     .frame(width: 36, height: 36)
                     .background(Color.hgAmber, in: .rect(cornerRadius: 10))
                 VStack(alignment: .leading, spacing: 1) {
                     Text("회고 읽기")
-                        .font(.system(size: 15, weight: .bold))
+                        .font(.callout.weight(.bold))
                         .foregroundStyle(.hgText)
                     Text("증상에서 기준까지 — 어쩌다 이 실수를 하게 됐는가")
-                        .font(.system(size: 11.5))
+                        .font(.caption)
                         .foregroundStyle(.hgDim)
                 }
                 Spacer(minLength: 4)
                 Image(systemName: "chevron.right")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
             }
             .padding(13)
@@ -164,29 +164,29 @@ struct MistakeDetailView: View {
             Button { runningDemo = dedicated } label: {
                 HStack(spacing: 10) {
                     Image(systemName: "rectangle.split.2x1.fill")
-                        .font(.system(size: 16, weight: .semibold))
+                        .font(.callout.weight(.semibold))
                         .foregroundStyle(.white)
                         .frame(width: 36, height: 36)
                         .background(.hgBrand, in: .rect(cornerRadius: 10))
                     VStack(alignment: .leading, spacing: 1) {
                         HStack(spacing: 5) {
                             Text("이 실수 전용 예제")
-                                .font(.system(size: 15, weight: .bold))
+                                .font(.callout.weight(.bold))
                                 .foregroundStyle(.hgText)
                             Text("전용")
-                                .font(.system(size: 9, weight: .bold))
+                                .font(.caption.weight(.bold))
                                 .foregroundStyle(.hgGreen)
                                 .padding(.horizontal, 5).padding(.vertical, 2)
                                 .background(Color.hgGreen.opacity(0.15), in: .capsule)
                         }
                         Text("어긴 화면과 고친 화면을 나란히 — 둘 다 실제로 동작합니다")
-                            .font(.system(size: 11.5))
+                            .font(.caption)
                             .foregroundStyle(.hgDim)
                             .multilineTextAlignment(.leading)
                     }
                     Spacer(minLength: 4)
                     Image(systemName: "chevron.right")
-                        .font(.system(size: 12, weight: .semibold))
+                        .font(.footnote.weight(.semibold))
                         .foregroundStyle(.hgDim)
                 }
                 .padding(13)
@@ -205,23 +205,23 @@ struct MistakeDetailView: View {
                 Button { runningDemo = demo } label: {
                     HStack(spacing: 10) {
                         Image(systemName: "play.rectangle.fill")
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(.callout.weight(.semibold))
                             .foregroundStyle(.white)
                             .frame(width: 36, height: 36)
                             .background(.hgBrand, in: .rect(cornerRadius: 10))
                         VStack(alignment: .leading, spacing: 1) {
                             Text("직접 해보기")
-                                .font(.system(size: 15, weight: .bold))
+                                .font(.callout.weight(.bold))
                                 .foregroundStyle(.hgText)
                             Text("\(demoEntry.index) \(demoEntry.title) 예제에서 손으로 확인")
-                                .font(.system(size: 11.5))
+                                .font(.caption)
                                 .foregroundStyle(.hgDim)
                                 .lineLimit(2)
                                 .multilineTextAlignment(.leading)
                         }
                         Spacer(minLength: 4)
                         Image(systemName: "chevron.right")
-                            .font(.system(size: 12, weight: .semibold))
+                            .font(.footnote.weight(.semibold))
                             .foregroundStyle(.hgDim)
                     }
                 }
@@ -238,7 +238,7 @@ struct MistakeDetailView: View {
     private var sourcesSection: some View {
         VStack(alignment: .leading, spacing: 8) {
             Label("근거가 되는 본문 항목", systemImage: "text.book.closed")
-                .font(.system(size: 11, weight: .bold))
+                .font(.caption.weight(.bold))
                 .foregroundStyle(.hgDim)
 
             ForEach(mistake.sources, id: \.index) { source in
@@ -247,13 +247,13 @@ struct MistakeDetailView: View {
                         HStack(spacing: 9) {
                             Pill(text: source.index, color: .hgAccent)
                             Text(source.title)
-                                .font(.system(size: 13))
+                                .font(.subheadline)
                                 .foregroundStyle(.hgText)
                                 .multilineTextAlignment(.leading)
                                 .lineLimit(2)
                             Spacer(minLength: 0)
                             Image(systemName: "chevron.right")
-                                .font(.system(size: 11, weight: .semibold))
+                                .font(.caption.weight(.semibold))
                                 .foregroundStyle(.hgDim)
                         }
                         .padding(11)
@@ -269,16 +269,16 @@ struct MistakeDetailView: View {
     private var references: some View {
         VStack(alignment: .leading, spacing: 7) {
             Label("참고 자료", systemImage: "link")
-                .font(.system(size: 11, weight: .bold))
+                .font(.caption.weight(.bold))
                 .foregroundStyle(.hgDim)
             ForEach(mistake.refs, id: \.url) { ref in
                 if let url = URL(string: ref.url) {
                     Link(destination: url) {
                         HStack(spacing: 5) {
                             Text(ref.title)
-                                .font(.system(size: 12))
+                                .font(.footnote)
                                 .multilineTextAlignment(.leading)
-                            Image(systemName: "arrow.up.right").font(.system(size: 9))
+                            Image(systemName: "arrow.up.right").font(.caption)
                         }
                         .foregroundStyle(.hgAccent)
                     }
@@ -296,7 +296,7 @@ struct MistakeDetailView: View {
                 checked ? "겪어본 실수로 표시됨" : "이건 나도 해봤다",
                 systemImage: checked ? "checkmark.circle.fill" : "circle"
             )
-            .font(.system(size: 15, weight: .semibold))
+            .font(.callout.weight(.semibold))
             .foregroundStyle(checked ? .hgGreen : .hgText)
             .frame(maxWidth: .infinity)
             .padding(.vertical, 13)

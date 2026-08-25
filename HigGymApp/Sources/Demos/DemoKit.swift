@@ -73,7 +73,7 @@ private struct DemoToast: ViewModifier {
         content.overlay {
             if let message = log.message {
                 Text(message)
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.white)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 11)
@@ -129,15 +129,15 @@ struct DemoMailRow: View {
             VStack(alignment: .leading, spacing: 2) {
                 HStack {
                     Text(mail.sender)
-                        .font(.system(size: 15, weight: .semibold))
+                        .font(.callout.weight(.semibold))
                     Spacer()
                     Text(mail.time)
-                        .font(.system(size: 12))
+                        .font(.footnote)
                         .foregroundStyle(.secondary)
                 }
-                Text(mail.subject).font(.system(size: 14))
+                Text(mail.subject).font(.subheadline)
                 Text(mail.preview)
-                    .font(.system(size: 13))
+                    .font(.subheadline)
                     .foregroundStyle(.secondary)
                     .lineLimit(2)
             }
@@ -234,7 +234,7 @@ struct DemoPicker<T: Hashable & Identifiable>: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(title)
-                .font(.system(size: 11, weight: .bold))
+                .font(.caption.weight(.bold))
                 .foregroundStyle(.secondary)
             Picker(title, selection: $selection) {
                 ForEach(options) { Text(label($0)).tag($0) }
@@ -260,11 +260,11 @@ struct DemoNote: View {
     var body: some View {
         HStack(alignment: .top, spacing: 8) {
             Image(systemName: symbol)
-                .font(.system(size: 12))
+                .font(.footnote)
                 .foregroundStyle(.tint)
                 .padding(.top, 1)
             Text(.init(text))
-                .font(.system(size: 13))
+                .font(.subheadline)
                 .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(12)

@@ -78,7 +78,7 @@ struct EntryDemoStage: View {
     private func chromeButton(_ symbol: String, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Image(systemName: symbol)
-                .font(.system(size: 13, weight: .bold))
+                .font(.subheadline.weight(.bold))
                 .foregroundStyle(.primary)
                 .frame(width: 32, height: 28)
                 .contentShape(.rect)
@@ -192,9 +192,9 @@ private struct DemoGuideSheet: View {
         VStack(alignment: .leading, spacing: 7) {
             Pill(text: info.badge)
             Text(info.title)
-                .font(.system(size: 19, weight: .bold))
+                .font(.title3.weight(.bold))
                 .foregroundStyle(.hgText)
-            MarkdownText(raw: info.summary, font: .system(size: 13.5), color: .hgMuted)
+            MarkdownText(raw: info.summary, font: .subheadline, color: .hgMuted)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -205,11 +205,11 @@ private struct DemoGuideSheet: View {
             ForEach(Array(demo.hints.enumerated()), id: \.offset) { index, hint in
                 HStack(alignment: .top, spacing: 9) {
                     Text("\(index + 1)")
-                        .font(.system(size: 11, weight: .bold, design: .monospaced))
+                        .font(.system(.caption, design: .monospaced, weight: .bold))
                         .foregroundStyle(.hgGreen)
                         .frame(width: 18, height: 18)
                         .background(Color.hgGreen.opacity(0.14), in: .circle)
-                    MarkdownText(raw: hint, font: .system(size: 13.5), color: .hgText)
+                    MarkdownText(raw: hint, font: .subheadline, color: .hgText)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
@@ -223,10 +223,10 @@ private struct DemoGuideSheet: View {
     private func noteBlock(_ note: String) -> some View {
         HStack(alignment: .top, spacing: 9) {
             Image(systemName: "exclamationmark.circle.fill")
-                .font(.system(size: 13))
+                .font(.subheadline)
                 .foregroundStyle(.hgAmber)
                 .padding(.top, 1)
-            MarkdownText(raw: note, font: .system(size: 13), color: .hgMuted)
+            MarkdownText(raw: note, font: .subheadline, color: .hgMuted)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(13)
@@ -247,9 +247,9 @@ private struct DemoGuideSheet: View {
     private func block(_ title: String, _ body: String, _ tint: Color) -> some View {
         VStack(alignment: .leading, spacing: 6) {
             Text(title)
-                .font(.system(size: 11, weight: .bold))
+                .font(.caption.weight(.bold))
                 .foregroundStyle(tint)
-            MarkdownText(raw: body, font: .system(size: 13), color: .hgText)
+            MarkdownText(raw: body, font: .subheadline, color: .hgText)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(13)
@@ -268,17 +268,17 @@ struct DemoLaunchCard: View {
         Button(action: action) {
             HStack(spacing: 12) {
                 Image(systemName: "play.rectangle.fill")
-                    .font(.system(size: 17, weight: .semibold))
+                    .font(.headline)
                     .foregroundStyle(.white)
                     .frame(width: 38, height: 38)
                     .background(.hgBrand, in: .rect(cornerRadius: 11))
 
                 VStack(alignment: .leading, spacing: 2) {
                     Text("예제 보기")
-                        .font(.system(size: 15, weight: .bold))
+                        .font(.callout.weight(.bold))
                         .foregroundStyle(.hgText)
                     Text("그림이 아니라 실제로 동작하는 화면 — 눌러보고 스크롤해 보세요")
-                        .font(.system(size: 11.5))
+                        .font(.caption)
                         .foregroundStyle(.hgDim)
                         .multilineTextAlignment(.leading)
                 }
@@ -286,7 +286,7 @@ struct DemoLaunchCard: View {
                 Spacer(minLength: 4)
 
                 Image(systemName: "chevron.right")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
             }
             .padding(12)

@@ -30,7 +30,7 @@ struct LabScaffold<Content: View>: View {
         HStack(spacing: 10) {
             Button { dismiss() } label: {
                 Image(systemName: "chevron.left")
-                    .font(.system(size: 15, weight: .semibold))
+                    .font(.callout.weight(.semibold))
                     .foregroundStyle(.hgAccent)
                     .frame(width: 32, height: 32)
                     .background(Color.hgCard, in: .circle)
@@ -39,11 +39,11 @@ struct LabScaffold<Content: View>: View {
 
             VStack(alignment: .leading, spacing: 1) {
                 Text(title)
-                    .font(.system(size: 16, weight: .bold))
+                    .font(.callout.weight(.bold))
                     .foregroundStyle(.hgText)
                 if let subtitle {
                     Text(subtitle)
-                        .font(.system(size: 11.5))
+                        .font(.caption)
                         .foregroundStyle(.hgDim)
                 }
             }

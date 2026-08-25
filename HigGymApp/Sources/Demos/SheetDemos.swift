@@ -162,7 +162,7 @@ private struct SheetDemoScreen: View {
                         if kind == .fullScreen { covering = true } else { showing = true }
                     } label: {
                         Label(kind == .fullScreen ? "전체 화면 열기" : "시트 열기", systemImage: "rectangle.portrait.bottomhalf.filled")
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(.callout.weight(.semibold))
                             .frame(maxWidth: .infinity)
                             .padding(.vertical, 13)
                             .background(.tint, in: .rect(cornerRadius: 13))
@@ -180,7 +180,7 @@ private struct SheetDemoScreen: View {
                     if kind == .nonmodal {
                         VStack(alignment: .leading, spacing: 6) {
                             Text("뒤 화면의 밝기 \(Int(brightness * 100))%")
-                                .font(.system(size: 12, weight: .semibold, design: .monospaced))
+                                .font(.system(.footnote, design: .monospaced, weight: .semibold))
                                 .foregroundStyle(.secondary)
                             Slider(value: $brightness)
                             DemoNote(text: "시트를 연 채로 이 슬라이더를 움직여 보세요. **뒤가 살아 있다**는 게 이 항목의 전부입니다.")
@@ -188,7 +188,7 @@ private struct SheetDemoScreen: View {
                     }
 
                     Text("뒤 화면 · 카드를 눌러보세요 (\(taps)회)")
-                        .font(.system(size: 12))
+                        .font(.footnote)
                         .foregroundStyle(.secondary)
 
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 100), spacing: 10)], spacing: 10) {
@@ -260,7 +260,7 @@ private struct DemoSheetBody: View {
                 if kind == .combo || kind == .nonmodal {
                     Section {
                         LabeledContent("현재 단계", value: detent == .large ? "large" : "medium")
-                            .font(.system(size: 14, design: .monospaced))
+                            .font(.system(.subheadline, design: .monospaced))
                     }
                 }
                 Section("필터") {
@@ -292,7 +292,7 @@ private struct DemoFullScreenBody: View {
             VStack(alignment: .leading, spacing: 14) {
                 DemoNote(text: "아래로 쓸어내려 보세요 — **닫히지 않습니다**. 닫기 버튼만이 출구입니다.", symbol: "hand.draw")
                 TextEditor(text: $text)
-                    .font(.system(size: 15))
+                    .font(.callout)
                     .scrollContentBackground(.hidden)
                     .background(.quaternary.opacity(0.4), in: .rect(cornerRadius: 12))
             }
@@ -331,7 +331,7 @@ private struct ZoomTransitionDemo: View {
                                 .clipShape(.rect(cornerRadius: 14))
                                 .overlay(alignment: .bottomLeading) {
                                     Text(card.title)
-                                        .font(.system(size: 11, weight: .semibold))
+                                        .font(.caption.weight(.semibold))
                                         .foregroundStyle(.white)
                                         .padding(7)
                                 }
@@ -414,8 +414,8 @@ private struct DemoCardDetail: View {
                     DemoPhoto(index: card.id)
                         .frame(height: 220)
                         .clipShape(.rect(cornerRadius: 18))
-                    Text(card.title).font(.system(size: 24, weight: .bold))
-                    Text(DemoData.longText).font(.system(size: 14)).foregroundStyle(.secondary)
+                    Text(card.title).font(.title2.weight(.bold))
+                    Text(DemoData.longText).font(.subheadline).foregroundStyle(.secondary)
                 }
                 .padding(18)
             }

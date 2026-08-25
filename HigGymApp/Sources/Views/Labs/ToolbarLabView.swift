@@ -30,7 +30,7 @@ struct ToolbarLabView: View {
                     CodePanel(code: ToolbarCodeGenerator.code(for: config))
                         .padding(.top, 10)
                 }
-                .font(.system(size: 14, weight: .semibold))
+                .font(.subheadline.weight(.semibold))
                 .foregroundStyle(.hgText)
                 .padding(.horizontal, 4)
         }
@@ -85,7 +85,7 @@ struct ToolbarLabView: View {
                     }
 
                     Button("비우기") { withAnimation { config.clear() } }
-                        .font(.system(size: 13, weight: .semibold))
+                        .font(.subheadline.weight(.semibold))
                         .buttonStyle(.bordered)
                         .tint(.hgDim)
                 }
@@ -101,8 +101,8 @@ struct ToolbarLabView: View {
             withAnimation(.snappy) { config = make() }
         } label: {
             VStack(alignment: .leading, spacing: 2) {
-                Text(title).font(.system(size: 13, weight: .semibold))
-                Text(source).font(.system(size: 10, design: .monospaced)).foregroundStyle(.hgDim)
+                Text(title).font(.subheadline.weight(.semibold))
+                Text(source).font(.system(.caption, design: .monospaced)).foregroundStyle(.hgDim)
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
@@ -123,7 +123,7 @@ struct ToolbarLabView: View {
         VStack(alignment: .leading, spacing: 10) {
             SectionLabel("자리에 넣기", accent: .hgAccent)
             Text("자리마다 원래 말하는 것이 있습니다 — 그 문법과 어긋나면 아래 진단에 잡힙니다.")
-                .font(.system(size: 12.5))
+                .font(.footnote)
                 .foregroundStyle(.hgDim)
 
             ForEach(ToolbarSlot.allCases) { slot in
@@ -133,10 +133,10 @@ struct ToolbarLabView: View {
             Toggle(isOn: $config.isRoot) {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("루트 화면 (뒤로가기 없음)")
-                        .font(.system(size: 14))
+                        .font(.subheadline)
                         .foregroundStyle(.hgText)
                     Text("끄면 push된 상세 화면 — leading이 뒤로가기와 다투는지 판정합니다")
-                        .font(.system(size: 11.5))
+                        .font(.caption)
                         .foregroundStyle(.hgDim)
                 }
             }
@@ -171,7 +171,7 @@ struct ToolbarLabView: View {
                 SectionLabel("실시간 판정", accent: .hgGreen)
                 Spacer()
                 Text("\(diagnoses.count)건")
-                    .font(.system(size: 11, design: .monospaced))
+                    .font(.system(.caption, design: .monospaced))
                     .foregroundStyle(.hgDim)
             }
             ForEach(diagnoses) { DiagnosisRow(diagnosis: $0) }
@@ -191,7 +191,7 @@ private struct SlotEditor: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack(spacing: 6) {
                 Text(slot.title)
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.hgText)
                 Pill(text: slot.grammar, color: .hgAccent2)
                 Spacer()
@@ -208,14 +208,14 @@ private struct SlotEditor: View {
                     }
                 } label: {
                     Image(systemName: "plus.circle.fill")
-                        .font(.system(size: 20))
+                        .font(.title3)
                         .foregroundStyle(.hgAccent)
                 }
             }
 
             if assigned.isEmpty {
                 Text("비어 있음")
-                    .font(.system(size: 12))
+                    .font(.footnote)
                     .foregroundStyle(.hgDim)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(.vertical, 6)
@@ -254,9 +254,9 @@ private struct FlowChips: View {
         ForEach(Array(items[range]), id: \.id) { spec in
             Button { onRemove(spec) } label: {
                 HStack(spacing: 5) {
-                    Image(systemName: spec.symbol).font(.system(size: 11))
-                    Text(spec.name).font(.system(size: 12.5, weight: .medium))
-                    Image(systemName: "xmark").font(.system(size: 9, weight: .bold)).opacity(0.5)
+                    Image(systemName: spec.symbol).font(.caption)
+                    Text(spec.name).font(.footnote.weight(.medium))
+                    Image(systemName: "xmark").font(.caption.weight(.bold)).opacity(0.5)
                 }
                 .foregroundStyle(spec.role.color)
                 .padding(.horizontal, 10)
@@ -282,7 +282,7 @@ struct SectionLabel: View {
         HStack(spacing: 6) {
             RoundedRectangle(cornerRadius: 2).fill(accent).frame(width: 3, height: 13)
             Text(text)
-                .font(.system(size: 13, weight: .bold))
+                .font(.subheadline.weight(.bold))
                 .foregroundStyle(.hgText)
         }
     }
@@ -316,9 +316,9 @@ private struct ToolbarStage: View {
             ForEach(0..<12, id: \.self) { i in
                 VStack(alignment: .leading, spacing: 3) {
                     Text("메시지 \(i + 1)")
-                        .font(.system(size: 14, weight: .semibold))
+                        .font(.subheadline.weight(.semibold))
                     Text("본문 미리보기 텍스트가 두 줄까지 보이는 셀입니다.")
-                        .font(.system(size: 12))
+                        .font(.footnote)
                         .foregroundStyle(.secondary)
                         .lineLimit(2)
                 }

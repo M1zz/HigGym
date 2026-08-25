@@ -11,10 +11,12 @@ struct ABCompareView<Broken: View, Fixed: View>: View {
     /// 지금 보고 있는 쪽에 붙는 설명.
     var brokenNote: String?
     var fixedNote: String?
+    /// 레슨에서는 어긴 쪽을 이미 겪은 뒤라 고친 쪽부터 보여준다.
+    var startOnFixed = false
     @ViewBuilder var broken: Broken
     @ViewBuilder var fixed: Fixed
 
-    @State private var side = Side.broken
+    @State private var side: Side?
 
     private enum Side: String, CaseIterable, Identifiable {
         case broken, fixed
@@ -24,6 +26,8 @@ struct ABCompareView<Broken: View, Fixed: View>: View {
         var symbol: String { self == .broken ? "xmark.octagon.fill" : "checkmark.seal.fill" }
     }
 
+    private var current: Side { side ?? (startOnFixed ? .fixed : .broken) }
+
     var body: some View {
         VStack(spacing: 0) {
             switcher
@@ -32,18 +36,18 @@ struct ABCompareView<Broken: View, Fixed: View>: View {
                 // 둘 다 그려 두고 보이는 쪽만 만지게 한다. 오갈 때마다 새로 그리면
                 // 스크롤 위치가 초기화돼 "같은 자리에서 바뀐다"는 전제가 깨진다.
                 broken
-                    .opacity(side == .broken ? 1 : 0)
-                    .allowsHitTesting(side == .broken)
-                    .accessibilityHidden(side != .broken)
+                    .opacity(current == .broken ? 1 : 0)
+                    .allowsHitTesting(current == .broken)
+                    .accessibilityHidden(current != .broken)
                 fixed
-                    .opacity(side == .fixed ? 1 : 0)
-                    .allowsHitTesting(side == .fixed)
-                    .accessibilityHidden(side != .fixed)
+                    .opacity(current == .fixed ? 1 : 0)
+                    .allowsHitTesting(current == .fixed)
+                    .accessibilityHidden(current != .fixed)
             }
             .clipShape(.rect(cornerRadius: 20))
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
-                    .strokeBorder(side.tint.opacity(0.55), lineWidth: 2)
+                    .strokeBorder(current.tint.opacity(0.55), lineWidth: 2)
             )
             .padding(.horizontal, 8)
 
@@ -54,7 +58,10 @@ struct ABCompareView<Broken: View, Fixed: View>: View {
 
     private var switcher: some View {
         VStack(spacing: 6) {
-            Picker("비교", selection: $side.animation(.snappy(duration: 0.15))) {
+            Picker("비교", selection: Binding(
+                get: { current },
+                set: { side = $0 }
+            ).animation(.snappy(duration: 0.15))) {
                 ForEach(Side.allCases) { option in
                     Text(option.label).tag(option)
                 }
@@ -62,20 +69,20 @@ struct ABCompareView<Broken: View, Fixed: View>: View {
             .pickerStyle(.segmented)
 
             HStack(spacing: 5) {
-                Image(systemName: side.symbol).font(.system(size: 10))
+                Image(systemName: current.symbol).font(.caption)
                 Text(activeNote)
-                    .font(.system(size: 11, weight: .semibold))
+                    .font(.caption.weight(.semibold))
                     .multilineTextAlignment(.center)
             }
-            .foregroundStyle(side.tint)
+            .foregroundStyle(current.tint)
         }
         .padding(.horizontal, 14)
         .padding(.bottom, 8)
     }
 
     private var activeNote: String {
-        let note = side == .broken ? brokenNote : fixedNote
-        return note ?? (side == .broken ? "지금 보는 건 어긴 화면입니다" : "지금 보는 건 고친 화면입니다")
+        let note = current == .broken ? brokenNote : fixedNote
+        return note ?? (current == .broken ? "지금 보는 건 어긴 화면입니다" : "지금 보는 건 고친 화면입니다")
     }
 
     @ViewBuilder
@@ -83,10 +90,10 @@ struct ABCompareView<Broken: View, Fixed: View>: View {
         if let diff {
             HStack(alignment: .top, spacing: 8) {
                 Image(systemName: "arrow.left.arrow.right")
-                    .font(.system(size: 11))
+                    .font(.caption)
                     .foregroundStyle(.hgAccent2)
                     .padding(.top, 1)
-                MarkdownText(raw: diff, font: .system(size: 12.5), color: .hgMuted)
+                MarkdownText(raw: diff, font: .footnote, color: .hgMuted)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(12)
@@ -101,11 +108,12 @@ struct ABCompareView<Broken: View, Fixed: View>: View {
 
 extension ABCompareView where Broken == AnyView, Fixed == AnyView {
     /// 레슨이 쓰는 형태 — 결정 하나만 뒤집은 같은 앱 두 벌.
-    init(knob: NoteAppConfig.Knob, diff: String, showsSpotlight: Bool = true) {
+    init(knob: NoteAppConfig.Knob, diff: String, showsSpotlight: Bool = true, startOnFixed: Bool = false) {
         self.init(
             diff: diff,
             brokenNote: nil,
             fixedNote: nil,
+            startOnFixed: startOnFixed,
             broken: {
                 AnyView(
                     knob.surface(

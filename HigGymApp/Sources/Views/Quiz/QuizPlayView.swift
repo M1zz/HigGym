@@ -44,7 +44,7 @@ struct QuizPlayView: View {
                 ProgressView(value: session.progress)
                     .tint(.hgAccent)
                 Text("\(session.index + 1) / \(session.questions.count)")
-                    .font(.system(size: 12, design: .monospaced))
+                    .font(.system(.footnote, design: .monospaced))
                     .foregroundStyle(.hgDim)
             }
             .padding(.horizontal, 18)
@@ -82,7 +82,7 @@ struct QuizPlayView: View {
                 }
                 Spacer()
             }
-            MarkdownText(raw: question.prompt, font: .system(size: 17, weight: .semibold))
+            MarkdownText(raw: question.prompt, font: .headline)
         }
     }
 
@@ -96,7 +96,7 @@ struct QuizPlayView: View {
     }
 
     private func subjectCard(_ subject: String) -> some View {
-        MarkdownText(raw: subject, font: .system(size: 15), color: .hgText)
+        MarkdownText(raw: subject, font: .callout, color: .hgText)
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(14)
             .background(Color.hgCardHigh, in: .rect(cornerRadius: 14))
@@ -169,18 +169,18 @@ struct QuizPlayView: View {
                 Image(systemName: isCorrect ? "checkmark.seal.fill" : "xmark.octagon.fill")
                     .foregroundStyle(isCorrect ? .hgGreen : .hgRed)
                 Text(isCorrect ? "정답" : "오답")
-                    .font(.system(size: 15, weight: .bold))
+                    .font(.callout.weight(.bold))
                     .foregroundStyle(isCorrect ? .hgGreen : .hgRed)
                 Spacer()
             }
 
-            MarkdownText(raw: question.explanation, font: .system(size: 14), color: .hgText)
+            MarkdownText(raw: question.explanation, font: .subheadline, color: .hgText)
 
             HStack(spacing: 6) {
                 Image(systemName: "book.closed")
-                    .font(.system(size: 11))
+                    .font(.caption)
                 Text("\(question.sourceIndex) \(question.sourceTitle)")
-                    .font(.system(size: 12))
+                    .font(.footnote)
             }
             .foregroundStyle(.hgDim)
 
@@ -190,7 +190,7 @@ struct QuizPlayView: View {
                     presentedLab = lab
                 } label: {
                     Label("\(lab.title)에서 직접 확인하기", systemImage: "hammer.fill")
-                        .font(.system(size: 13.5, weight: .semibold))
+                        .font(.subheadline.weight(.semibold))
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 11)
                         .background(Color.hgAccent.opacity(0.14), in: .rect(cornerRadius: 11))
@@ -210,7 +210,7 @@ struct QuizPlayView: View {
             withAnimation(.snappy(duration: 0.2)) { session.advance() }
         } label: {
             Text(session.index == session.questions.count - 1 ? "결과 보기" : "다음 문제")
-                .font(.system(size: 16, weight: .semibold))
+                .font(.callout.weight(.semibold))
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 14)
                 .background(.hgBrand, in: .rect(cornerRadius: 14))
@@ -246,7 +246,7 @@ private struct MockupOption: View {
 
             // 이름을 먼저 읽으면 그림을 보지 않게 되므로 채점 후에만 밝힌다.
             Text(revealed ? title : (entry?.index ?? ""))
-                .font(.system(size: 11, weight: revealed ? .semibold : .regular, design: revealed ? .default : .monospaced))
+                .font(.system(.caption, design: revealed ? .default : .monospaced, weight: revealed ? .semibold : .regular))
                 .foregroundStyle(revealed ? Color.hgText : Color.hgDim)
                 .lineLimit(2)
                 .multilineTextAlignment(.center)
@@ -273,11 +273,11 @@ struct OptionRow: View {
     var body: some View {
         HStack(alignment: .top, spacing: 11) {
             Image(systemName: symbol)
-                .font(.system(size: 15))
+                .font(.callout)
                 .foregroundStyle(tint)
                 .padding(.top, 1)
 
-            MarkdownText(raw: text, font: .system(size: 14.5), color: state == .dimmed ? .hgDim : .hgText)
+            MarkdownText(raw: text, font: .callout, color: state == .dimmed ? .hgDim : .hgText)
 
             Spacer(minLength: 0)
         }

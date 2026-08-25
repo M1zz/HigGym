@@ -20,7 +20,7 @@ struct QuizResultView: View {
                     onClose()
                 } label: {
                     Text("마치기")
-                        .font(.system(size: 16, weight: .semibold))
+                        .font(.callout.weight(.semibold))
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 14)
                         .background(.hgBrand, in: .rect(cornerRadius: 14))
@@ -40,10 +40,10 @@ struct QuizResultView: View {
     private var scoreCard: some View {
         VStack(spacing: 10) {
             Text("\(session.correctCount) / \(session.results.count)")
-                .font(.system(size: 40, weight: .bold, design: .rounded))
+                .font(.system(.largeTitle, design: .rounded, weight: .bold))
                 .foregroundStyle(score >= 0.7 ? .hgGreen : .hgAmber)
             Text(message)
-                .font(.system(size: 14))
+                .font(.subheadline)
                 .foregroundStyle(.hgMuted)
                 .multilineTextAlignment(.center)
         }
@@ -71,13 +71,13 @@ struct QuizResultView: View {
                     HStack(spacing: 6) {
                         Pill(text: result.question.sourceIndex, color: .hgRed)
                         Text(result.question.sourceTitle)
-                            .font(.system(size: 13, weight: .semibold))
+                            .font(.subheadline.weight(.semibold))
                             .foregroundStyle(.hgText)
                         Spacer()
                     }
                     MarkdownText(
                         raw: result.question.explanation,
-                        font: .system(size: 12.5),
+                        font: .footnote,
                         color: .hgMuted
                     )
                     if let lab = result.question.lab {
@@ -86,7 +86,7 @@ struct QuizResultView: View {
                             presentedLab = lab
                         } label: {
                             Label(lab.title, systemImage: "hammer.fill")
-                                .font(.system(size: 12, weight: .semibold))
+                                .font(.footnote.weight(.semibold))
                                 .foregroundStyle(.hgAccent)
                         }
                         .buttonStyle(.plain)

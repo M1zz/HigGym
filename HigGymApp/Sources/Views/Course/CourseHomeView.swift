@@ -39,7 +39,7 @@ struct CourseHomeView: View {
 
     private var intro: some View {
         Text("한 편에 결정 하나입니다. **직접 써보고 → 느낀 것을 적고 → 이유를 확인하고 → 어긴 화면과 비교하고 → 배운 것을 남깁니다.** 쓰는 칸이 있어야 남기 때문에 순서를 건너뛸 수 없게 두었습니다.")
-            .font(.system(size: 14))
+            .font(.subheadline)
             .foregroundStyle(.hgMuted)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -52,12 +52,12 @@ struct CourseHomeView: View {
         return VStack(alignment: .leading, spacing: 12) {
             HStack {
                 Text(done == 0 ? "아직 시작 전입니다" : "\(done) / \(total) 편 마침")
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(.subheadline.weight(.semibold))
                     .foregroundStyle(done == 0 ? .hgDim : .hgText)
                 Spacer()
                 if done > 0 {
                     Text("\(Int(Double(done) / Double(total) * 100))%")
-                        .font(.system(size: 13, weight: .bold, design: .monospaced))
+                        .font(.system(.subheadline, design: .monospaced, weight: .bold))
                         .foregroundStyle(.hgAccent)
                 }
             }
@@ -75,22 +75,22 @@ struct CourseHomeView: View {
                 Button { playing = next } label: {
                     HStack(spacing: 10) {
                         Image(systemName: "play.fill")
-                            .font(.system(size: 13, weight: .bold))
+                            .font(.subheadline.weight(.bold))
                             .foregroundStyle(.white)
                             .frame(width: 32, height: 32)
                             .background(.hgBrand, in: .rect(cornerRadius: 9))
                         VStack(alignment: .leading, spacing: 1) {
                             Text(done == 0 ? "1편부터 시작하기" : "이어서 하기")
-                                .font(.system(size: 14, weight: .bold))
+                                .font(.subheadline.weight(.bold))
                                 .foregroundStyle(.hgText)
                             Text("\(next.number). \(next.title)")
-                                .font(.system(size: 12))
+                                .font(.footnote)
                                 .foregroundStyle(.hgDim)
                                 .lineLimit(1)
                         }
                         Spacer(minLength: 4)
                         Image(systemName: "chevron.right")
-                            .font(.system(size: 12, weight: .semibold))
+                            .font(.footnote.weight(.semibold))
                             .foregroundStyle(.hgDim)
                     }
                 }
@@ -104,7 +104,7 @@ struct CourseHomeView: View {
 
     private var footnote: some View {
         Text("앞의 여덟 편은 같은 앱 한 벌에서 결정 하나씩을 뒤집습니다. 뒤의 다섯 편은 그 앱으로는 볼 수 없는 것들 — 오버플로 순서 · 사진 위 가장자리 효과 · 큰 글씨에서의 잘림 · 배지 · 가짜 탭입니다. 더 넓은 자료(항목 68 · 실수 100 · 원칙 7)는 **자료** 탭에 있습니다.")
-            .font(.system(size: 12))
+            .font(.footnote)
             .foregroundStyle(.hgDim)
             .padding(.top, 4)
     }
@@ -125,7 +125,7 @@ private struct LessonRow: View {
         Button(action: action) {
             HStack(alignment: .top, spacing: 12) {
                 Text("\(lesson.number)")
-                    .font(.system(size: 13, weight: .bold, design: .monospaced))
+                    .font(.system(.subheadline, design: .monospaced, weight: .bold))
                     .foregroundStyle(note.isCompleted ? .hgGreen : .hgAccent)
                     .frame(width: 30, height: 30)
                     .background(
@@ -135,17 +135,17 @@ private struct LessonRow: View {
 
                 VStack(alignment: .leading, spacing: 3) {
                     Text(lesson.title)
-                        .font(.system(size: 15, weight: .semibold))
+                        .font(.callout.weight(.semibold))
                         .foregroundStyle(.hgText)
                         .multilineTextAlignment(.leading)
                     Text(lesson.subtitle)
-                        .font(.system(size: 12.5))
+                        .font(.footnote)
                         .foregroundStyle(.hgMuted)
                         .multilineTextAlignment(.leading)
 
                     if !state.label.isEmpty {
                         Label(state.label, systemImage: state.symbol)
-                            .font(.system(size: 10.5, weight: .bold))
+                            .font(.caption.weight(.bold))
                             .foregroundStyle(state.color)
                             .padding(.top, 2)
                     }
@@ -154,7 +154,7 @@ private struct LessonRow: View {
                 Spacer(minLength: 0)
 
                 Image(systemName: "chevron.right")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
                     .padding(.top, 8)
             }

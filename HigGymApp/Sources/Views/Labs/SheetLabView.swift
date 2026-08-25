@@ -80,10 +80,10 @@ struct SheetLabView: View {
     private var stage: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("시트 뒤에 남는 것이 무엇인지 보세요")
-                .font(.system(size: 15, weight: .semibold))
+                .font(.callout.weight(.semibold))
                 .foregroundStyle(.hgText)
             Text("medium은 “원본과의 대화”, large는 사실상 새 화면입니다. 비모달로 바꾸면 아래 카드를 시트가 열린 채로 만질 수 있습니다.")
-                .font(.system(size: 13))
+                .font(.subheadline)
                 .foregroundStyle(.hgMuted)
 
             LazyVGrid(columns: [.init(.flexible()), .init(.flexible())], spacing: 10) {
@@ -97,10 +97,10 @@ struct SheetLabView: View {
                                 .fill(.hgBrand)
                                 .frame(height: 52)
                             Text("카드 \(i + 1)")
-                                .font(.system(size: 13, weight: .semibold))
+                                .font(.subheadline.weight(.semibold))
                                 .foregroundStyle(.hgText)
                             Text("탭하면 이 카드의 상세")
-                                .font(.system(size: 11))
+                                .font(.caption)
                                 .foregroundStyle(.hgDim)
                         }
                         .padding(10)
@@ -169,11 +169,11 @@ struct SheetLabView: View {
             .pickerStyle(.segmented)
 
             Toggle("그랩바 표시 (dragIndicator)", isOn: $dragIndicator)
-                .font(.system(size: 14)).foregroundStyle(.hgText).tint(.hgAccent)
+                .font(.subheadline).foregroundStyle(.hgText).tint(.hgAccent)
                 .disabled(kind == .cover)
 
             Toggle("비모달 — 뒤를 만질 수 있게", isOn: $nonmodal)
-                .font(.system(size: 14)).foregroundStyle(.hgText).tint(.hgAccent)
+                .font(.subheadline).foregroundStyle(.hgText).tint(.hgAccent)
                 .disabled(kind == .cover)
         }
     }
@@ -316,22 +316,22 @@ private struct SheetBody: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 12) {
                 Text(title)
-                    .font(.system(size: 18, weight: .bold))
+                    .font(.headline.weight(.bold))
                     .foregroundStyle(.hgText)
                 Text(nonmodal
                      ? "비모달입니다 — 시트를 연 채로 뒤의 카드를 만져보세요."
                      : "모달입니다 — 뒤는 딤 처리되어 닫기 전에는 만질 수 없습니다.")
-                    .font(.system(size: 13))
+                    .font(.subheadline)
                     .foregroundStyle(.hgMuted)
 
                 ForEach(0..<12, id: \.self) { i in
                     HStack {
                         Text("옵션 \(i + 1)")
-                            .font(.system(size: 14))
+                            .font(.subheadline)
                             .foregroundStyle(.hgText)
                         Spacer()
                         Image(systemName: "chevron.right")
-                            .font(.system(size: 12))
+                            .font(.footnote)
                             .foregroundStyle(.hgDim)
                     }
                     .padding(12)

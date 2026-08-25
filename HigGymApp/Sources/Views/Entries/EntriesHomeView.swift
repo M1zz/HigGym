@@ -85,10 +85,10 @@ struct EntriesHomeView: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 8) {
                 Text(section)
-                    .font(.system(size: 12, weight: .bold, design: .monospaced))
+                    .font(.system(.footnote, design: .monospaced, weight: .bold))
                     .foregroundStyle(.hgAccent)
                 Text(items.first?.sectionTitle ?? "")
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.hgText)
             }
 
@@ -108,7 +108,7 @@ struct EntriesHomeView: View {
 
     private var intro: some View {
         Text("항목마다 문서와 같은 목업이 먼저 나옵니다. 그림의 **아무 부위나 누르면** 그 자리가 무엇을 말하는지 알려주고, **예제 보기**로 같은 화면을 직접 만져볼 수 있습니다.")
-            .font(.system(size: 14))
+            .font(.subheadline)
             .foregroundStyle(.hgMuted)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -120,16 +120,16 @@ private struct ChapterHeader: View {
     var body: some View {
         HStack(spacing: 10) {
             Text("\(chapter.number)")
-                .font(.system(size: 14, weight: .bold, design: .monospaced))
+                .font(.system(.subheadline, design: .monospaced, weight: .bold))
                 .foregroundStyle(.white)
                 .frame(width: 28, height: 28)
                 .background(.hgBrand, in: .rect(cornerRadius: 8))
             VStack(alignment: .leading, spacing: 1) {
                 Text(chapter.title)
-                    .font(.system(size: 17, weight: .bold))
+                    .font(.headline.weight(.bold))
                     .foregroundStyle(.hgText)
                 Text(chapter.subtitle)
-                    .font(.system(size: 11))
+                    .font(.caption)
                     .foregroundStyle(.hgDim)
                     .lineLimit(1)
             }
@@ -152,10 +152,10 @@ private struct EntryThumbnail: View {
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(entry.index)
-                    .font(.system(size: 10, design: .monospaced))
+                    .font(.system(.caption, design: .monospaced))
                     .foregroundStyle(.hgDim)
                 Text(entry.title)
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgText)
                     .lineLimit(2)
                     .multilineTextAlignment(.leading)

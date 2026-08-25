@@ -227,16 +227,16 @@ private struct NoteRow: View {
                     Circle().fill(Color.accentColor).frame(width: 7, height: 7)
                 }
                 Text(note.title)
-                    .font(.system(size: 16, weight: .semibold))
+                    .font(.callout.weight(.semibold))
                     // 글자가 커져도 제목이 사라지지 않게 — 2.1.4 · 8.1.5.
                     .lineLimit(2)
                 Spacer(minLength: 6)
                 Text(SampleFormat.edited(note.edited, style: config.date))
-                    .font(.system(size: 12))
+                    .font(.footnote)
                     .foregroundStyle(.secondary)
             }
             Text(note.body)
-                .font(.system(size: 13))
+                .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .lineLimit(2, reservesSpace: true)
         }
@@ -271,15 +271,15 @@ struct NoteDetailScreen: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 14) {
                 Text(note.title)
-                    .font(.system(size: 24, weight: .bold))
+                    .font(.title2.weight(.bold))
                     .lineLimit(3)
 
                 Text(SampleFormat.edited(note.edited, style: config.date) + " 수정 · " + note.folder)
-                    .font(.system(size: 12))
+                    .font(.footnote)
                     .foregroundStyle(.secondary)
 
                 Text(note.body)
-                    .font(.system(size: 16))
+                    .font(.callout)
                     .lineSpacing(3)
                     .modifier(SelectableModifier(config: config))
                     .spotlightRing(spotlight == .selection)
@@ -290,7 +290,7 @@ struct NoteDetailScreen: View {
                         withAnimation { copied = true }
                     } label: {
                         Label(copied ? "복사됨" : "번호 복사", systemImage: copied ? "checkmark" : "doc.on.doc")
-                            .font(.system(size: 14, weight: .semibold))
+                            .font(.subheadline.weight(.semibold))
                     }
                     .buttonStyle(.borderless)
                     .opacity(config.selection == .enabled ? 1 : 0)
@@ -341,9 +341,9 @@ struct NoteEditorScreen: View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 10) {
                 TextField("제목", text: $title)
-                    .font(.system(size: 20, weight: .semibold))
+                    .font(.title3.weight(.semibold))
                 TextEditor(text: $body_)
-                    .font(.system(size: 15))
+                    .font(.callout)
                     .scrollContentBackground(.hidden)
                     .background(.quaternary.opacity(0.4), in: .rect(cornerRadius: 12))
             }
@@ -369,7 +369,7 @@ struct NoteEditorScreen: View {
                 if config.editorExit == .none {
                     // 실제 앱에는 없는 비상구 — 교재가 사용자를 가두지 않기 위한 장치.
                     Button("예제에서 나가기") { dismiss() }
-                        .font(.system(size: 12, weight: .semibold))
+                        .font(.footnote.weight(.semibold))
                         .foregroundStyle(.red)
                         .padding(.vertical, 7).padding(.horizontal, 13)
                         .overlay(Capsule().strokeBorder(.red, style: .init(lineWidth: 1, dash: [4, 3])))

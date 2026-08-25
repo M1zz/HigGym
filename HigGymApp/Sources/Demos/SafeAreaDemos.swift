@@ -214,8 +214,8 @@ private struct BarsModifier: ViewModifier {
             content.safeAreaBar(edge: .top) {
                 VStack(alignment: .leading, spacing: 8) {
                     HStack(alignment: .firstTextBaseline) {
-                        Text("보관함").font(.system(size: 22, weight: .bold))
-                        Text("\(count)개").font(.system(size: 13)).foregroundStyle(.secondary)
+                        Text("보관함").font(.title2.weight(.bold))
+                        Text("\(count)개").font(.subheadline).foregroundStyle(.secondary)
                         Spacer()
                     }
                     chips
@@ -245,7 +245,7 @@ private struct BarsModifier: ViewModifier {
                         withAnimation(.snappy) { filter = option }
                     } label: {
                         Text(option.rawValue)
-                            .font(.system(size: 13, weight: .semibold))
+                            .font(.subheadline.weight(.semibold))
                             .padding(.horizontal, 13)
                             .padding(.vertical, 7)
                             .background(filter == option ? AnyShapeStyle(.tint) : AnyShapeStyle(.quaternary), in: .capsule)
@@ -262,7 +262,7 @@ private struct BarsModifier: ViewModifier {
     private var actionBar: some View {
         HStack(spacing: 14) {
             Text(selection.isEmpty ? "항목을 선택하세요" : "\(selection.count)개 선택됨")
-                .font(.system(size: 13, weight: .medium))
+                .font(.subheadline.weight(.medium))
                 .foregroundStyle(selection.isEmpty ? .secondary : .primary)
             Spacer()
             Button("이동", systemImage: "folder") { log.tap("\(selection.count)개 이동") }
@@ -274,7 +274,7 @@ private struct BarsModifier: ViewModifier {
             .disabled(selection.isEmpty)
         }
         .labelStyle(.iconOnly)
-        .font(.system(size: 17))
+        .font(.body)
         .padding(.horizontal, 18)
         .padding(.vertical, 8)
     }
@@ -315,7 +315,7 @@ private struct HorizontalBarDemo: View {
                 }
                 if strokes.isEmpty {
                     Text("도구를 골라 눌러보세요")
-                        .font(.system(size: 13))
+                        .font(.subheadline)
                         .foregroundStyle(.secondary)
                 }
             }
@@ -382,7 +382,7 @@ private struct SideBarModifier: ViewModifier {
                     withAnimation(.snappy) { tool = option }
                 } label: {
                     Image(systemName: option.symbol)
-                        .font(.system(size: 15))
+                        .font(.callout)
                         .foregroundStyle(tool == option ? AnyShapeStyle(.tint) : AnyShapeStyle(.primary))
                         .frame(width: 36, height: 34)
                         .background {
@@ -399,7 +399,7 @@ private struct SideBarModifier: ViewModifier {
                 log.tap("지웠습니다")
             } label: {
                 Image(systemName: "trash")
-                    .font(.system(size: 14))
+                    .font(.subheadline)
                     .frame(width: 36, height: 32)
             }
             .buttonStyle(.plain)

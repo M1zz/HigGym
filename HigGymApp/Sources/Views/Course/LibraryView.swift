@@ -63,7 +63,7 @@ struct LibraryView: View {
 
     private var intro: some View {
         Text("레슨을 밟다가 더 알고 싶어지면 여기서 찾습니다. 레슨 안에서도 **근거 본문**은 바로 열립니다.")
-            .font(.system(size: 14))
+            .font(.subheadline)
             .foregroundStyle(.hgMuted)
             .frame(maxWidth: .infinity, alignment: .leading)
     }
@@ -75,27 +75,27 @@ struct LibraryView: View {
         Button { opened = destination } label: {
             HStack(spacing: 13) {
                 Image(systemName: symbol)
-                    .font(.system(size: 17, weight: .semibold))
+                    .font(.headline)
                     .foregroundStyle(tint)
                     .frame(width: 40, height: 40)
                     .background(tint.opacity(0.12), in: .rect(cornerRadius: 11))
                 VStack(alignment: .leading, spacing: 2) {
                     HStack(spacing: 6) {
                         Text(title)
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(.callout.weight(.semibold))
                             .foregroundStyle(.hgText)
                         Text(count)
-                            .font(.system(size: 11, weight: .bold, design: .monospaced))
+                            .font(.system(.caption, design: .monospaced, weight: .bold))
                             .foregroundStyle(tint)
                     }
                     Text(subtitle)
-                        .font(.system(size: 12.5))
+                        .font(.footnote)
                         .foregroundStyle(.hgMuted)
                         .multilineTextAlignment(.leading)
                 }
                 Spacer(minLength: 4)
                 Image(systemName: "chevron.right")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
             }
             .padding(13)
@@ -111,21 +111,21 @@ struct LibraryView: View {
         } label: {
             HStack(spacing: 13) {
                 Image(systemName: "checkmark.circle.fill")
-                    .font(.system(size: 17, weight: .semibold))
+                    .font(.headline)
                     .foregroundStyle(.hgRed)
                     .frame(width: 40, height: 40)
                     .background(Color.hgRed.opacity(0.12), in: .rect(cornerRadius: 11))
                 VStack(alignment: .leading, spacing: 2) {
                     Text("퀴즈")
-                        .font(.system(size: 16, weight: .semibold))
+                        .font(.callout.weight(.semibold))
                         .foregroundStyle(.hgText)
                     Text("화면으로 판단하기 · 문항 396개")
-                        .font(.system(size: 12.5))
+                        .font(.footnote)
                         .foregroundStyle(.hgMuted)
                 }
                 Spacer(minLength: 4)
                 Image(systemName: "chevron.right")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
             }
             .padding(13)
@@ -137,7 +137,7 @@ struct LibraryView: View {
 
     private var source: some View {
         Text("모든 자료는 `toolbar-annotated.html` 한 문서에서 나옵니다. 문서를 고치고 `Tools/extract_content.py` → `Tools/build_mistakes.py` 를 실행하면 앱 내용이 함께 갱신됩니다.")
-            .font(.system(size: 12))
+            .font(.footnote)
             .foregroundStyle(.hgDim)
             .padding(.top, 4)
     }

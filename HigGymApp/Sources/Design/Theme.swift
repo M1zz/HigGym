@@ -156,7 +156,7 @@ struct Pill: View {
 
     var body: some View {
         Text(text)
-            .font(.system(size: 11, weight: .bold, design: .monospaced))
+            .font(.system(.caption, design: .monospaced, weight: .bold))
             .foregroundStyle(color)
             .padding(.horizontal, 8)
             .padding(.vertical, 3)
@@ -207,12 +207,12 @@ struct DiagnosisRow: View {
         HStack(alignment: .top, spacing: 10) {
             Image(systemName: diagnosis.level.symbol)
                 .foregroundStyle(diagnosis.level.color)
-                .font(.system(size: 14))
+                .font(.subheadline)
                 .padding(.top, 1)
             VStack(alignment: .leading, spacing: 4) {
-                MarkdownText(raw: diagnosis.message, font: .system(size: 13.5), color: .hgText)
+                MarkdownText(raw: diagnosis.message, font: .subheadline, color: .hgText)
                 Text(diagnosis.source)
-                    .font(.system(size: 11, design: .monospaced))
+                    .font(.system(.caption, design: .monospaced))
                     .foregroundStyle(.hgDim)
             }
         }
@@ -237,7 +237,7 @@ struct CodePanel: View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
                 Label(title, systemImage: "curlybraces")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
                 Spacer()
                 Button {
@@ -245,14 +245,14 @@ struct CodePanel: View {
                     withAnimation { copied = true }
                 } label: {
                     Label(copied ? "복사됨" : "복사", systemImage: copied ? "checkmark" : "doc.on.doc")
-                        .font(.system(size: 12, weight: .semibold))
+                        .font(.footnote.weight(.semibold))
                 }
                 .buttonStyle(.borderless)
                 .tint(.hgAccent)
             }
             ScrollView(.horizontal, showsIndicators: false) {
                 Text(code)
-                    .font(.system(size: 12, design: .monospaced))
+                    .font(.system(.footnote, design: .monospaced))
                     .foregroundStyle(.hgText)
                     .textSelection(.enabled)
             }
