@@ -88,7 +88,7 @@ xcodebuild -project HigGym.xcodeproj -scheme HigGym \
 
 두 번째 절이 이 시리즈의 핵심입니다. 그게 없으면 남의 잘못을 지적하는 목록에 그칩니다. 마크다운이 원본이라 그대로 발행할 수 있고, `build_mistakes.py` 가 절 단위로 잘라 앱에도 싣습니다.
 
-지금은 **전용 예제 10편 · 회고 11편**이 준비돼 있습니다(목록에서 `회고 있는 것만` 으로 추릴 수 있습니다). 나머지는 같은 틀로 채워 나갑니다.
+지금은 **전용 예제 10편 · 회고 21편**이 준비돼 있습니다(목록에서 `회고 있는 것만` 으로 추릴 수 있습니다). 나머지는 같은 틀로 채워 나갑니다.
 
 ```bash
 python3 Tools/build_mistakes.py   # mistakes_data.py + entries.json → mistakes.json
