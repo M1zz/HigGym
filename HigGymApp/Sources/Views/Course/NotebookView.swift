@@ -9,6 +9,8 @@ struct NotebookView: View {
     @Environment(NotebookStore.self) private var notebook
     @State private var copied = false
     @State private var editing: Lesson?
+    /// 마크다운 파일로 내보내기 — 남긴 글은 앱 밖으로 나갈 수 있어야 한다.
+    @State private var exportURL: URL?
 
     private var written: [Lesson] {
         Lesson.all.filter { !notebook.note(for: $0).isEmpty }
@@ -36,18 +38,39 @@ struct NotebookView: View {
             .toolbar {
                 if !written.isEmpty {
                     ToolbarItem(placement: .topBarTrailing) {
-                        Button {
-                            UIPasteboard.general.string = notebook.plainText
-                            withAnimation { copied = true }
-                        } label: {
-                            Label(copied ? "복사됨" : "전체 복사", systemImage: copied ? "checkmark" : "doc.on.doc")
+                        Menu("내보내기", systemImage: "square.and.arrow.up") {
+                            Button {
+                                UIPasteboard.general.string = notebook.plainText
+                                withAnimation { copied = true }
+                            } label: {
+                                Label(copied ? "복사됨" : "텍스트로 복사", systemImage: copied ? "checkmark" : "doc.on.doc")
+                            }
+                            if let exportURL {
+                                ShareLink(item: exportURL) {
+                                    Label("마크다운 파일로 내보내기", systemImage: "doc.text")
+                                }
+                            }
                         }
                     }
                 }
             }
+            .task(id: notebook.notes) { refreshExport() }
         }
         .fullScreenCover(item: $editing) { lesson in
             LessonPlayerView(lesson: lesson) { editing = nil }
+        }
+    }
+
+    /// 공유 시트는 항목을 미리 요구하므로, 글이 바뀔 때마다 임시 파일을 다시 써 둔다.
+    private func refreshExport() {
+        guard !written.isEmpty else { exportURL = nil; return }
+        let url = FileManager.default.temporaryDirectory
+            .appendingPathComponent("HigGym 학습 노트.md")
+        do {
+            try notebook.plainText.write(to: url, atomically: true, encoding: .utf8)
+            exportURL = url
+        } catch {
+            exportURL = nil
         }
     }
 
@@ -56,7 +79,7 @@ struct NotebookView: View {
             Text("아직 쓴 글이 없습니다")
                 .font(.system(size: 16, weight: .semibold))
                 .foregroundStyle(.hgText)
-            Text("**학습** 탭에서 레슨을 하나 마치면, 그때 쓴 느낀 점과 배운 것이 여기에 쌓입니다. 전체를 텍스트로 복사해 밖으로 가져갈 수도 있습니다.")
+            Text("**학습** 탭에서 레슨을 하나 마치면, 그때 쓴 느낀 점과 배운 것이 여기에 쌓입니다. 쌓인 글은 텍스트로 복사하거나 **마크다운 파일로 내보낼** 수 있습니다.")
                 .font(.system(size: 13.5))
                 .foregroundStyle(.hgMuted)
         }

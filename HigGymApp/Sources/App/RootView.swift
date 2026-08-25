@@ -82,6 +82,15 @@ enum DebugLaunch {
         #endif
     }
 
+    /// 학습 노트를 표본 글로 채운다 — 스크린샷 검증용. (HG_SEED_NOTES=1)
+    static var seedNotes: Bool {
+        #if DEBUG
+        ProcessInfo.processInfo.environment["HG_SEED_NOTES"] == "1"
+        #else
+        false
+        #endif
+    }
+
     /// 자료 탭에서 어떤 자료를 열 것인가 — 스크린샷 검증용. (HG_LIB=entries|mistakes|principles|labs|quiz)
     static var libraryTarget: String? {
         #if DEBUG
@@ -178,6 +187,7 @@ enum DebugLaunch {
 
 struct RootView: View {
     @State private var router = Router()
+    @Environment(NotebookStore.self) private var notebook
 
     var body: some View {
         if let lab = DebugLaunch.lab {
@@ -203,6 +213,11 @@ struct RootView: View {
             }
         }
         .environment(router)
-        .onAppear { if let tab = DebugLaunch.tab { router.tab = tab } }
+        .onAppear {
+            if let tab = DebugLaunch.tab { router.tab = tab }
+            #if DEBUG
+            if DebugLaunch.seedNotes { notebook.seedForScreenshots() }
+            #endif
+        }
     }
 }

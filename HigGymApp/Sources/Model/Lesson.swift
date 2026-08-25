@@ -398,14 +398,21 @@ final class NotebookStore {
         self.defaults = defaults
         if let data = defaults.data(forKey: Key.notes),
            let decoded = try? JSONDecoder().decode([String: LessonNote].self, from: data) {
-            notes = decoded
+            // 예전 판이 남긴 빈 항목은 여기서 털어낸다.
+            notes = decoded.filter { !$0.value.isEmpty || $0.value.isCompleted }
         }
     }
 
     func note(for lesson: Lesson) -> LessonNote { notes[lesson.id] ?? LessonNote() }
 
     func write(_ note: LessonNote, for lesson: Lesson) {
-        notes[lesson.id] = note
+        // 단계를 넘길 때마다 저장하다 보니, 열어만 보고 아무것도 안 쓴 레슨에도
+        // 빈 항목이 쌓였다. 빈 글은 남기지 않는다 — 노트에는 쓴 것만 있어야 한다.
+        if note.isEmpty && !note.isCompleted {
+            notes[lesson.id] = nil
+        } else {
+            notes[lesson.id] = note
+        }
         persist()
     }
 
@@ -447,6 +454,24 @@ final class NotebookStore {
         }
         return lines.joined(separator: "\n")
     }
+
+    #if DEBUG
+    /// 스크린샷 검증용 — 실제 사용자의 글이 있으면 건드리지 않는다.
+    func seedForScreenshots() {
+        guard notes.values.allSatisfy(\.isEmpty) else { return }
+        notes["L2"] = LessonNote(
+            impression: "밀고, 빨간 버튼을 한 번 더 눌러야 지워졌다. 무엇을 지우는지도 분명했다.",
+            takeaway: "되돌릴 수 없는 액션은 빈도와 상관없이 한 단계 멀리 둔다.",
+            completedAt: Date()
+        )
+        notes["L5"] = LessonNote(
+            impression: "검색이 아래에 있어서 엄지로 바로 닿았다. 안 쓸 때는 캡슐 하나만 차지했다.",
+            takeaway: "자주 여는 입구는 닿기 쉬운 자리에, 안 쓰는 순간에는 비켜 있게.",
+            completedAt: Date()
+        )
+        persist()
+    }
+    #endif
 
     private func persist() {
         guard let data = try? JSONEncoder().encode(notes) else { return }

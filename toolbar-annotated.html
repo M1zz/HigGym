@@ -10,7 +10,34 @@
     --line:#2a2f3a; --line-soft:#232833; --text:#e9edf4; --muted:#9aa4b2; --dim:#6f7787;
     --accent:#5aa8ff; --accent-2:#7b6cff; --green:#37d39b; --amber:#f5b451; --pink:#ff7ab6; --red:#ff6b6b;
     --sidebar-w:312px;
+    /* 다크를 전제로 흩어져 있던 값들 — 라이트에서는 뒤집혀야 해서 변수로 뺐다 */
+    --text-2:#c7cddb;            /* 본문 문단 */
+    --fill:rgba(255,255,255,.015); /* 카드 안의 은은한 채움 */
+    --fill-2:rgba(255,255,255,.04);/* 입력칸·버튼처럼 조금 더 진한 채움 */
+    --chrome:rgba(20,24,32,.85);   /* 떠 있는 조작 요소(사이드바 토글·언어 토글) */
+    --sidebar-bg:rgba(11,12,16,.6);
+    --hairline:rgba(255,255,255,.22);
+    --shadow:rgba(0,0,0,.35);
   }
+
+  /* 라이트 모드 — 다크를 뒤집은 게 아니라 같은 역할을 하는 짝을 따로 골랐다.
+     특히 강조색은 흰 배경에서 대비가 무너지므로 한 단계 진한 값을 쓴다(8.1.4).
+     단, 프리뷰 안의 폰 그림(.phone 이하)은 기기 렌더링이라 두 모드에서 같다. */
+  @media (prefers-color-scheme: light) {
+    :root{
+      --bg:#f4f6fa; --bg-soft:#eef1f7; --card:#ffffff; --card-2:#f7f9fd;
+      --line:#dce1ea; --line-soft:#e6eaf2; --text:#14171e; --muted:#525b6b; --dim:#798393;
+      --accent:#1668e3; --accent-2:#5a48d6; --green:#0e8f60; --amber:#a76a0b; --pink:#c2367e; --red:#d22f2f;
+      --text-2:#3c4351;
+      --fill:rgba(0,0,0,.028);
+      --fill-2:rgba(0,0,0,.05);
+      --chrome:rgba(255,255,255,.9);
+      --sidebar-bg:rgba(255,255,255,.72);
+      --hairline:rgba(0,0,0,.18);
+      --shadow:rgba(15,20,30,.12);
+    }
+  }
+  :root{color-scheme:light dark}
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{
@@ -29,7 +56,7 @@
   .sidebar{
     width:var(--sidebar-w);flex:0 0 var(--sidebar-w);position:sticky;top:0;height:100vh;overflow-y:auto;
     padding:26px 16px 60px 24px;border-right:1px solid var(--line-soft);
-    background:rgba(11,12,16,.6);backdrop-filter:blur(12px);
+    background:var(--sidebar-bg);backdrop-filter:blur(12px);
   }
   .sidebar::-webkit-scrollbar{width:8px}
   .sidebar::-webkit-scrollbar-thumb{background:#2a2f3a;border-radius:8px}
@@ -53,7 +80,7 @@
   .nav-group.closed{display:none}
   .sb-close{position:absolute;top:22px;right:10px;background:none;border:1px solid var(--line);color:var(--dim);font-size:12px;line-height:1;cursor:pointer;padding:5px 8px;border-radius:8px}
   .sb-close:hover{color:var(--text);background:var(--card)}
-  .sb-open{display:none;position:fixed;top:14px;left:14px;z-index:50;align-items:center;justify-content:center;width:34px;height:34px;background:rgba(20,24,32,.85);backdrop-filter:blur(8px);border:1px solid var(--line);color:var(--muted);font-size:14px;line-height:1;cursor:pointer;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+  .sb-open{display:none;position:fixed;top:14px;left:14px;z-index:50;align-items:center;justify-content:center;width:34px;height:34px;background:var(--chrome);backdrop-filter:blur(8px);border:1px solid var(--line);color:var(--muted);font-size:14px;line-height:1;cursor:pointer;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.35)}
   .sb-open:hover{color:var(--text);border-color:var(--accent)}
   body.nav-off .sidebar{display:none}
   body.nav-off .sb-open{display:flex}
@@ -90,7 +117,7 @@
   .entry .what b{color:var(--text)}
 
   .rows{display:grid;gap:8px}
-  .r{display:flex;gap:12px;align-items:flex-start;font-size:13.6px;background:rgba(255,255,255,.015);border:1px solid var(--line-soft);border-radius:10px;padding:10px 14px}
+  .r{display:flex;gap:12px;align-items:flex-start;font-size:13.6px;background:var(--fill);border:1px solid var(--line-soft);border-radius:10px;padding:10px 14px}
   .r .k{flex:0 0 96px;font-size:11px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;padding-top:2px;word-break:keep-all;line-height:1.5}
   .r.when .k{color:var(--green)}
   .r.why  .k{color:var(--accent-2)}
@@ -108,7 +135,7 @@
   .r.ref .v{font-size:12.5px;color:var(--dim)}
   .r.ref a{color:var(--accent);text-decoration:none}
   .r.ref a:hover{text-decoration:underline}
-  .r .v{color:#c7cddb}
+  .r .v{color:var(--text-2)}
   .r .v b{color:var(--text)}
 
 
@@ -171,19 +198,19 @@
   /* System Materials 프리뷰 */
   .matcard{position:absolute;left:14px;right:14px;height:34px;border-radius:10px;border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;padding:0 10px;font-size:8px;color:rgba(255,255,255,.88);z-index:2}
   /* Text 챕터용 예시 카드 */
-  .tcard{width:158px;background:linear-gradient(180deg,var(--card-2),#171a21);border:1px solid var(--line);border-radius:14px;padding:12px;font-size:10px;line-height:1.6;color:#c7cddb;box-shadow:0 10px 24px rgba(0,0,0,.3)}
+  .tcard{width:158px;background:var(--card-2);border:1px solid var(--line);border-radius:14px;padding:12px;font-size:10px;line-height:1.6;color:var(--text-2);box-shadow:0 10px 24px rgba(0,0,0,.3)}
   .tc-cap{font-family:"SF Mono",monospace;font-size:8.5px;color:var(--accent);margin-bottom:7px;letter-spacing:.2px}
   .clamp2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
   .trow{display:flex;align-items:center;gap:6px;margin:6px 0}
   .trow .tl{flex:0 0 44px;font-family:"SF Mono",monospace;font-size:7.5px;color:var(--dim);text-align:right}
-  .trow .tv{flex:1;min-width:0;white-space:nowrap;overflow:hidden;font-size:9.5px;background:rgba(255,255,255,.04);border:1px solid var(--line-soft);border-radius:6px;padding:3px 6px}
+  .trow .tv{flex:1;min-width:0;white-space:nowrap;overflow:hidden;font-size:9.5px;background:var(--fill-2);border:1px solid var(--line-soft);border-radius:6px;padding:3px 6px}
   .tv .e{color:var(--accent);font-weight:700}
-  .fitbox{border:1px dashed rgba(255,255,255,.22);border-radius:8px;padding:4px 8px;margin:5px 0;overflow:hidden;white-space:nowrap;font-family:"SF Mono",monospace}
+  .fitbox{border:1px dashed var(--hairline);border-radius:8px;padding:4px 8px;margin:5px 0;overflow:hidden;white-space:nowrap;font-family:"SF Mono",monospace}
   .sel{background:rgba(90,168,255,.3);border-radius:2px;box-shadow:0 0 0 1px rgba(90,168,255,.35)}
   .hnd{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--accent);vertical-align:middle;margin:0 1px}
   .rsv{border:1px dashed var(--accent);border-radius:6px;background:rgba(90,168,255,.06)}
   .mini2{display:flex;gap:8px}
-  .mini2 .mc{flex:1;background:rgba(255,255,255,.03);border:1px solid var(--line-soft);border-radius:8px;padding:7px;font-size:7.5px;line-height:1.5;height:74px;overflow:hidden}
+  .mini2 .mc{flex:1;background:var(--fill);border:1px solid var(--line-soft);border-radius:8px;padding:7px;font-size:7.5px;line-height:1.5;height:74px;overflow:hidden}
   .avtr{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;font-size:7px;font-weight:700;vertical-align:middle}
   @media (max-width:900px){.entry{display:block}.preview{margin:18px auto 0}}
 
@@ -194,7 +221,7 @@
   /* ===== 페이지 모드 (누르면 해당 항목만 표시) ===== */
   .pg-hide{display:none!important}
   .pager{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:48px;padding-top:18px;border-top:1px solid var(--line-soft)}
-  .pager button{background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--text);font-size:13px;padding:9px 14px;border-radius:10px;cursor:pointer;max-width:42%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:.15s}
+  .pager button{background:var(--fill-2);border:1px solid var(--line);color:var(--text);font-size:13px;padding:9px 14px;border-radius:10px;cursor:pointer;max-width:42%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;transition:.15s}
   .pager button:hover:not(:disabled){border-color:var(--accent);color:var(--accent)}
   .pager button:disabled{opacity:.3;cursor:default}
   .pager .pg-info{color:var(--dim);font-size:12px;white-space:nowrap}
@@ -204,7 +231,7 @@
   /* ===== 언어 토글 / language toggle ===== */
   .lang-tgl{
     position:fixed;top:14px;right:14px;z-index:60;display:inline-flex;align-items:center;gap:6px;
-    background:rgba(20,24,32,.85);backdrop-filter:blur(8px);border:1px solid var(--line);
+    background:var(--chrome);backdrop-filter:blur(8px);border:1px solid var(--line);
     color:var(--muted);font-family:inherit;font-size:12px;font-weight:700;letter-spacing:.4px;
     padding:7px 11px;border-radius:10px;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.35);transition:.15s
   }
