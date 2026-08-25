@@ -12,6 +12,16 @@ enum LessonPair: String, CaseIterable, Identifiable, Sendable {
     case clampedText        // 실수 38 — 한 줄 고정 + 축소
     case stickyBadge        // 실수 52 — 줄지 않는 배지
     case fakeTab            // 실수 68 — 이동하지 않는 탭
+    case decorButtons       // 실수 1  — 자리가 비어 보인다고 채운다
+    case adBar              // 실수 14 — 콕핏 자리에 광고
+    case customNavBar       // 실수 20 — 내비바를 직접 만든다
+    case mapControls        // 실수 28 — 안 읽히는데 투명한 쪽이 예뻐서
+    case searchDrawer       // 실수 34 — 검색이 접히는 서랍에
+    case amount             // 실수 43 — 잘리면 안 되는 값을 자른다
+    case tabCount           // 실수 59 — 여섯 개 탭
+    case checkoutTab        // 실수 62 — 진행 중에 나갈 길을 열어둔다
+    case paymentSheet       // 실수 79 — 확정하는 시트를 비모달로
+    case menuOrder          // 실수 96 — 삭제를 일반 항목들 사이에
 
     var id: String { rawValue }
 
@@ -23,6 +33,16 @@ enum LessonPair: String, CaseIterable, Identifiable, Sendable {
         case .clampedText:   ClampedTextScreen(broken: broken)
         case .stickyBadge:   StickyBadgeScreen(broken: broken)
         case .fakeTab:       FakeTabScreen(broken: broken)
+        case .decorButtons:  DecorButtonsScreen(broken: broken)
+        case .adBar:         AdBarScreen(broken: broken)
+        case .customNavBar:  CustomNavBarScreen(broken: broken)
+        case .mapControls:   MapControlsScreen(broken: broken)
+        case .searchDrawer:  SearchDrawerScreen(broken: broken)
+        case .amount:        AmountScreen(broken: broken)
+        case .tabCount:      TabCountScreen(broken: broken)
+        case .checkoutTab:   CheckoutTabScreen(broken: broken)
+        case .paymentSheet:  PaymentSheetScreen(broken: broken)
+        case .menuOrder:     MenuOrderScreen(broken: broken)
         }
     }
 }
