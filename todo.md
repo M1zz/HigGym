@@ -26,6 +26,15 @@
   - [x] 버그: 단계를 넘길 때마다 저장하느라 **열어만 본 레슨에도 빈 노트가 쌓이고 있었다** → 빈 글은 저장하지 않고, 예전 판이 남긴 빈 항목은 불러올 때 털어낸다
   - [x] 검증용 훅 `HG_SEED_NOTES=1`
 
+- [x] 앱 이름과 아이콘 (2026-09-03)
+  - [x] 홈 화면 이름을 `디자인 실습`으로 — `project.yml` 의 `CFBundleDisplayName`(Info.plist 는 XcodeGen 이 생성하므로 여기서만 고친다)
+  - [x] 앱 아이콘 1024pt — `Tools/make_app_icon.swift` 가 CoreGraphics 로 그려 `Assets.xcassets/AppIcon.appiconset/AppIcon.png` 생성
+    - 그림은 앱이 가르치는 화면 그 자체: 강조색 툴바 + 본문 카드 + 탭 점 세 개, 배경은 팔레트의 accent → accent2 그라디언트
+    - 알아둘 것: 아이콘은 코드로 그려 두어야 색·비율을 팔레트와 함께 고칠 수 있다 (120px 로 줄여 판독 확인)
+  - [x] 업로드 검증 실패 대응 — `TARGETED_DEVICE_FAMILY` 를 `"1,2"` → `"1"` (iPhone 전용)
+    - iPad 를 지원한다고 선언한 앱은 멀티태스킹 때문에 네 방향을 전부 열어야 하는데, 이 교재의 실습은 전부 iPhone 크롬을 세로로 재현한다
+    - 알아둘 것: 서명·번들 ID 를 Xcode 에서 고쳐도 `xcodegen generate` 하면 사라진다 — `project.yml` 에 적어야 남는다
+
 - [x] iOS 실습 앱 `HigGymApp` 추가 (2026-08-15)
   - [x] `Tools/extract_content.py` — 문서(HTML)를 단일 진실 소스로 두고 68항목 + 원칙 7개를 `entries.json`으로 추출 (예시는 ①②③ 단위로 분리)
   - [x] XcodeGen 프로젝트 (iOS 26, Swift 6, 다크 전용, 문서와 동일 팔레트)
