@@ -27,13 +27,19 @@
   - [x] 검증용 훅 `HG_SEED_NOTES=1`
 
 - [x] 앱 이름과 아이콘 (2026-09-03)
-  - [x] 홈 화면 이름을 `디자인 실습`으로 — `project.yml` 의 `CFBundleDisplayName`(Info.plist 는 XcodeGen 이 생성하므로 여기서만 고친다)
+  - [x] 홈 화면 이름을 `앱 디자인 실습`으로 — `project.yml` 의 `CFBundleDisplayName`(Info.plist 는 XcodeGen 이 생성하므로 여기서만 고친다)
   - [x] 앱 아이콘 1024pt — `Tools/make_app_icon.swift` 가 CoreGraphics 로 그려 `Assets.xcassets/AppIcon.appiconset/AppIcon.png` 생성
     - 그림은 앱이 가르치는 화면 그 자체: 강조색 툴바 + 본문 카드 + 탭 점 세 개, 배경은 팔레트의 accent → accent2 그라디언트
     - 알아둘 것: 아이콘은 코드로 그려 두어야 색·비율을 팔레트와 함께 고칠 수 있다 (120px 로 줄여 판독 확인)
   - [x] 업로드 검증 실패 대응 — `TARGETED_DEVICE_FAMILY` 를 `"1,2"` → `"1"` (iPhone 전용)
     - iPad 를 지원한다고 선언한 앱은 멀티태스킹 때문에 네 방향을 전부 열어야 하는데, 이 교재의 실습은 전부 iPhone 크롬을 세로로 재현한다
-    - 알아둘 것: 서명·번들 ID 를 Xcode 에서 고쳐도 `xcodegen generate` 하면 사라진다 — `project.yml` 에 적어야 남는다
+  - [x] 번들 ID `com.leeo.HigGym` 을 `project.yml` 에 못 박음(`bundleIdPrefix` 도 함께) — Xcode 에서 고친 값은 재생성 때 사라진다
+    - 알아둘 것: `DEVELOPMENT_TEAM` 은 아직 빈 값이라 재생성하면 서명 팀은 다시 지정해야 한다
+  - [x] 화면·파일에 나가는 `HigGym` 흔적 제거 (2026-09-04)
+    - 학습 노트 제목과 내보내기 파일 이름 → `앱 디자인 실습 학습 노트`
+    - 텍스트 실습의 경로 예시에 개발자 실제 홈 경로(`/Users/leeo/.../HigGym/`)가 그대로 노출되고 있었다 → 중립 예시로
+    - `CFBundleName` 도 같은 이름으로 — 표시 이름이 안 쓰이는 시스템 UI 가 `$(PRODUCT_NAME)` 을 집어 온다
+    - 남긴 것: UserDefaults 키 `higgym.*` (바꾸면 저장된 학습 기록이 끊긴다) · 타깃/제품 이름 · 번들 ID — 모두 사용자에게 보이지 않는다
 
 - [x] iOS 실습 앱 `HigGymApp` 추가 (2026-08-15)
   - [x] `Tools/extract_content.py` — 문서(HTML)를 단일 진실 소스로 두고 68항목 + 원칙 7개를 `entries.json`으로 추출 (예시는 ①②③ 단위로 분리)

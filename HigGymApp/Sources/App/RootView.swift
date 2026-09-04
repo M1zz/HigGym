@@ -18,7 +18,7 @@ final class Router {
 }
 
 /// 시뮬레이터에서 특정 실습 화면을 바로 띄워 확인하기 위한 개발용 훅.
-/// `xcrun simctl launch --console <device> dev.m1zz.HigGym` 실행 시
+/// `xcrun simctl launch --console <device> <번들 ID>` 실행 시
 /// 환경변수 HG_OPEN_LAB=toolbar 로 지정한다.
 enum DebugLaunch {
     static var lab: LabID? {

@@ -40,7 +40,7 @@ enum DemoData {
 
     static let longTitle = "2026년 3분기 사용자 인터페이스 개선 계획서 최종본"
 
-    static let filePath = "/Users/higgym/Documents/Projects/2026/Design/Toolbar/Specification.pdf"
+    static let filePath = "/Users/designer/Documents/Projects/2026/Design/Toolbar/Specification.pdf"
 }
 
 // MARK: - 눌렀다는 사실을 보여주는 토스트

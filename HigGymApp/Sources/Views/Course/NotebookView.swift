@@ -65,7 +65,7 @@ struct NotebookView: View {
     private func refreshExport() {
         guard !written.isEmpty else { exportURL = nil; return }
         let url = FileManager.default.temporaryDirectory
-            .appendingPathComponent("HigGym 학습 노트.md")
+            .appendingPathComponent("앱 디자인 실습 학습 노트.md")
         do {
             try notebook.plainText.write(to: url, atomically: true, encoding: .utf8)
             exportURL = url

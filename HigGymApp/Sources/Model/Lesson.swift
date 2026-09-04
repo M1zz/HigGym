@@ -436,7 +436,7 @@ final class NotebookStore {
 
     /// 학습 노트를 통째로 복사할 수 있게 — 남긴 글은 앱 밖으로 나갈 수 있어야 한다.
     var plainText: String {
-        var lines: [String] = ["# HigGym 학습 노트", ""]
+        var lines: [String] = ["# 앱 디자인 실습 학습 노트", ""]
         for lesson in Lesson.all {
             let note = note(for: lesson)
             guard !note.isEmpty else { continue }

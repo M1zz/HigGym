@@ -22,7 +22,7 @@ enum TextSample: String, CaseIterable, Identifiable {
         case .sentence: "회의 일정이 다음 주 화요일 오후 3시로 변경되었습니다. 준비 자료는 미리 공유 부탁드립니다."
         case .amount:   "₩1,234,000"
         case .timer:    "12:34:56"
-        case .path:     "/Users/leeo/Documents/workspace/code/HigGym/report.pdf"
+        case .path:     "/Users/designer/Documents/Projects/2026/Toolbar/report.pdf"
         case .name:     "홍길동"
         }
     }
