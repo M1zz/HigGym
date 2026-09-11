@@ -9,6 +9,11 @@ Apple HIG · SwiftUI(iOS 26) 컴포넌트를 목차별로 뜯어보는 주석 �
 
 **→ [English version](https://m1zz.github.io/HigGym/toolbar-annotated.html?lang=en)**
 
+## 🛟 앱 지원 · 개인정보
+
+- **[지원 페이지 / Support](https://m1zz.github.io/HigGym/support.html)** — 문의 방법 · 자주 묻는 질문
+- **[개인정보처리방침 / Privacy Policy](https://m1zz.github.io/HigGym/privacy.html)** — 수집하는 정보 없음, 학습 기록은 기기 안에만 저장
+
 ## 📱 실습 앱 (iOS 26)
 
 문서를 읽는 데서 그치지 않고 **직접 만져보고 퀴즈로 확인하는 교구**를 iOS 앱으로 만들었습니다.
