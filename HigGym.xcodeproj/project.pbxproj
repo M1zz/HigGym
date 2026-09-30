@@ -137,7 +137,7 @@
 		ECA0DD59B8276E7AB7D670A2 /* DemoKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoKit.swift; sourceTree = "<group>"; };
 		F79AF87F982F35EDCD75CC80 /* MockupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupView.swift; sourceTree = "<group>"; };
 		FEFBE5660F8B685ED2FC9E48 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
-		"TEMP_2D786F76-C850-4522-B2F4-94A86BADBFF0" /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
+		"TEMP_51B05A76-8289-4526-B783-2A97C3791BEC" /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -355,10 +355,10 @@
 			path = Principles;
 			sourceTree = "<group>";
 		};
-		"TEMP_B3FBEC73-9BC5-4512-88CC-336D8A17E143" /* 디자인실습 */ = {
+		"TEMP_5278CADB-DBD7-4DA5-A997-8B9FC7CEFFB4" /* 디자인실습 */ = {
 			isa = PBXGroup;
 			children = (
-				"TEMP_2D786F76-C850-4522-B2F4-94A86BADBFF0" /* Version.xcconfig */,
+				"TEMP_51B05A76-8289-4526-B783-2A97C3791BEC" /* Version.xcconfig */,
 			);
 			path = "디자인실습";
 			sourceTree = "<group>";
@@ -504,7 +504,7 @@
 /* Begin XCBuildConfiguration section */
 		5711437EF425E4184734E060 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_2D786F76-C850-4522-B2F4-94A86BADBFF0" /* Version.xcconfig */;
+			baseConfigurationReference = "TEMP_51B05A76-8289-4526-B783-2A97C3791BEC" /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -565,7 +565,7 @@
 		};
 		8FE6E8404CE52551C781809B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_2D786F76-C850-4522-B2F4-94A86BADBFF0" /* Version.xcconfig */;
+			baseConfigurationReference = "TEMP_51B05A76-8289-4526-B783-2A97C3791BEC" /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -642,7 +642,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.HigGym;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.higgym;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -659,7 +659,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.HigGym;
+				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.higgym;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

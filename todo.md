@@ -41,7 +41,7 @@
     - 알아둘 것: 아이콘은 코드로 그려 두어야 색·비율을 팔레트와 함께 고칠 수 있다 (120px 로 줄여 판독 확인)
   - [x] 업로드 검증 실패 대응`TARGETED_DEVICE_FAMILY` 를 `"1,2"` → `"1"` (iPhone 전용)
     - iPad 를 지원한다고 선언한 앱은 멀티태스킹 때문에 네 방향을 전부 열어야 하는데, 이 교재의 실습은 전부 iPhone 크롬을 세로로 재현한다
-  - [x] 번들 ID `com.leeo.HigGym` 을 `project.yml` 에 못 박음(`bundleIdPrefix` 도 함께), Xcode 에서 고친 값은 재생성 때 사라진다
+  - [x] 번들 ID `com.leeo.higgym`(App Store Connect 와 같은 소문자) 을 `project.yml` 에 못 박음(`bundleIdPrefix` 도 함께), Xcode 에서 고친 값은 재생성 때 사라진다
     - 알아둘 것: `DEVELOPMENT_TEAM` 은 아직 빈 값이라 재생성하면 서명 팀은 다시 지정해야 한다
   - [x] 화면·파일에 나가는 `HigGym` 흔적 제거 (2026-09-04)
     - 학습 노트 제목과 내보내기 파일 이름 → `앱 디자인 실습 학습 노트`
