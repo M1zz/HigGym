@@ -1,7 +1,7 @@
 .DS_Store
 
-# XcodeGen이 project.yml에서 생성하므로 추적하지 않는다
-HigGymApp/HigGym.xcodeproj/
+# 프로젝트는 project.yml 에서 XcodeGen 으로 만들지만, DeployBar 가 최상단 .xcodeproj 를 찾으므로 커밋한다
+HigGym.xcodeproj/project.xcworkspace/xcuserdata/
 
 # 빌드 산출물
 HigGymApp/build/

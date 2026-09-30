@@ -14,21 +14,25 @@ settings:
     SWIFT_STRICT_CONCURRENCY: complete
     ENABLE_USER_SCRIPT_SANDBOXING: YES
 
+configFiles:
+  Debug: Version.xcconfig
+  Release: Version.xcconfig
+
 targets:
   HigGym:
     type: application
     platform: iOS
     sources:
-      - path: Sources
-      - path: Resources
+      - path: HigGymApp/Sources
+      - path: HigGymApp/Resources
         buildPhase: resources
     info:
-      path: Info.plist
+      path: HigGymApp/Info.plist
       properties:
         CFBundleDisplayName: 앱 디자인 실습
         CFBundleName: 앱 디자인 실습
-        CFBundleShortVersionString: "1.0.1"
-        CFBundleVersion: "2"
+        CFBundleShortVersionString: "$(MARKETING_VERSION)"
+        CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         UILaunchScreen:
           UIColorName: ""
         UISupportedInterfaceOrientations:

@@ -1,0 +1,692 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04E302DA44593C6AF2F266AE /* ToolbarLabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478A1A5F6CF257BC2B3A2A2D /* ToolbarLabModel.swift */; };
+		08111F1DE79D0ABE22701B5E /* SearchDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D6A8C0436453A161E1ACCD /* SearchDemos.swift */; };
+		09DE17DA8B565F2C55CCD878 /* NotebookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D29C6A91AD39672205E1F3 /* NotebookView.swift */; };
+		0B2C4DFC75B5EA60FD2FCFE0 /* SampleNoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16A21C4EC97C9B6DEF85202 /* SampleNoteApp.swift */; };
+		0F1177C1192C705FC534C467 /* mistakes.json in Resources */ = {isa = PBXBuildFile; fileRef = 94E2A0358CE6461154433F3B /* mistakes.json */; };
+		10A6D49D95F1AF4244389388 /* Mistakes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 491E48E27C72F9345868BEE1 /* Mistakes.swift */; };
+		1B602AC4D1F002B7CC900076 /* MockupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79AF87F982F35EDCD75CC80 /* MockupView.swift */; };
+		1C8C1A6E578256941D51A5A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D814A99F33D87266C683A48 /* Assets.xcassets */; };
+		20CA8BED68D4AEB863CE445B /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E767C3B61BBD655611B12B /* Content.swift */; };
+		20D00E60E253704668037568 /* TextDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95C52CB13C1B728543A3A /* TextDemos.swift */; };
+		36045A0B0F98D9FC49DF707B /* PrinciplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87861E2E5EBC20B2A5C684A0 /* PrinciplesView.swift */; };
+		43DA83BFEED48F75924B1747 /* CaseStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E1939AB7FC9A37DE15D44 /* CaseStudyView.swift */; };
+		4490FE61152F54204F5DA71C /* MockupNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946E5ACC20CB60ED1996A8E5 /* MockupNode.swift */; };
+		4601204A7931AED945683DA8 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64F86E8696D7F9D836BFC62 /* Quiz.swift */; };
+		4944D45EC5542523941FC9AF /* ToolbarItemsDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7AA9CD54B1725F4BA26C98 /* ToolbarItemsDemos.swift */; };
+		4BF256B785D067583773BC5F /* TextLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441FBEADE364990565B87101 /* TextLabView.swift */; };
+		4C636058C87910422F2F2B44 /* CourseHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0668F53630FE4B9D10A08D7 /* CourseHomeView.swift */; };
+		4E6A20671CAF2F71E9A0B507 /* SheetDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01FDFF4FBCD41FFDB5A952FC /* SheetDemos.swift */; };
+		5035365B16ECA032187CEEA4 /* MistakeDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A36ABF4AE476AF65D74CCE /* MistakeDemos.swift */; };
+		50406DA631863E7A1738390D /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BAC941417831B34E2DE809 /* RootView.swift */; };
+		53D2CC1E08520A61B0E52678 /* SafeAreaDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151CB94A8DB7324F6513DE6F /* SafeAreaDemos.swift */; };
+		55043370167381A61A83873D /* Lesson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 264C065535995682CAB67F16 /* Lesson.swift */; };
+		599E09E6B840D68330B0B183 /* EntriesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E5FF0ABE68B096DE73AE362 /* EntriesHomeView.swift */; };
+		63744E0DBF1F5D1C70DE02EB /* TitleModeDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2116C5A963FEDFFC2097BC4E /* TitleModeDemos.swift */; };
+		64FD1C4CCD08D354865EB694 /* QuizPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55B101002ABE0FD440A4CD65 /* QuizPlayView.swift */; };
+		662F8BF8815A432247988CAC /* DemoKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA0DD59B8276E7AB7D670A2 /* DemoKit.swift */; };
+		6BAE0DF81497DAA03D6DF2E3 /* CuratedQuestions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998B6D4DFF6E0A6FC3D8A975 /* CuratedQuestions.swift */; };
+		6E982446BAFD71B7A4F76D3B /* PrincipleDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022B8AB9D23CA639755DDCE9 /* PrincipleDemos.swift */; };
+		7276B9A56A157A2D211FE984 /* LabsHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064AB4245B359115BB8CB22 /* LabsHomeView.swift */; };
+		72AB520325A8DD8FACF63804 /* QuizResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFBE5660F8B685ED2FC9E48 /* QuizResultView.swift */; };
+		733761C715508FAEAD37EDF7 /* LiveQuizPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2581EC1428A2ECF4414DA3 /* LiveQuizPlayView.swift */; };
+		7AC354C61BE77FB05771F03F /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C507EA91FFA9B03ADE55CC1 /* Progress.swift */; };
+		83D6B284AAC243E887A8C900 /* ScrollEdgeDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D70CDC01FB6A4016EB27A1C /* ScrollEdgeDemos.swift */; };
+		85DF092B668F0323BDE89694 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58F92DDD78DAED2242801AC /* Theme.swift */; };
+		87B89A75F8B1BDD84C1E1CB9 /* DemoStage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F7A5543F63DF9AC2E7A11B /* DemoStage.swift */; };
+		8E0E08EA93B2F46FEE2478FC /* MistakeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A0F4660EBFEC7D8CB1F805D /* MistakeDetailView.swift */; };
+		900A756106122554148931F3 /* MockupStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701720402269F534872C818D /* MockupStyle.swift */; };
+		93982D8BE6A499FF22C4BA52 /* EntryDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5C34518BC87E1161EE1884 /* EntryDemo.swift */; };
+		A3587654FFF5D0019649C65B /* MistakesHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 669C25973BF28331F834C739 /* MistakesHomeView.swift */; };
+		A849932442F0E1A8B27DE5B0 /* MenuDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5489F99B00ED487976A006 /* MenuDemos.swift */; };
+		AF54F18CCCB09A5DC3C61DAD /* ToolbarLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0EA5374737DC69EF843689 /* ToolbarLabView.swift */; };
+		B0B46062CC7FDD0B776D8097 /* TabBarLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7A2DBAA8C5B496ECBD59C /* TabBarLabView.swift */; };
+		B128BF71217A01E6F7825E0D /* MaterialDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44AA32C1B6236F456CF8783 /* MaterialDemos.swift */; };
+		B33B471F174D2ABBFCBE0395 /* LiveQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18481D2C844CD13B13B4901F /* LiveQuiz.swift */; };
+		B4E3BB128B1C80B27E7B9097 /* MockupBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60AF76B3C37C7EF2906966 /* MockupBuilder.swift */; };
+		B6A6731EA1EED3ADF63D7F54 /* entries.json in Resources */ = {isa = PBXBuildFile; fileRef = 8007F1A6FF1AB7AD2D040199 /* entries.json */; };
+		B7E1B3259FA18B2591C1A234 /* LabScaffold.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15CE2F3B227C2DC48224AA4 /* LabScaffold.swift */; };
+		BE0DF83DBBF5C312DE3CFFD7 /* LessonPairsMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F7042B3C52E654330FECBD /* LessonPairsMore.swift */; };
+		C11BF10AF375F86DC7BBA677 /* LessonPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF253FAE82BC1B4F3036298 /* LessonPlayerView.swift */; };
+		C12924C22B74949F6BD5C9BA /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122C14FB31B000B145252A6 /* LibraryView.swift */; };
+		C565B2B5D2D7C33C4D311313 /* SheetLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52587919849F321D352BEEC /* SheetLabView.swift */; };
+		C6D0992FCB7B9158ED42BC8F /* EntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F42EF76A0CBEF29804229 /* EntryDetailView.swift */; };
+		CE2810B4F516FF8FEB2295F2 /* HigGymApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 104D8E0D7E792472743AEE95 /* HigGymApp.swift */; };
+		D4AFE030086CD2AC9B01A453 /* MistakeComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1520C47ED17B1E9D600656F2 /* MistakeComparison.swift */; };
+		D4B24C40601B3B6F17070151 /* ABCompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3173FC0A7B93C21DB0D927A /* ABCompareView.swift */; };
+		D7B95EAAB3178435E15614B5 /* ScrollEdgeLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D49EFB5319491EC5033746 /* ScrollEdgeLabView.swift */; };
+		DBCB8451662394DA1D2B8D0F /* LessonPairs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D59FA9D744DAEFA7F124BA3 /* LessonPairs.swift */; };
+		F2AE897695A9A9517E90B0AF /* MistakeStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7810DF27B474D45074593C /* MistakeStoryView.swift */; };
+		F375333588A33CCAD7ACC391 /* StageChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB85FC655CF38291B0FF26F /* StageChrome.swift */; };
+		F6F18C6E8F30456BC63CA7F9 /* TabBarDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2A81E03A9E142CAEB55CB4 /* TabBarDemos.swift */; };
+		F71607581FCA068B783C2883 /* QuizHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1682C5B51A4B5EA9AD840FB9 /* QuizHomeView.swift */; };
+		F9B0E8613ACAE3A49F4BC6E4 /* LiveMockup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E9B1FDA58D2D3C3C9E6A6F /* LiveMockup.swift */; };
+		FD4A8853AD8B82B1DAF899B0 /* MockupPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8686E7B1DDD87C96E02EE /* MockupPart.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01FDFF4FBCD41FFDB5A952FC /* SheetDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetDemos.swift; sourceTree = "<group>"; };
+		022B8AB9D23CA639755DDCE9 /* PrincipleDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipleDemos.swift; sourceTree = "<group>"; };
+		0D59FA9D744DAEFA7F124BA3 /* LessonPairs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPairs.swift; sourceTree = "<group>"; };
+		104D8E0D7E792472743AEE95 /* HigGymApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HigGymApp.swift; sourceTree = "<group>"; };
+		151CB94A8DB7324F6513DE6F /* SafeAreaDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaDemos.swift; sourceTree = "<group>"; };
+		1520C47ED17B1E9D600656F2 /* MistakeComparison.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakeComparison.swift; sourceTree = "<group>"; };
+		1682C5B51A4B5EA9AD840FB9 /* QuizHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizHomeView.swift; sourceTree = "<group>"; };
+		18481D2C844CD13B13B4901F /* LiveQuiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveQuiz.swift; sourceTree = "<group>"; };
+		18F7A5543F63DF9AC2E7A11B /* DemoStage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoStage.swift; sourceTree = "<group>"; };
+		1BB85FC655CF38291B0FF26F /* StageChrome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StageChrome.swift; sourceTree = "<group>"; };
+		1BF253FAE82BC1B4F3036298 /* LessonPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPlayerView.swift; sourceTree = "<group>"; };
+		2116C5A963FEDFFC2097BC4E /* TitleModeDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleModeDemos.swift; sourceTree = "<group>"; };
+		2122C14FB31B000B145252A6 /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		21F7042B3C52E654330FECBD /* LessonPairsMore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPairsMore.swift; sourceTree = "<group>"; };
+		24E7A2DBAA8C5B496ECBD59C /* TabBarLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarLabView.swift; sourceTree = "<group>"; };
+		264C065535995682CAB67F16 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		33D6A8C0436453A161E1ACCD /* SearchDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDemos.swift; sourceTree = "<group>"; };
+		35D49EFB5319491EC5033746 /* ScrollEdgeLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollEdgeLabView.swift; sourceTree = "<group>"; };
+		441FBEADE364990565B87101 /* TextLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabView.swift; sourceTree = "<group>"; };
+		457B8E2E61AE017173DD5C81 /* HigGym.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = HigGym.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		478A1A5F6CF257BC2B3A2A2D /* ToolbarLabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarLabModel.swift; sourceTree = "<group>"; };
+		491E48E27C72F9345868BEE1 /* Mistakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mistakes.swift; sourceTree = "<group>"; };
+		49E9B1FDA58D2D3C3C9E6A6F /* LiveMockup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveMockup.swift; sourceTree = "<group>"; };
+		4AC8686E7B1DDD87C96E02EE /* MockupPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupPart.swift; sourceTree = "<group>"; };
+		4F7810DF27B474D45074593C /* MistakeStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakeStoryView.swift; sourceTree = "<group>"; };
+		55B101002ABE0FD440A4CD65 /* QuizPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPlayView.swift; sourceTree = "<group>"; };
+		5D7AA9CD54B1725F4BA26C98 /* ToolbarItemsDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItemsDemos.swift; sourceTree = "<group>"; };
+		64E767C3B61BBD655611B12B /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
+		669C25973BF28331F834C739 /* MistakesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakesHomeView.swift; sourceTree = "<group>"; };
+		67A36ABF4AE476AF65D74CCE /* MistakeDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakeDemos.swift; sourceTree = "<group>"; };
+		6A0F4660EBFEC7D8CB1F805D /* MistakeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakeDetailView.swift; sourceTree = "<group>"; };
+		6D70CDC01FB6A4016EB27A1C /* ScrollEdgeDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollEdgeDemos.swift; sourceTree = "<group>"; };
+		701720402269F534872C818D /* MockupStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupStyle.swift; sourceTree = "<group>"; };
+		7C507EA91FFA9B03ADE55CC1 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
+		8007F1A6FF1AB7AD2D040199 /* entries.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = entries.json; sourceTree = "<group>"; };
+		8064AB4245B359115BB8CB22 /* LabsHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabsHomeView.swift; sourceTree = "<group>"; };
+		87861E2E5EBC20B2A5C684A0 /* PrinciplesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrinciplesView.swift; sourceTree = "<group>"; };
+		8A2A81E03A9E142CAEB55CB4 /* TabBarDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDemos.swift; sourceTree = "<group>"; };
+		8B5C34518BC87E1161EE1884 /* EntryDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDemo.swift; sourceTree = "<group>"; };
+		8D814A99F33D87266C683A48 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8E5FF0ABE68B096DE73AE362 /* EntriesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesHomeView.swift; sourceTree = "<group>"; };
+		91BAC941417831B34E2DE809 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		946E5ACC20CB60ED1996A8E5 /* MockupNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupNode.swift; sourceTree = "<group>"; };
+		94E2A0358CE6461154433F3B /* mistakes.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mistakes.json; sourceTree = "<group>"; };
+		998B6D4DFF6E0A6FC3D8A975 /* CuratedQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuratedQuestions.swift; sourceTree = "<group>"; };
+		9B5489F99B00ED487976A006 /* MenuDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDemos.swift; sourceTree = "<group>"; };
+		A52587919849F321D352BEEC /* SheetLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetLabView.swift; sourceTree = "<group>"; };
+		ABC95C52CB13C1B728543A3A /* TextDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDemos.swift; sourceTree = "<group>"; };
+		AD0EA5374737DC69EF843689 /* ToolbarLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarLabView.swift; sourceTree = "<group>"; };
+		B58F92DDD78DAED2242801AC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		C15CE2F3B227C2DC48224AA4 /* LabScaffold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabScaffold.swift; sourceTree = "<group>"; };
+		C64F86E8696D7F9D836BFC62 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		CF2581EC1428A2ECF4414DA3 /* LiveQuizPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveQuizPlayView.swift; sourceTree = "<group>"; };
+		D16A21C4EC97C9B6DEF85202 /* SampleNoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleNoteApp.swift; sourceTree = "<group>"; };
+		D21E1939AB7FC9A37DE15D44 /* CaseStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStudyView.swift; sourceTree = "<group>"; };
+		D44AA32C1B6236F456CF8783 /* MaterialDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialDemos.swift; sourceTree = "<group>"; };
+		D5D29C6A91AD39672205E1F3 /* NotebookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookView.swift; sourceTree = "<group>"; };
+		E0668F53630FE4B9D10A08D7 /* CourseHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseHomeView.swift; sourceTree = "<group>"; };
+		E3173FC0A7B93C21DB0D927A /* ABCompareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABCompareView.swift; sourceTree = "<group>"; };
+		EA60AF76B3C37C7EF2906966 /* MockupBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupBuilder.swift; sourceTree = "<group>"; };
+		EB5F42EF76A0CBEF29804229 /* EntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailView.swift; sourceTree = "<group>"; };
+		ECA0DD59B8276E7AB7D670A2 /* DemoKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoKit.swift; sourceTree = "<group>"; };
+		F79AF87F982F35EDCD75CC80 /* MockupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupView.swift; sourceTree = "<group>"; };
+		FEFBE5660F8B685ED2FC9E48 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
+		"TEMP_2D786F76-C850-4522-B2F4-94A86BADBFF0" /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		02800F00D4EFAE89367A8BE0 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				B58F92DDD78DAED2242801AC /* Theme.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		1BB38B9EB6FE2486E960EC9D /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				E3173FC0A7B93C21DB0D927A /* ABCompareView.swift */,
+				E0668F53630FE4B9D10A08D7 /* CourseHomeView.swift */,
+				0D59FA9D744DAEFA7F124BA3 /* LessonPairs.swift */,
+				21F7042B3C52E654330FECBD /* LessonPairsMore.swift */,
+				1BF253FAE82BC1B4F3036298 /* LessonPlayerView.swift */,
+				2122C14FB31B000B145252A6 /* LibraryView.swift */,
+				D5D29C6A91AD39672205E1F3 /* NotebookView.swift */,
+			);
+			path = Course;
+			sourceTree = "<group>";
+		};
+		1C0FBFB5B49EE7B81ECC9A6D /* Demos */ = {
+			isa = PBXGroup;
+			children = (
+				ECA0DD59B8276E7AB7D670A2 /* DemoKit.swift */,
+				18F7A5543F63DF9AC2E7A11B /* DemoStage.swift */,
+				8B5C34518BC87E1161EE1884 /* EntryDemo.swift */,
+				D44AA32C1B6236F456CF8783 /* MaterialDemos.swift */,
+				9B5489F99B00ED487976A006 /* MenuDemos.swift */,
+				1520C47ED17B1E9D600656F2 /* MistakeComparison.swift */,
+				67A36ABF4AE476AF65D74CCE /* MistakeDemos.swift */,
+				022B8AB9D23CA639755DDCE9 /* PrincipleDemos.swift */,
+				151CB94A8DB7324F6513DE6F /* SafeAreaDemos.swift */,
+				6D70CDC01FB6A4016EB27A1C /* ScrollEdgeDemos.swift */,
+				33D6A8C0436453A161E1ACCD /* SearchDemos.swift */,
+				01FDFF4FBCD41FFDB5A952FC /* SheetDemos.swift */,
+				8A2A81E03A9E142CAEB55CB4 /* TabBarDemos.swift */,
+				ABC95C52CB13C1B728543A3A /* TextDemos.swift */,
+				2116C5A963FEDFFC2097BC4E /* TitleModeDemos.swift */,
+				5D7AA9CD54B1725F4BA26C98 /* ToolbarItemsDemos.swift */,
+			);
+			path = Demos;
+			sourceTree = "<group>";
+		};
+		3E8223AFA4015B3CADEC18DE /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				C15CE2F3B227C2DC48224AA4 /* LabScaffold.swift */,
+				49E9B1FDA58D2D3C3C9E6A6F /* LiveMockup.swift */,
+				1BB85FC655CF38291B0FF26F /* StageChrome.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		4649B0F37C58D68B8A1D6FFE /* App */ = {
+			isa = PBXGroup;
+			children = (
+				104D8E0D7E792472743AEE95 /* HigGymApp.swift */,
+				91BAC941417831B34E2DE809 /* RootView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		4913498C47A04FF8747D4BE4 = {
+			isa = PBXGroup;
+			children = (
+				88D9E149325C29B1E372FA1F /* HigGymApp */,
+				E8DEBC0ABD1DA5FA9C832DE6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5D4E58D678E1CC4DA394897A /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				4649B0F37C58D68B8A1D6FFE /* App */,
+				1C0FBFB5B49EE7B81ECC9A6D /* Demos */,
+				02800F00D4EFAE89367A8BE0 /* Design */,
+				D6C245B0AFEDBE3D48D34F61 /* Mockup */,
+				D702BEA8B56AFA6390A5E066 /* Model */,
+				8F81E07AD32B08C0B18F4692 /* Views */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		5D945031261931F6842CC100 /* Labs */ = {
+			isa = PBXGroup;
+			children = (
+				8064AB4245B359115BB8CB22 /* LabsHomeView.swift */,
+				35D49EFB5319491EC5033746 /* ScrollEdgeLabView.swift */,
+				A52587919849F321D352BEEC /* SheetLabView.swift */,
+				24E7A2DBAA8C5B496ECBD59C /* TabBarLabView.swift */,
+				441FBEADE364990565B87101 /* TextLabView.swift */,
+				478A1A5F6CF257BC2B3A2A2D /* ToolbarLabModel.swift */,
+				AD0EA5374737DC69EF843689 /* ToolbarLabView.swift */,
+			);
+			path = Labs;
+			sourceTree = "<group>";
+		};
+		62C302BA0C98B936C80C28C6 /* Entries */ = {
+			isa = PBXGroup;
+			children = (
+				8E5FF0ABE68B096DE73AE362 /* EntriesHomeView.swift */,
+				EB5F42EF76A0CBEF29804229 /* EntryDetailView.swift */,
+			);
+			path = Entries;
+			sourceTree = "<group>";
+		};
+		88D9E149325C29B1E372FA1F /* HigGymApp */ = {
+			isa = PBXGroup;
+			children = (
+				BA7F0DDEDE80B36F83D64099 /* Resources */,
+				5D4E58D678E1CC4DA394897A /* Sources */,
+			);
+			path = HigGymApp;
+			sourceTree = "<group>";
+		};
+		8F81E07AD32B08C0B18F4692 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BDD1079ADD007B9124A7ED13 /* CaseStudy */,
+				1BB38B9EB6FE2486E960EC9D /* Course */,
+				62C302BA0C98B936C80C28C6 /* Entries */,
+				5D945031261931F6842CC100 /* Labs */,
+				AA00474E4C1F8C60037A03D9 /* Mistakes */,
+				FE0768448384144EFE8C4BDA /* Principles */,
+				EDBF9D477C7C853BFB4C9649 /* Quiz */,
+				3E8223AFA4015B3CADEC18DE /* Shared */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AA00474E4C1F8C60037A03D9 /* Mistakes */ = {
+			isa = PBXGroup;
+			children = (
+				6A0F4660EBFEC7D8CB1F805D /* MistakeDetailView.swift */,
+				669C25973BF28331F834C739 /* MistakesHomeView.swift */,
+				4F7810DF27B474D45074593C /* MistakeStoryView.swift */,
+			);
+			path = Mistakes;
+			sourceTree = "<group>";
+		};
+		BA7F0DDEDE80B36F83D64099 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8D814A99F33D87266C683A48 /* Assets.xcassets */,
+				8007F1A6FF1AB7AD2D040199 /* entries.json */,
+				94E2A0358CE6461154433F3B /* mistakes.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		BDD1079ADD007B9124A7ED13 /* CaseStudy */ = {
+			isa = PBXGroup;
+			children = (
+				D21E1939AB7FC9A37DE15D44 /* CaseStudyView.swift */,
+				CF2581EC1428A2ECF4414DA3 /* LiveQuizPlayView.swift */,
+				D16A21C4EC97C9B6DEF85202 /* SampleNoteApp.swift */,
+			);
+			path = CaseStudy;
+			sourceTree = "<group>";
+		};
+		D6C245B0AFEDBE3D48D34F61 /* Mockup */ = {
+			isa = PBXGroup;
+			children = (
+				EA60AF76B3C37C7EF2906966 /* MockupBuilder.swift */,
+				946E5ACC20CB60ED1996A8E5 /* MockupNode.swift */,
+				4AC8686E7B1DDD87C96E02EE /* MockupPart.swift */,
+				701720402269F534872C818D /* MockupStyle.swift */,
+				F79AF87F982F35EDCD75CC80 /* MockupView.swift */,
+			);
+			path = Mockup;
+			sourceTree = "<group>";
+		};
+		D702BEA8B56AFA6390A5E066 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				64E767C3B61BBD655611B12B /* Content.swift */,
+				998B6D4DFF6E0A6FC3D8A975 /* CuratedQuestions.swift */,
+				264C065535995682CAB67F16 /* Lesson.swift */,
+				18481D2C844CD13B13B4901F /* LiveQuiz.swift */,
+				491E48E27C72F9345868BEE1 /* Mistakes.swift */,
+				7C507EA91FFA9B03ADE55CC1 /* Progress.swift */,
+				C64F86E8696D7F9D836BFC62 /* Quiz.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E8DEBC0ABD1DA5FA9C832DE6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				457B8E2E61AE017173DD5C81 /* HigGym.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EDBF9D477C7C853BFB4C9649 /* Quiz */ = {
+			isa = PBXGroup;
+			children = (
+				1682C5B51A4B5EA9AD840FB9 /* QuizHomeView.swift */,
+				55B101002ABE0FD440A4CD65 /* QuizPlayView.swift */,
+				FEFBE5660F8B685ED2FC9E48 /* QuizResultView.swift */,
+			);
+			path = Quiz;
+			sourceTree = "<group>";
+		};
+		FE0768448384144EFE8C4BDA /* Principles */ = {
+			isa = PBXGroup;
+			children = (
+				87861E2E5EBC20B2A5C684A0 /* PrinciplesView.swift */,
+			);
+			path = Principles;
+			sourceTree = "<group>";
+		};
+		"TEMP_B3FBEC73-9BC5-4512-88CC-336D8A17E143" /* 디자인실습 */ = {
+			isa = PBXGroup;
+			children = (
+				"TEMP_2D786F76-C850-4522-B2F4-94A86BADBFF0" /* Version.xcconfig */,
+			);
+			path = "디자인실습";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5E0A34DB25C54E1FDD9BE270 /* HigGym */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 73603E9DFEE4F13F47FECA31 /* Build configuration list for PBXNativeTarget "HigGym" */;
+			buildPhases = (
+				91E63C07A484D81B9C70FFF1 /* Sources */,
+				35D001A3E15CC6A3D48CC53D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HigGym;
+			packageProductDependencies = (
+			);
+			productName = HigGym;
+			productReference = 457B8E2E61AE017173DD5C81 /* HigGym.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4B01AC8C61B7CAF1C2547F7A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					5E0A34DB25C54E1FDD9BE270 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = D46264542F37CE2BC222559D /* Build configuration list for PBXProject "HigGym" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 4913498C47A04FF8747D4BE4;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5E0A34DB25C54E1FDD9BE270 /* HigGym */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		35D001A3E15CC6A3D48CC53D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1C8C1A6E578256941D51A5A2 /* Assets.xcassets in Resources */,
+				B6A6731EA1EED3ADF63D7F54 /* entries.json in Resources */,
+				0F1177C1192C705FC534C467 /* mistakes.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		91E63C07A484D81B9C70FFF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4B24C40601B3B6F17070151 /* ABCompareView.swift in Sources */,
+				43DA83BFEED48F75924B1747 /* CaseStudyView.swift in Sources */,
+				20CA8BED68D4AEB863CE445B /* Content.swift in Sources */,
+				4C636058C87910422F2F2B44 /* CourseHomeView.swift in Sources */,
+				6BAE0DF81497DAA03D6DF2E3 /* CuratedQuestions.swift in Sources */,
+				662F8BF8815A432247988CAC /* DemoKit.swift in Sources */,
+				87B89A75F8B1BDD84C1E1CB9 /* DemoStage.swift in Sources */,
+				599E09E6B840D68330B0B183 /* EntriesHomeView.swift in Sources */,
+				93982D8BE6A499FF22C4BA52 /* EntryDemo.swift in Sources */,
+				C6D0992FCB7B9158ED42BC8F /* EntryDetailView.swift in Sources */,
+				CE2810B4F516FF8FEB2295F2 /* HigGymApp.swift in Sources */,
+				B7E1B3259FA18B2591C1A234 /* LabScaffold.swift in Sources */,
+				7276B9A56A157A2D211FE984 /* LabsHomeView.swift in Sources */,
+				55043370167381A61A83873D /* Lesson.swift in Sources */,
+				DBCB8451662394DA1D2B8D0F /* LessonPairs.swift in Sources */,
+				BE0DF83DBBF5C312DE3CFFD7 /* LessonPairsMore.swift in Sources */,
+				C11BF10AF375F86DC7BBA677 /* LessonPlayerView.swift in Sources */,
+				C12924C22B74949F6BD5C9BA /* LibraryView.swift in Sources */,
+				F9B0E8613ACAE3A49F4BC6E4 /* LiveMockup.swift in Sources */,
+				B33B471F174D2ABBFCBE0395 /* LiveQuiz.swift in Sources */,
+				733761C715508FAEAD37EDF7 /* LiveQuizPlayView.swift in Sources */,
+				B128BF71217A01E6F7825E0D /* MaterialDemos.swift in Sources */,
+				A849932442F0E1A8B27DE5B0 /* MenuDemos.swift in Sources */,
+				D4AFE030086CD2AC9B01A453 /* MistakeComparison.swift in Sources */,
+				5035365B16ECA032187CEEA4 /* MistakeDemos.swift in Sources */,
+				8E0E08EA93B2F46FEE2478FC /* MistakeDetailView.swift in Sources */,
+				F2AE897695A9A9517E90B0AF /* MistakeStoryView.swift in Sources */,
+				10A6D49D95F1AF4244389388 /* Mistakes.swift in Sources */,
+				A3587654FFF5D0019649C65B /* MistakesHomeView.swift in Sources */,
+				B4E3BB128B1C80B27E7B9097 /* MockupBuilder.swift in Sources */,
+				4490FE61152F54204F5DA71C /* MockupNode.swift in Sources */,
+				FD4A8853AD8B82B1DAF899B0 /* MockupPart.swift in Sources */,
+				900A756106122554148931F3 /* MockupStyle.swift in Sources */,
+				1B602AC4D1F002B7CC900076 /* MockupView.swift in Sources */,
+				09DE17DA8B565F2C55CCD878 /* NotebookView.swift in Sources */,
+				6E982446BAFD71B7A4F76D3B /* PrincipleDemos.swift in Sources */,
+				36045A0B0F98D9FC49DF707B /* PrinciplesView.swift in Sources */,
+				7AC354C61BE77FB05771F03F /* Progress.swift in Sources */,
+				4601204A7931AED945683DA8 /* Quiz.swift in Sources */,
+				F71607581FCA068B783C2883 /* QuizHomeView.swift in Sources */,
+				64FD1C4CCD08D354865EB694 /* QuizPlayView.swift in Sources */,
+				72AB520325A8DD8FACF63804 /* QuizResultView.swift in Sources */,
+				50406DA631863E7A1738390D /* RootView.swift in Sources */,
+				53D2CC1E08520A61B0E52678 /* SafeAreaDemos.swift in Sources */,
+				0B2C4DFC75B5EA60FD2FCFE0 /* SampleNoteApp.swift in Sources */,
+				83D6B284AAC243E887A8C900 /* ScrollEdgeDemos.swift in Sources */,
+				D7B95EAAB3178435E15614B5 /* ScrollEdgeLabView.swift in Sources */,
+				08111F1DE79D0ABE22701B5E /* SearchDemos.swift in Sources */,
+				4E6A20671CAF2F71E9A0B507 /* SheetDemos.swift in Sources */,
+				C565B2B5D2D7C33C4D311313 /* SheetLabView.swift in Sources */,
+				F375333588A33CCAD7ACC391 /* StageChrome.swift in Sources */,
+				F6F18C6E8F30456BC63CA7F9 /* TabBarDemos.swift in Sources */,
+				B0B46062CC7FDD0B776D8097 /* TabBarLabView.swift in Sources */,
+				20D00E60E253704668037568 /* TextDemos.swift in Sources */,
+				4BF256B785D067583773BC5F /* TextLabView.swift in Sources */,
+				85DF092B668F0323BDE89694 /* Theme.swift in Sources */,
+				63744E0DBF1F5D1C70DE02EB /* TitleModeDemos.swift in Sources */,
+				4944D45EC5542523941FC9AF /* ToolbarItemsDemos.swift in Sources */,
+				04E302DA44593C6AF2F266AE /* ToolbarLabModel.swift in Sources */,
+				AF54F18CCCB09A5DC3C61DAD /* ToolbarLabView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5711437EF425E4184734E060 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = "TEMP_2D786F76-C850-4522-B2F4-94A86BADBFF0" /* Version.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+		8FE6E8404CE52551C781809B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = "TEMP_2D786F76-C850-4522-B2F4-94A86BADBFF0" /* Version.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		CC1275005CEE04C64EDF9CEB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = HigGymApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.HigGym;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		D9F63351F7A403A1A8EC6F6E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = HigGymApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.HigGym;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		73603E9DFEE4F13F47FECA31 /* Build configuration list for PBXNativeTarget "HigGym" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9F63351F7A403A1A8EC6F6E /* Debug */,
+				CC1275005CEE04C64EDF9CEB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D46264542F37CE2BC222559D /* Build configuration list for PBXProject "HigGym" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8FE6E8404CE52551C781809B /* Debug */,
+				5711437EF425E4184734E060 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4B01AC8C61B7CAF1C2547F7A /* Project object */;
+}

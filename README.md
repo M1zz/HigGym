@@ -21,12 +21,15 @@ Apple HIG · SwiftUI(iOS 26) 컴포넌트를 목차별로 뜯어보는 주석 �
 앱의 근간은 **문서에 있는 프리뷰 목업 그대로**입니다. `toolbar-annotated.html`의 `<figure class="preview">` 를 노드 트리로 추출해 SwiftUI로 다시 그리므로, 문서에서 본 그림과 앱의 그림이 같습니다. 그 그림이 설명의 시작점이자 손으로 만지는 대상이 됩니다, **부위를 누르면 그 자리가 무엇을 말하는지** 알려주고, 실습에서는 설정을 바꿀 때마다 같은 그림이 다시 그려집니다. 그림으로 배치를 잡은 뒤에는 실제 SwiftUI API로 렌더링한 전체 화면과 대조할 수 있습니다.
 
 ```bash
-cd HigGymApp
+# 레포 최상단에서. HigGym.xcodeproj 는 커밋돼 있으니 project.yml 을 고쳤을 때만 다시 만든다.
 xcodegen generate          # project.yml → HigGym.xcodeproj
 open HigGym.xcodeproj      # 또는 아래 명령으로 시뮬레이터에 바로 설치
 xcodebuild -project HigGym.xcodeproj -scheme HigGym \
   -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 17 Pro' build
 ```
+
+버전은 `Version.xcconfig` 한 곳에 있고, 배포는 DeployBar 가 `deploy.env` 를 읽어 한다.
+배포 전에 `scripts/predeploy.sh` 가 콘텐츠 JSON 재생성 · 엠대시 · 빌드를 검사한다.
 
 ### 학습, 스물세 편의 워크북
 
