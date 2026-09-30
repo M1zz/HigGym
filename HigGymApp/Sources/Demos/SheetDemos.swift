@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 4장 Sheets — "얼마나 덮을 것인가"와 "뒤를 살려둘 것인가"의 문제.
+/// 4장 Sheets - "얼마나 덮을 것인가"와 "뒤를 살려둘 것인가"의 문제.
 /// 시트는 **끌어봐야** 안다. 모든 데모에서 실제로 드래그하고 뒤 화면을 만져볼 수 있다.
 @MainActor
 enum SheetDemos {
@@ -8,9 +8,9 @@ enum SheetDemos {
         EntryDemo(
             "sh1",
             hints: [
-                "**열기**를 눌러보세요 — 화면을 거의 다 덮으며 뒤 화면이 살짝 물러납니다.",
+                "**열기**를 눌러보세요, 화면을 거의 다 덮으며 뒤 화면이 살짝 물러납니다.",
                 "아래로 쓸어내려 닫아보세요. 큰 시트의 기본 출구입니다.",
-                "뒤 화면의 카드를 눌러보려 해도 반응하지 않습니다 — 모달이라는 뜻입니다.",
+                "뒤 화면의 카드를 눌러보려 해도 반응하지 않습니다, 모달이라는 뜻입니다.",
             ],
             code: """
             .sheet(isPresented: $showing) {
@@ -23,8 +23,8 @@ enum SheetDemos {
         EntryDemo(
             "sh2",
             hints: [
-                "절반 높이에서 멈춥니다 — 뒤 화면의 위쪽 절반이 계속 보입니다.",
-                "위로 끌어올려 보세요. **더 커지지 않습니다** — 선언한 detent가 하나뿐이기 때문입니다.",
+                "절반 높이에서 멈춥니다, 뒤 화면의 위쪽 절반이 계속 보입니다.",
+                "위로 끌어올려 보세요. **더 커지지 않습니다**, 선언한 detent가 하나뿐이기 때문입니다.",
                 "뒤가 보이는 것과 뒤를 만질 수 있는 것은 다릅니다. 4.1.5에서 확인해 보세요.",
             ],
             code: """
@@ -39,7 +39,7 @@ enum SheetDemos {
             "sh3",
             hints: [
                 "높이 방식을 **height(250) ↔ fraction(0.3)** 로 바꿔가며 열어보세요.",
-                "화면이 작을수록 fraction은 함께 줄고, height는 그대로입니다 — 무엇을 기준으로 삼을지의 선택입니다.",
+                "화면이 작을수록 fraction은 함께 줄고, height는 그대로입니다, 무엇을 기준으로 삼을지의 선택입니다.",
                 "내용이 커지면 어떻게 되는지도 확인해 보세요. 커스텀 높이는 내용과 어긋나기 쉽습니다.",
             ],
             code: """
@@ -52,9 +52,9 @@ enum SheetDemos {
         EntryDemo(
             "sh4",
             hints: [
-                "시트를 **위아래로 끌어보세요** — medium과 large 사이에서 걸립니다.",
+                "시트를 **위아래로 끌어보세요**, medium과 large 사이에서 걸립니다.",
                 "지금 어느 단계인지 시트 안에 표시됩니다. 손이 아니라 시스템이 단계를 정합니다.",
-                "그랩바를 껐다 켜보세요 — 끌 수 있다는 사실을 무엇이 알려주는지 드러납니다.",
+                "그랩바를 껐다 켜보세요, 끌 수 있다는 사실을 무엇이 알려주는지 드러납니다.",
             ],
             code: """
             .presentationDetents([.medium, .large], selection: $detent)
@@ -65,7 +65,7 @@ enum SheetDemos {
         EntryDemo(
             "sh5",
             hints: [
-                "시트를 연 채로 **뒤 화면의 슬라이더를 만져보세요** — 실제로 움직입니다.",
+                "시트를 연 채로 **뒤 화면의 슬라이더를 만져보세요**, 실제로 움직입니다.",
                 "시트를 large까지 끌어올리면 뒤가 다시 잠깁니다. 허용 구간이 medium까지이기 때문입니다.",
                 "지도 위 검색 시트처럼 \"보면서 조절하는\" 화면이 이 설정의 자리입니다.",
             ],
@@ -78,9 +78,9 @@ enum SheetDemos {
         EntryDemo(
             "fc1",
             hints: [
-                "**아래로 쓸어내려 보세요** — 닫히지 않습니다.",
+                "**아래로 쓸어내려 보세요**, 닫히지 않습니다.",
                 "닫는 방법은 화면 안의 명시적인 버튼뿐입니다. 그래서 그 버튼이 반드시 있어야 합니다.",
-                "작성 중이던 내용을 지키는 대신 사용자를 가둡니다 — 그 무게에 맞는 화면에만 씁니다.",
+                "작성 중이던 내용을 지키는 대신 사용자를 가둡니다, 그 무게에 맞는 화면에만 씁니다.",
             ],
             code: """
             .fullScreenCover(isPresented: $editing) {
@@ -92,7 +92,7 @@ enum SheetDemos {
         EntryDemo(
             "tr1",
             hints: [
-                "카드를 눌러 시트를 열어보세요 — 아래에서 위로 올라오는 기본 전환입니다.",
+                "카드를 눌러 시트를 열어보세요, 아래에서 위로 올라오는 기본 전환입니다.",
                 "어느 카드를 눌러도 같은 자리에서 올라옵니다. 출발지와 도착지가 이어지지 않습니다.",
                 "4.3.2(zoom)와 번갈아 보면 그 연결이 있고 없고의 차이가 분명합니다.",
             ],
@@ -106,9 +106,9 @@ enum SheetDemos {
         EntryDemo(
             "tr2",
             hints: [
-                "카드를 눌러보세요 — 시트가 **그 카드 자리에서 확대**되어 나옵니다.",
+                "카드를 눌러보세요, 시트가 **그 카드 자리에서 확대**되어 나옵니다.",
                 "다른 카드도 눌러보세요. 시작점이 매번 다릅니다.",
-                "닫을 때도 원래 카드로 돌아갑니다 — \"내가 누른 그것\"이라는 감각이 유지됩니다.",
+                "닫을 때도 원래 카드로 돌아갑니다, \"내가 누른 그것\"이라는 감각이 유지됩니다.",
             ],
             code: """
             CardView(card)
@@ -126,7 +126,7 @@ enum SheetDemos {
             hints: [
                 "썸네일을 누르면 **화면 전체로 확대**됩니다. 사진 앱에서 익숙한 그 동작입니다.",
                 "닫으면 원래 썸네일 자리로 돌아갑니다. 목록에서의 위치를 잃지 않습니다.",
-                "전체를 덮는 화면일수록 어디서 왔는지가 중요해집니다 — zoom이 특히 값을 하는 이유입니다.",
+                "전체를 덮는 화면일수록 어디서 왔는지가 중요해집니다, zoom이 특히 값을 하는 이유입니다.",
             ],
             code: """
             .fullScreenCover(item: $selected) { photo in
@@ -150,7 +150,7 @@ private struct SheetDemoScreen: View {
     @State private var detent = PresentationDetent.medium
     @State private var useFraction = false
     @State private var grabber = true
-    /// 뒤 화면이 살아 있는지 증명하는 값 — 4.1.5 비모달에서 결정적이다.
+    /// 뒤 화면이 살아 있는지 증명하는 값 - 4.1.5 비모달에서 결정적이다.
     @State private var brightness: Double = 0.5
     @State private var taps = 0
 
@@ -290,7 +290,7 @@ private struct DemoFullScreenBody: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 14) {
-                DemoNote(text: "아래로 쓸어내려 보세요 — **닫히지 않습니다**. 닫기 버튼만이 출구입니다.", symbol: "hand.draw")
+                DemoNote(text: "아래로 쓸어내려 보세요, **닫히지 않습니다**. 닫기 버튼만이 출구입니다.", symbol: "hand.draw")
                 TextEditor(text: $text)
                     .font(.callout)
                     .scrollContentBackground(.hidden)

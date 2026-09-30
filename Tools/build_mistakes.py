@@ -94,7 +94,7 @@ def main() -> int:
                 return 1
             sources.append({"index": index, "title": entry["title"], "entryID": entry["id"]})
 
-        # 체험할 예제 — 원칙(8.x)보다 본문 항목을 우선한다. 그림이 있는 쪽이기 때문.
+        # 체험할 예제 - 원칙(8.x)보다 본문 항목을 우선한다. 그림이 있는 쪽이기 때문.
         demo = next((s["entryID"] for s in sources if not s["index"].startswith("8.")), sources[0]["entryID"])
 
         refs, seen = [], set()

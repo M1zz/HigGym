@@ -222,7 +222,7 @@ struct QuizPlayView: View {
     }
 }
 
-/// 그림으로 고르는 보기 — 문서의 프리뷰가 그대로 선택지가 된다.
+/// 그림으로 고르는 보기 - 문서의 프리뷰가 그대로 선택지가 된다.
 private struct MockupOption: View {
     let entry: Entry?
     let title: String

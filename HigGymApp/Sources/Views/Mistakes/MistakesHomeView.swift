@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// iOS 앱 디자인 실수 100 — 항목이 "이렇게 생겼다"라면 여기는 **"이렇게 하다 밟았다"**이다.
+/// iOS 앱 디자인 실수 100 - 항목이 "이렇게 생겼다"라면 여기는 **"이렇게 하다 밟았다"**이다.
 ///
 /// 목록은 훑는 곳이고, 배우는 건 상세와 예제에서 일어난다. 그래서 행은 최대한 조용하게 두고
 /// 번호 · 실수 한 줄 · 심각도 · 확인 여부만 싣는다.
@@ -69,7 +69,7 @@ struct MistakesHomeView: View {
             .searchable(text: $query, prompt: "실수·근거 항목 검색")
             .navigationDestination(for: Mistake.self) { MistakeDetailView(mistake: $0) }
             .navigationDestination(for: MistakeStoryRoute.self) { MistakeStoryView(mistake: $0.mistake) }
-            .navigationDestination(for: Entry.self) { EntryDetailView(entry: $0) }
+            .navigationDestination(for: Entry.self) { EntryDestination(entry: $0) }
             .task {
                 if let number = DebugLaunch.mistakeNumber,
                    let mistake = store.mistakes.first(where: { $0.number == number }) {

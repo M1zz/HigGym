@@ -7,8 +7,10 @@ final class Router {
     enum TabID: Hashable { case course, notebook, library }
 
     var tab: TabID = .course
-    var entryPath: [Entry] = []
-    /// 실습은 push 가 아니라 전체 화면으로 띄운다 — LabScaffold 주석 참고.
+    /// 항목 상세에서 실수로, 실수에서 다시 항목으로 넘나들므로 타입을 섞어 담는다.
+    /// `[Entry]` 였을 때는 실수 링크를 경로에 넣을 수 없어 바로가기가 조용히 무시됐다.
+    var entryPath = NavigationPath()
+    /// 실습은 push 가 아니라 전체 화면으로 띄운다 - LabScaffold 주석 참고.
     var presentedLab: LabID?
 
     func open(_ lab: LabID) {
@@ -30,14 +32,14 @@ enum DebugLaunch {
         #endif
     }
 
-    /// 시작 탭 지정 — 스크린샷 검증용.
+    /// 시작 탭 지정 - 스크린샷 검증용.
     static var tab: Router.TabID? {
         #if DEBUG
         switch ProcessInfo.processInfo.environment["HG_TAB"] {
         case "course":   .course
         case "notebook": .notebook
         case "library":  .library
-        // 자료 안으로 들어간 옛 탭 이름들도 받아준다 — 검증 스크립트를 다시 쓰지 않게.
+        // 자료 안으로 들어간 옛 탭 이름들도 받아준다 - 검증 스크립트를 다시 쓰지 않게.
         case "entries", "mistakes", "principles", "labs", "quiz": .library
         default: nil
         }
@@ -46,7 +48,7 @@ enum DebugLaunch {
         #endif
     }
 
-    /// 퀴즈 유형 지정 — 스크린샷 검증용.
+    /// 퀴즈 유형 지정 - 스크린샷 검증용.
     static var quizKind: Question.Kind? {
         #if DEBUG
         ProcessInfo.processInfo.environment["HG_QUIZ_KIND"].flatMap(Question.Kind.init(rawValue:))
@@ -55,7 +57,7 @@ enum DebugLaunch {
         #endif
     }
 
-    /// 특정 항목 상세를 바로 연다 — 스크린샷 검증용.
+    /// 특정 항목 상세를 바로 연다 - 스크린샷 검증용.
     static var entryIndex: String? {
         #if DEBUG
         ProcessInfo.processInfo.environment["HG_ENTRY"]
@@ -64,7 +66,7 @@ enum DebugLaunch {
         #endif
     }
 
-    /// 특정 레슨을 바로 연다 — 스크린샷 검증용. (HG_LESSON=L2)
+    /// 특정 레슨을 바로 연다 - 스크린샷 검증용. (HG_LESSON=L2)
     static var lessonID: String? {
         #if DEBUG
         ProcessInfo.processInfo.environment["HG_LESSON"]
@@ -73,7 +75,7 @@ enum DebugLaunch {
         #endif
     }
 
-    /// 레슨의 특정 단계에서 시작한다 — 스크린샷 검증용. (HG_STEP=0~4)
+    /// 레슨의 특정 단계에서 시작한다 - 스크린샷 검증용. (HG_STEP=0~4)
     static var lessonStep: Int? {
         #if DEBUG
         ProcessInfo.processInfo.environment["HG_STEP"].flatMap(Int.init)
@@ -82,7 +84,7 @@ enum DebugLaunch {
         #endif
     }
 
-    /// 학습 노트를 표본 글로 채운다 — 스크린샷 검증용. (HG_SEED_NOTES=1)
+    /// 학습 노트를 표본 글로 채운다 - 스크린샷 검증용. (HG_SEED_NOTES=1)
     static var seedNotes: Bool {
         #if DEBUG
         ProcessInfo.processInfo.environment["HG_SEED_NOTES"] == "1"
@@ -91,7 +93,7 @@ enum DebugLaunch {
         #endif
     }
 
-    /// 자료 탭에서 어떤 자료를 열 것인가 — 스크린샷 검증용. (HG_LIB=entries|mistakes|principles|labs|quiz)
+    /// 자료 탭에서 어떤 자료를 열 것인가 - 스크린샷 검증용. (HG_LIB=entries|mistakes|principles|labs|quiz)
     static var libraryTarget: String? {
         #if DEBUG
         ProcessInfo.processInfo.environment["HG_LIB"]
@@ -100,7 +102,7 @@ enum DebugLaunch {
         #endif
     }
 
-    /// 실전 퀴즈·샘플 앱을 바로 연다 — 스크린샷 검증용. (HG_LIVE=pick|reason · HG_CASE=1)
+    /// 실전 퀴즈·샘플 앱을 바로 연다 - 스크린샷 검증용. (HG_LIVE=pick|reason · HG_CASE=1)
     static var liveKind: LiveQuestion.Kind? {
         #if DEBUG
         switch ProcessInfo.processInfo.environment["HG_LIVE"] {
@@ -121,7 +123,7 @@ enum DebugLaunch {
         #endif
     }
 
-    /// 특정 실수 상세를 바로 연다 — 스크린샷 검증용. (HG_MISTAKE=3)
+    /// 특정 실수 상세를 바로 연다 - 스크린샷 검증용. (HG_MISTAKE=3)
     static var mistakeNumber: Int? {
         #if DEBUG
         ProcessInfo.processInfo.environment["HG_MISTAKE"].flatMap(Int.init)
@@ -130,7 +132,7 @@ enum DebugLaunch {
         #endif
     }
 
-    /// 실수 상세에서 회고까지 바로 연다 — 스크린샷 검증용.
+    /// 실수 상세에서 회고까지 바로 연다 - 스크린샷 검증용.
     static var autoStory: Bool {
         #if DEBUG
         ProcessInfo.processInfo.environment["HG_STORY"] == "1"
@@ -139,7 +141,7 @@ enum DebugLaunch {
         #endif
     }
 
-    /// 특정 원칙 상세를 바로 연다 — 스크린샷 검증용.
+    /// 특정 원칙 상세를 바로 연다 - 스크린샷 검증용.
     static var principleIndex: String? {
         #if DEBUG
         ProcessInfo.processInfo.environment["HG_PRINCIPLE"]
@@ -148,7 +150,7 @@ enum DebugLaunch {
         #endif
     }
 
-    /// 항목 상세를 열자마자 그 항목의 예제까지 띄운다 — 스크린샷 검증용.
+    /// 항목 상세를 열자마자 그 항목의 예제까지 띄운다 - 스크린샷 검증용.
     static var autoDemo: Bool {
         #if DEBUG
         ProcessInfo.processInfo.environment["HG_DEMO"] == "1"
@@ -157,7 +159,7 @@ enum DebugLaunch {
         #endif
     }
 
-    /// 퀴즈를 바로 시작한다 — 스크린샷 검증용.
+    /// 퀴즈를 바로 시작한다 - 스크린샷 검증용.
     static var autoQuiz: Bool {
         #if DEBUG
         ProcessInfo.processInfo.environment["HG_QUIZ"] == "1"
@@ -166,7 +168,7 @@ enum DebugLaunch {
         #endif
     }
 
-    /// 첫 문제를 지정한 보기로 자동 응답한다 — 채점·해설 화면 검증용.
+    /// 첫 문제를 지정한 보기로 자동 응답한다 - 채점·해설 화면 검증용.
     static var autoAnswer: Int? {
         #if DEBUG
         ProcessInfo.processInfo.environment["HG_QUIZ_ANSWER"].flatMap(Int.init)
@@ -175,7 +177,16 @@ enum DebugLaunch {
         #endif
     }
 
-    /// 실습을 열자마자 전체 화면 무대까지 띄운다 — 스크린샷 검증용.
+    /// 예제 화면을 스크롤된 상태로 연다. 가장자리 효과 검증용. (HG_SCROLLED=1)
+    static var scrolled: Bool {
+        #if DEBUG
+        ProcessInfo.processInfo.environment["HG_SCROLLED"] == "1"
+        #else
+        false
+        #endif
+    }
+
+    /// 실습을 열자마자 전체 화면 무대까지 띄운다 - 스크린샷 검증용.
     static var autoRunStage: Bool {
         #if DEBUG
         ProcessInfo.processInfo.environment["HG_RUN_STAGE"] == "1"
@@ -191,7 +202,7 @@ struct RootView: View {
 
     var body: some View {
         if let lab = DebugLaunch.lab {
-            // 스크린샷 검증용 — 실습 화면만 단독으로 띄운다.
+            // 스크린샷 검증용 - 실습 화면만 단독으로 띄운다.
             labDestination(lab)
                 .environment(router)
         } else {

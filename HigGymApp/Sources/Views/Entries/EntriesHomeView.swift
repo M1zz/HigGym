@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 68개 항목 브라우저 — 앱의 기본 화면.
+/// 68개 항목 브라우저 - 앱의 기본 화면.
 /// 각 항목은 문서와 똑같은 목업으로 먼저 보여주고, 설명은 그 그림에 붙는다.
 struct EntriesHomeView: View {
     /// 자료 탭에서 전체 화면으로 열릴 때의 출구. 탭 안에 있을 때는 nil.
@@ -59,12 +59,12 @@ struct EntriesHomeView: View {
                 }
             }
             .searchable(text: $query, prompt: "항목·상황 검색")
-            .navigationDestination(for: Entry.self) { EntryDetailView(entry: $0) }
+            .navigationDestination(for: Entry.self) { EntryDestination(entry: $0) }
             .navigationDestination(for: Mistake.self) { MistakeDetailView(mistake: $0) }
             .navigationDestination(for: MistakeStoryRoute.self) { MistakeStoryView(mistake: $0.mistake) }
             .task {
                 if let index = DebugLaunch.entryIndex, let entry = store.entry(index: index) {
-                    router.entryPath = [entry]
+                    router.entryPath = NavigationPath([entry])
                 }
             }
         }
@@ -140,7 +140,7 @@ private struct ChapterHeader: View {
     }
 }
 
-/// 목록에서도 목업이 먼저 보인다 — 제목보다 그림이 항목을 구분해준다.
+/// 목록에서도 목업이 먼저 보인다 - 제목보다 그림이 항목을 구분해준다.
 private struct EntryThumbnail: View {
     let entry: Entry
 

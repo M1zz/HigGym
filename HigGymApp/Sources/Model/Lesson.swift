@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 레슨 한 편 — 이 앱의 기본 단위.
+/// 레슨 한 편 - 이 앱의 기본 단위.
 ///
 /// 도감처럼 훑는 화면이 아니라 **다섯 단계를 순서대로 밟는 워크북**이다.
 /// 써보고 → 느낀 것을 쓰고 → 이유를 확인하고 → 어긴 화면과 비교하고 → 배운 것을 남긴다.
@@ -11,7 +11,7 @@ struct Lesson: Identifiable {
     enum Source {
         /// 표본 앱(노트)의 결정 하나를 뒤집는다.
         case sampleApp(NoteAppConfig.Knob)
-        /// 표본 앱으로는 못 보여주는 것들 — 사진 위 가장자리 효과, 배지, 탭 같은 것.
+        /// 표본 앱으로는 못 보여주는 것들 - 사진 위 가장자리 효과, 배지, 탭 같은 것.
         case pair(LessonPair)
     }
 
@@ -22,9 +22,9 @@ struct Lesson: Identifiable {
     /// 한 줄로 요약한 배울 것.
     let subtitle: String
 
-    /// ① 써보기 — 손으로 해볼 과제. 짧고 분명해야 한다.
+    /// ① 써보기 - 손으로 해볼 과제. 짧고 분명해야 한다.
     let task: String
-    /// ② 적기 — 무엇을 관찰했는지 묻는 질문.
+    /// ② 적기 - 무엇을 관찰했는지 묻는 질문.
     let question: String
     /// ②의 입력칸에 흐리게 깔리는 예시.
     let placeholder: String
@@ -33,14 +33,14 @@ struct Lesson: Identifiable {
     let decision: String
     let why: String
     let ifFlipped: String
-    /// ④ 비교 — 무엇이 달라졌는지 한 줄.
+    /// ④ 비교 - 무엇이 달라졌는지 한 줄.
     let diff: String
 
     let sources: [String]
-    /// 회고가 있는 실수 편이면 그 번호 — 레슨 끝에서 이어 읽을 수 있게.
+    /// 회고가 있는 실수 편이면 그 번호 - 레슨 끝에서 이어 읽을 수 있게.
     var mistakeNumber: Int?
 
-    /// 표본 앱의 결정에서 만드는 레슨 — 설명 세 문단은 그 결정에서 그대로 가져온다.
+    /// 표본 앱의 결정에서 만드는 레슨 - 설명 세 문단은 그 결정에서 그대로 가져온다.
     init(
         id: String, number: Int, knob: NoteAppConfig.Knob,
         title: String, subtitle: String,
@@ -164,7 +164,7 @@ struct Lesson: Identifiable {
             title: "덮는 화면에는 출구가 필요하다",
             subtitle: "전체 화면 커버는 쓸어내려 닫히지 않는다",
             task: "**새 노트를 열고** 몇 자 써본 뒤, 다 썼다고 치고 그 화면을 닫아보세요.",
-            question: "닫는 방법을 찾았나요? 빨간 점선 버튼은 이 교재가 넣은 비상구입니다 — 그게 없었다면 어떻게 했을까요?",
+            question: "닫는 방법을 찾았나요? 빨간 점선 버튼은 이 교재가 넣은 비상구입니다, 그게 없었다면 어떻게 했을까요?",
             placeholder: "예: 아래로 쓸어내려도 안 닫혔다. 버튼이 없었으면 앱이 멈춘 줄 알고 껐을 것 같다.",
             diff: "편집기에 취소·완료가 있는 쪽 ↔ 출구가 없는 쪽입니다.",
             mistakeNumber: 81
@@ -179,7 +179,7 @@ struct Lesson: Identifiable {
             decision: "자주 쓰는 저장을 툴바 앞쪽에 두고, 가끔 쓰는 것들을 뒤로 보냈다.",
             why: "폭이 모자라면 시스템은 **뒤쪽부터** ⋯ 안으로 접는다. 그러니 코드에 적는 순서가 곧 우선순위 선언이다. 접기를 막을 게 아니라 무엇이 접혀도 되는지를 정하는 일이다.",
             ifFlipped: "만든 순서대로 적으면 나중에 추가된 핵심 기능이 접힌다. 큰 기기에서는 다 보이므로 개발 중에는 만나지도 못한다.",
-            diff: "아이템 개수는 같습니다. **순서만** 다릅니다 — 저장이 앞이냐 뒤냐.",
+            diff: "아이템 개수는 같습니다. **순서만** 다릅니다, 저장이 앞이냐 뒤냐.",
             sources: ["1.1.7"], mistakeNumber: 11
         ),
         Lesson(
@@ -203,7 +203,7 @@ struct Lesson: Identifiable {
             question: "끝까지 읽을 수 있었나요? 이 화면만 보고 배송지를 확인했다고 할 수 있을까요?",
             placeholder: "예: 앞부분만 남고 동·호수가 사라졌다. 이대로면 주소가 맞는지 알 수 없다.",
             decision: "잘리면 안 되는 값에는 줄 수 범위를 줘서 카드가 길어지게 뒀다.",
-            why: "`lineLimit(1)`과 `minimumScaleFactor`는 둘 다 넘침을 막는 도구지만 **함께 걸면 서로를 가린다** — 축소가 먼저 일해 글자를 줄이고, 그래도 안 들어가면 한 줄 제한이 나머지를 자른다. 남는 건 첫 어절뿐이다.",
+            why: "`lineLimit(1)`과 `minimumScaleFactor`는 둘 다 넘침을 막는 도구지만 **함께 걸면 서로를 가린다**, 축소가 먼저 일해 글자를 줄이고, 그래도 안 들어가면 한 줄 제한이 나머지를 자른다. 남는 건 첫 어절뿐이다.",
             ifFlipped: "기본 글자 크기에서는 멀쩡해 보인다. 접근성 최대 설정에서 한 번 열어보지 않으면 배송 사고가 나서야 알게 된다.",
             diff: "`lineLimit(1) + minimumScaleFactor(0.4)` ↔ `lineLimit(2...3)`. 값도 글자 크기도 같습니다.",
             sources: ["2.1.1", "8.1.5"], mistakeNumber: 38
@@ -216,7 +216,7 @@ struct Lesson: Identifiable {
             question: "다 읽은 뒤 배지는 어떻게 됐나요? 이런 앱을 며칠 쓰면 어떤 습관이 생길까요?",
             placeholder: "예: 다 읽었는데도 1이 그대로였다. 며칠 지나면 빨간 점을 아예 안 볼 것 같다.",
             decision: "배지를 실제 안 읽은 소식 수에 연결하고, 0이 되면 사라지게 뒀다.",
-            why: "배지는 \"처리할 것이 남았다\"는 **약속**이다. 사용자는 그 약속을 믿고 들어왔다가 처리할 게 없다는 걸 확인한다. 두세 번 반복되면 학습이 끝난다.",
+            why: "배지는 \"처리할 것이 남았다\"는 **약속**이다. 사용자는 그 약속을 믿고 들어왔다가 처리할 게 없다는 걸 확인한다. 이것이 몇 번 반복되면 배지를 믿지 않게 된다.",
             ifFlipped: "그때 잃는 건 이 배지 하나가 아니라 **그 앱의 모든 배지**다. 나중에 진짜 급한 알림에 붙여도 아무도 보지 않는다.",
             diff: "실제 미확인 수 ↔ 고정된 1. 읽어도 줄지 않는 쪽이 어긴 화면입니다.",
             sources: ["3.1.3"], mistakeNumber: 52
@@ -242,7 +242,7 @@ struct Lesson: Identifiable {
             question: "완료를 고르기 전에 눈이 한 번 멈췄나요? 나머지 버튼들은 무엇을 하는 것 같았나요?",
             placeholder: "예: 버튼이 넷이라 매번 어느 것인지 확인했다. 별표는 뭘 하는 건지 모르겠다.",
             decision: "이 화면에서 실제로 쓰이는 액션(완료)만 툴바에 남기고, 나머지는 대상 위 컨텍스트 메뉴로 옮겼다.",
-            why: "사용자는 툴바를 그림이 아니라 **선택지 목록**으로 읽는다. 넷이 나란히 있으면 매번 넷 중에서 고르는 일이 되고, 92%가 쓰는 하나가 셋 사이에 묻힌다. 기능을 없앤 게 아니라 자리를 옮긴 것이다.",
+            why: "사용자는 툴바를 그림이 아니라 **선택지 목록**으로 읽는다. 넷이 나란히 있으면 매번 넷 중에서 고르는 일이 되고, 매번 누르는 완료 하나가 셋 사이에 묻힌다. 기능을 없앤 게 아니라 자리를 옮긴 것이다.",
             ifFlipped: "\"휑해 보인다\"는 이유로 채우면 캡슐마다 시각적 무게가 붙어, UI가 물러나야 할 화면에서 UI가 앞으로 나온다.",
             diff: "툴바 아이템 넷 ↔ 하나. 공유·별표는 사라진 게 아니라 본문 컨텍스트 메뉴에 있습니다.",
             sources: ["1.1.1", "8.1.1"], mistakeNumber: 1
@@ -268,8 +268,8 @@ struct Lesson: Identifiable {
             question: "제목이 본문 글자와 비교해 어땠나요? 버튼은 손가락으로 정확히 눌렸나요?",
             placeholder: "예: 본문은 커졌는데 제목과 아이콘만 그대로였다. 아이콘이 붙어 있어 옆을 눌렀다.",
             decision: "직접 만든 헤더를 버리고 시스템 내비바로 돌아갔다. 넘치는 아이템은 시스템이 ⋯ 로 접게 뒀다.",
-            why: "시스템 내비바는 평상시 모습만 그리는 게 아니다 — 회전·글자 크기·언어 길이·다크 모드·VoiceOver 순서·안전 영역·스크롤 축소를 함께 책임진다. 직접 만드는 순간 그 전부를 떠안는다.",
-            ifFlipped: "반나절이면 만들어지지만, 이후 반년 동안 회전·큰 글씨·마이너 업데이트마다 버그가 하나씩 돌아온다.",
+            why: "시스템 내비바는 평상시 모습만 그리는 게 아니다, 회전·글자 크기·언어 길이·다크 모드·VoiceOver 순서·안전 영역·스크롤 축소를 함께 책임진다. 직접 만드는 순간 그 전부를 떠안는다.",
+            ifFlipped: "만들기는 쉬워 보여도, 그 뒤로는 회전·큰 글씨·OS 업데이트를 만날 때마다 직접 고쳐야 한다. 이 화면에서도 큰 글씨에 제목과 아이콘이 따라 커지지 않는다.",
             diff: "직접 만든 고정 높이 헤더(제목·아이콘이 안 커짐) ↔ 시스템 내비바(제목이 커지고 넘치는 건 스스로 접힘).",
             sources: ["1.2.4"], mistakeNumber: 20
         ),
@@ -281,7 +281,7 @@ struct Lesson: Identifiable {
             question: "글자가 읽히지 않는 지점이 있었나요? 어두운 구역과 무엇이 달랐나요?",
             placeholder: "예: 아래쪽에선 잘 보였는데 눈밭에서는 흰 글자가 배경에 묻혔다.",
             decision: "얇은 재료를 두꺼운 재료로 바꾸고 테두리를 줘서, 대비를 배경에 의존하지 않게 했다.",
-            why: "예쁨은 시안 한 장에서 판정할 수 있지만 **가독성은 최악의 배경에서만 판정된다.** \"몇몇 지역에서만\"처럼 보이는 문제는 대개 \"모든 사용자가 하루에 몇 번씩 만나는 순간\"이다.",
+            why: "예쁨은 시안 한 장에서 판정할 수 있지만 **가독성은 최악의 배경에서만 판정된다.** \"눈 덮인 지역에서만\"처럼 보이는 문제도 지도를 움직이다 보면 누구나 지나가는 순간이다.",
             ifFlipped: "가장 아름다웠던 상태를 지키려다, 흰 사진·눈밭·강 위를 지날 때마다 컨트롤이 사라진다.",
             diff: "`.ultraThinMaterial` + 흰 글자 ↔ `.thickMaterial` + 테두리. 지도와 배치는 같습니다.",
             sources: ["1.3.3", "8.1.4"], mistakeNumber: 28
@@ -295,7 +295,7 @@ struct Lesson: Identifiable {
             placeholder: "예: 맨 위까지 다시 올려야 검색창이 나왔다. 두 번 쓸어 올렸다.",
             decision: "검색을 접히는 상단 서랍에서 하단 툴바 캡슐로 내렸다.",
             why: "\"필요할 때만 꺼내 쓴다\"는 기본 동작은 검색이 **부수적인 앱**을 위한 것이다. 주 사용 방식을 꺼내 쓰게 만들면 사용자는 꺼내는 대신 다른 길(끝없는 스크롤)로 간다.",
-            ifFlipped: "도달성 문제가 발견 가능성 문제로 위장된다 — 검색이 있는 줄 알면서도 안 쓴다.",
+            ifFlipped: "도달성 문제가 발견 가능성 문제로 위장된다, 검색이 있는 줄 알면서도 안 쓴다.",
             diff: "상단 서랍(스크롤하면 접힘) ↔ 하단 툴바 캡슐. 목록과 데이터는 같습니다.",
             sources: ["1.4.3", "1.4.1"], mistakeNumber: 34
         ),
@@ -307,8 +307,8 @@ struct Lesson: Identifiable {
             question: "금액을 정확히 읽을 수 있었나요? 못 읽었다면 이 화면은 사용자에게 무엇이라고 말한 걸까요?",
             placeholder: "예: 앞자리만 보이고 뒤가 잘렸다. 말줄임표를 못 봤다면 다른 금액으로 읽었을 것 같다.",
             decision: "이름과 금액을 한 줄에서 다투게 두지 않고, 금액에 자기 줄을 줬다.",
-            why: "문장이 잘리면 요약이 되지만 숫자가 잘리면 **다른 값**이 된다. 텍스트 처리 규칙을 앱 전체에 일괄로 세우면 안 되는 이유가 여기 있다 — 규칙은 값의 종류마다 다르다.",
-            ifFlipped: "\"다른 셀과 같은 방식\"이라는 이유로 코드 리뷰를 통과하고, 결제 문의로 돌아온다.",
+            why: "문장이 잘리면 요약이 되지만 숫자가 잘리면 **다른 값**이 된다. 텍스트 처리 규칙을 앱 전체에 일괄로 세우면 안 되는 이유가 여기 있다, 규칙은 값의 종류마다 다르다.",
+            ifFlipped: "\"다른 셀과 같은 방식\"이라는 이유로 코드 리뷰를 통과하고, 사용자는 잘린 금액을 다른 값으로 읽는다.",
             diff: "이름과 금액이 한 줄 ↔ 금액이 자기 줄. 값도 글자 크기도 같습니다.",
             sources: ["2.1.3", "8.1.5"], mistakeNumber: 43
         ),
@@ -346,8 +346,8 @@ struct Lesson: Identifiable {
             question: "시트에 표시된 금액과 실제 청구액이 같았나요? 사용자는 어느 쪽을 보고 결제했을까요?",
             placeholder: "예: 시트에는 열었을 때 금액이 그대로 있었다. 청구액은 달랐다.",
             decision: "결제 시트를 모달로 두고, 참조해야 할 내용(수량·합계)을 시트 안으로 가져왔다.",
-            why: "비모달이 좋았던 화면들에는 공통점이 있다 — **뒤에서 무엇을 하든 시트 내용이 흔들리지 않는다.** 확정하는 시트는 반대다. 뒤를 열어두는 순간 표시된 값과 청구될 값이 갈라질 창이 열린다.",
-            ifFlipped: "편의를 준 게 아니라 불일치를 허용한 것이 된다. 그 불일치는 결제 문의로 돌아온다.",
+            why: "비모달이 좋았던 화면들에는 공통점이 있다, **뒤에서 무엇을 하든 시트 내용이 흔들리지 않는다.** 확정하는 시트는 반대다. 뒤를 열어두는 순간 표시된 값과 청구될 값이 갈라질 창이 열린다.",
+            ifFlipped: "편의를 준 게 아니라 불일치를 허용한 것이 된다. 사용자는 시트에 적힌 금액을 보고 결제했는데 청구는 다른 금액으로 된다.",
             diff: "비모달(뒤 조작 가능) ↔ 모달 + 시트 안 주문 요약. 결제하기를 누르면 결과가 아래에 남습니다.",
             sources: ["4.1.5"], mistakeNumber: 79
         ),
@@ -389,9 +389,14 @@ struct LessonNote: Codable, Hashable, Sendable {
 final class NotebookStore {
     private enum Key {
         static let notes = "higgym.lessonNotes"
+        static let resumeLesson = "higgym.resumeLessonID"
+        static let resumeStep = "higgym.resumeStep"
     }
 
     private(set) var notes: [String: LessonNote] = [:]
+    /// 마지막으로 멈춘 자리. 코스 화면의 진행도를 누르면 여기로 돌아간다.
+    private(set) var resumeLessonID: String?
+    private(set) var resumeStep = 0
     private let defaults: UserDefaults
 
     init(defaults: UserDefaults = .standard) {
@@ -401,13 +406,15 @@ final class NotebookStore {
             // 예전 판이 남긴 빈 항목은 여기서 털어낸다.
             notes = decoded.filter { !$0.value.isEmpty || $0.value.isCompleted }
         }
+        resumeLessonID = defaults.string(forKey: Key.resumeLesson)
+        resumeStep = defaults.integer(forKey: Key.resumeStep)
     }
 
     func note(for lesson: Lesson) -> LessonNote { notes[lesson.id] ?? LessonNote() }
 
     func write(_ note: LessonNote, for lesson: Lesson) {
         // 단계를 넘길 때마다 저장하다 보니, 열어만 보고 아무것도 안 쓴 레슨에도
-        // 빈 항목이 쌓였다. 빈 글은 남기지 않는다 — 노트에는 쓴 것만 있어야 한다.
+        // 빈 항목이 쌓였다. 빈 글은 남기지 않는다 - 노트에는 쓴 것만 있어야 한다.
         if note.isEmpty && !note.isCompleted {
             notes[lesson.id] = nil
         } else {
@@ -420,21 +427,47 @@ final class NotebookStore {
         var note = note(for: lesson)
         note.completedAt = Date()
         write(note, for: lesson)
+        if resumeLessonID == lesson.id { setResume(nil, step: 0) }
+    }
+
+    /// 레슨 안에서 단계를 옮기거나 닫을 때 부른다. 마친 레슨은 처음부터 다시 보므로 기억하지 않는다.
+    func markPosition(_ lesson: Lesson, step: Int) {
+        guard !note(for: lesson).isCompleted else { return }
+        setResume(lesson.id, step: step)
+    }
+
+    /// 이 레슨을 열 때 시작할 단계. 멈춘 자리가 이 레슨이 아니면 첫 단계.
+    func resumeStep(for lesson: Lesson) -> Int {
+        guard resumeLessonID == lesson.id, !note(for: lesson).isCompleted else { return 0 }
+        return resumeStep
+    }
+
+    private func setResume(_ id: String?, step: Int) {
+        resumeLessonID = id
+        resumeStep = step
+        defaults.set(id, forKey: Key.resumeLesson)
+        defaults.set(step, forKey: Key.resumeStep)
     }
 
     func reset(_ lesson: Lesson) {
         notes[lesson.id] = nil
+        if resumeLessonID == lesson.id { setResume(nil, step: 0) }
         persist()
     }
 
     var completedCount: Int { Lesson.all.filter { note(for: $0).isCompleted }.count }
 
-    /// 마지막으로 끝낸 다음 편 — 코스 화면의 "이어서 하기".
+    /// 마지막으로 끝낸 다음 편 - 코스 화면의 "이어서 하기".
+    /// 하다 만 레슨이 있으면 그 레슨이 먼저다.
     var next: Lesson? {
-        Lesson.all.first { !note(for: $0).isCompleted } ?? Lesson.all.last
+        if let id = resumeLessonID, let lesson = Lesson.all.first(where: { $0.id == id }),
+           !note(for: lesson).isCompleted {
+            return lesson
+        }
+        return Lesson.all.first { !note(for: $0).isCompleted } ?? Lesson.all.last
     }
 
-    /// 학습 노트를 통째로 복사할 수 있게 — 남긴 글은 앱 밖으로 나갈 수 있어야 한다.
+    /// 학습 노트를 통째로 복사할 수 있게 - 남긴 글은 앱 밖으로 나갈 수 있어야 한다.
     var plainText: String {
         var lines: [String] = ["# 앱 디자인 실습 학습 노트", ""]
         for lesson in Lesson.all {
@@ -456,7 +489,7 @@ final class NotebookStore {
     }
 
     #if DEBUG
-    /// 스크린샷 검증용 — 실제 사용자의 글이 있으면 건드리지 않는다.
+    /// 스크린샷 검증용 - 실제 사용자의 글이 있으면 건드리지 않는다.
     func seedForScreenshots() {
         guard notes.values.allSatisfy(\.isEmpty) else { return }
         notes["L2"] = LessonNote(

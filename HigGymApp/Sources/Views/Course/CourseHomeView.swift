@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 앱의 첫 화면 — 여덟 편짜리 코스.
+/// 앱의 첫 화면 - 여덟 편짜리 코스.
 ///
 /// 목록이지만 도감이 아니다. 순서가 있고, 어디까지 왔는지가 보이고,
 /// 무엇보다 **이어서 할 곳**이 맨 위에 있다.
@@ -44,35 +44,38 @@ struct CourseHomeView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
     }
 
+    /// 카드 전체가 버튼이다. 진행 막대를 눌러도 멈춘 자리로 돌아간다.
     private var resumeCard: some View {
         let done = notebook.completedCount
         let total = Lesson.all.count
         let next = notebook.next
 
-        return VStack(alignment: .leading, spacing: 12) {
-            HStack {
-                Text(done == 0 ? "아직 시작 전입니다" : "\(done) / \(total) 편 마침")
-                    .font(.subheadline.weight(.semibold))
-                    .foregroundStyle(done == 0 ? .hgDim : .hgText)
-                Spacer()
-                if done > 0 {
-                    Text("\(Int(Double(done) / Double(total) * 100))%")
-                        .font(.system(.subheadline, design: .monospaced, weight: .bold))
-                        .foregroundStyle(.hgAccent)
+        return Button {
+            if let next { playing = next }
+        } label: {
+            VStack(alignment: .leading, spacing: 12) {
+                HStack {
+                    Text(done == 0 ? "아직 시작 전입니다" : "\(done) / \(total) 편 마침")
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(done == 0 ? .hgDim : .hgText)
+                    Spacer()
+                    if done > 0 {
+                        Text("\(Int(Double(done) / Double(total) * 100))%")
+                            .font(.system(.subheadline, design: .monospaced, weight: .bold))
+                            .foregroundStyle(.hgAccent)
+                    }
                 }
-            }
 
-            GeometryReader { geo in
-                ZStack(alignment: .leading) {
-                    Capsule().fill(Color.hgFill)
-                    Capsule().fill(.hgBrand)
-                        .frame(width: geo.size.width * CGFloat(done) / CGFloat(total))
+                GeometryReader { geo in
+                    ZStack(alignment: .leading) {
+                        Capsule().fill(Color.hgFill)
+                        Capsule().fill(.hgBrand)
+                            .frame(width: geo.size.width * CGFloat(done) / CGFloat(total))
+                    }
                 }
-            }
-            .frame(height: 6)
+                .frame(height: 6)
 
-            if let next {
-                Button { playing = next } label: {
+                if let next {
                     HStack(spacing: 10) {
                         Image(systemName: "play.fill")
                             .font(.subheadline.weight(.bold))
@@ -80,7 +83,7 @@ struct CourseHomeView: View {
                             .frame(width: 32, height: 32)
                             .background(.hgBrand, in: .rect(cornerRadius: 9))
                         VStack(alignment: .leading, spacing: 1) {
-                            Text(done == 0 ? "1편부터 시작하기" : "이어서 하기")
+                            Text(resumeTitle(done: done, next: next))
                                 .font(.subheadline.weight(.bold))
                                 .foregroundStyle(.hgText)
                             Text("\(next.number). \(next.title)")
@@ -94,16 +97,27 @@ struct CourseHomeView: View {
                             .foregroundStyle(.hgDim)
                     }
                 }
-                .buttonStyle(.plain)
             }
+            .padding(14)
+            .background(Color.hgCard, in: .rect(cornerRadius: 16))
+            .overlay(RoundedRectangle(cornerRadius: 16).strokeBorder(Color.hgAccent.opacity(0.35), lineWidth: 1))
+            .contentShape(.rect(cornerRadius: 16))
         }
-        .padding(14)
-        .background(Color.hgCard, in: .rect(cornerRadius: 16))
-        .overlay(RoundedRectangle(cornerRadius: 16).strokeBorder(Color.hgAccent.opacity(0.35), lineWidth: 1))
+        .buttonStyle(.plain)
+        .disabled(next == nil)
+    }
+
+    /// 레슨 중간에 멈췄으면 어느 단계에서 이어지는지까지 알려준다.
+    private func resumeTitle(done: Int, next: Lesson) -> String {
+        let step = notebook.resumeStep(for: next)
+        if step > 0, let name = LessonPlayerView.Step(rawValue: step)?.title {
+            return "이어서 하기 · \(name)부터"
+        }
+        return done == 0 && next.id == Lesson.all.first?.id ? "1편부터 시작하기" : "이어서 하기"
     }
 
     private var footnote: some View {
-        Text("앞의 여덟 편은 같은 앱 한 벌에서 결정 하나씩을 뒤집습니다. 뒤의 다섯 편은 그 앱으로는 볼 수 없는 것들 — 오버플로 순서 · 사진 위 가장자리 효과 · 큰 글씨에서의 잘림 · 배지 · 가짜 탭입니다. 더 넓은 자료(항목 68 · 실수 100 · 원칙 7)는 **자료** 탭에 있습니다.")
+        Text("앞의 여덟 편은 같은 앱 한 벌에서 결정 하나씩을 뒤집습니다. 뒤의 다섯 편은 그 앱으로는 볼 수 없는 것들, 오버플로 순서 · 사진 위 가장자리 효과 · 큰 글씨에서의 잘림 · 배지 · 가짜 탭입니다. 더 넓은 자료(항목 68 · 실수 100 · 원칙 7)는 **자료** 탭에 있습니다.")
             .font(.footnote)
             .foregroundStyle(.hgDim)
             .padding(.top, 4)

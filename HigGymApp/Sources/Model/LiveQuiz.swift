@@ -38,7 +38,7 @@ struct LiveQuestion: Identifiable {
     let options: [LiveOption]
     let explanation: String
     let sources: [String]
-    /// 이 문항이 다루는 실수 번호 — 해설에서 회고로 이어준다.
+    /// 이 문항이 다루는 실수 번호 - 해설에서 회고로 이어준다.
     let mistakeNumber: Int?
 
     var correctIndex: Int { options.firstIndex(where: \.isCorrect) ?? 0 }
@@ -51,7 +51,7 @@ struct LiveOption: Identifiable {
     /// pickScreen 문항의 보기는 **돌아가는 화면**이다.
     let screen: (() -> AnyView)?
     let isCorrect: Bool
-    /// 고른 뒤에 붙는 한 줄 — 왜 맞고 왜 틀렸는지.
+    /// 고른 뒤에 붙는 한 줄 - 왜 맞고 왜 틀렸는지.
     let note: String
 }
 
@@ -125,14 +125,14 @@ enum LiveQuizBank {
     /// 기준은 원칙의 문장을 그 결정에 맞게 한 줄로 줄인 것이다.
     private static func criterion(for knob: NoteAppConfig.Knob) -> String {
         switch knob {
-        case .compose:    "자주·반복해서 누르는 액션은 엄지에 가깝게 — 어느 쪽이 이 기준을 지켰습니까?"
-        case .deletion:   "되돌릴 수 없는 액션은 한 단계 멀리, 그리고 대상 위에 — 어느 쪽입니까?"
-        case .grouping:   "한 캡슐에 묶인 것들은 사용자가 한 세트로 읽는다 — 어느 쪽이 이 문법을 지켰습니까?"
-        case .title:      "액션은 그 대상 위에 붙어야 한다 — 어느 쪽이 폴더 전환을 제대로 뒀습니까?"
-        case .search:     "자주 여는 입구는 엄지에 가깝게, 그리고 안 쓰는 순간에 자리를 차지하지 않게 — 어느 쪽입니까?"
-        case .date:       "값과 표기를 한 문자열에 담지 않는다 — **이 두 화면은 영어(en_US) 기기**입니다. 어느 쪽이 로케일을 따라갑니까?"
-        case .selection:  "옮겨 적을 일이 있는 값에는 선택·복사를 연다 — 어느 쪽입니까? (본문을 길게 눌러보세요)"
-        case .editorExit: "덮는 화면일수록 나가는 길을 먼저 설계한다 — 어느 쪽에 출구가 있습니까?"
+        case .compose:    "자주·반복해서 누르는 액션은 엄지에 가깝게, 어느 쪽이 이 기준을 지켰습니까?"
+        case .deletion:   "되돌릴 수 없는 액션은 한 단계 멀리, 그리고 대상 위에, 어느 쪽입니까?"
+        case .grouping:   "한 캡슐에 묶인 것들은 사용자가 한 세트로 읽는다, 어느 쪽이 이 문법을 지켰습니까?"
+        case .title:      "액션은 그 대상 위에 붙어야 한다, 어느 쪽이 폴더 전환을 제대로 뒀습니까?"
+        case .search:     "자주 여는 입구는 엄지에 가깝게, 그리고 안 쓰는 순간에 자리를 차지하지 않게, 어느 쪽입니까?"
+        case .date:       "값과 표기를 한 문자열에 담지 않는다, **이 두 화면은 영어(en_US) 기기**입니다. 어느 쪽이 로케일을 따라갑니까?"
+        case .selection:  "옮겨 적을 일이 있는 값에는 선택·복사를 연다, 어느 쪽입니까? (본문을 길게 눌러보세요)"
+        case .editorExit: "덮는 화면일수록 나가는 길을 먼저 설계한다, 어느 쪽에 출구가 있습니까?"
         }
     }
 
@@ -172,7 +172,7 @@ enum LiveQuizBank {
                       screen: nil, isCorrect: false,
                       note: "빈 자리는 실패가 아닙니다. 채우기 위해 넣은 것은 대개 군더더기입니다(8.1.1)."),
             ],
-            explanation: "도달성 기준은 \"자주·반복해서 누르는가\"입니다. 그렇다면 하단, 가끔 쓰는 확정성 액션이면 상단 — 빈도와 높이가 반비례해야 합니다.",
+            explanation: "도달성 기준은 \"자주·반복해서 누르는가\"입니다. 그렇다면 하단, 가끔 쓰는 확정성 액션이면 상단, 빈도와 높이가 반비례해야 합니다.",
             sources: ["1.1.4", "8.1.2"],
             mistakeNumber: 99
         ),
@@ -196,7 +196,7 @@ enum LiveQuizBank {
                       screen: nil, isCorrect: false,
                       note: "유행이 아니라 대상-액션 결합의 문제입니다(8.1.7)."),
             ],
-            explanation: "도달성 기준에는 말하지 않은 전제가 있습니다 — **잘못 눌러도 되는 액션**에만 해당한다는 것. 되돌릴 수 없는 액션은 일부러 멀리 둡니다.",
+            explanation: "도달성 기준에는 말하지 않은 전제가 있습니다, **잘못 눌러도 되는 액션**에만 해당한다는 것. 되돌릴 수 없는 액션은 일부러 멀리 둡니다.",
             sources: ["8.1.7", "1.1.4"],
             mistakeNumber: 7
         ),
@@ -218,7 +218,7 @@ enum LiveQuizBank {
                       note: "새 API라서가 아니라, 이 액션의 대상이 제목이기 때문입니다."),
                 .init(id: "d", label: "폴더 전환을 잘 안 쓰니까 눈에 안 띄게 감췄다",
                       screen: nil, isCorrect: false,
-                      note: "감춘 게 아닙니다 — ⌄ 표시로 누를 수 있다는 사실을 분명히 알립니다(1.2.5)."),
+                      note: "감춘 게 아닙니다, ⌄ 표시로 누를 수 있다는 사실을 분명히 알립니다(1.2.5)."),
             ],
             explanation: "대상이 화면에 보이는데 액션이 떨어진 버튼에 있으면, 사용자는 \"이 버튼이 저 제목에 대한 것\"임을 유추해야 합니다. 붙여 두면 유추가 필요 없습니다.",
             sources: ["1.2.5", "8.1.7"],
@@ -233,7 +233,7 @@ enum LiveQuizBank {
             options: [
                 .init(id: "a", label: "자주 여는 입구라 엄지에 가까워야 하고, 안 쓰는 순간에는 세로 공간을 먹지 않아야 한다",
                       screen: nil, isCorrect: true,
-                      note: "iOS 26이 검색을 아래로 내린 것과 같은 이유입니다 — 도달성, 그리고 상시 점유 회피."),
+                      note: "iOS 26이 검색을 아래로 내린 것과 같은 이유입니다, 도달성, 그리고 상시 점유 회피."),
                 .init(id: "b", label: "상단에는 제목이 있어서 검색을 넣을 자리가 없었다",
                       screen: nil, isCorrect: false,
                       note: "자리는 있습니다(서랍). 자리가 아니라 손과 공간의 문제입니다."),
@@ -252,7 +252,7 @@ enum LiveQuizBank {
             id: "why-editor-exit",
             kind: .reason,
             prompt: "이 편집기는 전체 화면인데 **취소·완료**가 붙어 있습니다. 왜 필요할까요?",
-            lookAt: "아래로 쓸어내려 보세요 — 닫히지 않습니다",
+            lookAt: "아래로 쓸어내려 보세요, 닫히지 않습니다",
             subject: { AnyView(NoteAppConfig.Knob.editorExit.surface(.recommended)) },
             options: [
                 .init(id: "a", label: "전체 화면 커버는 일부러 스와이프로 닫히지 않으므로, 출구를 직접 만들어야 한다",
@@ -284,7 +284,7 @@ enum LiveQuizBank {
                       note: "언어가 바뀌면 표기가 따라옵니다. 앱 코드는 그대로입니다."),
                 .init(id: "b", label: "\"3일 전\" 같은 문자열을 계산해서 저장해 둔다",
                       screen: nil, isCorrect: false,
-                      note: "저장하는 순간 굳습니다 — 하루 뒤에도, 영어 사용자에게도 \"3일 전\"입니다."),
+                      note: "저장하는 순간 굳습니다, 하루 뒤에도, 영어 사용자에게도 \"3일 전\"입니다."),
                 .init(id: "c", label: "서버가 내려준 표시용 문자열을 그대로 쓴다",
                       screen: nil, isCorrect: false,
                       note: "표기를 서버가 정하면 기기의 언어·시간대 설정을 따를 수 없습니다."),
@@ -292,7 +292,7 @@ enum LiveQuizBank {
                       screen: nil, isCorrect: false,
                       note: "포맷터가 이미 모든 로케일을 알고 있습니다. 두 벌을 만들 이유가 없습니다."),
             ],
-            explanation: "값과 표기를 한 문자열에 담지 않는 것 — 값은 앱이, 표기는 로케일이 정합니다.",
+            explanation: "값과 표기를 한 문자열에 담지 않는 것, 값은 앱이, 표기는 로케일이 정합니다.",
             sources: ["2.2.1", "8.1.6"],
             mistakeNumber: 47
         ),

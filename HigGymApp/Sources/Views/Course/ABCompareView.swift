@@ -3,7 +3,7 @@ import SwiftUI
 /// 어긴 화면과 고친 화면을 **같은 자리에서 즉시 갈아 끼우는** 비교기.
 ///
 /// 두 화면을 나란히 놓으면 각각이 절반으로 줄어 정작 봐야 할 것(글자 크기, 버튼이 닿는 자리)이
-/// 사라진다. 그래서 한 화면을 실제 크기로 두고 위에서 갈아 끼운다 — 자리가 고정된 채 바뀌니
+/// 사라진다. 그래서 한 화면을 실제 크기로 두고 위에서 갈아 끼운다 - 자리가 고정된 채 바뀌니
 /// 달라진 지점만 도드라진다. 두 화면 모두 살려 두어 오가도 스크롤·상태가 유지된다.
 struct ABCompareView<Broken: View, Fixed: View>: View {
     /// 무엇이 달라졌는지 한 줄. 비어 있으면 캡션을 그리지 않는다.
@@ -107,7 +107,7 @@ struct ABCompareView<Broken: View, Fixed: View>: View {
 // MARK: - 표본 앱의 결정 하나를 뒤집어 비교하기
 
 extension ABCompareView where Broken == AnyView, Fixed == AnyView {
-    /// 레슨이 쓰는 형태 — 결정 하나만 뒤집은 같은 앱 두 벌.
+    /// 레슨이 쓰는 형태 - 결정 하나만 뒤집은 같은 앱 두 벌.
     init(knob: NoteAppConfig.Knob, diff: String, showsSpotlight: Bool = true, startOnFixed: Bool = false) {
         self.init(
             diff: diff,

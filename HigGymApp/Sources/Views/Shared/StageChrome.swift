@@ -3,7 +3,7 @@ import SwiftUI
 /// 실습을 "실제 크기 화면"으로 띄울 때 붙이는 조작 장치.
 ///
 /// 시스템 크롬(상단 툴바·하단 바)을 가리면 안 되므로 화면 왼쪽 가장자리 중앙에
-/// 세로 캡슐로 띄운다 — 5.2.2 가 말하는 "세로 바는 엄지의 호" 자리이기도 하다.
+/// 세로 캡슐로 띄운다 - 5.2.2 가 말하는 "세로 바는 엄지의 호" 자리이기도 하다.
 struct StageChrome<Controls: View>: ViewModifier {
     let onClose: () -> Void
     let controls: Controls
@@ -14,7 +14,8 @@ struct StageChrome<Controls: View>: ViewModifier {
         content
             .overlay(alignment: .leading) {
                 VStack(spacing: 6) {
-                    button("xmark", action: onClose)
+                    button("chevron.backward", action: onClose)
+                        .accessibilityLabel("돌아가기")
                     Divider().frame(width: 22)
                     button("slider.horizontal.3") { showControls = true }
                 }
@@ -41,7 +42,7 @@ struct StageChrome<Controls: View>: ViewModifier {
                 }
                 .presentationDetents([.medium, .large])
                 .presentationDragIndicator(.visible)
-                // 시트를 연 채로 뒤 화면을 만지며 비교할 수 있게 — 4.1.5 비모달.
+                // 시트를 연 채로 뒤 화면을 만지며 비교할 수 있게 - 4.1.5 비모달.
                 .presentationBackgroundInteraction(.enabled(upThrough: .medium))
             }
     }

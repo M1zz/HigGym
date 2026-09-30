@@ -19,9 +19,9 @@ final class ProgressStore {
     private(set) var wrongIDs: Set<String>
     private(set) var answeredCount: Int
     private(set) var visitedLabs: Set<String>
-    /// "이건 나도 해봤다"고 체크한 실수들 — 100편을 훑는 진행도의 근거.
+    /// "이건 나도 해봤다"고 체크한 실수들 - 100편을 훑는 진행도의 근거.
     private(set) var checkedMistakes: Set<String>
-    /// 화면을 보고 판단하는 퀴즈의 성적 — 문장 퀴즈와 섞이지 않게 따로 센다.
+    /// 화면을 보고 판단하는 퀴즈의 성적 - 문장 퀴즈와 섞이지 않게 따로 센다.
     private(set) var liveCorrectIDs: Set<String>
     private(set) var liveAnsweredIDs: Set<String>
 
@@ -62,7 +62,7 @@ final class ProgressStore {
         defaults.set(Array(visitedLabs), forKey: Key.visitedLabs)
     }
 
-    /// 같은 문항을 다시 풀면 최근 결과로 덮어쓴다 — 맞힌 적 있다는 사실보다 지금 맞히는지가 중요하다.
+    /// 같은 문항을 다시 풀면 최근 결과로 덮어쓴다 - 맞힌 적 있다는 사실보다 지금 맞히는지가 중요하다.
     func recordLive(_ id: String, correct: Bool) {
         liveAnsweredIDs.insert(id)
         if correct { liveCorrectIDs.insert(id) } else { liveCorrectIDs.remove(id) }
@@ -87,7 +87,7 @@ final class ProgressStore {
 
     func isChecked(_ mistake: Mistake) -> Bool { checkedMistakes.contains(mistake.id) }
 
-    /// 챕터별 정답률 — 홈에서 "어디가 약한지" 보여주는 데 쓴다.
+    /// 챕터별 정답률 - 홈에서 "어디가 약한지" 보여주는 데 쓴다.
     func mastery(chapter: Int, bank: QuizBank) -> Double {
         let ids = bank.questions.filter { $0.chapter == chapter }.map(\.id)
         guard !ids.isEmpty else { return 0 }

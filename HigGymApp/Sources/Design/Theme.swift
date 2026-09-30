@@ -1,10 +1,10 @@
 import SwiftUI
 import UIKit
 
-/// 문서(toolbar-annotated.html)와 같은 팔레트 — 두 매체가 한 교재로 읽히도록.
+/// 문서(toolbar-annotated.html)와 같은 팔레트 - 두 매체가 한 교재로 읽히도록.
 ///
 /// 값은 여기 한 곳에서만 정의하고 Color · ShapeStyle 양쪽에 그대로 노출한다.
-/// 라이트 모드는 다크 팔레트를 뒤집은 것이 아니라 **같은 역할을 하는 짝**을 따로 골랐다 —
+/// 라이트 모드는 다크 팔레트를 뒤집은 것이 아니라 **같은 역할을 하는 짝**을 따로 골랐다 -
 /// 특히 강조색은 흰 배경에서 대비가 무너지므로 한 단계 진한 값을 쓴다(8.1.4 가독성 > 미학).
 enum HG {
     static let background = Color(light: 0xF4F6FA, dark: 0x0B0C10)
@@ -24,7 +24,7 @@ enum HG {
     static let fill = Color(lightWhite: 0.0, lightAlpha: 0.035, darkWhite: 1.0, darkAlpha: 0.02)
     /// 유리 위에 얹는 실선 테두리. 배경이 뒤집히면 테두리도 뒤집혀야 보인다.
     static let hairline = Color(lightWhite: 0.0, lightAlpha: 0.14, darkWhite: 1.0, darkAlpha: 0.18)
-    /// 코드 패널 배경 — 다크에선 더 어둡게, 라이트에선 종이보다 살짝 눌러서.
+    /// 코드 패널 배경 - 다크에선 더 어둡게, 라이트에선 종이보다 살짝 눌러서.
     static let code = Color(light: 0xEEF1F7, dark: 0x05070B)
 }
 
@@ -149,7 +149,7 @@ extension View {
     func hgCard(tint: Color = .hgLine) -> some View { modifier(CardBackground(tint: tint)) }
 }
 
-/// 라벨 배지 — 문서의 .pill 과 같은 역할.
+/// 라벨 배지 - 문서의 .pill 과 같은 역할.
 struct Pill: View {
     let text: String
     var color: Color = .hgAccent
@@ -226,7 +226,7 @@ struct DiagnosisRow: View {
     }
 }
 
-/// 실습마다 "이건 실제 어떤 SwiftUI 코드인가"를 같이 보여준다 — 교구의 핵심.
+/// 실습마다 "이건 실제 어떤 SwiftUI 코드인가"를 같이 보여준다 - 교구의 핵심.
 struct CodePanel: View {
     let code: String
     /// 실습에서는 설정으로부터 "생성된" 코드지만, 예제에서는 그 화면을 만든 코드 자체다.

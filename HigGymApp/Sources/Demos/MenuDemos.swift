@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 7.1 Menu — 버튼 하나 뒤에 접어둔 액션 목록.
+/// 7.1 Menu - 버튼 하나 뒤에 접어둔 액션 목록.
 /// 메뉴는 **열어봐야** 구조가 보인다. 섹션·서브메뉴·토글·파괴적 액션이 전부 실제로 동작한다.
 @MainActor
 enum MenuDemos {
@@ -8,9 +8,9 @@ enum MenuDemos {
         EntryDemo(
             "mn1",
             hints: [
-                "오른쪽 위 **⋯** 를 열어보세요 — 아이콘 · 구분선 · 서브메뉴 · 토글 · 삭제가 모두 들어 있습니다.",
+                "오른쪽 위 **⋯** 를 열어보세요, 아이콘 · 구분선 · 서브메뉴 · 토글 · 삭제가 모두 들어 있습니다.",
                 "정렬과 표시 옵션을 바꾸면 목록이 **실제로** 바뀝니다. 메뉴는 창고가 아니라 조작 장치입니다.",
-                "행을 **길게 눌러** 보세요 — 같은 액션이 대상 위에 직접 붙습니다(8.1.7 직접 조작).",
+                "행을 **길게 눌러** 보세요, 같은 액션이 대상 위에 직접 붙습니다(8.1.7 직접 조작).",
             ],
             code: """
             Menu("더보기", systemImage: "ellipsis") {
@@ -22,7 +22,7 @@ enum MenuDemos {
                 Button("모두 삭제", systemImage: "trash", role: .destructive) { … }
             }
 
-            // 대상 위에서 바로 — 행에는 contextMenu
+            // 대상 위에서 바로 - 행에는 contextMenu
             .contextMenu { … }
             """
         ) { MenuDemoScreen() },

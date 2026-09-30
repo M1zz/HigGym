@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 한 항목의 화면 — 목업이 위에 있고 설명이 그 그림에 붙는다.
+/// 한 항목의 화면 - 목업이 위에 있고 설명이 그 그림에 붙는다.
 struct EntryDetailView: View {
     let entry: Entry
 
@@ -10,7 +10,7 @@ struct EntryDetailView: View {
 
     private var lab: LabID? { LabID.forSection(entry.section) }
     private var demo: EntryDemo? { EntryDemos.demo(for: entry) }
-    /// 이 항목이 근거가 된 실수들 — 100편 쪽에서 같은 자리를 반대편에서 본 것.
+    /// 이 항목이 근거가 된 실수들 - 100편 쪽에서 같은 자리를 반대편에서 본 것.
     private var mistakes: [Mistake] { MistakeStore.shared.mistakes(citing: entry.index) }
 
     var body: some View {
@@ -22,7 +22,7 @@ struct EntryDetailView: View {
                 }
                 stage
                 rows
-                if !mistakes.isEmpty { mistakeLinks }
+                if !mistakes.isEmpty { MistakeLinksSection(mistakes: mistakes) }
                 if let lab { labLink(lab) }
                 if !entry.refs.isEmpty { references }
             }
@@ -31,7 +31,7 @@ struct EntryDetailView: View {
         .background(Color.hgBackground)
         .navigationTitle(entry.index)
         .navigationBarTitleDisplayMode(.inline)
-        // 예제는 push 가 아니라 전체 화면으로 — EntryDemoStage 주석 참고.
+        // 예제는 push 가 아니라 전체 화면으로 - EntryDemoStage 주석 참고.
         .fullScreenCover(item: $runningDemo) { demo in
             EntryDemoStage(entry: entry, demo: demo)
         }
@@ -39,7 +39,7 @@ struct EntryDetailView: View {
         .fullScreenCover(item: $presentedLab) { labDestination($0) }
     }
 
-    // MARK: 목업 — 이 화면의 근간
+    // MARK: 목업 - 이 화면의 근간
 
     private var stage: some View {
         VStack(spacing: 12) {
@@ -151,38 +151,6 @@ struct EntryDetailView: View {
         }
     }
 
-    /// 항목에서 실수로, 실수에서 다시 항목으로 — 양쪽이 서로를 가리켜야 교재가 된다.
-    private var mistakeLinks: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Label("여기서 나온 실수 \(mistakes.count)개", systemImage: "exclamationmark.triangle.fill")
-                .font(.caption.weight(.bold))
-                .foregroundStyle(.hgAmber)
-
-            ForEach(mistakes) { mistake in
-                NavigationLink(value: mistake) {
-                    HStack(spacing: 9) {
-                        Text("#\(mistake.number)")
-                            .font(.system(.caption, design: .monospaced, weight: .bold))
-                            .foregroundStyle(mistake.level.color)
-                        Text(mistake.title)
-                            .font(.subheadline)
-                            .foregroundStyle(.hgText)
-                            .multilineTextAlignment(.leading)
-                            .lineLimit(2)
-                        Spacer(minLength: 0)
-                        Image(systemName: "chevron.right")
-                            .font(.caption.weight(.semibold))
-                            .foregroundStyle(.hgDim)
-                    }
-                    .padding(11)
-                    .background(Color.hgCard, in: .rect(cornerRadius: 12))
-                    .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(Color.hgAmber.opacity(0.25), lineWidth: 1))
-                }
-                .buttonStyle(.plain)
-            }
-        }
-    }
-
     private func labLink(_ lab: LabID) -> some View {
         Button {
             presentedLab = lab
@@ -233,5 +201,56 @@ struct EntryDetailView: View {
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+/// 항목에서 실수로, 실수에서 다시 항목으로. 양쪽이 서로를 가리켜야 교재가 된다.
+/// 항목 상세와 원칙 상세가 같이 쓴다.
+struct MistakeLinksSection: View {
+    let mistakes: [Mistake]
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Label("여기서 나온 실수 \(mistakes.count)개", systemImage: "exclamationmark.triangle.fill")
+                .font(.caption.weight(.bold))
+                .foregroundStyle(.hgAmber)
+
+            ForEach(mistakes) { mistake in
+                NavigationLink(value: mistake) {
+                    HStack(spacing: 9) {
+                        Text("#\(mistake.number)")
+                            .font(.system(.caption, design: .monospaced, weight: .bold))
+                            .foregroundStyle(mistake.level.color)
+                        Text(mistake.title)
+                            .font(.subheadline)
+                            .foregroundStyle(.hgText)
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(2)
+                        Spacer(minLength: 0)
+                        Image(systemName: "chevron.right")
+                            .font(.caption.weight(.semibold))
+                            .foregroundStyle(.hgDim)
+                    }
+                    .padding(11)
+                    .background(Color.hgCard, in: .rect(cornerRadius: 12))
+                    .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(Color.hgAmber.opacity(0.25), lineWidth: 1))
+                }
+                .buttonStyle(.plain)
+            }
+        }
+    }
+}
+
+/// 근거 링크가 가리키는 곳. 원칙(8.1.x)은 목업이 없고 "기준"이 본문이라
+/// 항목 화면으로 열면 빈 그림만 남는다. 원칙이면 원칙 화면으로 보낸다.
+struct EntryDestination: View {
+    let entry: Entry
+
+    var body: some View {
+        if ContentStore.shared.principles.contains(where: { $0.id == entry.id }) {
+            PrincipleDetailView(principle: entry)
+        } else {
+            EntryDetailView(entry: entry)
+        }
     }
 }

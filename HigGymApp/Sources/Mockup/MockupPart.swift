@@ -10,7 +10,7 @@ struct MockupPart: Hashable {
         text = node.text
     }
 
-    /// 설명이 붙어 있는 부위만 눌린다 — 아무 데나 눌리면 그것대로 소음이다.
+    /// 설명이 붙어 있는 부위만 눌린다 - 아무 데나 눌리면 그것대로 소음이다.
     var isMeaningful: Bool { entry != nil }
 
     private var entry: Glossary.Entry? {
@@ -34,7 +34,7 @@ enum Glossary {
         let source: String
     }
 
-    /// 구체적인 클래스일수록 높은 값 — 같은 노드에 여러 클래스가 붙었을 때 무엇을 설명할지 정한다.
+    /// 구체적인 클래스일수록 높은 값 - 같은 노드에 여러 클래스가 붙었을 때 무엇을 설명할지 정한다.
     static func priority(_ name: String) -> Int {
         switch name {
         case "rd", "search", "on", "src", "hlt": 3
@@ -46,7 +46,7 @@ enum Glossary {
     static let table: [String: Entry] = [
         "pnav": .init(
             name: "상단 툴바",
-            meaning: "leading은 이동, 가운데는 화면의 정체성, trailing은 확정 — 자리마다 말하는 것이 정해져 있습니다.",
+            meaning: "leading은 이동, 가운데는 화면의 정체성, trailing은 확정, 자리마다 말하는 것이 정해져 있습니다.",
             source: "1.1 · 8.1.3"
         ),
         "cap": .init(
@@ -56,7 +56,7 @@ enum Glossary {
         ),
         "rd": .init(
             name: "단일 액션 캡슐",
-            meaning: "액션이 하나뿐일 때의 최소 구성. 버튼이 하나면 캡슐도 하나 — 시각적 무게를 최소로 둡니다.",
+            meaning: "액션이 하나뿐일 때의 최소 구성. 버튼이 하나면 캡슐도 하나, 시각적 무게를 최소로 둡니다.",
             source: "1.1.1"
         ),
         "search": .init(
@@ -91,7 +91,7 @@ enum Glossary {
         ),
         "ti": .init(
             name: "탭 아이템",
-            meaning: "아이콘은 빠른 스캔용, 제목은 의미 확정용 — 두 채널을 함께 줘야 학습 없이 읽힙니다.",
+            meaning: "아이콘은 빠른 스캔용, 제목은 의미 확정용, 두 채널을 함께 줘야 학습 없이 읽힙니다.",
             source: "3.1.1"
         ),
         "on": .init(
@@ -121,7 +121,7 @@ enum Glossary {
         ),
         "dimm": .init(
             name: "딤",
-            meaning: "모달성의 시각 신호 — 딤이 없다는 건 “뒤를 만져도 된다”는 뜻입니다.",
+            meaning: "모달성의 시각 신호, 딤이 없다는 건 “뒤를 만져도 된다”는 뜻입니다.",
             source: "4.1.5"
         ),
         "drawer": .init(
@@ -156,12 +156,12 @@ enum Glossary {
         ),
         "src": .init(
             name: "전환 출처",
-            meaning: "`matchedTransitionSource` 로 지정한 요소 — 여기서 확대되어 열립니다.",
+            meaning: "`matchedTransitionSource` 로 지정한 요소, 여기서 확대되어 열립니다.",
             source: "4.3.2"
         ),
         "seg": .init(
             name: "세그먼트 컨트롤",
-            meaning: "값에 따라 화면 전체가 바뀌므로 “화면의 정체성” — principal 자리의 문법과 일치합니다.",
+            meaning: "값에 따라 화면 전체가 바뀌므로 “화면의 정체성”, principal 자리의 문법과 일치합니다.",
             source: "1.1.5"
         ),
         "ln": .init(
@@ -177,7 +177,7 @@ enum Glossary {
         "mtag": .init(
             name: "설명 라벨",
             meaning: "이 목업에서 지금 주목할 자리를 가리킵니다.",
-            source: "—"
+            source: "-"
         ),
         "chip": .init(
             name: "칩",

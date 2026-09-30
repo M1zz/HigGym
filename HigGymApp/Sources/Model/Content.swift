@@ -11,7 +11,7 @@ struct Entry: Codable, Identifiable, Hashable, Sendable {
     let title: String
     let summary: String
     let caption: String
-    /// 문서 프리뷰를 그대로 옮긴 목업 — 앱 화면의 근간.
+    /// 문서 프리뷰를 그대로 옮긴 목업 - 앱 화면의 근간.
     let mockup: [MockupNode]
     let when: String
     let why: String
@@ -67,7 +67,7 @@ struct ContentStore: Sendable {
               let data = try? Data(contentsOf: url),
               let bundle = try? JSONDecoder().decode(ContentBundle.self, from: data)
         else {
-            assertionFailure("entries.json 을 읽지 못했습니다 — Tools/extract_content.py 를 먼저 실행하세요.")
+            assertionFailure("entries.json 을 읽지 못했습니다, Tools/extract_content.py 를 먼저 실행하세요.")
             return ContentStore(chapters: [], sections: [], entries: [], principles: [])
         }
         return ContentStore(
@@ -84,7 +84,7 @@ struct ContentStore: Sendable {
 
     func siblings(of entry: Entry) -> [Entry] {
         let inSection = entries.filter { $0.section == entry.section }
-        // 섹션에 형제가 부족하면 챕터 전체로 넓힌다 — 보기 4개를 채우기 위해.
+        // 섹션에 형제가 부족하면 챕터 전체로 넓힌다 - 보기 4개를 채우기 위해.
         return inSection.count >= 4 ? inSection : entries(chapter: entry.chapter)
     }
 

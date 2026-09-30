@@ -12,7 +12,7 @@ struct ToolbarLabView: View {
         LabScaffold(title: "툴바 배치 실험실", subtitle: "자리와 묶음의 문법을 직접 어겨보기") {
                 LiveMockup(
                     nodes: MockupBuilder.toolbar(config),
-                    caption: "설정을 바꾸면 이 그림이 바로 다시 그려집니다 — 문서의 프리뷰와 같은 언어",
+                    caption: "설정을 바꾸면 이 그림이 바로 다시 그려집니다, 문서의 프리뷰와 같은 언어",
                     selected: $selectedPart
                 )
 
@@ -46,7 +46,7 @@ struct ToolbarLabView: View {
         }
     }
 
-    // MARK: 프리셋 — 좋은 예 / 나쁜 예를 한 번에 불러와 비교
+    // MARK: 프리셋 - 좋은 예 / 나쁜 예를 한 번에 불러와 비교
 
     private var presets: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -122,7 +122,7 @@ struct ToolbarLabView: View {
     private var slotEditors: some View {
         VStack(alignment: .leading, spacing: 10) {
             SectionLabel("자리에 넣기", accent: .hgAccent)
-            Text("자리마다 원래 말하는 것이 있습니다 — 그 문법과 어긋나면 아래 진단에 잡힙니다.")
+            Text("자리마다 원래 말하는 것이 있습니다, 그 문법과 어긋나면 아래 진단에 잡힙니다.")
                 .font(.footnote)
                 .foregroundStyle(.hgDim)
 
@@ -135,7 +135,7 @@ struct ToolbarLabView: View {
                     Text("루트 화면 (뒤로가기 없음)")
                         .font(.subheadline)
                         .foregroundStyle(.hgText)
-                    Text("끄면 push된 상세 화면 — leading이 뒤로가기와 다투는지 판정합니다")
+                    Text("끄면 push된 상세 화면, leading이 뒤로가기와 다투는지 판정합니다")
                         .font(.caption)
                         .foregroundStyle(.hgDim)
                 }
@@ -293,31 +293,34 @@ struct SectionLabel: View {
 private struct ToolbarStage: View {
     let config: ToolbarConfig
     @State private var query = ""
+    @State private var segment = 0
+    @State private var log = DemoLog()
 
     var body: some View {
         NavigationStack {
             content
                 .navigationTitle("받은 편지함")
-                .modifier(TitleModeModifier(mode: config.titleMode))
+                .modifier(TitleModeModifier(mode: config.titleMode, log: log))
                 .toolbar { toolbarContent }
                 .modifier(SearchModifier(option: config.search, query: $query))
                 .toolbar {
                     if !config.isRoot {
                         ToolbarItem(placement: .topBarLeading) {
-                            Button("뒤로", systemImage: "chevron.backward") {}
+                            Button("뒤로", systemImage: "chevron.backward") { log.tap("뒤로") }
                         }
                     }
                 }
         }
+        .demoToast(log)
     }
 
     private var content: some View {
         List {
-            ForEach(0..<12, id: \.self) { i in
+            ForEach(DemoData.mail) { mail in
                 VStack(alignment: .leading, spacing: 3) {
-                    Text("메시지 \(i + 1)")
+                    Text(mail.sender)
                         .font(.subheadline.weight(.semibold))
-                    Text("본문 미리보기 텍스트가 두 줄까지 보이는 셀입니다.")
+                    Text("\(mail.subject) · \(mail.preview)")
                         .font(.footnote)
                         .foregroundStyle(.secondary)
                         .lineLimit(2)
@@ -334,31 +337,31 @@ private struct ToolbarStage: View {
     private var toolbarContent: some ToolbarContent {
         ToolbarItemGroup(placement: .topBarLeading) {
             ForEach(config.items(in: .leading)) { spec in
-                Button(spec.name, systemImage: spec.symbol) {}
+                Button(spec.name, systemImage: spec.symbol) { log.tap(spec.name) }
             }
         }
         ToolbarItem(placement: .principal) {
             if let spec = config.items(in: .principal).first {
                 if spec.role == .identity {
-                    Picker("", selection: .constant(0)) {
+                    Picker("", selection: $segment) {
                         Text("지도").tag(0)
                         Text("목록").tag(1)
                     }
                     .pickerStyle(.segmented)
                     .frame(width: 140)
                 } else {
-                    Button(spec.name, systemImage: spec.symbol) {}
+                    Button(spec.name, systemImage: spec.symbol) { log.tap(spec.name) }
                 }
             }
         }
         ToolbarItemGroup(placement: .topBarTrailing) {
             ForEach(config.items(in: .trailing)) { spec in
-                Button(spec.name, systemImage: spec.symbol) {}
+                Button(spec.name, systemImage: spec.symbol) { log.tap(spec.name) }
             }
         }
         ToolbarItemGroup(placement: .bottomBar) {
             ForEach(config.items(in: .bottom)) { spec in
-                Button(spec.name, systemImage: spec.symbol) {}
+                Button(spec.name, systemImage: spec.symbol) { log.tap(spec.name) }
             }
         }
     }
@@ -367,6 +370,7 @@ private struct ToolbarStage: View {
 /// 제목 표시 방식은 modifier 종류가 달라서 따로 뺐다.
 private struct TitleModeModifier: ViewModifier {
     let mode: TitleMode
+    let log: DemoLog
 
     func body(content: Content) -> some View {
         switch mode {
@@ -380,10 +384,10 @@ private struct TitleModeModifier: ViewModifier {
             content
                 .toolbarTitleDisplayMode(.inline)
                 .toolbarTitleMenu {
-                    Button("이름 변경", systemImage: "pencil") {}
-                    Button("폴더 전환", systemImage: "folder") {}
+                    Button("이름 변경", systemImage: "pencil") { log.tap("이름 변경") }
+                    Button("폴더 전환", systemImage: "folder") { log.tap("폴더 전환") }
                     Divider()
-                    Button("삭제", systemImage: "trash", role: .destructive) {}
+                    Button("삭제", systemImage: "trash", role: .destructive) { log.tap("삭제") }
                 }
         case .custom:
             content.toolbarTitleDisplayMode(.inline)

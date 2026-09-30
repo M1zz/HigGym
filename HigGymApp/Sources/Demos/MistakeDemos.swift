@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 실수 전용 예제 — 어긴 화면과 고친 화면을 **나란히** 세운다.
+/// 실수 전용 예제 - 어긴 화면과 고친 화면을 **나란히** 세운다.
 ///
 /// 항목 예제(EntryDemos)가 "이 컴포넌트는 이렇게 동작한다"를 보여준다면,
 /// 여기는 "같은 화면인데 이 하나가 달라지면 이만큼 달라진다"를 보여준다.
@@ -24,14 +24,14 @@ enum MistakeDemos {
                 "기능은 양쪽이 똑같습니다. 달라진 건 **묶는 방법**뿐입니다.",
             ],
             code: """
-            // 이렇게 했다 — 성격이 다른 셋이 한 캡슐
+            // 이렇게 했다 - 성격이 다른 셋이 한 캡슐
             ToolbarItemGroup(placement: .topBarTrailing) {
                 Button("삭제", systemImage: "trash") { … }
                 Button("정렬", systemImage: "arrow.up.arrow.down") { … }
                 Button("격자", systemImage: "square.grid.2x2") { … }
             }
 
-            // 이렇게 고쳤다 — 도구는 왼쪽, 파괴적 액션은 메뉴 안
+            // 이렇게 고쳤다 - 도구는 왼쪽, 파괴적 액션은 메뉴 안
             ToolbarItemGroup(placement: .topBarLeading) { 격자; 정렬 }
             ToolbarItem(placement: .topBarTrailing) {
                 Menu("더보기", systemImage: "ellipsis") {
@@ -45,17 +45,17 @@ enum MistakeDemos {
         EntryDemo(
             "m007",
             hints: [
-                "왼쪽 하단의 **삭제**를 눌러보세요 — 확인도 없이 사라집니다. 엄지 자리라 오탭도 쉽습니다.",
+                "왼쪽 하단의 **삭제**를 눌러보세요, 확인도 없이 사라집니다. 엄지 자리라 오탭도 쉽습니다.",
                 "오른쪽 하단은 **작성**입니다. 삭제는 행을 왼쪽으로 밀어야 나옵니다.",
                 "지운 개수를 두 화면에서 세어보세요. 자리 하나가 사고율을 바꿉니다.",
             ],
             code: """
-            // 이렇게 했다 — 되돌릴 수 없는 액션이 가장 누르기 쉬운 자리에
+            // 이렇게 했다 - 되돌릴 수 없는 액션이 가장 누르기 쉬운 자리에
             ToolbarItem(placement: .bottomBar) {
                 Button("삭제", systemImage: "trash", role: .destructive) { delete() }
             }
 
-            // 이렇게 고쳤다 — 하단은 고빈도 액션, 삭제는 대상 위에서 한 단계 거쳐
+            // 이렇게 고쳤다 - 하단은 고빈도 액션, 삭제는 대상 위에서 한 단계 거쳐
             ToolbarItem(placement: .bottomBar) {
                 Button("새 메일", systemImage: "square.and.pencil") { compose() }
             }
@@ -67,7 +67,7 @@ enum MistakeDemos {
         EntryDemo(
             "m011",
             hints: [
-                "왼쪽에서 **저장**을 찾아보세요 — ⋯ 안에 접혀 있습니다. 가장 자주 누르는 버튼인데요.",
+                "왼쪽에서 **저장**을 찾아보세요, ⋯ 안에 접혀 있습니다. 가장 자주 누르는 버튼인데요.",
                 "오른쪽은 저장이 밖에, 별표·프린트가 접혔습니다. 선언 순서만 바꾼 결과입니다.",
                 "두 화면 모두 아이템 개수는 같습니다. 무엇을 앞에 뒀는지만 다릅니다.",
             ],
@@ -86,7 +86,7 @@ enum MistakeDemos {
             hints: [
                 "두 화면을 **같이 스크롤**해 보세요. 흰 사진이 상단 바를 지날 때를 노려 보세요.",
                 "왼쪽은 그 순간 버튼 글자가 사진에 묻힙니다. 오른쪽은 경계가 대비를 만들어 냅니다.",
-                "어두운 사진에서는 둘이 똑같아 보입니다 — 그래서 어두운 샘플로만 확인하면 놓칩니다.",
+                "어두운 사진에서는 둘이 똑같아 보입니다, 그래서 어두운 샘플로만 확인하면 놓칩니다.",
             ],
             code: """
             // 이렇게 했다
@@ -108,10 +108,10 @@ enum MistakeDemos {
                 "오른쪽은 줄이 늘어나며 값을 지킵니다. 카드가 길어질 뿐 정보는 살아 있습니다.",
             ],
             code: """
-            // 이렇게 했다 — 두 장치를 겹쳐 걸었다
+            // 이렇게 했다 - 두 장치를 겹쳐 걸었다
             Text(address).lineLimit(1).minimumScaleFactor(0.4)
 
-            // 이렇게 고쳤다 — 줄 수로 다루고, 넘치면 볼 경로를 준다
+            // 이렇게 고쳤다 - 줄 수로 다루고, 넘치면 볼 경로를 준다
             Text(address).lineLimit(2...3)
             """,
             chromeEdge: .bottom
@@ -120,7 +120,7 @@ enum MistakeDemos {
         EntryDemo(
             "m046",
             hints: [
-                "왼쪽 운송장 번호를 **길게 눌러** 보세요 — 아무 일도 없습니다.",
+                "왼쪽 운송장 번호를 **길게 눌러** 보세요, 아무 일도 없습니다.",
                 "오른쪽은 선택·복사가 되고, 복사 버튼도 있습니다. 실제로 복사됩니다.",
                 "사용자가 화면을 보며 손으로 옮겨 적고 있다면 그건 기능이 빠진 것입니다.",
             ],
@@ -161,13 +161,13 @@ enum MistakeDemos {
             hints: [
                 "왼쪽 배지의 **1**은 무엇을 해도 사라지지 않습니다. 목록을 다 읽어도 그대로입니다.",
                 "오른쪽은 읽을 때마다 숫자가 줄고, 0이 되면 배지가 사라집니다.",
-                "왼쪽을 며칠 쓰면 배지를 아예 안 보게 됩니다 — 잃는 건 그 앱의 모든 배지입니다.",
+                "왼쪽을 며칠 쓰면 배지를 아예 안 보게 됩니다, 잃는 건 그 앱의 모든 배지입니다.",
             ],
             code: """
-            // 이렇게 했다 — 상시 부착
+            // 이렇게 했다 - 상시 부착
             Tab("소식", systemImage: "bell") { … }.badge(1)
 
-            // 이렇게 고쳤다 — 남은 것의 수. 0이면 시스템이 알아서 감춘다
+            // 이렇게 고쳤다 - 남은 것의 수. 0이면 시스템이 알아서 감춘다
             Tab("소식", systemImage: "bell") { … }.badge(unread.count)
             """,
             chromeEdge: .bottom
@@ -176,16 +176,16 @@ enum MistakeDemos {
         EntryDemo(
             "m068",
             hints: [
-                "왼쪽 **작성** 탭을 눌러보세요 — 시트만 뜨고, 닫으면 원래 탭으로 돌아옵니다.",
+                "왼쪽 **작성** 탭을 눌러보세요, 시트만 뜨고, 닫으면 원래 탭으로 돌아옵니다.",
                 "탭이 가리키는 목적지가 없습니다. \"어디로 가는가\"에 답을 못 합니다.",
                 "오른쪽은 작성이 하단 툴바 버튼입니다. 탭은 목적지만 남았습니다.",
             ],
             code: """
-            // 이렇게 했다 — 이동하지 않는 탭
+            // 이렇게 했다 - 이동하지 않는 탭
             Tab("작성", systemImage: "square.and.pencil", value: 2) { EmptyView() }
             .onChange(of: selection) { if $1 == 2 { composing = true; selection = old } }
 
-            // 이렇게 고쳤다 — 액션은 툴바로
+            // 이렇게 고쳤다 - 액션은 툴바로
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     Button("작성", systemImage: "square.and.pencil") { composing = true }
@@ -200,7 +200,7 @@ enum MistakeDemos {
             hints: [
                 "왼쪽에서 편집기를 연 뒤 **닫아보세요**. 쓸어내려도, 어디를 눌러도 나갈 수 없습니다.",
                 "오른쪽에는 취소·완료가 있습니다. 같은 전체 화면인데 출구가 있습니다.",
-                "왼쪽의 빨간 점선 버튼은 예제에서 빠져나오기 위한 장치입니다 — 실제 앱에는 없습니다.",
+                "왼쪽의 빨간 점선 버튼은 예제에서 빠져나오기 위한 장치입니다, 실제 앱에는 없습니다.",
             ],
             code: """
             // fullScreenCover 는 쓸어내려 닫히지 않는다. 출구는 직접 만들어야 한다.
@@ -340,8 +340,8 @@ private struct M007: View {
     var body: some View {
         MistakeComparisonScreen(
             title: "삭제가 엄지 자리에 혼자 있으면, 누를 생각이 없어도 눌린다",
-            badNote: "확인 없이 즉시 삭제 — 지운 수 **\(badDeleted)**",
-            goodNote: "하단은 작성. 삭제는 행을 밀어야 — 지운 수 **\(goodDeleted)**",
+            badNote: "확인 없이 즉시 삭제, 지운 수 **\(badDeleted)**",
+            goodNote: "하단은 작성. 삭제는 행을 밀어야, 지운 수 **\(goodDeleted)**",
             takeaway: "도달성 기준은 **무해한 고빈도 액션**에만 적용합니다. 되돌릴 수 없는 것은 일부러 한 단계 멀리 둡니다."
         ) {
             NavigationStack {
@@ -418,7 +418,7 @@ private struct M011: View {
 
     var body: some View {
         MistakeComparisonScreen(
-            title: "폭이 모자라면 뒤쪽부터 접힌다 — 무엇을 앞에 뒀는가의 문제",
+            title: "폭이 모자라면 뒤쪽부터 접힌다, 무엇을 앞에 뒀는가의 문제",
             badNote: "저장이 **⋯ 안**에. 저장 횟수 \(badSaves)",
             goodNote: "저장이 밖에, 별표·프린트가 접힘. 저장 \(goodSaves)",
             takeaway: "접기는 시스템이 최소 터치 크기를 지키는 방식입니다. 막을 게 아니라 **순서를 설계**하면 됩니다."
@@ -451,25 +451,28 @@ private struct M011: View {
 // MARK: - m029 사진 피드에서 가장자리 효과를 끄면
 
 private struct M029: View {
+    @State private var badLog = DemoLog()
+    @State private var goodLog = DemoLog()
+
     var body: some View {
         MistakeComparisonScreen(
             title: "밝은 사진이 바 뒤를 지나는 순간에 판정이 갈린다",
-            badNote: "`scrollEdgeEffectHidden(true)` — 흰 사진에서 버튼이 사라집니다.",
-            goodNote: "`.hard` — 경계가 스스로 대비를 만듭니다.",
+            badNote: "`scrollEdgeEffectHidden(true)`, 흰 사진에서 버튼이 사라집니다.",
+            goodNote: "`.hard`, 경계가 스스로 대비를 만듭니다.",
             takeaway: "가장자리 효과는 장식이 아니라 **가독성 장치**입니다. 판정은 언제나 최악의 배경에서 합니다."
         ) {
-            screen(hidden: true)
+            screen(hidden: true, log: badLog)
         } good: {
-            screen(hidden: false)
+            screen(hidden: false, log: goodLog)
         }
     }
 
-    private func screen(hidden: Bool) -> some View {
+    private func screen(hidden: Bool, log: DemoLog) -> some View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 3), count: 3), spacing: 3) {
                     ForEach(0..<30, id: \.self) { i in
-                        // 위쪽을 일부러 흰 사진으로 — 스크롤하면 바 뒤로 지나간다.
+                        // 위쪽을 일부러 흰 사진으로 - 스크롤하면 바 뒤로 지나간다.
                         Group {
                             if i % 4 == 0 {
                                 LinearGradient(colors: [.white, Color(white: 0.93)], startPoint: .top, endPoint: .bottom)
@@ -486,12 +489,13 @@ private struct M029: View {
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button("선택", systemImage: "checkmark.circle") {}
-                    Button("공유", systemImage: "square.and.arrow.up") {}
+                    Button("선택", systemImage: "checkmark.circle") { log.tap("선택 모드") }
+                    Button("공유", systemImage: "square.and.arrow.up") { log.tap("공유") }
                 }
             }
             .modifier(EdgeModifier(hidden: hidden))
         }
+        .demoToast(log)
     }
 
     private struct EdgeModifier: ViewModifier {
@@ -521,7 +525,7 @@ private struct M038: View {
         MistakeComparisonScreen(
             title: "글자가 커지면 한 줄 고정은 값을 지우기 시작한다",
             badNote: "`lineLimit(1)` + `minimumScaleFactor(0.4)`",
-            goodNote: "`lineLimit(2...3)` — 카드가 길어질 뿐 값은 남습니다.",
+            goodNote: "`lineLimit(2...3)`, 카드가 길어질 뿐 값은 남습니다.",
             takeaway: "두 장치를 겹치면 서로를 가립니다. **잘려도 뜻이 통하는가**로 도구를 고릅니다.",
             controls: {
                 ComparisonControls {
@@ -550,7 +554,7 @@ private struct M038: View {
                 ForEach(Array(rows.enumerated()), id: \.offset) { _, row in
                     VStack(alignment: .leading, spacing: 4) {
                         Text(row.0)
-                            // 고정 크기 폰트는 Dynamic Type 을 따르지 않는다 — 상대 폰트여야 슬라이더가 일한다.
+                            // 고정 크기 폰트는 Dynamic Type 을 따르지 않는다 - 상대 폰트여야 슬라이더가 일한다.
                             .font(.subheadline.weight(.semibold))
                             .foregroundStyle(.secondary)
                         if clamped {
@@ -644,8 +648,8 @@ private struct M047: View {
     var body: some View {
         MistakeComparisonScreen(
             title: "값과 표기를 한 문자열에 담으면 문화권 규칙을 앱이 소유하게 된다",
-            badNote: "`\"\\(km) km\"` — 로케일을 바꿔도 그대로입니다.",
-            goodNote: "`Measurement` — mi로 따라옵니다.",
+            badNote: "`\"\\(km) km\"`, 로케일을 바꿔도 그대로입니다.",
+            goodNote: "`Measurement`, mi로 따라옵니다.",
             takeaway: "앱은 **값**만 들고, 표기는 시스템에 맡깁니다. 그래야 앱 코드를 고치지 않고도 세계가 늘어납니다.",
             controls: {
                 ComparisonControls {
@@ -741,7 +745,7 @@ private struct M052: View {
                 } else {
                     ForEach(0..<count, id: \.self) { i in
                         Button { onRead() } label: {
-                            Label("새 소식 \(i + 1) — 읽음으로 표시", systemImage: "envelope.badge")
+                            Label("새 소식 \(i + 1), 읽음으로 표시", systemImage: "envelope.badge")
                         }
                     }
                 }
@@ -776,7 +780,7 @@ private struct M068: View {
             TabView(selection: $badSelection) {
                 Tab("홈", systemImage: "house", value: 0) { page("홈") }
                 Tab("작성", systemImage: "square.and.pencil", value: 1) {
-                    // 목적지가 없다 — 선택되자마자 되돌아간다.
+                    // 목적지가 없다 - 선택되자마자 되돌아간다.
                     Color.clear
                 }
                 Tab("설정", systemImage: "gearshape", value: 2) { page("설정") }
@@ -820,11 +824,11 @@ private struct M068: View {
 private struct M081: View {
     @State private var badEditing = false
     @State private var goodEditing = false
-    @State private var text = "작성 중인 내용"
+    @State private var text = "토요일 오전 9시 김포 출발. 숙소는 애월, 체크인 오후 3시."
 
     var body: some View {
         MistakeComparisonScreen(
-            title: "전체 화면 커버는 쓸어내려 닫히지 않는다 — 출구는 직접 만들어야 한다",
+            title: "전체 화면 커버는 쓸어내려 닫히지 않는다, 출구는 직접 만들어야 한다",
             badNote: "닫기 버튼이 없습니다. 쓸어내려도 그대로입니다.",
             goodNote: "취소·완료가 있습니다.",
             takeaway: "덮는 화면일수록 **나가는 길**을 먼저 설계합니다. 시트의 습관이 여기서는 통하지 않습니다."
@@ -838,7 +842,7 @@ private struct M081: View {
                         .navigationTitle("편집기")
                         .navigationBarTitleDisplayMode(.inline)
                         .safeAreaInset(edge: .bottom) {
-                            // 실제 앱에는 없는 비상구 — 교재가 사용자를 가두지 않기 위한 장치.
+                            // 실제 앱에는 없는 비상구 - 교재가 사용자를 가두지 않기 위한 장치.
                             Button("예제에서 나가기") { badEditing = false }
                                 .font(.footnote.weight(.semibold))
                                 .foregroundStyle(.red)
@@ -889,7 +893,7 @@ private struct M081: View {
 
     private var editorBody: some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("아래로 쓸어내려 보세요 — 닫히지 않습니다.")
+            Text("아래로 쓸어내려 보세요, 닫히지 않습니다.")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
             TextEditor(text: $text)

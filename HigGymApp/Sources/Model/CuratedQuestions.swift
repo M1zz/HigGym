@@ -31,7 +31,7 @@ enum CuratedQuestions {
 
     static let all: [Question] = [
 
-        // MARK: 1장 — Toolbar
+        // MARK: 1장 - Toolbar
 
         q("toolbar-single",
           "이 화면의 툴바를 어떻게 구성할까요?",
@@ -51,7 +51,7 @@ enum CuratedQuestions {
            "제목 자리(principal)",
            "왼쪽 상단(leading)"],
           answer: 0,
-          why: "배치 높이는 **빈도**가 결정합니다. 메일함에서 가장 자주 반복되는 액션이므로 엄지의 홈 그라운드인 하단이 정답 — 실제 iOS 메일 앱의 배치입니다.\n\n반대로 화면당 한 번 누르는 확정성 액션(완료·저장)은 상단 trailing입니다. 빈도와 높이는 반비례해야 합니다.",
+          why: "배치 높이는 **빈도**가 결정합니다. 메일함에서 가장 자주 반복되는 액션이므로 엄지의 홈 그라운드인 하단이 정답, 실제 iOS 메일 앱의 배치입니다.\n\n반대로 화면당 한 번 누르는 확정성 액션(완료·저장)은 상단 trailing입니다. 빈도와 높이는 반비례해야 합니다.",
           source: "8.1.2", title: "Reachability", lab: .toolbar),
 
         q("toolbar-principal",
@@ -71,7 +71,7 @@ enum CuratedQuestions {
            "공유 · 설정 · 삭제 · 정렬",
            "완료 · 취소 · 새로고침"],
           answer: 0,
-          why: "Liquid Glass에서 **묶음 자체가 의미**입니다 — 같은 캡슐에 있으면 사용자는 “한 세트”로 읽습니다.\n\n실행취소/재실행은 같은 축의 짝이라 한 세트가 참이지만, 정렬(도구)과 삭제(파괴적 액션)를 묶으면 묶음이 거짓 정보가 되어 인지 부담만 커집니다.",
+          why: "Liquid Glass에서 **묶음 자체가 의미**입니다, 같은 캡슐에 있으면 사용자는 “한 세트”로 읽습니다.\n\n실행취소/재실행은 같은 축의 짝이라 한 세트가 참이지만, 정렬(도구)과 삭제(파괴적 액션)를 묶으면 묶음이 거짓 정보가 되어 인지 부담만 커집니다.",
           source: "1.1.3", title: "Leading and Trailing Clusters", lab: .toolbar),
 
         q("toolbar-leading",
@@ -102,7 +102,7 @@ enum CuratedQuestions {
            "inline이 시각적으로 더 아름다우므로",
            "제목 길이가 길어질 수 있으므로"],
           answer: 0,
-          why: "**“이 UI 요소가 지금 이 순간 과업에 기여하는가?”** — Large 타이틀은 진입 순간 “여기가 어디인지”를 알려주며 기여하지만, 읽기 시작하면 기여가 끝납니다.\n\n그 순간 공간을 콘텐츠에 반납하는 것이 Content-First. 기여 여부를 순간마다 다시 묻는 동작입니다.",
+          why: "**“이 UI 요소가 지금 이 순간 과업에 기여하는가?”**, Large 타이틀은 진입 순간 “여기가 어디인지”를 알려주며 기여하지만, 읽기 시작하면 기여가 끝납니다.\n\n그 순간 공간을 콘텐츠에 반납하는 것이 Content-First. 기여 여부를 순간마다 다시 묻는 동작입니다.",
           source: "8.1.1", title: "Content-First · Minimization", lab: .toolbar),
 
         q("title-menu",
@@ -122,10 +122,10 @@ enum CuratedQuestions {
            "이 폴더 삭제",
            "다른 폴더로 전환"],
           answer: 0,
-          why: "제목 메뉴는 **“제목이 가리키는 대상”에 대한 액션** 자리입니다.\n\n무관한 전역 액션을 넣으면 대상–액션 결합이라는 문법 자체가 거짓이 되어, 이후 이 앱의 모든 title menu를 사용자가 못 믿게 됩니다.",
+          why: "제목 메뉴는 **“제목이 가리키는 대상”에 대한 액션** 자리입니다.\n\n무관한 전역 액션을 넣으면 대상·액션 결합이라는 문법 자체가 거짓이 되어, 이후 이 앱의 모든 title menu를 사용자가 못 믿게 됩니다.",
           source: "8.1.7", title: "직접 조작", lab: .toolbar),
 
-        // MARK: 1.3 / 6장 — Scroll Edge Effect · Materials
+        // MARK: 1.3 / 6장 - Scroll Edge Effect · Materials
 
         q("edge-photo",
           "사진 위에 툴바가 떠 있는 화면에서 버튼 대비가 부족합니다. 어떻게 할까요?",
@@ -134,7 +134,7 @@ enum CuratedQuestions {
            "버튼에 불투명 배경색을 직접 지정한다",
            "버튼 색을 더 밝은 흰색으로 바꾼다"],
           answer: 0,
-          why: "투명함은 미학이고 컨트롤이 읽히는 건 기능입니다. 충돌하면 **가독성이 이깁니다** — 투명도를 포기하고 불투명 배경으로 대비를 확보하는 것이 공식 탈출구입니다.\n\n유리 위에 임의 배경색을 얹으면 시스템의 재질 계층이 깨져 다크모드·투명도 감소 설정에서 대비가 예측 불가능해집니다.",
+          why: "투명함은 미학이고 컨트롤이 읽히는 건 기능입니다. 충돌하면 **가독성이 이깁니다**, 투명도를 포기하고 불투명 배경으로 대비를 확보하는 것이 공식 탈출구입니다.\n\n유리 위에 임의 배경색을 얹으면 시스템의 재질 계층이 깨져 다크모드·투명도 감소 설정에서 대비가 예측 불가능해집니다.",
           source: "1.3.3", title: "Hard with Thick Material Toolbar Background", lab: .scrollEdge),
 
         q("edge-verify",
@@ -157,7 +157,7 @@ enum CuratedQuestions {
           why: "material은 뒤를 비춤으로써 “이 레이어는 콘텐츠 위에 떠 있다”는 깊이 관계를 표현합니다. 뒤가 복잡할수록 비침이 가독성을 해치므로 두께로 보정합니다.\n\n1.3.3의 가독성 논리와 완전히 같은 기준입니다.",
           source: "6.1.1", title: "Materials in Different Backgrounds", lab: .scrollEdge),
 
-        // MARK: 2장 — Text
+        // MARK: 2장 - Text
 
         q("text-money",
           "리스트 셀에 금액 **₩1,234,000**을 넣는데 폭이 모자랍니다.",
@@ -172,9 +172,9 @@ enum CuratedQuestions {
 
         q("text-path",
           "파일 경로 `/Users/leeo/Documents/…/report.pdf` 를 한 줄에 표시할 때 truncation은?",
-          [".middle — 가운데를 접는다",
-           ".tail — 뒤를 자른다",
-           ".head — 앞을 자른다",
+          [".middle, 가운데를 접는다",
+           ".tail, 뒤를 자른다",
+           ".head, 앞을 자른다",
            "자르지 않고 scale로 줄인다"],
           answer: 0,
           why: "경로는 앞이 공통 접두사(`/Users/이름/`)라 앞만 보이면 항목을 구분할 수 없습니다. 정보 가치가 **양 끝**에 있으니 가운데를 접는 것이 기준에 맞습니다.",
@@ -183,7 +183,7 @@ enum CuratedQuestions {
         q("text-scale-limit",
           "minimumScaleFactor를 0.3까지 내려야 텍스트가 들어갑니다.",
           subject: "이 상황을 어떻게 봐야 할까요?",
-          ["축소가 아니라 설계 문제 — 폭을 늘리거나 표기를 줄인다",
+          ["축소가 아니라 설계 문제, 폭을 늘리거나 표기를 줄인다",
            "0.3도 시스템이 허용하므로 문제없다",
            "폰트를 더 좁은 것으로 바꾼다",
            "lineLimit을 늘려 여러 줄로 흘린다"],
@@ -221,7 +221,7 @@ enum CuratedQuestions {
           why: "이름 순서·이니셜 추출 규칙은 문화권마다 다릅니다. PersonNameComponents로 값만 갖고 표기는 시스템에 맡겨야 합니다.\n\n**“데이터를 문자열로 직접 조립하는가? 그 표기 규칙이 문화권마다 다른가?”** 둘 다 예스면 이미 버그입니다.",
           source: "2.2.2", title: "Name Formatting", lab: .text),
 
-        // MARK: 3장 — Tab Bar
+        // MARK: 3장 - Tab Bar
 
         q("tab-count",
           "최상위 영역이 7개인 앱입니다. iPhone 탭바를 어떻게 할까요?",
@@ -255,7 +255,7 @@ enum CuratedQuestions {
 
         q("tab-accessory",
           "음악 재생 미니 플레이어처럼 어느 탭에 있든 유지돼야 하는 UI는?",
-          ["tabViewBottomAccessory — 탭바 계층에 붙인다",
+          ["tabViewBottomAccessory, 탭바 계층에 붙인다",
            "각 탭의 화면 하단에 각각 구현한다",
            "safeAreaBar(edge: .bottom)로 만든다",
            "nonmodal 시트로 띄운다"],
@@ -270,19 +270,19 @@ enum CuratedQuestions {
            "상세 화면에 툴바가 있을 때",
            "탭이 5개를 넘을 때"],
           answer: 0,
-          why: "목록에선 이동이 주 작업이지만 상세에선 소비가 주 작업입니다 — **주 작업이 바뀌면 크롬도 바뀌는** 것이 content-first.\n\n다만 얕은 계층이라면 탭바는 “지금 어디에 있는지”를 보여주는 상시 지도이므로 유지가 기본값입니다.",
+          why: "목록에선 이동이 주 작업이지만 상세에선 소비가 주 작업입니다, **주 작업이 바뀌면 크롬도 바뀌는** 것이 content-first.\n\n다만 얕은 계층이라면 탭바는 “지금 어디에 있는지”를 보여주는 상시 지도이므로 유지가 기본값입니다.",
           source: "3.3.2", title: "Hidden on Detail Views", lab: .tabBar),
 
-        // MARK: 4장 — Sheets
+        // MARK: 4장 - Sheets
 
         q("sheet-medium",
           "지도 위에 검색 결과 목록을 띄웁니다. 어떤 detent가 맞나요?",
-          [".medium — 배경 지도를 보면서 결과를 본다",
-           ".large — 결과에 집중시킨다",
+          [".medium, 배경 지도를 보면서 결과를 본다",
+           ".large, 결과에 집중시킨다",
            "fullScreenCover",
            "custom(120pt)"],
           answer: 0,
-          why: "절반 높이는 **“원본과의 대화”** 은유입니다 — 화면을 나눠 가짐으로써 시트가 배경 콘텐츠에 대한 것임을 형태로 말합니다.\n\n훑어보기와 집중이 둘 다 필요하면 `[.medium, .large]` 콤보로 높이 선택권을 사용자에게 넘기는 것이 더 좋습니다.",
+          why: "절반 높이는 **“원본과의 대화”** 은유입니다, 화면을 나눠 가짐으로써 시트가 배경 콘텐츠에 대한 것임을 형태로 말합니다.\n\n훑어보기와 집중이 둘 다 필요하면 `[.medium, .large]` 콤보로 높이 선택권을 사용자에게 넘기는 것이 더 좋습니다.",
           source: "4.1.2", title: "Presentation Detent: Medium", lab: .sheet),
 
         q("sheet-nonmodal",
@@ -297,13 +297,13 @@ enum CuratedQuestions {
 
         q("sheet-zoom",
           "카드를 탭하면 그 카드의 상세 시트가 열립니다. 전환은?",
-          ["zoom — 탭한 카드에서 확대되어 열린다",
-           "standard — 아래에서 올라온다",
+          ["zoom, 탭한 카드에서 확대되어 열린다",
+           "standard, 아래에서 올라온다",
            "fade",
            "push 전환"],
           answer: 0,
           why: "눌렀던 것과 열린 것이 **같은 것임을 모션으로 증명**하는 장치입니다. 공간적 연속성이 유지되어 “어디서 왔는지”를 설명할 필요가 없습니다.\n\nstandard는 출처 정보를 버리므로, 출처가 의미 있을 때는 zoom이 정답입니다.",
-          source: "4.3.2", title: "Zoom – Sheet", lab: .sheet),
+          source: "4.3.2", title: "Zoom - Sheet", lab: .sheet),
 
         q("sheet-cover",
           "온보딩·로그인 흐름에 fullScreenCover를 쓰는 이유는?",
@@ -315,7 +315,7 @@ enum CuratedQuestions {
           why: "뒤가 전혀 안 보이고 제스처 닫기도 없는 **“끝내거나, 명시적으로 나가라”**는 강한 모달성입니다.\n\n가벼운 시트와 무거운 커버를 시스템이 굳이 별도 API로 나눈 건, 이 무게 차이가 곧 사용자 기대의 문제이기 때문입니다.",
           source: "4.2.1", title: "Full Screen Cover", lab: .sheet),
 
-        // MARK: 5장 — Safe Area Bar
+        // MARK: 5장 - Safe Area Bar
 
         q("safearea-why",
           "커스텀 하단 컨트롤 바를 만들 때 safeAreaBar를 쓰는 이유는?",
@@ -324,7 +324,7 @@ enum CuratedQuestions {
            "자동으로 탭바처럼 보이므로",
            "다크 모드 색을 알아서 맞춰주므로"],
           answer: 0,
-          why: "overlay는 콘텐츠를 **가리고**, safeAreaInset은 밀어내기만 하고 가장자리 효과가 없습니다.\n\nsafeAreaBar는 **시스템 바의 인프라 전체를 커스텀 뷰에 개방**한 것 — 커스텀 UI도 시스템 바와 같은 문법으로 읽히고, 홈 인디케이터 분기도 사라집니다.",
+          why: "overlay는 콘텐츠를 **가리고**, safeAreaInset은 밀어내기만 하고 가장자리 효과가 없습니다.\n\nsafeAreaBar는 **시스템 바의 인프라 전체를 커스텀 뷰에 개방**한 것, 커스텀 UI도 시스템 바와 같은 문법으로 읽히고, 홈 인디케이터 분기도 사라집니다.",
           source: "5.1.3", title: "Bottom Safe Area Bar"),
 
         q("safearea-consistency",
@@ -338,7 +338,7 @@ enum CuratedQuestions {
           why: "위아래가 같은 효과로 통일되어야 콘텐츠가 **“두 유리 사이를 지나는 하나의 면”**으로 읽힙니다.\n\n위는 soft인데 아래만 hard면 한 화면 안에서 재질 은유가 깨집니다.",
           source: "5.1.5", title: "Top & Bottom, Soft Scroll Edge Effect"),
 
-        // MARK: 7장 — Menu
+        // MARK: 7장 - Menu
 
         q("menu-order",
           "메뉴 안에서 파괴적 액션(삭제)은 어떻게 배치하나요?",
@@ -347,7 +347,7 @@ enum CuratedQuestions {
            "다른 항목과 같은 그룹 안에",
            "아이콘 없이 텍스트만"],
           answer: 0,
-          why: "메뉴의 가치는 배치 규약이 **시스템 전역에서 동일해 학습이 필요 없다**는 것입니다.\n\n자주 쓰는 항목은 버튼 가까운 쪽에, 관련 항목은 섹션으로 묶고, 파괴적 액션은 Divider로 분리해 빨간색 — 이 규약을 지켜야 사용자가 실수로 누르지 않습니다.",
+          why: "메뉴의 가치는 배치 규약이 **시스템 전역에서 동일해 학습이 필요 없다**는 것입니다.\n\n자주 쓰는 항목은 버튼 가까운 쪽에, 관련 항목은 섹션으로 묶고, 파괴적 액션은 Divider로 분리해 빨간색, 이 규약을 지켜야 사용자가 실수로 누르지 않습니다.",
           source: "7.1.1", title: "Menu Configurations", lab: .toolbar),
 
         q("menu-vs-toolbar",
@@ -357,7 +357,7 @@ enum CuratedQuestions {
            "구현 난이도",
            "액션이 파괴적인지 여부"],
           answer: 0,
-          why: "드물게 쓰는 액션은 지금의 과업에 기여할 확률이 낮으므로 접어둡니다 — 기능의 완전성은 유지하면서 **화면 점유는 기여도에 비례**시키는 것입니다.\n\n툴바 overflow가 자동으로 만드는 것도 결국 이 메뉴입니다.",
+          why: "드물게 쓰는 액션은 지금의 과업에 기여할 확률이 낮으므로 접어둡니다, 기능의 완전성은 유지하면서 **화면 점유는 기여도에 비례**시키는 것입니다.\n\n툴바 overflow가 자동으로 만드는 것도 결국 이 메뉴입니다.",
           source: "8.1.1", title: "Content-First · Minimization", lab: .toolbar),
     ]
 }

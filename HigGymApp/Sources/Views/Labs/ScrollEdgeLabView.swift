@@ -38,6 +38,7 @@ struct ScrollEdgeLabView: View {
     @State private var backdrop: BackdropOption = .calm
     @State private var thickMaterial = false
     @State private var running = false
+    @State private var log = DemoLog()
 
     var body: some View {
         LabScaffold(title: "스크롤 엣지 이펙트", subtitle: "최악의 배경에서 컨트롤이 읽히는지") {
@@ -71,9 +72,9 @@ struct ScrollEdgeLabView: View {
                                 .fill(.white.opacity(0.9))
                                 .frame(width: 44, height: 44)
                             VStack(alignment: .leading, spacing: 4) {
-                                Text("항목 \(i + 1)")
+                                Text(DemoData.album(i).name)
                                     .font(.subheadline.weight(.semibold))
-                                Text("바 뒤로 지나가는 콘텐츠")
+                                Text(DemoData.album(i).detail)
                                     .font(.footnote)
                                     .opacity(0.75)
                             }
@@ -91,26 +92,27 @@ struct ScrollEdgeLabView: View {
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button("공유", systemImage: "square.and.arrow.up") {}
-                    Button("선택", systemImage: "checkmark.circle") {}
+                    Button("공유", systemImage: "square.and.arrow.up") { log.tap("공유") }
+                    Button("선택", systemImage: "checkmark.circle") { log.tap("선택 모드") }
                 }
             }
             .modifier(EdgeEffectModifier(style: style))
             .modifier(ToolbarBackgroundModifier(thick: thickMaterial))
         }
+        .demoToast(log)
     }
 
     @ViewBuilder
     private var backdropView: some View {
         switch backdrop {
         case .calm:
-            // 앱 모드를 따라가면 안 된다 — 여기서 판정하는 건 앱 크롬이 아니라
+            // 앱 모드를 따라가면 안 된다 - 여기서 판정하는 건 앱 크롬이 아니라
             // **바 뒤로 지나가는 콘텐츠**다. 조건을 고정해야 세 배경의 비교가 성립한다.
             Color(red: 0.07, green: 0.08, blue: 0.11)
         case .white:
             Color.white
         case .photo:
-            // 밝기가 크게 출렁이는 배경 — 반투명 바의 대비가 무너지는 조건을 만든다.
+            // 밝기가 크게 출렁이는 배경 - 반투명 바의 대비가 무너지는 조건을 만든다.
             MeshGradient(
                 width: 3, height: 3,
                 points: [
@@ -157,7 +159,7 @@ struct ScrollEdgeLabView: View {
         }
     }
 
-    // MARK: 판정 — 8.1.4 가독성 > 미학
+    // MARK: 판정 - 8.1.4 가독성 > 미학
 
     private var diagnoses: [Diagnosis] {
         var out: [Diagnosis] = []
@@ -166,13 +168,13 @@ struct ScrollEdgeLabView: View {
         case (.hidden, true, false):
             out.append(.init(
                 level: .violation,
-                message: "밝고 복잡한 배경 위에서 가장자리 효과를 껐습니다. 흰 영역이 바 뒤를 지나는 순간 컨트롤이 배경에 녹아 사라집니다 — 최악의 배경에서 검증하는 단계를 건너뛴 전형입니다.",
+                message: "밝고 복잡한 배경 위에서 가장자리 효과를 껐습니다. 흰 영역이 바 뒤를 지나는 순간 컨트롤이 배경에 녹아 사라집니다, 최악의 배경에서 검증하는 단계를 건너뛴 전형입니다.",
                 source: "1.3.4 · 8.1.4"
             ))
         case (.hidden, false, _):
             out.append(.init(
                 level: .caution,
-                message: "지금 단색 배경에서는 멀쩡해 보입니다. 배경을 **사진**이나 **흰 배경**으로 바꿔 같은 설정을 다시 확인해보세요 — 그게 실제 검증 조건입니다.",
+                message: "지금 단색 배경에서는 멀쩡해 보입니다. 배경을 **사진**이나 **흰 배경**으로 바꿔 같은 설정을 다시 확인해보세요, 그게 실제 검증 조건입니다.",
                 source: "1.3.4 · 8.1.4"
             ))
         case (.soft, true, false):
@@ -184,7 +186,7 @@ struct ScrollEdgeLabView: View {
         case (.hard, true, true), (.soft, true, true):
             out.append(.init(
                 level: .good,
-                message: "복잡한 배경에서 투명도(미학)를 포기하고 불투명 배경으로 가독성을 확보했습니다 — “예쁜데 안 읽힌다”에 대한 공식 탈출구입니다.",
+                message: "복잡한 배경에서 투명도(미학)를 포기하고 불투명 배경으로 가독성을 확보했습니다, “예쁜데 안 읽힌다”에 대한 공식 탈출구입니다.",
                 source: "1.3.3 · 8.1.4"
             ))
         case (.hard, true, false):
@@ -196,13 +198,13 @@ struct ScrollEdgeLabView: View {
         case (.soft, false, _):
             out.append(.init(
                 level: .good,
-                message: "콘텐츠가 자연스럽게 흘러 사라지는 기본값입니다 — 목록·피드처럼 배경이 잔잔한 화면의 표준입니다.",
+                message: "콘텐츠가 자연스럽게 흘러 사라지는 기본값입니다, 목록·피드처럼 배경이 잔잔한 화면의 표준입니다.",
                 source: "1.3.1"
             ))
         case (.hard, false, _):
             out.append(.init(
                 level: .good,
-                message: "바와 콘텐츠의 경계를 또렷이 나눕니다 — 표·폼처럼 구조가 중요한 화면에 맞습니다.",
+                message: "바와 콘텐츠의 경계를 또렷이 나눕니다, 표·폼처럼 구조가 중요한 화면에 맞습니다.",
                 source: "1.3.2"
             ))
         case (.hidden, true, true):

@@ -44,7 +44,7 @@ struct TabBarLabView: View {
                         accessory: accessory,
                         minimized: minimize
                     ),
-                    caption: "설정을 바꾸면 이 그림이 바로 다시 그려집니다 — 문서의 프리뷰와 같은 언어",
+                    caption: "설정을 바꾸면 이 그림이 바로 다시 그려집니다, 문서의 프리뷰와 같은 언어",
                     selected: $selectedPart
                 )
 
@@ -151,13 +151,13 @@ struct TabBarLabView: View {
         case .searchRole:
             out.append(.init(
                 level: .good,
-                message: "탭은 “장소 이동”이지만 검색은 **“모드 진입”** — 역할로 선언하면 시스템이 별도 캡슐로 분리하고 위치·전환까지 처리합니다. iOS 26의 표준입니다.",
+                message: "탭은 “장소 이동”이지만 검색은 **“모드 진입”**, 역할로 선언하면 시스템이 별도 캡슐로 분리하고 위치·전환까지 처리합니다. iOS 26의 표준입니다.",
                 source: "3.4.2"
             ))
         case .plainTab:
             out.append(.init(
                 level: .caution,
-                message: "검색을 일반 탭으로 두면 “검색은 우리 앱의 한 세계”라는 선언이 됩니다. 목록을 좁히는 필터형 검색이라면 과합니다 — `role: .search`나 화면 안 `.searchable`이 맞습니다.",
+                message: "검색을 일반 탭으로 두면 “검색은 우리 앱의 한 세계”라는 선언이 됩니다. 목록을 좁히는 필터형 검색이라면 과합니다`role: .search`나 화면 안 `.searchable`이 맞습니다.",
                 source: "3.4.1 · 3.4.2"
             ))
         case .none:
@@ -167,7 +167,7 @@ struct TabBarLabView: View {
         if minimize && accessory {
             out.append(.init(
                 level: .good,
-                message: "접힐 때 액세서리가 사라지지 않고 **탭바 자리로 승격**됩니다 — “이동 < 상태”라는 우선순위 역전을 시스템이 자동 처리합니다.",
+                message: "접힐 때 액세서리가 사라지지 않고 **탭바 자리로 승격**됩니다, “이동 < 상태”라는 우선순위 역전을 시스템이 자동 처리합니다.",
                 source: "3.5.2"
             ))
         } else if accessory {
@@ -301,8 +301,15 @@ private struct TabBarStage: View {
                         detail
                     }
                 }
-                ForEach(0..<30, id: \.self) { i in
-                    Text("\(title) 항목 \(i + 1)")
+                // 탭마다 같은 받은 편지함을 두 번 깐다 - 스크롤이 길어야 탭바 최소화가 보인다.
+                ForEach(0..<2, id: \.self) { pass in
+                    ForEach(DemoData.mail) { mail in
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(mail.sender).font(.subheadline.weight(.semibold))
+                            Text(mail.subject).font(.footnote).foregroundStyle(.secondary)
+                        }
+                        .id("\(pass)-\(mail.id)")
+                    }
                 }
             }
             .navigationTitle(title)
@@ -313,10 +320,10 @@ private struct TabBarStage: View {
         List {
             Text("상세 화면입니다.")
             Text(hideOnDetail
-                 ? "탭바를 숨겼습니다 — 뒤로가기가 유일한 출구입니다."
-                 : "탭바가 유지됩니다 — 지금 어느 탭 안에 있는지가 계속 보입니다.")
-            ForEach(0..<20, id: \.self) { i in
-                Text("본문 \(i + 1)")
+                 ? "탭바를 숨겼습니다, 뒤로가기가 유일한 출구입니다."
+                 : "탭바가 유지됩니다, 지금 어느 탭 안에 있는지가 계속 보입니다.")
+            ForEach(DemoData.meetingNotes, id: \.self) { line in
+                Text(line)
             }
         }
         .navigationTitle("상세")

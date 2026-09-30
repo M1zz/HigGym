@@ -1,14 +1,14 @@
 import SwiftUI
 
 /// 실수 한 편의 회고. 카드가 "무엇을·왜·고치면" 세 줄로 요약이라면,
-/// 여기는 그 세 줄이 나온 과정 — 증상에서 시작해 기준에 도착하는 글이다.
+/// 여기는 그 세 줄이 나온 과정 - 증상에서 시작해 기준에 도착하는 글이다.
 ///
 /// 원본은 `Retrospectives/<id>.md` 이고, 그대로 발행할 수 있게 마크다운으로 둔다.
 /// 앱에는 build_mistakes.py 가 절 단위로 잘라 실어준다.
 struct MistakeStoryView: View {
     let mistake: Mistake
 
-    /// 절 제목마다 성격이 다르다 — 색으로 흐름(증상 → 원인 → 기준 → 해결)을 보이게 한다.
+    /// 절 제목마다 성격이 다르다 - 색으로 흐름(증상 → 원인 → 기준 → 해결)을 보이게 한다.
     private func tint(for heading: String) -> Color {
         switch heading {
         case "증상":                    .hgRed

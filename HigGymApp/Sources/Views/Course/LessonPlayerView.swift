@@ -37,7 +37,7 @@ struct LessonPlayerView: View {
             case .takeaway: "checkmark.seal"
             }
         }
-        /// 화면 전체를 써야 하는 단계 — 앱을 실제 크기로 보여준다.
+        /// 화면 전체를 써야 하는 단계 - 앱을 실제 크기로 보여준다.
         var isFullBleed: Bool { self == .use || self == .compare }
     }
 
@@ -63,6 +63,7 @@ struct LessonPlayerView: View {
             let note = notebook.note(for: lesson)
             impression = note.impression
             takeaway = note.takeaway
+            step = Step(rawValue: notebook.resumeStep(for: lesson)) ?? .use
             if let raw = DebugLaunch.lessonStep, let target = Step(rawValue: raw) { step = target }
         }
         .onChange(of: step) { _, _ in save() }
@@ -76,9 +77,10 @@ struct LessonPlayerView: View {
         note.impression = impression
         note.takeaway = takeaway
         notebook.write(note, for: lesson)
+        notebook.markPosition(lesson, step: step.rawValue)
     }
 
-    // MARK: 머리 — 지금 어느 단계인가
+    // MARK: 머리 - 지금 어느 단계인가
 
     private var header: some View {
         VStack(spacing: 9) {
@@ -161,7 +163,7 @@ struct LessonPlayerView: View {
 
     /// ① 에서 만져볼 화면은 **어긴 쪽**이다.
     ///
-    /// 고친 화면을 먼저 쥐여주면 만족스러운 경험만 하고 지나간다 — 느낄 마찰이 없으니
+    /// 고친 화면을 먼저 쥐여주면 만족스러운 경험만 하고 지나간다 - 느낄 마찰이 없으니
     /// "무엇을 느꼈나"라는 질문도 헛돈다. 잘못된 쪽을 먼저 겪어야 몸이 먼저 알아채고,
     /// 그 어긋남을 자기 문장으로 쓴 다음에 이유를 보게 된다. 어느 쪽인지는 ③ 에서 밝힌다.
     @ViewBuilder
@@ -206,7 +208,7 @@ struct LessonPlayerView: View {
                     minHeight: 190
                 )
 
-                Text("정답을 맞히는 칸이 아닙니다. 방금 손으로 겪은 것을 그대로 적으면 됩니다. **아무 이상 없었다면 그렇게 적어도 됩니다** — 못 느끼고 지나가는 것이 어디인지가 다음 단계에서 더 중요해집니다.")
+                Text("정답을 맞히는 칸이 아닙니다. 방금 손으로 겪은 것을 그대로 적으면 됩니다. **아무 이상 없었다면 그렇게 적어도 됩니다**, 못 느끼고 지나가는 것이 어디인지가 다음 단계에서 더 중요해집니다.")
                     .font(.footnote)
                     .foregroundStyle(.hgDim)
             }
@@ -227,7 +229,7 @@ struct LessonPlayerView: View {
         .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(Color.hgAccent2.opacity(0.25), lineWidth: 1))
     }
 
-    // MARK: ③ 이유 확인 — 내가 쓴 것과 나란히
+    // MARK: ③ 이유 확인 - 내가 쓴 것과 나란히
 
     private var revealStep: some View {
         ScrollView {
@@ -357,7 +359,7 @@ struct LessonPlayerView: View {
         }
     }
 
-    // MARK: 발 — 다음으로
+    // MARK: 발 - 다음으로
 
     private var footer: some View {
         HStack(spacing: 10) {
@@ -461,7 +463,7 @@ private struct LessonEditor: View {
 
 // MARK: - 근거 자료
 
-/// 레슨 중에 본문 항목을 꺼내 볼 수 있게 — 참고 자료는 흐름을 끊지 않고 옆에서 열린다.
+/// 레슨 중에 본문 항목을 꺼내 볼 수 있게 - 참고 자료는 흐름을 끊지 않고 옆에서 열린다.
 private struct LessonReferenceSheet: View {
     let lesson: Lesson
 

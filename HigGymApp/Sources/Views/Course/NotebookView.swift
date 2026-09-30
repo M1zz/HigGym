@@ -9,7 +9,7 @@ struct NotebookView: View {
     @Environment(NotebookStore.self) private var notebook
     @State private var copied = false
     @State private var editing: Lesson?
-    /// 마크다운 파일로 내보내기 — 남긴 글은 앱 밖으로 나갈 수 있어야 한다.
+    /// 마크다운 파일로 내보내기 - 남긴 글은 앱 밖으로 나갈 수 있어야 한다.
     @State private var exportURL: URL?
 
     private var written: [Lesson] {

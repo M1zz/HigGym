@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "toolbar-annotated.html"
 OUT = ROOT / "HigGymApp" / "Resources" / "entries.json"
 
-# 본문에서 번호 매김에 쓰는 원문자 — ok/ng 예시를 개별 항목으로 쪼갤 때 구분자로 쓴다.
+# 본문에서 번호 매김에 쓰는 원문자 - ok/ng 예시를 개별 항목으로 쪼갤 때 구분자로 쓴다.
 CIRCLED = "①②③④⑤⑥⑦⑧⑨"
 
 
@@ -137,7 +137,7 @@ def parse_refs(markdown: str) -> list[dict]:
 def main() -> int:
     doc = SRC.read_text(encoding="utf-8")
 
-    # 챕터 헤더 위치 — 각 entry가 어느 챕터에 속하는지 오프셋으로 판정한다.
+    # 챕터 헤더 위치 - 각 entry가 어느 챕터에 속하는지 오프셋으로 판정한다.
     chapters = []
     for m in re.finditer(
         r"<div class=\"ch-head\" id=\"(ch\d+)\">\s*<div class=\"ch-num\">(\d+)</div>\s*<h2>(.*?)</h2>",
@@ -151,7 +151,7 @@ def main() -> int:
                 "id": m.group(1),
                 "number": int(m.group(2)),
                 "title": to_markdown(re.sub(r"<span class=\"ch-sub\">.*?</span>", "", raw, flags=re.S)),
-                "subtitle": to_markdown(sub.group(1)).lstrip("— ").strip() if sub else "",
+                "subtitle": to_markdown(sub.group(1)).strip() if sub else "",
                 "pos": m.start(),
             }
         )
@@ -185,7 +185,7 @@ def main() -> int:
     entries = []
     principles = []
 
-    # entry 단위로 먼저 자른다 — 중첩 div 때문에 한 방에 정규식으로 뜨면 경계가 어긋난다.
+    # entry 단위로 먼저 자른다 - 중첩 div 때문에 한 방에 정규식으로 뜨면 경계가 어긋난다.
     starts = [m.start() for m in re.finditer(r"<div class=\"entry\" id=\"", doc)]
     bounds = list(zip(starts, starts[1:] + [len(doc)]))
 

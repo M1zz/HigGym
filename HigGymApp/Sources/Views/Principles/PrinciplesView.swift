@@ -1,12 +1,12 @@
 import SwiftUI
 
-/// 8장 원칙 7개 — 실습 판정과 퀴즈 해설이 모두 여기서 나온다.
+/// 8장 원칙 7개 - 실습 판정과 퀴즈 해설이 모두 여기서 나온다.
 struct PrinciplesView: View {
     var onClose: (() -> Void)?
 
     private let store = ContentStore.shared
     @State private var query = ""
-    @State private var path: [Entry] = []
+    @State private var path = NavigationPath()
 
     private var filtered: [Entry] {
         guard !query.isEmpty else { return store.principles }
@@ -41,13 +41,13 @@ struct PrinciplesView: View {
                 }
             }
             .searchable(text: $query, prompt: "원칙·기준 검색")
-            .navigationDestination(for: Entry.self) { PrincipleDetailView(principle: $0) }
+            .navigationDestination(for: Entry.self) { EntryDestination(entry: $0) }
             .navigationDestination(for: Mistake.self) { MistakeDetailView(mistake: $0) }
             .navigationDestination(for: MistakeStoryRoute.self) { MistakeStoryView(mistake: $0.mistake) }
             .task {
                 if let index = DebugLaunch.principleIndex,
                    let principle = store.principles.first(where: { $0.index == index }) {
-                    path = [principle]
+                    path = NavigationPath([principle])
                 }
             }
         }
@@ -65,9 +65,9 @@ struct PrinciplesView: View {
 private struct PrincipleCard: View {
     let principle: Entry
 
-    /// "Content-First · Minimization — UI는 콘텐츠를 위해 물러난다" 를 두 줄로 나눈다.
+    /// "Content-First · Minimization - UI는 콘텐츠를 위해 물러난다" 를 두 줄로 나눈다.
     private var parts: (name: String, tagline: String?) {
-        guard let range = principle.title.range(of: " — ") else { return (principle.title, nil) }
+        guard let range = principle.title.range(of: "") else { return (principle.title, nil) }
         return (
             String(principle.title[..<range.lowerBound]),
             String(principle.title[range.upperBound...])
@@ -102,12 +102,14 @@ private struct PrincipleCard: View {
     }
 }
 
-private struct PrincipleDetailView: View {
+struct PrincipleDetailView: View {
     let principle: Entry
 
     @State private var runningDemo: EntryDemo?
 
     private var demo: EntryDemo? { EntryDemos.demo(for: principle) }
+    /// 이 원칙을 기준으로 삼은 실수들. 원칙은 추상적이라 어긴 사례가 붙어야 읽힌다.
+    private var mistakes: [Mistake] { MistakeStore.shared.mistakes(citing: principle.index) }
 
 
     var body: some View {
@@ -133,6 +135,10 @@ private struct PrincipleDetailView: View {
                 }
                 if !principle.bad.isEmpty {
                     examples("기준을 위반한 예", principle.bad, .hgRed, "xmark.octagon.fill")
+                }
+
+                if !mistakes.isEmpty {
+                    MistakeLinksSection(mistakes: mistakes)
                 }
 
                 if !principle.refs.isEmpty {

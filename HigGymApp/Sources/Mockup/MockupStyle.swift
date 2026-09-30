@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 목업 한 노드가 어떻게 그려지는지 — 문서 CSS를 그대로 옮긴 표.
+/// 목업 한 노드가 어떻게 그려지는지 - 문서 CSS를 그대로 옮긴 표.
 struct MockupBox {
     enum Layout {
         case row(spacing: CGFloat, centered: Bool)
@@ -41,7 +41,7 @@ struct MockupBox {
 
     var font: FontSpec?
     var foreground: Color?
-    /// CSS의 white-space: nowrap — 라벨류는 줄바꿈하지 않는다.
+    /// CSS의 white-space: nowrap - 라벨류는 줄바꿈하지 않는다.
     var nowrap = false
 
     var isAbsolute: Bool {
@@ -366,7 +366,7 @@ enum MockupStyle {
         return b
     }
 
-    /// 인라인 스타일은 클래스 기본값을 덮어쓴다 — 문서에서 항목마다 위치를 지정하는 방식.
+    /// 인라인 스타일은 클래스 기본값을 덮어쓴다 - 문서에서 항목마다 위치를 지정하는 방식.
     private static func applyInline(_ node: MockupNode, to b: inout MockupBox) {
         if let v = node.length("top") { b.top = v }
         if let v = node.length("left") { b.left = v }

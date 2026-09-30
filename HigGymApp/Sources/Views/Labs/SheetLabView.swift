@@ -75,7 +75,7 @@ struct SheetLabView: View {
         .fullScreenCover(isPresented: $showCover) { coverContent }
     }
 
-    // MARK: 배경 — 시트가 얼마나 덮는지 비교할 대상
+    // MARK: 배경 - 시트가 얼마나 덮는지 비교할 대상
 
     private var stage: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -96,10 +96,11 @@ struct SheetLabView: View {
                             RoundedRectangle(cornerRadius: 8)
                                 .fill(.hgBrand)
                                 .frame(height: 52)
-                            Text("카드 \(i + 1)")
+                            Text(DemoData.album(i).name)
                                 .font(.subheadline.weight(.semibold))
                                 .foregroundStyle(.hgText)
-                            Text("탭하면 이 카드의 상세")
+                                .lineLimit(1)
+                            Text(DemoData.album(i).detail)
                                 .font(.caption)
                                 .foregroundStyle(.hgDim)
                         }
@@ -123,7 +124,7 @@ struct SheetLabView: View {
     @ViewBuilder
     private var sheetContent: some View {
         let base = SheetBody(
-            title: selectedCard.map { "카드 \($0 + 1) 상세" } ?? "상세",
+            title: selectedCard.map { DemoData.album($0).name } ?? "앨범",
             detent: detent,
             nonmodal: nonmodal
         )
@@ -172,7 +173,7 @@ struct SheetLabView: View {
                 .font(.subheadline).foregroundStyle(.hgText).tint(.hgAccent)
                 .disabled(kind == .cover)
 
-            Toggle("비모달 — 뒤를 만질 수 있게", isOn: $nonmodal)
+            Toggle("비모달, 뒤를 만질 수 있게", isOn: $nonmodal)
                 .font(.subheadline).foregroundStyle(.hgText).tint(.hgAccent)
                 .disabled(kind == .cover)
         }
@@ -187,7 +188,7 @@ struct SheetLabView: View {
         case .medium:
             out.append(.init(
                 level: .good,
-                message: "절반 높이는 **“원본과의 대화”** 은유입니다 — 화면을 나눠 가짐으로써 이 시트가 배경 콘텐츠에 대한 것임을 형태로 말합니다.",
+                message: "절반 높이는 **“원본과의 대화”** 은유입니다, 화면을 나눠 가짐으로써 이 시트가 배경 콘텐츠에 대한 것임을 형태로 말합니다.",
                 source: "4.1.2"
             ))
         case .large:
@@ -199,7 +200,7 @@ struct SheetLabView: View {
         case .custom:
             out.append(.init(
                 level: .good,
-                message: "시트 높이는 콘텐츠가 결정해야 합니다 — 작은 UI에 medium을 쓰면 잉여 공백이 “뭔가 더 있나?”라는 오독을 만듭니다.",
+                message: "시트 높이는 콘텐츠가 결정해야 합니다, 작은 UI에 medium을 쓰면 잉여 공백이 “뭔가 더 있나?”라는 오독을 만듭니다.",
                 source: "4.1.3"
             ))
         case .combo:
@@ -227,7 +228,7 @@ struct SheetLabView: View {
             if detent == .large {
                 out.append(.init(
                     level: .caution,
-                    message: "large에서 비모달은 의미가 약합니다 — 뒤가 거의 안 보이는데 만질 수 있다고 말하는 셈입니다. 비모달은 medium·custom과 짝입니다.",
+                    message: "large에서 비모달은 의미가 약합니다, 뒤가 거의 안 보이는데 만질 수 있다고 말하는 셈입니다. 비모달은 medium·custom과 짝입니다.",
                     source: "4.1.5"
                 ))
             }
@@ -319,14 +320,14 @@ private struct SheetBody: View {
                     .font(.headline.weight(.bold))
                     .foregroundStyle(.hgText)
                 Text(nonmodal
-                     ? "비모달입니다 — 시트를 연 채로 뒤의 카드를 만져보세요."
-                     : "모달입니다 — 뒤는 딤 처리되어 닫기 전에는 만질 수 없습니다.")
+                     ? "비모달입니다, 시트를 연 채로 뒤의 카드를 만져보세요."
+                     : "모달입니다, 뒤는 딤 처리되어 닫기 전에는 만질 수 없습니다.")
                     .font(.subheadline)
                     .foregroundStyle(.hgMuted)
 
-                ForEach(0..<12, id: \.self) { i in
+                ForEach(DemoData.settingRows, id: \.self) { row in
                     HStack {
-                        Text("옵션 \(i + 1)")
+                        Text(row)
                             .font(.subheadline)
                             .foregroundStyle(.hgText)
                         Spacer()

@@ -8,7 +8,7 @@ struct NoteAppDecision: Identifiable, Hashable {
     let place: String
     /// 무엇을 했는가.
     let decision: String
-    /// 왜 그렇게 했는가 — 뜯어보기의 핵심.
+    /// 왜 그렇게 했는가 - 뜯어보기의 핵심.
     let why: String
     /// 이 결정을 뒤집으면 어떤 실수가 되는가.
     let ifFlipped: String
@@ -47,7 +47,7 @@ struct NoteAppDecision: Identifiable, Hashable {
         .init(
             knob: .search, place: "화면 아래 · 검색 캡슐",
             decision: "검색을 상단 서랍이 아니라 하단 툴바에 뒀다.",
-            why: "검색은 한 손으로 자주 여는 입구다. iOS 26이 검색을 아래로 내린 것과 같은 이유 — 엄지 도달성.",
+            why: "검색은 한 손으로 자주 여는 입구다. iOS 26이 검색을 아래로 내린 것과 같은 이유, 엄지 도달성.",
             ifFlipped: "항상 보이는 상단 서랍에 두면 세로 한 줄을 상시로 먹고, 손은 화면 위까지 올라가야 한다.",
             sources: ["1.4.1", "1.4.4"]
         ),
@@ -69,7 +69,7 @@ struct NoteAppDecision: Identifiable, Hashable {
             knob: .editorExit, place: "새 노트 · 취소 / 완료",
             decision: "전체 화면 편집기에 출구를 직접 만들었다.",
             why: "전체 화면 커버는 일부러 쓸어내려 닫히지 않는다. 작성 중인 글을 지키는 대신 출구를 만들 의무가 따라온다.",
-            ifFlipped: "닫기 버튼이 없으면 사용자는 앱이 멈춘 줄 알고 강제 종료한다.",
+            ifFlipped: "닫기 버튼이 없으면 나갈 길이 없어, 사용자에게는 앱이 멈춘 것처럼 보인다.",
             sources: ["4.2.1"]
         ),
     ]
@@ -79,7 +79,7 @@ struct NoteAppDecision: Identifiable, Hashable {
     }
 }
 
-/// 샘플 앱 체험 — 먼저 **그냥 써보고**, 그다음 결정을 하나씩 짚어본다.
+/// 샘플 앱 체험 - 먼저 **그냥 써보고**, 그다음 결정을 하나씩 짚어본다.
 ///
 /// 안내는 비모달 시트라 읽으면서 앱을 그대로 만질 수 있다. 결정을 고르면
 /// 그 자리에 테두리가 켜지므로 "어디를 말하는 건지"를 찾을 필요가 없다.
@@ -99,7 +99,8 @@ struct CaseStudyView: View {
 
     private var chrome: some View {
         HStack(spacing: 4) {
-            button("xmark") { dismiss() }
+            button("chevron.backward") { dismiss() }
+                .accessibilityLabel("돌아가기")
             Divider().frame(height: 18)
             button("list.bullet.rectangle") { showNotes = true }
         }
@@ -166,7 +167,7 @@ private struct DecisionSheet: View {
         }
         .presentationDetents([.height(220), .medium, .large])
         .presentationDragIndicator(.visible)
-        // 읽으면서 뒤의 앱을 그대로 쓸 수 있게 — 이 앱이 4.1.5에서 가르치는 그 동작.
+        // 읽으면서 뒤의 앱을 그대로 쓸 수 있게 - 이 앱이 4.1.5에서 가르치는 그 동작.
         .presentationBackgroundInteraction(.enabled(upThrough: .medium))
     }
 
@@ -175,7 +176,7 @@ private struct DecisionSheet: View {
             Text("먼저 그냥 써보세요")
                 .font(.headline.weight(.bold))
                 .foregroundStyle(.hgText)
-            Text("노트를 열고, 쓰고, 밀어서 지우고, 검색해 보세요. 이 시트를 내려도 앱은 그대로 동작합니다. 그다음 아래 결정을 하나씩 눌러 **왜 그 자리인지** 확인하세요 — 누르면 그 자리에 테두리가 켜집니다.")
+            Text("노트를 열고, 쓰고, 밀어서 지우고, 검색해 보세요. 이 시트를 내려도 앱은 그대로 동작합니다. 그다음 아래 결정을 하나씩 눌러 **왜 그 자리인지** 확인하세요, 누르면 그 자리에 테두리가 켜집니다.")
                 .font(.subheadline)
                 .foregroundStyle(.hgMuted)
         }

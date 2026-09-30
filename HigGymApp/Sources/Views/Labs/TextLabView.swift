@@ -1,7 +1,7 @@
 import SwiftUI
 import UIKit
 
-/// 2.1 Text Behavior 의 판단 기준은 "잘려도 뜻이 통하는가?" —
+/// 2.1 Text Behavior 의 판단 기준은 "잘려도 뜻이 통하는가?" -
 /// 그래서 샘플마다 문장인지 값인지를 먼저 규정한다.
 enum TextSample: String, CaseIterable, Identifiable {
     case sentence, amount, timer, path, name
@@ -32,11 +32,11 @@ enum TextSample: String, CaseIterable, Identifiable {
 
     var semantics: String {
         switch self {
-        case .sentence: "문장 — 잘려도 앞부분으로 뜻이 통한다"
-        case .amount:   "값 — 잘리면 틀린 금액이 된다"
-        case .timer:    "값 — 잘리면 다른 시간이 된다"
-        case .path:     "값 — 정보 가치가 양 끝에 있다"
-        case .name:     "값 — 표기 규칙이 문화권마다 다르다"
+        case .sentence: "문장, 잘려도 앞부분으로 뜻이 통한다"
+        case .amount:   "값, 잘리면 틀린 금액이 된다"
+        case .timer:    "값, 잘리면 다른 시간이 된다"
+        case .path:     "값, 정보 가치가 양 끝에 있다"
+        case .name:     "값, 표기 규칙이 문화권마다 다르다"
         }
     }
 }
@@ -150,7 +150,7 @@ struct TextLabView: View {
                 .font(.subheadline)
                 .foregroundStyle(.hgText)
 
-            Toggle("reservesSpace — 짧아도 높이 유지", isOn: $reservesSpace)
+            Toggle("reservesSpace, 짧아도 높이 유지", isOn: $reservesSpace)
                 .font(.subheadline)
                 .foregroundStyle(.hgText)
                 .tint(.hgAccent)
@@ -187,7 +187,7 @@ struct TextLabView: View {
         }
     }
 
-    // MARK: 판정 — 8.1.5 공간은 계약, 텍스트는 가변
+    // MARK: 판정 - 8.1.5 공간은 계약, 텍스트는 가변
 
     private var overflows: Bool {
         TextMetrics.overflows(
@@ -205,7 +205,7 @@ struct TextLabView: View {
         if overflows && !sample.isSentence && !scaling {
             out.append(.init(
                 level: .violation,
-                message: "**\(sample.label)**은(는) 잘리는 순간 정보가 파괴되는 “값”인데 지금 잘리고 있습니다. “₩1,234,0…”은 뜻이 통하는 게 아니라 **틀린 값**을 보여주는 것입니다 — minimumScaleFactor로 줄이세요.",
+                message: "**\(sample.label)**은(는) 잘리는 순간 정보가 파괴되는 “값”인데 지금 잘리고 있습니다. “₩1,234,0…”은 뜻이 통하는 게 아니라 **틀린 값**을 보여주는 것입니다, minimumScaleFactor로 줄이세요.",
                 source: "2.1.3 · 8.1.5"
             ))
         }
@@ -227,7 +227,7 @@ struct TextLabView: View {
         } else if sample == .path && truncation == .middle {
             out.append(.init(
                 level: .good,
-                message: "가운데를 접어 양 끝(루트와 파일명)을 남겼습니다 — 정보 가치가 있는 쪽을 보존하는 선택입니다.",
+                message: "가운데를 접어 양 끝(루트와 파일명)을 남겼습니다, 정보 가치가 있는 쪽을 보존하는 선택입니다.",
                 source: "2.1.2"
             ))
         }
@@ -241,7 +241,7 @@ struct TextLabView: View {
         } else if scaling && !sample.isSentence {
             out.append(.init(
                 level: .good,
-                message: "값 타입에 축소를 적용했습니다 — 자르지 않고 줄여 정보를 보존하는 올바른 선택입니다.",
+                message: "값 타입에 축소를 적용했습니다, 자르지 않고 줄여 정보를 보존하는 올바른 선택입니다.",
                 source: "2.1.3"
             ))
         }
@@ -265,7 +265,7 @@ struct TextLabView: View {
         if typeSize == .accessibility5 && overflows {
             out.append(.init(
                 level: .violation,
-                message: "접근성 최대 글씨에서 내용이 잘립니다. 기본 크기에서만 확인하고 넘어가면 이 상태가 그대로 출시됩니다 — 검증 기준은 가장 나쁜 조건입니다.",
+                message: "접근성 최대 글씨에서 내용이 잘립니다. 기본 크기에서만 확인하고 넘어가면 이 상태가 그대로 출시됩니다, 검증 기준은 가장 나쁜 조건입니다.",
                 source: "2.1.1 · 8.1.4"
             ))
         }
@@ -319,7 +319,7 @@ enum TextMetrics {
         )
         let attributes: [NSAttributedString.Key: Any] = [.font: font]
 
-        // 한 줄이면 폭만 재는 편이 정확하다 — 높이는 폰트별 line spacing 때문에
+        // 한 줄이면 폭만 재는 편이 정확하다 - 높이는 폰트별 line spacing 때문에
         // lineHeight 와 딱 떨어지지 않아 멀쩡한 텍스트도 넘침으로 잡힌다.
         if lines <= 1 {
             return (text as NSString).size(withAttributes: attributes).width > width + 0.5

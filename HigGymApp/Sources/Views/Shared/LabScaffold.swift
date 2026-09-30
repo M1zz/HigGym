@@ -2,7 +2,7 @@ import SwiftUI
 
 /// 실습 화면의 공통 껍데기.
 ///
-/// 일부러 `NavigationStack` 을 쓰지 않는다 — 미리보기 안의 `NavigationStack` 이
+/// 일부러 `NavigationStack` 을 쓰지 않는다 - 미리보기 안의 `NavigationStack` 이
 /// 조상 내비게이션 컨트롤러를 발견하면 자기 툴바를 그쪽으로 올려버려서,
 /// 상자 안에 있어야 할 툴바가 화면 상단에 나타난다. 그래서 실습은 push 가 아니라
 /// 전체 화면으로 띄우고, 헤더는 직접 그린다.

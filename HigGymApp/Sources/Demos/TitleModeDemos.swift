@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 1.2 Title Display Modes — 제목은 "이 화면이 무엇인가"를 말하는 자리다.
+/// 1.2 Title Display Modes - 제목은 "이 화면이 무엇인가"를 말하는 자리다.
 /// 표시 방식의 차이는 **스크롤해봐야** 드러나므로, 데모는 전부 충분히 긴 목록을 깔았다.
 @MainActor
 enum TitleModeDemos {
@@ -8,9 +8,9 @@ enum TitleModeDemos {
         EntryDemo(
             "t1",
             hints: [
-                "천천히 **위로 스크롤**해 보세요 — 대형 제목이 내비바 안 작은 제목으로 접힙니다.",
+                "천천히 **위로 스크롤**해 보세요, 대형 제목이 내비바 안 작은 제목으로 접힙니다.",
                 "다시 아래로 당기면 원래 크기로 돌아옵니다. 콘텐츠를 볼 때는 물러나고, 시작 지점에선 존재감을 갖습니다.",
-                "제목이 접히는 동안 오른쪽 버튼은 그대로입니다 — 액션은 제목의 사정과 무관합니다.",
+                "제목이 접히는 동안 오른쪽 버튼은 그대로입니다, 액션은 제목의 사정과 무관합니다.",
             ],
             code: """
             .navigationTitle("받은 편지함")
@@ -21,9 +21,9 @@ enum TitleModeDemos {
         EntryDemo(
             "t2",
             hints: [
-                "스크롤해 보세요 — 제목이 **접히지 않고** 내비바 안에 큰 크기 그대로 남습니다.",
+                "스크롤해 보세요, 제목이 **접히지 않고** 내비바 안에 큰 크기 그대로 남습니다.",
                 "1.2.1(Large)과 번갈아 열어 같은 동작에서 무엇이 다른지 비교해 보세요.",
-                "제목이 늘 커 보이는 대신, 콘텐츠에 내주는 세로 공간은 없습니다 — 그 교환이 이 모드의 전부입니다.",
+                "제목이 늘 커 보이는 대신, 콘텐츠에 내주는 세로 공간은 없습니다, 그 교환이 이 모드의 전부입니다.",
             ],
             code: """
             .navigationTitle("받은 편지함")
@@ -34,7 +34,7 @@ enum TitleModeDemos {
         EntryDemo(
             "t3",
             hints: [
-                "스크롤해도 제목이 변하지 않습니다 — 처음부터 가장 작은 형태입니다.",
+                "스크롤해도 제목이 변하지 않습니다, 처음부터 가장 작은 형태입니다.",
                 "제목이 차지하는 세로 공간이 가장 적습니다. 상세 화면·모달처럼 콘텐츠가 주인공인 화면의 기본값입니다.",
                 "좌우 버튼과 한 줄을 나눠 씁니다. 제목이 길어지면 어떻게 될지 1.2.4에서 확인해 보세요.",
             ],
@@ -48,7 +48,7 @@ enum TitleModeDemos {
             "t4",
             hints: [
                 "한 줄에 제목 + 아이템 5개가 함께 있습니다. **제목이 어떻게 줄어드는지** 보세요.",
-                "화면 안 스위치로 제목을 긴 것으로 바꿔보세요 — 어디까지 버티는지 드러납니다.",
+                "화면 안 스위치로 제목을 긴 것으로 바꿔보세요, 어디까지 버티는지 드러납니다.",
                 "이 상태가 편안해 보이지 않는다면 그게 정답입니다. 1.1.7의 overflow가 왜 기본 동작인지 알려주는 케이스입니다.",
             ],
             code: """
@@ -56,7 +56,7 @@ enum TitleModeDemos {
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    // 아이템 5개 — 제목과 폭을 다툰다
+                    // 아이템 5개 - 제목과 폭을 다툰다
                 }
             }
             """
@@ -65,7 +65,7 @@ enum TitleModeDemos {
         EntryDemo(
             "t5",
             hints: [
-                "제목 옆 **⌄** 를 눌러보세요 — 제목 자체가 메뉴 버튼입니다.",
+                "제목 옆 **⌄** 를 눌러보세요, 제목 자체가 메뉴 버튼입니다.",
                 "폴더를 고르면 제목과 목록이 함께 바뀝니다. 제목이 \"지금 무엇을 보고 있는가\"를 말하고 있기 때문입니다.",
                 "같은 기능을 오른쪽 버튼으로 뺐다면, 화면 정체와 액션이 따로 놀았을 겁니다.",
             ],
@@ -85,7 +85,7 @@ enum TitleModeDemos {
             hints: [
                 "제목 자리에 텍스트가 아니라 **아바타 + 이름 + 상태**가 들어가 있습니다.",
                 "스크롤하면 큰 커스텀 헤더가 접히고, 내비바 안의 작은 커스텀 제목만 남습니다.",
-                "글자로 못 하는 말(사진·상태 점)을 해야 할 때만 씁니다 — 대부분의 화면은 텍스트 제목으로 충분합니다.",
+                "글자로 못 하는 말(사진·상태 점)을 해야 할 때만 씁니다, 대부분의 화면은 텍스트 제목으로 충분합니다.",
             ],
             code: """
             // 큰 자리: 스크롤 콘텐츠 맨 위의 커스텀 헤더
@@ -108,6 +108,8 @@ private struct TitleModeDemoScreen: View {
 
     let mode: Mode
     let title: String
+    @State private var editing = false
+    @State private var log = DemoLog()
 
     var body: some View {
         NavigationStack {
@@ -129,10 +131,14 @@ private struct TitleModeDemoScreen: View {
             .modifier(TitleDisplay(mode: mode))
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("편집") {}
+                    Button(editing ? "완료" : "편집") {
+                        editing.toggle()
+                        log.tap(editing ? "편집 모드" : "편집 완료")
+                    }
                 }
             }
         }
+        .demoToast(log)
     }
 }
 
@@ -160,7 +166,7 @@ private struct CrowdedInlineTitleDemo: View {
                 Section {
                     Toggle("긴 제목으로 바꾸기", isOn: $longTitle.animation(.snappy))
                     DemoNote(text: longTitle
-                        ? "제목이 **잘렸습니다**. 좁은 줄에서 제목과 아이템은 같은 폭을 두고 경쟁합니다 — 8.1.5."
+                        ? "제목이 **잘렸습니다**. 좁은 줄에서 제목과 아이템은 같은 폭을 두고 경쟁합니다, 8.1.5."
                         : "아이템 다섯 개가 이미 오른쪽을 가득 채웠습니다. 제목을 길게 바꿔보세요.")
                         .listRowInsets(.init(top: 6, leading: 12, bottom: 6, trailing: 12))
                 }

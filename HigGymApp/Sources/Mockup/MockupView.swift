@@ -23,13 +23,13 @@ struct MockupView: View {
     }
 }
 
-/// 렌더링 내내 따라다니는 값들 — 상속되는 글꼴·색과 선택 상태.
+/// 렌더링 내내 따라다니는 값들 - 상속되는 글꼴·색과 선택 상태.
 struct MockupContext {
     var scale: CGFloat
     var selected: MockupPart?
     var onSelect: ((MockupPart) -> Void)?
     var highlighted = false
-    /// `.ti.on` 안쪽인가 — CSS 자손 선택자를 문맥으로 옮긴 것.
+    /// `.ti.on` 안쪽인가 - CSS 자손 선택자를 문맥으로 옮긴 것.
     var selectedTab = false
     var font: MockupBox.FontSpec?
     var color: Color?
@@ -48,7 +48,7 @@ struct MockupContext {
 
 /// 목업 한 노드.
 ///
-/// 재귀는 반드시 **이름 있는 구조체**를 통해야 한다 — 함수로 재귀시키면
+/// 재귀는 반드시 **이름 있는 구조체**를 통해야 한다 - 함수로 재귀시키면
 /// 불투명 반환 타입이 무한 중첩되어 타입 체크가 끝나지 않는다.
 struct MockupNodeView: View {
     let node: MockupNode
@@ -94,7 +94,7 @@ struct MockupNodeView: View {
     }
 }
 
-/// 자식 배치 — `.phone` 안은 절대 배치, 나머지는 행/열.
+/// 자식 배치 - `.phone` 안은 절대 배치, 나머지는 행/열.
 private struct MockupChildren: View {
     let node: MockupNode
     let box: MockupBox
@@ -117,7 +117,7 @@ private struct MockupChildren: View {
     }
 }
 
-/// `.phone` 안은 전부 절대 배치 — 문서 CSS와 같은 규칙으로 좌표를 계산한다.
+/// `.phone` 안은 전부 절대 배치 - 문서 CSS와 같은 규칙으로 좌표를 계산한다.
 private struct PhoneCanvas: View {
     let node: MockupNode
     let context: MockupContext
@@ -324,7 +324,7 @@ private struct TapTarget: ViewModifier {
 }
 
 
-/// `.tri` — 재생 표시로 쓰는 CSS 보더 삼각형.
+/// `.tri` - 재생 표시로 쓰는 CSS 보더 삼각형.
 private struct RightTriangle: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()

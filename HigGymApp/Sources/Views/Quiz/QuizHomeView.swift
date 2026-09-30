@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct QuizHomeView: View {
-    /// 자료 탭 안으로 push 될 때는 바깥 스택을 쓴다 — 스택을 겹치면 안쪽 툴바가 바깥으로 끌려 올라간다.
+    /// 자료 탭 안으로 push 될 때는 바깥 스택을 쓴다 - 스택을 겹치면 안쪽 툴바가 바깥으로 끌려 올라간다.
     var embedded = false
 
     @Environment(ProgressStore.self) private var progress
@@ -82,13 +82,13 @@ struct QuizHomeView: View {
         }
     }
 
-    // MARK: 실전 — 화면을 보고 판단하기
+    // MARK: 실전 - 화면을 보고 판단하기
 
     /// 문장을 읽고 고르는 훈련과 화면을 보고 고르는 훈련은 다른 근육을 쓴다.
     /// 실무에서 판단하는 대상은 언제나 화면이므로 이쪽을 위에 둔다.
     private var liveSection: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionLabel("실전 — 화면으로 판단하기", accent: .hgGreen)
+            SectionLabel("실전, 화면으로 판단하기", accent: .hgGreen)
 
             Button { caseStudy = true } label: {
                 VStack(alignment: .leading, spacing: 9) {

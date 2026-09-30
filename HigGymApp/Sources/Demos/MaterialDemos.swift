@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 6장 System Materials — 재료와 vibrancy.
+/// 6장 System Materials - 재료와 vibrancy.
 /// 둘 다 **뒤에 무엇이 있느냐**가 전부이므로, 배경을 바꿔가며 같은 레이어를 관찰한다.
 @MainActor
 enum MaterialDemos {
@@ -9,7 +9,7 @@ enum MaterialDemos {
             "m1",
             hints: [
                 "**재료 두께**를 ultraThin → thick 으로 올려보세요. 뒤가 비치는 정도가 달라집니다.",
-                "배경을 **사진 · 흰색**으로 바꿔보세요 — 얇은 재료가 어디서 무너지는지 바로 보입니다.",
+                "배경을 **사진 · 흰색**으로 바꿔보세요, 얇은 재료가 어디서 무너지는지 바로 보입니다.",
                 "판단 기준은 취향이 아니라 \"이 배경에서 위의 글자가 읽히는가\"입니다(8.1.4).",
             ],
             code: """
@@ -24,9 +24,9 @@ enum MaterialDemos {
         EntryDemo(
             "vb1",
             hints: [
-                "스위치로 **vibrancy를 껐다 켜보세요** — 같은 회색인데 읽히는 정도가 다릅니다.",
+                "스위치로 **vibrancy를 껐다 켜보세요**, 같은 회색인데 읽히는 정도가 다릅니다.",
                 "배경을 밝게·어둡게 바꿔보세요. vibrancy 쪽만 배경을 따라 스스로 조정됩니다.",
-                "직접 지정한 고정 회색은 어느 한 배경에서 반드시 깨집니다 — 그게 이 항목의 요지입니다.",
+                "직접 지정한 고정 회색은 어느 한 배경에서 반드시 깨집니다, 그게 이 항목의 요지입니다.",
             ],
             code: """
             VStack {
@@ -67,7 +67,7 @@ private struct MaterialDemoScreen: View {
                 VStack(spacing: 16) {
                     card
 
-                    // 같은 배경 위에 네 두께를 나란히 — 차이는 비교할 때만 보인다.
+                    // 같은 배경 위에 네 두께를 나란히 - 차이는 비교할 때만 보인다.
                     VStack(spacing: 10) {
                         ForEach(DemoMaterial.allCases) { option in
                             HStack {
@@ -158,7 +158,7 @@ private struct VibrancyDemoScreen: View {
                     Text("시스템 재료 위의 제목")
                         .font(.callout.weight(.semibold))
                         .foregroundStyle(vibrant ? AnyShapeStyle(.primary) : AnyShapeStyle(Color(white: 0.85)))
-                    Text("보조 설명 — 배경색을 혼합해 렌더링되는지, 고정된 회색인지")
+                    Text("보조 설명, 배경색을 혼합해 렌더링되는지, 고정된 회색인지")
                         .font(.footnote)
                         .foregroundStyle(vibrant ? AnyShapeStyle(.secondary) : AnyShapeStyle(Color(white: 0.6)))
                 }

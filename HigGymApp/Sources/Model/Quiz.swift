@@ -69,7 +69,7 @@ struct Question: Identifiable, Hashable, Sendable {
     let prompt: String          // 질문 문장
     let subject: String?        // 판단 대상 (예시/상황 카드로 따로 보여줌)
     let options: [String]
-    /// 보기마다 대응하는 본문 항목 번호 — 있으면 보기를 목업 그림으로 낸다.
+    /// 보기마다 대응하는 본문 항목 번호 - 있으면 보기를 목업 그림으로 낸다.
     var optionSources: [String] = []
     let answerIndex: Int
     let explanation: String
@@ -90,10 +90,10 @@ enum PromptText {
         return cleaned.trimmingCharacters(in: .whitespaces)
     }
 
-    /// "**요약** — 왜 그런지" → (요약, 왜 그런지). 근거 부분이 지문에 남으면 답이 새어나간다.
+    /// "**요약** - 왜 그런지" → (요약, 왜 그런지). 근거 부분이 지문에 남으면 답이 새어나간다.
     static func split(_ example: String) -> (headline: String, rationale: String?) {
         let cleaned = stripCrossReferences(example)
-        guard let range = cleaned.range(of: " — ") else { return (cleaned, nil) }
+        guard let range = cleaned.range(of: "") else { return (cleaned, nil) }
         let head = String(cleaned[..<range.lowerBound]).trimmingCharacters(in: .whitespaces)
         let tail = String(cleaned[range.upperBound...]).trimmingCharacters(in: .whitespaces)
         return (head.isEmpty ? cleaned : head, tail.isEmpty ? nil : tail)
@@ -122,7 +122,7 @@ struct QuizBank: Sendable {
         questions = built
     }
 
-    // 적절/부적절 판별 — 본문 68항목 + 원칙 7개의 예시 전체가 소재.
+    // 적절/부적절 판별 - 본문 68항목 + 원칙 7개의 예시 전체가 소재.
     private static func judgementQuestions(_ store: ContentStore) -> [Question] {
         let all = store.entries + store.principles
         var out: [Question] = []
@@ -136,7 +136,7 @@ struct QuizBank: Sendable {
                         ? "적절합니다. \(rationale ?? "")"
                         : "부적절합니다. \(rationale ?? "")"
                     explanation = explanation.trimmingCharacters(in: .whitespaces)
-                    explanation += "\n\n**기준** — \(PromptText.stripCrossReferences(basis))"
+                    explanation += "\n\n**기준**, \(PromptText.stripCrossReferences(basis))"
 
                     out.append(
                         Question(
@@ -178,7 +178,7 @@ struct QuizBank: Sendable {
                     options: choices.map(\.title),
                     optionSources: choices.map(\.index),
                     answerIndex: answerIndex,
-                    explanation: "**\(entry.title)** — \(entry.summary)\n\n**왜** — \(entry.why)",
+                    explanation: "**\(entry.title)**, \(entry.summary)\n\n**왜**, \(entry.why)",
                     sourceIndex: entry.index,
                     sourceTitle: entry.title,
                     lab: LabID.forSection(entry.section)
@@ -213,7 +213,7 @@ struct QuizBank: Sendable {
                         subject: headline,
                         options: options,
                         answerIndex: answerIndex,
-                        explanation: "\(rationale ?? "")\n\n**기준** — \(PromptText.stripCrossReferences(principle.criterion))"
+                        explanation: "\(rationale ?? "")\n\n**기준**, \(PromptText.stripCrossReferences(principle.criterion))"
                             .trimmingCharacters(in: .whitespacesAndNewlines),
                         sourceIndex: principle.index,
                         sourceTitle: principle.title,

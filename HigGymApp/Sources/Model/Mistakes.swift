@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-/// 실수 한 건 — 회고 한 편이 될 단위.
+/// 실수 한 건 - 회고 한 편이 될 단위.
 ///
 /// 항목(Entry)이 "이건 이렇게 생겼다"라면, 실수는 **"이렇게 하다가 밟았다"**이다.
 /// 그래서 카드에는 언제나 세 줄이 붙는다: 무엇을 했는가 · 그때는 왜 맞아 보였는가 · 고치면 어떤 모습인가.
@@ -15,7 +15,7 @@ struct Mistake: Codable, Identifiable, Hashable, Sendable {
     let category: String
     let severity: String
     let severityLabel: String
-    /// 판단 기준 — 분류가 걸린 8장 원칙에서 가져온다.
+    /// 판단 기준 - 분류가 걸린 8장 원칙에서 가져온다.
     let criterion: String
     let sources: [Source]
     /// 이 실수를 직접 만들어볼 수 있는 예제(항목 id).
@@ -111,7 +111,7 @@ struct MistakeStore: Sendable {
               let data = try? Data(contentsOf: url),
               let bundled = try? JSONDecoder().decode(Bundled.self, from: data)
         else {
-            assertionFailure("mistakes.json 을 읽지 못했습니다 — Tools/build_mistakes.py 를 먼저 실행하세요.")
+            assertionFailure("mistakes.json 을 읽지 못했습니다, Tools/build_mistakes.py 를 먼저 실행하세요.")
             return MistakeStore(categories: [], mistakes: [])
         }
         return MistakeStore(categories: bundled.categories, mistakes: bundled.mistakes)
@@ -121,7 +121,7 @@ struct MistakeStore: Sendable {
 
     func mistakes(in category: String) -> [Mistake] { mistakes.filter { $0.category == category } }
 
-    /// 이 항목이 근거가 된 실수들 — 항목 상세에서 "여기서 나온 실수"로 잇는다.
+    /// 이 항목이 근거가 된 실수들 - 항목 상세에서 "여기서 나온 실수"로 잇는다.
     func mistakes(citing index: String) -> [Mistake] {
         mistakes.filter { $0.sources.contains { $0.index == index } }
     }

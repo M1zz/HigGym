@@ -87,7 +87,7 @@ enum MockupPalette {
             return hex.count == 6 ? Color(hex: raw) : nil
         }
 
-        // linear-gradient 등은 대표색으로 대체한다 — 목업에서는 면의 존재만 전달하면 된다.
+        // linear-gradient 등은 대표색으로 대체한다 - 목업에서는 면의 존재만 전달하면 된다.
         if value.contains("linear-gradient") {
             return value.contains("--accent") ? .hgAccent : Color.white.opacity(0.08)
         }

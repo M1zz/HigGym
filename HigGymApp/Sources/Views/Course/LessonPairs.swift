@@ -1,27 +1,27 @@
 import SwiftUI
 
-/// 표본 앱(노트)으로는 보여줄 수 없는 결정들 — 오버플로 순서, 사진 위 가장자리 효과,
-/// 큰 글씨에서의 잘림, 배지, 가짜 탭 — 을 위한 화면 한 쌍씩.
+/// 표본 앱(노트)으로는 보여줄 수 없는 결정들 - 오버플로 순서, 사진 위 가장자리 효과,
+/// 큰 글씨에서의 잘림, 배지, 가짜 탭 - 을 위한 화면 한 쌍씩.
 ///
 /// 레슨은 이 쌍을 두 번 쓴다. ① 써보기에서는 **고친 쪽만** 실제 크기로 띄워 손에 쥐여주고,
 /// ④ 비교에서는 두 쪽을 같은 자리에서 갈아 끼운다. 그래서 쌍은 각자 상태를 갖는
-/// 독립된 화면이어야 한다 — 비교하다 돌아와도 방금 만지던 상태가 남아 있어야 하기 때문.
+/// 독립된 화면이어야 한다 - 비교하다 돌아와도 방금 만지던 상태가 남아 있어야 하기 때문.
 enum LessonPair: String, CaseIterable, Identifiable, Sendable {
-    case overflowOrder      // 실수 11 — 선언 순서가 곧 우선순위
-    case scrollEdge         // 실수 29 — 사진 위에서 컨트롤이 사라진다
-    case clampedText        // 실수 38 — 한 줄 고정 + 축소
-    case stickyBadge        // 실수 52 — 줄지 않는 배지
-    case fakeTab            // 실수 68 — 이동하지 않는 탭
-    case decorButtons       // 실수 1  — 자리가 비어 보인다고 채운다
-    case adBar              // 실수 14 — 콕핏 자리에 광고
-    case customNavBar       // 실수 20 — 내비바를 직접 만든다
-    case mapControls        // 실수 28 — 안 읽히는데 투명한 쪽이 예뻐서
-    case searchDrawer       // 실수 34 — 검색이 접히는 서랍에
-    case amount             // 실수 43 — 잘리면 안 되는 값을 자른다
-    case tabCount           // 실수 59 — 여섯 개 탭
-    case checkoutTab        // 실수 62 — 진행 중에 나갈 길을 열어둔다
-    case paymentSheet       // 실수 79 — 확정하는 시트를 비모달로
-    case menuOrder          // 실수 96 — 삭제를 일반 항목들 사이에
+    case overflowOrder      // 실수 11 - 선언 순서가 곧 우선순위
+    case scrollEdge         // 실수 29 - 사진 위에서 컨트롤이 사라진다
+    case clampedText        // 실수 38 - 한 줄 고정 + 축소
+    case stickyBadge        // 실수 52 - 줄지 않는 배지
+    case fakeTab            // 실수 68 - 이동하지 않는 탭
+    case decorButtons       // 실수 1  - 자리가 비어 보인다고 채운다
+    case adBar              // 실수 14 - 콕핏 자리에 광고
+    case customNavBar       // 실수 20 - 내비바를 직접 만든다
+    case mapControls        // 실수 28 - 안 읽히는데 투명한 쪽이 예뻐서
+    case searchDrawer       // 실수 34 - 검색이 접히는 서랍에
+    case amount             // 실수 43 - 잘리면 안 되는 값을 자른다
+    case tabCount           // 실수 59 - 여섯 개 탭
+    case checkoutTab        // 실수 62 - 진행 중에 나갈 길을 열어둔다
+    case paymentSheet       // 실수 79 - 확정하는 시트를 비모달로
+    case menuOrder          // 실수 96 - 삭제를 일반 항목들 사이에
 
     var id: String { rawValue }
 
@@ -69,6 +69,7 @@ private struct OverflowOrderScreen: View {
     }
 
     @State private var saved = 0
+    @State private var log = DemoLog()
 
     var body: some View {
         NavigationStack {
@@ -88,12 +89,13 @@ private struct OverflowOrderScreen: View {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     ForEach(actions) { action in
                         Button(action.name, systemImage: action.symbol) {
-                            if action.id == "save" { saved += 1 }
+                            if action.id == "save" { saved += 1 } else { log.tap(action.name) }
                         }
                     }
                 }
             }
         }
+        .demoToast(log)
     }
 }
 
@@ -101,6 +103,7 @@ private struct OverflowOrderScreen: View {
 
 private struct ScrollEdgeScreen: View {
     let broken: Bool
+    @State private var log = DemoLog()
 
     var body: some View {
         NavigationStack {
@@ -108,7 +111,7 @@ private struct ScrollEdgeScreen: View {
                 LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 3), count: 3), spacing: 3) {
                     ForEach(0..<30, id: \.self) { i in
                         Group {
-                            // 위쪽에 흰 사진을 섞어 둔다 — 어두운 샘플로만 확인하면 못 만나는 조건.
+                            // 위쪽에 흰 사진을 섞어 둔다 - 어두운 샘플로만 확인하면 못 만나는 조건.
                             if i % 4 == 0 {
                                 LinearGradient(colors: [.white, Color(white: 0.94)], startPoint: .top, endPoint: .bottom)
                             } else {
@@ -124,12 +127,13 @@ private struct ScrollEdgeScreen: View {
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button("선택", systemImage: "checkmark.circle") {}
-                    Button("공유", systemImage: "square.and.arrow.up") {}
+                    Button("선택", systemImage: "checkmark.circle") { log.tap("선택 모드") }
+                    Button("공유", systemImage: "square.and.arrow.up") { log.tap("공유") }
                 }
             }
             .modifier(EdgeModifier(hidden: broken))
         }
+        .demoToast(log)
     }
 
     private struct EdgeModifier: ViewModifier {
@@ -227,7 +231,7 @@ private struct StickyBadgeScreen: View {
             List {
                 if broken {
                     Section {
-                        Text("읽은 소식 \(read)개 — 배지는 그대로입니다")
+                        Text("읽은 소식 \(read)개, 배지는 그대로입니다")
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
                     }
@@ -239,7 +243,7 @@ private struct StickyBadgeScreen: View {
                         Button {
                             if broken { read += 1 } else { unread = max(0, unread - 1) }
                         } label: {
-                            Label("새 소식 \(index + 1) — 읽음으로 표시", systemImage: "envelope.badge")
+                            Label("새 소식 \(index + 1), 읽음으로 표시", systemImage: "envelope.badge")
                         }
                     }
                 }
@@ -266,7 +270,7 @@ private struct FakeTabScreen: View {
                     Tab("설정", systemImage: "gearshape", value: 2) { page("설정") }
                 }
                 .onChange(of: selection) { _, new in
-                    // 목적지가 없는 탭 — 누르면 시트만 뜨고 선택은 되돌아간다.
+                    // 목적지가 없는 탭 - 누르면 시트만 뜨고 선택은 되돌아간다.
                     guard new == 1 else { return }
                     composing = true
                     selection = 0

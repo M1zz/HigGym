@@ -2,7 +2,7 @@ import SwiftUI
 
 /// 예제를 **실제 크기 화면 그대로** 띄우는 무대.
 ///
-/// 항목 상세는 push 된 화면이라 여기서 또 push 하면 안 된다 — 데모 안쪽의
+/// 항목 상세는 push 된 화면이라 여기서 또 push 하면 안 된다 - 데모 안쪽의
 /// `NavigationStack`·`TabView` 가 조상 컨트롤러를 발견하고 자기 툴바를 그쪽으로
 /// 올려버리기 때문(LabScaffold 주석과 같은 이유). 그래서 데모는 전체 화면으로 띄우고,
 /// 닫기·안내는 화면 가장자리에 뜨는 캡슐로 따로 붙인다.
@@ -35,7 +35,7 @@ struct EntryDemoStage: View {
     }
 
     /// 처음 여는 예제에서는 "무엇을 해보라"를 먼저 펼친다. 시트는 비모달이라
-    /// 읽으면서 뒤 화면을 그대로 만질 수 있다 — 4.1.5 가 말하는 그 동작.
+    /// 읽으면서 뒤 화면을 그대로 만질 수 있다 - 4.1.5 가 말하는 그 동작.
     private func presentGuideIfFirstVisit() {
         var seen = Set(UserDefaults.standard.stringArray(forKey: Self.seenKey) ?? [])
         guard !seen.contains(demo.id) else { return }
@@ -48,9 +48,9 @@ struct EntryDemoStage: View {
     private var chrome: some View {
         if demo.chromeEdge.isHorizontalBar {
             HStack(spacing: 4) {
-                chromeButton("xmark") { dismiss() }
+                chromeButton("chevron.backward", label: "돌아가기") { dismiss() }
                 Divider().frame(height: 18)
-                chromeButton("questionmark") { showGuide = true }
+                chromeButton("questionmark", label: "안내 보기") { showGuide = true }
             }
             .padding(.horizontal, 7)
             .background(.ultraThinMaterial, in: .capsule)
@@ -64,9 +64,9 @@ struct EntryDemoStage: View {
 
     private var verticalChrome: some View {
         VStack(spacing: 4) {
-            chromeButton("xmark") { dismiss() }
+            chromeButton("chevron.backward", label: "돌아가기") { dismiss() }
             Divider().frame(width: 22)
-            chromeButton("questionmark") { showGuide = true }
+            chromeButton("questionmark", label: "안내 보기") { showGuide = true }
         }
         .padding(.vertical, 7)
         .background(.ultraThinMaterial, in: .capsule)
@@ -75,7 +75,7 @@ struct EntryDemoStage: View {
         .padding(demo.chromeEdge.padding, 8)
     }
 
-    private func chromeButton(_ symbol: String, action: @escaping () -> Void) -> some View {
+    private func chromeButton(_ symbol: String, label: String, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Image(systemName: symbol)
                 .font(.subheadline.weight(.bold))
@@ -84,6 +84,7 @@ struct EntryDemoStage: View {
                 .contentShape(.rect)
         }
         .buttonStyle(.plain)
+        .accessibilityLabel(label)
     }
 }
 
@@ -91,7 +92,7 @@ struct EntryDemoStage: View {
 /// 겹치지 않도록 항목별로 반대편을 고른다.
 enum DemoChromeEdge {
     case leading, trailing
-    /// 좌우가 모두 화면인 비교 예제용 — 캡슐을 아래 가운데로 눕힌다.
+    /// 좌우가 모두 화면인 비교 예제용 - 캡슐을 아래 가운데로 눕힌다.
     case bottom
 
     var alignment: Alignment {
@@ -116,7 +117,7 @@ enum DemoChromeEdge {
 // MARK: - 안내 시트
 
 /// 안내 시트에 실을 내용. 항목에서 열면 항목의 WHEN·WHY가, 실수에서 열면
-/// 그 실수의 "그때는 왜 · 기준 · 고치면"이 붙는다 — 무대는 같고 설명만 갈린다.
+/// 그 실수의 "그때는 왜 · 기준 · 고치면"이 붙는다 - 무대는 같고 설명만 갈린다.
 struct DemoGuideInfo {
     let badge: String
     let title: String
@@ -184,7 +185,7 @@ private struct DemoGuideSheet: View {
         }
         .presentationDetents([.medium, .large])
         .presentationDragIndicator(.visible)
-        // 안내를 띄운 채로 뒤의 예제를 그대로 만질 수 있게 — 4.1.5 비모달.
+        // 안내를 띄운 채로 뒤의 예제를 그대로 만질 수 있게 - 4.1.5 비모달.
         .presentationBackgroundInteraction(.enabled(upThrough: .medium))
     }
 
@@ -277,7 +278,7 @@ struct DemoLaunchCard: View {
                     Text("예제 보기")
                         .font(.callout.weight(.bold))
                         .foregroundStyle(.hgText)
-                    Text("그림이 아니라 실제로 동작하는 화면 — 눌러보고 스크롤해 보세요")
+                    Text("그림이 아니라 실제로 동작하는 화면, 눌러보고 스크롤해 보세요")
                         .font(.caption)
                         .foregroundStyle(.hgDim)
                         .multilineTextAlignment(.leading)

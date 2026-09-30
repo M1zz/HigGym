@@ -15,7 +15,7 @@ enum ToolbarSlot: String, CaseIterable, Identifiable, Hashable {
         }
     }
 
-    /// 이 자리가 원래 말하는 것 — 문법을 어겼는지 판정하는 기준.
+    /// 이 자리가 원래 말하는 것 - 문법을 어겼는지 판정하는 기준.
     var grammar: String {
         switch self {
         case .leading:   "이동"
@@ -34,7 +34,7 @@ enum ToolbarSlot: String, CaseIterable, Identifiable, Hashable {
         }
     }
 
-    /// 이 자리에 어울리는 역할 — 벗어나면 진단이 걸린다.
+    /// 이 자리에 어울리는 역할 - 벗어나면 진단이 걸린다.
     var expectedRoles: Set<ItemRole> {
         switch self {
         case .leading:   [.navigate, .tool]
@@ -76,7 +76,7 @@ struct ToolbarItemSpec: Identifiable, Hashable {
     let name: String
     let symbol: String
     let role: ItemRole
-    /// 화면당 여러 번 반복해서 누르는가 — Reachability 판정의 입력.
+    /// 화면당 여러 번 반복해서 누르는가 - Reachability 판정의 입력.
     let frequent: Bool
 
     static let palette: [ToolbarItemSpec] = [
@@ -138,7 +138,7 @@ enum SearchOption: String, CaseIterable, Identifiable {
 
     var source: String {
         switch self {
-        case .none:         "—"
+        case .none:         "-"
         case .drawerAuto:   "1.4.3"
         case .drawerAlways: "1.4.4"
         case .minimized:    "1.4.6"
@@ -147,7 +147,7 @@ enum SearchOption: String, CaseIterable, Identifiable {
 }
 
 struct ToolbarConfig {
-    /// 1.1.1 최소 구성에서 시작한다 — 여기서 하나씩 어겨보게.
+    /// 1.1.1 최소 구성에서 시작한다 - 여기서 하나씩 어겨보게.
     var items: [ToolbarSlot: [ToolbarItemSpec]] = [
         .leading: [],
         .principal: [],
@@ -156,7 +156,7 @@ struct ToolbarConfig {
     ]
     var titleMode: TitleMode = .large
     var search: SearchOption = .none
-    /// 루트 화면인가 — leading 클러스터가 뒤로가기와 다투는지 판정하는 입력.
+    /// 루트 화면인가 - leading 클러스터가 뒤로가기와 다투는지 판정하는 입력.
     var isRoot = true
 
     func items(in slot: ToolbarSlot) -> [ToolbarItemSpec] { items[slot] ?? [] }
@@ -181,7 +181,7 @@ struct ToolbarConfig {
     }
 }
 
-// MARK: - 진단 — 8장 원칙과 1장 항목을 규칙으로 옮긴 것
+// MARK: - 진단 - 8장 원칙과 1장 항목을 규칙으로 옮긴 것
 
 enum ToolbarDiagnostics {
 
@@ -214,7 +214,7 @@ enum ToolbarDiagnostics {
         return out.sorted { $0.level > $1.level }
     }
 
-    // 8.1.3 위치·묶음의 문법 — 자리와 역할이 맞는가
+    // 8.1.3 위치·묶음의 문법 - 자리와 역할이 맞는가
     private static func placementGrammar(_ c: ToolbarConfig) -> [Diagnosis] {
         var out: [Diagnosis] = []
 
@@ -228,7 +228,7 @@ enum ToolbarDiagnostics {
         } else if principal.contains(where: { $0.role == .identity }) {
             out.append(.init(
                 level: .good,
-                message: "세그먼트를 principal에 두었습니다 — 값에 따라 화면 전체가 바뀌므로 “화면의 정체성”이라는 자리의 문법과 정확히 일치합니다.",
+                message: "세그먼트를 principal에 두었습니다, 값에 따라 화면 전체가 바뀌므로 “화면의 정체성”이라는 자리의 문법과 정확히 일치합니다.",
                 source: "1.1.5"
             ))
         }
@@ -264,7 +264,7 @@ enum ToolbarDiagnostics {
         return out
     }
 
-    // 8.1.2 Reachability — 빈도가 높을수록 엄지에 가깝게
+    // 8.1.2 Reachability - 빈도가 높을수록 엄지에 가깝게
     private static func reachability(_ c: ToolbarConfig) -> [Diagnosis] {
         var out: [Diagnosis] = []
 
@@ -272,7 +272,7 @@ enum ToolbarDiagnostics {
             for item in c.items(in: slot) where item.frequent && item.role == .create {
                 out.append(.init(
                     level: .violation,
-                    message: "**\(item.name)**은(는) 반복해서 누르는 고빈도 액션인데 상단에 있습니다. 빈도와 높이는 반비례해야 합니다 — 하단이 엄지의 홈 그라운드입니다.",
+                    message: "**\(item.name)**은(는) 반복해서 누르는 고빈도 액션인데 상단에 있습니다. 빈도와 높이는 반비례해야 합니다, 하단이 엄지의 홈 그라운드입니다.",
                     source: "1.1.4 · 8.1.2"
                 ))
             }
@@ -281,7 +281,7 @@ enum ToolbarDiagnostics {
         for item in c.items(in: .bottom) where item.frequent {
             out.append(.init(
                 level: .good,
-                message: "**\(item.name)**처럼 자주 반복하는 액션을 하단에 둔 것은 빈도–높이 반비례 기준에 맞습니다.",
+                message: "**\(item.name)**처럼 자주 반복하는 액션을 하단에 둔 것은 빈도·높이 반비례 기준에 맞습니다.",
                 source: "8.1.2"
             ))
         }
@@ -317,7 +317,7 @@ enum ToolbarDiagnostics {
             if list.count > 3 {
                 out.append(.init(
                     level: .caution,
-                    message: "\(slot.title)에 \(list.count)개 — 그룹당 2~3개가 적정입니다. 그 이상은 overflow(⋯)나 하단 바로 분산하세요.",
+                    message: "\(slot.title)에 \(list.count)개, 그룹당 2~3개가 적정입니다. 그 이상은 overflow(⋯)나 하단 바로 분산하세요.",
                     source: "1.1.3 · 1.1.7"
                 ))
             }
@@ -333,7 +333,7 @@ enum ToolbarDiagnostics {
         if !c.items(in: .bottom).isEmpty && c.actionCount == 1 {
             out.append(.init(
                 level: .violation,
-                message: "액션이 하나뿐인데 하단 바를 만들었습니다. 하단 바 전체가 상시 세로 공간을 차지하지만 기여하는 건 버튼 하나 — 오른쪽 상단 단일 캡슐로 충분합니다.",
+                message: "액션이 하나뿐인데 하단 바를 만들었습니다. 하단 바 전체가 상시 세로 공간을 차지하지만 기여하는 건 버튼 하나, 오른쪽 상단 단일 캡슐로 충분합니다.",
                 source: "1.1.1 · 8.1.1"
             ))
         }
@@ -352,7 +352,7 @@ enum ToolbarDiagnostics {
            c.items(in: .trailing).contains(only) {
             out.append(.init(
                 level: .good,
-                message: "액션이 하나뿐이니 형태도 하나 — 최소 구성입니다. trailing은 primary action의 관례적 위치입니다.",
+                message: "액션이 하나뿐이니 형태도 하나, 최소 구성입니다. trailing은 primary action의 관례적 위치입니다.",
                 source: "1.1.1"
             ))
         }
@@ -403,13 +403,13 @@ enum ToolbarDiagnostics {
         case .minimized:
             return [.init(
                 level: .good,
-                message: "검색이 조연인 화면에서 돋보기 크기로 접어두는 구성 — 한 탭 거리는 유지하면서 평소 점유는 최소입니다.",
+                message: "검색이 조연인 화면에서 돋보기 크기로 접어두는 구성, 한 탭 거리는 유지하면서 평소 점유는 최소입니다.",
                 source: "1.4.6 · 8.1.1"
             )]
         case .drawerAuto:
             return [.init(
                 level: .good,
-                message: "스크롤하면 숨고 당기면 나타나는 기본 드로어 — 필요할 때만 공간을 씁니다.",
+                message: "스크롤하면 숨고 당기면 나타나는 기본 드로어, 필요할 때만 공간을 씁니다.",
                 source: "1.4.3"
             )]
         }

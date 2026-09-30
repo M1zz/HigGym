@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 8장 원칙 — 항목 데모가 "이렇게 생겼다"를 보여준다면, 원칙 데모는 **어겼을 때와 지켰을 때**를 한 화면에서 바꿔 보여준다.
+/// 8장 원칙 - 항목 데모가 "이렇게 생겼다"를 보여준다면, 원칙 데모는 **어겼을 때와 지켰을 때**를 한 화면에서 바꿔 보여준다.
 /// 스위치 하나로 같은 화면을 뒤집어 보는 것이 이 데모들의 공통 문법이다.
 @MainActor
 enum PrincipleDemos {
@@ -10,7 +10,7 @@ enum PrincipleDemos {
             hints: [
                 "스위치를 **어김 ↔ 지킴**으로 오가며, 같은 콘텐츠가 얼마나 다르게 보이는지 확인하세요.",
                 "어긴 쪽에서 실제 콘텐츠가 화면의 몇 %를 차지하는지 눈으로 재보세요.",
-                "지운 것들이 없어도 화면이 돌아가는지 — 그게 이 원칙의 판단 기준입니다.",
+                "지운 것들이 없어도 화면이 돌아가는지, 그게 이 원칙의 판단 기준입니다.",
             ],
             code: """
             // 기준: 이 UI 요소를 지웠을 때 사용자가 못 하게 되는 일이 있는가?
@@ -36,7 +36,7 @@ enum PrincipleDemos {
             "p3",
             hints: [
                 "어긴 배치에서 **삭제**와 **정렬**이 한 캡슐에 붙어 있습니다. 같은 세트로 보입니다.",
-                "스위치를 켜면 역할대로 갈라집니다 — 도구는 왼쪽, 파괴적 액션은 접힌 메뉴 안으로.",
+                "스위치를 켜면 역할대로 갈라집니다, 도구는 왼쪽, 파괴적 액션은 접힌 메뉴 안으로.",
                 "묶음을 바꿨을 뿐 기능은 그대로입니다. 그런데도 읽히는 의미가 달라집니다.",
             ],
             code: """
@@ -63,7 +63,7 @@ enum PrincipleDemos {
         EntryDemo(
             "p5",
             hints: [
-                "어긴 쪽은 고정 폭·고정 높이입니다. **Dynamic Type**을 키워보세요 — 글자가 잘려나갑니다.",
+                "어긴 쪽은 고정 폭·고정 높이입니다. **Dynamic Type**을 키워보세요, 글자가 잘려나갑니다.",
                 "스위치를 켜면 줄 수 범위와 공간 예약이 들어갑니다. 같은 글자 크기에서 어떻게 버티는지 보세요.",
                 "긴 이름·긴 제목으로 바꿔가며, 레이아웃이 텍스트를 예상하고 있었는지 확인하세요.",
             ],
@@ -78,7 +78,7 @@ enum PrincipleDemos {
             "p6",
             hints: [
                 "어긴 쪽은 \"5km\", \"김하늘\" 처럼 **표기를 문자열로 박아** 뒀습니다.",
-                "로케일을 en_US로 바꿔보세요 — 박아둔 쪽만 그대로 남습니다.",
+                "로케일을 en_US로 바꿔보세요, 박아둔 쪽만 그대로 남습니다.",
                 "지킨 쪽은 값만 들고 있다가 로케일에 맞춰 스스로 표기를 바꿉니다.",
             ],
             code: """
@@ -91,7 +91,7 @@ enum PrincipleDemos {
         EntryDemo(
             "p7",
             hints: [
-                "어긴 쪽에서 두 번째 메일을 삭제해 보세요 — 상단 메뉴에서 대상을 **다시 골라야** 합니다.",
+                "어긴 쪽에서 두 번째 메일을 삭제해 보세요, 상단 메뉴에서 대상을 **다시 골라야** 합니다.",
                 "스위치를 켜고 같은 일을 해보세요. 행을 왼쪽으로 밀거나 길게 누르면 됩니다.",
                 "대상을 두 번 지정하게 만드는 UI는 대개 직접 조작으로 바꿀 수 있습니다.",
             ],
@@ -214,6 +214,7 @@ private struct ContentFirstDemo: View {
 private struct ReachabilityDemo: View {
     @State private var compliant = false
     @State private var composed = 0
+    @State private var log = DemoLog()
 
     var body: some View {
         NavigationStack {
@@ -250,7 +251,7 @@ private struct ReachabilityDemo: View {
             .toolbar {
                 if compliant {
                     ToolbarItem(placement: .topBarTrailing) {
-                        Button("설정", systemImage: "gearshape") {}
+                        Button("설정", systemImage: "gearshape") { log.tap("설정") }
                     }
                     ToolbarItemGroup(placement: .bottomBar) {
                         Spacer()
@@ -259,11 +260,12 @@ private struct ReachabilityDemo: View {
                 } else {
                     ToolbarItemGroup(placement: .topBarTrailing) {
                         Button("작성", systemImage: "square.and.pencil") { composed += 1 }
-                        Button("설정", systemImage: "gearshape") {}
+                        Button("설정", systemImage: "gearshape") { log.tap("설정") }
                     }
                 }
             }
         }
+        .demoToast(log)
     }
 }
 
@@ -307,7 +309,7 @@ private struct GrammarDemo: View {
                     }
                 } else {
                     ToolbarItemGroup(placement: .topBarTrailing) {
-                        Button("삭제", systemImage: "trash") { log.tap("삭제 — 정렬과 한 세트로 보입니다") }
+                        Button("삭제", systemImage: "trash") { log.tap("삭제, 정렬과 한 세트로 보입니다") }
                         Button("정렬", systemImage: "arrow.up.arrow.down") { log.tap("정렬") }
                         Button("격자", systemImage: "square.grid.2x2") { log.tap("보기 전환") }
                     }
@@ -323,6 +325,7 @@ private struct GrammarDemo: View {
 private struct LegibilityDemo: View {
     @State private var compliant = false
     @State private var backdrop = DemoBackdrop.photo
+    @State private var log = DemoLog()
 
     var body: some View {
         NavigationStack {
@@ -341,7 +344,7 @@ private struct LegibilityDemo: View {
                     ForEach(0..<16, id: \.self) { i in
                         HStack(spacing: 10) {
                             DemoPhoto(index: i).frame(width: 42, height: 42).clipShape(.rect(cornerRadius: 8))
-                            Text("바 아래로 지나가는 항목 \(i + 1)")
+                            Text(DemoData.album(i).name)
                                 .font(.subheadline)
                             Spacer()
                         }
@@ -357,12 +360,13 @@ private struct LegibilityDemo: View {
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button("공유", systemImage: "square.and.arrow.up") {}
-                    Button("선택", systemImage: "checkmark.circle") {}
+                    Button("공유", systemImage: "square.and.arrow.up") { log.tap("공유") }
+                    Button("선택", systemImage: "checkmark.circle") { log.tap("선택 모드") }
                 }
             }
             .modifier(LegibilityModifier(compliant: compliant))
         }
+        .demoToast(log)
     }
 }
 
@@ -482,7 +486,7 @@ private struct DataVsPresentationDemo: View {
                 VStack(alignment: .leading, spacing: 14) {
                     PrincipleToggleBar(
                         title: "데이터와 표기의 분리",
-                        violationText: "화면에 나갈 문자열을 앱이 직접 조립했습니다 — `\"\\(km)km\"`, `\"\\(family)\\(given)\"`.",
+                        violationText: "화면에 나갈 문자열을 앱이 직접 조립했습니다`\"\\(km)km\"`, `\"\\(family)\\(given)\"`.",
                         complianceText: "값만 들고 있다가 로케일에 맞춰 표기를 시스템에 맡깁니다.",
                         compliant: $compliant
                     )
@@ -509,7 +513,7 @@ private struct DataVsPresentationDemo: View {
 
                     DemoNote(text: compliant
                         ? "로케일을 바꾸면 **표기가 따라옵니다**. 앱 코드는 한 줄도 바뀌지 않았습니다."
-                        : "로케일을 바꿔도 그대로입니다 — 표기를 앱이 이미 정해버렸기 때문입니다.")
+                        : "로케일을 바꿔도 그대로입니다, 표기를 앱이 이미 정해버렸기 때문입니다.")
                 }
                 .padding(18)
             }

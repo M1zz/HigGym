@@ -29,7 +29,7 @@ struct DecorButtonsScreen: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(18)
                 .contextMenu {
-                    // 지운 게 아니라 대상 위로 옮긴 것 — 기능은 그대로다.
+                    // 지운 게 아니라 대상 위로 옮긴 것 - 기능은 그대로다.
                     Button("공유", systemImage: "square.and.arrow.up") { log.tap("공유") }
                     Button("별표", systemImage: "star") { log.tap("별표 표시") }
                 }
@@ -139,7 +139,7 @@ struct CustomNavBarScreen: View {
         Group {
             if broken {
                 VStack(spacing: 0) {
-                    // 직접 만든 헤더 — 높이도 글자도 고정이라 큰 글씨에서 무너진다.
+                    // 직접 만든 헤더 - 높이도 글자도 고정이라 큰 글씨에서 무너진다.
                     HStack(spacing: 6) {
                         Text("보고서 초안")
                             .font(.headline)
@@ -202,7 +202,7 @@ struct MapControlsScreen: View {
         ZStack(alignment: .top) {
             ScrollView {
                 VStack(spacing: 0) {
-                    // 위로 올릴수록 밝아지는 지도 — 눈밭·강 위를 지나는 순간을 만든다.
+                    // 위로 올릴수록 밝아지는 지도 - 눈밭·강 위를 지나는 순간을 만든다.
                     ForEach(0..<8, id: \.self) { band in
                         LinearGradient(
                             colors: [
@@ -286,7 +286,7 @@ struct SearchDrawerScreen: View {
 
         func body(content: Content) -> some View {
             if broken {
-                // 기본값 — 스크롤하면 접힌다. 다시 쓰려면 맨 위까지 올라가야 한다.
+                // 기본값 - 스크롤하면 접힌다. 다시 쓰려면 맨 위까지 올라가야 한다.
                 content.searchable(text: $query, placement: .navigationBarDrawer, prompt: "자료 검색")
             } else {
                 content.searchable(text: $query, placement: .toolbar, prompt: "자료 검색")
@@ -311,7 +311,7 @@ struct AmountScreen: View {
             List {
                 ForEach(Array(orders.enumerated()), id: \.offset) { _, order in
                     if broken {
-                        // 한 줄에 이름과 금액을 함께 — 금액이 tail 로 잘린다.
+                        // 한 줄에 이름과 금액을 함께 - 금액이 tail 로 잘린다.
                         HStack {
                             Text(order.0).font(.body).lineLimit(1)
                             Spacer(minLength: 8)
@@ -371,6 +371,7 @@ struct CheckoutTabScreen: View {
     @State private var card = ""
     @State private var lost = false
     @State private var confirming = false
+    @State private var log = DemoLog()
 
     var body: some View {
         Group {
@@ -390,6 +391,7 @@ struct CheckoutTabScreen: View {
                 checkout
             }
         }
+        .demoToast(log)
         .alert("입력한 정보가 사라집니다", isPresented: $confirming) {
             Button("결제 계속하기", role: .cancel) {}
             Button("나가기", role: .destructive) { card = "" }
@@ -414,7 +416,11 @@ struct CheckoutTabScreen: View {
                     }
                 }
                 Section {
-                    Button("결제하기") {}
+                    Button("결제하기") {
+                        card = ""
+                        lost = false
+                        log.tap("결제 완료 · ₩128,400")
+                    }
                         .disabled(card.isEmpty)
                 }
             }
@@ -446,7 +452,7 @@ struct PaymentSheetScreen: View {
 
     @State private var quantity = 2
     @State private var showing = false
-    /// 시트를 연 순간의 금액 — 뒤에서 수량이 바뀌면 이 값과 실제가 갈라진다.
+    /// 시트를 연 순간의 금액 - 뒤에서 수량이 바뀌면 이 값과 실제가 갈라진다.
     @State private var quoted = 0
     @State private var result: String?
 
@@ -489,7 +495,7 @@ struct PaymentSheetScreen: View {
                 Section("결제 확인") {
                     LabeledContent("표시된 금액", value: "₩\(quoted.formatted())")
                     if !broken {
-                        // 확정하는 시트는 참조할 내용을 안으로 가져온다 — 뒤를 만질 이유를 없앤다.
+                        // 확정하는 시트는 참조할 내용을 안으로 가져온다 - 뒤를 만질 이유를 없앤다.
                         LabeledContent("수량", value: "\(quantity)개")
                     }
                 }
@@ -498,7 +504,7 @@ struct PaymentSheetScreen: View {
                         let actual = unit * quantity
                         result = actual == quoted
                             ? "결제 완료 · ₩\(actual.formatted())"
-                            : "금액 불일치 — 표시 ₩\(quoted.formatted()) / 청구 ₩\(actual.formatted())"
+                            : "금액 불일치, 표시 ₩\(quoted.formatted()) / 청구 ₩\(actual.formatted())"
                         showing = false
                     }
                 }
@@ -537,7 +543,7 @@ struct MenuOrderScreen: View {
                         Spacer()
                         Menu("더보기", systemImage: "ellipsis") {
                             if broken {
-                                // 작업 흐름 순서대로 — 삭제가 한가운데 섞인다.
+                                // 작업 흐름 순서대로 - 삭제가 한가운데 섞인다.
                                 Button("이름 변경", systemImage: "pencil") { log.tap("이름 변경") }
                                 Button("복제", systemImage: "doc.on.doc") { log.tap("복제") }
                                 Button("삭제", systemImage: "trash") { remove(index) }

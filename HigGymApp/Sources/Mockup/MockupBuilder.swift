@@ -26,7 +26,7 @@ enum MockupBuilder {
         (0..<max(count, 1)).map { _ in node("span", ["dot"]) }
     }
 
-    /// 유리 캡슐 — 아이템 수에 따라 단일(원형)과 클러스터가 갈린다.
+    /// 유리 캡슐 - 아이템 수에 따라 단일(원형)과 클러스터가 갈린다.
     static func capsule(items: Int, highlighted: Bool = true) -> MockupNode {
         var classes = ["cap"]
         if items <= 1 { classes.append("rd") }
@@ -34,7 +34,7 @@ enum MockupBuilder {
         return node("span", classes, children: dots(items))
     }
 
-    /// 본문 콘텐츠 줄 — 문서와 같은 리듬으로, 비어 있는 세로 구간에만 깐다.
+    /// 본문 콘텐츠 줄 - 문서와 같은 리듬으로, 비어 있는 세로 구간에만 깐다.
     static func contentLines(from top: CGFloat = 60, to bottom: CGFloat = 275) -> [MockupNode] {
         let offsets = [14, 44, 22, 58, 16, 36, 26]
         var lines: [MockupNode] = []

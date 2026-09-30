@@ -1,11 +1,11 @@
 import SwiftUI
 import UIKit
 
-/// 교재 전체를 한 앱에 모아 놓은 표본 — 메모 앱 "노트".
+/// 교재 전체를 한 앱에 모아 놓은 표본 - 메모 앱 "노트".
 ///
 /// 항목 예제가 컴포넌트 하나씩을 보여준다면, 여기는 **완성된 앱 한 벌**이다.
 /// 그리고 그 앱의 결정 여덟 개가 스위치로 되어 있어서, 하나만 뒤집으면
-/// 같은 앱이 어떻게 나빠지는지 나란히 볼 수 있다 — 체험도 퀴즈도 이 한 벌에서 나온다.
+/// 같은 앱이 어떻게 나빠지는지 나란히 볼 수 있다 - 체험도 퀴즈도 이 한 벌에서 나온다.
 struct NoteAppConfig: Hashable {
     enum Compose: Hashable { case bottomTrailing, topTrailing }
     enum Deletion: Hashable { case swipe, bottomBarSolo }
@@ -28,7 +28,7 @@ struct NoteAppConfig: Hashable {
     /// 기준을 다 지킨 구성. 체험용 앱이 쓰는 값이다.
     static let recommended = NoteAppConfig()
 
-    /// 결정 하나만 뒤집은 구성 — 퀴즈의 오답 보기가 여기서 나온다.
+    /// 결정 하나만 뒤집은 구성 - 퀴즈의 오답 보기가 여기서 나온다.
     func flipping(_ knob: Knob) -> NoteAppConfig {
         var copy = self
         switch knob {
@@ -56,7 +56,7 @@ struct SampleNote: Identifiable, Hashable {
     let id: Int
     var title: String
     var body: String
-    /// 값으로 들고 있다가 표기는 로케일에 맡긴다 — 2.2.1 이 말하는 그 분리.
+    /// 값으로 들고 있다가 표기는 로케일에 맡긴다 - 2.2.1 이 말하는 그 분리.
     let edited: Date
     var folder: String
     var unread: Bool
@@ -69,7 +69,7 @@ enum SampleNotes {
     static let all: [SampleNote] = [
         .init(id: 0, title: "스프린트 회고", body: "이번 주에 배운 것 세 가지. 첫째, 하단 바에 삭제를 두면 안 된다는 것.", edited: now.addingTimeInterval(-60 * 12), folder: "업무", unread: true),
         .init(id: 1, title: "장보기", body: "우유, 달걀, 사과 두 봉지, 커피 원두 200g", edited: now.addingTimeInterval(-60 * 90), folder: "개인", unread: true),
-        .init(id: 2, title: "운송장 번호", body: "1Z 999 AA1 0123 4567 — 목요일 도착 예정", edited: now.addingTimeInterval(-60 * 60 * 26), folder: "개인", unread: false),
+        .init(id: 2, title: "운송장 번호", body: "1Z 999 AA1 0123 4567, 목요일 도착 예정", edited: now.addingTimeInterval(-60 * 60 * 26), folder: "개인", unread: false),
         .init(id: 3, title: "면접 질문 정리", body: "탭바는 목적지, 툴바는 액션. 이 구분을 어떻게 설명할 것인가.", edited: now.addingTimeInterval(-60 * 60 * 50), folder: "업무", unread: false),
         .init(id: 4, title: "읽을 것", body: "HIG Toolbars, WWDC25 세션 323, Liquid Glass 해설 글", edited: now.addingTimeInterval(-60 * 60 * 24 * 6), folder: "개인", unread: false),
         .init(id: 5, title: "이사 체크리스트", body: "인터넷 이전 신청, 우편물 주소 변경, 관리비 정산", edited: now.addingTimeInterval(-60 * 60 * 24 * 20), folder: "개인", unread: false),
@@ -111,7 +111,10 @@ struct SampleNoteApp: View {
                 .toolbar { toolbarContent }
                 .modifier(SearchPlacement(config: config, query: $query, spotlight: spotlight))
                 .navigationDestination(item: $opened) { note in
-                    NoteDetailScreen(note: note, config: config, spotlight: spotlight)
+                    NoteDetailScreen(note: note, config: config, spotlight: spotlight) {
+                        opened = nil
+                        withAnimation { notes.removeAll { $0.id == note.id } }
+                    }
                 }
         }
         .fullScreenCover(isPresented: $composing) {
@@ -162,7 +165,7 @@ struct SampleNoteApp: View {
     private var toolbarContent: some ToolbarContent {
         switch config.grouping {
         case .byRole:
-            // 도구(정렬·선택)와 확정 액션을 자리로 나눈다 — 1.1.2 · 8.1.3.
+            // 도구(정렬·선택)와 확정 액션을 자리로 나눈다 - 1.1.2 · 8.1.3.
             ToolbarItem(placement: .topBarTrailing) {
                 Button(editing ? "완료" : "편집") {
                     withAnimation { editing.toggle() }
@@ -172,7 +175,7 @@ struct SampleNoteApp: View {
                 .spotlightRing(spotlight == .grouping)
             }
         case .oneCapsule:
-            // 성격이 다른 셋을 한 캡슐에 — 사용자는 "한 세트"로 읽는다.
+            // 성격이 다른 셋을 한 캡슐에 - 사용자는 "한 세트"로 읽는다.
             ToolbarItemGroup(placement: .topBarTrailing) {
                 Button("삭제", systemImage: "trash") {
                     if let first = visible.first { notes.removeAll { $0.id == first.id } }
@@ -186,7 +189,7 @@ struct SampleNoteApp: View {
 
         switch config.compose {
         case .bottomTrailing:
-            // 이 화면에서 가장 자주 하는 일 = 새 노트. 그래서 엄지 자리 — 1.1.4 · 8.1.2.
+            // 이 화면에서 가장 자주 하는 일 = 새 노트. 그래서 엄지 자리 - 1.1.4 · 8.1.2.
             ToolbarItemGroup(placement: .bottomBar) {
                 Spacer()
                 Button("새 노트", systemImage: "square.and.pencil") { composing = true }
@@ -228,7 +231,7 @@ private struct NoteRow: View {
                 }
                 Text(note.title)
                     .font(.callout.weight(.semibold))
-                    // 글자가 커져도 제목이 사라지지 않게 — 2.1.4 · 8.1.5.
+                    // 글자가 커져도 제목이 사라지지 않게 - 2.1.4 · 8.1.5.
                     .lineLimit(2)
                 Spacer(minLength: 6)
                 Text(SampleFormat.edited(note.edited, style: config.date))
@@ -244,7 +247,7 @@ private struct NoteRow: View {
     }
 }
 
-/// 값은 앱이, 표기는 로케일이 — 8.1.6. 잘못된 쪽은 문자열을 직접 조립한다.
+/// 값은 앱이, 표기는 로케일이 - 8.1.6. 잘못된 쪽은 문자열을 직접 조립한다.
 enum SampleFormat {
     static func edited(_ date: Date, style: NoteAppConfig.DateStyle) -> String {
         switch style {
@@ -264,8 +267,11 @@ struct NoteDetailScreen: View {
     let note: SampleNote
     var config: NoteAppConfig = .recommended
     var spotlight: NoteAppConfig.Knob?
+    /// 목록에서 열었을 때만 실제로 지운다. 단독으로 띄운 화면(퀴즈)에서는 눌린 사실만 알린다.
+    var onDelete: (() -> Void)?
 
     @State private var copied = false
+    @State private var log = DemoLog()
 
     var body: some View {
         ScrollView {
@@ -304,12 +310,15 @@ struct NoteDetailScreen: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Menu("더보기", systemImage: "ellipsis") {
-                    Button("공유", systemImage: "square.and.arrow.up") {}
+                    Button("공유", systemImage: "square.and.arrow.up") { log.tap("공유") }
                     Divider()
-                    Button("삭제", systemImage: "trash", role: .destructive) {}
+                    Button("삭제", systemImage: "trash", role: .destructive) {
+                        if let onDelete { onDelete() } else { log.tap("삭제") }
+                    }
                 }
             }
         }
+        .demoToast(log)
     }
 }
 
@@ -318,7 +327,7 @@ private struct SelectableModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         if config.selection == .enabled {
-            // 옮겨 적을 일이 있는 값이라 선택을 연다 — 2.1.5.
+            // 옮겨 적을 일이 있는 값이라 선택을 연다 - 2.1.5.
             content.textSelection(.enabled)
         } else {
             content.textSelection(.disabled)
@@ -352,7 +361,7 @@ struct NoteEditorScreen: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 if config.editorExit == .toolbar {
-                    // 전체 화면 커버는 쓸어내려 닫히지 않는다. 출구를 직접 만든다 — 4.2.1.
+                    // 전체 화면 커버는 쓸어내려 닫히지 않는다. 출구를 직접 만든다 - 4.2.1.
                     ToolbarItem(placement: .topBarLeading) {
                         Button("취소") { dismiss() }.spotlightRing(spotlight == .editorExit)
                     }
@@ -367,7 +376,7 @@ struct NoteEditorScreen: View {
             }
             .safeAreaInset(edge: .bottom) {
                 if config.editorExit == .none {
-                    // 실제 앱에는 없는 비상구 — 교재가 사용자를 가두지 않기 위한 장치.
+                    // 실제 앱에는 없는 비상구 - 교재가 사용자를 가두지 않기 위한 장치.
                     Button("예제에서 나가기") { dismiss() }
                         .font(.footnote.weight(.semibold))
                         .foregroundStyle(.red)
@@ -392,7 +401,7 @@ private struct TitleMenuModifier: ViewModifier {
     func body(content: Content) -> some View {
         switch config.title {
         case .menu:
-            // 대상(폴더 이름)이 곧 버튼 — 8.1.7 직접 조작.
+            // 대상(폴더 이름)이 곧 버튼 - 8.1.7 직접 조작.
             content
                 .toolbarTitleDisplayMode(.large)
                 .toolbarTitleMenu {
@@ -416,7 +425,7 @@ private struct TitleMenuModifier: ViewModifier {
     }
 }
 
-/// 검색을 어디에 둘 것인가 — 1.4.1 vs 1.4.4.
+/// 검색을 어디에 둘 것인가 - 1.4.1 vs 1.4.4.
 private struct SearchPlacement: ViewModifier {
     let config: NoteAppConfig
     @Binding var query: String
@@ -425,7 +434,7 @@ private struct SearchPlacement: ViewModifier {
     func body(content: Content) -> some View {
         switch config.search {
         case .toolbar:
-            // iPhone 에서는 하단 유리 캡슐 — 엄지 자리다.
+            // iPhone 에서는 하단 유리 캡슐 - 엄지 자리다.
             content
                 .searchable(text: $query, placement: .toolbar, prompt: "노트 검색")
                 .spotlightRing(spotlight == .search)
@@ -446,7 +455,7 @@ private struct RowDeletionModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         if config.deletion == .swipe {
-            // 액션이 대상 위에 붙는다 — 8.1.7, 그리고 한 단계 거치므로 오탭이 어렵다.
+            // 액션이 대상 위에 붙는다 - 8.1.7, 그리고 한 단계 거치므로 오탭이 어렵다.
             content.swipeActions(edge: .trailing) {
                 Button("삭제", systemImage: "trash", role: .destructive, action: onDelete)
             }

@@ -1,6 +1,6 @@
 import SwiftUI
 
-/// 실수 한 편. 회고 한 편이 그대로 화면이 된 구조다 —
+/// 실수 한 편. 회고 한 편이 그대로 화면이 된 구조다 -
 /// **무엇을 했나 → 그때는 왜 맞아 보였나 → 판단 기준 → 고치면 → 직접 해보기 → 근거**.
 ///
 /// 가운데의 "직접 해보기"가 이 화면의 심장이다. 읽고 끄덕이는 것과
@@ -140,7 +140,7 @@ struct MistakeDetailView: View {
                     Text("회고 읽기")
                         .font(.callout.weight(.bold))
                         .foregroundStyle(.hgText)
-                    Text("증상에서 기준까지 — 어쩌다 이 실수를 하게 됐는가")
+                    Text("증상에서 기준까지, 어쩌다 이 실수를 하게 됐는가")
                         .font(.caption)
                         .foregroundStyle(.hgDim)
                 }
@@ -179,7 +179,7 @@ struct MistakeDetailView: View {
                                 .padding(.horizontal, 5).padding(.vertical, 2)
                                 .background(Color.hgGreen.opacity(0.15), in: .capsule)
                         }
-                        Text("어긴 화면과 고친 화면을 나란히 — 둘 다 실제로 동작합니다")
+                        Text("어긴 화면과 고친 화면을 나란히, 둘 다 실제로 동작합니다")
                             .font(.caption)
                             .foregroundStyle(.hgDim)
                             .multilineTextAlignment(.leading)
@@ -196,7 +196,7 @@ struct MistakeDetailView: View {
             .buttonStyle(.plain)
         } else if let demoEntry, let demo = EntryDemos.demo(for: demoEntry) {
             VStack(alignment: .leading, spacing: 10) {
-                // 원칙(8장)에는 목업이 없다 — 그림이 없으면 카드만 남긴다.
+                // 원칙(8장)에는 목업이 없다 - 그림이 없으면 카드만 남긴다.
                 if !demoEntry.mockup.isEmpty {
                     MockupView(nodes: demoEntry.mockup, scale: 1.15, selected: nil, onSelect: { _ in })
                         .frame(maxWidth: .infinity)
