@@ -55,6 +55,7 @@
 		B6A6731EA1EED3ADF63D7F54 /* entries.json in Resources */ = {isa = PBXBuildFile; fileRef = 8007F1A6FF1AB7AD2D040199 /* entries.json */; };
 		B7E1B3259FA18B2591C1A234 /* LabScaffold.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15CE2F3B227C2DC48224AA4 /* LabScaffold.swift */; };
 		BE0DF83DBBF5C312DE3CFFD7 /* LessonPairsMore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21F7042B3C52E654330FECBD /* LessonPairsMore.swift */; };
+		C0AD1027F975ECEE283FBCB1 /* LeeoKit in Frameworks */ = {isa = PBXBuildFile; productRef = 6C7742080D74BE621B0018B9 /* LeeoKit */; };
 		C11BF10AF375F86DC7BBA677 /* LessonPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BF253FAE82BC1B4F3036298 /* LessonPlayerView.swift */; };
 		C12924C22B74949F6BD5C9BA /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2122C14FB31B000B145252A6 /* LibraryView.swift */; };
 		C565B2B5D2D7C33C4D311313 /* SheetLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52587919849F321D352BEEC /* SheetLabView.swift */; };
@@ -64,6 +65,7 @@
 		D4B24C40601B3B6F17070151 /* ABCompareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3173FC0A7B93C21DB0D927A /* ABCompareView.swift */; };
 		D7B95EAAB3178435E15614B5 /* ScrollEdgeLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D49EFB5319491EC5033746 /* ScrollEdgeLabView.swift */; };
 		DBCB8451662394DA1D2B8D0F /* LessonPairs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D59FA9D744DAEFA7F124BA3 /* LessonPairs.swift */; };
+		E378FA42C197BD3377F22A3D /* HigGymSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA28FB57613ABE385E940EA /* HigGymSpec.swift */; };
 		F2AE897695A9A9517E90B0AF /* MistakeStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7810DF27B474D45074593C /* MistakeStoryView.swift */; };
 		F375333588A33CCAD7ACC391 /* StageChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB85FC655CF38291B0FF26F /* StageChrome.swift */; };
 		F6F18C6E8F30456BC63CA7F9 /* TabBarDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2A81E03A9E142CAEB55CB4 /* TabBarDemos.swift */; };
@@ -99,6 +101,7 @@
 		4AC8686E7B1DDD87C96E02EE /* MockupPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupPart.swift; sourceTree = "<group>"; };
 		4F7810DF27B474D45074593C /* MistakeStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakeStoryView.swift; sourceTree = "<group>"; };
 		55B101002ABE0FD440A4CD65 /* QuizPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPlayView.swift; sourceTree = "<group>"; };
+		5AA28FB57613ABE385E940EA /* HigGymSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HigGymSpec.swift; sourceTree = "<group>"; };
 		5D7AA9CD54B1725F4BA26C98 /* ToolbarItemsDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItemsDemos.swift; sourceTree = "<group>"; };
 		64E767C3B61BBD655611B12B /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		669C25973BF28331F834C739 /* MistakesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakesHomeView.swift; sourceTree = "<group>"; };
@@ -139,6 +142,17 @@
 		FEFBE5660F8B685ED2FC9E48 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
 		"TEMP_C0E60C64-856F-448B-913F-77FF4C5A5FC8" /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9DBEA2427B0A3EF8F7C23A8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0AD1027F975ECEE283FBCB1 /* LeeoKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		02800F00D4EFAE89367A8BE0 /* Design */ = {
@@ -200,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				104D8E0D7E792472743AEE95 /* HigGymApp.swift */,
+				5AA28FB57613ABE385E940EA /* HigGymSpec.swift */,
 				91BAC941417831B34E2DE809 /* RootView.swift */,
 			);
 			path = App;
@@ -372,6 +387,7 @@
 			buildPhases = (
 				91E63C07A484D81B9C70FFF1 /* Sources */,
 				35D001A3E15CC6A3D48CC53D /* Resources */,
+				9DBEA2427B0A3EF8F7C23A8D /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -379,6 +395,7 @@
 			);
 			name = HigGym;
 			packageProductDependencies = (
+				6C7742080D74BE621B0018B9 /* LeeoKit */,
 			);
 			productName = HigGym;
 			productReference = 457B8E2E61AE017173DD5C81 /* HigGym.app */;
@@ -409,6 +426,9 @@
 			);
 			mainGroup = 4913498C47A04FF8747D4BE4;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				CC06855A5ADD33CE4FC62497 /* XCRemoteSwiftPackageReference "LeeoKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			projectDirPath = "";
 			projectRoot = "";
@@ -447,6 +467,7 @@
 				93982D8BE6A499FF22C4BA52 /* EntryDemo.swift in Sources */,
 				C6D0992FCB7B9158ED42BC8F /* EntryDetailView.swift in Sources */,
 				CE2810B4F516FF8FEB2295F2 /* HigGymApp.swift in Sources */,
+				E378FA42C197BD3377F22A3D /* HigGymSpec.swift in Sources */,
 				B7E1B3259FA18B2591C1A234 /* LabScaffold.swift in Sources */,
 				7276B9A56A157A2D211FE984 /* LabsHomeView.swift in Sources */,
 				55043370167381A61A83873D /* Lesson.swift in Sources */,
@@ -687,6 +708,25 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CC06855A5ADD33CE4FC62497 /* XCRemoteSwiftPackageReference "LeeoKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/M1zz/LeeoKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.16.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6C7742080D74BE621B0018B9 /* LeeoKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CC06855A5ADD33CE4FC62497 /* XCRemoteSwiftPackageReference "LeeoKit" */;
+			productName = LeeoKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4B01AC8C61B7CAF1C2547F7A /* Project object */;
 }

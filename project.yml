@@ -14,6 +14,11 @@ settings:
     SWIFT_STRICT_CONCURRENCY: complete
     ENABLE_USER_SCRIPT_SANDBOXING: YES
 
+packages:
+  LeeoKit:
+    url: https://github.com/M1zz/LeeoKit.git
+    majorVersion: 3.16.1
+
 configFiles:
   Debug: Version.xcconfig
   Release: Version.xcconfig
@@ -26,6 +31,8 @@ targets:
       - path: HigGymApp/Sources
       - path: HigGymApp/Resources
         buildPhase: resources
+    dependencies:
+      - package: LeeoKit
     info:
       path: HigGymApp/Info.plist
       properties:
