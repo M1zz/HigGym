@@ -1,5 +1,6 @@
 import SwiftUI
 import UIKit
+import TipKit
 
 /// 학습자가 남긴 글만 모아 놓은 탭.
 ///
@@ -11,6 +12,7 @@ struct NotebookView: View {
     @State private var editing: Lesson?
     /// 마크다운 파일로 내보내기 - 남긴 글은 앱 밖으로 나갈 수 있어야 한다.
     @State private var exportURL: URL?
+    private let exportTip = ExportNotesTip()
 
     private var written: [Lesson] {
         Lesson.all.filter { !notebook.note(for: $0).isEmpty }
@@ -42,6 +44,7 @@ struct NotebookView: View {
                             Button {
                                 UIPasteboard.general.string = notebook.plainText
                                 withAnimation { copied = true }
+                                exportTip.invalidate(reason: .actionPerformed)
                             } label: {
                                 Label(copied ? "복사됨" : "텍스트로 복사", systemImage: copied ? "checkmark" : "doc.on.doc")
                             }
@@ -51,6 +54,7 @@ struct NotebookView: View {
                                 }
                             }
                         }
+                        .popoverTip(exportTip)
                     }
                 }
             }

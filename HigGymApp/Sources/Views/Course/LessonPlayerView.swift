@@ -1,4 +1,6 @@
 import SwiftUI
+import TipKit
+import LeeoKit
 
 /// 레슨 한 편을 다섯 단계로 진행하는 화면.
 ///
@@ -14,6 +16,7 @@ struct LessonPlayerView: View {
     @State private var impression = ""
     @State private var takeaway = ""
     @State private var showReference = false
+    private let referenceTip = LessonReferenceTip()
 
     enum Step: Int, CaseIterable, Identifiable {
         case use, write, reveal, compare, takeaway
@@ -96,6 +99,8 @@ struct LessonPlayerView: View {
                         .background(Color.hgCard, in: .circle)
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel("닫기")
+                .accessibilityHint("쓴 글을 저장하고 레슨을 닫습니다")
 
                 VStack(alignment: .leading, spacing: 1) {
                     Text("\(lesson.number). \(lesson.title)")
@@ -110,7 +115,10 @@ struct LessonPlayerView: View {
 
                 Spacer(minLength: 4)
 
-                Button { showReference = true } label: {
+                Button {
+                    referenceTip.invalidate(reason: .actionPerformed)
+                    showReference = true
+                } label: {
                     Image(systemName: "book")
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(.hgAccent)
@@ -118,6 +126,8 @@ struct LessonPlayerView: View {
                         .background(Color.hgCard, in: .circle)
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel("근거 본문 보기")
+                .popoverTip(referenceTip, arrowEdge: .top)
             }
 
             HStack(spacing: 6) {
@@ -142,6 +152,10 @@ struct LessonPlayerView: View {
                 }
                 Spacer(minLength: 0)
             }
+            // 아이콘 다섯 개를 하나씩 읽히지 않고 "지금 몇 번째 단계인가" 한 줄로 읽는다.
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel("진행 단계")
+            .accessibilityValue("\(Step.allCases.count)단계 중 \(step.rawValue + 1)단계, \(step.title)")
         }
         .padding(.horizontal, 14)
         .padding(.bottom, 10)
@@ -376,12 +390,15 @@ struct LessonPlayerView: View {
                         .background(Color.hgCard, in: .rect(cornerRadius: 13))
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel("이전 단계")
             }
 
             Button {
                 if step == .takeaway {
                     save()
                     notebook.complete(lesson)
+                    // 한 편을 끝까지 마친 순간 - 만족도 질문(리뷰 요청)의 근거로 센다.
+                    LeeoEngagement.shared.registerSignificantEvent()
                     onClose()
                 } else {
                     withAnimation(.snappy(duration: 0.2)) {

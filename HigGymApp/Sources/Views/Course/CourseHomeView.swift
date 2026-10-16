@@ -6,6 +6,7 @@ import SwiftUI
 /// 무엇보다 **이어서 할 곳**이 맨 위에 있다.
 struct CourseHomeView: View {
     @Environment(NotebookStore.self) private var notebook
+    @Environment(Router.self) private var router
     @State private var playing: Lesson?
 
     var body: some View {
@@ -28,8 +29,23 @@ struct CourseHomeView: View {
             }
             .background(Color.hgBackground)
             .navigationTitle("학습")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    NavigationLink {
+                        SettingsView()
+                    } label: {
+                        Label("설정", systemImage: "gearshape")
+                    }
+                }
+            }
             .task {
                 if let id = DebugLaunch.lessonID { playing = Lesson.lesson(id) }
+            }
+            // 단축어 "이어서 학습하기" - RootView 가 열 레슨을 넣어 두면 여기서 띄운다.
+            .onChange(of: router.lessonToOpen, initial: true) { _, id in
+                guard let id else { return }
+                router.lessonToOpen = nil
+                playing = Lesson.lesson(id)
             }
         }
         .fullScreenCover(item: $playing) { lesson in

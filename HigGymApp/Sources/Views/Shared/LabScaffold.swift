@@ -36,6 +36,7 @@ struct LabScaffold<Content: View>: View {
                     .background(Color.hgCard, in: .circle)
             }
             .buttonStyle(.plain)
+            .accessibilityLabel("돌아가기")
 
             VStack(alignment: .leading, spacing: 1) {
                 Text(title)

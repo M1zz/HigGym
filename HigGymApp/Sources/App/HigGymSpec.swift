@@ -15,6 +15,12 @@ enum HigGymSpec: LeeoAppSpec {
     static let appName = "앱 디자인 실습"
     static let developerEmail = "leeo@kakao.com"
 
+    /// App Store 앱 ID. 설정의 "리뷰 남기기"가 작성 페이지로 바로 간다.
+    static let appStoreID: String? = "6808132576"
+
+    /// 설정의 문의 행이 여는 인스타그램.
+    static let instagramURL = URL(string: "https://instagram.com/lee25_ios")!
+
     /// 공용 피드백 허브(FeedbackHub)로 수집, appIdentifier(번들 ID)로 앱을 구분한다.
     /// 컨테이너 권한은 project.yml 의 entitlements(→ HigGymApp/HigGym.entitlements)에 있다. 빼면 CKContainer 를 만드는 순간 앱이 죽는다.
     static let feedback = LeeoFeedbackConfig(

@@ -244,6 +244,9 @@ private struct MistakeRow: View {
                 .font((checked ? Font.callout : Font.footnote).weight(.semibold))
                 .foregroundStyle(checked ? .hgGreen : .hgDim)
                 .padding(.top, 2)
+                // 체크 표시는 색과 모양으로만 보이므로 VoiceOver 에는 말로 알린다.
+                .accessibilityHidden(!checked)
+                .accessibilityLabel("해 본 실수로 체크함")
         }
         .padding(13)
         .background(Color.hgCard, in: .rect(cornerRadius: 14))
