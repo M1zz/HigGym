@@ -33,6 +33,10 @@ targets:
         buildPhase: resources
     dependencies:
       - package: LeeoKit
+    # 공유 스킴을 만들어 단위 테스트를 묶는다. DeployBar 의 SCHEME=HigGym 과 같은 이름이다.
+    scheme:
+      testTargets:
+        - HigGymTests
     info:
       path: HigGymApp/Info.plist
       properties:
@@ -59,3 +63,18 @@ targets:
         TARGETED_DEVICE_FAMILY: "1"
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+
+  # 학습 기록(정답·오답·실수 체크)과 노트(쓴 글·이어서 하기)의 저장 규칙을 지키는 단위 테스트.
+  # xcodebuild -project HigGym.xcodeproj -scheme HigGym -destination 'platform=iOS Simulator,name=iPhone 17' test
+  HigGymTests:
+    type: bundle.unit-test
+    platform: iOS
+    sources:
+      - path: HigGymTests
+    dependencies:
+      - target: HigGym
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.leeo.higgym.tests
+        GENERATE_INFOPLIST_FILE: YES
+        TARGETED_DEVICE_FAMILY: "1"

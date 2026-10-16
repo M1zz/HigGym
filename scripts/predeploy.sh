@@ -1,7 +1,7 @@
 #!/bin/sh
 # 배포 전 게이트. 여기서 실패하면 DeployBar 가 아카이브를 만들지 않는다.
 #
-# 이 앱에는 단위 테스트가 없다. 대신 이 앱에서 실제로 틀어지는 것들을 본다.
+# 단위 테스트(HigGymTests, 학습 기록·노트 저장 규칙)는 xcodebuild test 로 따로 돌린다. 여기서는 이 앱에서 실제로 틀어지는 것들을 본다.
 #   1. 콘텐츠 JSON 이 원본(toolbar-annotated.html · mistakes_data.py · Retrospectives)과 같은가
 #   2. 엠대시·엔대시가 다시 들어오지 않았는가
 #   3. 빌드가 되는가

@@ -41,6 +41,7 @@
 		7276B9A56A157A2D211FE984 /* LabsHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8064AB4245B359115BB8CB22 /* LabsHomeView.swift */; };
 		72AB520325A8DD8FACF63804 /* QuizResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFBE5660F8B685ED2FC9E48 /* QuizResultView.swift */; };
 		733761C715508FAEAD37EDF7 /* LiveQuizPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF2581EC1428A2ECF4414DA3 /* LiveQuizPlayView.swift */; };
+		76464EAACDAACFB889EB0FBB /* NotebookStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB25396851574148AF351BD /* NotebookStoreTests.swift */; };
 		7AC354C61BE77FB05771F03F /* Progress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C507EA91FFA9B03ADE55CC1 /* Progress.swift */; };
 		83D6B284AAC243E887A8C900 /* ScrollEdgeDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D70CDC01FB6A4016EB27A1C /* ScrollEdgeDemos.swift */; };
 		85DF092B668F0323BDE89694 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58F92DDD78DAED2242801AC /* Theme.swift */; };
@@ -53,6 +54,7 @@
 		AF54F18CCCB09A5DC3C61DAD /* ToolbarLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0EA5374737DC69EF843689 /* ToolbarLabView.swift */; };
 		B0B46062CC7FDD0B776D8097 /* TabBarLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24E7A2DBAA8C5B496ECBD59C /* TabBarLabView.swift */; };
 		B128BF71217A01E6F7825E0D /* MaterialDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44AA32C1B6236F456CF8783 /* MaterialDemos.swift */; };
+		B16EF2A8D6654D6A7BB02369 /* TestDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68F6613D7FC21BD739F199D /* TestDefaults.swift */; };
 		B33B471F174D2ABBFCBE0395 /* LiveQuiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18481D2C844CD13B13B4901F /* LiveQuiz.swift */; };
 		B4E3BB128B1C80B27E7B9097 /* MockupBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA60AF76B3C37C7EF2906966 /* MockupBuilder.swift */; };
 		B6A6731EA1EED3ADF63D7F54 /* entries.json in Resources */ = {isa = PBXBuildFile; fileRef = 8007F1A6FF1AB7AD2D040199 /* entries.json */; };
@@ -71,6 +73,7 @@
 		D7B95EAAB3178435E15614B5 /* ScrollEdgeLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D49EFB5319491EC5033746 /* ScrollEdgeLabView.swift */; };
 		DBCB8451662394DA1D2B8D0F /* LessonPairs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D59FA9D744DAEFA7F124BA3 /* LessonPairs.swift */; };
 		E378FA42C197BD3377F22A3D /* HigGymSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA28FB57613ABE385E940EA /* HigGymSpec.swift */; };
+		E3A28AC8CA80D4666FAD5D95 /* ProgressStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B4181C96520B1529789FB /* ProgressStoreTests.swift */; };
 		F2AE897695A9A9517E90B0AF /* MistakeStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7810DF27B474D45074593C /* MistakeStoryView.swift */; };
 		F375333588A33CCAD7ACC391 /* StageChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB85FC655CF38291B0FF26F /* StageChrome.swift */; };
 		F6F18C6E8F30456BC63CA7F9 /* TabBarDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A2A81E03A9E142CAEB55CB4 /* TabBarDemos.swift */; };
@@ -79,9 +82,20 @@
 		FD4A8853AD8B82B1DAF899B0 /* MockupPart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC8686E7B1DDD87C96E02EE /* MockupPart.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9ACB41666AEC9B60FEB7E578 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B01AC8C61B7CAF1C2547F7A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5E0A34DB25C54E1FDD9BE270;
+			remoteInfo = HigGym;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		01FDFF4FBCD41FFDB5A952FC /* SheetDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetDemos.swift; sourceTree = "<group>"; };
 		022B8AB9D23CA639755DDCE9 /* PrincipleDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrincipleDemos.swift; sourceTree = "<group>"; };
+		0C6B4181C96520B1529789FB /* ProgressStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressStoreTests.swift; sourceTree = "<group>"; };
 		0D59FA9D744DAEFA7F124BA3 /* LessonPairs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPairs.swift; sourceTree = "<group>"; };
 		104D8E0D7E792472743AEE95 /* HigGymApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HigGymApp.swift; sourceTree = "<group>"; };
 		151CB94A8DB7324F6513DE6F /* SafeAreaDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeAreaDemos.swift; sourceTree = "<group>"; };
@@ -103,6 +117,7 @@
 		478A1A5F6CF257BC2B3A2A2D /* ToolbarLabModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarLabModel.swift; sourceTree = "<group>"; };
 		491E48E27C72F9345868BEE1 /* Mistakes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mistakes.swift; sourceTree = "<group>"; };
 		49E9B1FDA58D2D3C3C9E6A6F /* LiveMockup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveMockup.swift; sourceTree = "<group>"; };
+		4AB25396851574148AF351BD /* NotebookStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotebookStoreTests.swift; sourceTree = "<group>"; };
 		4AC8686E7B1DDD87C96E02EE /* MockupPart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupPart.swift; sourceTree = "<group>"; };
 		4F7810DF27B474D45074593C /* MistakeStoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakeStoryView.swift; sourceTree = "<group>"; };
 		55B101002ABE0FD440A4CD65 /* QuizPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPlayView.swift; sourceTree = "<group>"; };
@@ -130,6 +145,7 @@
 		998B6D4DFF6E0A6FC3D8A975 /* CuratedQuestions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CuratedQuestions.swift; sourceTree = "<group>"; };
 		9B5489F99B00ED487976A006 /* MenuDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDemos.swift; sourceTree = "<group>"; };
 		A52587919849F321D352BEEC /* SheetLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetLabView.swift; sourceTree = "<group>"; };
+		A68F6613D7FC21BD739F199D /* TestDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDefaults.swift; sourceTree = "<group>"; };
 		A9B1C9AF749F6277D662C230 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		ABC95C52CB13C1B728543A3A /* TextDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextDemos.swift; sourceTree = "<group>"; };
 		AD0EA5374737DC69EF843689 /* ToolbarLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarLabView.swift; sourceTree = "<group>"; };
@@ -137,6 +153,7 @@
 		C15CE2F3B227C2DC48224AA4 /* LabScaffold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabScaffold.swift; sourceTree = "<group>"; };
 		C64F86E8696D7F9D836BFC62 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 		CCDE605C55EC154F83E4604B /* HigGymFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HigGymFlags.swift; sourceTree = "<group>"; };
+		CEB882767011698CC5501222 /* HigGymTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = HigGymTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF2581EC1428A2ECF4414DA3 /* LiveQuizPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveQuizPlayView.swift; sourceTree = "<group>"; };
 		D16A21C4EC97C9B6DEF85202 /* SampleNoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleNoteApp.swift; sourceTree = "<group>"; };
 		D21E1939AB7FC9A37DE15D44 /* CaseStudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseStudyView.swift; sourceTree = "<group>"; };
@@ -150,7 +167,7 @@
 		ECA0DD59B8276E7AB7D670A2 /* DemoKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoKit.swift; sourceTree = "<group>"; };
 		F79AF87F982F35EDCD75CC80 /* MockupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupView.swift; sourceTree = "<group>"; };
 		FEFBE5660F8B685ED2FC9E48 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
-		"TEMP_2F77B46D-8396-4A29-A700-7FF419A58D7D" /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
+		"TEMP_4C03A209-2483-47EA-98B9-B06AC0AC5087" /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				88D9E149325C29B1E372FA1F /* HigGymApp */,
+				6BB045DC31B90B152B25C2AB /* HigGymTests */,
 				E8DEBC0ABD1DA5FA9C832DE6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -275,6 +293,16 @@
 				EB5F42EF76A0CBEF29804229 /* EntryDetailView.swift */,
 			);
 			path = Entries;
+			sourceTree = "<group>";
+		};
+		6BB045DC31B90B152B25C2AB /* HigGymTests */ = {
+			isa = PBXGroup;
+			children = (
+				4AB25396851574148AF351BD /* NotebookStoreTests.swift */,
+				0C6B4181C96520B1529789FB /* ProgressStoreTests.swift */,
+				A68F6613D7FC21BD739F199D /* TestDefaults.swift */,
+			);
+			path = HigGymTests;
 			sourceTree = "<group>";
 		};
 		88D9E149325C29B1E372FA1F /* HigGymApp */ = {
@@ -379,6 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				457B8E2E61AE017173DD5C81 /* HigGym.app */,
+				CEB882767011698CC5501222 /* HigGymTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -401,10 +430,10 @@
 			path = Principles;
 			sourceTree = "<group>";
 		};
-		"TEMP_822CEC9B-F962-494F-9DD5-AE7410F96152" /* 디자인실습 */ = {
+		"TEMP_37DEB299-B5D4-44AF-8F4E-AC8BF43692DB" /* 디자인실습 */ = {
 			isa = PBXGroup;
 			children = (
-				"TEMP_2F77B46D-8396-4A29-A700-7FF419A58D7D" /* Version.xcconfig */,
+				"TEMP_4C03A209-2483-47EA-98B9-B06AC0AC5087" /* Version.xcconfig */,
 			);
 			path = "디자인실습";
 			sourceTree = "<group>";
@@ -432,6 +461,24 @@
 			productReference = 457B8E2E61AE017173DD5C81 /* HigGym.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FB547888878CFC66D207BEE4 /* HigGymTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A28DB0FC812387203814904 /* Build configuration list for PBXNativeTarget "HigGymTests" */;
+			buildPhases = (
+				1DB87441527908922CF9400E /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F15D99BBA65B2E1867F6E10 /* PBXTargetDependency */,
+			);
+			name = HigGymTests;
+			packageProductDependencies = (
+			);
+			productName = HigGymTests;
+			productReference = CEB882767011698CC5501222 /* HigGymTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -442,6 +489,10 @@
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					5E0A34DB25C54E1FDD9BE270 = {
+						DevelopmentTeam = QGAQ3AY3R3;
+						ProvisioningStyle = Automatic;
+					};
+					FB547888878CFC66D207BEE4 = {
 						DevelopmentTeam = QGAQ3AY3R3;
 						ProvisioningStyle = Automatic;
 					};
@@ -465,6 +516,7 @@
 			projectRoot = "";
 			targets = (
 				5E0A34DB25C54E1FDD9BE270 /* HigGym */,
+				FB547888878CFC66D207BEE4 /* HigGymTests */,
 			);
 		};
 /* End PBXProject section */
@@ -483,6 +535,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1DB87441527908922CF9400E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				76464EAACDAACFB889EB0FBB /* NotebookStoreTests.swift in Sources */,
+				E3A28AC8CA80D4666FAD5D95 /* ProgressStoreTests.swift in Sources */,
+				B16EF2A8D6654D6A7BB02369 /* TestDefaults.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		91E63C07A484D81B9C70FFF1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -558,10 +620,18 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		1F15D99BBA65B2E1867F6E10 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5E0A34DB25C54E1FDD9BE270 /* HigGym */;
+			targetProxy = 9ACB41666AEC9B60FEB7E578 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		5711437EF425E4184734E060 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_2F77B46D-8396-4A29-A700-7FF419A58D7D" /* Version.xcconfig */;
+			baseConfigurationReference = "TEMP_4C03A209-2483-47EA-98B9-B06AC0AC5087" /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -620,9 +690,26 @@
 			};
 			name = Release;
 		};
+		8A0B066CA93BA3579ACBC781 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.higgym.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HigGym.app/HigGym";
+			};
+			name = Debug;
+		};
 		8FE6E8404CE52551C781809B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_2F77B46D-8396-4A29-A700-7FF419A58D7D" /* Version.xcconfig */;
+			baseConfigurationReference = "TEMP_4C03A209-2483-47EA-98B9-B06AC0AC5087" /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -724,9 +811,35 @@
 			};
 			name = Debug;
 		};
+		E68562F4E84A84638281F052 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.higgym.tests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HigGym.app/HigGym";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4A28DB0FC812387203814904 /* Build configuration list for PBXNativeTarget "HigGymTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8A0B066CA93BA3579ACBC781 /* Debug */,
+				E68562F4E84A84638281F052 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		73603E9DFEE4F13F47FECA31 /* Build configuration list for PBXNativeTarget "HigGym" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
