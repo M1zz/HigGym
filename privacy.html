@@ -38,16 +38,25 @@
 <body>
 <main>
   <header><div class="mark" aria-hidden="true"></div><h1>개인정보처리방침</h1></header>
-  <p class="meta">앱 디자인 실습 (iOS) · 시행일 2026년 9월 11일</p>
+  <p class="meta">앱 디자인 실습 (iOS) · 시행일 2026년 10월 16일</p>
   <nav class="lang"><a href="#en">English</a> · <a href="./app/">앱 소개</a> · <a href="./support.html">지원 페이지</a></nav>
 
   <section class="card">
     <h2>요약</h2>
-    <p><strong>앱 디자인 실습은 개인정보를 수집하지 않습니다.</strong> 회원가입이 없고, 서버로 아무것도 보내지 않으며, 광고·분석·추적 도구를 쓰지 않습니다.</p>
+    <p><strong>앱 디자인 실습은 개인정보를 수집하지 않습니다.</strong> 회원가입이 없고, 광고·외부 분석·추적 도구를 쓰지 않습니다. 진도와 노트는 기기 안에만 남습니다. 앱을 몇 명이 쓰는지 알고 오류를 고치기 위해 익명 사용 통계와 오류 보고만 보냅니다.</p>
   </section>
 
   <h2>1. 수집하는 정보</h2>
-  <p>없습니다. 앱에는 네트워크 통신 코드, 제3자 SDK, 광고 식별자(IDFA) 사용, 위치·연락처·사진·카메라 접근이 없습니다.</p>
+  <p>개인정보는 수집하지 않습니다. 앱에는 제3자 SDK, 광고 식별자(IDFA) 사용, 위치·연락처·사진·카메라 접근이 없습니다. 기기 밖으로 나가는 것은 아래 ‘익명 사용 통계’에 적은 항목뿐입니다.</p>
+  <h3>익명 사용 통계</h3>
+  <p>앱을 몇 명이 쓰는지 알고 오류를 고치기 위해, 다음 익명 통계를 Apple iCloud(CloudKit)로 보냅니다. 개발자만 읽습니다.</p>
+  <ul>
+    <li>설치할 때 만든 무작위 ID (사용자·Apple ID·기기·다른 앱과 연결되지 않으며, 다시 설치하면 바뀝니다)</li>
+    <li>앱 버전, iOS 버전, 지역·언어 설정</li>
+    <li>앱을 연 횟수와 앱을 연 날, 설치한 날짜와 설치 후 지난 날수</li>
+    <li>앱이 멈추거나 종료된 오류 보고 (앱 버전, iOS 버전, 기기 종류, 오류의 기술 정보)</li>
+  </ul>
+  <p>이름, 연락처, 위치, 학습 노트나 퀴즈 기록 같은 사용자가 만든 내용은 포함하지 않습니다. iCloud에 로그인되어 있을 때만 보냅니다. 이 통계는 개발자가 직접 만든 공용 라이브러리(LeeoKit)가 보내며, 제3자에게 넘기지 않습니다.</p>
 
   <h2>2. 기기 안에만 저장되는 정보</h2>
   <p>학습을 이어서 할 수 있도록 다음 내용을 <strong>사용자의 기기 안에만</strong> 저장합니다. 개발자를 포함해 누구에게도 전송되지 않습니다.</p>
@@ -67,7 +76,7 @@
   <p>근거 자료 링크(Apple Developer 문서, 참고 블로그 등)를 누르면 Safari 등 기기의 브라우저에서 열립니다. 해당 사이트의 정보 처리는 각 사이트의 방침을 따릅니다.</p>
 
   <h2>5. 아동의 개인정보</h2>
-  <p>앱은 어떤 연령의 사용자로부터도 개인정보를 수집하지 않습니다.</p>
+  <p>앱은 어떤 연령의 사용자로부터도 개인정보를 수집하지 않습니다. 익명 사용 통계도 누구의 것인지 알 수 없습니다.</p>
 
   <h2>6. 방침의 변경</h2>
   <p>앱이 정보를 다루는 방식이 바뀌면 이 페이지를 먼저 고치고 시행일을 새로 적습니다.</p>
@@ -78,15 +87,24 @@
   <hr>
 
   <header id="en"><div class="mark" aria-hidden="true"></div><h1>Privacy Policy</h1></header>
-  <p class="meta">App Design Practice (iOS) · Effective September 11, 2026</p>
+  <p class="meta">App Design Practice (iOS) · Effective October 16, 2026</p>
 
   <section class="card">
     <h2>Summary</h2>
-    <p><strong>This app does not collect any personal data.</strong> There is no account, nothing is sent to a server, and no advertising, analytics, or tracking tools are used.</p>
+    <p><strong>This app does not collect any personal data.</strong> There is no account, and no advertising, third-party analytics, or tracking tools are used. Your progress and notes stay on your device. To learn how many people use the app and to fix crashes, it sends only anonymous usage statistics and crash reports.</p>
   </section>
 
   <h2>1. Data we collect</h2>
-  <p>None. The app contains no networking code, no third-party SDKs, does not use the advertising identifier (IDFA), and does not access location, contacts, photos, or the camera.</p>
+  <p>No personal data. The app contains no third-party SDKs, does not use the advertising identifier (IDFA), and does not access location, contacts, photos, or the camera. The only data that leaves your device is listed under “Anonymous usage statistics” below.</p>
+  <h3>Anonymous usage statistics</h3>
+  <p>To learn how many people use the app and to fix crashes, the app sends the following anonymous statistics to Apple’s iCloud (CloudKit), where only the developer can read them:</p>
+  <ul>
+    <li>A random ID created when the app is installed (not linked to you, your Apple ID, your device, or other apps; it changes if you reinstall)</li>
+    <li>App version, iOS version, and region/language setting</li>
+    <li>How many times the app was opened and the days it was opened, the install date, and the number of days since install</li>
+    <li>Crash and freeze reports (app version, iOS version, device type, and technical details of the crash)</li>
+  </ul>
+  <p>No name, contact details, location, or anything you create, such as study notes or quiz results, is included. Statistics are sent only if you are signed in to iCloud. They are sent by LeeoKit, a library the developer wrote, and are never shared with third parties.</p>
 
   <h2>2. Data stored only on your device</h2>
   <p>To let you pick up where you left off, the following is stored <strong>on your device only</strong> and is never transmitted to anyone, including the developer:</p>
@@ -106,7 +124,7 @@
   <p>Reference links (Apple Developer documentation, blogs, etc.) open in your device's browser. Those sites are governed by their own policies.</p>
 
   <h2>5. Children's privacy</h2>
-  <p>The app does not collect personal data from users of any age.</p>
+  <p>The app does not collect personal data from users of any age. The anonymous statistics cannot be traced back to anyone.</p>
 
   <h2>6. Changes</h2>
   <p>If the way the app handles data changes, this page will be updated first with a new effective date.</p>

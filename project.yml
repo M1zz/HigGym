@@ -45,6 +45,14 @@ targets:
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
         ITSAppUsesNonExemptEncryption: false
+    # 익명 사용 통계·크래시 진단을 FeedbackHub(CloudKit)로 올리는 권한. 빼면 CKContainer 를 만드는 순간 앱이 죽는다.
+    entitlements:
+      path: HigGymApp/HigGym.entitlements
+      properties:
+        com.apple.developer.icloud-container-identifiers:
+          - iCloud.com.Ysoup.FeedbackHub
+        com.apple.developer.icloud-services:
+          - CloudKit
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.leeo.higgym
