@@ -51,10 +51,8 @@ struct SettingsView: View {
 
     /// 개발자 메일 - 받는 사람과 제목을 채워 메일 앱을 연다.
     private static var mailURL: URL? {
-        var components = URLComponents()
-        components.scheme = "mailto"
-        components.path = HigGymSpec.developerEmail
-        components.queryItems = [URLQueryItem(name: "subject", value: "[\(HigGymSpec.appName)] 문의")]
-        return components.url
+        let subject = "[\(HigGymSpec.appName)] 문의"
+            .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+        return URL(string: "mailto:\(HigGymSpec.developerEmail)?subject=\(subject)")
     }
 }
