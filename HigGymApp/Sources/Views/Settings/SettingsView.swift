@@ -23,6 +23,8 @@ struct SettingsView: View {
             Section {
                 // 의견 보내기(앱 안 피드백) · 받은 답장 · 리뷰 남기기 · 개인정보처리방침 · 지원 페이지 · 버전
                 LeeoSupportSection<HigGymSpec>()
+                // 앞으로 만들 기능 — 원본은 App/HigGymRoadmap.swift
+                NavigationLink(LeeoRoadmapText.entry) { RoadmapScreen() }
             } header: {
                 Text("지원")
             }

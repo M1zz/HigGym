@@ -21,6 +21,7 @@
 		36045A0B0F98D9FC49DF707B /* PrinciplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87861E2E5EBC20B2A5C684A0 /* PrinciplesView.swift */; };
 		43DA83BFEED48F75924B1747 /* CaseStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E1939AB7FC9A37DE15D44 /* CaseStudyView.swift */; };
 		4490FE61152F54204F5DA71C /* MockupNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946E5ACC20CB60ED1996A8E5 /* MockupNode.swift */; };
+		45185FE8FEC14DD2FAFFFC38 /* HigGymRoadmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE792FCCEC6A1534659A02 /* HigGymRoadmap.swift */; };
 		4601204A7931AED945683DA8 /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64F86E8696D7F9D836BFC62 /* Quiz.swift */; };
 		4944D45EC5542523941FC9AF /* ToolbarItemsDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D7AA9CD54B1725F4BA26C98 /* ToolbarItemsDemos.swift */; };
 		4BF256B785D067583773BC5F /* TextLabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 441FBEADE364990565B87101 /* TextLabView.swift */; };
@@ -123,6 +124,7 @@
 		55B101002ABE0FD440A4CD65 /* QuizPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPlayView.swift; sourceTree = "<group>"; };
 		5AA28FB57613ABE385E940EA /* HigGymSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HigGymSpec.swift; sourceTree = "<group>"; };
 		5D7AA9CD54B1725F4BA26C98 /* ToolbarItemsDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItemsDemos.swift; sourceTree = "<group>"; };
+		63EE792FCCEC6A1534659A02 /* HigGymRoadmap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HigGymRoadmap.swift; sourceTree = "<group>"; };
 		64E767C3B61BBD655611B12B /* Content.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
 		669C25973BF28331F834C739 /* MistakesHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakesHomeView.swift; sourceTree = "<group>"; };
 		67A36ABF4AE476AF65D74CCE /* MistakeDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakeDemos.swift; sourceTree = "<group>"; };
@@ -167,7 +169,7 @@
 		ECA0DD59B8276E7AB7D670A2 /* DemoKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoKit.swift; sourceTree = "<group>"; };
 		F79AF87F982F35EDCD75CC80 /* MockupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupView.swift; sourceTree = "<group>"; };
 		FEFBE5660F8B685ED2FC9E48 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
-		"TEMP_4C03A209-2483-47EA-98B9-B06AC0AC5087" /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
+		"TEMP_5B5DAD30-DED7-41A2-A8FF-B003373B1225" /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 				104D8E0D7E792472743AEE95 /* HigGymApp.swift */,
 				CCDE605C55EC154F83E4604B /* HigGymFlags.swift */,
 				7445DCB14F4AFE31E64CB1FB /* HigGymIntents.swift */,
+				63EE792FCCEC6A1534659A02 /* HigGymRoadmap.swift */,
 				5AA28FB57613ABE385E940EA /* HigGymSpec.swift */,
 				91BAC941417831B34E2DE809 /* RootView.swift */,
 			);
@@ -430,10 +433,10 @@
 			path = Principles;
 			sourceTree = "<group>";
 		};
-		"TEMP_37DEB299-B5D4-44AF-8F4E-AC8BF43692DB" /* 디자인실습 */ = {
+		"TEMP_0921FB4E-4530-4426-83E7-4659DFC1238F" /* 디자인실습 */ = {
 			isa = PBXGroup;
 			children = (
-				"TEMP_4C03A209-2483-47EA-98B9-B06AC0AC5087" /* Version.xcconfig */,
+				"TEMP_5B5DAD30-DED7-41A2-A8FF-B003373B1225" /* Version.xcconfig */,
 			);
 			path = "디자인실습";
 			sourceTree = "<group>";
@@ -564,6 +567,7 @@
 				56466FF29585D1BC7313ADBC /* HigGymFlags.swift in Sources */,
 				CFBB111BD63B6047FFFB0D5C /* HigGymIntents.swift in Sources */,
 				14A5FED01383AF360528B3F3 /* HigGymOnboardingView.swift in Sources */,
+				45185FE8FEC14DD2FAFFFC38 /* HigGymRoadmap.swift in Sources */,
 				E378FA42C197BD3377F22A3D /* HigGymSpec.swift in Sources */,
 				B7E1B3259FA18B2591C1A234 /* LabScaffold.swift in Sources */,
 				7276B9A56A157A2D211FE984 /* LabsHomeView.swift in Sources */,
@@ -631,7 +635,7 @@
 /* Begin XCBuildConfiguration section */
 		5711437EF425E4184734E060 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_4C03A209-2483-47EA-98B9-B06AC0AC5087" /* Version.xcconfig */;
+			baseConfigurationReference = "TEMP_5B5DAD30-DED7-41A2-A8FF-B003373B1225" /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -709,7 +713,7 @@
 		};
 		8FE6E8404CE52551C781809B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_4C03A209-2483-47EA-98B9-B06AC0AC5087" /* Version.xcconfig */;
+			baseConfigurationReference = "TEMP_5B5DAD30-DED7-41A2-A8FF-B003373B1225" /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -866,7 +870,7 @@
 			repositoryURL = "https://github.com/M1zz/LeeoKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.16.1;
+				minimumVersion = 3.20.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
