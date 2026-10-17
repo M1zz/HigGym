@@ -7,6 +7,7 @@ import LeeoKit
 /// 앱 안에서 의견 보내기 · 리뷰 남기기 · 메일과 인스타그램 문의 · 사용법 다시 보기.
 struct SettingsView: View {
     @State private var showsOnboarding = false
+    @State private var showsWhatsNew = false
 
     var body: some View {
         List {
@@ -16,6 +17,11 @@ struct SettingsView: View {
                 } label: {
                     Label("사용법 다시 보기", systemImage: "questionmark.circle")
                 }
+                Button {
+                    showsWhatsNew = true
+                } label: {
+                    Label("새로운 기능", systemImage: "sparkles")
+                }
             } header: {
                 Text("앱 사용")
             }
@@ -23,10 +29,15 @@ struct SettingsView: View {
             Section {
                 // 의견 보내기(앱 안 피드백) · 받은 답장 · 리뷰 남기기 · 개인정보처리방침 · 지원 페이지 · 버전
                 LeeoSupportSection<HigGymSpec>()
-                // 앞으로 만들 기능 — 원본은 App/HigGymRoadmap.swift
+                // 앞으로 만들 기능, 원본은 App/HigGymRoadmap.swift
                 NavigationLink(LeeoRoadmapText.entry) { RoadmapScreen() }
             } header: {
                 Text("지원")
+            }
+
+            Section {
+                // 같은 개발자가 만든 다른 앱 - 이 앱 자신은 목록에서 빠진다(appStoreID 대조).
+                LeeoFamilySettingsRow<HigGymSpec>()
             }
 
             Section {
@@ -48,6 +59,9 @@ struct SettingsView: View {
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(isPresented: $showsOnboarding) {
             HigGymOnboardingView { showsOnboarding = false }
+        }
+        .sheet(isPresented: $showsWhatsNew) {
+            WhatsNewView { showsWhatsNew = false }
         }
     }
 

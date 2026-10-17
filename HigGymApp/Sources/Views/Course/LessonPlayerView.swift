@@ -17,6 +17,10 @@ struct LessonPlayerView: View {
     @State private var takeaway = ""
     @State private var showReference = false
     private let referenceTip = LessonReferenceTip()
+    /// '동작 줄이기'를 켠 사람에게는 단계 표시가 미끄러지지 않고 바로 바뀐다.
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    private var stepAnimation: Animation? { reduceMotion ? nil : .snappy(duration: 0.2) }
 
     enum Step: Int, CaseIterable, Identifiable {
         case use, write, reveal, compare, takeaway
@@ -68,8 +72,11 @@ struct LessonPlayerView: View {
             takeaway = note.takeaway
             step = Step(rawValue: notebook.resumeStep(for: lesson)) ?? .use
             if let raw = DebugLaunch.lessonStep, let target = Step(rawValue: raw) { step = target }
+            HigGymFunnel.reach(.lessonStarted)
         }
         .onChange(of: step) { _, _ in save() }
+        // 단계를 넘길 때 손에 작은 마디를 준다 - 다섯 단계 중 어디까지 왔는지 몸으로도 안다.
+        .sensoryFeedback(.selection, trigger: step)
         .sheet(isPresented: $showReference) {
             LessonReferenceSheet(lesson: lesson)
         }
@@ -101,6 +108,7 @@ struct LessonPlayerView: View {
                 .buttonStyle(.plain)
                 .accessibilityLabel("닫기")
                 .accessibilityHint("쓴 글을 저장하고 레슨을 닫습니다")
+                .accessibilityInputLabels([Text("닫기"), Text("레슨 닫기")])
 
                 VStack(alignment: .leading, spacing: 1) {
                     Text("\(lesson.number). \(lesson.title)")
@@ -127,6 +135,7 @@ struct LessonPlayerView: View {
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel("근거 본문 보기")
+                .accessibilityInputLabels([Text("근거"), Text("근거 본문"), Text("책")])
                 .popoverTip(referenceTip, arrowEdge: .top)
             }
 
@@ -148,7 +157,7 @@ struct LessonPlayerView: View {
                         now ? AnyShapeStyle(.hgBrand) : AnyShapeStyle(Color.hgCard),
                         in: .capsule
                     )
-                    .animation(.snappy(duration: 0.2), value: step)
+                    .animation(stepAnimation, value: step)
                 }
                 Spacer(minLength: 0)
             }
@@ -228,6 +237,8 @@ struct LessonPlayerView: View {
             }
             .padding(16)
         }
+        // 쓰다가 아래 안내를 보려고 끌어내리면 자판이 따라 내려간다 - 자판에 가려 읽지 못하는 일이 없게.
+        .scrollDismissesKeyboard(.interactively)
     }
 
     private var questionCard: some View {
@@ -371,6 +382,7 @@ struct LessonPlayerView: View {
             }
             .padding(16)
         }
+        .scrollDismissesKeyboard(.interactively)
     }
 
     // MARK: 발 - 다음으로
@@ -379,7 +391,7 @@ struct LessonPlayerView: View {
         HStack(spacing: 10) {
             if step != .use {
                 Button {
-                    withAnimation(.snappy(duration: 0.2)) {
+                    withAnimation(stepAnimation) {
                         step = Step(rawValue: step.rawValue - 1) ?? .use
                     }
                 } label: {
@@ -391,6 +403,7 @@ struct LessonPlayerView: View {
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel("이전 단계")
+                .accessibilityInputLabels([Text("이전"), Text("뒤로")])
             }
 
             Button {
@@ -399,9 +412,14 @@ struct LessonPlayerView: View {
                     notebook.complete(lesson)
                     // 한 편을 끝까지 마친 순간 - 만족도 질문(리뷰 요청)의 근거로 센다.
                     LeeoEngagement.shared.registerSignificantEvent()
+                    HigGymFunnel.reach(.lessonCompleted)
+                    // 화면이 닫히며 노트 탭에 글이 쌓인다 - 눈으로 못 보는 사람에게도 알린다.
+                    AccessibilityNotification.Announcement(
+                        String(localized: "레슨을 마쳤습니다. 쓴 글은 노트 탭에 모였습니다.")
+                    ).post()
                     onClose()
                 } else {
-                    withAnimation(.snappy(duration: 0.2)) {
+                    withAnimation(stepAnimation) {
                         step = Step(rawValue: step.rawValue + 1) ?? .takeaway
                     }
                 }
@@ -414,6 +432,7 @@ struct LessonPlayerView: View {
                     .background(.hgBrand, in: .rect(cornerRadius: 13))
             }
             .buttonStyle(.plain)
+            .accessibilityIdentifier("lesson.next")
         }
         .padding(.horizontal, 14)
         .padding(.bottom, 8)

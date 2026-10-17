@@ -1,0 +1,56 @@
+name: CI
+
+# 푸시 · PR 마다 빌드와 단위 시험을 돈다. 콘텐츠 JSON 이 원본과 같은지,
+# 엠대시가 다시 들어오지 않았는지는 배포 게이트(scripts/predeploy.sh)와 같은 검사를 여기서도 한다.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: 빌드 · 단위 시험
+    runs-on: macos-26
+    timeout-minutes: 40
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Xcode 버전 확인
+        run: xcodebuild -version
+
+      - name: SPM 캐시
+        uses: actions/cache@v4
+        with:
+          path: ~/Library/Developer/Xcode/DerivedData/**/SourcePackages
+          key: spm-${{ runner.os }}-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: spm-${{ runner.os }}-
+
+      - name: 배포 게이트 (콘텐츠 JSON · 엠대시 · 빌드)
+        run: sh scripts/predeploy.sh
+
+      - name: 단위 시험 (HigGymTests)
+        run: |
+          DEVICE=$(xcrun simctl list devices available | grep -m1 -oE 'iPhone [0-9]+[^(]*' | sed 's/ *$//')
+          echo "시뮬레이터: $DEVICE"
+          xcodebuild -project HigGym.xcodeproj -scheme HigGym \
+            -destination "platform=iOS Simulator,name=$DEVICE" \
+            -only-testing:HigGymTests test -quiet
+
+  lint:
+    name: SwiftLint
+    runs-on: macos-26
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: SwiftLint 설치
+        run: brew install swiftlint
+      - name: SwiftLint 실행
+        run: swiftlint --strict

@@ -114,6 +114,8 @@ struct ToolbarLabView: View {
     }
 
     private func item(_ id: String) -> ToolbarItemSpec {
+        // 팔레트에 없는 id 를 넘기면 개발 중에 바로 알아야 한다 - 호출부는 전부 팔레트의 상수 id 다.
+        // swiftlint:disable:next force_unwrapping
         ToolbarItemSpec.palette.first { $0.id == id }!
     }
 

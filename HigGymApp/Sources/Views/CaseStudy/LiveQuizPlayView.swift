@@ -289,7 +289,7 @@ struct LiveQuizPlayView: View {
         .disabled(chosen == nil)
         .padding(.horizontal, 16)
         .padding(.bottom, 8)
-        .background(.ultraThinMaterial)
+        .hgBarBackground()
     }
 }
 

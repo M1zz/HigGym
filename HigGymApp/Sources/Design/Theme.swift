@@ -10,20 +10,22 @@ enum HG {
     static let background = Color(light: 0xF4F6FA, dark: 0x0B0C10)
     static let card       = Color(light: 0xFFFFFF, dark: 0x181B22)
     static let cardHigh   = Color(light: 0xF7F9FD, dark: 0x1E222B)
-    static let line       = Color(light: 0xDCE1EA, dark: 0x2A2F3A)
+    /// 테두리·흐린 글자는 '대비 증가'를 켠 사람에게 한 단계 진한 짝을 준다(8.1.4, 최악의 설정에서도 읽히는가).
+    static let line       = Color(light: 0xDCE1EA, dark: 0x2A2F3A, highLight: 0x8E97A6, highDark: 0x6B7385)
     static let text       = Color(light: 0x14171E, dark: 0xE9EDF4)
-    static let muted      = Color(light: 0x525B6B, dark: 0x9AA4B2)
-    static let dim        = Color(light: 0x798393, dark: 0x6F7787)
-    static let accent     = Color(light: 0x1668E3, dark: 0x5AA8FF)
+    static let muted      = Color(light: 0x525B6B, dark: 0x9AA4B2, highLight: 0x30363F, highDark: 0xC9D0DA)
+    /// 흐린 글자도 본문 크기에서 4.5:1 을 넘는다(접근성 감사의 대비 기준). 더 흐리면 '보조'가 아니라 '안 읽힘'이다.
+    static let dim        = Color(light: 0x626C7C, dark: 0x8A93A2, highLight: 0x434B57, highDark: 0xB4BCC8)
+    static let accent     = Color(light: 0x125CCB, dark: 0x5AA8FF)
     static let accent2    = Color(light: 0x5A48D6, dark: 0x7B6CFF)
-    static let green      = Color(light: 0x0E8F60, dark: 0x37D39B)
-    static let amber      = Color(light: 0xA76A0B, dark: 0xF5B451)
-    static let red        = Color(light: 0xD22F2F, dark: 0xFF6B6B)
+    static let green      = Color(light: 0x0A7650, dark: 0x37D39B)
+    static let amber      = Color(light: 0x8F5A08, dark: 0xF5B451)
+    static let red        = Color(light: 0xB82424, dark: 0xFF6B6B)
 
     /// 카드 안의 은은한 채움. 다크에선 흰색을 아주 옅게, 라이트에선 검정을 아주 옅게.
     static let fill = Color(lightWhite: 0.0, lightAlpha: 0.035, darkWhite: 1.0, darkAlpha: 0.02)
     /// 유리 위에 얹는 실선 테두리. 배경이 뒤집히면 테두리도 뒤집혀야 보인다.
-    static let hairline = Color(lightWhite: 0.0, lightAlpha: 0.14, darkWhite: 1.0, darkAlpha: 0.18)
+    static let hairline = Color(lightWhite: 0.0, lightAlpha: 0.14, darkWhite: 1.0, darkAlpha: 0.18, highContrastAlpha: 0.45)
     /// 코드 패널 배경 - 다크에선 더 어둡게, 라이트에선 종이보다 살짝 눌러서.
     static let code = Color(light: 0xEEF1F7, dark: 0x05070B)
 }
@@ -56,18 +58,27 @@ extension Color {
     }
 
     /// 모드에 따라 갈리는 색. UIKit 의 동적 색으로 만들어야 같은 뷰가 모드 전환에 바로 반응한다.
-    init(light: UInt32, dark: UInt32) {
+    /// `highLight`·`highDark` 는 설정 ▸ 손쉬운 사용 ▸ '대비 증가'를 켰을 때의 값이다. 없으면 평소 값을 쓴다.
+    init(light: UInt32, dark: UInt32, highLight: UInt32? = nil, highDark: UInt32? = nil) {
         self.init(uiColor: UIColor { traits in
-            UIColor(hex: traits.userInterfaceStyle == .dark ? dark : light)
+            let isDark = traits.userInterfaceStyle == .dark
+            if traits.accessibilityContrast == .high, let high = isDark ? highDark : highLight {
+                return UIColor(hex: high)
+            }
+            return UIColor(hex: isDark ? dark : light)
         })
     }
 
     /// 흑/백을 옅게 깐 채움처럼, 모드마다 **색과 투명도가 함께** 갈리는 값.
-    init(lightWhite: CGFloat, lightAlpha: CGFloat, darkWhite: CGFloat, darkAlpha: CGFloat) {
+    /// `highContrastAlpha` 를 주면 '대비 증가'에서 그 투명도로 진하게 한다.
+    init(lightWhite: CGFloat, lightAlpha: CGFloat, darkWhite: CGFloat, darkAlpha: CGFloat,
+         highContrastAlpha: CGFloat? = nil) {
         self.init(uiColor: UIColor { traits in
-            traits.userInterfaceStyle == .dark
-                ? UIColor(white: darkWhite, alpha: darkAlpha)
-                : UIColor(white: lightWhite, alpha: lightAlpha)
+            let isDark = traits.userInterfaceStyle == .dark
+            let high = traits.accessibilityContrast == .high ? highContrastAlpha : nil
+            return isDark
+                ? UIColor(white: darkWhite, alpha: high ?? darkAlpha)
+                : UIColor(white: lightWhite, alpha: high ?? lightAlpha)
         })
     }
 }
@@ -261,5 +272,42 @@ struct CodePanel: View {
         .background(Color.hgCode, in: .rect(cornerRadius: 14))
         .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(Color.hgLine, lineWidth: 1))
         .onChange(of: code) { _, _ in copied = false }
+    }
+}
+
+// MARK: - 떠 있는 바의 배경
+
+/// 콘텐츠 위에 떠 있는 바(퀴즈의 다음 버튼 줄, 샘플 앱의 크롬 캡슐)의 배경.
+///
+/// 평소에는 뒤 콘텐츠가 비치는 머티리얼이지만, 설정 ▸ 손쉬운 사용 ▸ '투명도 줄이기'를 켠 사람에게는
+/// 불투명한 바탕을 준다. 비치는 글자와 버튼 글자가 겹쳐 읽히지 않는 일을 없앤다(8.1.4).
+struct HGBarBackground<S: Shape>: ViewModifier {
+    let shape: S
+    /// 불투명할 때 깔 색. 흰 아이콘을 얹는 크롬 캡슐은 어두운 색이어야 아이콘이 산다.
+    var opaque: Color = .hgBackground
+    @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
+
+    func body(content: Content) -> some View {
+        if reduceTransparency {
+            content.background(opaque, in: shape)
+        } else {
+            content.background(.ultraThinMaterial, in: shape)
+        }
+    }
+}
+
+extension View {
+    /// 떠 있는 바의 배경 - '투명도 줄이기'에서는 불투명하게.
+    func hgBarBackground() -> some View {
+        modifier(HGBarBackground(shape: Rectangle()))
+    }
+
+    func hgBarBackground<S: Shape>(in shape: S) -> some View {
+        modifier(HGBarBackground(shape: shape, opaque: .hgCard))
+    }
+
+    /// 흰 아이콘을 얹는 크롬 캡슐 - 불투명할 때는 어두운 바탕.
+    func hgChromeBackground<S: Shape>(in shape: S) -> some View {
+        modifier(HGBarBackground(shape: shape, opaque: Color(white: 0.14)))
     }
 }

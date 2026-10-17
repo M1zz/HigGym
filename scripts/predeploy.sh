@@ -3,8 +3,9 @@
 #
 # 단위 테스트(HigGymTests, 학습 기록·노트 저장 규칙)는 xcodebuild test 로 따로 돌린다. 여기서는 이 앱에서 실제로 틀어지는 것들을 본다.
 #   1. 콘텐츠 JSON 이 원본(toolbar-annotated.html · mistakes_data.py · Retrospectives)과 같은가
-#   2. 엠대시·엔대시가 다시 들어오지 않았는가
-#   3. 빌드가 되는가
+#   2. 콘텐츠 문장마다 영어 · 일본어 번역이 있는가 (Content.xcstrings)
+#   3. 엠대시·엔대시가 다시 들어오지 않았는가
+#   4. 빌드가 되는가
 set -e
 ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
 cd "$ROOT"
@@ -17,6 +18,9 @@ if ! git diff --quiet -- HigGymApp/Resources/entries.json HigGymApp/Resources/mi
   git diff --stat -- HigGymApp/Resources/
   exit 1
 fi
+
+echo "▶︎ 콘텐츠 번역 표 확인 (en · ja 빈칸 0)"
+python3 Tools/sync_content_strings.py --check
 
 echo "▶︎ 엠대시·엔대시 검사"
 DASH="$(printf '\342\200\224\|\342\200\223')"

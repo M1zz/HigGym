@@ -308,5 +308,6 @@ struct MistakeDetailView: View {
         }
         .buttonStyle(.plain)
         .padding(.top, 4)
+        .sensoryFeedback(.success, trigger: checked) { _, now in now }
     }
 }

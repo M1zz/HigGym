@@ -1,0 +1,28 @@
+# SwiftLint - 나오면 반드시 고치는 규칙만 켠다 (클립키보드와 같은 출발점).
+#
+# 규칙을 늘릴 땐 한 번에 하나씩, 기존 위반을 0으로 만든 뒤에 더한다.
+# 실행: swiftlint            (경고 확인)
+#       swiftlint --strict   (CI - 경고도 실패)
+
+only_rules:
+  - force_try          # try! - 번들 콘텐츠를 못 읽으면 죽지 말고 빈 화면 + 로그로
+  - force_unwrapping   # 옵셔널 강제 언랩. 크래시 1순위 원인
+  - file_length        # 파일 비대화 방지
+
+included:
+  - HigGymApp
+# 테스트는 제외한다 - 테스트의 강제 언랩은 "여기서 바로 실패하라"는 관용적 표현이다.
+
+excluded:
+  - build
+  - Tools
+  - scripts
+  - docs
+
+file_length:
+  # 가장 긴 파일(MistakeDemos · Lesson)이 1000줄 안쪽이다. 넘기 시작하면 나눈다.
+  warning: 1200
+  error: 4000
+  ignore_comment_only_lines: true
+
+reporter: "xcode"

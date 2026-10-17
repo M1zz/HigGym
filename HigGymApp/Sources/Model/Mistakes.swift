@@ -107,10 +107,7 @@ struct MistakeStore: Sendable {
     }
 
     private static func load() -> MistakeStore {
-        guard let url = Bundle.main.url(forResource: "mistakes", withExtension: "json"),
-              let data = try? Data(contentsOf: url),
-              let bundled = try? JSONDecoder().decode(Bundled.self, from: data)
-        else {
+        guard let bundled = ContentLocalization.decode(Bundled.self, resource: "mistakes") else {
             assertionFailure("mistakes.json 을 읽지 못했습니다, Tools/build_mistakes.py 를 먼저 실행하세요.")
             return MistakeStore(categories: [], mistakes: [])
         }

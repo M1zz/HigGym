@@ -345,13 +345,20 @@ struct NoteEditorScreen: View {
     @Environment(\.dismiss) private var dismiss
     @State private var title = ""
     @State private var body_ = ""
+    /// 제목에서 자판의 '다음'을 누르면 본문으로 넘어간다 - 표본 앱도 입력 흐름은 실물처럼.
+    @FocusState private var field: Field?
+    private enum Field { case title, body }
 
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 10) {
                 TextField("제목", text: $title)
                     .font(.title3.weight(.semibold))
+                    .focused($field, equals: .title)
+                    .submitLabel(.next)
+                    .onSubmit { field = .body }
                 TextEditor(text: $body_)
+                    .focused($field, equals: .body)
                     .font(.callout)
                     .scrollContentBackground(.hidden)
                     .background(.quaternary.opacity(0.4), in: .rect(cornerRadius: 12))

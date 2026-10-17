@@ -114,6 +114,10 @@ struct QuizBank: Sendable {
     static let shared = QuizBank(store: .shared)
 
     init(store: ContentStore) {
+        // 문항 수백 개를 본문에서 만들어 낸다 - 퀴즈 화면이 처음 열릴 때 걸리는 시간을 구간으로 본다.
+        let signposter = HigGymLog.signposter
+        let state = signposter.beginInterval("퀴즈 문항 만들기")
+        defer { signposter.endInterval("퀴즈 문항 만들기", state) }
         var built: [Question] = []
         built += Self.judgementQuestions(store)
         built += Self.whenMatchQuestions(store)

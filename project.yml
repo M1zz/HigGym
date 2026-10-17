@@ -37,6 +37,7 @@ targets:
     scheme:
       testTargets:
         - HigGymTests
+        - HigGymUITests
     info:
       path: HigGymApp/Info.plist
       properties:
@@ -78,3 +79,18 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: com.leeo.higgym.tests
         GENERATE_INFOPLIST_FILE: YES
         TARGETED_DEVICE_FAMILY: "1"
+
+  # 실제 앱을 띄워 레슨 한 편을 끝까지 돌고(XCUIApplication), 세 탭의 접근성 감사를 한다.
+  HigGymUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: HigGymUITests
+    dependencies:
+      - target: HigGym
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.leeo.higgym.uitests
+        GENERATE_INFOPLIST_FILE: YES
+        TARGETED_DEVICE_FAMILY: "1"
+        TEST_TARGET_NAME: HigGym

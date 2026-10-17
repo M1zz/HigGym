@@ -198,15 +198,18 @@ struct PrincipleDetailView: View {
                 .font(.footnote.weight(.bold))
                 .foregroundStyle(.hgDim)
             ForEach(principle.refs, id: \.url) { ref in
-                Link(destination: URL(string: ref.url) ?? URL(string: "https://developer.apple.com")!) {
-                    HStack(spacing: 6) {
-                        Text(ref.title)
-                            .font(.footnote)
-                            .multilineTextAlignment(.leading)
-                        Image(systemName: "arrow.up.right")
-                            .font(.caption)
+                // 주소가 깨진 참고 자료는 엉뚱한 곳으로 보내지 않고 빼 둔다.
+                if let url = URL(string: ref.url) {
+                    Link(destination: url) {
+                        HStack(spacing: 6) {
+                            Text(ref.title)
+                                .font(.footnote)
+                                .multilineTextAlignment(.leading)
+                            Image(systemName: "arrow.up.right")
+                                .font(.caption)
+                        }
+                        .foregroundStyle(.hgAccent)
                     }
-                    .foregroundStyle(.hgAccent)
                 }
             }
         }

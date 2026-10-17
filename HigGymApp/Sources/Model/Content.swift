@@ -63,10 +63,7 @@ struct ContentStore: Sendable {
     static let shared: ContentStore = load()
 
     private static func load() -> ContentStore {
-        guard let url = Bundle.main.url(forResource: "entries", withExtension: "json"),
-              let data = try? Data(contentsOf: url),
-              let bundle = try? JSONDecoder().decode(ContentBundle.self, from: data)
-        else {
+        guard let bundle = ContentLocalization.decode(ContentBundle.self, resource: "entries") else {
             assertionFailure("entries.json 을 읽지 못했습니다, Tools/extract_content.py 를 먼저 실행하세요.")
             return ContentStore(chapters: [], sections: [], entries: [], principles: [])
         }

@@ -218,6 +218,8 @@ struct RootView: View {
     private let intents = IntentInbox.shared
     /// 만족도 질문을 붙일지 - 원격 킬스위치로 끌 수 있다. 실행 중 한 번만 읽는다
     /// (그릴 때마다 읽으면 플래그가 갱신되는 순간 탭 화면이 통째로 다시 만들어진다).
+    /// 업데이트 뒤 한 번 뜨는 새 기능 안내.
+    @State private var showsWhatsNew = false
     @State private var asksSatisfaction = LeeoRemoteFlags.isEnabled(HigGymFlag.satisfactionPromptEnabled)
         && !DebugLaunch.isScripted
 
@@ -249,6 +251,9 @@ struct RootView: View {
         .fullScreenCover(isPresented: onboardingPresented) {
             HigGymOnboardingView { hasSeenOnboarding = true }
         }
+        .sheet(isPresented: $showsWhatsNew, onDismiss: { WhatsNewContent.markSeen() }) {
+            WhatsNewView { showsWhatsNew = false }
+        }
         .onAppear {
             if let tab = DebugLaunch.tab { router.tab = tab }
             #if DEBUG
@@ -257,6 +262,11 @@ struct RootView: View {
             // 안내가 생기기 전부터 쓰던 사람에게는 띄우지 않는다 - 이미 레슨을 해 본 사람이다.
             if !hasSeenOnboarding, !notebook.notes.isEmpty || notebook.resumeLessonID != nil {
                 hasSeenOnboarding = true
+            }
+            // 첫 실행 안내를 볼 사람(처음 온 사람)에게는 새 기능 안내를 띄우지 않는다.
+            if !DebugLaunch.isScripted,
+               WhatsNewContent.shouldPresent(isNewcomer: !hasSeenOnboarding) {
+                showsWhatsNew = true
             }
         }
         .onChange(of: intents.pending, initial: true) { _, request in

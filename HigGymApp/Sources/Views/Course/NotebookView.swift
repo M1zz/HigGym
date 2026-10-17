@@ -45,6 +45,10 @@ struct NotebookView: View {
                                 UIPasteboard.general.string = notebook.plainText
                                 withAnimation { copied = true }
                                 exportTip.invalidate(reason: .actionPerformed)
+                                HigGymFunnel.reach(.notesExported)
+                                AccessibilityNotification.Announcement(
+                                    String(localized: "노트를 텍스트로 복사했습니다")
+                                ).post()
                             } label: {
                                 Label(copied ? "복사됨" : "텍스트로 복사", systemImage: copied ? "checkmark" : "doc.on.doc")
                             }
@@ -55,10 +59,12 @@ struct NotebookView: View {
                             }
                         }
                         .popoverTip(exportTip)
+                        .accessibilityInputLabels([Text("내보내기"), Text("공유"), Text("복사")])
                     }
                 }
             }
             .task(id: notebook.notes) { refreshExport() }
+            .sensoryFeedback(.success, trigger: copied) { _, new in new }
         }
         .fullScreenCover(item: $editing) { lesson in
             LessonPlayerView(lesson: lesson) { editing = nil }
@@ -74,6 +80,7 @@ struct NotebookView: View {
             try notebook.plainText.write(to: url, atomically: true, encoding: .utf8)
             exportURL = url
         } catch {
+            HigGymLog.notes.error("노트 내보내기 파일을 쓰지 못했습니다: \(error.localizedDescription, privacy: .public)")
             exportURL = nil
         }
     }
@@ -162,6 +169,10 @@ private struct NoteCard: View {
         .padding(14)
         .background(Color.hgCard, in: .rect(cornerRadius: 16))
         .overlay(RoundedRectangle(cornerRadius: 16).strokeBorder(Color.hgLine, lineWidth: 1))
+        // 카드 한 장을 한 번에 읽고, 카드 안의 작은 '다시 하기'까지 찾아가지 않아도
+        // VoiceOver 동작 메뉴에서 바로 다시 연다.
+        .accessibilityElement(children: .combine)
+        .accessibilityAction(named: Text("다시 하기"), onEdit)
     }
 
     private func passage(_ label: String, _ body: String, _ tint: Color) -> some View {

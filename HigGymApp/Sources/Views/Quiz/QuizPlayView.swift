@@ -6,6 +6,16 @@ struct QuizPlayView: View {
 
     @Environment(ProgressStore.self) private var progress
     @State private var presentedLab: LabID?
+    /// '동작 줄이기'를 켠 사람에게는 해설이 아래에서 밀려 올라오지 않고 제자리에서 나타난다.
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
+    private var stepAnimation: Animation? { reduceMotion ? nil : .snappy(duration: 0.2) }
+
+    /// 채점한 순간의 결과 - 손에 맞았는지 틀렸는지를 알려 주는 진동의 방아쇠.
+    private var answerFeedback: SensoryFeedback? {
+        guard let selection = session.selection, let question = session.current else { return nil }
+        return selection == question.answerIndex ? .success : .error
+    }
 
     var body: some View {
         NavigationStack {
@@ -28,6 +38,14 @@ struct QuizPlayView: View {
             }
         }
         .fullScreenCover(item: $presentedLab) { labDestination($0) }
+        .sensoryFeedback(trigger: session.selection) { _, _ in answerFeedback }
+        .onChange(of: session.selection) { _, selection in
+            // 해설 카드는 화면 아래에 생긴다. VoiceOver 사용자가 거기까지 가지 않아도 결과를 듣게 한다.
+            guard selection != nil, let feedback = answerFeedback else { return }
+            AccessibilityNotification.Announcement(
+                feedback == .success ? String(localized: "정답입니다") : String(localized: "오답입니다")
+            ).post()
+        }
     }
 
     private var empty: some View {
@@ -116,7 +134,7 @@ struct QuizPlayView: View {
             VStack(spacing: 9) {
                 ForEach(Array(question.options.enumerated()), id: \.offset) { index, text in
                     Button {
-                        withAnimation(.snappy(duration: 0.2)) {
+                        withAnimation(stepAnimation) {
                             session.select(index, progress: progress)
                         }
                     } label: {
@@ -137,7 +155,7 @@ struct QuizPlayView: View {
         LazyVGrid(columns: [.init(.flexible(), spacing: 10), .init(.flexible(), spacing: 10)], spacing: 10) {
             ForEach(Array(question.optionSources.enumerated()), id: \.offset) { index, source in
                 Button {
-                    withAnimation(.snappy(duration: 0.2)) {
+                    withAnimation(stepAnimation) {
                         session.select(index, progress: progress)
                     }
                 } label: {
@@ -202,12 +220,12 @@ struct QuizPlayView: View {
         .padding(16)
         .background(Color.hgCard, in: .rect(cornerRadius: 16))
         .overlay(RoundedRectangle(cornerRadius: 16).strokeBorder(Color.hgLine, lineWidth: 1))
-        .transition(.opacity.combined(with: .move(edge: .bottom)))
+        .transition(reduceMotion ? .opacity : .opacity.combined(with: .move(edge: .bottom)))
     }
 
     private var nextButton: some View {
         Button {
-            withAnimation(.snappy(duration: 0.2)) { session.advance() }
+            withAnimation(stepAnimation) { session.advance() }
         } label: {
             Text(session.index == session.questions.count - 1 ? "결과 보기" : "다음 문제")
                 .font(.callout.weight(.semibold))
@@ -218,7 +236,7 @@ struct QuizPlayView: View {
         }
         .buttonStyle(.plain)
         .padding(18)
-        .background(.ultraThinMaterial)
+        .hgBarBackground()
     }
 }
 
@@ -228,6 +246,9 @@ private struct MockupOption: View {
     let title: String
     let state: OptionRow.State
     let revealed: Bool
+
+    /// 설정 ▸ 손쉬운 사용 ▸ '색상 없이 구별'. 정답·오답이 테두리 색으로만 갈리지 않게 표시를 얹는다.
+    @Environment(\.accessibilityDifferentiateWithoutColor) private var differentiateWithoutColor
 
     private var tint: Color {
         switch state {
@@ -259,8 +280,26 @@ private struct MockupOption: View {
              : Color.hgCard),
             in: .rect(cornerRadius: 14)
         )
-        .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(tint.opacity(0.55), lineWidth: 1))
+        .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(tint.opacity(0.55), lineWidth: differentiateWithoutColor && state != .idle && state != .dimmed ? 2.5 : 1))
+        .overlay(alignment: .topTrailing) {
+            if differentiateWithoutColor, let mark {
+                Image(systemName: mark)
+                    .font(.title3.weight(.bold))
+                    .foregroundStyle(.white, tint)
+                    .padding(6)
+                    .accessibilityHidden(true)
+            }
+        }
         .opacity(state == .dimmed ? 0.5 : 1)
+    }
+
+    /// 색 대신 모양으로 말하는 표시 - 정답은 체크, 내가 고른 오답은 엑스.
+    private var mark: String? {
+        switch state {
+        case .correct: "checkmark.circle.fill"
+        case .wrong:   "xmark.circle.fill"
+        default:       nil
+        }
     }
 }
 

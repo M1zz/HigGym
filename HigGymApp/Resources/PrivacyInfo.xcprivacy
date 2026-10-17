@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+    PrivacyInfo.xcprivacy - 앱 디자인 실습 (HigGym)
+
+    ⚠️ App Store Connect 의 App Privacy 설문과 어긋나면 안 된다. 하나를 바꾸면 다른 쪽도 같이 바꾼다.
+
+    수집 근거 (LeeoKit 경유, FeedbackHub CloudKit public DB)
+      · 사용 통계 → HigGymSpec.analytics (LeeoUsageAnalytics) · HigGymFunnel 이벤트 이름 · 익명 설치 UUID
+      · 크래시 진단 → LeeoKit.bootstrap 의 LeeoDiagnostics (MetricKit)
+      · 의견 보내기 → 설정의 LeeoSupportSection (본문, 선택 입력 이름·이메일)
+
+    수집하지 않는 것
+      · 학습 노트 본문 · 진도 · 퀴즈 결과 → 기기의 UserDefaults 에만 있다.
+      · 광고 식별자 · 위치 · 연락처. 추적(ATT) 없음.
+-->
+<plist version="1.0">
+<dict>
+    <!-- 추적 없음: 타사 데이터와 결합하거나 데이터 브로커에 공유하지 않는다. ATT 불필요. -->
+    <key>NSPrivacyTracking</key>
+    <false/>
+    <key>NSPrivacyTrackingDomains</key>
+    <array/>
+
+    <key>NSPrivacyCollectedDataTypes</key>
+    <array>
+        <!-- ① 제품 상호작용 - 앱 실행·레슨 시작/마침 같은 이벤트(이름만).
+             익명 설치 UUID로만 묶이고 신원과 연결하지 않는다. -->
+        <dict>
+            <key>NSPrivacyCollectedDataType</key>
+            <string>NSPrivacyCollectedDataTypeProductInteraction</string>
+            <key>NSPrivacyCollectedDataTypeLinked</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypeTracking</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypePurposes</key>
+            <array>
+                <string>NSPrivacyCollectedDataTypePurposeAnalytics</string>
+            </array>
+        </dict>
+
+        <!-- ③ 기기 ID - 앱이 만든 무작위 설치 UUID(leeo.usage.installID).
+             재설치하면 새 값이 되고 앱 밖에서는 의미가 없지만, 한 설치의 이벤트를 묶는
+             지속 식별자이므로 신고한다(FirebaseAnalytics 의 app-instance ID 와 같은 성격). -->
+        <dict>
+            <key>NSPrivacyCollectedDataType</key>
+            <string>NSPrivacyCollectedDataTypeDeviceID</string>
+            <key>NSPrivacyCollectedDataTypeLinked</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypeTracking</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypePurposes</key>
+            <array>
+                <string>NSPrivacyCollectedDataTypePurposeAnalytics</string>
+            </array>
+        </dict>
+
+        <!-- ④ 크래시 데이터 - MetricKit이 주는 크래시·행 진단(콜스택·앱버전·OS).
+             LeeoKit 진단이 허브로 보낸다. 설치 식별자조차 붙이지 않는다. -->
+        <dict>
+            <key>NSPrivacyCollectedDataType</key>
+            <string>NSPrivacyCollectedDataTypeCrashData</string>
+            <key>NSPrivacyCollectedDataTypeLinked</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypeTracking</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypePurposes</key>
+            <array>
+                <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+            </array>
+        </dict>
+
+        <!-- ⑤ 고객 지원 - 사용자가 직접 쓴 피드백 본문.
+             연락처를 함께 남기면 신원과 연결될 수 있으므로 Linked = true. -->
+        <dict>
+            <key>NSPrivacyCollectedDataType</key>
+            <string>NSPrivacyCollectedDataTypeCustomerSupport</string>
+            <key>NSPrivacyCollectedDataTypeLinked</key>
+            <true/>
+            <key>NSPrivacyCollectedDataTypeTracking</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypePurposes</key>
+            <array>
+                <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+            </array>
+        </dict>
+
+        <!-- ⑥ 이메일 - 피드백에서 답장을 원할 때만 사용자가 직접 입력(선택). -->
+        <dict>
+            <key>NSPrivacyCollectedDataType</key>
+            <string>NSPrivacyCollectedDataTypeEmailAddress</string>
+            <key>NSPrivacyCollectedDataTypeLinked</key>
+            <true/>
+            <key>NSPrivacyCollectedDataTypeTracking</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypePurposes</key>
+            <array>
+                <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+            </array>
+        </dict>
+
+        <!-- ⑦ 이름 - 위와 동일, 피드백의 선택 입력값. -->
+        <dict>
+            <key>NSPrivacyCollectedDataType</key>
+            <string>NSPrivacyCollectedDataTypeName</string>
+            <key>NSPrivacyCollectedDataTypeLinked</key>
+            <true/>
+            <key>NSPrivacyCollectedDataTypeTracking</key>
+            <false/>
+            <key>NSPrivacyCollectedDataTypePurposes</key>
+            <array>
+                <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+            </array>
+        </dict>
+    </array>
+
+    <key>NSPrivacyAccessedAPITypes</key>
+    <array>
+        <!-- UserDefaults: 앱 자기 기록만(CA92.1) - 노트 · 진도 · 안내를 본 기록. App Group 은 쓰지 않는다. -->
+        <dict>
+            <key>NSPrivacyAccessedAPIType</key>
+            <string>NSPrivacyAccessedAPICategoryUserDefaults</string>
+            <key>NSPrivacyAccessedAPITypeReasons</key>
+            <array>
+                <string>CA92.1</string>
+            </array>
+        </dict>
+    </array>
+</dict>
+</plist>

@@ -41,6 +41,17 @@ struct MistakesHomeView: View {
                                 MistakeRow(mistake: mistake, checked: progress.isChecked(mistake))
                             }
                             .buttonStyle(.plain)
+                            // 상세에 들어가지 않고도 목록에서 바로 '나도 해봤다'를 표시하고 지운다 (VoiceOver 동작).
+                            .accessibilityAction(named: progress.isChecked(mistake)
+                                                 ? Text("겪어본 실수 표시 지우기")
+                                                 : Text("이건 나도 해봤다")) {
+                                progress.toggleMistake(mistake.id)
+                                AccessibilityNotification.Announcement(
+                                    progress.isChecked(mistake)
+                                        ? String(localized: "겪어본 실수로 표시했습니다")
+                                        : String(localized: "표시를 지웠습니다")
+                                ).post()
+                            }
                         }
 
                         if filtered.isEmpty {

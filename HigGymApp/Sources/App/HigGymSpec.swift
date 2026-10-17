@@ -19,6 +19,8 @@ enum HigGymSpec: LeeoAppSpec {
     static let appStoreID: String? = "6808132576"
 
     /// 설정의 문의 행이 여는 인스타그램.
+    // 아래 URL 들은 고정 문자열 상수라 실패할 수 없다.
+    // swiftlint:disable force_unwrapping
     static let instagramURL = URL(string: "https://instagram.com/lee25_ios")!
 
     /// 공용 피드백 허브(FeedbackHub)로 수집, appIdentifier(번들 ID)로 앱을 구분한다.
@@ -34,6 +36,7 @@ enum HigGymSpec: LeeoAppSpec {
         supportURL: URL(string: "https://m1zz.github.io/HigGym/support.html")!,
         marketingURL: URL(string: "https://m1zz.github.io/HigGym/")!
     )
+    // swiftlint:enable force_unwrapping
 
     /// 수익모델 (LeeoKit 3.x 부터 필수), 인앱 결제가 없는 무료 앱.
     static let monetization = LeeoMonetization.free

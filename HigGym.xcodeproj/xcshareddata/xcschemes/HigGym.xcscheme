@@ -50,6 +50,17 @@
                ReferencedContainer = "container:HigGym.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "1253427C2F4C8639F1C84019"
+               BuildableName = "HigGymUITests.xctest"
+               BlueprintName = "HigGymUITests"
+               ReferencedContainer = "container:HigGym.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <CommandLineArguments>
       </CommandLineArguments>

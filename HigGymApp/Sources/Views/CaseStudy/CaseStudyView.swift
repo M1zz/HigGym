@@ -75,6 +75,8 @@ struct NoteAppDecision: Identifiable, Hashable {
     ]
 
     static func of(_ knob: NoteAppConfig.Knob) -> NoteAppDecision {
+        // Knob 의 모든 case 가 `all` 에 하나씩 있다 - 빠지면 개발 중에 바로 터져야 한다.
+        // swiftlint:disable:next force_unwrapping
         all.first { $0.knob == knob }!
     }
 }
@@ -105,7 +107,7 @@ struct CaseStudyView: View {
             button("list.bullet.rectangle") { showNotes = true }
         }
         .padding(.horizontal, 7)
-        .background(.ultraThinMaterial, in: .capsule)
+        .hgBarBackground(in: Capsule())
         .overlay(Capsule().strokeBorder(Color.hgHairline, lineWidth: 1))
         .shadow(color: .black.opacity(0.35), radius: 10, y: 4)
         .padding(.bottom, 10)

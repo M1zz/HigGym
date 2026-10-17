@@ -20,7 +20,7 @@ struct StageChrome<Controls: View>: ViewModifier {
                     button("slider.horizontal.3") { showControls = true }
                 }
                 .padding(.vertical, 8)
-                .background(.ultraThinMaterial, in: .capsule)
+                .hgChromeBackground(in: Capsule())
                 .overlay(Capsule().strokeBorder(Color.hgHairline, lineWidth: 1))
                 .padding(.leading, 10)
                 .shadow(color: .black.opacity(0.4), radius: 10, y: 4)

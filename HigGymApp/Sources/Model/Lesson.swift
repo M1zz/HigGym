@@ -401,10 +401,15 @@ final class NotebookStore {
 
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
-        if let data = defaults.data(forKey: Key.notes),
-           let decoded = try? JSONDecoder().decode([String: LessonNote].self, from: data) {
-            // 예전 판이 남긴 빈 항목은 여기서 털어낸다.
-            notes = decoded.filter { !$0.value.isEmpty || $0.value.isCompleted }
+        if let data = defaults.data(forKey: Key.notes) {
+            do {
+                let decoded = try JSONDecoder().decode([String: LessonNote].self, from: data)
+                // 예전 판이 남긴 빈 항목은 여기서 털어낸다.
+                notes = decoded.filter { !$0.value.isEmpty || $0.value.isCompleted }
+            } catch {
+                // 저장된 노트를 못 읽으면 빈 노트로 시작한다. 원본 데이터는 덮어쓰기 전까지 그대로 남는다.
+                HigGymLog.notes.error("저장된 노트를 읽지 못했습니다 (\(data.count) bytes): \(String(describing: error), privacy: .public)")
+            }
         }
         resumeLessonID = defaults.string(forKey: Key.resumeLesson)
         resumeStep = defaults.integer(forKey: Key.resumeStep)
@@ -447,6 +452,12 @@ final class NotebookStore {
         resumeStep = step
         defaults.set(id, forKey: Key.resumeLesson)
         defaults.set(step, forKey: Key.resumeStep)
+    }
+
+    /// 세이프 모드에서 부른다. 하다 만 레슨은 기억하되, 멈춘 단계가 아니라 첫 단계부터 열게 한다.
+    func rewindResumeToFirstStep() {
+        guard resumeLessonID != nil, resumeStep != 0 else { return }
+        setResume(resumeLessonID, step: 0)
     }
 
     func reset(_ lesson: Lesson) {
