@@ -19,6 +19,7 @@
 		20CA8BED68D4AEB863CE445B /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64E767C3B61BBD655611B12B /* Content.swift */; };
 		20D00E60E253704668037568 /* TextDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC95C52CB13C1B728543A3A /* TextDemos.swift */; };
 		36045A0B0F98D9FC49DF707B /* PrinciplesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87861E2E5EBC20B2A5C684A0 /* PrinciplesView.swift */; };
+		3A62A1A0D699AA69051FA123 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 3349D06BE37EFB227226C633 /* Localizable.xcstrings */; };
 		43DA83BFEED48F75924B1747 /* CaseStudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21E1939AB7FC9A37DE15D44 /* CaseStudyView.swift */; };
 		4490FE61152F54204F5DA71C /* MockupNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 946E5ACC20CB60ED1996A8E5 /* MockupNode.swift */; };
 		45185FE8FEC14DD2FAFFFC38 /* HigGymRoadmap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE792FCCEC6A1534659A02 /* HigGymRoadmap.swift */; };
@@ -111,6 +112,7 @@
 		21F7042B3C52E654330FECBD /* LessonPairsMore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonPairsMore.swift; sourceTree = "<group>"; };
 		24E7A2DBAA8C5B496ECBD59C /* TabBarLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarLabView.swift; sourceTree = "<group>"; };
 		264C065535995682CAB67F16 /* Lesson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lesson.swift; sourceTree = "<group>"; };
+		3349D06BE37EFB227226C633 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		33D6A8C0436453A161E1ACCD /* SearchDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDemos.swift; sourceTree = "<group>"; };
 		35D49EFB5319491EC5033746 /* ScrollEdgeLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollEdgeLabView.swift; sourceTree = "<group>"; };
 		441FBEADE364990565B87101 /* TextLabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLabView.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 			children = (
 				8D814A99F33D87266C683A48 /* Assets.xcassets */,
 				8007F1A6FF1AB7AD2D040199 /* entries.json */,
+				3349D06BE37EFB227226C633 /* Localizable.xcstrings */,
 				94E2A0358CE6461154433F3B /* mistakes.json */,
 			);
 			path = Resources;
@@ -508,6 +511,7 @@
 			knownRegions = (
 				Base,
 				en,
+				ko,
 			);
 			mainGroup = 4913498C47A04FF8747D4BE4;
 			minimizedProjectReferenceProxies = 1;
@@ -530,6 +534,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1C8C1A6E578256941D51A5A2 /* Assets.xcassets in Resources */,
+				3A62A1A0D699AA69051FA123 /* Localizable.xcstrings in Resources */,
 				B6A6731EA1EED3ADF63D7F54 /* entries.json in Resources */,
 				0F1177C1192C705FC534C467 /* mistakes.json in Resources */,
 			);
