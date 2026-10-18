@@ -7,7 +7,7 @@
 이제 영어와 일본어로도 배울 수 있습니다.
 대비 증가와 동작 줄이기 같은 설정을 따릅니다.
 퀴즈를 맞히고 틀릴 때 손끝으로도 알려 줍니다.
-업데이트 뒤 새로 생긴 것을 한눈에 보여 줍니다.
+퀴즈 문제에 답의 힌트가 함께 보이던 것을 고쳤습니다.
 단축어로 멈춘 레슨을 바로 이어 갑니다.
 
 ### App Store (English)
@@ -15,7 +15,7 @@
 Now available in English and Japanese.
 Follows Increase Contrast and Reduce Motion.
 Feel a tap when you get a quiz right or wrong.
-See what's new after each update.
+Quiz questions no longer give away the answer.
 Pick up your lesson right from Shortcuts.
 
 ### App Store (日本語)
@@ -23,7 +23,7 @@ Pick up your lesson right from Shortcuts.
 英語と日本語でも学べるようになりました。
 コントラストや視差効果の設定に対応しました。
 クイズの正解と不正解を振動でもお知らせします。
-アップデート後に新しい機能をまとめて表示します。
+クイズの問題に答えのヒントが見えていた点を直しました。
 ショートカットから続きのレッスンを開けます。
 
 ## 1.0.2
