@@ -145,6 +145,23 @@ struct MarkdownText: View {
     }
 }
 
+/// 적절한 예 · 잘못된 예 하나 - 요약 한 줄, 그 아래 근거.
+/// 둘을 이어 붙일 구분 기호는 언어마다 달라서(쉼표 · 콜론 · 마침표) 줄로 나눠 보여 준다.
+struct ExampleText: View {
+    let example: Entry.Example
+    var font: Font = .subheadline
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 3) {
+            MarkdownText(raw: example.headline, font: font, color: .hgText)
+            if !example.rationale.isEmpty {
+                MarkdownText(raw: example.rationale, font: font, color: .hgMuted)
+            }
+        }
+        .accessibilityElement(children: .combine)
+    }
+}
+
 /// 항목 카드·실습 패널의 공통 배경.
 struct CardBackground: ViewModifier {
     var tint: Color = .hgLine

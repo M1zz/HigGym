@@ -12,6 +12,7 @@ struct PrinciplesView: View {
         guard !query.isEmpty else { return store.principles }
         return store.principles.filter {
             $0.title.localizedCaseInsensitiveContains(query)
+                || $0.tagline.localizedCaseInsensitiveContains(query)
                 || $0.criterion.localizedCaseInsensitiveContains(query)
                 || $0.summary.localizedCaseInsensitiveContains(query)
         }
@@ -65,15 +66,6 @@ struct PrinciplesView: View {
 private struct PrincipleCard: View {
     let principle: Entry
 
-    /// "Content-First · Minimization - UI는 콘텐츠를 위해 물러난다" 를 두 줄로 나눈다.
-    private var parts: (name: String, tagline: String?) {
-        guard let range = principle.title.range(of: "") else { return (principle.title, nil) }
-        return (
-            String(principle.title[..<range.lowerBound]),
-            String(principle.title[range.upperBound...])
-        )
-    }
-
     var body: some View {
         VStack(alignment: .leading, spacing: 9) {
             HStack(spacing: 8) {
@@ -84,12 +76,13 @@ private struct PrincipleCard: View {
                     .foregroundStyle(.hgDim)
             }
 
-            Text(parts.name)
+            // 이름 / 한 줄 설명 - entries.json 에 따로 담겨 온다(번역도 따로).
+            Text(principle.title)
                 .font(.callout.weight(.bold))
                 .foregroundStyle(.hgText)
 
-            if let tagline = parts.tagline {
-                Text(tagline)
+            if !principle.tagline.isEmpty {
+                Text(principle.tagline)
                     .font(.subheadline)
                     .foregroundStyle(.hgAccent)
             }
@@ -120,6 +113,11 @@ struct PrincipleDetailView: View {
                     Text(principle.title)
                         .font(.title3.weight(.bold))
                         .foregroundStyle(.hgText)
+                    if !principle.tagline.isEmpty {
+                        Text(principle.tagline)
+                            .font(.callout.weight(.semibold))
+                            .foregroundStyle(.hgAccent)
+                    }
                     MarkdownText(raw: principle.summary, font: .subheadline, color: .hgMuted)
                 }
 
@@ -170,7 +168,7 @@ struct PrincipleDetailView: View {
     }
 
     private func examples(
-        _ title: String, _ items: [String], _ tint: Color, _ symbol: String
+        _ title: String, _ items: [Entry.Example], _ tint: Color, _ symbol: String
     ) -> some View {
         VStack(alignment: .leading, spacing: 9) {
             Label(title, systemImage: symbol)
@@ -178,7 +176,7 @@ struct PrincipleDetailView: View {
                 .foregroundStyle(tint)
 
             ForEach(Array(items.enumerated()), id: \.offset) { _, item in
-                MarkdownText(raw: item, font: .subheadline, color: .hgText)
+                ExampleText(example: item)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding(13)
                     .background(Color.hgCard, in: .rect(cornerRadius: 12))

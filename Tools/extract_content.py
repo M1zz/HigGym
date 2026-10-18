@@ -32,13 +32,36 @@ def to_markdown(fragment: str) -> str:
     return s.strip()
 
 
-def split_examples(markdown: str) -> list[str]:
-    """"① … ② …" 형태의 예시 묶음을 개별 예시로 분리한다."""
+# 예시의 근거가 시작되는 자리. 문서에서는 <span class="because">근거</span> 로 표시한다.
+# 근거가 퀴즈 지문에 섞이면 답이 새어 나가므로, 구분 기호(쉼표 등)로 추측하지 않고 이 표시로만 나눈다.
+# 번역문은 언어마다 구분 기호가 달라서(en ": " · ja "。") 기호로 다시 나누는 방식은 쓸 수 없다.
+BECAUSE = "\x1e"
+BECAUSE_TAG = re.compile(r'<span class="because">')
+CROSS_REF = re.compile(r"\s*\((\d+\.\d+\.\d+)[^)]*\)")   # 앱의 PromptText.stripCrossReferences 와 같은 규칙
+TAGLINE = re.compile(r'<span class="tagline">(.*?)</span>', flags=re.S)
+
+
+def split_examples(fragment: str) -> list[dict]:
+    """"① … ② …" 형태의 예시 묶음(HTML)을 {"headline", "rationale"} 예시들로 분리한다."""
+    markdown = to_markdown(BECAUSE_TAG.sub(BECAUSE, fragment or ""))
     if not markdown:
         return []
     parts = re.split(f"(?=[{CIRCLED}])", markdown)
     items = [p.strip().lstrip(CIRCLED).strip() for p in parts if p.strip()]
-    return [i for i in items if i]
+    examples = []
+    for item in items:
+        if not item:
+            continue
+        head, _, rationale = item.partition(BECAUSE)
+        headline = head.strip().rstrip(",").strip()
+        examples.append({
+            "headline": headline,
+            "rationale": rationale.strip(),
+            # 요약만으로 판별 문제를 낼 수 있는가. "파일 앱" 처럼 이름뿐인 요약은 지문이 되지 못한다.
+            # 번역문 길이로 정하면 언어마다 문제 수가 달라지므로 원문에서 한 번 정한다.
+            "quiz": len(CROSS_REF.sub("", headline).strip()) > 6,
+        })
+    return examples
 
 
 # ---------------------------------------------------------------- 프리뷰 목업
@@ -122,7 +145,9 @@ def parse_rows(block: str) -> dict:
         flags=re.S,
     ):
         key = ROW_LABELS.get(kind)
-        if key:
+        if key in ("ok", "ng"):
+            rows[key] = body                # 예시는 근거 표시를 살린 채 split_examples 가 다룬다
+        elif key:
             rows[key] = to_markdown(body)
     return rows
 
@@ -217,7 +242,9 @@ def main() -> int:
             "chapterTitle": ch["title"] if ch else "",
             "section": sec["number"] if sec else "",
             "sectionTitle": sec["title"] if sec else "",
-            "title": to_markdown(title_raw),
+            # 원칙 제목은 "이름, <span class="tagline">한 줄 설명</span>" - 둘을 따로 둔다.
+            "title": to_markdown(TAGLINE.sub("", title_raw)).rstrip(",").strip(),
+            "tagline": to_markdown(m.group(1)) if (m := TAGLINE.search(title_raw)) else "",
             "summary": to_markdown(what),
             "caption": to_markdown(caption or ""),
             "mockup": mockup,

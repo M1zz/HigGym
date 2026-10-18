@@ -3,7 +3,7 @@
 #
 # 단위 테스트(HigGymTests, 학습 기록·노트 저장 규칙)는 xcodebuild test 로 따로 돌린다. 여기서는 이 앱에서 실제로 틀어지는 것들을 본다.
 #   1. 콘텐츠 JSON 이 원본(toolbar-annotated.html · mistakes_data.py · Retrospectives)과 같은가
-#   2. 콘텐츠 문장마다 영어 · 일본어 번역이 있는가 (Content.xcstrings)
+#   2. 콘텐츠 문장마다 영어 · 일본어 번역이 있는가 (Content.xcstrings, 예시의 요약·근거와 원칙의 이름·한 줄 설명은 따로)
 #   3. 엠대시·엔대시가 다시 들어오지 않았는가
 #   4. 빌드가 되는가
 set -e

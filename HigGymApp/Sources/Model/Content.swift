@@ -9,6 +9,8 @@ struct Entry: Codable, Identifiable, Hashable, Sendable {
     let section: String        // "1.1"
     let sectionTitle: String
     let title: String
+    /// 원칙(8장)의 한 줄 설명. 제목(이름)과 따로 둬야 카드에서 두 줄로 나뉜다. 본문 항목은 빈 문자열.
+    let tagline: String
     let summary: String
     let caption: String
     /// 문서 프리뷰를 그대로 옮긴 목업 - 앱 화면의 근간.
@@ -18,9 +20,19 @@ struct Entry: Codable, Identifiable, Hashable, Sendable {
     let tip: String
     let ios27: String
     let criterion: String      // 원칙(8장)에만 존재
-    let good: [String]
-    let bad: [String]
+    let good: [Example]
+    let bad: [Example]
     let refs: [Reference]
+
+    /// 적절한 예 · 잘못된 예 하나. 요약(headline)과 근거(rationale)를 문서에서부터 따로 둔다.
+    /// 퀴즈 지문에는 요약만 나가야 하고(근거가 붙으면 답이 새어 나간다), 번역문은 언어마다
+    /// 구분 기호가 달라 한 문장을 기호로 다시 나눌 수 없기 때문이다. 근거가 없는 예시는 rationale 이 빈 문자열.
+    struct Example: Codable, Hashable, Sendable {
+        let headline: String
+        let rationale: String
+        /// 요약만으로 판별 문제를 낼 수 있는가(원문 기준, 언어마다 문제 수가 같도록).
+        let quiz: Bool
+    }
 
     struct Reference: Codable, Hashable, Sendable {
         let title: String

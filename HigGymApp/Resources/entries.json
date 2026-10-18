@@ -150,6 +150,7 @@
    "section": "1.1",
    "sectionTitle": "Items",
    "title": "Single Trailing Item",
+   "tagline": "",
    "summary": "오른쪽 상단에 **버튼 하나**만 있는 최소 구성. 유리 캡슐 하나가 떠 있는 형태.",
    "caption": "**오른쪽 상단(trailing)**에 단일 액션 캡슐 하나",
    "mockup": [
@@ -404,12 +405,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "메모 상세 화면 오른쪽 상단의 **완료** 버튼 하나",
-    "목록 화면의 **+**(새 항목) 하나, 액션이 하나뿐이니 형태도 하나"
+    {
+     "headline": "메모 상세 화면 오른쪽 상단의 **완료** 버튼 하나",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "목록 화면의 **+**(새 항목) 하나",
+     "rationale": "액션이 하나뿐이니 형태도 하나",
+     "quiz": true
+    }
    ],
    "bad": [
-    "액션이 하나뿐인데 공유·별표 같은 장식용 버튼을 억지로 추가해 캡슐을 채움",
-    "유일한 액션을 시스템 자리 대신 커스텀 플로팅 버튼으로 화면 위에 띄움"
+    {
+     "headline": "액션이 하나뿐인데 공유·별표 같은 장식용 버튼을 억지로 추가해 캡슐을 채움",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "유일한 액션을 시스템 자리 대신 커스텀 플로팅 버튼으로 화면 위에 띄움",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -430,6 +447,7 @@
    "section": "1.1",
    "sectionTitle": "Items",
    "title": "Leading Cluster and Trailing Item",
+   "tagline": "",
    "summary": "왼쪽에 여러 버튼이 **한 유리 그룹(cluster)**으로 묶이고, 오른쪽엔 단일 버튼.",
    "caption": "**왼쪽** 도구 클러스터 + **오른쪽** 단일 결정 액션",
    "mockup": [
@@ -705,12 +723,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "파일 앱, 왼쪽에 보기 전환·정렬 묶음, 오른쪽에 **선택**",
-    "문서 편집기, 왼쪽에 실행취소/재실행 묶음, 오른쪽에 **완료**"
+    {
+     "headline": "파일 앱",
+     "rationale": "왼쪽에 보기 전환·정렬 묶음, 오른쪽에 **선택**",
+     "quiz": false
+    },
+    {
+     "headline": "문서 편집기",
+     "rationale": "왼쪽에 실행취소/재실행 묶음, 오른쪽에 **완료**",
+     "quiz": false
+    }
    ],
    "bad": [
-    "성격이 다른 **삭제 + 정렬**을 한 캡슐에 묶어 한 세트처럼 보이게 함",
-    "push된 상세 화면의 leading에 클러스터를 둬 뒤로가기 버튼과 충돌"
+    {
+     "headline": "성격이 다른 **삭제 + 정렬**을 한 캡슐에 묶어 한 세트처럼 보이게 함",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "push된 상세 화면의 leading에 클러스터를 둬 뒤로가기 버튼과 충돌",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -731,6 +765,7 @@
    "section": "1.1",
    "sectionTitle": "Items",
    "title": "Leading and Trailing Clusters",
+   "tagline": "",
    "summary": "양쪽 모두 여러 아이템, 왼쪽 캡슐 하나, 오른쪽 캡슐 하나로 **두 개의 독립 그룹**.",
    "caption": "양쪽에 **독립된 두 클러스터**, 사이 여백이 “서로 다른 일” 신호",
    "mockup": [
@@ -1005,12 +1040,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "사진 편집, 왼쪽은 보기/비교 도구, 오른쪽은 자르기·필터 도구",
-    "브라우저 상단, 왼쪽은 뒤로/앞으로(탐색), 오른쪽은 공유·탭 전환"
+    {
+     "headline": "사진 편집",
+     "rationale": "왼쪽은 보기/비교 도구, 오른쪽은 자르기·필터 도구",
+     "quiz": false
+    },
+    {
+     "headline": "브라우저 상단",
+     "rationale": "왼쪽은 뒤로/앞으로(탐색), 오른쪽은 공유·탭 전환",
+     "quiz": true
+    }
    ],
    "bad": [
-    "관련 없는 액션 6개를 좌우 3개씩 **기계적으로 배분**(묶음=의미 위반)",
-    "같은 기능(공유)이 양쪽 캡슐에 중복 배치"
+    {
+     "headline": "관련 없는 액션 6개를 좌우 3개씩 **기계적으로 배분**(묶음=의미 위반)",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "같은 기능(공유)이 양쪽 캡슐에 중복 배치",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -1031,6 +1082,7 @@
    "section": "1.1",
    "sectionTitle": "Items",
    "title": "Single Bottom Item",
+   "tagline": "",
    "summary": "화면 **하단 툴바**(.bottomBar)에 아이템 하나. 떠 있는 유리로 표시.",
    "caption": "**하단(.bottomBar)**, 엄지가 닿는 자리에 고빈도 액션",
    "mockup": [
@@ -1304,12 +1356,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "메일의 **새 메일 작성**",
-    "메모의 **새 메모**, 그 화면에서 가장 반복되는 액션"
+    {
+     "headline": "메일의 **새 메일 작성**",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "메모의 **새 메모**",
+     "rationale": "그 화면에서 가장 반복되는 액션",
+     "quiz": true
+    }
    ],
    "bad": [
-    "한 달에 한 번 쓸 **설정**을 하단에 배치(빈도 기준 위반)",
-    "**삭제** 같은 파괴적 액션을 가장 누르기 쉬운 하단에 단독 배치"
+    {
+     "headline": "한 달에 한 번 쓸 **설정**을 하단에 배치(빈도 기준 위반)",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "**삭제** 같은 파괴적 액션을 가장 누르기 쉬운 하단에 단독 배치",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -1330,6 +1398,7 @@
    "section": "1.1",
    "sectionTitle": "Items",
    "title": "Single Principal Item",
+   "tagline": "",
    "summary": "제목이 오는 **정중앙 자리**(.principal)에 커스텀 컨트롤을 배치. 제목을 대체.",
    "caption": "**정중앙(principal)**, 제목 자리를 화면을 정의하는 컨트롤이 대체",
    "mockup": [
@@ -1602,12 +1671,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "지도 앱의 **지도/위성/대중교통** 세그먼트",
-    "주식 앱의 기간 선택(1일/1주/1년), 값이 바뀌면 화면 전체가 바뀜"
+    {
+     "headline": "지도 앱의 **지도/위성/대중교통** 세그먼트",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "주식 앱의 기간 선택(1일/1주/1년)",
+     "rationale": "값이 바뀌면 화면 전체가 바뀜",
+     "quiz": true
+    }
    ],
    "bad": [
-    "화면 정체성과 무관한 **공유** 버튼을 정중앙에",
-    "화면 내용과 무관한 브랜드 로고를 principal에 넣고 제목을 없앰"
+    {
+     "headline": "화면 정체성과 무관한 **공유** 버튼을 정중앙에",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "화면 내용과 무관한 브랜드 로고를 principal에 넣고 제목을 없앰",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -1628,6 +1713,7 @@
    "section": "1.1",
    "sectionTitle": "Items",
    "title": "Principal and Trailing Item",
+   "tagline": "",
    "summary": "중앙에 핵심 컨트롤 + 오른쪽에 보조 액션 하나. 위 두 패턴의 조합.",
    "caption": "중앙 컨트롤 + **오른쪽 보조 액션**, 위계를 위치로 분리",
    "mockup": [
@@ -1921,12 +2007,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "지도/목록 세그먼트 + 오른쪽 더보기(⋯)",
-    "캘린더 보기 전환(일/주/월) + 오른쪽 **오늘** 버튼"
+    {
+     "headline": "지도/목록 세그먼트 + 오른쪽 더보기(⋯)",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "캘린더 보기 전환(일/주/월) + 오른쪽 **오늘** 버튼",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "넓은 세그먼트 5칸 + trailing 버튼 3개, 공간 경쟁으로 잘림",
-    "중앙에 액션 버튼, trailing에 화면 모드 컨트롤(위계가 뒤바뀜)"
+    {
+     "headline": "넓은 세그먼트 5칸 + trailing 버튼 3개",
+     "rationale": "공간 경쟁으로 잘림",
+     "quiz": true
+    },
+    {
+     "headline": "중앙에 액션 버튼, trailing에 화면 모드 컨트롤(위계가 뒤바뀜)",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -1947,6 +2049,7 @@
    "section": "1.1",
    "sectionTitle": "Items",
    "title": "Trailing Overflowing Cluster",
+   "tagline": "",
    "summary": "trailing에 아이템이 폭보다 많을 때, 시스템이 나머지를 **… (overflow) 메뉴로 자동으로 접는** 동작.",
    "caption": "넘치는 아이템은 **⋯ 메뉴**로 자동으로 접힘",
    "mockup": [
@@ -2226,12 +2329,28 @@
    "ios27": "WWDC26에서 visibilityPriority(_:)가 추가되어, 공간이 좁아질 때 **어떤 아이템을 화면에 남길지 우선순위를 직접 지정**할 수 있습니다. overflow 메뉴 구성도 ToolbarOverflowMenu로 제어 가능\"자주 쓰는 게 접히는\" 문제를 API 차원에서 해결한 것.",
    "criterion": "",
    "good": [
-    "문서 앱, 핵심 2개(공유·편집)만 노출하고 내보내기·인쇄·버전 기록은 overflow로",
-    "**삭제**를 의도적으로 overflow 안에 둠(오조작 방지)"
+    {
+     "headline": "문서 앱",
+     "rationale": "핵심 2개(공유·편집)만 노출하고 내보내기·인쇄·버전 기록은 overflow로",
+     "quiz": false
+    },
+    {
+     "headline": "**삭제**를 의도적으로 overflow 안에 둠(오조작 방지)",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "가장 자주 쓰는 **저장**이 선언 순서 탓에 overflow로 접힘",
-    "overflow를 피하려고 아이콘 7개를 우겨넣어 터치 타깃이 손가락보다 작아짐"
+    {
+     "headline": "가장 자주 쓰는 **저장**이 선언 순서 탓에 overflow로 접힘",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "overflow를 피하려고 아이콘 7개를 우겨넣어 터치 타깃이 손가락보다 작아짐",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -2256,6 +2375,7 @@
    "section": "1.1",
    "sectionTitle": "Items",
    "title": "Custom Views in Bottom Toolbar",
+   "tagline": "",
    "summary": "하단 툴바에 버튼이 아닌 **임의의 SwiftUI 뷰**(텍스트, 상태 표시, 진행바, 슬라이더 등)를 배치.",
    "caption": "하단 바에 **상태 정보 + 액션**, 현재 페이지의 콕핏",
    "mockup": [
@@ -2547,12 +2667,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "Safari의 하단 주소창",
-    "메일의 “업데이트됨: 방금 전” 상태 텍스트 + 작성 버튼"
+    {
+     "headline": "Safari의 하단 주소창",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "메일의 “업데이트됨: 방금 전” 상태 텍스트 + 작성 버튼",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "커스텀 뷰에 불투명 배경색을 깔아 유리 위에 널판지처럼 얹힘",
-    "하단 바에 광고 배너 삽입, “콕핏” 자리의 문법 위반"
+    {
+     "headline": "커스텀 뷰에 불투명 배경색을 깔아 유리 위에 널판지처럼 얹힘",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "하단 바에 광고 배너 삽입",
+     "rationale": "“콕핏” 자리의 문법 위반",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -2573,6 +2709,7 @@
    "section": "1.1",
    "sectionTitle": "Items",
    "title": "Mixed Toolbar Items",
+   "tagline": "",
    "summary": "leading · principal · trailing · bottom을 **한 화면에서 동시에** 쓰는 종합 구성.",
    "caption": "**위 · 중앙 · 아래** 전 위치 조합, 자리마다 다른 문법",
    "mockup": [
@@ -2898,12 +3035,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "브라우저, 위: 탐색·공유, 하단: 주소창+탭 전환",
-    "사진 편집기, 위: 취소/저장, 중앙: 편집 모드, 하단: 세부 도구"
+    {
+     "headline": "브라우저",
+     "rationale": "위: 탐색·공유, 하단: 주소창+탭 전환",
+     "quiz": false
+    },
+    {
+     "headline": "사진 편집기",
+     "rationale": "위: 취소/저장, 중앙: 편집 모드, 하단: 세부 도구",
+     "quiz": false
+    }
    ],
    "bad": [
-    "“빈 자리 = 실패”라는 오해로 모든 위치에 버튼을 배분",
-    "같은 액션(공유)이 상단과 하단에 중복 배치"
+    {
+     "headline": "“빈 자리 = 실패”라는 오해로 모든 위치에 버튼을 배분",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "같은 액션(공유)이 상단과 하단에 중복 배치",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -2924,6 +3077,7 @@
    "section": "1.2",
    "sectionTitle": "Title Display Modes",
    "title": "Large",
+   "tagline": "",
    "summary": "내비바 아래 **34pt 대형 제목**. 스크롤하면 작은 inline 제목으로 자동 축소.",
    "caption": "내비바 아래 **34pt 대형 제목**, 스크롤하면 작게 접힘",
    "mockup": [
@@ -3146,12 +3300,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "설정 루트 화면의 큰 “설정” 제목",
-    "뮤직 보관함처럼 “내가 어디에 있는지”가 중요한 최상위 목록"
+    {
+     "headline": "설정 루트 화면의 큰 “설정” 제목",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "뮤직 보관함처럼 “내가 어디에 있는지”가 중요한 최상위 목록",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "3뎁스 상세 화면까지 전부 Large, 제목 크기가 위계를 말하지 못함",
-    "채팅 화면에 Large, 첫 화면부터 대화가 아래로 밀림"
+    {
+     "headline": "3뎁스 상세 화면까지 전부 Large",
+     "rationale": "제목 크기가 위계를 말하지 못함",
+     "quiz": true
+    },
+    {
+     "headline": "채팅 화면에 Large",
+     "rationale": "첫 화면부터 대화가 아래로 밀림",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -3172,6 +3342,7 @@
    "section": "1.2",
    "sectionTitle": "Title Display Modes",
    "title": "Inline Large",
+   "tagline": "",
    "summary": "대형 제목의 크기감을 유지하되 **내비바 안(inline 위치)에 고정**. 스크롤로 밀려나지 않음. iOS 26 신규.",
    "caption": "큰 제목이 **내비바 안에 고정**, 스크롤에도 위치 유지",
    "mockup": [
@@ -3421,12 +3592,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "스크롤 출렁임 없이 존재감이 필요한 대시보드 홈",
-    "유리 툴바에서 제목·버튼의 상대 위치가 고정되어야 하는 화면"
+    {
+     "headline": "스크롤 출렁임 없이 존재감이 필요한 대시보드 홈",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "유리 툴바에서 제목·버튼의 상대 위치가 고정되어야 하는 화면",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "깊은 상세 화면에 Inline Large, 위계 과장",
-    "Large의 축소 애니메이션이 싫다는 이유만으로 전 화면에 일괄 적용"
+    {
+     "headline": "깊은 상세 화면에 Inline Large",
+     "rationale": "위계 과장",
+     "quiz": true
+    },
+    {
+     "headline": "Large의 축소 애니메이션이 싫다는 이유만으로 전 화면에 일괄 적용",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -3447,6 +3634,7 @@
    "section": "1.2",
    "sectionTitle": "Title Display Modes",
    "title": "Inline",
+   "tagline": "",
    "summary": "내비바 중앙의 **17pt 작은 제목**. 가장 간결한 형태.",
    "caption": "중앙의 **17pt 작은 제목**, 상세 화면·모달의 기본",
    "mockup": [
@@ -3727,12 +3915,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "메일 상세 화면",
-    "모달 시트의 상단 제목, 맥락을 이미 알고 들어온 화면"
+    {
+     "headline": "메일 상세 화면",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "모달 시트의 상단 제목",
+     "rationale": "맥락을 이미 알고 들어온 화면",
+     "quiz": true
+    }
    ],
    "bad": [
-    "루트 화면까지 Inline로 통일해 진입점의 방향감 상실",
-    "제목이 길어 계속 잘리는데 짧게 다듬지 않고 방치"
+    {
+     "headline": "루트 화면까지 Inline로 통일해 진입점의 방향감 상실",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "제목이 길어 계속 잘리는데 짧게 다듬지 않고 방치",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -3753,6 +3957,7 @@
    "section": "1.2",
    "sectionTitle": "Title Display Modes",
    "title": "Inline with 5 Toolbar Items",
+   "tagline": "",
    "summary": "inline 제목 + **아이템 5개**가 좁은 내비바를 나눠 쓰는 **극한 케이스**.",
    "caption": "제목과 **아이템 5개**의 공간 협상, 시스템이 자동 조정",
    "mockup": [
@@ -4087,12 +4292,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "PDF 뷰어처럼 정말 5개 도구가 필요한 전문 화면에서 시스템의 공간 협상에 맡김",
-    "좁은 기기에서 무엇이 먼저 접힐지 우선순위를 설계하고 확인"
+    {
+     "headline": "PDF 뷰어처럼 정말 5개 도구가 필요한 전문 화면에서 시스템의 공간 협상에 맡김",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "좁은 기기에서 무엇이 먼저 접힐지 우선순위를 설계하고 확인",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "5개 전부 노출을 강제하려고 커스텀 내비바를 직접 구현",
-    "제목이 잘리는데 아이템 수를 줄이지 않고 글자만 억지로 축소"
+    {
+     "headline": "5개 전부 노출을 강제하려고 커스텀 내비바를 직접 구현",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "제목이 잘리는데 아이템 수를 줄이지 않고 글자만 억지로 축소",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -4113,6 +4334,7 @@
    "section": "1.2",
    "sectionTitle": "Title Display Modes",
    "title": "Inline with Toolbar Title Menu",
+   "tagline": "",
    "summary": "제목 옆에 표시(⌄)가 붙고, **제목을 탭하면 메뉴**가 열림 (toolbarTitleMenu).",
    "caption": "**제목을 탭**하면 메뉴가 열림, 제목이 “바꿀 수 있는 대상”일 때",
    "mockup": [
@@ -4392,12 +4614,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "파일 앱, 폴더 제목 탭 → 이름 변경·복제·태그",
-    "메일, 제목 탭 → 계정/메일함 전환"
+    {
+     "headline": "파일 앱",
+     "rationale": "폴더 제목 탭 → 이름 변경·복제·태그",
+     "quiz": false
+    },
+    {
+     "headline": "메일",
+     "rationale": "제목 탭 → 계정/메일함 전환",
+     "quiz": false
+    }
    ],
    "bad": [
-    "제목과 무관한 앱 전역 설정 메뉴를 제목에 연결",
-    "표시(⌄) 없이 탭 가능하게 만들어 아무도 발견 못 함"
+    {
+     "headline": "제목과 무관한 앱 전역 설정 메뉴를 제목에 연결",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "표시(⌄) 없이 탭 가능하게 만들어 아무도 발견 못 함",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -4418,6 +4656,7 @@
    "section": "1.2",
    "sectionTitle": "Title Display Modes",
    "title": "Custom Large Title",
+   "tagline": "",
    "summary": "기본 텍스트 대신 **커스텀 뷰를 대형 타이틀 자리에**, 로고, 아바타+이름, 특수 서식 등.",
    "caption": "대형 타이틀 자리에 **로고·아바타 등 커스텀 뷰**",
    "mockup": [
@@ -4668,12 +4907,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "프로필 화면, 아바타+이름 조합",
-    "저널 앱, 날짜를 강조한 커스텀 서식"
+    {
+     "headline": "프로필 화면",
+     "rationale": "아바타+이름 조합",
+     "quiz": false
+    },
+    {
+     "headline": "저널 앱",
+     "rationale": "날짜를 강조한 커스텀 서식",
+     "quiz": false
+    }
    ],
    "bad": [
-    "커스텀 뷰가 스크롤 축소 동작을 구현하지 않아 다른 화면과 이질적",
-    "타이틀 자리에 검색창+버튼까지 넣은 미니 대시보드(자리 남용)"
+    {
+     "headline": "커스텀 뷰가 스크롤 축소 동작을 구현하지 않아 다른 화면과 이질적",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "타이틀 자리에 검색창+버튼까지 넣은 미니 대시보드(자리 남용)",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -4694,6 +4949,7 @@
    "section": "1.3",
    "sectionTitle": "Scroll Edge Effects",
    "title": "Soft",
+   "tagline": "",
    "summary": "경계 없이 **부드럽게 번지는(diffused) 페이드**. 콘텐츠가 유리 아래로 은은하게 사라짐.",
    "caption": "경계선 없이 콘텐츠가 **부드럽게 스며드는** 페이드, 기본값",
    "mockup": [
@@ -4999,12 +5255,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "텍스트 목록·카드 피드 등 평범한 콘텐츠의 기본값으로",
-    "이미지가 적은 설정류 화면"
+    {
+     "headline": "텍스트 목록·카드 피드 등 평범한 콘텐츠의 기본값으로",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "이미지가 적은 설정류 화면",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "표·그리드처럼 구획이 중요한 화면에 soft, 경계 위치가 흐림",
-    "하단 입력창 위에 soft, 입력 영역의 시작점이 모호"
+    {
+     "headline": "표·그리드처럼 구획이 중요한 화면에 soft",
+     "rationale": "경계 위치가 흐림",
+     "quiz": true
+    },
+    {
+     "headline": "하단 입력창 위에 soft",
+     "rationale": "입력 영역의 시작점이 모호",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -5025,6 +5297,7 @@
    "section": "1.3",
    "sectionTitle": "Scroll Edge Effects",
    "title": "Hard",
+   "tagline": "",
    "summary": "**선명한 구분선**으로 딱 잘리는 경계. 콘텐츠 영역과 바 영역이 명확히 분리.",
    "caption": "**선명한 구분선**으로 바 영역과 콘텐츠를 분리",
    "mockup": [
@@ -5332,12 +5605,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "채팅 입력창 위의 명확한 경계선",
-    "스프레드시트·표 화면, 구조가 또렷해야 하는 콘텐츠"
+    {
+     "headline": "채팅 입력창 위의 명확한 경계선",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "스프레드시트·표 화면",
+     "rationale": "구조가 또렷해야 하는 콘텐츠",
+     "quiz": true
+    }
    ],
    "bad": [
-    "은은한 사진 피드에 hard, 몰입을 끊는 불필요한 선",
-    "화면마다 soft/hard를 무원칙하게 섞어 일관성 상실"
+    {
+     "headline": "은은한 사진 피드에 hard",
+     "rationale": "몰입을 끊는 불필요한 선",
+     "quiz": true
+    },
+    {
+     "headline": "화면마다 soft/hard를 무원칙하게 섞어 일관성 상실",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -5358,6 +5647,7 @@
    "section": "1.3",
    "sectionTitle": "Scroll Edge Effects",
    "title": "Hard with Thick Material Toolbar Background",
+   "tagline": "",
    "summary": "hard 경계 + 툴바 배경을 **불투명에 가까운 두꺼운 material**로. 가독성 최대 구성.",
    "caption": "사진·영상 등 복잡한 배경 위**불투명에 가까운 배경**으로 가독성 확보",
    "mockup": [
@@ -5517,12 +5807,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "사진 그리드 위에 뜨는 툴바, 가독성 확보의 최종 수단",
-    "지도 위 컨트롤 바(복잡한 배경이 상시 지나감)"
+    {
+     "headline": "사진 그리드 위에 뜨는 툴바",
+     "rationale": "가독성 확보의 최종 수단",
+     "quiz": true
+    },
+    {
+     "headline": "지도 위 컨트롤 바(복잡한 배경이 상시 지나감)",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "단순한 흰 배경 목록에까지 thick, 과잉 방어로 답답함",
-    "글자가 묻히는데도 “투명이 예뻐서” 유지(가독성>미학 역전)"
+    {
+     "headline": "단순한 흰 배경 목록에까지 thick",
+     "rationale": "과잉 방어로 답답함",
+     "quiz": true
+    },
+    {
+     "headline": "글자가 묻히는데도 “투명이 예뻐서” 유지(가독성>미학 역전)",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -5543,6 +5849,7 @@
    "section": "1.3",
    "sectionTitle": "Scroll Edge Effects",
    "title": "Scroll Edge Effect Hidden",
+   "tagline": "",
    "summary": "가장자리 효과를 **완전히 끔**. 콘텐츠가 아무 처리 없이 바 밑을 그대로 지나감.",
    "caption": "효과 **완전 꺼짐**, 콘텐츠가 그대로 바 밑을 통과 (단순 배경 전용)",
    "mockup": [
@@ -5837,12 +6144,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "콘텐츠가 바 밑까지 도달하지 않는 고정 레이아웃",
-    "배경이 확실히 균일한 단색 화면"
+    {
+     "headline": "콘텐츠가 바 밑까지 도달하지 않는 고정 레이아웃",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "배경이 확실히 균일한 단색 화면",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "사진 피드에서 끔, 스크롤하면 버튼 글자가 사진과 뒤섞임",
-    "“미니멀해 보인다”는 이유로 전 화면 일괄 비활성화"
+    {
+     "headline": "사진 피드에서 끔",
+     "rationale": "스크롤하면 버튼 글자가 사진과 뒤섞임",
+     "quiz": true
+    },
+    {
+     "headline": "“미니멀해 보인다”는 이유로 전 화면 일괄 비활성화",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -5863,6 +6186,7 @@
    "section": "1.4",
    "sectionTitle": "Search",
    "title": "Placement: Toolbar",
+   "tagline": "",
    "summary": "검색 필드를 **툴바에** 배치, iPhone은 하단 유리 캡슐, iPad는 상단 trailing.",
    "caption": "iPhone은 **하단 유리 캡슐** · iPad는 상단 trailing",
    "mockup": [
@@ -6141,12 +6465,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "연락처처럼 검색이 주 기능인 목록의 하단 검색 캡슐",
-    "iPad에서 상단 trailing 자동 배치를 그대로 수용"
+    {
+     "headline": "연락처처럼 검색이 주 기능인 목록의 하단 검색 캡슐",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "iPad에서 상단 trailing 자동 배치를 그대로 수용",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "검색을 거의 안 쓰는 화면에 검색 필드를 상시 노출",
-    "iPhone에서 커스텀으로 상단에 고정, 엄지 도달성 무시"
+    {
+     "headline": "검색을 거의 안 쓰는 화면에 검색 필드를 상시 노출",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "iPhone에서 커스텀으로 상단에 고정",
+     "rationale": "엄지 도달성 무시",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -6167,6 +6507,7 @@
    "section": "1.4",
    "sectionTitle": "Search",
    "title": "Placement: Toolbar (w/ an item in the bottom toolbar)",
+   "tagline": "",
    "summary": "하단 툴바에서 **검색 필드와 다른 버튼이 공존**하는 구성.",
    "caption": "하단에서 **검색 + 액션** 공존, ToolbarSpacer로 캡슐 분리",
    "mockup": [
@@ -6466,12 +6807,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "메일함, 검색 캡슐 + 작성 버튼을 별도 캡슐로 분리",
-    "노트 목록, 검색 + 새 노트 버튼 공존"
+    {
+     "headline": "메일함",
+     "rationale": "검색 캡슐 + 작성 버튼을 별도 캡슐로 분리",
+     "quiz": false
+    },
+    {
+     "headline": "노트 목록",
+     "rationale": "검색 + 새 노트 버튼 공존",
+     "quiz": false
+    }
    ],
    "bad": [
-    "검색 필드와 액션 버튼을 **같은 캡슐**에 묶음(입력과 액션 혼합)",
-    "하단에 검색+버튼 3개, 캡슐 과밀로 오탭 유발"
+    {
+     "headline": "검색 필드와 액션 버튼을 **같은 캡슐**에 묶음(입력과 액션 혼합)",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "하단에 검색+버튼 3개",
+     "rationale": "캡슐 과밀로 오탭 유발",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -6492,6 +6849,7 @@
    "section": "1.4",
    "sectionTitle": "Search",
    "title": "Placement: Navigation Bar Drawer",
+   "tagline": "",
    "summary": "내비바 제목 **아래 서랍**에 검색바, 전통적(iOS 25 이전) 위치. 기본은 **스크롤하면 접힘**.",
    "caption": "제목 **아래 서랍**, 스크롤하면 접히는 전통 위치",
    "mockup": [
@@ -6767,12 +7125,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "위에서 아래로 훑는 설정류 목록의 보조 검색",
-    "구버전과의 일관성이 중요한 앱의 점진적 마이그레이션 단계"
+    {
+     "headline": "위에서 아래로 훑는 설정류 목록의 보조 검색",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "구버전과의 일관성이 중요한 앱의 점진적 마이그레이션 단계",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "검색이 핵심인 앱인데 스크롤하면 사라지는 서랍에 배치",
-    "서랍 검색과 하단 검색을 동시에 제공(자리 중복)"
+    {
+     "headline": "검색이 핵심인 앱인데 스크롤하면 사라지는 서랍에 배치",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "서랍 검색과 하단 검색을 동시에 제공(자리 중복)",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -6793,6 +7167,7 @@
    "section": "1.4",
    "sectionTitle": "Search",
    "title": "Placement: Navigation Bar Drawer: Always",
+   "tagline": "",
    "summary": "서랍 검색바를 **스크롤해도 항상 표시** (displayMode: .always).",
    "caption": "서랍 검색바를 **스크롤해도 고정** (.always)",
    "mockup": [
@@ -7088,12 +7463,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "사전·주소록처럼 검색이 상시 필요한 화면",
-    "목록이 길고 필터링 검색이 잦은 화면"
+    {
+     "headline": "사전·주소록처럼 검색이 상시 필요한 화면",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "목록이 길고 필터링 검색이 잦은 화면",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "항목 10개 미만의 짧은 목록에 상시 노출, 공간 낭비",
-    "always로 고정해놓고 하단 검색까지 추가(두 자리 차지)"
+    {
+     "headline": "항목 10개 미만의 짧은 목록에 상시 노출",
+     "rationale": "공간 낭비",
+     "quiz": true
+    },
+    {
+     "headline": "always로 고정해놓고 하단 검색까지 추가(두 자리 차지)",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -7114,6 +7505,7 @@
    "section": "1.4",
    "sectionTitle": "Search",
    "title": "Placement: Toolbar Principal",
+   "tagline": "",
    "summary": "검색 필드를 툴바 **정중앙(principal)**에, 제목 자리를 검색이 차지.",
    "caption": "**제목 자리(중앙)**를 검색이 차지, “이 화면 = 검색”일 때",
    "mockup": [
@@ -7416,12 +7808,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "웹 검색처럼 “이 화면 = 검색”인 화면",
-    "지도 검색, 제목보다 검색이 화면의 본질일 때"
+    {
+     "headline": "웹 검색처럼 “이 화면 = 검색”인 화면",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "지도 검색",
+     "rationale": "제목보다 검색이 화면의 본질일 때",
+     "quiz": false
+    }
    ],
    "bad": [
-    "일반 목록 화면의 제목을 없애고 중앙에 검색(방향감 상실)",
-    "principal 검색 + 하단 검색을 동시 제공(중복)"
+    {
+     "headline": "일반 목록 화면의 제목을 없애고 중앙에 검색(방향감 상실)",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "principal 검색 + 하단 검색을 동시 제공(중복)",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -7442,6 +7850,7 @@
    "section": "1.4",
    "sectionTitle": "Search",
    "title": "Integrating System Search Bar w/ Other Toolbar Items",
+   "tagline": "",
    "summary": "시스템 검색바를 다른 툴바 아이템들과 **한 툴바 체계 안에 통합**, 자리 확보·분리·축소를 조합.",
    "caption": "평소엔 **돋보기 버튼으로 접힘**, 탭하면 검색바로 확장",
    "mockup": [
@@ -7780,12 +8189,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "브라우저, 검색은 minimize로 접고 탭·공유 버튼과 공존",
-    "파일 앱, 축소된 검색 + 정렬·보기 버튼 조합"
+    {
+     "headline": "브라우저",
+     "rationale": "검색은 minimize로 접고 탭·공유 버튼과 공존",
+     "quiz": false
+    },
+    {
+     "headline": "파일 앱",
+     "rationale": "축소된 검색 + 정렬·보기 버튼 조합",
+     "quiz": false
+    }
    ],
    "bad": [
-    "검색을 거의 안 쓰는데 minimize로라도 상시 배치(searchable 자체가 불필요)",
-    "축소된 돋보기 옆에 비슷한 아이콘(필터)을 붙여 혼동 유발"
+    {
+     "headline": "검색을 거의 안 쓰는데 minimize로라도 상시 배치(searchable 자체가 불필요)",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "축소된 돋보기 옆에 비슷한 아이콘(필터)을 붙여 혼동 유발",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -7806,6 +8231,7 @@
    "section": "2.1",
    "sectionTitle": "Text Behavior",
    "title": "Line Limit",
+   "tagline": "",
    "summary": "lineLimit(n), 텍스트가 차지할 수 있는 **최대 줄 수를 고정**. 넘치는 내용은 잘림.",
    "caption": "**딱 2줄**까지만, 셀 높이가 일정해짐",
    "mockup": [
@@ -7879,12 +8305,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "피드의 본문 미리보기를 lineLimit(3)으로 통일",
-    "목록 셀 제목을 1줄로 고정해 행 높이 일정 유지"
+    {
+     "headline": "피드의 본문 미리보기를 lineLimit(3)으로 통일",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "목록 셀 제목을 1줄로 고정해 행 높이 일정 유지",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "주소·금액 같은 핵심 정보가 잘리는데 전체 보기 경로가 없음",
-    "접근성 큰 글씨 설정에서 1줄 고정+축소가 겹쳐 사실상 판독 불가"
+    {
+     "headline": "주소·금액 같은 핵심 정보가 잘리는데 전체 보기 경로가 없음",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "접근성 큰 글씨 설정에서 1줄 고정+축소가 겹쳐 사실상 판독 불가",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -7901,6 +8343,7 @@
    "section": "2.1",
    "sectionTitle": "Text Behavior",
    "title": "Truncation",
+   "tagline": "",
    "summary": "truncationMode(.head / .middle / .tail), 잘릴 때 **어느 부분을 …로 접을지** 선택.",
    "caption": "**…의 위치**가 옵션, 정보 가치가 어디 있느냐로 선택",
    "mockup": [
@@ -8128,12 +8571,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "파일 경로는 .middle, 시작(위치)과 끝(파일명)이 모두 정보",
-    "이메일 제목은 .tail 기본값 유지, 앞부분이 핵심"
+    {
+     "headline": "파일 경로는 .middle",
+     "rationale": "시작(위치)과 끝(파일명)이 모두 정보",
+     "quiz": true
+    },
+    {
+     "headline": "이메일 제목은 .tail 기본값 유지",
+     "rationale": "앞부분이 핵심",
+     "quiz": true
+    }
    ],
    "bad": [
-    "끝자리가 구분자인 주문번호에 .tail, 정작 필요한 끝이 잘림",
-    "사람 이름에 .middle, “김…수” 같은 어색한 절단"
+    {
+     "headline": "끝자리가 구분자인 주문번호에 .tail",
+     "rationale": "정작 필요한 끝이 잘림",
+     "quiz": true
+    },
+    {
+     "headline": "사람 이름에 .middle",
+     "rationale": "“김…수” 같은 어색한 절단",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -8150,6 +8609,7 @@
    "section": "2.1",
    "sectionTitle": "Text Behavior",
    "title": "Scale to Fit",
+   "tagline": "",
    "summary": "minimumScaleFactor(0.5) (+ lineLimit(1)), 자르는 대신 **글자 크기를 줄여서** 공간에 맞춤.",
    "caption": "자르는 대신 **글자 크기를 줄여** 값 전체를 보존",
    "mockup": [
@@ -8264,12 +8724,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "타이머·계기판의 큰 숫자, 길이가 변해도 한 줄 유지",
-    "로컬라이즈로 길이가 널뛰는 버튼 라벨의 안전장치"
+    {
+     "headline": "타이머·계기판의 큰 숫자",
+     "rationale": "길이가 변해도 한 줄 유지",
+     "quiz": true
+    },
+    {
+     "headline": "로컬라이즈로 길이가 널뛰는 버튼 라벨의 안전장치",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "본문 문단에 적용해 화면마다 글자 크기가 제각각",
-    "minimumScaleFactor(0.3) 같은 과도한 축소 허용, 가독성 파괴"
+    {
+     "headline": "본문 문단에 적용해 화면마다 글자 크기가 제각각",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "minimumScaleFactor(0.3) 같은 과도한 축소 허용",
+     "rationale": "가독성 파괴",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -8286,6 +8762,7 @@
    "section": "2.1",
    "sectionTitle": "Text Behavior",
    "title": "Line Limit (Range · Reserve Space)",
+   "tagline": "",
    "summary": "lineLimit(2...4) 범위 지정, lineLimit(3, reservesSpace: true), 최대뿐 아니라 **최소 줄 수·공간 예약**까지 제어.",
    "caption": "짧은 텍스트에도 **같은 높이를 예약**, 카드 정렬 유지",
    "mockup": [
@@ -8379,12 +8856,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "카드 높이 통일을 위해 lineLimit(3, reservesSpace: true)",
-    "리뷰 미리보기를 2...4줄 범위로, 짧아도 최소 형태 유지"
+    {
+     "headline": "카드 높이 통일을 위해 lineLimit(3, reservesSpace: true)",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "리뷰 미리보기를 2...4줄 범위로",
+     "rationale": "짧아도 최소 형태 유지",
+     "quiz": true
+    }
    ],
    "bad": [
-    "텍스트가 항상 1줄인데 3줄을 예약, 빈 공간만 낭비",
-    "범위만 지정하고 넘친 내용을 볼 “더보기” 경로를 안 만듦"
+    {
+     "headline": "텍스트가 항상 1줄인데 3줄을 예약",
+     "rationale": "빈 공간만 낭비",
+     "quiz": true
+    },
+    {
+     "headline": "범위만 지정하고 넘친 내용을 볼 “더보기” 경로를 안 만듦",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -8401,6 +8894,7 @@
    "section": "2.1",
    "sectionTitle": "Text Behavior",
    "title": "Text Selection",
+   "tagline": "",
    "summary": "textSelection(.enabled), 읽기 전용 텍스트를 **길게 눌러 선택·복사**할 수 있게 허용.",
    "caption": "길게 누르면 **전체가 선택·복사**, “이건 데이터” 신호",
    "mockup": [
@@ -8487,12 +8981,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "오류 코드·주문번호처럼 복사해 쓸 값에 허용",
-    "약관·주소 등 참조용 텍스트에 허용"
+    {
+     "headline": "오류 코드·주문번호처럼 복사해 쓸 값에 허용",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "약관·주소 등 참조용 텍스트에 허용",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "버튼 라벨에 선택 허용, 탭과 길게 누르기가 충돌",
-    "운송장 번호에 미적용, 사용자가 화면 보며 수기로 옮겨 적음"
+    {
+     "headline": "버튼 라벨에 선택 허용",
+     "rationale": "탭과 길게 누르기가 충돌",
+     "quiz": true
+    },
+    {
+     "headline": "운송장 번호에 미적용",
+     "rationale": "사용자가 화면 보며 수기로 옮겨 적음",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -8509,6 +9019,7 @@
    "section": "2.2",
    "sectionTitle": "Text Formatting",
    "title": "Format Styles (Units)",
+   "tagline": "",
    "summary": "Text(measurement, format: .measurement(width: .wide))**Measurement 값**(길이·무게·온도)을 로케일에 맞는 단위 표기로 자동 변환.",
    "caption": "**같은 값 하나**, 표기는 로케일이 결정",
    "mockup": [
@@ -8678,12 +9189,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "러닝 앱의 거리, 로케일 따라 km/mi 자동 전환",
-    "날씨 온도, °C/°F를 시스템 설정에 위임"
+    {
+     "headline": "러닝 앱의 거리",
+     "rationale": "로케일 따라 km/mi 자동 전환",
+     "quiz": true
+    },
+    {
+     "headline": "날씨 온도",
+     "rationale": "°C/°F를 시스템 설정에 위임",
+     "quiz": false
+    }
    ],
    "bad": [
-    "“\\(value) km” 문자열 하드코딩, 마일 사용권 사용자에게도 km",
-    "단위 변환을 직접 구현해 반올림·표기 오류 발생"
+    {
+     "headline": "“\\(value) km” 문자열 하드코딩",
+     "rationale": "마일 사용권 사용자에게도 km",
+     "quiz": true
+    },
+    {
+     "headline": "단위 변환을 직접 구현해 반올림·표기 오류 발생",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -8700,6 +9227,7 @@
    "section": "2.2",
    "sectionTitle": "Text Formatting",
    "title": "Name Formatting",
+   "tagline": "",
    "summary": "PersonNameComponents + .name(style:), 사람 이름을 **성·이름 구성요소**로 다루고 표기 순서는 시스템에 위임.",
    "caption": "**성·이름 순서**는 문화권 규칙, 하드코딩 금지",
    "mockup": [
@@ -8886,12 +9414,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "연락처 표시, 한국어는 성-이름, 영어는 이름-성 순서 자동",
-    "이니셜 아바타에 .abbreviated 스타일 활용"
+    {
+     "headline": "연락처 표시",
+     "rationale": "한국어는 성-이름, 영어는 이름-성 순서 자동",
+     "quiz": false
+    },
+    {
+     "headline": "이니셜 아바타에 .abbreviated 스타일 활용",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "“\\(first) \\(last)” 하드코딩, 동아시아 이름이 역순으로 표기",
-    "표시용 문자열을 정렬 키로 사용, 성/이름 기준이 뒤죽박죽"
+    {
+     "headline": "“\\(first) \\(last)” 하드코딩",
+     "rationale": "동아시아 이름이 역순으로 표기",
+     "quiz": true
+    },
+    {
+     "headline": "표시용 문자열을 정렬 키로 사용",
+     "rationale": "성/이름 기준이 뒤죽박죽",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -8908,6 +9452,7 @@
    "section": "3.1",
    "sectionTitle": "Tab Items",
    "title": "Label Style: Title & Icon",
+   "tagline": "",
    "summary": "아이콘 + 한 단어 제목의 **표준 탭 아이템**. 선택된 탭은 틴트 컬러로 강조.",
    "caption": "아이콘 + **한 단어 제목**, 탭 아이템의 표준형",
    "mockup": [
@@ -9255,12 +9800,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "홈·검색·보관함·프로필, 명사 한 단어 + 표준 SF Symbol",
-    "선택/비선택을 채움·윤곽 아이콘으로 구분"
+    {
+     "headline": "홈·검색·보관함·프로필",
+     "rationale": "명사 한 단어 + 표준 SF Symbol",
+     "quiz": true
+    },
+    {
+     "headline": "선택/비선택을 채움·윤곽 아이콘으로 구분",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "“내가 찜한 목록” 같은 긴 라벨, 잘리거나 겹침",
-    "의미가 모호한 추상 아이콘에 흔치 않은 신조어 라벨"
+    {
+     "headline": "“내가 찜한 목록” 같은 긴 라벨",
+     "rationale": "잘리거나 겹침",
+     "quiz": true
+    },
+    {
+     "headline": "의미가 모호한 추상 아이콘에 흔치 않은 신조어 라벨",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -9281,6 +9842,7 @@
    "section": "3.1",
    "sectionTitle": "Tab Items",
    "title": "Label Style: Icon Only",
+   "tagline": "",
    "summary": "제목 없이 **아이콘만**으로 구성된 탭 아이템.",
    "caption": "**아이콘만**, 의미가 보편적일 때만 허용되는 미니멀형",
    "mockup": [
@@ -9577,12 +10139,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "재생·검색처럼 만국 공통으로 읽히는 아이콘일 때",
-    "공간이 극도로 좁은 보조 바에서 제한적으로"
+    {
+     "headline": "재생·검색처럼 만국 공통으로 읽히는 아이콘일 때",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "공간이 극도로 좁은 보조 바에서 제한적으로",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "앱 고유 개념(예: “무드”, “피드백”)을 아이콘만으로 표현",
-    "비슷하게 생긴 윤곽 아이콘 4개가 라벨 없이 나열, 구분 불가"
+    {
+     "headline": "앱 고유 개념(예: “무드”, “피드백”)을 아이콘만으로 표현",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "비슷하게 생긴 윤곽 아이콘 4개가 라벨 없이 나열",
+     "rationale": "구분 불가",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -9603,6 +10181,7 @@
    "section": "3.1",
    "sectionTitle": "Tab Items",
    "title": "Label Style: Title & Icon with Badge Count",
+   "tagline": "",
    "summary": "아이템 우상단에 **빨간 숫자 배지** (.badge(3)), 미처리 항목 개수.",
    "caption": "아이템 위 **숫자 배지**, 미처리 개수의 규약",
    "mockup": [
@@ -9967,12 +10546,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "메시지 탭의 안 읽은 개수",
-    "할 일 탭의 오늘 마감 개수, 처리하면 줄어드는 수"
+    {
+     "headline": "메시지 탭의 안 읽은 개수",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "할 일 탭의 오늘 마감 개수",
+     "rationale": "처리하면 줄어드는 수",
+     "quiz": true
+    }
    ],
    "bad": [
-    "처리해도 줄지 않는 상시 배지(마케팅용 “1”), 신뢰 소모",
-    "세 자리 숫자를 그대로 노출, “99+”로 접지 않음"
+    {
+     "headline": "처리해도 줄지 않는 상시 배지(마케팅용 “1”)",
+     "rationale": "신뢰 소모",
+     "quiz": true
+    },
+    {
+     "headline": "세 자리 숫자를 그대로 노출",
+     "rationale": "“99+”로 접지 않음",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -9993,6 +10588,7 @@
    "section": "3.1",
    "sectionTitle": "Tab Items",
    "title": "Label Style: Title & Icon with Badge Text",
+   "tagline": "",
    "summary": "숫자 대신 **짧은 텍스트 배지** (.badge(\"NEW\")), 상태형 알림.",
    "caption": "숫자 대신 **짧은 텍스트 배지**, 상태를 알림",
    "mockup": [
@@ -10357,12 +10953,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "새로 추가된 탭에 한시적 “NEW”",
-    "라이브 방송 중인 탭에 “LIVE”"
+    {
+     "headline": "새로 추가된 탭에 한시적 “NEW”",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "라이브 방송 중인 탭에 “LIVE”",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "“NEW”가 몇 달째 상시 부착, 아무도 새롭다고 믿지 않음",
-    "“SALE 50%” 같은 긴 배지로 탭 라벨을 침범"
+    {
+     "headline": "“NEW”가 몇 달째 상시 부착",
+     "rationale": "아무도 새롭다고 믿지 않음",
+     "quiz": true
+    },
+    {
+     "headline": "“SALE 50%” 같은 긴 배지로 탭 라벨을 침범",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -10383,6 +10995,7 @@
    "section": "3.2",
    "sectionTitle": "Tab Counts",
    "title": "2 Tabs",
+   "tagline": "",
    "summary": "탭이 **둘뿐인 최소 구조**, 하단 바 전체를 두 목적지가 나눠 씀.",
    "caption": "**탭 2개**, 최소 구조, 명확성 최대",
    "mockup": [
@@ -10694,12 +11307,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "팟캐스트류, 듣기/보관함 두 세계",
-    "도구형 앱, 작업/기록처럼 대등한 두 축"
+    {
+     "headline": "팟캐스트류",
+     "rationale": "듣기/보관함 두 세계",
+     "quiz": false
+    },
+    {
+     "headline": "도구형 앱",
+     "rationale": "작업/기록처럼 대등한 두 축",
+     "quiz": false
+    }
    ],
    "bad": [
-    "세그먼트 컨트롤로 충분한 한 화면을 억지로 두 탭으로 분리",
-    "사용 빈도 9:1의 부기능을 탭으로 승격(설정·시트가 맞는 구조)"
+    {
+     "headline": "세그먼트 컨트롤로 충분한 한 화면을 억지로 두 탭으로 분리",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "사용 빈도 9:1의 부기능을 탭으로 승격(설정·시트가 맞는 구조)",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -10716,6 +11345,7 @@
    "section": "3.2",
    "sectionTitle": "Tab Counts",
    "title": "2 Tabs with Minimize Behavior",
+   "tagline": "",
    "summary": ".tabBarMinimizeBehavior(.onScrollDown), 아래로 스크롤하면 탭바가 **작게 접힘**, 위로 스크롤하면 복원.",
    "caption": "스크롤 내리면 탭바가 **작게 접힘**, 콘텐츠에 자리 양보",
    "mockup": [
@@ -11047,12 +11677,28 @@
    "ios27": "Apple이 방향을 일부 수정했습니다, iOS 27 베타에선 뮤직·팟캐스트 등 **자체 앱들의 스크롤 축소 동작을 제거**하고 탭바를 항상 노출하는 쪽으로 회귀 중(\"복원에 탭 한 번을 더 쓰게 하는 건 우아한 애니메이션보다 나쁘다\"는 피드백 반영). API 자체는 유지되지만, 새로 만드는 앱이라면 minimize 채택을 더 보수적으로 판단하세요.",
    "criterion": "",
    "good": [
-    "읽기 몰입형 뉴스·아티클 피드",
-    "세로 스크롤 영상 피드, 소비 중 이동이 드묾"
+    {
+     "headline": "읽기 몰입형 뉴스·아티클 피드",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "세로 스크롤 영상 피드",
+     "rationale": "소비 중 이동이 드묾",
+     "quiz": true
+    }
    ],
    "bad": [
-    "탭 전환이 잦은 메신저에 적용, 전환마다 복원 동작 필요",
-    "스크롤이 거의 없는 짧은 화면에 적용, 동작만 거슬림"
+    {
+     "headline": "탭 전환이 잦은 메신저에 적용",
+     "rationale": "전환마다 복원 동작 필요",
+     "quiz": true
+    },
+    {
+     "headline": "스크롤이 거의 없는 짧은 화면에 적용",
+     "rationale": "동작만 거슬림",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -11077,6 +11723,7 @@
    "section": "3.2",
    "sectionTitle": "Tab Counts",
    "title": "4 Tabs",
+   "tagline": "",
    "summary": "**3~5개 표준 범위**의 전형적 구성, 대부분의 앱이 도달하는 균형점.",
    "caption": "**3~5개**가 표준 구성, 타깃 크기와 인지 부하의 균형점",
    "mockup": [
@@ -11460,12 +12107,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "홈·검색·라이브러리·프로필의 표준 4탭",
-    "각 탭이 대등한 정보 구조의 목적지일 때"
+    {
+     "headline": "홈·검색·라이브러리·프로필의 표준 4탭",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "각 탭이 대등한 정보 구조의 목적지일 때",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "남는 자리를 “더보기” 잡동사니 탭으로 채움",
-    "목적지가 아닌 프로모션 전용 탭, 광고를 구조로 위장"
+    {
+     "headline": "남는 자리를 “더보기” 잡동사니 탭으로 채움",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "목적지가 아닌 프로모션 전용 탭",
+     "rationale": "광고를 구조로 위장",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -11482,6 +12145,7 @@
    "section": "3.2",
    "sectionTitle": "Tab Counts",
    "title": "6 Tabs",
+   "tagline": "",
    "summary": "표준 범위를 넘는 **6개 탭**, 시스템이 어디까지 수용하는지 보여주는 한계 케이스.",
    "caption": "**6개**, iPhone에선 과밀, iPad에선 사이드바로 적응되는 한계 케이스",
    "mockup": [
@@ -11937,12 +12601,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "정보 구조상 6개가 불가피할 때 시스템의 자동 축약을 수용",
-    "공간 여유가 있는 iPad 레이아웃에서의 6탭"
+    {
+     "headline": "정보 구조상 6개가 불가피할 때 시스템의 자동 축약을 수용",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "공간 여유가 있는 iPad 레이아웃에서의 6탭",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "iPhone에서 6개 강행, 라벨 잘림·터치 타깃 축소",
-    "회사 조직도(부서별 탭)를 그대로 탭 구조로 이식"
+    {
+     "headline": "iPhone에서 6개 강행",
+     "rationale": "라벨 잘림·터치 타깃 축소",
+     "quiz": true
+    },
+    {
+     "headline": "회사 조직도(부서별 탭)를 그대로 탭 구조로 이식",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -11959,6 +12639,7 @@
    "section": "3.3",
    "sectionTitle": "Visibility",
    "title": "Always Visible",
+   "tagline": "",
    "summary": "어느 깊이로 들어가도 탭바가 **항상 표시**되는 기본 동작.",
    "caption": "상세로 들어가도 탭바가 **항상 유지**, 상시 지도 역할",
    "mockup": [
@@ -12337,12 +13018,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "대부분의 브라우징 앱, 언제든 섹션 점프 가능",
-    "커머스, 탐색 중 장바구니·검색 탭 상시 접근"
+    {
+     "headline": "대부분의 브라우징 앱",
+     "rationale": "언제든 섹션 점프 가능",
+     "quiz": true
+    },
+    {
+     "headline": "커머스",
+     "rationale": "탐색 중 장바구니·검색 탭 상시 접근",
+     "quiz": false
+    }
    ],
    "bad": [
-    "전체화면 미디어 뷰어에서까지 유지, 몰입 방해",
-    "결제 진행 중 탭 이동을 열어둠, 작성 내용 유실 위험"
+    {
+     "headline": "전체화면 미디어 뷰어에서까지 유지",
+     "rationale": "몰입 방해",
+     "quiz": true
+    },
+    {
+     "headline": "결제 진행 중 탭 이동을 열어둠",
+     "rationale": "작성 내용 유실 위험",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -12359,6 +13056,7 @@
    "section": "3.3",
    "sectionTitle": "Visibility",
    "title": "Hidden on Detail Views",
+   "tagline": "",
    "summary": "push된 상세 화면에서 .toolbar(.hidden, for: .tabBar)로 탭바를 **숨김**.",
    "caption": "상세 화면에서 탭바 자리가 **콘텐츠에 반환**됨",
    "mockup": [
@@ -12659,12 +13357,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "사진 전체보기·영상 재생 같은 몰입 상세",
-    "결제·서명처럼 완결해야 하는 플로우"
+    {
+     "headline": "사진 전체보기·영상 재생 같은 몰입 상세",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "결제·서명처럼 완결해야 하는 플로우",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "얕은 2뎁스 설정 화면에서 숨김, 이동성만 잃음",
-    "숨겨놓고 하단에 유사 탭바를 커스텀으로 재구현(이중 구현)"
+    {
+     "headline": "얕은 2뎁스 설정 화면에서 숨김",
+     "rationale": "이동성만 잃음",
+     "quiz": true
+    },
+    {
+     "headline": "숨겨놓고 하단에 유사 탭바를 커스텀으로 재구현(이중 구현)",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -12681,6 +13395,7 @@
    "section": "3.4",
    "sectionTitle": "Search",
    "title": "As Tab Item",
+   "tagline": "",
    "summary": "검색을 **일반 탭 중 하나**로 배치, 다른 탭과 동급의 섹션.",
    "caption": "검색이 **일반 탭 중 하나**, 동급의 목적지",
    "mockup": [
@@ -13064,12 +13779,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "앱스토어, 검색 탭 안에 추천·차트 콘텐츠",
-    "미디어 앱, 검색 탭에 트렌딩·최근 검색"
+    {
+     "headline": "앱스토어",
+     "rationale": "검색 탭 안에 추천·차트 콘텐츠",
+     "quiz": false
+    },
+    {
+     "headline": "미디어 앱",
+     "rationale": "검색 탭에 트렌딩·최근 검색",
+     "quiz": false
+    }
    ],
    "bad": [
-    "검색 탭이 빈 검색창 하나뿐, 최상위 자리 낭비",
-    "목록을 좁히는 필터형 검색을 탭으로 승격(.searchable이 맞는 구조)"
+    {
+     "headline": "검색 탭이 빈 검색창 하나뿐",
+     "rationale": "최상위 자리 낭비",
+     "quiz": true
+    },
+    {
+     "headline": "목록을 좁히는 필터형 검색을 탭으로 승격(.searchable이 맞는 구조)",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -13090,6 +13821,7 @@
    "section": "3.4",
    "sectionTitle": "Search",
    "title": "With Search Role",
+   "tagline": "",
    "summary": "Tab(role: .search), 시스템이 검색 탭을 인식해 **다른 탭과 분리된 유리 캡슐**(오른쪽)로 배치. iOS 26 신규.",
    "caption": "search role, 검색이 **분리된 캡슐(오른쪽)**로 배치",
    "mockup": [
@@ -13466,12 +14198,28 @@
    "ios27": "iOS 27에선 Apple 자체 앱들(뮤직·팟캐스트·TV·뉴스 등)이 **검색 탭을 다시 메인 탭 줄로 통합**하는 방향 수정이 보도·베타에서 확인됩니다. 분리 캡슐이 \"새 표준\"에서 **\"선택지 중 하나\"**로 위상이 조정되는 중, 검색이 정말 별도 모드인지(이 섹션 서두의 질문)를 더 엄격히 물은 뒤 채택하세요.",
    "criterion": "",
    "good": [
-    "스트리밍 앱, 검색을 별도 모드로 보고 분리 캡슐 채택",
-    "role만 선언하고 위치·모양·전환은 시스템에 위임"
+    {
+     "headline": "스트리밍 앱",
+     "rationale": "검색을 별도 모드로 보고 분리 캡슐 채택",
+     "quiz": false
+    },
+    {
+     "headline": "role만 선언하고 위치·모양·전환은 시스템에 위임",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "분리 캡슐의 위치·모양을 커스텀, 시스템 규약 이탈",
-    "검색 캡슐 자리를 흉내내 작성 버튼을 배치(자리 오용)"
+    {
+     "headline": "분리 캡슐의 위치·모양을 커스텀",
+     "rationale": "시스템 규약 이탈",
+     "quiz": true
+    },
+    {
+     "headline": "검색 캡슐 자리를 흉내내 작성 버튼을 배치(자리 오용)",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -13496,6 +14244,7 @@
    "section": "3.4",
    "sectionTitle": "Search",
    "title": "Search Role with Minimize Behavior",
+   "tagline": "",
    "summary": "search role + tabBarMinimizeBehavior 조합, 스크롤 시 **탭바는 접히고 검색 캡슐은 축소된 채 잔류**.",
    "caption": "탭바는 접혀도 **검색은 한 탭 거리** 유지",
    "mockup": [
@@ -13892,12 +14641,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "피드 몰입과 상시 검색이 둘 다 필요한 콘텐츠 앱",
-    "긴 카탈로그를 브라우징하다 수시로 검색하는 커머스"
+    {
+     "headline": "피드 몰입과 상시 검색이 둘 다 필요한 콘텐츠 앱",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "긴 카탈로그를 브라우징하다 수시로 검색하는 커머스",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "스크롤이 짧은 화면에 조합 적용, 접힘/복원만 어수선",
-    "검색 빈도가 낮은데 캡슐을 상주시킴, 불필요한 상주 UI"
+    {
+     "headline": "스크롤이 짧은 화면에 조합 적용",
+     "rationale": "접힘/복원만 어수선",
+     "quiz": true
+    },
+    {
+     "headline": "검색 빈도가 낮은데 캡슐을 상주시킴",
+     "rationale": "불필요한 상주 UI",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -13918,6 +14683,7 @@
    "section": "3.4",
    "sectionTitle": "Search",
    "title": "Prominent Role iOS 27 신규 (WWDC26)",
+   "tagline": "",
    "summary": "Tab(role: .prominent), search role 전용이던 **trailing 분리 캡슐 자리를 일반 탭에도 개방**. 시스템이 해당 탭에 추가 시각 강조를 적용.",
    "caption": "분리 캡슐에 **검색 아닌 탭**(예: 장바구니), 단, “장소”여야 함",
    "mockup": [
@@ -14312,12 +15078,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "커머스의 **장바구니** 탭 강조, 자주 가는 장소",
-    "여행 앱의 **내 여행** 탭, 핵심 목적지 하나를 부각"
+    {
+     "headline": "커머스의 **장바구니** 탭 강조",
+     "rationale": "자주 가는 장소",
+     "quiz": true
+    },
+    {
+     "headline": "여행 앱의 **내 여행** 탭",
+     "rationale": "핵심 목적지 하나를 부각",
+     "quiz": true
+    }
    ],
    "bad": [
-    "**작성·업로드** 버튼을 prominent 탭으로 위장, 액션은 탭이 아님",
-    "탭하면 이동 없이 시트만 띄우는 가짜 탭, “어디로 가는가”에 답 못 함"
+    {
+     "headline": "**작성·업로드** 버튼을 prominent 탭으로 위장",
+     "rationale": "액션은 탭이 아님",
+     "quiz": true
+    },
+    {
+     "headline": "탭하면 이동 없이 시트만 띄우는 가짜 탭",
+     "rationale": "“어디로 가는가”에 답 못 함",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -14342,6 +15124,7 @@
    "section": "3.5",
    "sectionTitle": "Bottom Accessory",
    "title": "3 Tab Items",
+   "tagline": "",
    "summary": "탭 3개 위에 **액세서리 뷰가 상주**하는 기본 구성, 탭을 전환해도 액세서리는 유지.",
    "caption": "탭바 **위 층**에 전역 상태(미니 플레이어 등)가 상주",
    "mockup": [
@@ -14718,12 +15501,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "뮤직의 미니 플레이어",
-    "통화 중·녹음 중 상태 바, 어느 탭에서든 유지"
+    {
+     "headline": "뮤직의 미니 플레이어",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "통화 중·녹음 중 상태 바",
+     "rationale": "어느 탭에서든 유지",
+     "quiz": true
+    }
    ],
    "bad": [
-    "광고 배너를 액세서리 자리에, 자리의 문법 위반",
-    "두 줄짜리 복잡한 컨트롤 패널, 한 줄 높이 원칙 위반"
+    {
+     "headline": "광고 배너를 액세서리 자리에",
+     "rationale": "자리의 문법 위반",
+     "quiz": true
+    },
+    {
+     "headline": "두 줄짜리 복잡한 컨트롤 패널",
+     "rationale": "한 줄 높이 원칙 위반",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -14744,6 +15543,7 @@
    "section": "3.5",
    "sectionTitle": "Bottom Accessory",
    "title": "3 Tab Items with Minimize Behavior",
+   "tagline": "",
    "summary": "액세서리 + 탭바 최소화, 스크롤하면 탭바가 접히고 **액세서리가 그 자리로 내려앉음**(inline 배치).",
    "caption": "탭바가 접히면 액세서리가 **그 자리로 내려앉음**(inline)",
    "mockup": [
@@ -15140,12 +15940,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "가사를 스크롤하는 동안에도 재생 컨트롤 유지",
-    "에피소드 목록 탐색 중 재생바 유지"
+    {
+     "headline": "가사를 스크롤하는 동안에도 재생 컨트롤 유지",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "에피소드 목록 탐색 중 재생바 유지",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "inline 크기 대응 없이 확장 레이아웃 그대로, 접히면 잘림",
-    "액세서리에 탭 전환 버튼을 넣음, 이동과 상태의 역할 혼동"
+    {
+     "headline": "inline 크기 대응 없이 확장 레이아웃 그대로",
+     "rationale": "접히면 잘림",
+     "quiz": true
+    },
+    {
+     "headline": "액세서리에 탭 전환 버튼을 넣음",
+     "rationale": "이동과 상태의 역할 혼동",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -15166,6 +15982,7 @@
    "section": "3.5",
    "sectionTitle": "Bottom Accessory",
    "title": "Tab Items with Search Role and Minimize Behavior",
+   "tagline": "",
    "summary": "탭 + search role + 액세서리 + 최소화**하단 시스템의 풀 구성**.",
    "caption": "**탭 + 검색 + 액세서리**, 하단 시스템의 풀 구성",
    "mockup": [
@@ -15555,12 +16372,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "스트리밍 풀 구성, 탭 + 검색 캡슐 + 미니 플레이어 + minimize",
-    "오디오북 앱의 동일 구성, 각 요소가 자기 역할만 수행"
+    {
+     "headline": "스트리밍 풀 구성",
+     "rationale": "탭 + 검색 캡슐 + 미니 플레이어 + minimize",
+     "quiz": true
+    },
+    {
+     "headline": "오디오북 앱의 동일 구성",
+     "rationale": "각 요소가 자기 역할만 수행",
+     "quiz": true
+    }
    ],
    "bad": [
-    "요소를 다 켜고 위계 설계는 없음, 하단 과밀",
-    "작은 화면(SE급)에서 겹침·잘림 검증 없이 풀 구성 강행"
+    {
+     "headline": "요소를 다 켜고 위계 설계는 없음",
+     "rationale": "하단 과밀",
+     "quiz": true
+    },
+    {
+     "headline": "작은 화면(SE급)에서 겹침·잘림 검증 없이 풀 구성 강행",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -15581,6 +16414,7 @@
    "section": "4.1",
    "sectionTitle": "Configurations",
    "title": "Presentation Detent: Large",
+   "tagline": "",
    "summary": ".presentationDetents([.large]), 화면을 거의 다 덮는 **기본 시트**. 뒤 화면이 살짝 물러나 보임.",
    "caption": "화면을 거의 덮는 **기본(large) 시트**, 뒤가 살짝 보임",
    "mockup": [
@@ -15896,12 +16730,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "새 이벤트 작성처럼 입력이 많은 폼 시트",
-    "여러 섹션을 스크롤하는 편집 화면"
+    {
+     "headline": "새 이벤트 작성처럼 입력이 많은 폼 시트",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "여러 섹션을 스크롤하는 편집 화면",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "항목 2개짜리 선택지에 전체 높이 시트",
-    "뒤 화면을 참조하며 해야 하는 작업을 전부 덮어버림"
+    {
+     "headline": "항목 2개짜리 선택지에 전체 높이 시트",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "뒤 화면을 참조하며 해야 하는 작업을 전부 덮어버림",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -15918,6 +16768,7 @@
    "section": "4.1",
    "sectionTitle": "Configurations",
    "title": "Presentation Detent: Medium",
+   "tagline": "",
    "summary": ".presentationDetents([.medium]), 화면 **절반 높이**에서 멈추는 시트.",
    "caption": "**절반 높이(medium)**, 배경을 참조하며 하는 보조 작업",
    "mockup": [
@@ -16211,12 +17062,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "지도 위 장소 정보, 뒤 지도를 보며 확인",
-    "절반 높이로 충분한 옵션·공유류 시트"
+    {
+     "headline": "지도 위 장소 정보",
+     "rationale": "뒤 지도를 보며 확인",
+     "quiz": true
+    },
+    {
+     "headline": "절반 높이로 충분한 옵션·공유류 시트",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "긴 폼을 medium에 우겨넣어 시트 안 이중 스크롤",
-    "medium인데 뒤를 딤으로 가림, 반높이를 쓴 이유가 소멸"
+    {
+     "headline": "긴 폼을 medium에 우겨넣어 시트 안 이중 스크롤",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "medium인데 뒤를 딤으로 가림",
+     "rationale": "반높이를 쓴 이유가 소멸",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -16233,6 +17100,7 @@
    "section": "4.1",
    "sectionTitle": "Configurations",
    "title": "Presentation Detent: Custom",
+   "tagline": "",
    "summary": ".height(250) · .fraction(0.3), 시스템 2단이 아닌 **커스텀 높이**의 detent.",
    "caption": "**콘텐츠 고유 높이**에 맞춘 커스텀 detent",
    "mockup": [
@@ -16515,12 +17383,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "재생 대기열 패널 .height(250)",
-    "필터 패널 .fraction(0.3), 내용에 맞는 최소 높이"
+    {
+     "headline": "재생 대기열 패널 .height(250)",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "필터 패널 .fraction(0.3)",
+     "rationale": "내용에 맞는 최소 높이",
+     "quiz": true
+    }
    ],
    "bad": [
-    "기기별 검증 없는 고정 px, 작은 화면에서 넘침",
-    "시스템 2단으로 충분한데 픽셀 미세조정에 집착"
+    {
+     "headline": "기기별 검증 없는 고정 px",
+     "rationale": "작은 화면에서 넘침",
+     "quiz": true
+    },
+    {
+     "headline": "시스템 2단으로 충분한데 픽셀 미세조정에 집착",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -16537,6 +17421,7 @@
    "section": "4.1",
    "sectionTitle": "Configurations",
    "title": "Presentation Detent: Combo",
+   "tagline": "",
    "summary": "[.medium, .large], detent를 **여러 개** 선언하고 사용자가 끌어서 단계 전환.",
    "caption": "**medium ↔ large** 단계 전환, 그랩바가 “더 있다”는 신호",
    "mockup": [
@@ -16850,12 +17735,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "지도 검색 결과, medium으로 훑고 끌어올려 large 상세",
-    "미리보기 → 확장 편집의 단계 전환"
+    {
+     "headline": "지도 검색 결과",
+     "rationale": "medium으로 훑고 끌어올려 large 상세",
+     "quiz": true
+    },
+    {
+     "headline": "미리보기 → 확장 편집의 단계 전환",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "확장 가능하다는 시각 단서(grabber)를 숨김, 발견 불가",
-    "단계마다 레이아웃이 확 바뀜, 연속성 상실"
+    {
+     "headline": "확장 가능하다는 시각 단서(grabber)를 숨김",
+     "rationale": "발견 불가",
+     "quiz": true
+    },
+    {
+     "headline": "단계마다 레이아웃이 확 바뀜",
+     "rationale": "연속성 상실",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -16872,6 +17773,7 @@
    "section": "4.1",
    "sectionTitle": "Configurations",
    "title": "Nonmodal Sheet",
+   "tagline": "",
    "summary": ".presentationBackgroundInteraction(.enabled(upThrough: .medium)), 시트가 떠 있는 동안에도 **뒤 콘텐츠를 조작 가능**. 딤이 없음.",
    "caption": "**딤(어두운 배경) 없음**, 시트 뒤 콘텐츠와 병행 작업",
    "mockup": [
@@ -17129,12 +18031,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "지도를 조작하면서 장소 시트를 동시에 유지",
-    "이퀄라이저를 조절하며 뒤 재생 화면 계속 조작"
+    {
+     "headline": "지도를 조작하면서 장소 시트를 동시에 유지",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "이퀄라이저를 조절하며 뒤 재생 화면 계속 조작",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "확정이 필요한 결제 시트를 nonmodal로, 뒤를 조작해 상태 불일치",
-    "뒤 조작이 가능한데 딤을 깔아 모달처럼 보이게(신호 모순)"
+    {
+     "headline": "확정이 필요한 결제 시트를 nonmodal로",
+     "rationale": "뒤를 조작해 상태 불일치",
+     "quiz": true
+    },
+    {
+     "headline": "뒤 조작이 가능한데 딤을 깔아 모달처럼 보이게(신호 모순)",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -17151,6 +18069,7 @@
    "section": "4.2",
    "sectionTitle": "Full Screen Cover",
    "title": "General Behavior",
+   "tagline": "",
    "summary": ".fullScreenCover**화면 전체**를 덮으며, 아래로 스와이프해도 닫히지 않음.",
    "caption": "**화면 전체**를 덮는 강한 모달, 출구는 명시적 버튼뿐",
    "mockup": [
@@ -17326,12 +18245,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "온보딩·로그인처럼 완료 전 이탈이 없어야 하는 플로우",
-    "영상 전체 재생, 화면 전부가 콘텐츠"
+    {
+     "headline": "온보딩·로그인처럼 완료 전 이탈이 없어야 하는 플로우",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "영상 전체 재생",
+     "rationale": "화면 전부가 콘텐츠",
+     "quiz": true
+    }
    ],
    "bad": [
-    "간단한 확인 팝업을 전체 화면으로 덮음, 과잉",
-    "닫기 버튼 없는 cover, 스와이프도 안 되니 탈출구가 없음"
+    {
+     "headline": "간단한 확인 팝업을 전체 화면으로 덮음",
+     "rationale": "과잉",
+     "quiz": true
+    },
+    {
+     "headline": "닫기 버튼 없는 cover",
+     "rationale": "스와이프도 안 되니 탈출구가 없음",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -17348,6 +18283,7 @@
    "section": "4.3",
    "sectionTitle": "Transitions",
    "title": "Standard",
+   "tagline": "",
    "summary": "아래에서 위로 올라오는 **기본 전환**, 모든 시트의 디폴트.",
    "caption": "아래에서 올라오는 **표준 전환**, 어디서 열든 동일",
    "mockup": [
@@ -17581,12 +18517,28 @@
    "ios27": ".navigationTransition(.crossFade) 추가, zoom과 달리 **source view 지정 없이** 쓸 수 있는 교차 페이드 전환. \"출처는 의미 없지만 standard의 슬라이드 모션이 과한\" 화면을 위한 중간 선택지입니다.",
    "criterion": "",
    "good": [
-    "“+” 버튼으로 여는 작성 시트",
-    "설정에서 여는 편집 폼, 출처가 의미 없는 시트"
+    {
+     "headline": "“+” 버튼으로 여는 작성 시트",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "설정에서 여는 편집 폼",
+     "rationale": "출처가 의미 없는 시트",
+     "quiz": true
+    }
    ],
    "bad": [
-    "카드를 탭해 여는 상세인데 standard, 출처 정보를 버림(zoom이 정답)",
-    "시트마다 커스텀 슬라이드 방향을 달리함, 예측 가능성 파괴"
+    {
+     "headline": "카드를 탭해 여는 상세인데 standard",
+     "rationale": "출처 정보를 버림(zoom이 정답)",
+     "quiz": true
+    },
+    {
+     "headline": "시트마다 커스텀 슬라이드 방향을 달리함",
+     "rationale": "예측 가능성 파괴",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -17607,6 +18559,7 @@
    "section": "4.3",
    "sectionTitle": "Transitions",
    "title": "Zoom - Sheet",
+   "tagline": "",
    "summary": ".navigationTransition(.zoom(sourceID:in:))**탭한 요소에서 시트가 확대**되어 나오는 전환.",
    "caption": "탭한 카드가 **시트로 확대**(zoom), 공간적 연속성",
    "mockup": [
@@ -17789,12 +18742,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "카드 탭 → 그 카드의 상세 시트로 확대",
-    "썸네일 탭 → 미리보기 시트"
+    {
+     "headline": "카드 탭 → 그 카드의 상세 시트로 확대",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "썸네일 탭 → 미리보기 시트",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "출처가 무의미한 작성 버튼에 zoom",
-    "sourceID/namespace 불일치를 방치, 조용히 standard로 폴백된 채 배포"
+    {
+     "headline": "출처가 무의미한 작성 버튼에 zoom",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "sourceID/namespace 불일치를 방치",
+     "rationale": "조용히 standard로 폴백된 채 배포",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -17815,6 +18784,7 @@
    "section": "4.3",
    "sectionTitle": "Transitions",
    "title": "Zoom - Full Screen Cover",
+   "tagline": "",
    "summary": "zoom 전환을 **full screen cover에 적용**, 썸네일이 화면 전체로 확대.",
    "caption": "요소가 **화면 전체로 확대**, 사진 뷰어 패턴",
    "mockup": [
@@ -18005,12 +18975,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "사진 썸네일 → 전체화면 뷰어",
-    "지도 카드 → 전체 지도 화면"
+    {
+     "headline": "사진 썸네일 → 전체화면 뷰어",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "지도 카드 → 전체 지도 화면",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "시각적 대응물이 없는 텍스트 행에서 전체화면 zoom",
-    "닫을 때 원래 위치로 돌아가지 않는 커스텀 구현, 공간 은유 붕괴"
+    {
+     "headline": "시각적 대응물이 없는 텍스트 행에서 전체화면 zoom",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "닫을 때 원래 위치로 돌아가지 않는 커스텀 구현",
+     "rationale": "공간 은유 붕괴",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -18031,6 +19017,7 @@
    "section": "5.1",
    "sectionTitle": "Vertical Safe Area Bars",
    "title": "Top",
+   "tagline": "",
    "summary": ".safeAreaBar(edge: .top), 커스텀 뷰를 **상단 safe area**에 배치. 스크롤 콘텐츠는 자동으로 그 아래부터 시작.",
    "caption": "**상단 safe area**에 커스텀 바, 콘텐츠는 자동으로 아래로 밀림",
    "mockup": [
@@ -18282,12 +19269,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "필터 칩 줄을 상단 바로, 콘텐츠가 자동으로 그 아래부터",
-    "동기화 상태·오프라인 배너"
+    {
+     "headline": "필터 칩 줄을 상단 바로",
+     "rationale": "콘텐츠가 자동으로 그 아래부터",
+     "quiz": true
+    },
+    {
+     "headline": "동기화 상태·오프라인 배너",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "safeAreaBar 대신 ZStack으로 얹어 콘텐츠 첫 줄이 가려짐",
-    "상단 바가 과하게 높아 콘텐츠 영역 잠식"
+    {
+     "headline": "safeAreaBar 대신 ZStack으로 얹어 콘텐츠 첫 줄이 가려짐",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "상단 바가 과하게 높아 콘텐츠 영역 잠식",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -18308,6 +19311,7 @@
    "section": "5.1",
    "sectionTitle": "Vertical Safe Area Bars",
    "title": "Top with Title",
+   "tagline": "",
    "summary": "상단 safe area bar 안에 **타이틀 텍스트**를 넣은 커스텀 헤더 구성.",
    "caption": "상단 바 안에 **타이틀**, 시스템 내비바 없는 커스텀 헤더",
    "mockup": [
@@ -18568,12 +19572,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "내비바를 쓸 수 없는 커스텀 레이아웃의 제목 표시",
-    "브랜드 헤더가 필요한 홈 화면"
+    {
+     "headline": "내비바를 쓸 수 없는 커스텀 레이아웃의 제목 표시",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "브랜드 헤더가 필요한 홈 화면",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "시스템 내비바와 커스텀 타이틀 바를 동시에, 이중 헤더",
-    "커스텀 헤더가 Dynamic Type을 무시, 큰 글씨에서 깨짐"
+    {
+     "headline": "시스템 내비바와 커스텀 타이틀 바를 동시에",
+     "rationale": "이중 헤더",
+     "quiz": true
+    },
+    {
+     "headline": "커스텀 헤더가 Dynamic Type을 무시",
+     "rationale": "큰 글씨에서 깨짐",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -18594,6 +19614,7 @@
    "section": "5.1",
    "sectionTitle": "Vertical Safe Area Bars",
    "title": "Bottom",
+   "tagline": "",
    "summary": ".safeAreaBar(edge: .bottom)**하단 safe area**에 커스텀 바. 콘텐츠 끝이 바 위까지 자동 인셋.",
    "caption": "**하단 safe area**에 커스텀 바, 홈 인디케이터 회피는 시스템 몫",
    "mockup": [
@@ -18890,12 +19911,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "재생 컨트롤 바",
-    "장바구니 합계 + 결제 버튼 바, 콘텐츠 끝이 자동 인셋"
+    {
+     "headline": "재생 컨트롤 바",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "장바구니 합계 + 결제 버튼 바",
+     "rationale": "콘텐츠 끝이 자동 인셋",
+     "quiz": true
+    }
    ],
    "bad": [
-    "자동 인셋을 못 믿고 수동 패딩을 중복, 이중 여백",
-    "홈 인디케이터 영역을 침범하는 커스텀 배치"
+    {
+     "headline": "자동 인셋을 못 믿고 수동 패딩을 중복",
+     "rationale": "이중 여백",
+     "quiz": true
+    },
+    {
+     "headline": "홈 인디케이터 영역을 침범하는 커스텀 배치",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -18916,6 +19953,7 @@
    "section": "5.1",
    "sectionTitle": "Vertical Safe Area Bars",
    "title": "Bottom, Hard Scroll Edge Effect, with Toolbar Items",
+   "tagline": "",
    "summary": "하단 커스텀 바 + **hard 가장자리 효과** + 시스템 툴바 아이템이 공존하는 구성.",
    "caption": "하단 커스텀 바 + 툴바 아이템**hard 구분선**으로 경계 명시",
    "mockup": [
@@ -19263,12 +20301,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "입력창(hard로 경계 명확) + 시스템 툴바 버튼 공존",
-    "결제 바 + 도움말 버튼, 커스텀과 시스템의 역할 분담"
+    {
+     "headline": "입력창(hard로 경계 명확) + 시스템 툴바 버튼 공존",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "결제 바 + 도움말 버튼",
+     "rationale": "커스텀과 시스템의 역할 분담",
+     "quiz": true
+    }
    ],
    "bad": [
-    "경계가 중요한 입력창 위에 soft 유지, 시작점 모호",
-    "커스텀 바와 시스템 아이템의 겹침(z-순서)을 방치"
+    {
+     "headline": "경계가 중요한 입력창 위에 soft 유지",
+     "rationale": "시작점 모호",
+     "quiz": true
+    },
+    {
+     "headline": "커스텀 바와 시스템 아이템의 겹침(z-순서)을 방치",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -19289,6 +20343,7 @@
    "section": "5.1",
    "sectionTitle": "Vertical Safe Area Bars",
    "title": "Top & Bottom, Soft Scroll Edge Effect, with Toolbar Items",
+   "tagline": "",
    "summary": "**상·하단 동시에** safe area bar + soft 효과 + 툴바 아이템, 수직 방향 풀 구성.",
    "caption": "**상·하단 동시**, 양쪽 모두 soft 페이드로 통일",
    "mockup": [
@@ -19679,12 +20734,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "위 필터 바 + 아래 액션 바를 둔 커머스 목록",
-    "위 상태 배너 + 아래 재생 바, 방향별 역할 분리"
+    {
+     "headline": "위 필터 바 + 아래 액션 바를 둔 커머스 목록",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "위 상태 배너 + 아래 재생 바",
+     "rationale": "방향별 역할 분리",
+     "quiz": true
+    }
    ],
    "bad": [
-    "상하 바 합계가 화면의 40%를 점유, 콘텐츠 압사",
-    "두 바의 재질·가장자리 효과가 제각각, soft/hard 무원칙 혼용"
+    {
+     "headline": "상하 바 합계가 화면의 40%를 점유",
+     "rationale": "콘텐츠 압사",
+     "quiz": true
+    },
+    {
+     "headline": "두 바의 재질·가장자리 효과가 제각각",
+     "rationale": "soft/hard 무원칙 혼용",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -19705,6 +20776,7 @@
    "section": "5.2",
    "sectionTitle": "Horizontal Safe Area Bars",
    "title": "Leading, Top Alignment, with Material",
+   "tagline": "",
    "summary": ".safeAreaBar(edge: .leading, alignment: .top) + material 배경**왼쪽 가장자리 위쪽**에 세로 바.",
    "caption": "**왼쪽(leading) 가장자리, 위 정렬**, 세로 도구 팔레트",
    "mockup": [
@@ -19984,12 +21056,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "iPad 그리기 앱의 세로 도구 팔레트",
-    "영상 편집의 좌측 도구 바, 가로 공간이 넓은 기기"
+    {
+     "headline": "iPad 그리기 앱의 세로 도구 팔레트",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "영상 편집의 좌측 도구 바",
+     "rationale": "가로 공간이 넓은 기기",
+     "quiz": true
+    }
    ],
    "bad": [
-    "iPhone 좁은 폭에 세로 바, 콘텐츠 폭 잠식",
-    "material 없이 불투명 단색, 뒤 콘텐츠 흐름이 뚝 끊김"
+    {
+     "headline": "iPhone 좁은 폭에 세로 바",
+     "rationale": "콘텐츠 폭 잠식",
+     "quiz": true
+    },
+    {
+     "headline": "material 없이 불투명 단색",
+     "rationale": "뒤 콘텐츠 흐름이 뚝 끊김",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -20010,6 +21098,7 @@
    "section": "5.2",
    "sectionTitle": "Horizontal Safe Area Bars",
    "title": "Trailing, Center Alignment",
+   "tagline": "",
    "summary": ".safeAreaBar(edge: .trailing, alignment: .center)**오른쪽 가장자리 정중앙**에 배치.",
    "caption": "**오른쪽(trailing) 가장자리, 중앙 정렬**, 엄지 호에 맞는 세로 컨트롤",
    "mockup": [
@@ -20288,12 +21377,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "연락처식 스크롤 인덱스(ㄱ~ㅎ) 바",
-    "지도 우측의 확대/축소·현위치 버튼 묶음"
+    {
+     "headline": "연락처식 스크롤 인덱스(ㄱ~ㅎ) 바",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "지도 우측의 확대/축소·현위치 버튼 묶음",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "오른손 엄지에 가려지는 위치에 핵심 버튼 배치",
-    "좌우 가장자리 바를 동시에 사용, 양쪽 모두 잠식"
+    {
+     "headline": "오른손 엄지에 가려지는 위치에 핵심 버튼 배치",
+     "rationale": "",
+     "quiz": true
+    },
+    {
+     "headline": "좌우 가장자리 바를 동시에 사용",
+     "rationale": "양쪽 모두 잠식",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -20314,6 +21419,7 @@
    "section": "6.1",
    "sectionTitle": "Materials",
    "title": "Materials in Different Backgrounds",
+   "tagline": "",
    "summary": ".ultraThinMaterial ~ .thickMaterial, 뒤 배경을 비추는 **두께가 다른 반투명 레이어**. 밝은 배경, 사진, 다크모드 어디서든 자동 적응.",
    "caption": "**같은 material, 다른 두께**, 뒤가 복잡할수록 두껍게",
    "mockup": [
@@ -20494,12 +21600,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "사진 위 컨트롤 배경에 .thinMaterial, 배경이 비쳐도 판 유지",
-    "라이트/다크 적응을 시스템에 위임하고 색을 하드코딩하지 않음"
+    {
+     "headline": "사진 위 컨트롤 배경에 .thinMaterial",
+     "rationale": "배경이 비쳐도 판 유지",
+     "quiz": true
+    },
+    {
+     "headline": "라이트/다크 적응을 시스템에 위임하고 색을 하드코딩하지 않음",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "스크린샷 기준으로 rgba 반투명색을 하드코딩, 다른 배경·다크모드에서 깨짐",
-    "material 위에 또 material을 중첩, 뿌옇게 겹쳐 탁해짐"
+    {
+     "headline": "스크린샷 기준으로 rgba 반투명색을 하드코딩",
+     "rationale": "다른 배경·다크모드에서 깨짐",
+     "quiz": true
+    },
+    {
+     "headline": "material 위에 또 material을 중첩",
+     "rationale": "뿌옇게 겹쳐 탁해짐",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -20524,6 +21646,7 @@
    "section": "6.2",
    "sectionTitle": "Vibrancy",
    "title": "Vibrancy",
+   "tagline": "",
    "summary": "material 위의 텍스트·심볼이 **배경색을 혼합해 렌더링**되는 효과.foregroundStyle(.secondary) 같은 시맨틱 스타일이 material 위에서 자동으로 vibrant해짐.",
    "caption": "material 위 텍스트**vibrancy가 배경색을 끌어와** 대비와 통합감을 동시에",
    "mockup": [
@@ -20687,12 +21810,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "material 위 보조 텍스트에 .secondary, 자동으로 배경과 조화",
-    "SF Symbol에 시맨틱 스타일 적용, 어떤 배경에서도 판독 유지"
+    {
+     "headline": "material 위 보조 텍스트에 .secondary",
+     "rationale": "자동으로 배경과 조화",
+     "quiz": true
+    },
+    {
+     "headline": "SF Symbol에 시맨틱 스타일 적용",
+     "rationale": "어떤 배경에서도 판독 유지",
+     "quiz": true
+    }
    ],
    "bad": [
-    "material 위에 고정 회색 hex, 배경과 섞이지 않아 탁하고 죽은 색",
-    "본문 긴 문단까지 vibrant 처리, 읽기 피로 증가"
+    {
+     "headline": "material 위에 고정 회색 hex",
+     "rationale": "배경과 섞이지 않아 탁하고 죽은 색",
+     "quiz": true
+    },
+    {
+     "headline": "본문 긴 문단까지 vibrant 처리",
+     "rationale": "읽기 피로 증가",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -20713,6 +21852,7 @@
    "section": "7.1",
    "sectionTitle": "Menu",
    "title": "Menu Configurations",
+   "tagline": "",
    "summary": "Menu, 버튼을 탭하면 열리는 액션 목록. 아이콘·섹션(Divider)·서브메뉴·role(.destructive)·Toggle/Picker 포함까지 조합 가능.",
    "caption": "⋯ 버튼에서 열리는 **액션 목록**, 섹션 구분, 서브메뉴(›), 파괴적 액션은 분리 + 빨강",
    "mockup": [
@@ -21091,12 +22231,28 @@
    "ios27": "",
    "criterion": "",
    "good": [
-    "⋯ 메뉴, 관련 액션끼리 섹션을 나누고, **삭제는 맨 아래 분리 + 빨강**",
-    "정렬 기준을 Picker로 넣어 현재 값에 체크 표시"
+    {
+     "headline": "⋯ 메뉴",
+     "rationale": "관련 액션끼리 섹션을 나누고, **삭제는 맨 아래 분리 + 빨강**",
+     "quiz": false
+    },
+    {
+     "headline": "정렬 기준을 Picker로 넣어 현재 값에 체크 표시",
+     "rationale": "",
+     "quiz": true
+    }
    ],
    "bad": [
-    "삭제를 일반 항목들 사이에 섞어 배치, 오탭 사고",
-    "메뉴 안에 서브메뉴 3단 중첩, 사용자가 길을 잃음"
+    {
+     "headline": "삭제를 일반 항목들 사이에 섞어 배치",
+     "rationale": "오탭 사고",
+     "quiz": true
+    },
+    {
+     "headline": "메뉴 안에 서브메뉴 3단 중첩",
+     "rationale": "사용자가 길을 잃음",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -21114,7 +22270,8 @@
    "chapterTitle": "디자인 원칙 & 기준",
    "section": "8.1",
    "sectionTitle": "원칙별 기준과 사례",
-   "title": "Content-First · Minimization, UI는 콘텐츠를 위해 물러난다",
+   "title": "Content-First · Minimization",
+   "tagline": "UI는 콘텐츠를 위해 물러난다",
    "summary": "크롬(제목·바·버튼)은 콘텐츠를 돕는 수단이지 주인공이 아님. **안 쓰는 순간에는 접히거나 사라져야** 함.",
    "caption": "",
    "mockup": [],
@@ -21124,14 +22281,38 @@
    "ios27": "",
    "criterion": "**\"이 UI 요소가 지금 이 순간 사용자의 과업에 기여하는가?\"** 기여하지 않는 순간이 있다면 그 순간에는 축소·접힘·숨김이 기본이어야 한다.",
    "good": [
-    "**Large 타이틀의 스크롤 축소** (1.2.1), 진입 순간엔 방향감이 과업에 기여하므로 크게, 읽기 시작하면 기여가 끝나므로 inline으로 접혀 공간을 콘텐츠에 반납. \"지금 기여하는가\" 기준을 순간마다 다시 묻는 동작",
-    "**Overflow 자동 접힘** (1.1.7)과 **Menu** (7.1.1), 드물게 쓰는 액션은 지금의 과업에 기여할 확률이 낮으므로 접어둠. 기능의 완전성은 유지하면서 화면 점유는 기여도에 비례",
-    "**searchToolbarBehavior(.minimize)** (1.4.6), 검색이 조연인 화면에서 돋보기 버튼 크기로 접어 한 탭 거리는 유지하되 평소 점유는 최소."
+    {
+     "headline": "**Large 타이틀의 스크롤 축소** (1.2.1)",
+     "rationale": "진입 순간엔 방향감이 과업에 기여하므로 크게, 읽기 시작하면 기여가 끝나므로 inline으로 접혀 공간을 콘텐츠에 반납. \"지금 기여하는가\" 기준을 순간마다 다시 묻는 동작",
+     "quiz": true
+    },
+    {
+     "headline": "**Overflow 자동 접힘** (1.1.7)과 **Menu** (7.1.1)",
+     "rationale": "드물게 쓰는 액션은 지금의 과업에 기여할 확률이 낮으므로 접어둠. 기능의 완전성은 유지하면서 화면 점유는 기여도에 비례",
+     "quiz": true
+    },
+    {
+     "headline": "**searchToolbarBehavior(.minimize)** (1.4.6)",
+     "rationale": "검색이 조연인 화면에서 돋보기 버튼 크기로 접어 한 탭 거리는 유지하되 평소 점유는 최소.",
+     "quiz": true
+    }
    ],
    "bad": [
-    "**액션이 하나뿐인 화면에 bottom bar 신설** (1.1.1 위반), 하단 바 전체가 상시 세로 공간을 차지하지만 기여하는 건 버튼 하나. \"기여하지 않는 순간에도 화면을 점유\"하는 기준 위반",
-    "**저빈도 검색 화면에 drawer `.always`** (1.4.4 위반), 대부분의 순간 과업에 기여하지 않는 검색바가 세로 한 줄을 상시 소모",
-    "**leading·principal·trailing·bottom 전부 채우기** (1.1.9 위반)\"자리가 있으니 채운다\"는 기준의 정반대."
+    {
+     "headline": "**액션이 하나뿐인 화면에 bottom bar 신설** (1.1.1 위반)",
+     "rationale": "하단 바 전체가 상시 세로 공간을 차지하지만 기여하는 건 버튼 하나. \"기여하지 않는 순간에도 화면을 점유\"하는 기준 위반",
+     "quiz": true
+    },
+    {
+     "headline": "**저빈도 검색 화면에 drawer `.always`** (1.4.4 위반)",
+     "rationale": "대부분의 순간 과업에 기여하지 않는 검색바가 세로 한 줄을 상시 소모",
+     "quiz": true
+    },
+    {
+     "headline": "**leading·principal·trailing·bottom 전부 채우기** (1.1.9 위반)",
+     "rationale": "\"자리가 있으니 채운다\"는 기준의 정반대.",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -21155,7 +22336,8 @@
    "chapterTitle": "디자인 원칙 & 기준",
    "section": "8.1",
    "sectionTitle": "원칙별 기준과 사례",
-   "title": "Reachability, 빈도가 높을수록 엄지에 가깝게",
+   "title": "Reachability",
+   "tagline": "빈도가 높을수록 엄지에 가깝게",
    "summary": "큰 화면에서 상단은 한 손으로 닿기 어려움. **사용 빈도가 배치 높이를 결정**한다는 원칙.",
    "caption": "",
    "mockup": [],
@@ -21165,12 +22347,28 @@
    "ios27": "",
    "criterion": "**\"자주·반복해서 누르는가?\"** 그렇다면 하단(엄지의 홈 그라운드). 가끔 쓰는 확정성 액션(완료·저장)이라면 상단. 빈도와 높이가 반비례해야 한다.",
    "good": [
-    "**메일의 \"새 메일 작성\"을 bottom bar에** (1.1.4), 메일함에서 가장 자주 반복되는 액션이므로 기준상 하단이 정답. 실제 iOS 메일 앱의 배치",
-    "**iOS 26의 검색 하단 이동** (1.4.1), 고빈도 기능인 검색이 기존엔 가장 닿기 어려운 상단에 있었음. 빈도-높이 반비례 기준에 맞게 시스템 차원에서 교정한 사례. iPad는 양손 파지 기준으로 상단 trailing, 같은 기준을 기기 인체공학에 맞게 적용."
+    {
+     "headline": "**메일의 \"새 메일 작성\"을 bottom bar에** (1.1.4)",
+     "rationale": "메일함에서 가장 자주 반복되는 액션이므로 기준상 하단이 정답. 실제 iOS 메일 앱의 배치",
+     "quiz": true
+    },
+    {
+     "headline": "**iOS 26의 검색 하단 이동** (1.4.1)",
+     "rationale": "고빈도 기능인 검색이 기존엔 가장 닿기 어려운 상단에 있었음. 빈도-높이 반비례 기준에 맞게 시스템 차원에서 교정한 사례. iPad는 양손 파지 기준으로 상단 trailing, 같은 기준을 기기 인체공학에 맞게 적용.",
+     "quiz": true
+    }
    ],
    "bad": [
-    "**1회성 \"완료\" 버튼을 bottom bar에**, 완료는 화면당 한 번 누르는 저빈도 확정 액션이므로 기준상 상단 trailing 자리. 하단에 두면 고빈도 자리를 낭비하고, 탭바(이동)와 인접해 역할 혼동까지 유발 (1.1.4 Tip 위반)",
-    "**가장 자주 쓰는 액션을 상단 구석에 두고 하단은 비움**, 카메라 앱의 셔터를 상단 trailing에 두는 격. 빈도 최상위 컨트롤이 도달성 최하위 위치에 있어 한 손 사용 시 매번 그립을 바꾸게 됨."
+    {
+     "headline": "**1회성 \"완료\" 버튼을 bottom bar에**",
+     "rationale": "완료는 화면당 한 번 누르는 저빈도 확정 액션이므로 기준상 상단 trailing 자리. 하단에 두면 고빈도 자리를 낭비하고, 탭바(이동)와 인접해 역할 혼동까지 유발 (1.1.4 Tip 위반)",
+     "quiz": true
+    },
+    {
+     "headline": "**가장 자주 쓰는 액션을 상단 구석에 두고 하단은 비움**",
+     "rationale": "카메라 앱의 셔터를 상단 trailing에 두는 격. 빈도 최상위 컨트롤이 도달성 최하위 위치에 있어 한 손 사용 시 매번 그립을 바꾸게 됨.",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -21190,7 +22388,8 @@
    "chapterTitle": "디자인 원칙 & 기준",
    "section": "8.1",
    "sectionTitle": "원칙별 기준과 사례",
-   "title": "위치·묶음의 문법, 자리와 캡슐 자체가 의미다",
+   "title": "위치·묶음의 문법",
+   "tagline": "자리와 캡슐 자체가 의미다",
    "summary": "leading=이동 · principal=정체성 · trailing=확정 · bottom=빈도. 그리고 **같은 유리 캡슐 = 한 세트**. 위치와 묶음이 곧 언어.",
    "caption": "",
    "mockup": [],
@@ -21200,13 +22399,33 @@
    "ios27": "",
    "criterion": "**\"이 컨트롤의 역할이 그 자리의 문법과 일치하는가? 한 캡슐에 묶인 것들이 정말 한 세트인가?\"** 문법이 지켜져야 사용자가 처음 보는 앱에서도 버튼 위치를 예측할 수 있다.",
    "good": [
-    "**\"지도/목록\" 세그먼트를 principal에** (1.1.5), 이 컨트롤 값에 따라 화면 전체 내용이 바뀌므로 \"화면의 정체성\"이라는 principal의 문법과 정확히 일치",
-    "**도구 클러스터(leading)와 완료 버튼(trailing)의 분리** (1.1.2), 보기 전환·정렬·필터는 한 캡슐(한 세트=도구), 완료는 별도 단일 캡슐(결정). 캡슐 사이의 빈 공간이 \"서로 다른 일\"이라는 정보를 전달 (1.1.3)."
+    {
+     "headline": "**\"지도/목록\" 세그먼트를 principal에** (1.1.5)",
+     "rationale": "이 컨트롤 값에 따라 화면 전체 내용이 바뀌므로 \"화면의 정체성\"이라는 principal의 문법과 정확히 일치",
+     "quiz": true
+    },
+    {
+     "headline": "**도구 클러스터(leading)와 완료 버튼(trailing)의 분리** (1.1.2)",
+     "rationale": "보기 전환·정렬·필터는 한 캡슐(한 세트=도구), 완료는 별도 단일 캡슐(결정). 캡슐 사이의 빈 공간이 \"서로 다른 일\"이라는 정보를 전달 (1.1.3).",
+     "quiz": true
+    }
    ],
    "bad": [
-    "**단순 공유 버튼을 principal에** (1.1.5 위반), 공유는 화면의 정체성이 아니라 부가 액션. 위계상 가장 강한 중앙 자리에 두면 제목까지 사라지면서 \"이 화면이 무엇인지\"를 말할 장치가 없어짐",
-    "**관계없는 기능들을 한 캡슐에 몰아넣기** (1.1.3 위반), 정렬·공유·설정·삭제를 한 유리 캡슐에 붙이면 사용자는 \"한 세트\"로 읽음. 묶음이 거짓 정보가 되어 인지 부담 증가",
-    "**Custom Large Title 자리에 버튼·입력 필드** (1.2.6 위반), 제목 자리는 \"화면 정체성\" 문법. 인터랙티브 컨트롤을 넣으면 자리의 문법이 깨짐."
+    {
+     "headline": "**단순 공유 버튼을 principal에** (1.1.5 위반)",
+     "rationale": "공유는 화면의 정체성이 아니라 부가 액션. 위계상 가장 강한 중앙 자리에 두면 제목까지 사라지면서 \"이 화면이 무엇인지\"를 말할 장치가 없어짐",
+     "quiz": true
+    },
+    {
+     "headline": "**관계없는 기능들을 한 캡슐에 몰아넣기** (1.1.3 위반)",
+     "rationale": "정렬·공유·설정·삭제를 한 유리 캡슐에 붙이면 사용자는 \"한 세트\"로 읽음. 묶음이 거짓 정보가 되어 인지 부담 증가",
+     "quiz": true
+    },
+    {
+     "headline": "**Custom Large Title 자리에 버튼·입력 필드** (1.2.6 위반)",
+     "rationale": "제목 자리는 \"화면 정체성\" 문법. 인터랙티브 컨트롤을 넣으면 자리의 문법이 깨짐.",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -21226,7 +22445,8 @@
    "chapterTitle": "디자인 원칙 & 기준",
    "section": "8.1",
    "sectionTitle": "원칙별 기준과 사례",
-   "title": "가독성 > 미학, 투명함과 읽힘이 충돌하면 읽힘이 이긴다",
+   "title": "가독성 > 미학",
+   "tagline": "투명함과 읽힘이 충돌하면 읽힘이 이긴다",
    "summary": "Liquid Glass의 투명함은 미학이고, 컨트롤이 읽히는 건 기능. **충돌 시 우선순위는 항상 가독성·접근성.**",
    "caption": "",
    "mockup": [],
@@ -21236,13 +22456,33 @@
    "ios27": "",
    "criterion": "**\"최악의 배경(사진·고대비 그래픽) 위에서, 그리고 접근성 설정(큰 글씨·투명도 감소)에서도 읽히고 눌리는가?\"** 가장 좋은 조건이 아니라 가장 나쁜 조건이 검증 기준이다.",
    "good": [
-    "**사진·영상 위 Hard + Thick Material** (1.3.3), 복잡한 배경에서 반투명 유리의 대비가 부족해지면 투명도(미학)를 포기하고 불투명 배경으로 가독성을 확보. \"예쁜데 안 읽힌다\"에 대한 공식 탈출구",
-    "**Overflow의 최소 터치 타깃 보장** (1.1.7), 아이템이 많다고 버튼을 무한정 축소하면 손가락 크기 이하로 작아지므로, 시스템이 자동으로 접어 \"눌리는가\" 기준을 지킴."
+    {
+     "headline": "**사진·영상 위 Hard + Thick Material** (1.3.3)",
+     "rationale": "복잡한 배경에서 반투명 유리의 대비가 부족해지면 투명도(미학)를 포기하고 불투명 배경으로 가독성을 확보. \"예쁜데 안 읽힌다\"에 대한 공식 탈출구",
+     "quiz": true
+    },
+    {
+     "headline": "**Overflow의 최소 터치 타깃 보장** (1.1.7)",
+     "rationale": "아이템이 많다고 버튼을 무한정 축소하면 손가락 크기 이하로 작아지므로, 시스템이 자동으로 접어 \"눌리는가\" 기준을 지킴.",
+     "quiz": true
+    }
    ],
    "bad": [
-    "**사진 피드 화면에서 scroll edge effect를 hidden으로** (1.3.4 위반), 밝은 화면 한 조건에서만 확인하고 끄면, 흰 사진이 바 뒤를 지나는 순간 컨트롤이 사라짐. \"최악의 배경에서 검증\" 기준을 건너뛴 경우",
-    "**접근성 큰 글씨를 확인하지 않은 lineLimit(1)** (2.1.1 위반), 기본 글자 크기에선 멀쩡해 보여도 Dynamic Type 최대 설정에선 핵심 정보가 첫 어절만 남고 잘림",
-    "**유리 툴바 위 커스텀 뷰에 불투명 배경색** (1.1.8 위반), 시스템이 배경 대비를 관리하는 유리 위에 임의 배경을 얹으면 재질 계층이 깨지고 다크모드·투명도 감소 설정에서 대비가 예측 불가능해짐."
+    {
+     "headline": "**사진 피드 화면에서 scroll edge effect를 hidden으로** (1.3.4 위반)",
+     "rationale": "밝은 화면 한 조건에서만 확인하고 끄면, 흰 사진이 바 뒤를 지나는 순간 컨트롤이 사라짐. \"최악의 배경에서 검증\" 기준을 건너뛴 경우",
+     "quiz": true
+    },
+    {
+     "headline": "**접근성 큰 글씨를 확인하지 않은 lineLimit(1)** (2.1.1 위반)",
+     "rationale": "기본 글자 크기에선 멀쩡해 보여도 Dynamic Type 최대 설정에선 핵심 정보가 첫 어절만 남고 잘림",
+     "quiz": true
+    },
+    {
+     "headline": "**유리 툴바 위 커스텀 뷰에 불투명 배경색** (1.1.8 위반)",
+     "rationale": "시스템이 배경 대비를 관리하는 유리 위에 임의 배경을 얹으면 재질 계층이 깨지고 다크모드·투명도 감소 설정에서 대비가 예측 불가능해짐.",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -21262,7 +22502,8 @@
    "chapterTitle": "디자인 원칙 & 기준",
    "section": "8.1",
    "sectionTitle": "원칙별 기준과 사례",
-   "title": "공간은 계약, 텍스트는 가변, 의미론이 처리 방식을 정한다",
+   "title": "공간은 계약, 텍스트는 가변",
+   "tagline": "의미론이 처리 방식을 정한다",
    "summary": "공간은 유한한데 텍스트 길이는 예측 불가. 잘림·축소·예약 중 무엇을 쓸지는 **그 텍스트가 \"문장\"인지 \"값\"인지**가 정한다.",
    "caption": "",
    "mockup": [],
@@ -21272,14 +22513,38 @@
    "ios27": "",
    "criterion": "**\"잘려도 뜻이 통하는가?\"** 통하면 자르고(문장 → truncation), 잘리면 뜻이 죽으면 줄이고(값 → scale), 레이아웃 균일성이 목적이면 공간을 예약한다(reserve). 그리고 잘림·축소는 **안전장치이지 레이아웃 설계 수단이 아니다.**",
    "good": [
-    "**메일 목록의 본문 2줄 미리보기** (2.1.1), 본문은 문장이라 잘려도 앞부분으로 뜻이 통하고, 전문은 상세 화면이 담당. 목록의 목적(훑기)에 맞게 높이를 계약으로 고정한 정석",
-    "**타이머·금액에 minimumScaleFactor** (2.1.3)\"12:34:56\"은 잘리는 순간 정보가 파괴되는 \"값\"이므로 자르지 않고 줄임",
-    "**파일 경로에 .middle truncation** (2.1.2), 경로는 앞이 공통 접두사라 앞만 보이면 구분 불가. 정보 가치가 양 끝에 있으니 가운데를 접는 것이 기준에 맞는 선택."
+    {
+     "headline": "**메일 목록의 본문 2줄 미리보기** (2.1.1)",
+     "rationale": "본문은 문장이라 잘려도 앞부분으로 뜻이 통하고, 전문은 상세 화면이 담당. 목록의 목적(훑기)에 맞게 높이를 계약으로 고정한 정석",
+     "quiz": true
+    },
+    {
+     "headline": "**타이머·금액에 minimumScaleFactor** (2.1.3)",
+     "rationale": "\"12:34:56\"은 잘리는 순간 정보가 파괴되는 \"값\"이므로 자르지 않고 줄임",
+     "quiz": true
+    },
+    {
+     "headline": "**파일 경로에 .middle truncation** (2.1.2)",
+     "rationale": "경로는 앞이 공통 접두사라 앞만 보이면 구분 불가. 정보 가치가 양 끝에 있으니 가운데를 접는 것이 기준에 맞는 선택.",
+     "quiz": true
+    }
    ],
    "bad": [
-    "**금액·타이머를 기본 .tail로 자르기** (2.1.3 위반)\"₩1,234,0…\"은 뜻이 통하는 게 아니라 틀린 값을 보여주는 것. \"잘려도 뜻이 통하는가\"에 노(No)인 텍스트에 문장용 해법을 적용한 오류",
-    "**scaleFactor 0.3까지 내려 우겨넣기** (2.1.3 위반), 절반 이하로 줄여야 들어간다면 축소가 아니라 설계 문제. 폭을 늘리거나 표기를 줄이는(1,234,000 → 1.2M) 게 정답",
-    "**세로 목록 전체에 reservesSpace** (2.1.4 위반), 공간 예약의 목적은 그리드·가로 카드의 균일성. 균일성이 필요 없는 세로 목록에선 짧은 셀마다 빈 공간만 상시 소모."
+    {
+     "headline": "**금액·타이머를 기본 .tail로 자르기** (2.1.3 위반)",
+     "rationale": "\"₩1,234,0…\"은 뜻이 통하는 게 아니라 틀린 값을 보여주는 것. \"잘려도 뜻이 통하는가\"에 노(No)인 텍스트에 문장용 해법을 적용한 오류",
+     "quiz": true
+    },
+    {
+     "headline": "**scaleFactor 0.3까지 내려 우겨넣기** (2.1.3 위반)",
+     "rationale": "절반 이하로 줄여야 들어간다면 축소가 아니라 설계 문제. 폭을 늘리거나 표기를 줄이는(1,234,000 → 1.2M) 게 정답",
+     "quiz": true
+    },
+    {
+     "headline": "**세로 목록 전체에 reservesSpace** (2.1.4 위반)",
+     "rationale": "공간 예약의 목적은 그리드·가로 카드의 균일성. 균일성이 필요 없는 세로 목록에선 짧은 셀마다 빈 공간만 상시 소모.",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -21295,7 +22560,8 @@
    "chapterTitle": "디자인 원칙 & 기준",
    "section": "8.1",
    "sectionTitle": "원칙별 기준과 사례",
-   "title": "데이터와 표기의 분리, 값은 앱이, 표기는 로케일이",
+   "title": "데이터와 표기의 분리",
+   "tagline": "값은 앱이, 표기는 로케일이",
    "summary": "단위·이름·날짜의 표기 규칙은 문화권마다 다름. **앱은 값만 소유하고 표기는 시스템(FormatStyle)에 위임**해야 함.",
    "caption": "",
    "mockup": [],
@@ -21305,12 +22571,28 @@
    "ios27": "",
    "criterion": "**\"데이터를 문자열로 직접 조립하고 있는가? 그 표기 규칙이 문화권마다 다른가?\"** 둘 다 예스라면 국제화 버그가 이미 심어진 것, FormatStyle로 옮겨야 한다.",
    "good": [
-    "**Measurement + .measurement 포맷** (2.2.1), 앱은 \"5km\"라는 문자열이 아니라 거리 값만 소유. 같은 데이터가 한국에선 \"5킬로미터\", 미국에선 \"3.1 miles\"로 자동 렌더링, 값과 표기의 분리 기준 그대로",
-    "**PersonNameComponents + .abbreviated로 아바타 이니셜** (2.2.2), 이니셜 추출 규칙조차 문화권마다 다르므로 직접 substring 하지 않고 시스템에 위임."
+    {
+     "headline": "**Measurement + .measurement 포맷** (2.2.1)",
+     "rationale": "앱은 \"5km\"라는 문자열이 아니라 거리 값만 소유. 같은 데이터가 한국에선 \"5킬로미터\", 미국에선 \"3.1 miles\"로 자동 렌더링, 값과 표기의 분리 기준 그대로",
+     "quiz": true
+    },
+    {
+     "headline": "**PersonNameComponents + .abbreviated로 아바타 이니셜** (2.2.2)",
+     "rationale": "이니셜 추출 규칙조차 문화권마다 다르므로 직접 substring 하지 않고 시스템에 위임.",
+     "quiz": true
+    }
    ],
    "bad": [
-    "**`\"\\(distance) km\"` 문자열 조립** (2.2.1 위반), 표기 규칙(단위계)이 문화권마다 다른데 문자열로 굳혔으니 기준의 두 조건을 모두 위반. 미국 사용자에게 킬로미터를 강요하는 국제화 버그",
-    "**\"이름 성\" 순서 하드코딩** (2.2.2 위반)\"\\(firstName) \\(lastName)\"은 홍길동을 \"길동 홍\"으로 표기. 이름 순서는 데이터가 아니라 문화권 규칙인데 앱이 소유해버린 경우."
+    {
+     "headline": "**`\"\\(distance) km\"` 문자열 조립** (2.2.1 위반)",
+     "rationale": "표기 규칙(단위계)이 문화권마다 다른데 문자열로 굳혔으니 기준의 두 조건을 모두 위반. 미국 사용자에게 킬로미터를 강요하는 국제화 버그",
+     "quiz": true
+    },
+    {
+     "headline": "**\"이름 성\" 순서 하드코딩** (2.2.2 위반)",
+     "rationale": "\"\\(firstName) \\(lastName)\"은 홍길동을 \"길동 홍\"으로 표기. 이름 순서는 데이터가 아니라 문화권 규칙인데 앱이 소유해버린 경우.",
+     "quiz": true
+    }
    ],
    "refs": [
     {
@@ -21330,7 +22612,8 @@
    "chapterTitle": "디자인 원칙 & 기준",
    "section": "8.1",
    "sectionTitle": "원칙별 기준과 사례",
-   "title": "직접 조작, 대상에 대한 액션은 대상 자체에",
+   "title": "직접 조작",
+   "tagline": "대상에 대한 액션은 대상 자체에",
    "summary": "액션의 대상이 화면에 보인다면, 별도 버튼을 만들어 관계를 유추시키지 말고 **대상을 직접 조작하게** 한다.",
    "caption": "",
    "mockup": [],
@@ -21340,12 +22623,28 @@
    "ios27": "",
    "criterion": "**\"이 액션의 대상이 화면에 보이는가? 사용자가 버튼과 대상의 관계를 유추해야 하는가?\"** 대상이 보이는데 유추가 필요하다면, 액션을 대상 위로 옮겨야 한다.",
    "good": [
-    "**toolbarTitleMenu** (1.2.5), 현재 폴더 이름(=대상)이 제목으로 보이므로, 이름변경·전환은 제목을 탭해서. 대상과 액션이 한 몸이라 관계 설명이 필요 없고, 툴바 버튼 하나도 절약",
-    "**인증 코드·주소에 textSelection(.enabled)** (2.1.5)\"복사\"라는 액션의 대상이 그 텍스트 자체이므로, 별도 복사 버튼 대신 텍스트를 길게 눌러 직접 가져가게 함."
+    {
+     "headline": "**toolbarTitleMenu** (1.2.5)",
+     "rationale": "현재 폴더 이름(=대상)이 제목으로 보이므로, 이름변경·전환은 제목을 탭해서. 대상과 액션이 한 몸이라 관계 설명이 필요 없고, 툴바 버튼 하나도 절약",
+     "quiz": true
+    },
+    {
+     "headline": "**인증 코드·주소에 textSelection(.enabled)** (2.1.5)",
+     "rationale": "\"복사\"라는 액션의 대상이 그 텍스트 자체이므로, 별도 복사 버튼 대신 텍스트를 길게 눌러 직접 가져가게 함.",
+     "quiz": true
+    }
    ],
    "bad": [
-    "**제목 옆에 별도 \"폴더 변경\" 버튼** (1.2.5 위반), 대상(폴더 제목)이 화면에 보이는데 액션은 떨어진 버튼에 있어, 사용자가 \"이 버튼이 저 제목에 대한 것\"임을 유추해야 함",
-    "**title menu에 설정·로그아웃 같은 화면 전체 액션** (1.2.5 위반), 제목 메뉴는 \"제목이 가리키는 대상\"에 대한 액션 자리. 무관한 액션을 넣으면 대상-액션 결합이라는 문법 자체가 거짓이 되어 이후의 모든 title menu를 못 믿게 만듦."
+    {
+     "headline": "**제목 옆에 별도 \"폴더 변경\" 버튼** (1.2.5 위반)",
+     "rationale": "대상(폴더 제목)이 화면에 보이는데 액션은 떨어진 버튼에 있어, 사용자가 \"이 버튼이 저 제목에 대한 것\"임을 유추해야 함",
+     "quiz": true
+    },
+    {
+     "headline": "**title menu에 설정·로그아웃 같은 화면 전체 액션** (1.2.5 위반)",
+     "rationale": "제목 메뉴는 \"제목이 가리키는 대상\"에 대한 액션 자리. 무관한 액션을 넣으면 대상-액션 결합이라는 문법 자체가 거짓이 되어 이후의 모든 title menu를 못 믿게 만듦.",
+     "quiz": true
+    }
    ],
    "refs": [
     {

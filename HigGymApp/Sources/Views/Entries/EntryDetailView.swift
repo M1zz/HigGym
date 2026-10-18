@@ -133,14 +133,14 @@ struct EntryDetailView: View {
     }
 
     @ViewBuilder
-    private func examples(_ label: String, _ items: [String], _ tint: Color, _ symbol: String) -> some View {
+    private func examples(_ label: String, _ items: [Entry.Example], _ tint: Color, _ symbol: String) -> some View {
         if !items.isEmpty {
             VStack(alignment: .leading, spacing: 7) {
                 Label(label, systemImage: symbol)
                     .font(.caption.weight(.bold))
                     .foregroundStyle(tint)
                 ForEach(Array(items.enumerated()), id: \.offset) { _, item in
-                    MarkdownText(raw: item, font: .subheadline, color: .hgText)
+                    ExampleText(example: item)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }

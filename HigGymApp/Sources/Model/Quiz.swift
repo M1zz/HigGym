@@ -84,19 +84,19 @@ struct Question: Identifiable, Hashable, Sendable {
 
 enum PromptText {
     /// "(1.1.1 위반)" 처럼 정답을 알려주는 상호참조를 지운다.
+    /// 번역문의 꼴도 함께 지운다: "(violates 1.1.1)" · "(violates the Tip in 1.1.4)" · "（1.1.1違反）" · "（1.2.1）".
     static func stripCrossReferences(_ s: String) -> String {
-        let pattern = #"\s*\((\d+\.\d+\.\d+)[^)]*\)"#
+        let pattern = #"\s*[(（](?:violates\s+(?:the\s+\w+\s+in\s+)?)?\d+\.\d+\.\d+[^)）]*[)）]"#
         let cleaned = s.replacingOccurrences(of: pattern, with: "", options: .regularExpression)
         return cleaned.trimmingCharacters(in: .whitespaces)
     }
 
-    /// "**요약** - 왜 그런지" → (요약, 왜 그런지). 근거 부분이 지문에 남으면 답이 새어나간다.
-    static func split(_ example: String) -> (headline: String, rationale: String?) {
-        let cleaned = stripCrossReferences(example)
-        guard let range = cleaned.range(of: "") else { return (cleaned, nil) }
-        let head = String(cleaned[..<range.lowerBound]).trimmingCharacters(in: .whitespaces)
-        let tail = String(cleaned[range.upperBound...]).trimmingCharacters(in: .whitespaces)
-        return (head.isEmpty ? cleaned : head, tail.isEmpty ? nil : tail)
+    /// 예시 → (지문에 낼 요약, 해설에 쓸 근거). 근거 부분이 지문에 남으면 답이 새어나간다.
+    /// 나누는 자리는 데이터(entries.json 의 headline / rationale)가 정한다 - 구분 기호로 추측하지 않는다.
+    static func split(_ example: Entry.Example) -> (headline: String, rationale: String?) {
+        let headline = stripCrossReferences(example.headline)
+        let rationale = stripCrossReferences(example.rationale)
+        return (headline, rationale.isEmpty ? nil : rationale)
     }
 
     /// 지문에 정답 이름이 그대로 박혀 있으면 가린다.
@@ -132,9 +132,8 @@ struct QuizBank: Sendable {
         var out: [Question] = []
         for entry in all {
             for (isGood, examples) in [(true, entry.good), (false, entry.bad)] {
-                for (i, raw) in examples.enumerated() {
+                for (i, raw) in examples.enumerated() where raw.quiz {
                     let (headline, rationale) = PromptText.split(raw)
-                    guard headline.count > 6 else { continue }
                     let basis = entry.criterion.isEmpty ? entry.why : entry.criterion
                     let verdict = (isGood
                         ? String(localized: "적절합니다. \(rationale ?? "")")
@@ -203,9 +202,8 @@ struct QuizBank: Sendable {
         var out: [Question] = []
 
         for principle in principles {
-            for (i, raw) in principle.bad.enumerated() {
+            for (i, raw) in principle.bad.enumerated() where raw.quiz {
                 let (headline, rationale) = PromptText.split(raw)
-                guard headline.count > 6 else { continue }
                 let others = principles.filter { $0.id != principle.id }
                     .shuffled(seed: principle.id.hashValue &+ i)
                     .prefix(3)

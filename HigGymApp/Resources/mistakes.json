@@ -82,7 +82,7 @@
         },
         {
           "index": "8.1.1",
-          "title": "Content-First · Minimization, UI는 콘텐츠를 위해 물러난다",
+          "title": "Content-First · Minimization",
           "entryID": "p1"
         }
       ],
@@ -202,7 +202,7 @@
         },
         {
           "index": "8.1.3",
-          "title": "위치·묶음의 문법, 자리와 캡슐 자체가 의미다",
+          "title": "위치·묶음의 문법",
           "entryID": "p3"
         }
       ],
@@ -487,7 +487,7 @@
         },
         {
           "index": "8.1.3",
-          "title": "위치·묶음의 문법, 자리와 캡슐 자체가 의미다",
+          "title": "위치·묶음의 문법",
           "entryID": "p3"
         }
       ],
@@ -772,7 +772,7 @@
         },
         {
           "index": "8.1.4",
-          "title": "가독성 > 미학, 투명함과 읽힘이 충돌하면 읽힘이 이긴다",
+          "title": "가독성 > 미학",
           "entryID": "p4"
         }
       ],
@@ -892,7 +892,7 @@
         },
         {
           "index": "8.1.1",
-          "title": "Content-First · Minimization, UI는 콘텐츠를 위해 물러난다",
+          "title": "Content-First · Minimization",
           "entryID": "p1"
         }
       ],
@@ -1237,7 +1237,7 @@
         },
         {
           "index": "8.1.7",
-          "title": "직접 조작, 대상에 대한 액션은 대상 자체에",
+          "title": "직접 조작",
           "entryID": "p7"
         }
       ],
@@ -1352,7 +1352,7 @@
         },
         {
           "index": "8.1.3",
-          "title": "위치·묶음의 문법, 자리와 캡슐 자체가 의미다",
+          "title": "위치·묶음의 문법",
           "entryID": "p3"
         }
       ],
@@ -1697,7 +1697,7 @@
         },
         {
           "index": "8.1.4",
-          "title": "가독성 > 미학, 투명함과 읽힘이 충돌하면 읽힘이 이긴다",
+          "title": "가독성 > 미학",
           "entryID": "p4"
         }
       ],
@@ -1767,7 +1767,7 @@
         },
         {
           "index": "8.1.1",
-          "title": "Content-First · Minimization, UI는 콘텐츠를 위해 물러난다",
+          "title": "Content-First · Minimization",
           "entryID": "p1"
         }
       ],
@@ -2223,7 +2223,7 @@
         },
         {
           "index": "8.1.4",
-          "title": "가독성 > 미학, 투명함과 읽힘이 충돌하면 읽힘이 이긴다",
+          "title": "가독성 > 미학",
           "entryID": "p4"
         }
       ],
@@ -2436,7 +2436,7 @@
         },
         {
           "index": "8.1.5",
-          "title": "공간은 계약, 텍스트는 가변, 의미론이 처리 방식을 정한다",
+          "title": "공간은 계약, 텍스트는 가변",
           "entryID": "p5"
         }
       ],
@@ -2492,7 +2492,7 @@
         },
         {
           "index": "8.1.5",
-          "title": "공간은 계약, 텍스트는 가변, 의미론이 처리 방식을 정한다",
+          "title": "공간은 계약, 텍스트는 가변",
           "entryID": "p5"
         }
       ],
@@ -2548,7 +2548,7 @@
         },
         {
           "index": "8.1.5",
-          "title": "공간은 계약, 텍스트는 가변, 의미론이 처리 방식을 정한다",
+          "title": "공간은 계약, 텍스트는 가변",
           "entryID": "p5"
         }
       ],
@@ -2706,7 +2706,7 @@
         },
         {
           "index": "8.1.6",
-          "title": "데이터와 표기의 분리, 값은 앱이, 표기는 로케일이",
+          "title": "데이터와 표기의 분리",
           "entryID": "p6"
         }
       ],
@@ -2766,7 +2766,7 @@
         },
         {
           "index": "8.1.6",
-          "title": "데이터와 표기의 분리, 값은 앱이, 표기는 로케일이",
+          "title": "데이터와 표기의 분리",
           "entryID": "p6"
         }
       ],
@@ -5491,7 +5491,7 @@
       "sources": [
         {
           "index": "8.1.2",
-          "title": "Reachability, 빈도가 높을수록 엄지에 가깝게",
+          "title": "Reachability",
           "entryID": "p2"
         },
         {
@@ -5551,7 +5551,7 @@
       "sources": [
         {
           "index": "8.1.2",
-          "title": "Reachability, 빈도가 높을수록 엄지에 가깝게",
+          "title": "Reachability",
           "entryID": "p2"
         }
       ],
@@ -5606,7 +5606,7 @@
       "sources": [
         {
           "index": "8.1.7",
-          "title": "직접 조작, 대상에 대한 액션은 대상 자체에",
+          "title": "직접 조작",
           "entryID": "p7"
         },
         {
