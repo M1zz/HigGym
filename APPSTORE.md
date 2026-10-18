@@ -12,7 +12,7 @@
 
 ### 키워드
 
-휴먼인터페이스,가이드라인,UI,UX,아이폰,툴바,탭바,시트,개발자,개발,퀴즈,디자이너,포트폴리오,코딩,스위프트,접근성,레이아웃,화면설계,인터페이스
+툴바,화면설계,탭바,가이드라인,iOS개발,다크모드,타이포그래피,앱개발,개발자,포트폴리오,스위프트,UI,UX,휴먼인터페이스,레이아웃,디자이너,컴포넌트,접근성,코딩
 
 ### 프로모션 텍스트
 
@@ -68,7 +68,7 @@ Learn interface rules by doing
 
 ### 키워드
 
-ui,ux,human,guidelines,toolbar,tabbar,sheet,navigation,layout,accessibility,usability,quiz,developer
+accessibility,guidelines,ui,ux,human,toolbar,tabbar,sheet,navigation,layout,usability,developer
 
 ### 프로모션 텍스트
 
