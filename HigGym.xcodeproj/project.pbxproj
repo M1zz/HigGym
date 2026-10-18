@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		001FE7E0EB711FBA38F0476A /* QuizContentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734B384B57C83737C41D2CCA /* QuizContentTests.swift */; };
 		04E302DA44593C6AF2F266AE /* ToolbarLabModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478A1A5F6CF257BC2B3A2A2D /* ToolbarLabModel.swift */; };
 		08111F1DE79D0ABE22701B5E /* SearchDemos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D6A8C0436453A161E1ACCD /* SearchDemos.swift */; };
 		09DE17DA8B565F2C55CCD878 /* NotebookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D29C6A91AD39672205E1F3 /* NotebookView.swift */; };
@@ -155,6 +156,7 @@
 		6A0F4660EBFEC7D8CB1F805D /* MistakeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MistakeDetailView.swift; sourceTree = "<group>"; };
 		6D70CDC01FB6A4016EB27A1C /* ScrollEdgeDemos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollEdgeDemos.swift; sourceTree = "<group>"; };
 		701720402269F534872C818D /* MockupStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupStyle.swift; sourceTree = "<group>"; };
+		734B384B57C83737C41D2CCA /* QuizContentTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizContentTests.swift; sourceTree = "<group>"; };
 		7445DCB14F4AFE31E64CB1FB /* HigGymIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HigGymIntents.swift; sourceTree = "<group>"; };
 		77BCBC1396CD8B9BB18EFAE8 /* StoreScreenshotTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreScreenshotTests.swift; sourceTree = "<group>"; };
 		7C507EA91FFA9B03ADE55CC1 /* Progress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Progress.swift; sourceTree = "<group>"; };
@@ -201,7 +203,7 @@
 		ECA0DD59B8276E7AB7D670A2 /* DemoKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoKit.swift; sourceTree = "<group>"; };
 		F79AF87F982F35EDCD75CC80 /* MockupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupView.swift; sourceTree = "<group>"; };
 		FEFBE5660F8B685ED2FC9E48 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
-		"TEMP_E640B540-9C6E-420B-8294-5305823AC180" /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
+		"TEMP_B5DD986A-9922-4B4C-8328-0565B23BAD09" /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +349,7 @@
 			children = (
 				4AB25396851574148AF351BD /* NotebookStoreTests.swift */,
 				0C6B4181C96520B1529789FB /* ProgressStoreTests.swift */,
+				734B384B57C83737C41D2CCA /* QuizContentTests.swift */,
 				22768F151974219322547835 /* ServiceTests.swift */,
 				A68F6613D7FC21BD739F199D /* TestDefaults.swift */,
 			);
@@ -486,10 +489,10 @@
 			path = Principles;
 			sourceTree = "<group>";
 		};
-		"TEMP_C497254E-A91E-4F1B-BBF9-CFCF66940492" /* 디자인실습 */ = {
+		"TEMP_E7A1E1C3-E98C-4DFA-88A1-A6935E9C9441" /* 디자인실습 */ = {
 			isa = PBXGroup;
 			children = (
-				"TEMP_E640B540-9C6E-420B-8294-5305823AC180" /* Version.xcconfig */,
+				"TEMP_B5DD986A-9922-4B4C-8328-0565B23BAD09" /* Version.xcconfig */,
 			);
 			path = "디자인실습";
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 			files = (
 				76464EAACDAACFB889EB0FBB /* NotebookStoreTests.swift in Sources */,
 				E3A28AC8CA80D4666FAD5D95 /* ProgressStoreTests.swift in Sources */,
+				001FE7E0EB711FBA38F0476A /* QuizContentTests.swift in Sources */,
 				BDAF8B13E2320028E42F2747 /* ServiceTests.swift in Sources */,
 				B16EF2A8D6654D6A7BB02369 /* TestDefaults.swift in Sources */,
 			);
@@ -755,7 +759,7 @@
 		};
 		5711437EF425E4184734E060 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_E640B540-9C6E-420B-8294-5305823AC180" /* Version.xcconfig */;
+			baseConfigurationReference = "TEMP_B5DD986A-9922-4B4C-8328-0565B23BAD09" /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -833,7 +837,7 @@
 		};
 		8FE6E8404CE52551C781809B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_E640B540-9C6E-420B-8294-5305823AC180" /* Version.xcconfig */;
+			baseConfigurationReference = "TEMP_B5DD986A-9922-4B4C-8328-0565B23BAD09" /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
