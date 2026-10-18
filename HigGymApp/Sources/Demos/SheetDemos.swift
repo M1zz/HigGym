@@ -8,9 +8,9 @@ enum SheetDemos {
         EntryDemo(
             "sh1",
             hints: [
-                "**열기**를 눌러보세요, 화면을 거의 다 덮으며 뒤 화면이 살짝 물러납니다.",
-                "아래로 쓸어내려 닫아보세요. 큰 시트의 기본 출구입니다.",
-                "뒤 화면의 카드를 눌러보려 해도 반응하지 않습니다, 모달이라는 뜻입니다.",
+                String(localized: "**열기**를 눌러보세요, 화면을 거의 다 덮으며 뒤 화면이 살짝 물러납니다."),
+                String(localized: "아래로 쓸어내려 닫아보세요. 큰 시트의 기본 출구입니다."),
+                String(localized: "뒤 화면의 카드를 눌러보려 해도 반응하지 않습니다, 모달이라는 뜻입니다."),
             ],
             code: """
             .sheet(isPresented: $showing) {
@@ -23,9 +23,9 @@ enum SheetDemos {
         EntryDemo(
             "sh2",
             hints: [
-                "절반 높이에서 멈춥니다, 뒤 화면의 위쪽 절반이 계속 보입니다.",
-                "위로 끌어올려 보세요. **더 커지지 않습니다**, 선언한 detent가 하나뿐이기 때문입니다.",
-                "뒤가 보이는 것과 뒤를 만질 수 있는 것은 다릅니다. 4.1.5에서 확인해 보세요.",
+                String(localized: "절반 높이에서 멈춥니다, 뒤 화면의 위쪽 절반이 계속 보입니다."),
+                String(localized: "위로 끌어올려 보세요. **더 커지지 않습니다**, 선언한 detent가 하나뿐이기 때문입니다."),
+                String(localized: "뒤가 보이는 것과 뒤를 만질 수 있는 것은 다릅니다. 4.1.5에서 확인해 보세요."),
             ],
             code: """
             .sheet(isPresented: $showing) {
@@ -38,23 +38,23 @@ enum SheetDemos {
         EntryDemo(
             "sh3",
             hints: [
-                "높이 방식을 **height(250) ↔ fraction(0.3)** 로 바꿔가며 열어보세요.",
-                "화면이 작을수록 fraction은 함께 줄고, height는 그대로입니다, 무엇을 기준으로 삼을지의 선택입니다.",
-                "내용이 커지면 어떻게 되는지도 확인해 보세요. 커스텀 높이는 내용과 어긋나기 쉽습니다.",
+                String(localized: "높이 방식을 **height(250) ↔ fraction(0.3)** 로 바꿔가며 열어보세요."),
+                String(localized: "화면이 작을수록 fraction은 함께 줄고, height는 그대로입니다, 무엇을 기준으로 삼을지의 선택입니다."),
+                String(localized: "내용이 커지면 어떻게 되는지도 확인해 보세요. 커스텀 높이는 내용과 어긋나기 쉽습니다."),
             ],
-            code: """
+            code: String(localized: """
             .presentationDetents([.height(250)])
             // 또는
             .presentationDetents([.fraction(0.3)])
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { SheetDemoScreen(kind: .custom) },
 
         EntryDemo(
             "sh4",
             hints: [
-                "시트를 **위아래로 끌어보세요**, medium과 large 사이에서 걸립니다.",
-                "지금 어느 단계인지 시트 안에 표시됩니다. 손이 아니라 시스템이 단계를 정합니다.",
-                "그랩바를 껐다 켜보세요, 끌 수 있다는 사실을 무엇이 알려주는지 드러납니다.",
+                String(localized: "시트를 **위아래로 끌어보세요**, medium과 large 사이에서 걸립니다."),
+                String(localized: "지금 어느 단계인지 시트 안에 표시됩니다. 손이 아니라 시스템이 단계를 정합니다."),
+                String(localized: "그랩바를 껐다 켜보세요, 끌 수 있다는 사실을 무엇이 알려주는지 드러납니다."),
             ],
             code: """
             .presentationDetents([.medium, .large], selection: $detent)
@@ -65,9 +65,9 @@ enum SheetDemos {
         EntryDemo(
             "sh5",
             hints: [
-                "시트를 연 채로 **뒤 화면의 슬라이더를 만져보세요**, 실제로 움직입니다.",
-                "시트를 large까지 끌어올리면 뒤가 다시 잠깁니다. 허용 구간이 medium까지이기 때문입니다.",
-                "지도 위 검색 시트처럼 \"보면서 조절하는\" 화면이 이 설정의 자리입니다.",
+                String(localized: "시트를 연 채로 **뒤 화면의 슬라이더를 만져보세요**, 실제로 움직입니다."),
+                String(localized: "시트를 large까지 끌어올리면 뒤가 다시 잠깁니다. 허용 구간이 medium까지이기 때문입니다."),
+                String(localized: "지도 위 검색 시트처럼 \"보면서 조절하는\" 화면이 이 설정의 자리입니다."),
             ],
             code: """
             .presentationDetents([.medium, .large])
@@ -78,23 +78,23 @@ enum SheetDemos {
         EntryDemo(
             "fc1",
             hints: [
-                "**아래로 쓸어내려 보세요**, 닫히지 않습니다.",
-                "닫는 방법은 화면 안의 명시적인 버튼뿐입니다. 그래서 그 버튼이 반드시 있어야 합니다.",
-                "작성 중이던 내용을 지키는 대신 사용자를 가둡니다, 그 무게에 맞는 화면에만 씁니다.",
+                String(localized: "**아래로 쓸어내려 보세요**, 닫히지 않습니다."),
+                String(localized: "닫는 방법은 화면 안의 명시적인 버튼뿐입니다. 그래서 그 버튼이 반드시 있어야 합니다."),
+                String(localized: "작성 중이던 내용을 지키는 대신 사용자를 가둡니다, 그 무게에 맞는 화면에만 씁니다."),
             ],
-            code: """
+            code: String(localized: """
             .fullScreenCover(isPresented: $editing) {
                 EditorView()   // 닫기 버튼을 반드시 직접 제공한다
             }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { SheetDemoScreen(kind: .fullScreen) },
 
         EntryDemo(
             "tr1",
             hints: [
-                "카드를 눌러 시트를 열어보세요, 아래에서 위로 올라오는 기본 전환입니다.",
-                "어느 카드를 눌러도 같은 자리에서 올라옵니다. 출발지와 도착지가 이어지지 않습니다.",
-                "4.3.2(zoom)와 번갈아 보면 그 연결이 있고 없고의 차이가 분명합니다.",
+                String(localized: "카드를 눌러 시트를 열어보세요, 아래에서 위로 올라오는 기본 전환입니다."),
+                String(localized: "어느 카드를 눌러도 같은 자리에서 올라옵니다. 출발지와 도착지가 이어지지 않습니다."),
+                String(localized: "4.3.2(zoom)와 번갈아 보면 그 연결이 있고 없고의 차이가 분명합니다."),
             ],
             code: """
             .sheet(item: $selected) { card in
@@ -106,9 +106,9 @@ enum SheetDemos {
         EntryDemo(
             "tr2",
             hints: [
-                "카드를 눌러보세요, 시트가 **그 카드 자리에서 확대**되어 나옵니다.",
-                "다른 카드도 눌러보세요. 시작점이 매번 다릅니다.",
-                "닫을 때도 원래 카드로 돌아갑니다, \"내가 누른 그것\"이라는 감각이 유지됩니다.",
+                String(localized: "카드를 눌러보세요, 시트가 **그 카드 자리에서 확대**되어 나옵니다."),
+                String(localized: "다른 카드도 눌러보세요. 시작점이 매번 다릅니다."),
+                String(localized: "닫을 때도 원래 카드로 돌아갑니다, \"내가 누른 그것\"이라는 감각이 유지됩니다."),
             ],
             code: """
             CardView(card)
@@ -124,9 +124,9 @@ enum SheetDemos {
         EntryDemo(
             "tr3",
             hints: [
-                "썸네일을 누르면 **화면 전체로 확대**됩니다. 사진 앱에서 익숙한 그 동작입니다.",
-                "닫으면 원래 썸네일 자리로 돌아갑니다. 목록에서의 위치를 잃지 않습니다.",
-                "전체를 덮는 화면일수록 어디서 왔는지가 중요해집니다, zoom이 특히 값을 하는 이유입니다.",
+                String(localized: "썸네일을 누르면 **화면 전체로 확대**됩니다. 사진 앱에서 익숙한 그 동작입니다."),
+                String(localized: "닫으면 원래 썸네일 자리로 돌아갑니다. 목록에서의 위치를 잃지 않습니다."),
+                String(localized: "전체를 덮는 화면일수록 어디서 왔는지가 중요해집니다, zoom이 특히 값을 하는 이유입니다."),
             ],
             code: """
             .fullScreenCover(item: $selected) { photo in
@@ -183,7 +183,7 @@ private struct SheetDemoScreen: View {
                                 .font(.system(.footnote, design: .monospaced, weight: .semibold))
                                 .foregroundStyle(.secondary)
                             Slider(value: $brightness)
-                            DemoNote(text: "시트를 연 채로 이 슬라이더를 움직여 보세요. **뒤가 살아 있다**는 게 이 항목의 전부입니다.")
+                            DemoNote(text: String(localized: "시트를 연 채로 이 슬라이더를 움직여 보세요. **뒤가 살아 있다**는 게 이 항목의 전부입니다."))
                         }
                     }
 
@@ -264,7 +264,7 @@ private struct DemoSheetBody: View {
                     }
                 }
                 Section("필터") {
-                    ForEach(["읽지 않음", "깃발 표시", "첨부 있음", "지난 7일"], id: \.self) { item in
+                    ForEach([String(localized: "읽지 않음"), String(localized: "깃발 표시"), String(localized: "첨부 있음"), String(localized: "지난 7일")], id: \.self) { item in
                         Label(item, systemImage: "line.3.horizontal.decrease")
                     }
                 }
@@ -285,12 +285,12 @@ private struct DemoSheetBody: View {
 
 private struct DemoFullScreenBody: View {
     @Environment(\.dismiss) private var dismiss
-    @State private var text = "여기에 쓴 내용은 실수로 쓸어내려도 사라지지 않습니다."
+    @State private var text = String(localized: "여기에 쓴 내용은 실수로 쓸어내려도 사라지지 않습니다.")
 
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading, spacing: 14) {
-                DemoNote(text: "아래로 쓸어내려 보세요, **닫히지 않습니다**. 닫기 버튼만이 출구입니다.", symbol: "hand.draw")
+                DemoNote(text: String(localized: "아래로 쓸어내려 보세요, **닫히지 않습니다**. 닫기 버튼만이 출구입니다."), symbol: "hand.draw")
                 TextEditor(text: $text)
                     .font(.callout)
                     .scrollContentBackground(.hidden)
@@ -361,7 +361,11 @@ struct DemoCard: Identifiable, Hashable {
     let title: String
 
     static let all: [DemoCard] = (0..<9).map {
-        DemoCard(id: $0, title: ["광장", "해변", "노을", "숲길", "야경", "골목", "설산", "호수", "사막"][$0])
+        DemoCard(id: $0, title: [
+            String(localized: "광장"), String(localized: "해변"), String(localized: "노을"),
+            String(localized: "숲길"), String(localized: "야경"), String(localized: "골목"),
+            String(localized: "설산"), String(localized: "호수"), String(localized: "사막"),
+        ][$0])
     }
 }
 

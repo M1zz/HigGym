@@ -141,7 +141,7 @@ struct MistakesHomeView: View {
         VStack(spacing: 8) {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 7) {
-                    chip(title: "전체", count: store.mistakes.count, color: .hgAccent, active: category == nil) {
+                    chip(title: String(localized: "전체"), count: store.mistakes.count, color: .hgAccent, active: category == nil) {
                         category = nil
                     }
                     ForEach(store.categories) { item in

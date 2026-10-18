@@ -8,41 +8,41 @@ enum SafeAreaDemos {
         EntryDemo(
             "va1",
             hints: [
-                "상단의 필터 칩은 시스템 툴바가 아니라 **직접 만든 바**입니다. 눌러서 목록을 걸러보세요.",
-                "끝까지 스크롤해 보세요, 첫 항목이 바에 가려지지 않습니다. 자동으로 자리를 비켜줍니다.",
-                "같은 뷰를 `overlay`로 얹었다면 첫 항목이 그 밑에 깔렸을 겁니다. 그 차이가 이 API의 전부입니다.",
+                String(localized: "상단의 필터 칩은 시스템 툴바가 아니라 **직접 만든 바**입니다. 눌러서 목록을 걸러보세요."),
+                String(localized: "끝까지 스크롤해 보세요, 첫 항목이 바에 가려지지 않습니다. 자동으로 자리를 비켜줍니다."),
+                String(localized: "같은 뷰를 `overlay`로 얹었다면 첫 항목이 그 밑에 깔렸을 겁니다. 그 차이가 이 API의 전부입니다."),
             ],
-            code: """
+            code: String(localized: """
             ScrollView { /* 콘텐츠 */ }
                 .safeAreaBar(edge: .top) {
                     FilterChips(selection: $filter)
                 }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { SafeAreaBarDemo(kind: .top) },
 
         EntryDemo(
             "va2",
             hints: [
-                "상단 바 안에 **타이틀과 카운트**가 함께 있습니다. 필터를 바꾸면 숫자가 실제로 바뀝니다.",
-                "시스템 제목 대신 이 바가 화면 정체를 말합니다, 그만큼 스스로 설명해야 합니다.",
-                "스크롤해도 이 바는 접히지 않습니다. 대형 제목과의 차이를 1.2.1과 비교해 보세요.",
+                String(localized: "상단 바 안에 **타이틀과 카운트**가 함께 있습니다. 필터를 바꾸면 숫자가 실제로 바뀝니다."),
+                String(localized: "시스템 제목 대신 이 바가 화면 정체를 말합니다, 그만큼 스스로 설명해야 합니다."),
+                String(localized: "스크롤해도 이 바는 접히지 않습니다. 대형 제목과의 차이를 1.2.1과 비교해 보세요."),
             ],
-            code: """
+            code: String(localized: """
             .safeAreaBar(edge: .top) {
                 VStack(alignment: .leading, spacing: 6) {
                     Text("보관함").font(.title3.bold())
                     FilterChips(selection: $filter)
                 }
             }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { SafeAreaBarDemo(kind: .topWithTitle) },
 
         EntryDemo(
             "va3",
             hints: [
-                "하단의 **선택 액션 바**가 직접 만든 바입니다. 항목을 골라 눌러보세요.",
-                "목록 맨 아래까지 스크롤해 보세요, 마지막 항목이 바 위에서 멈춥니다.",
-                "엄지에 가까운 자리라 자주 쓰는 액션을 둡니다, 1.1.4와 같은 근거(8.1.2)입니다.",
+                String(localized: "하단의 **선택 액션 바**가 직접 만든 바입니다. 항목을 골라 눌러보세요."),
+                String(localized: "목록 맨 아래까지 스크롤해 보세요, 마지막 항목이 바 위에서 멈춥니다."),
+                String(localized: "엄지에 가까운 자리라 자주 쓰는 액션을 둡니다, 1.1.4와 같은 근거(8.1.2)입니다."),
             ],
             code: """
             List { /* … */ }
@@ -55,9 +55,9 @@ enum SafeAreaDemos {
         EntryDemo(
             "va4",
             hints: [
-                "하단 커스텀 바 + **hard 가장자리 효과** + 시스템 툴바 아이템이 한 화면에 있습니다.",
-                "배경을 사진·흰색으로 바꿔가며 스크롤해 보세요. 경계가 어떻게 가독성을 지키는지 보입니다.",
-                "내 바와 시스템 바가 같은 아래쪽을 나눠 쓰고 있다는 점도 확인해 보세요.",
+                String(localized: "하단 커스텀 바 + **hard 가장자리 효과** + 시스템 툴바 아이템이 한 화면에 있습니다."),
+                String(localized: "배경을 사진·흰색으로 바꿔가며 스크롤해 보세요. 경계가 어떻게 가독성을 지키는지 보입니다."),
+                String(localized: "내 바와 시스템 바가 같은 아래쪽을 나눠 쓰고 있다는 점도 확인해 보세요."),
             ],
             code: """
             ScrollView { /* … */ }
@@ -70,9 +70,9 @@ enum SafeAreaDemos {
         EntryDemo(
             "va5",
             hints: [
-                "위아래 **양쪽 모두** 커스텀 바입니다. 수직 방향의 풀 구성입니다.",
-                "스크롤해서 콘텐츠가 두 바 사이에서만 움직이는지 확인해 보세요.",
-                "남은 콘텐츠 영역이 얼마나 좁아졌는지 보세요, 바를 하나 더 놓을 때마다 치르는 비용입니다.",
+                String(localized: "위아래 **양쪽 모두** 커스텀 바입니다. 수직 방향의 풀 구성입니다."),
+                String(localized: "스크롤해서 콘텐츠가 두 바 사이에서만 움직이는지 확인해 보세요."),
+                String(localized: "남은 콘텐츠 영역이 얼마나 좁아졌는지 보세요, 바를 하나 더 놓을 때마다 치르는 비용입니다."),
             ],
             code: """
             ScrollView { /* … */ }
@@ -85,9 +85,9 @@ enum SafeAreaDemos {
         EntryDemo(
             "ha1",
             hints: [
-                "왼쪽 가장자리 **세로 도구 바**입니다. 도구를 눌러 캔버스 위에서 바꿔보세요.",
-                "재료 배경이라 뒤 캔버스가 비칩니다, 작업 대상을 가리지 않으려는 선택입니다.",
-                "가로 바는 세로 공간을 아낍니다. 캔버스처럼 세로가 아까운 화면의 도구 배치입니다.",
+                String(localized: "왼쪽 가장자리 **세로 도구 바**입니다. 도구를 눌러 캔버스 위에서 바꿔보세요."),
+                String(localized: "재료 배경이라 뒤 캔버스가 비칩니다, 작업 대상을 가리지 않으려는 선택입니다."),
+                String(localized: "가로 바는 세로 공간을 아낍니다. 캔버스처럼 세로가 아까운 화면의 도구 배치입니다."),
             ],
             code: """
             Canvas { … }
@@ -102,9 +102,9 @@ enum SafeAreaDemos {
         EntryDemo(
             "ha2",
             hints: [
-                "오른쪽 가장자리 **정중앙**입니다. 엄지의 호가 지나가는 자리죠.",
-                "버튼을 눌러 캔버스가 실제로 바뀌는지 확인해 보세요.",
-                "5.2.1(왼쪽 상단)과 번갈아 열어, 손이 얼마나 다르게 움직이는지 느껴보세요.",
+                String(localized: "오른쪽 가장자리 **정중앙**입니다. 엄지의 호가 지나가는 자리죠."),
+                String(localized: "버튼을 눌러 캔버스가 실제로 바뀌는지 확인해 보세요."),
+                String(localized: "5.2.1(왼쪽 상단)과 번갈아 열어, 손이 얼마나 다르게 움직이는지 느껴보세요."),
             ],
             code: """
             Canvas { … }
@@ -136,7 +136,7 @@ private struct SafeAreaBarDemo: View {
             ScrollView {
                 LazyVStack(spacing: 0) {
                     if kind == .bottomHard {
-                        DemoPicker(title: "배경", options: DemoBackdrop.allCases, label: \.rawValue, selection: $backdrop)
+                        DemoPicker(title: String(localized: "배경"), options: DemoBackdrop.allCases, label: \.rawValue, selection: $backdrop)
                             .padding(.horizontal, 16)
                             .padding(.bottom, 8)
                             .foregroundStyle(backdrop.contentColor)
@@ -157,8 +157,8 @@ private struct SafeAreaBarDemo: View {
             .toolbar {
                 if kind == .bottomHard || kind == .topAndBottom {
                     ToolbarItemGroup(placement: .topBarTrailing) {
-                        Button("선택", systemImage: "checkmark.circle") { log.tap("선택 모드") }
-                        Button("더보기", systemImage: "ellipsis") { log.tap("더보기") }
+                        Button("선택", systemImage: "checkmark.circle") { log.tap(String(localized: "선택 모드")) }
+                        Button("더보기", systemImage: "ellipsis") { log.tap(String(localized: "더보기")) }
                     }
                 }
             }
@@ -188,6 +188,14 @@ private struct SafeAreaBarDemo: View {
 enum DemoFilter: String, CaseIterable, Identifiable {
     case all = "전체", unread = "안 읽음", flagged = "보낸사람순"
     var id: String { rawValue }
+
+    var title: String {
+        switch self {
+        case .all:     String(localized: "전체")
+        case .unread:  String(localized: "안 읽음")
+        case .flagged: String(localized: "보낸사람순")
+        }
+    }
 
     func apply(to mail: [DemoMail]) -> [DemoMail] {
         switch self {
@@ -244,7 +252,7 @@ private struct BarsModifier: ViewModifier {
                     Button {
                         withAnimation(.snappy) { filter = option }
                     } label: {
-                        Text(option.rawValue)
+                        Text(option.title)
                             .font(.subheadline.weight(.semibold))
                             .padding(.horizontal, 13)
                             .padding(.vertical, 7)
@@ -265,10 +273,10 @@ private struct BarsModifier: ViewModifier {
                 .font(.subheadline.weight(.medium))
                 .foregroundStyle(selection.isEmpty ? .secondary : .primary)
             Spacer()
-            Button("이동", systemImage: "folder") { log.tap("\(selection.count)개 이동") }
+            Button("이동", systemImage: "folder") { log.tap(String(localized: "\(selection.count)개 이동")) }
                 .disabled(selection.isEmpty)
             Button("삭제", systemImage: "trash", role: .destructive) {
-                log.tap("\(selection.count)개 삭제")
+                log.tap(String(localized: "\(selection.count)개 삭제"))
                 selection.removeAll()
             }
             .disabled(selection.isEmpty)
@@ -396,7 +404,7 @@ private struct SideBarModifier: ViewModifier {
             Divider().frame(width: 22)
             Button {
                 onClear()
-                log.tap("지웠습니다")
+                log.tap(String(localized: "지웠습니다"))
             } label: {
                 Image(systemName: "trash")
                     .font(.subheadline)

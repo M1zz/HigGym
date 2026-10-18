@@ -75,7 +75,7 @@ struct NotebookView: View {
     private func refreshExport() {
         guard !written.isEmpty else { exportURL = nil; return }
         let url = FileManager.default.temporaryDirectory
-            .appendingPathComponent("앱 디자인 실습 학습 노트.md")
+            .appendingPathComponent(String(localized: "앱 디자인 실습 학습 노트") + ".md")
         do {
             try notebook.plainText.write(to: url, atomically: true, encoding: .utf8)
             exportURL = url
@@ -102,9 +102,9 @@ struct NotebookView: View {
 
     private var summary: some View {
         HStack(spacing: 18) {
-            stat("쓴 레슨", "\(written.count)")
-            stat("마친 레슨", "\(notebook.completedCount)")
-            stat("전체", "\(Lesson.all.count)")
+            stat("쓴 레슨", written.count.formatted())
+            stat("마친 레슨", notebook.completedCount.formatted())
+            stat("전체", Lesson.all.count.formatted())
             Spacer()
         }
         .padding(14)
@@ -112,7 +112,7 @@ struct NotebookView: View {
         .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(Color.hgLine, lineWidth: 1))
     }
 
-    private func stat(_ label: String, _ value: String) -> some View {
+    private func stat(_ label: LocalizedStringKey, _ value: String) -> some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(value)
                 .font(.system(.headline, design: .rounded, weight: .bold))
@@ -175,7 +175,7 @@ private struct NoteCard: View {
         .accessibilityAction(named: Text("다시 하기"), onEdit)
     }
 
-    private func passage(_ label: String, _ body: String, _ tint: Color) -> some View {
+    private func passage(_ label: LocalizedStringKey, _ body: String, _ tint: Color) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(label)
                 .font(.caption.weight(.bold))

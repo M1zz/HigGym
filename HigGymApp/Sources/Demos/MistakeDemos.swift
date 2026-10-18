@@ -19,11 +19,11 @@ enum MistakeDemos {
         EntryDemo(
             "m003",
             hints: [
-                "왼쪽 캡슐에서 **삭제**를 눌러보세요. 정렬·격자와 한 덩어리라 손이 먼저 갑니다.",
-                "오른쪽은 도구가 왼쪽 묶음, 삭제는 오른쪽 메뉴 안쪽에 있습니다. 같은 실수를 하기가 어렵습니다.",
-                "기능은 양쪽이 똑같습니다. 달라진 건 **묶는 방법**뿐입니다.",
+                String(localized: "왼쪽 캡슐에서 **삭제**를 눌러보세요. 정렬·격자와 한 덩어리라 손이 먼저 갑니다."),
+                String(localized: "오른쪽은 도구가 왼쪽 묶음, 삭제는 오른쪽 메뉴 안쪽에 있습니다. 같은 실수를 하기가 어렵습니다."),
+                String(localized: "기능은 양쪽이 똑같습니다. 달라진 건 **묶는 방법**뿐입니다."),
             ],
-            code: """
+            code: String(localized: """
             // 이렇게 했다 - 성격이 다른 셋이 한 캡슐
             ToolbarItemGroup(placement: .topBarTrailing) {
                 Button("삭제", systemImage: "trash") { … }
@@ -38,18 +38,18 @@ enum MistakeDemos {
                     Button("삭제", systemImage: "trash", role: .destructive) { … }
                 }
             }
-            """,
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is."),
             chromeEdge: .bottom
         ) { M003 () },
 
         EntryDemo(
             "m007",
             hints: [
-                "왼쪽 하단의 **삭제**를 눌러보세요, 확인도 없이 사라집니다. 엄지 자리라 오탭도 쉽습니다.",
-                "오른쪽 하단은 **작성**입니다. 삭제는 행을 왼쪽으로 밀어야 나옵니다.",
-                "지운 개수를 두 화면에서 세어보세요. 자리 하나가 사고율을 바꿉니다.",
+                String(localized: "왼쪽 하단의 **삭제**를 눌러보세요, 확인도 없이 사라집니다. 엄지 자리라 오탭도 쉽습니다."),
+                String(localized: "오른쪽 하단은 **작성**입니다. 삭제는 행을 왼쪽으로 밀어야 나옵니다."),
+                String(localized: "지운 개수를 두 화면에서 세어보세요. 자리 하나가 사고율을 바꿉니다."),
             ],
-            code: """
+            code: String(localized: """
             // 이렇게 했다 - 되돌릴 수 없는 액션이 가장 누르기 쉬운 자리에
             ToolbarItem(placement: .bottomBar) {
                 Button("삭제", systemImage: "trash", role: .destructive) { delete() }
@@ -60,35 +60,35 @@ enum MistakeDemos {
                 Button("새 메일", systemImage: "square.and.pencil") { compose() }
             }
             .swipeActions { Button("삭제", role: .destructive) { … } }
-            """,
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is."),
             chromeEdge: .bottom
         ) { M007() },
 
         EntryDemo(
             "m011",
             hints: [
-                "왼쪽에서 **저장**을 찾아보세요, ⋯ 안에 접혀 있습니다. 가장 자주 누르는 버튼인데요.",
-                "오른쪽은 저장이 밖에, 별표·프린트가 접혔습니다. 선언 순서만 바꾼 결과입니다.",
-                "두 화면 모두 아이템 개수는 같습니다. 무엇을 앞에 뒀는지만 다릅니다.",
+                String(localized: "왼쪽에서 **저장**을 찾아보세요, ⋯ 안에 접혀 있습니다. 가장 자주 누르는 버튼인데요."),
+                String(localized: "오른쪽은 저장이 밖에, 별표·프린트가 접혔습니다. 선언 순서만 바꾼 결과입니다."),
+                String(localized: "두 화면 모두 아이템 개수는 같습니다. 무엇을 앞에 뒀는지만 다릅니다."),
             ],
-            code: """
+            code: String(localized: """
             // 선언 순서 = 우선순위. 폭이 모자라면 뒤쪽부터 ⋯ 로 접힌다.
             // 이렇게 했다
             ForEach([별표, 깃발, 프린트, 이동, 저장]) { … }
             // 이렇게 고쳤다
             ForEach([저장, 이동, 별표, 깃발, 프린트]) { … }
-            """,
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is."),
             chromeEdge: .bottom
         ) { M011() },
 
         EntryDemo(
             "m029",
             hints: [
-                "두 화면을 **같이 스크롤**해 보세요. 흰 사진이 상단 바를 지날 때를 노려 보세요.",
-                "왼쪽은 그 순간 버튼 글자가 사진에 묻힙니다. 오른쪽은 경계가 대비를 만들어 냅니다.",
-                "어두운 사진에서는 둘이 똑같아 보입니다, 그래서 어두운 샘플로만 확인하면 놓칩니다.",
+                String(localized: "두 화면을 **같이 스크롤**해 보세요. 흰 사진이 상단 바를 지날 때를 노려 보세요."),
+                String(localized: "왼쪽은 그 순간 버튼 글자가 사진에 묻힙니다. 오른쪽은 경계가 대비를 만들어 냅니다."),
+                String(localized: "어두운 사진에서는 둘이 똑같아 보입니다, 그래서 어두운 샘플로만 확인하면 놓칩니다."),
             ],
-            code: """
+            code: String(localized: """
             // 이렇게 했다
             ScrollView { PhotoGrid() }
                 .scrollEdgeEffectHidden(true, for: .top)
@@ -96,35 +96,35 @@ enum MistakeDemos {
             // 이렇게 고쳤다
             ScrollView { PhotoGrid() }
                 .scrollEdgeEffectStyle(.hard, for: .top)
-            """,
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is."),
             chromeEdge: .bottom
         ) { M029() },
 
         EntryDemo(
             "m038",
             hints: [
-                "아래 슬라이더로 **글자 크기를 접근성 단계까지** 올려보세요.",
-                "왼쪽은 한 줄 고정 + 축소라 커질수록 작아지다가 결국 첫 어절만 남습니다.",
-                "오른쪽은 줄이 늘어나며 값을 지킵니다. 카드가 길어질 뿐 정보는 살아 있습니다.",
+                String(localized: "아래 슬라이더로 **글자 크기를 접근성 단계까지** 올려보세요."),
+                String(localized: "왼쪽은 한 줄 고정 + 축소라 커질수록 작아지다가 결국 첫 어절만 남습니다."),
+                String(localized: "오른쪽은 줄이 늘어나며 값을 지킵니다. 카드가 길어질 뿐 정보는 살아 있습니다."),
             ],
-            code: """
+            code: String(localized: """
             // 이렇게 했다 - 두 장치를 겹쳐 걸었다
             Text(address).lineLimit(1).minimumScaleFactor(0.4)
 
             // 이렇게 고쳤다 - 줄 수로 다루고, 넘치면 볼 경로를 준다
             Text(address).lineLimit(2...3)
-            """,
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is."),
             chromeEdge: .bottom
         ) { M038() },
 
         EntryDemo(
             "m046",
             hints: [
-                "왼쪽 운송장 번호를 **길게 눌러** 보세요, 아무 일도 없습니다.",
-                "오른쪽은 선택·복사가 되고, 복사 버튼도 있습니다. 실제로 복사됩니다.",
-                "사용자가 화면을 보며 손으로 옮겨 적고 있다면 그건 기능이 빠진 것입니다.",
+                String(localized: "왼쪽 운송장 번호를 **길게 눌러** 보세요, 아무 일도 없습니다."),
+                String(localized: "오른쪽은 선택·복사가 되고, 복사 버튼도 있습니다. 실제로 복사됩니다."),
+                String(localized: "사용자가 화면을 보며 손으로 옮겨 적고 있다면 그건 기능이 빠진 것입니다."),
             ],
-            code: """
+            code: String(localized: """
             // 이렇게 했다
             Text(trackingNumber)
 
@@ -134,53 +134,53 @@ enum MistakeDemos {
             Button("복사", systemImage: "doc.on.doc") {
                 UIPasteboard.general.string = trackingNumber
             }
-            """,
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is."),
             chromeEdge: .bottom
         ) { M046() },
 
         EntryDemo(
             "m047",
             hints: [
-                "아래에서 로케일을 **en_US**로 바꿔보세요.",
-                "왼쪽은 미국 사용자에게도 5km라고 말합니다. 문자열로 굳혔기 때문입니다.",
-                "오른쪽은 값만 들고 있다가 3.1mi로 바뀝니다. 앱 코드는 한 줄도 다르지 않습니다.",
+                String(localized: "아래에서 로케일을 **en_US**로 바꿔보세요."),
+                String(localized: "왼쪽은 미국 사용자에게도 5km라고 말합니다. 문자열로 굳혔기 때문입니다."),
+                String(localized: "오른쪽은 값만 들고 있다가 3.1mi로 바뀝니다. 앱 코드는 한 줄도 다르지 않습니다."),
             ],
-            code: """
+            code: String(localized: """
             // 이렇게 했다
             Text("\\(distanceKm) km")
 
             // 이렇게 고쳤다
             let distance = Measurement(value: distanceKm, unit: UnitLength.kilometers)
             Text(distance.formatted(.measurement(width: .abbreviated, usage: .road)))
-            """,
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is."),
             chromeEdge: .bottom
         ) { M047() },
 
         EntryDemo(
             "m052",
             hints: [
-                "왼쪽 배지의 **1**은 무엇을 해도 사라지지 않습니다. 목록을 다 읽어도 그대로입니다.",
-                "오른쪽은 읽을 때마다 숫자가 줄고, 0이 되면 배지가 사라집니다.",
-                "왼쪽을 며칠 쓰면 배지를 아예 안 보게 됩니다, 잃는 건 그 앱의 모든 배지입니다.",
+                String(localized: "왼쪽 배지의 **1**은 무엇을 해도 사라지지 않습니다. 목록을 다 읽어도 그대로입니다."),
+                String(localized: "오른쪽은 읽을 때마다 숫자가 줄고, 0이 되면 배지가 사라집니다."),
+                String(localized: "왼쪽을 며칠 쓰면 배지를 아예 안 보게 됩니다, 잃는 건 그 앱의 모든 배지입니다."),
             ],
-            code: """
+            code: String(localized: """
             // 이렇게 했다 - 상시 부착
             Tab("소식", systemImage: "bell") { … }.badge(1)
 
             // 이렇게 고쳤다 - 남은 것의 수. 0이면 시스템이 알아서 감춘다
             Tab("소식", systemImage: "bell") { … }.badge(unread.count)
-            """,
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is."),
             chromeEdge: .bottom
         ) { M052() },
 
         EntryDemo(
             "m068",
             hints: [
-                "왼쪽 **작성** 탭을 눌러보세요, 시트만 뜨고, 닫으면 원래 탭으로 돌아옵니다.",
-                "탭이 가리키는 목적지가 없습니다. \"어디로 가는가\"에 답을 못 합니다.",
-                "오른쪽은 작성이 하단 툴바 버튼입니다. 탭은 목적지만 남았습니다.",
+                String(localized: "왼쪽 **작성** 탭을 눌러보세요, 시트만 뜨고, 닫으면 원래 탭으로 돌아옵니다."),
+                String(localized: "탭이 가리키는 목적지가 없습니다. \"어디로 가는가\"에 답을 못 합니다."),
+                String(localized: "오른쪽은 작성이 하단 툴바 버튼입니다. 탭은 목적지만 남았습니다."),
             ],
-            code: """
+            code: String(localized: """
             // 이렇게 했다 - 이동하지 않는 탭
             Tab("작성", systemImage: "square.and.pencil", value: 2) { EmptyView() }
             .onChange(of: selection) { if $1 == 2 { composing = true; selection = old } }
@@ -191,18 +191,18 @@ enum MistakeDemos {
                     Button("작성", systemImage: "square.and.pencil") { composing = true }
                 }
             }
-            """,
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is."),
             chromeEdge: .bottom
         ) { M068() },
 
         EntryDemo(
             "m081",
             hints: [
-                "왼쪽에서 편집기를 연 뒤 **닫아보세요**. 쓸어내려도, 어디를 눌러도 나갈 수 없습니다.",
-                "오른쪽에는 취소·완료가 있습니다. 같은 전체 화면인데 출구가 있습니다.",
-                "왼쪽의 빨간 점선 버튼은 예제에서 빠져나오기 위한 장치입니다, 실제 앱에는 없습니다.",
+                String(localized: "왼쪽에서 편집기를 연 뒤 **닫아보세요**. 쓸어내려도, 어디를 눌러도 나갈 수 없습니다."),
+                String(localized: "오른쪽에는 취소·완료가 있습니다. 같은 전체 화면인데 출구가 있습니다."),
+                String(localized: "왼쪽의 빨간 점선 버튼은 예제에서 빠져나오기 위한 장치입니다, 실제 앱에는 없습니다."),
             ],
-            code: """
+            code: String(localized: """
             // fullScreenCover 는 쓸어내려 닫히지 않는다. 출구는 직접 만들어야 한다.
             .fullScreenCover(isPresented: $editing) {
                 EditorView()
@@ -211,8 +211,8 @@ enum MistakeDemos {
                         ToolbarItem(placement: .topBarTrailing) { Button("완료") { save() } }
                     }
             }
-            """,
-            note: "왼쪽 화면의 **빨간 점선 '예제에서 나가기'** 는 이 교재가 넣은 비상구입니다. 실제로 이 실수를 저지른 앱에는 그 버튼이 없습니다.",
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is."),
+            note: String(localized: "왼쪽 화면의 **빨간 점선 '예제에서 나가기'** 는 이 교재가 넣은 비상구입니다. 실제로 이 실수를 저지른 앱에는 그 버튼이 없습니다."),
             chromeEdge: .bottom
         ) { M081() },
     ]
@@ -225,7 +225,7 @@ private let sample = Array(DemoData.mail.prefix(9))
 
 /// 미니 화면 안에서도 무엇이 일어났는지 보이게 하는 작은 상태 줄.
 private struct MiniStatus: View {
-    let text: String
+    let text: LocalizedStringKey
     var tint: Color = .secondary
 
     var body: some View {
@@ -250,10 +250,10 @@ private struct M003: View {
 
     var body: some View {
         MistakeComparisonScreen(
-            title: "삭제·정렬·격자가 한 캡슐에 있으면 한 세트로 읽힌다",
-            badNote: "세 개가 붙어 있어 **삭제가 도구처럼** 보입니다.",
-            goodNote: "도구는 왼쪽 묶음, 삭제는 메뉴 안 맨 아래.",
-            takeaway: "묶음은 곧 \"한 세트\"라는 선언입니다. 기능은 그대로 두고 **묶는 방법만** 바꿔도 오해가 사라집니다."
+            title: String(localized: "삭제·정렬·격자가 한 캡슐에 있으면 한 세트로 읽힌다"),
+            badNote: String(localized: "세 개가 붙어 있어 **삭제가 도구처럼** 보입니다."),
+            goodNote: String(localized: "도구는 왼쪽 묶음, 삭제는 메뉴 안 맨 아래."),
+            takeaway: String(localized: "묶음은 곧 \"한 세트\"라는 선언입니다. 기능은 그대로 두고 **묶는 방법만** 바꿔도 오해가 사라집니다.")
         ) {
             NavigationStack {
                 list(rows: badRows, grid: badGrid)
@@ -263,7 +263,7 @@ private struct M003: View {
                         ToolbarItemGroup(placement: .topBarTrailing) {
                             Button("삭제", systemImage: "trash") {
                                 if !badRows.isEmpty { badRows.removeFirst() }
-                                badLog.tap("삭제됨")
+                                badLog.tap(String(localized: "삭제됨"))
                             }
                             Button("정렬", systemImage: "arrow.up.arrow.down") {
                                 badRows.sort { $0.sender < $1.sender }
@@ -291,11 +291,11 @@ private struct M003: View {
                         }
                         ToolbarItem(placement: .topBarTrailing) {
                             Menu("더보기", systemImage: "ellipsis") {
-                                Button("이름 변경", systemImage: "pencil") { goodLog.tap("이름 변경") }
+                                Button("이름 변경", systemImage: "pencil") { goodLog.tap(String(localized: "이름 변경")) }
                                 Divider()
                                 Button("삭제", systemImage: "trash", role: .destructive) {
                                     if !goodRows.isEmpty { goodRows.removeFirst() }
-                                    goodLog.tap("삭제됨")
+                                    goodLog.tap(String(localized: "삭제됨"))
                                 }
                             }
                         }
@@ -339,10 +339,10 @@ private struct M007: View {
 
     var body: some View {
         MistakeComparisonScreen(
-            title: "삭제가 엄지 자리에 혼자 있으면, 누를 생각이 없어도 눌린다",
-            badNote: "확인 없이 즉시 삭제, 지운 수 **\(badDeleted)**",
-            goodNote: "하단은 작성. 삭제는 행을 밀어야, 지운 수 **\(goodDeleted)**",
-            takeaway: "도달성 기준은 **무해한 고빈도 액션**에만 적용합니다. 되돌릴 수 없는 것은 일부러 한 단계 멀리 둡니다."
+            title: String(localized: "삭제가 엄지 자리에 혼자 있으면, 누를 생각이 없어도 눌린다"),
+            badNote: String(localized: "확인 없이 즉시 삭제, 지운 수 **\(badDeleted)**"),
+            goodNote: String(localized: "하단은 작성. 삭제는 행을 밀어야, 지운 수 **\(goodDeleted)**"),
+            takeaway: String(localized: "도달성 기준은 **무해한 고빈도 액션**에만 적용합니다. 되돌릴 수 없는 것은 일부러 한 단계 멀리 둡니다.")
         ) {
             NavigationStack {
                 List(badRows) { DemoMailRow(mail: $0) }
@@ -399,18 +399,18 @@ private struct M011: View {
     }
 
     private let badOrder: [Act] = [
-        .init(id: "star", name: "별표", symbol: "star"),
-        .init(id: "flag", name: "깃발", symbol: "flag"),
-        .init(id: "print", name: "프린트", symbol: "printer"),
-        .init(id: "move", name: "이동", symbol: "folder"),
-        .init(id: "save", name: "저장", symbol: "tray.and.arrow.down"),
+        .init(id: "star", name: String(localized: "별표"), symbol: "star"),
+        .init(id: "flag", name: String(localized: "깃발"), symbol: "flag"),
+        .init(id: "print", name: String(localized: "프린트"), symbol: "printer"),
+        .init(id: "move", name: String(localized: "이동"), symbol: "folder"),
+        .init(id: "save", name: String(localized: "저장"), symbol: "tray.and.arrow.down"),
     ]
     private let goodOrder: [Act] = [
-        .init(id: "save", name: "저장", symbol: "tray.and.arrow.down"),
-        .init(id: "move", name: "이동", symbol: "folder"),
-        .init(id: "star", name: "별표", symbol: "star"),
-        .init(id: "flag", name: "깃발", symbol: "flag"),
-        .init(id: "print", name: "프린트", symbol: "printer"),
+        .init(id: "save", name: String(localized: "저장"), symbol: "tray.and.arrow.down"),
+        .init(id: "move", name: String(localized: "이동"), symbol: "folder"),
+        .init(id: "star", name: String(localized: "별표"), symbol: "star"),
+        .init(id: "flag", name: String(localized: "깃발"), symbol: "flag"),
+        .init(id: "print", name: String(localized: "프린트"), symbol: "printer"),
     ]
 
     @State private var badSaves = 0
@@ -418,10 +418,10 @@ private struct M011: View {
 
     var body: some View {
         MistakeComparisonScreen(
-            title: "폭이 모자라면 뒤쪽부터 접힌다, 무엇을 앞에 뒀는가의 문제",
-            badNote: "저장이 **⋯ 안**에. 저장 횟수 \(badSaves)",
-            goodNote: "저장이 밖에, 별표·프린트가 접힘. 저장 \(goodSaves)",
-            takeaway: "접기는 시스템이 최소 터치 크기를 지키는 방식입니다. 막을 게 아니라 **순서를 설계**하면 됩니다."
+            title: String(localized: "폭이 모자라면 뒤쪽부터 접힌다, 무엇을 앞에 뒀는가의 문제"),
+            badNote: String(localized: "저장이 **⋯ 안**에. 저장 횟수 \(badSaves)"),
+            goodNote: String(localized: "저장이 밖에, 별표·프린트가 접힘. 저장 \(goodSaves)"),
+            takeaway: String(localized: "접기는 시스템이 최소 터치 크기를 지키는 방식입니다. 막을 게 아니라 **순서를 설계**하면 됩니다.")
         ) {
             screen(order: badOrder) { badSaves += 1 }
         } good: {
@@ -456,10 +456,10 @@ private struct M029: View {
 
     var body: some View {
         MistakeComparisonScreen(
-            title: "밝은 사진이 바 뒤를 지나는 순간에 판정이 갈린다",
-            badNote: "`scrollEdgeEffectHidden(true)`, 흰 사진에서 버튼이 사라집니다.",
-            goodNote: "`.hard`, 경계가 스스로 대비를 만듭니다.",
-            takeaway: "가장자리 효과는 장식이 아니라 **가독성 장치**입니다. 판정은 언제나 최악의 배경에서 합니다."
+            title: String(localized: "밝은 사진이 바 뒤를 지나는 순간에 판정이 갈린다"),
+            badNote: String(localized: "`scrollEdgeEffectHidden(true)`, 흰 사진에서 버튼이 사라집니다."),
+            goodNote: String(localized: "`.hard`, 경계가 스스로 대비를 만듭니다."),
+            takeaway: String(localized: "가장자리 효과는 장식이 아니라 **가독성 장치**입니다. 판정은 언제나 최악의 배경에서 합니다.")
         ) {
             screen(hidden: true, log: badLog)
         } good: {
@@ -489,8 +489,8 @@ private struct M029: View {
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button("선택", systemImage: "checkmark.circle") { log.tap("선택 모드") }
-                    Button("공유", systemImage: "square.and.arrow.up") { log.tap("공유") }
+                    Button("선택", systemImage: "checkmark.circle") { log.tap(String(localized: "선택 모드")) }
+                    Button("공유", systemImage: "square.and.arrow.up") { log.tap(String(localized: "공유")) }
                 }
             }
             .modifier(EdgeModifier(hidden: hidden))
@@ -516,17 +516,17 @@ private struct M038: View {
     @State private var typeSize = DynamicTypeSize.large
 
     private let rows: [(String, String)] = [
-        ("배송지", "서울특별시 성동구 아차산로 111 무학빌딩 7층 703호"),
-        ("결제 금액", "₩1,284,000"),
-        ("주문번호", "2026-0818-A7K9-4421"),
+        (String(localized: "배송지"), String(localized: "서울특별시 성동구 아차산로 111 무학빌딩 7층 703호")),
+        (String(localized: "결제 금액"), "₩1,284,000"),
+        (String(localized: "주문번호"), "2026-0818-A7K9-4421"),
     ]
 
     var body: some View {
         MistakeComparisonScreen(
-            title: "글자가 커지면 한 줄 고정은 값을 지우기 시작한다",
+            title: String(localized: "글자가 커지면 한 줄 고정은 값을 지우기 시작한다"),
             badNote: "`lineLimit(1)` + `minimumScaleFactor(0.4)`",
-            goodNote: "`lineLimit(2...3)`, 카드가 길어질 뿐 값은 남습니다.",
-            takeaway: "두 장치를 겹치면 서로를 가립니다. **잘려도 뜻이 통하는가**로 도구를 고릅니다.",
+            goodNote: String(localized: "`lineLimit(2...3)`, 카드가 길어질 뿐 값은 남습니다."),
+            takeaway: String(localized: "두 장치를 겹치면 서로를 가립니다. **잘려도 뜻이 통하는가**로 도구를 고릅니다."),
             controls: {
                 ComparisonControls {
                     Text("Dynamic Type · \(typeSize.demoLabel)")
@@ -583,10 +583,10 @@ private struct M046: View {
 
     var body: some View {
         MistakeComparisonScreen(
-            title: "옮겨 적을 값인데 선택이 막혀 있으면, 사용자가 눈으로 받아 적는다",
-            badNote: "길게 눌러도 아무 일도 없습니다.",
-            goodNote: "선택·복사가 됩니다. 복사 버튼도 있습니다.",
-            takeaway: "읽기 전용 텍스트라고 조작이 필요 없는 건 아닙니다. **옮겨 적을 일이 있는 값**에는 선택을 엽니다."
+            title: String(localized: "옮겨 적을 값인데 선택이 막혀 있으면, 사용자가 눈으로 받아 적는다"),
+            badNote: String(localized: "길게 눌러도 아무 일도 없습니다."),
+            goodNote: String(localized: "선택·복사가 됩니다. 복사 버튼도 있습니다."),
+            takeaway: String(localized: "읽기 전용 텍스트라고 조작이 필요 없는 건 아닙니다. **옮겨 적을 일이 있는 값**에는 선택을 엽니다.")
         ) {
             screen(selectable: false)
         } good: {
@@ -607,7 +607,7 @@ private struct M046: View {
                                 UIPasteboard.general.string = number
                                 withAnimation { copied = true }
                             } label: {
-                                Label(copied ? "복사됨" : "복사", systemImage: copied ? "checkmark" : "doc.on.doc")
+                                Label(copied ? String(localized: "복사됨") : String(localized: "복사"), systemImage: copied ? "checkmark" : "doc.on.doc")
                                     .font(.subheadline.weight(.semibold))
                             }
                             .buttonStyle(.borderless)
@@ -647,10 +647,10 @@ private struct M047: View {
 
     var body: some View {
         MistakeComparisonScreen(
-            title: "값과 표기를 한 문자열에 담으면 문화권 규칙을 앱이 소유하게 된다",
-            badNote: "`\"\\(km) km\"`, 로케일을 바꿔도 그대로입니다.",
-            goodNote: "`Measurement`, mi로 따라옵니다.",
-            takeaway: "앱은 **값**만 들고, 표기는 시스템에 맡깁니다. 그래야 앱 코드를 고치지 않고도 세계가 늘어납니다.",
+            title: String(localized: "값과 표기를 한 문자열에 담으면 문화권 규칙을 앱이 소유하게 된다"),
+            badNote: String(localized: "`\"\\(km) km\"`, 로케일을 바꿔도 그대로입니다."),
+            goodNote: String(localized: "`Measurement`, mi로 따라옵니다."),
+            takeaway: String(localized: "앱은 **값**만 들고, 표기는 시스템에 맡깁니다. 그래야 앱 코드를 고치지 않고도 세계가 늘어납니다."),
             controls: {
                 ComparisonControls {
                     Picker("로케일", selection: $english) {
@@ -674,7 +674,7 @@ private struct M047: View {
         return NavigationStack {
             List {
                 Section("가까운 매장") {
-                    ForEach(["성수점", "합정점", "한남점"], id: \.self) { (name: String) in
+                    ForEach([String(localized: "성수점"), String(localized: "합정점"), String(localized: "한남점")], id: \.self) { (name: String) in
                         HStack {
                             VStack(alignment: .leading, spacing: 2) {
                                 Text(name).font(.callout.weight(.semibold))
@@ -704,10 +704,10 @@ private struct M052: View {
 
     var body: some View {
         MistakeComparisonScreen(
-            title: "처리해도 줄지 않는 배지는, 그 앱의 모든 배지를 무효로 만든다",
-            badNote: "다 읽어도 **1** 그대로 (읽은 수 \(badRead))",
-            goodNote: "읽을 때마다 줄고 0이면 사라집니다 (남은 수 \(goodUnread))",
-            takeaway: "배지는 \"처리할 것이 남았다\"는 약속입니다. 한 번 거짓말하면 다시는 안 봅니다."
+            title: String(localized: "처리해도 줄지 않는 배지는, 그 앱의 모든 배지를 무효로 만든다"),
+            badNote: String(localized: "다 읽어도 **1** 그대로 (읽은 수 \(badRead))"),
+            goodNote: String(localized: "읽을 때마다 줄고 0이면 사라집니다 (남은 수 \(goodUnread))"),
+            takeaway: String(localized: "배지는 \"처리할 것이 남았다\"는 약속입니다. 한 번 거짓말하면 다시는 안 봅니다.")
         ) {
             TabView {
                 Tab("홈", systemImage: "house") { feed }
@@ -772,10 +772,10 @@ private struct M068: View {
 
     var body: some View {
         MistakeComparisonScreen(
-            title: "탭을 눌렀는데 이동하지 않으면, 탭이라는 약속이 깨진다",
-            badNote: "작성 탭 → 시트만 뜨고 선택은 되돌아옵니다.",
-            goodNote: "작성은 하단 툴바 버튼. 탭은 목적지만.",
-            takeaway: "탭은 **어디로 가는가**에 답하는 자리입니다. 액션은 툴바가 맡습니다."
+            title: String(localized: "탭을 눌렀는데 이동하지 않으면, 탭이라는 약속이 깨진다"),
+            badNote: String(localized: "작성 탭 → 시트만 뜨고 선택은 되돌아옵니다."),
+            goodNote: String(localized: "작성은 하단 툴바 버튼. 탭은 목적지만."),
+            takeaway: String(localized: "탭은 **어디로 가는가**에 답하는 자리입니다. 액션은 툴바가 맡습니다.")
         ) {
             TabView(selection: $badSelection) {
                 Tab("홈", systemImage: "house", value: 0) { page("홈") }
@@ -802,7 +802,7 @@ private struct M068: View {
         }
     }
 
-    private func page(_ title: String, compose: (() -> Void)? = nil) -> some View {
+    private func page(_ title: LocalizedStringKey, compose: (() -> Void)? = nil) -> some View {
         NavigationStack {
             List(sample) { DemoMailRow(mail: $0) }
                 .listStyle(.plain)
@@ -824,14 +824,14 @@ private struct M068: View {
 private struct M081: View {
     @State private var badEditing = false
     @State private var goodEditing = false
-    @State private var text = "토요일 오전 9시 김포 출발. 숙소는 애월, 체크인 오후 3시."
+    @State private var text = String(localized: "토요일 오전 9시 김포 출발. 숙소는 애월, 체크인 오후 3시.")
 
     var body: some View {
         MistakeComparisonScreen(
-            title: "전체 화면 커버는 쓸어내려 닫히지 않는다, 출구는 직접 만들어야 한다",
-            badNote: "닫기 버튼이 없습니다. 쓸어내려도 그대로입니다.",
-            goodNote: "취소·완료가 있습니다.",
-            takeaway: "덮는 화면일수록 **나가는 길**을 먼저 설계합니다. 시트의 습관이 여기서는 통하지 않습니다."
+            title: String(localized: "전체 화면 커버는 쓸어내려 닫히지 않는다, 출구는 직접 만들어야 한다"),
+            badNote: String(localized: "닫기 버튼이 없습니다. 쓸어내려도 그대로입니다."),
+            goodNote: String(localized: "취소·완료가 있습니다."),
+            takeaway: String(localized: "덮는 화면일수록 **나가는 길**을 먼저 설계합니다. 시트의 습관이 여기서는 통하지 않습니다.")
         ) {
             NavigationStack {
                 editorEntry { badEditing = true }

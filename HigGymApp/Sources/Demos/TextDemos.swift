@@ -8,9 +8,9 @@ enum TextDemos {
         EntryDemo(
             "x1",
             hints: [
-                "**폭 슬라이더**를 줄여보세요, 정해진 줄 수를 넘는 순간 뒤가 …로 접힙니다.",
-                "줄 수를 1 → 3으로 올려보며, 어느 줄 수에서 뜻이 통하는지 판단해 보세요.",
-                "**Dynamic Type**을 키우면 같은 폭에서 더 빨리 잘립니다. 잘림은 폰트 크기의 함수이기도 합니다.",
+                String(localized: "**폭 슬라이더**를 줄여보세요, 정해진 줄 수를 넘는 순간 뒤가 …로 접힙니다."),
+                String(localized: "줄 수를 1 → 3으로 올려보며, 어느 줄 수에서 뜻이 통하는지 판단해 보세요."),
+                String(localized: "**Dynamic Type**을 키우면 같은 폭에서 더 빨리 잘립니다. 잘림은 폰트 크기의 함수이기도 합니다."),
             ],
             code: """
             Text(body)
@@ -21,9 +21,9 @@ enum TextDemos {
         EntryDemo(
             "x2",
             hints: [
-                "**tail · middle · head**를 바꿔가며 같은 경로를 보세요.",
-                "파일 경로에서는 middle이 이깁니다, 앞(위치)과 뒤(파일명) 둘 다 살아남기 때문입니다.",
-                "아래 이름·주소 예시에서는 어느 쪽이 맞는지 직접 골라보세요. 정답은 \"무엇이 식별에 쓰이는가\"입니다.",
+                String(localized: "**tail · middle · head**를 바꿔가며 같은 경로를 보세요."),
+                String(localized: "파일 경로에서는 middle이 이깁니다, 앞(위치)과 뒤(파일명) 둘 다 살아남기 때문입니다."),
+                String(localized: "아래 이름·주소 예시에서는 어느 쪽이 맞는지 직접 골라보세요. 정답은 \"무엇이 식별에 쓰이는가\"입니다."),
             ],
             code: """
             Text(path)
@@ -35,9 +35,9 @@ enum TextDemos {
         EntryDemo(
             "x3",
             hints: [
-                "폭을 줄여보세요, 자르는 대신 **글자가 작아집니다**.",
-                "축소 한계를 0.3까지 낮추면 어디까지 읽히는지 확인해 보세요. 읽히지 않으면 축소는 실패입니다.",
-                "긴 문장으로 바꿔보면 왜 이 도구가 **짧고 반드시 다 보여야 하는 값**(금액·수치) 전용인지 드러납니다.",
+                String(localized: "폭을 줄여보세요, 자르는 대신 **글자가 작아집니다**."),
+                String(localized: "축소 한계를 0.3까지 낮추면 어디까지 읽히는지 확인해 보세요. 읽히지 않으면 축소는 실패입니다."),
+                String(localized: "긴 문장으로 바꿔보면 왜 이 도구가 **짧고 반드시 다 보여야 하는 값**(금액·수치) 전용인지 드러납니다."),
             ],
             code: """
             Text(amount)
@@ -49,25 +49,25 @@ enum TextDemos {
         EntryDemo(
             "x4",
             hints: [
-                "**공간 예약**을 껐다 켜보세요, 목록의 행 높이가 들썩이는지, 고정되는지 보입니다.",
-                "짧은 글·긴 글 전환을 몇 번 반복해 보세요. 예약이 없으면 이웃 행까지 밀립니다.",
-                "범위(2...4)는 최소도 정합니다, 최소를 정한다는 건 레이아웃과의 계약입니다(8.1.5).",
+                String(localized: "**공간 예약**을 껐다 켜보세요, 목록의 행 높이가 들썩이는지, 고정되는지 보입니다."),
+                String(localized: "짧은 글·긴 글 전환을 몇 번 반복해 보세요. 예약이 없으면 이웃 행까지 밀립니다."),
+                String(localized: "범위(2...4)는 최소도 정합니다, 최소를 정한다는 건 레이아웃과의 계약입니다(8.1.5)."),
             ],
-            code: """
+            code: String(localized: """
             Text(body)
                 .lineLimit(2...4)
 
             Text(subtitle)
                 .lineLimit(3, reservesSpace: true)   // 짧아도 3줄만큼 자리를 잡아둔다
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { LineLimitRangeDemo() },
 
         EntryDemo(
             "x5",
             hints: [
-                "아래 문단을 **길게 눌러** 보세요, 선택·복사가 됩니다.",
-                "스위치를 끄면 같은 문단이 선택되지 않습니다. 차이를 직접 느껴보세요.",
-                "코드·주소·인증번호처럼 **옮겨 적을 일이 있는 텍스트**에는 켜는 편이 맞습니다.",
+                String(localized: "아래 문단을 **길게 눌러** 보세요, 선택·복사가 됩니다."),
+                String(localized: "스위치를 끄면 같은 문단이 선택되지 않습니다. 차이를 직접 느껴보세요."),
+                String(localized: "코드·주소·인증번호처럼 **옮겨 적을 일이 있는 텍스트**에는 켜는 편이 맞습니다."),
             ],
             code: """
             Text(code)
@@ -78,9 +78,9 @@ enum TextDemos {
         EntryDemo(
             "f1",
             hints: [
-                "**로케일**을 en_US로 바꿔보세요, 5 km가 mi로 바뀝니다. 값은 그대로입니다.",
-                "너비를 wide · abbreviated · narrow로 바꿔가며 같은 값의 표기 차이를 보세요.",
-                "직접 \"km\"를 문자열로 붙였다면 이 전환은 전부 수동 작업이 됐을 겁니다, 8.1.6.",
+                String(localized: "**로케일**을 en_US로 바꿔보세요, 5 km가 mi로 바뀝니다. 값은 그대로입니다."),
+                String(localized: "너비를 wide · abbreviated · narrow로 바꿔가며 같은 값의 표기 차이를 보세요."),
+                String(localized: "직접 \"km\"를 문자열로 붙였다면 이 전환은 전부 수동 작업이 됐을 겁니다, 8.1.6."),
             ],
             code: """
             let distance = Measurement(value: 5, unit: UnitLength.kilometers)
@@ -94,17 +94,17 @@ enum TextDemos {
         EntryDemo(
             "f2",
             hints: [
-                "로케일을 ko_KR ↔ en_US로 바꿔보세요, **성과 이름의 순서**가 뒤집힙니다.",
-                "스타일을 abbreviated로 바꾸면 이니셜만 남습니다. 아바타에 쓰는 그 값입니다.",
-                "이름을 한 문자열로 저장했다면 이 중 어느 것도 불가능했을 겁니다.",
+                String(localized: "로케일을 ko_KR ↔ en_US로 바꿔보세요, **성과 이름의 순서**가 뒤집힙니다."),
+                String(localized: "스타일을 abbreviated로 바꾸면 이니셜만 남습니다. 아바타에 쓰는 그 값입니다."),
+                String(localized: "이름을 한 문자열로 저장했다면 이 중 어느 것도 불가능했을 겁니다."),
             ],
-            code: """
+            code: String(localized: """
             var name = PersonNameComponents()
             name.givenName = "하늘"
             name.familyName = "김"
 
             Text(name.formatted(.name(style: style).locale(locale)))
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { NameFormatDemo() },
     ]
 }
@@ -145,7 +145,7 @@ private struct TextDemoScaffold<Controls: View, Sample: View>: View {
                         controls
 
                         if showWidth {
-                            labeled("폭 \(Int(width))pt") {
+                            labeled(String(localized: "폭 \(Int(width))pt")) {
                                 Slider(value: $width, in: 110...340)
                             }
                         }
@@ -189,16 +189,16 @@ extension DynamicTypeSize {
         case .xSmall: "xSmall"
         case .small: "small"
         case .medium: "medium"
-        case .large: "large(기본)"
+        case .large: String(localized: "large(기본)")
         case .xLarge: "xLarge"
         case .xxLarge: "xxLarge"
         case .xxxLarge: "xxxLarge"
-        case .accessibility1: "접근성 1"
-        case .accessibility2: "접근성 2"
-        case .accessibility3: "접근성 3"
-        case .accessibility4: "접근성 4"
-        case .accessibility5: "접근성 5"
-        @unknown default: "기본"
+        case .accessibility1: String(localized: "접근성 1")
+        case .accessibility2: String(localized: "접근성 2")
+        case .accessibility3: String(localized: "접근성 3")
+        case .accessibility4: String(localized: "접근성 4")
+        case .accessibility5: String(localized: "접근성 5")
+        @unknown default: String(localized: "기본")
         }
     }
 }
@@ -213,7 +213,7 @@ private struct LineLimitDemo: View {
     var body: some View {
         TextDemoScaffold(title: "Line Limit", width: $width, typeSize: $typeSize) {
             Stepper("줄 수 제한 \(limit)줄", value: $limit, in: 1...5)
-            DemoNote(text: "제한을 넘는 내용은 사라집니다. **몇 줄이면 뜻이 통하는가**가 이 값을 정하는 기준입니다.")
+            DemoNote(text: String(localized: "제한을 넘는 내용은 사라집니다. **몇 줄이면 뜻이 통하는가**가 이 값을 정하는 기준입니다."))
         } sample: {
             Text(DemoData.longText)
                 .font(.subheadline)
@@ -228,6 +228,14 @@ private struct TruncationDemo: View {
     private enum Sample: String, CaseIterable, Identifiable {
         case path = "파일 경로", name = "긴 제목", url = "주소"
         var id: String { rawValue }
+
+        var title: String {
+            switch self {
+            case .path: String(localized: "파일 경로")
+            case .name: String(localized: "긴 제목")
+            case .url:  String(localized: "주소")
+            }
+        }
 
         var text: String {
             switch self {
@@ -254,8 +262,8 @@ private struct TruncationDemo: View {
                 }
                 .pickerStyle(.segmented)
             }
-            DemoPicker(title: "예시", options: Sample.allCases, label: \.rawValue, selection: $sample)
-            DemoNote(text: "정답은 취향이 아니라 **무엇이 식별에 쓰이는가**입니다. 경로는 끝(파일명)이, 제목은 앞이 결정적입니다.")
+            DemoPicker(title: String(localized: "예시"), options: Sample.allCases, label: \.title, selection: $sample)
+            DemoNote(text: String(localized: "정답은 취향이 아니라 **무엇이 식별에 쓰이는가**입니다. 경로는 끝(파일명)이, 제목은 앞이 결정적입니다."))
         } sample: {
             Text(sample.text)
                 .font(.system(.subheadline, design: sample == .path ? .monospaced : .default))
@@ -283,10 +291,10 @@ private struct ScaleToFitDemo: View {
             }
             Toggle("긴 문장으로 바꾸기", isOn: $long.animation(.snappy))
             DemoNote(text: long
-                ? "문장에 쓰면 이렇게 됩니다, 다 보이긴 하지만 **읽히지 않습니다**. 가독성이 미학을 이깁니다(8.1.4)."
-                : "짧고 반드시 다 보여야 하는 값에는 축소가 맞습니다, 금액·수치·코드.")
+                ? String(localized: "문장에 쓰면 이렇게 됩니다, 다 보이긴 하지만 **읽히지 않습니다**. 가독성이 미학을 이깁니다(8.1.4).")
+                : String(localized: "짧고 반드시 다 보여야 하는 값에는 축소가 맞습니다, 금액·수치·코드."))
         } sample: {
-            Text(long ? DemoData.longText : "₩1,284,000")
+            Text(long ? DemoData.longText : Decimal(1_284_000).formatted(.currency(code: Locale.current.currency?.identifier ?? "KRW")))
                 .font(.title.weight(.semibold))
                 .lineLimit(1)
                 .minimumScaleFactor(factor)
@@ -309,15 +317,15 @@ private struct LineLimitRangeDemo: View {
                     Toggle("공간 예약 (reservesSpace)", isOn: $reserve.animation(.snappy))
                     Toggle("짧은 글로 바꾸기", isOn: $short.animation(.snappy))
                     DemoNote(text: reserve
-                        ? "예약이 켜져 있어 글이 짧아져도 **행 높이가 그대로**입니다. 이웃이 흔들리지 않습니다."
-                        : "예약이 꺼져 있어 글 길이에 따라 **행 높이가 들썩입니다**. 목록에서 특히 산만합니다.")
+                        ? String(localized: "예약이 켜져 있어 글이 짧아져도 **행 높이가 그대로**입니다. 이웃이 흔들리지 않습니다.")
+                        : String(localized: "예약이 꺼져 있어 글 길이에 따라 **행 높이가 들썩입니다**. 목록에서 특히 산만합니다."))
 
                     Divider()
 
                     ForEach(0..<4, id: \.self) { i in
                         VStack(alignment: .leading, spacing: 4) {
                             Text(DemoData.noteTitles[i]).font(.subheadline.weight(.semibold))
-                            Text(short ? "한 줄." : DemoData.longText)
+                            Text(short ? String(localized: "한 줄.") : DemoData.longText)
                                 .font(.subheadline)
                                 .foregroundStyle(.secondary)
                                 .modifier(RangeLimit(reserve: reserve))
@@ -360,7 +368,7 @@ private struct TextSelectionDemo: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 16) {
                     Toggle("텍스트 선택 허용", isOn: $enabled)
-                    DemoNote(text: "아래 상자를 **길게 눌러** 보세요. 스위치를 끄면 같은 동작이 통하지 않습니다.", symbol: "hand.tap")
+                    DemoNote(text: String(localized: "아래 상자를 **길게 눌러** 보세요. 스위치를 끄면 같은 동작이 통하지 않습니다."), symbol: "hand.tap")
 
                     VStack(alignment: .leading, spacing: 8) {
                         Text("인증 코드")
@@ -446,7 +454,7 @@ private struct MeasurementFormatDemo: View {
                     Divider()
 
                     VStack(alignment: .leading, spacing: 2) {
-                        Text("값 \(value, specifier: "%.1f") km")
+                        Text("값 \(value, format: .number.precision(.fractionLength(1))) km")
                             .font(.system(.caption, design: .monospaced, weight: .semibold))
                             .foregroundStyle(.secondary)
                         Slider(value: $value, in: 0.1...42)
@@ -462,9 +470,9 @@ private struct MeasurementFormatDemo: View {
                         .pickerStyle(.segmented)
                     }
 
-                    DemoPicker(title: "로케일", options: DemoLocale.all, label: \.label, selection: $locale)
+                    DemoPicker(title: String(localized: "로케일"), options: DemoLocale.all, label: \.label, selection: $locale)
 
-                    DemoNote(text: "로케일을 en_US로 바꾸면 **단위계 자체가 바뀝니다**(km → mi). 앱은 값만 들고 있으면 됩니다.")
+                    DemoNote(text: String(localized: "로케일을 en_US로 바꾸면 **단위계 자체가 바뀝니다**(km → mi). 앱은 값만 들고 있으면 됩니다."))
                 }
                 .padding(18)
                 .demoChromeSafe()
@@ -528,9 +536,9 @@ private struct NameFormatDemo: View {
                         .pickerStyle(.segmented)
                     }
 
-                    DemoPicker(title: "로케일", options: DemoLocale.all, label: \.label, selection: $locale)
+                    DemoPicker(title: String(localized: "로케일"), options: DemoLocale.all, label: \.label, selection: $locale)
 
-                    DemoNote(text: "ko_KR은 **성 → 이름**, en_US는 **이름 → 성**. 순서를 앱이 정하지 않는다는 게 요지입니다.")
+                    DemoNote(text: String(localized: "ko_KR은 **성 → 이름**, en_US는 **이름 → 성**. 순서를 앱이 정하지 않는다는 게 요지입니다."))
                 }
                 .padding(18)
                 .demoChromeSafe()

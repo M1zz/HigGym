@@ -8,98 +8,98 @@ enum PrincipleDemos {
         EntryDemo(
             "p1",
             hints: [
-                "스위치를 **어김 ↔ 지킴**으로 오가며, 같은 콘텐츠가 얼마나 다르게 보이는지 확인하세요.",
-                "어긴 쪽에서 실제 콘텐츠가 화면의 몇 %를 차지하는지 눈으로 재보세요.",
-                "지운 것들이 없어도 화면이 돌아가는지, 그게 이 원칙의 판단 기준입니다.",
+                String(localized: "스위치를 **어김 ↔ 지킴**으로 오가며, 같은 콘텐츠가 얼마나 다르게 보이는지 확인하세요."),
+                String(localized: "어긴 쪽에서 실제 콘텐츠가 화면의 몇 %를 차지하는지 눈으로 재보세요."),
+                String(localized: "지운 것들이 없어도 화면이 돌아가는지, 그게 이 원칙의 판단 기준입니다."),
             ],
-            code: """
+            code: String(localized: """
             // 기준: 이 UI 요소를 지웠을 때 사용자가 못 하게 되는 일이 있는가?
             // 없다면 지운다.
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { ContentFirstDemo() },
 
         EntryDemo(
             "p2",
             hints: [
-                "**작성 5번** 과제를 한 손으로 해보세요. 먼저 어긴 배치(상단)로.",
-                "스위치를 켜서 같은 과제를 하단 배치로 다시 해보세요. 엄지의 이동 거리를 비교합니다.",
-                "빈도가 낮은 액션(설정)은 어디에 있는 게 맞는지도 함께 생각해 보세요.",
+                String(localized: "**작성 5번** 과제를 한 손으로 해보세요. 먼저 어긴 배치(상단)로."),
+                String(localized: "스위치를 켜서 같은 과제를 하단 배치로 다시 해보세요. 엄지의 이동 거리를 비교합니다."),
+                String(localized: "빈도가 낮은 액션(설정)은 어디에 있는 게 맞는지도 함께 생각해 보세요."),
             ],
-            code: """
+            code: String(localized: """
             // 기준: 이 액션을 하루에 몇 번 누르는가?
             // 자주 누를수록 아래로.
             ToolbarItem(placement: .bottomBar) { ComposeButton() }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { ReachabilityDemo() },
 
         EntryDemo(
             "p3",
             hints: [
-                "어긴 배치에서 **삭제**와 **정렬**이 한 캡슐에 붙어 있습니다. 같은 세트로 보입니다.",
-                "스위치를 켜면 역할대로 갈라집니다, 도구는 왼쪽, 파괴적 액션은 접힌 메뉴 안으로.",
-                "묶음을 바꿨을 뿐 기능은 그대로입니다. 그런데도 읽히는 의미가 달라집니다.",
+                String(localized: "어긴 배치에서 **삭제**와 **정렬**이 한 캡슐에 붙어 있습니다. 같은 세트로 보입니다."),
+                String(localized: "스위치를 켜면 역할대로 갈라집니다, 도구는 왼쪽, 파괴적 액션은 접힌 메뉴 안으로."),
+                String(localized: "묶음을 바꿨을 뿐 기능은 그대로입니다. 그런데도 읽히는 의미가 달라집니다."),
             ],
-            code: """
+            code: String(localized: """
             // 기준: 같은 캡슐에 든 것들을 사용자가 "한 세트"로 읽어도 맞는가?
             ToolbarItemGroup(placement: .topBarLeading) { 보기전환; 정렬 }
             ToolbarItem(placement: .topBarTrailing) { Menu { 삭제 } }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { GrammarDemo() },
 
         EntryDemo(
             "p4",
             hints: [
-                "어긴 쪽은 얇은 재료 + 가장자리 효과 없음입니다. 밝은 사진 위에서 버튼을 읽어보세요.",
-                "스위치를 켜면 hard 경계 + 두꺼운 재료로 바뀝니다. 투명함은 줄고 읽힘은 늘어납니다.",
-                "배경을 바꿔가며, 어느 쪽이 **모든 배경에서** 살아남는지 확인하세요.",
+                String(localized: "어긴 쪽은 얇은 재료 + 가장자리 효과 없음입니다. 밝은 사진 위에서 버튼을 읽어보세요."),
+                String(localized: "스위치를 켜면 hard 경계 + 두꺼운 재료로 바뀝니다. 투명함은 줄고 읽힘은 늘어납니다."),
+                String(localized: "배경을 바꿔가며, 어느 쪽이 **모든 배경에서** 살아남는지 확인하세요."),
             ],
-            code: """
+            code: String(localized: """
             // 기준: 최악의 배경에서도 컨트롤이 읽히는가?
             .scrollEdgeEffectStyle(.hard, for: .top)
             .toolbarBackground(.thickMaterial, for: .navigationBar)
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { LegibilityDemo() },
 
         EntryDemo(
             "p5",
             hints: [
-                "어긴 쪽은 고정 폭·고정 높이입니다. **Dynamic Type**을 키워보세요, 글자가 잘려나갑니다.",
-                "스위치를 켜면 줄 수 범위와 공간 예약이 들어갑니다. 같은 글자 크기에서 어떻게 버티는지 보세요.",
-                "긴 이름·긴 제목으로 바꿔가며, 레이아웃이 텍스트를 예상하고 있었는지 확인하세요.",
+                String(localized: "어긴 쪽은 고정 폭·고정 높이입니다. **Dynamic Type**을 키워보세요, 글자가 잘려나갑니다."),
+                String(localized: "스위치를 켜면 줄 수 범위와 공간 예약이 들어갑니다. 같은 글자 크기에서 어떻게 버티는지 보세요."),
+                String(localized: "긴 이름·긴 제목으로 바꿔가며, 레이아웃이 텍스트를 예상하고 있었는지 확인하세요."),
             ],
-            code: """
+            code: String(localized: """
             // 기준: 글자가 두 배로 커져도 이 레이아웃이 버티는가?
             Text(title).lineLimit(2...3)
             Text(subtitle).lineLimit(2, reservesSpace: true)
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { ElasticTextDemo() },
 
         EntryDemo(
             "p6",
             hints: [
-                "어긴 쪽은 \"5km\", \"김하늘\" 처럼 **표기를 문자열로 박아** 뒀습니다.",
-                "로케일을 en_US로 바꿔보세요, 박아둔 쪽만 그대로 남습니다.",
-                "지킨 쪽은 값만 들고 있다가 로케일에 맞춰 스스로 표기를 바꿉니다.",
+                String(localized: "어긴 쪽은 \"5km\", \"김하늘\" 처럼 **표기를 문자열로 박아** 뒀습니다."),
+                String(localized: "로케일을 en_US로 바꿔보세요, 박아둔 쪽만 그대로 남습니다."),
+                String(localized: "지킨 쪽은 값만 들고 있다가 로케일에 맞춰 스스로 표기를 바꿉니다."),
             ],
-            code: """
+            code: String(localized: """
             // 기준: 값과 표기를 같은 문자열에 담고 있지 않은가?
             Text(distance.formatted(.measurement(width: .wide).locale(locale)))
             Text(name.formatted(.name(style: .medium).locale(locale)))
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { DataVsPresentationDemo() },
 
         EntryDemo(
             "p7",
             hints: [
-                "어긴 쪽에서 두 번째 메일을 삭제해 보세요, 상단 메뉴에서 대상을 **다시 골라야** 합니다.",
-                "스위치를 켜고 같은 일을 해보세요. 행을 왼쪽으로 밀거나 길게 누르면 됩니다.",
-                "대상을 두 번 지정하게 만드는 UI는 대개 직접 조작으로 바꿀 수 있습니다.",
+                String(localized: "어긴 쪽에서 두 번째 메일을 삭제해 보세요, 상단 메뉴에서 대상을 **다시 골라야** 합니다."),
+                String(localized: "스위치를 켜고 같은 일을 해보세요. 행을 왼쪽으로 밀거나 길게 누르면 됩니다."),
+                String(localized: "대상을 두 번 지정하게 만드는 UI는 대개 직접 조작으로 바꿀 수 있습니다."),
             ],
-            code: """
+            code: String(localized: """
             // 기준: 액션이 대상 위에 붙어 있는가?
             .swipeActions { Button("삭제", role: .destructive) { … } }
             .contextMenu { … }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { DirectManipulationDemo() },
     ]
 }
@@ -146,8 +146,8 @@ private struct ContentFirstDemo: View {
                 Section {
                     PrincipleToggleBar(
                         title: "Content-First",
-                        violationText: "장식 버튼 6개 · 배너 · 프로모션 카드가 콘텐츠 위를 덮고 있습니다. **지워도 아무도 못 하게 되는 일이 없는 것들**입니다.",
-                        complianceText: "남긴 것은 이 화면에서 실제로 쓰는 액션뿐입니다. 콘텐츠가 화면의 주인으로 돌아왔습니다.",
+                        violationText: String(localized: "장식 버튼 6개 · 배너 · 프로모션 카드가 콘텐츠 위를 덮고 있습니다. **지워도 아무도 못 하게 되는 일이 없는 것들**입니다."),
+                        complianceText: String(localized: "남긴 것은 이 화면에서 실제로 쓰는 액션뿐입니다. 콘텐츠가 화면의 주인으로 돌아왔습니다."),
                         compliant: $compliant
                     )
                     .listRowInsets(.init(top: 8, leading: 12, bottom: 8, trailing: 12))
@@ -170,21 +170,21 @@ private struct ContentFirstDemo: View {
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     if compliant {
-                        Button("작성", systemImage: "square.and.pencil") { log.tap("새 메일") }
+                        Button("작성", systemImage: "square.and.pencil") { log.tap(String(localized: "새 메일")) }
                     } else {
-                        Button("별표", systemImage: "star") { log.tap("별표") }
-                        Button("깃발", systemImage: "flag") { log.tap("깃발") }
-                        Button("공유", systemImage: "square.and.arrow.up") { log.tap("공유") }
-                        Button("작성", systemImage: "square.and.pencil") { log.tap("새 메일") }
+                        Button("별표", systemImage: "star") { log.tap(String(localized: "별표")) }
+                        Button("깃발", systemImage: "flag") { log.tap(String(localized: "깃발")) }
+                        Button("공유", systemImage: "square.and.arrow.up") { log.tap(String(localized: "공유")) }
+                        Button("작성", systemImage: "square.and.pencil") { log.tap(String(localized: "새 메일")) }
                     }
                 }
                 ToolbarItemGroup(placement: .bottomBar) {
                     if !compliant {
-                        Button("추천", systemImage: "sparkles") { log.tap("추천") }
+                        Button("추천", systemImage: "sparkles") { log.tap(String(localized: "추천")) }
                         Spacer()
-                        Button("이벤트", systemImage: "gift") { log.tap("이벤트") }
+                        Button("이벤트", systemImage: "gift") { log.tap(String(localized: "이벤트")) }
                         Spacer()
-                        Button("설정", systemImage: "gearshape") { log.tap("설정") }
+                        Button("설정", systemImage: "gearshape") { log.tap(String(localized: "설정")) }
                     }
                 }
             }
@@ -222,8 +222,8 @@ private struct ReachabilityDemo: View {
                 Section {
                     PrincipleToggleBar(
                         title: "Reachability",
-                        violationText: "가장 자주 쓰는 **작성**이 화면 맨 위에 있습니다. 한 손으로 5번 눌러보세요.",
-                        complianceText: "작성이 하단으로 내려왔습니다. 같은 과제를 다시 해보고 엄지의 이동 거리를 비교하세요.",
+                        violationText: String(localized: "가장 자주 쓰는 **작성**이 화면 맨 위에 있습니다. 한 손으로 5번 눌러보세요."),
+                        complianceText: String(localized: "작성이 하단으로 내려왔습니다. 같은 과제를 다시 해보고 엄지의 이동 거리를 비교하세요."),
                         compliant: $compliant
                     )
                     .listRowInsets(.init(top: 8, leading: 12, bottom: 8, trailing: 12))
@@ -251,7 +251,7 @@ private struct ReachabilityDemo: View {
             .toolbar {
                 if compliant {
                     ToolbarItem(placement: .topBarTrailing) {
-                        Button("설정", systemImage: "gearshape") { log.tap("설정") }
+                        Button("설정", systemImage: "gearshape") { log.tap(String(localized: "설정")) }
                     }
                     ToolbarItemGroup(placement: .bottomBar) {
                         Spacer()
@@ -260,7 +260,7 @@ private struct ReachabilityDemo: View {
                 } else {
                     ToolbarItemGroup(placement: .topBarTrailing) {
                         Button("작성", systemImage: "square.and.pencil") { composed += 1 }
-                        Button("설정", systemImage: "gearshape") { log.tap("설정") }
+                        Button("설정", systemImage: "gearshape") { log.tap(String(localized: "설정")) }
                     }
                 }
             }
@@ -280,9 +280,9 @@ private struct GrammarDemo: View {
             List {
                 Section {
                     PrincipleToggleBar(
-                        title: "위치·묶음의 문법",
-                        violationText: "**삭제**와 **정렬**이 한 캡슐에 들어 있습니다. 성격이 다른 둘이 한 세트로 읽힙니다.",
-                        complianceText: "도구(보기·정렬)는 왼쪽 묶음으로, 파괴적 액션은 오른쪽 메뉴 안으로 갈라졌습니다.",
+                        title: String(localized: "위치·묶음의 문법"),
+                        violationText: String(localized: "**삭제**와 **정렬**이 한 캡슐에 들어 있습니다. 성격이 다른 둘이 한 세트로 읽힙니다."),
+                        complianceText: String(localized: "도구(보기·정렬)는 왼쪽 묶음으로, 파괴적 액션은 오른쪽 메뉴 안으로 갈라졌습니다."),
                         compliant: $compliant
                     )
                     .listRowInsets(.init(top: 8, leading: 12, bottom: 8, trailing: 12))
@@ -297,21 +297,21 @@ private struct GrammarDemo: View {
             .toolbar {
                 if compliant {
                     ToolbarItemGroup(placement: .topBarLeading) {
-                        Button("격자", systemImage: "square.grid.2x2") { log.tap("보기 전환") }
-                        Button("정렬", systemImage: "arrow.up.arrow.down") { log.tap("정렬") }
+                        Button("격자", systemImage: "square.grid.2x2") { log.tap(String(localized: "보기 전환")) }
+                        Button("정렬", systemImage: "arrow.up.arrow.down") { log.tap(String(localized: "정렬")) }
                     }
                     ToolbarItem(placement: .topBarTrailing) {
                         Menu("더보기", systemImage: "ellipsis") {
-                            Button("이름 변경", systemImage: "pencil") { log.tap("이름 변경") }
+                            Button("이름 변경", systemImage: "pencil") { log.tap(String(localized: "이름 변경")) }
                             Divider()
-                            Button("삭제", systemImage: "trash", role: .destructive) { log.tap("삭제") }
+                            Button("삭제", systemImage: "trash", role: .destructive) { log.tap(String(localized: "삭제")) }
                         }
                     }
                 } else {
                     ToolbarItemGroup(placement: .topBarTrailing) {
-                        Button("삭제", systemImage: "trash") { log.tap("삭제, 정렬과 한 세트로 보입니다") }
-                        Button("정렬", systemImage: "arrow.up.arrow.down") { log.tap("정렬") }
-                        Button("격자", systemImage: "square.grid.2x2") { log.tap("보기 전환") }
+                        Button("삭제", systemImage: "trash") { log.tap(String(localized: "삭제, 정렬과 한 세트로 보입니다")) }
+                        Button("정렬", systemImage: "arrow.up.arrow.down") { log.tap(String(localized: "정렬")) }
+                        Button("격자", systemImage: "square.grid.2x2") { log.tap(String(localized: "보기 전환")) }
                     }
                 }
             }
@@ -332,12 +332,12 @@ private struct LegibilityDemo: View {
             ScrollView {
                 LazyVStack(spacing: 12) {
                     PrincipleToggleBar(
-                        title: "가독성 > 미학",
-                        violationText: "얇은 재료 + 가장자리 효과 없음. 밝은 배경에서 상단 버튼을 읽어보세요.",
-                        complianceText: "hard 경계 + 두꺼운 재료. 재료감은 줄었지만 어느 배경에서도 읽힙니다.",
+                        title: String(localized: "가독성 > 미학"),
+                        violationText: String(localized: "얇은 재료 + 가장자리 효과 없음. 밝은 배경에서 상단 버튼을 읽어보세요."),
+                        complianceText: String(localized: "hard 경계 + 두꺼운 재료. 재료감은 줄었지만 어느 배경에서도 읽힙니다."),
                         compliant: $compliant
                     )
-                    DemoPicker(title: "배경", options: DemoBackdrop.allCases, label: \.rawValue, selection: $backdrop)
+                    DemoPicker(title: String(localized: "배경"), options: DemoBackdrop.allCases, label: \.rawValue, selection: $backdrop)
                         .demoChromeSafe()
                         .foregroundStyle(backdrop.contentColor)
 
@@ -360,8 +360,8 @@ private struct LegibilityDemo: View {
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button("공유", systemImage: "square.and.arrow.up") { log.tap("공유") }
-                    Button("선택", systemImage: "checkmark.circle") { log.tap("선택 모드") }
+                    Button("공유", systemImage: "square.and.arrow.up") { log.tap(String(localized: "공유")) }
+                    Button("선택", systemImage: "checkmark.circle") { log.tap(String(localized: "선택 모드")) }
                 }
             }
             .modifier(LegibilityModifier(compliant: compliant))
@@ -394,10 +394,12 @@ private struct ElasticTextDemo: View {
 
     private var rows: [(String, String)] {
         longNames
-            ? [("김하늘하늘하늘 프로덕트 디자이너", DemoData.longTitle),
+            ? [(String(localized: "김하늘하늘하늘 프로덕트 디자이너"), DemoData.longTitle),
                ("Alexandra Konstantinopoulos", DemoData.longText),
-               ("박도윤 · iOS 플랫폼 엔지니어링", DemoData.longTitle)]
-            : [("김하늘", "스프린트 리뷰"), ("박도윤", "디자인 시안 v3"), ("이서연", "접근성 점검")]
+               (String(localized: "박도윤 · iOS 플랫폼 엔지니어링"), DemoData.longTitle)]
+            : [(String(localized: "김하늘"), String(localized: "스프린트 리뷰")),
+               (String(localized: "박도윤"), String(localized: "디자인 시안 v3")),
+               (String(localized: "이서연"), String(localized: "접근성 점검"))]
     }
 
     var body: some View {
@@ -405,9 +407,9 @@ private struct ElasticTextDemo: View {
             ScrollView {
                 VStack(spacing: 12) {
                     PrincipleToggleBar(
-                        title: "공간은 계약",
-                        violationText: "고정 폭·한 줄 고정입니다. Dynamic Type을 키우면 **글자가 잘려 뜻이 사라집니다**.",
-                        complianceText: "줄 수 범위와 공간 예약이 들어갔습니다. 커져도 무너지지 않고 이웃도 흔들리지 않습니다.",
+                        title: String(localized: "공간은 계약"),
+                        violationText: String(localized: "고정 폭·한 줄 고정입니다. Dynamic Type을 키우면 **글자가 잘려 뜻이 사라집니다**."),
+                        complianceText: String(localized: "줄 수 범위와 공간 예약이 들어갔습니다. 커져도 무너지지 않고 이웃도 흔들리지 않습니다."),
                         compliant: $compliant
                     )
 
@@ -485,35 +487,35 @@ private struct DataVsPresentationDemo: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 14) {
                     PrincipleToggleBar(
-                        title: "데이터와 표기의 분리",
-                        violationText: "화면에 나갈 문자열을 앱이 직접 조립했습니다`\"\\(km)km\"`, `\"\\(family)\\(given)\"`.",
-                        complianceText: "값만 들고 있다가 로케일에 맞춰 표기를 시스템에 맡깁니다.",
+                        title: String(localized: "데이터와 표기의 분리"),
+                        violationText: String(localized: "화면에 나갈 문자열을 앱이 직접 조립했습니다`\"\\(km)km\"`, `\"\\(family)\\(given)\"`."),
+                        complianceText: String(localized: "값만 들고 있다가 로케일에 맞춰 표기를 시스템에 맡깁니다."),
                         compliant: $compliant
                     )
 
                     Toggle("로케일을 en_US 로 바꾸기", isOn: $english.animation(.snappy))
 
-                    row("거리", compliant
+                    row(String(localized: "거리"), compliant
                         ? Measurement(value: 5, unit: UnitLength.kilometers)
                             .formatted(.measurement(width: .wide, usage: .road).locale(locale))
                         : "5km")
 
-                    row("이름", compliant
+                    row(String(localized: "이름"), compliant
                         ? name.formatted(.name(style: .medium).locale(locale))
-                        : "김하늘")
+                        : String(localized: "김하늘"))
 
-                    row("날짜", compliant
+                    row(String(localized: "날짜"), compliant
                         ? Date(timeIntervalSince1970: 1_776_000_000)
                             .formatted(.dateTime.year().month(.wide).day().locale(locale))
-                        : "2026년 4월 12일")
+                        : String(localized: "2026년 4월 12일"))
 
-                    row("금액", compliant
+                    row(String(localized: "금액"), compliant
                         ? Decimal(128_400).formatted(.currency(code: english ? "USD" : "KRW").locale(locale))
                         : "₩128,400")
 
                     DemoNote(text: compliant
-                        ? "로케일을 바꾸면 **표기가 따라옵니다**. 앱 코드는 한 줄도 바뀌지 않았습니다."
-                        : "로케일을 바꿔도 그대로입니다, 표기를 앱이 이미 정해버렸기 때문입니다.")
+                        ? String(localized: "로케일을 바꾸면 **표기가 따라옵니다**. 앱 코드는 한 줄도 바뀌지 않았습니다.")
+                        : String(localized: "로케일을 바꿔도 그대로입니다, 표기를 앱이 이미 정해버렸기 때문입니다."))
                 }
                 .padding(18)
             }
@@ -550,9 +552,9 @@ private struct DirectManipulationDemo: View {
             List {
                 Section {
                     PrincipleToggleBar(
-                        title: "직접 조작",
-                        violationText: "삭제하려면 먼저 아래에서 **대상을 고르고**, 다시 위 메뉴에서 삭제를 눌러야 합니다.",
-                        complianceText: "행을 왼쪽으로 밀거나 길게 누르면 됩니다. 액션이 대상 위에 붙어 있습니다.",
+                        title: String(localized: "직접 조작"),
+                        violationText: String(localized: "삭제하려면 먼저 아래에서 **대상을 고르고**, 다시 위 메뉴에서 삭제를 눌러야 합니다."),
+                        complianceText: String(localized: "행을 왼쪽으로 밀거나 길게 누르면 됩니다. 액션이 대상 위에 붙어 있습니다."),
                         compliant: $compliant
                     )
                     .listRowInsets(.init(top: 8, leading: 12, bottom: 8, trailing: 12))
@@ -585,7 +587,7 @@ private struct DirectManipulationDemo: View {
                     ToolbarItem(placement: .topBarTrailing) {
                         Menu("작업", systemImage: "ellipsis") {
                             Button("선택한 항목 삭제", systemImage: "trash", role: .destructive) {
-                                if let target { remove(target) } else { log.tap("먼저 대상을 골라야 합니다") }
+                                if let target { remove(target) } else { log.tap(String(localized: "먼저 대상을 골라야 합니다")) }
                             }
                         }
                     }
@@ -598,7 +600,7 @@ private struct DirectManipulationDemo: View {
     private func remove(_ id: Int) {
         withAnimation { rows.removeAll { $0.id == id } }
         target = nil
-        log.tap("삭제했습니다")
+        log.tap(String(localized: "삭제했습니다"))
     }
 }
 
@@ -615,11 +617,11 @@ private struct DirectActions: ViewModifier {
                     Button("삭제", systemImage: "trash", role: .destructive, action: onDelete)
                 }
                 .swipeActions(edge: .leading) {
-                    Button("보관", systemImage: "archivebox") { log.tap("\(mail.sender) 보관") }
+                    Button("보관", systemImage: "archivebox") { log.tap(String(localized: "\(mail.sender) 보관")) }
                         .tint(.blue)
                 }
                 .contextMenu {
-                    Button("보관", systemImage: "archivebox") { log.tap("\(mail.sender) 보관") }
+                    Button("보관", systemImage: "archivebox") { log.tap(String(localized: "\(mail.sender) 보관")) }
                     Divider()
                     Button("삭제", systemImage: "trash", role: .destructive, action: onDelete)
                 }

@@ -31,9 +31,9 @@ struct MistakeDetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 head
-                block("그때는 왜 그게 맞아 보였나", mistake.why, .hgAmber, "quote.opening")
+                block(String(localized: "그때는 왜 그게 맞아 보였나"), mistake.why, .hgAmber, "quote.opening")
                 criterionBlock
-                block("고치면", mistake.fix, .hgGreen, "checkmark.seal")
+                block(String(localized: "고치면"), mistake.fix, .hgGreen, "checkmark.seal")
                 if mistake.hasStory { storyLink }
                 tryItCard
                 sourcesSection

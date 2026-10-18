@@ -20,18 +20,18 @@ struct HigGymOnboardingView: View {
     private let pages: [Page] = [
         Page(
             id: 0, symbol: "hand.tap.fill",
-            title: "먼저 만져 봅니다",
-            body: "한 편에 결정 하나를 다룹니다. 처음 만지는 화면은 일부러 가이드라인을 어긴 쪽입니다. 어색하다면 제대로 느낀 것이니 버그로 여기지 마세요."
+            title: String(localized: "먼저 만져 봅니다"),
+            body: String(localized: "한 편에 결정 하나를 다룹니다. 처음 만지는 화면은 일부러 가이드라인을 어긴 쪽입니다. 어색하다면 제대로 느낀 것이니 버그로 여기지 마세요.")
         ),
         Page(
             id: 1, symbol: "square.and.pencil",
-            title: "답보다 내 문장이 먼저",
-            body: "써보기, 적어보기, 이유 확인, 비교, 배운 것 적기. 다섯 단계를 순서대로 밟습니다. 답을 보기 전에 느낀 점을 적어야 어긋난 자리가 남습니다."
+            title: String(localized: "답보다 내 문장이 먼저"),
+            body: String(localized: "써보기, 적어보기, 이유 확인, 비교, 배운 것 적기. 다섯 단계를 순서대로 밟습니다. 답을 보기 전에 느낀 점을 적어야 어긋난 자리가 남습니다.")
         ),
         Page(
             id: 2, symbol: "text.book.closed.fill",
-            title: "쓴 글은 노트에 쌓입니다",
-            body: "노트 탭에서 다시 읽고, 텍스트나 마크다운 파일로 내보낼 수 있습니다. 진도와 노트는 이 기기에만 저장되고 어디로도 보내지 않습니다."
+            title: String(localized: "쓴 글은 노트에 쌓입니다"),
+            body: String(localized: "노트 탭에서 다시 읽고, 텍스트나 마크다운 파일로 내보낼 수 있습니다. 진도와 노트는 이 기기에만 저장되고 어디로도 보내지 않습니다.")
         ),
     ]
 

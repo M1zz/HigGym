@@ -107,12 +107,12 @@ struct EntryDetailView: View {
 
     private var rows: some View {
         VStack(spacing: 9) {
-            row("어느 상황에서", entry.when, .hgGreen, "questionmark.circle")
-            row("왜 이렇게", entry.why, .hgAccent2, "lightbulb")
+            row(String(localized: "어느 상황에서"), entry.when, .hgGreen, "questionmark.circle")
+            row(String(localized: "왜 이렇게"), entry.why, .hgAccent2, "lightbulb")
             row("Tip", entry.tip, .hgAmber, "hand.raised")
             row("iOS 27", entry.ios27, .hgAmber, "sparkles")
-            examples("적절한 예", entry.good, .hgGreen, "checkmark.circle.fill")
-            examples("잘못된 예", entry.bad, .hgRed, "xmark.octagon.fill")
+            examples(String(localized: "적절한 예"), entry.good, .hgGreen, "checkmark.circle.fill")
+            examples(String(localized: "잘못된 예"), entry.bad, .hgRed, "xmark.octagon.fill")
         }
     }
 

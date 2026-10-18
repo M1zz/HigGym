@@ -198,9 +198,9 @@ struct Diagnosis: Identifiable, Hashable {
         }
         var label: String {
             switch self {
-            case .good:      "기준 통과"
-            case .caution:   "주의"
-            case .violation: "원칙 위반"
+            case .good:      String(localized: "기준 통과")
+            case .caution:   String(localized: "주의")
+            case .violation: String(localized: "원칙 위반")
             }
         }
     }
@@ -241,7 +241,7 @@ struct DiagnosisRow: View {
 struct CodePanel: View {
     let code: String
     /// 실습에서는 설정으로부터 "생성된" 코드지만, 예제에서는 그 화면을 만든 코드 자체다.
-    var title: String = "생성된 SwiftUI"
+    var title: String = String(localized: "생성된 SwiftUI")
     @State private var copied = false
 
     var body: some View {

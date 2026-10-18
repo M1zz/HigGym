@@ -1,0 +1,74 @@
+{
+  "sourceLanguage": "ko",
+  "version": "1.0",
+  "strings": {
+    "${applicationName}에서 이어서 학습하기": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue learning in ${applicationName}"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "${applicationName}で学習を続ける"
+          }
+        }
+      }
+    },
+    "${applicationName} 이어서 하기": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Resume ${applicationName}"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "${applicationName}の続きをする"
+          }
+        }
+      }
+    },
+    "${applicationName} 노트 열기": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open ${applicationName} notes"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "${applicationName}のノートを開く"
+          }
+        }
+      }
+    },
+    "${applicationName}에서 학습 노트 보기": {
+      "extractionState": "manual",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show my notes in ${applicationName}"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "${applicationName}で学習ノートを見る"
+          }
+        }
+      }
+    }
+  }
+}

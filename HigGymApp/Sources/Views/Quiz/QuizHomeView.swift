@@ -63,9 +63,9 @@ struct QuizHomeView: View {
             }
 
             HStack(spacing: 18) {
-                stat("푼 문제", "\(progress.answeredCount)")
-                stat("복습 대기", "\(progress.wrongIDs.count)")
-                stat("전체 문항", "\(bank.questions.count)")
+                stat(String(localized: "푼 문제"), "\(progress.answeredCount)")
+                stat(String(localized: "복습 대기"), "\(progress.wrongIDs.count)")
+                stat(String(localized: "전체 문항"), "\(bank.questions.count)")
             }
         }
         .hgCard()
@@ -88,7 +88,7 @@ struct QuizHomeView: View {
     /// 실무에서 판단하는 대상은 언제나 화면이므로 이쪽을 위에 둔다.
     private var liveSection: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionLabel("실전, 화면으로 판단하기", accent: .hgGreen)
+            SectionLabel(String(localized: "실전, 화면으로 판단하기"), accent: .hgGreen)
 
             Button { caseStudy = true } label: {
                 VStack(alignment: .leading, spacing: 9) {
@@ -119,8 +119,8 @@ struct QuizHomeView: View {
             }
             .buttonStyle(.plain)
 
-            liveRow(.pickScreen, "기준을 주면 어느 화면이 맞는지 고릅니다", .hgAccent)
-            liveRow(.reason, "화면을 보고 왜 그렇게 만들었는지 고릅니다", .hgAccent2)
+            liveRow(.pickScreen, String(localized: "기준을 주면 어느 화면이 맞는지 고릅니다"), .hgAccent)
+            liveRow(.reason, String(localized: "화면을 보고 왜 그렇게 만들었는지 고릅니다"), .hgAccent2)
         }
     }
 
@@ -158,28 +158,28 @@ struct QuizHomeView: View {
 
     private var modeSection: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionLabel("훈련 모드", accent: .hgAccent)
+            SectionLabel(String(localized: "훈련 모드"), accent: .hgAccent)
 
             modeRow(
-                "랜덤 10문항", "유형을 섞어 전 범위에서",
+                String(localized: "랜덤 10문항"), String(localized: "유형을 섞어 전 범위에서"),
                 "shuffle", .hgAccent, .mixed(10)
             )
             modeRow(
-                "원칙 판정", "잘못된 설계가 어떤 원칙을 어겼는지",
+                String(localized: "원칙 판정"), String(localized: "잘못된 설계가 어떤 원칙을 어겼는지"),
                 "scale.3d", .hgAccent2, .principles
             )
             modeRow(
-                "적절/부적절 판별", "예시를 보고 즉시 판단하기",
+                String(localized: "적절/부적절 판별"), String(localized: "예시를 보고 즉시 판단하기"),
                 "checkmark.circle.badge.questionmark", .hgGreen, .kind(.judgement)
             )
             modeRow(
-                "상황 → 컴포넌트", "이 상황엔 무엇을 쓰는가",
+                String(localized: "상황 → 컴포넌트"), String(localized: "이 상황엔 무엇을 쓰는가"),
                 "arrow.triangle.branch", .hgAmber, .kind(.whenMatch)
             )
 
             if !progress.wrongIDs.isEmpty {
                 modeRow(
-                    "오답 복습 \(progress.wrongIDs.count)문항", "틀렸던 것만 다시",
+                    String(localized: "오답 복습 \(progress.wrongIDs.count)문항"), String(localized: "틀렸던 것만 다시"),
                     "arrow.counterclockwise", .hgRed, .review
                 )
             }
@@ -223,7 +223,7 @@ struct QuizHomeView: View {
 
     private var chapterSection: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionLabel("챕터별 집중", accent: .hgAmber)
+            SectionLabel(String(localized: "챕터별 집중"), accent: .hgAmber)
 
             ForEach(store.chapters) { chapter in
                 Button {

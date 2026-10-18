@@ -89,7 +89,7 @@ extension MockupBuilder {
         }
 
         if config.titleMode == .titleMenu {
-            children.append(tag("제목 메뉴", bottom: 214, left: 44))
+            children.append(tag(String(localized: "제목 메뉴"), bottom: 214, left: 44))
         }
 
         return [node("div", ["phone"], children: children)]
@@ -141,10 +141,10 @@ extension MockupBuilder {
         case .large:
             return []                       // 큰 제목은 바 아래에 따로 놓인다
         case .inline, .inlineLarge:
-            return [node("span", ["ttl"], children: [node("text", text: "제목")])]
+            return [node("span", ["ttl"], children: [node("text", text: String(localized: "제목"))])]
         case .titleMenu:
             return [
-                node("span", ["ttl", "hlt"], children: [node("text", text: "제목")]),
+                node("span", ["ttl", "hlt"], children: [node("text", text: String(localized: "제목"))]),
                 node("span", ["ell"], children: [node("text", text: "⌄")]),
             ]
         case .custom:
@@ -184,7 +184,7 @@ extension MockupBuilder {
 
         children.append(node("div", ["pnav"], children: [
             spacer,
-            node("span", ["ttl"], children: [node("text", text: "제목")]),
+            node("span", ["ttl"], children: [node("text", text: String(localized: "제목"))]),
             spacer,
         ]))
 
@@ -200,7 +200,7 @@ extension MockupBuilder {
                 ]),
                 node("span", ["dot"]),
             ]))
-            children.append(tag("액세서리", bottom: 70, left: 10))
+            children.append(tag(String(localized: "액세서리"), bottom: 70, left: 10))
         }
 
         children.append(tabRow(tabCount: tabCount, badge: badge, search: search, minimized: minimized))
@@ -208,7 +208,7 @@ extension MockupBuilder {
         return [node("div", ["phone"], children: children)]
     }
 
-    private static let tabNames = ["홈", "탐색", "보관함", "알림", "설정", "더보기"]
+    private static let tabNames = [String(localized: "홈"), String(localized: "탐색"), String(localized: "보관함"), String(localized: "알림"), String(localized: "설정"), String(localized: "더보기")]
 
     private static func tabRow(
         tabCount: Int,
@@ -217,7 +217,7 @@ extension MockupBuilder {
         minimized: Bool
     ) -> MockupNode {
         var tabs: [MockupNode] = []
-        let names = search == .plainTab ? tabNames + ["검색"] : tabNames
+        let names = search == .plainTab ? tabNames + [String(localized: "검색")] : tabNames
 
         for index in 0..<(search == .plainTab ? tabCount + 1 : tabCount) {
             var item: [MockupNode] = [node("span", ["ic"])]

@@ -5,8 +5,8 @@ enum SearchTabOption: String, CaseIterable, Identifiable {
     var id: String { rawValue }
     var label: String {
         switch self {
-        case .none:       "없음"
-        case .plainTab:   "일반 탭"
+        case .none:       String(localized: "없음")
+        case .plainTab:   String(localized: "일반 탭")
         case .searchRole: "role: .search"
         }
     }
@@ -17,9 +17,9 @@ enum BadgeOption: String, CaseIterable, Identifiable {
     var id: String { rawValue }
     var label: String {
         switch self {
-        case .none:  "없음"
-        case .count: "숫자"
-        case .text:  "텍스트"
+        case .none:  String(localized: "없음")
+        case .count: String(localized: "숫자")
+        case .text:  String(localized: "텍스트")
         }
     }
 }
@@ -35,7 +35,7 @@ struct TabBarLabView: View {
     @State private var selectedPart: MockupPart?
 
     var body: some View {
-        LabScaffold(title: "탭바 구성", subtitle: "몇 개까지가 탭바인가") {
+        LabScaffold(title: String(localized: "탭바 구성"), subtitle: String(localized: "몇 개까지가 탭바인가")) {
                 LiveMockup(
                     nodes: MockupBuilder.tabBar(
                         tabCount: tabCount,
@@ -44,13 +44,13 @@ struct TabBarLabView: View {
                         accessory: accessory,
                         minimized: minimize
                     ),
-                    caption: "설정을 바꾸면 이 그림이 바로 다시 그려집니다, 문서의 프리뷰와 같은 언어",
+                    caption: String(localized: "설정을 바꾸면 이 그림이 바로 다시 그려집니다, 문서의 프리뷰와 같은 언어"),
                     selected: $selectedPart
                 )
 
                 RunStageCard(
-                    title: "실제 SwiftUI로도 확인하기",
-                    body_: "그림으로 구성을 잡았다면, 실행해서 시스템이 그리는 진짜 탭바와 접힘 동작을 확인해보세요."
+                    title: String(localized: "실제 SwiftUI로도 확인하기"),
+                    body_: String(localized: "그림으로 구성을 잡았다면, 실행해서 시스템이 그리는 진짜 탭바와 접힘 동작을 확인해보세요.")
                 ) { running = true }
 
                 controls
@@ -76,25 +76,25 @@ struct TabBarLabView: View {
 
     private var controls: some View {
         VStack(alignment: .leading, spacing: 14) {
-            SectionLabel("탭 개수", accent: .hgAccent)
+            SectionLabel(String(localized: "탭 개수"), accent: .hgAccent)
             Picker("개수", selection: $tabCount) {
                 ForEach([2, 3, 4, 6], id: \.self) { Text("\($0)개").tag($0) }
             }
             .pickerStyle(.segmented)
 
-            SectionLabel("배지", accent: .hgAmber)
+            SectionLabel(String(localized: "배지"), accent: .hgAmber)
             Picker("배지", selection: $badge) {
                 ForEach(BadgeOption.allCases) { Text($0.label).tag($0) }
             }
             .pickerStyle(.segmented)
 
-            SectionLabel("검색", accent: .hgAmber)
+            SectionLabel(String(localized: "검색"), accent: .hgAmber)
             Picker("검색", selection: $search) {
                 ForEach(SearchTabOption.allCases) { Text($0.label).tag($0) }
             }
             .pickerStyle(.segmented)
 
-            SectionLabel("동작", accent: .hgGreen)
+            SectionLabel(String(localized: "동작"), accent: .hgGreen)
             Toggle("스크롤 내리면 탭바 접기 (minimize)", isOn: $minimize)
                 .font(.subheadline).foregroundStyle(.hgText).tint(.hgAccent)
             Toggle("하단 액세서리 (미니 플레이어)", isOn: $accessory)
@@ -113,19 +113,19 @@ struct TabBarLabView: View {
         case 6:
             out.append(.init(
                 level: .violation,
-                message: "iPhone 폭에서 6개는 터치 타깃과 라벨이 모두 압박됩니다. 3~5개로 추리고 **덜 중요한 건 탭 안의 화면으로** 내리세요.",
+                message: String(localized: "iPhone 폭에서 6개는 터치 타깃과 라벨이 모두 압박됩니다. 3~5개로 추리고 **덜 중요한 건 탭 안의 화면으로** 내리세요."),
                 source: "3.2.3 · 3.2.4"
             ))
         case 2:
             out.append(.init(
                 level: .caution,
-                message: "2개뿐이라면 탭 대신 **세그먼트 컨트롤**로 충분한 구조일 수 있습니다. 앱의 세계가 정말 둘로 나뉘는지 먼저 확인하세요.",
+                message: String(localized: "2개뿐이라면 탭 대신 **세그먼트 컨트롤**로 충분한 구조일 수 있습니다. 앱의 세계가 정말 둘로 나뉘는지 먼저 확인하세요."),
                 source: "3.2.1"
             ))
         default:
             out.append(.init(
                 level: .good,
-                message: "3~5개는 터치 타깃 크기와 인지 부하가 만나는 안전 범위입니다.",
+                message: String(localized: "3~5개는 터치 타깃 크기와 인지 부하가 만나는 안전 범위입니다."),
                 source: "3.2.3"
             ))
         }
@@ -134,13 +134,13 @@ struct TabBarLabView: View {
         case .count:
             out.append(.init(
                 level: .good,
-                message: "숫자 배지는 **“몇 개인지가 행동을 결정할 때”** 씁니다. 모든 탭에 달면 인터럽트 가치가 인플레이션되어 진짜 중요한 알림이 묻힙니다.",
+                message: String(localized: "숫자 배지는 **“몇 개인지가 행동을 결정할 때”** 씁니다. 모든 탭에 달면 인터럽트 가치가 인플레이션되어 진짜 중요한 알림이 묻힙니다."),
                 source: "3.1.3"
             ))
         case .text:
             out.append(.init(
                 level: .good,
-                message: "개수가 아니라 상태가 정보일 때(NEW·LIVE) 쓰는 형태입니다. 긴 문자열은 탭 레이아웃을 침범하므로 짧게 유지하세요.",
+                message: String(localized: "개수가 아니라 상태가 정보일 때(NEW·LIVE) 쓰는 형태입니다. 긴 문자열은 탭 레이아웃을 침범하므로 짧게 유지하세요."),
                 source: "3.1.4"
             ))
         case .none:
@@ -151,13 +151,13 @@ struct TabBarLabView: View {
         case .searchRole:
             out.append(.init(
                 level: .good,
-                message: "탭은 “장소 이동”이지만 검색은 **“모드 진입”**, 역할로 선언하면 시스템이 별도 캡슐로 분리하고 위치·전환까지 처리합니다. iOS 26의 표준입니다.",
+                message: String(localized: "탭은 “장소 이동”이지만 검색은 **“모드 진입”**, 역할로 선언하면 시스템이 별도 캡슐로 분리하고 위치·전환까지 처리합니다. iOS 26의 표준입니다."),
                 source: "3.4.2"
             ))
         case .plainTab:
             out.append(.init(
                 level: .caution,
-                message: "검색을 일반 탭으로 두면 “검색은 우리 앱의 한 세계”라는 선언이 됩니다. 목록을 좁히는 필터형 검색이라면 과합니다`role: .search`나 화면 안 `.searchable`이 맞습니다.",
+                message: String(localized: "검색을 일반 탭으로 두면 “검색은 우리 앱의 한 세계”라는 선언이 됩니다. 목록을 좁히는 필터형 검색이라면 과합니다`role: .search`나 화면 안 `.searchable`이 맞습니다."),
                 source: "3.4.1 · 3.4.2"
             ))
         case .none:
@@ -167,13 +167,13 @@ struct TabBarLabView: View {
         if minimize && accessory {
             out.append(.init(
                 level: .good,
-                message: "접힐 때 액세서리가 사라지지 않고 **탭바 자리로 승격**됩니다, “이동 < 상태”라는 우선순위 역전을 시스템이 자동 처리합니다.",
+                message: String(localized: "접힐 때 액세서리가 사라지지 않고 **탭바 자리로 승격**됩니다, “이동 < 상태”라는 우선순위 역전을 시스템이 자동 처리합니다."),
                 source: "3.5.2"
             ))
         } else if accessory {
             out.append(.init(
                 level: .good,
-                message: "탭을 넘나드는 진행 중 상태는 특정 화면이 아니라 **앱 전역의 소유**라 탭바 계층에 붙입니다.",
+                message: String(localized: "탭을 넘나드는 진행 중 상태는 특정 화면이 아니라 **앱 전역의 소유**라 탭바 계층에 붙입니다."),
                 source: "3.5.1"
             ))
         }
@@ -181,7 +181,7 @@ struct TabBarLabView: View {
         if minimize {
             out.append(.init(
                 level: .good,
-                message: "**이동 장치는 이동할 때만 크면 됩니다.** 사라지는 게 아니라 접히는 것이라 위치 단서는 유지됩니다.",
+                message: String(localized: "**이동 장치는 이동할 때만 크면 됩니다.** 사라지는 게 아니라 접히는 것이라 위치 단서는 유지됩니다."),
                 source: "3.2.2"
             ))
         }
@@ -189,7 +189,7 @@ struct TabBarLabView: View {
         if hideOnDetail {
             out.append(.init(
                 level: .caution,
-                message: "상세에서 탭바를 숨기는 건 **몰입이 주 작업일 때**만 맞습니다(사진 전체화면·영상·작성 중). 얕은 계층이라면 탭바는 “지금 어디에 있는지”를 알려주는 상시 지도이므로 유지가 기본값입니다.",
+                message: String(localized: "상세에서 탭바를 숨기는 건 **몰입이 주 작업일 때**만 맞습니다(사진 전체화면·영상·작성 중). 얕은 계층이라면 탭바는 “지금 어디에 있는지”를 알려주는 상시 지도이므로 유지가 기본값입니다."),
                 source: "3.3.1 · 3.3.2"
             ))
         }
@@ -199,7 +199,7 @@ struct TabBarLabView: View {
 
     private var diagnosisSection: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionLabel("실시간 판정", accent: .hgGreen)
+            SectionLabel(String(localized: "실시간 판정"), accent: .hgGreen)
             ForEach(diagnoses) { DiagnosisRow(diagnosis: $0) }
         }
     }
@@ -220,7 +220,7 @@ struct TabBarLabView: View {
         switch search {
         case .none: break
         case .plainTab:
-            lines.append("    Tab(\"검색\", systemImage: \"magnifyingglass\") { SearchView() }")
+            lines.append("    Tab(\"\(String(localized: "검색"))\", systemImage: \"magnifyingglass\") { SearchView() }")
         case .searchRole:
             lines.append("    Tab(role: .search) { SearchView() }")
         }
@@ -233,7 +233,7 @@ struct TabBarLabView: View {
         }
         if hideOnDetail {
             lines.append("")
-            lines.append("// 상세 화면 쪽")
+            lines.append("// \(String(localized: "상세 화면 쪽"))")
             lines.append("DetailView()")
             lines.append("    .toolbar(.hidden, for: .tabBar)")
         }
@@ -251,7 +251,10 @@ private struct TabBarStage: View {
     let accessory: Bool
     let hideOnDetail: Bool
 
-    static let names = ["홈", "탐색", "보관함", "알림", "설정", "더보기"]
+    static let names = [
+        String(localized: "홈"), String(localized: "탐색"), String(localized: "보관함"),
+        String(localized: "알림"), String(localized: "설정"), String(localized: "더보기"),
+    ]
     static let symbols = ["house", "safari", "square.stack", "bell", "gearshape", "ellipsis"]
 
     var body: some View {
@@ -273,13 +276,13 @@ private struct TabBarStage: View {
 
         if search == .plainTab {
             Tab("검색", systemImage: "magnifyingglass") {
-                tabContent(title: "검색")
+                tabContent(title: String(localized: "검색"))
             }
         }
 
         if search == .searchRole {
             Tab(role: .search) {
-                tabContent(title: "검색")
+                tabContent(title: String(localized: "검색"))
             }
         }
     }

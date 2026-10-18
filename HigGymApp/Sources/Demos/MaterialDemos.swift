@@ -8,27 +8,27 @@ enum MaterialDemos {
         EntryDemo(
             "m1",
             hints: [
-                "**재료 두께**를 ultraThin → thick 으로 올려보세요. 뒤가 비치는 정도가 달라집니다.",
-                "배경을 **사진 · 흰색**으로 바꿔보세요, 얇은 재료가 어디서 무너지는지 바로 보입니다.",
-                "판단 기준은 취향이 아니라 \"이 배경에서 위의 글자가 읽히는가\"입니다(8.1.4).",
+                String(localized: "**재료 두께**를 ultraThin → thick 으로 올려보세요. 뒤가 비치는 정도가 달라집니다."),
+                String(localized: "배경을 **사진 · 흰색**으로 바꿔보세요, 얇은 재료가 어디서 무너지는지 바로 보입니다."),
+                String(localized: "판단 기준은 취향이 아니라 \"이 배경에서 위의 글자가 읽히는가\"입니다(8.1.4)."),
             ],
-            code: """
+            code: String(localized: """
             Text("읽혀야 하는 글자")
                 .padding()
                 .background(.regularMaterial, in: .rect(cornerRadius: 16))
             // .ultraThinMaterial · .thinMaterial · .regularMaterial
             // .thickMaterial · .ultraThickMaterial
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { MaterialDemoScreen() },
 
         EntryDemo(
             "vb1",
             hints: [
-                "스위치로 **vibrancy를 껐다 켜보세요**, 같은 회색인데 읽히는 정도가 다릅니다.",
-                "배경을 밝게·어둡게 바꿔보세요. vibrancy 쪽만 배경을 따라 스스로 조정됩니다.",
-                "직접 지정한 고정 회색은 어느 한 배경에서 반드시 깨집니다, 그게 이 항목의 요지입니다.",
+                String(localized: "스위치로 **vibrancy를 껐다 켜보세요**, 같은 회색인데 읽히는 정도가 다릅니다."),
+                String(localized: "배경을 밝게·어둡게 바꿔보세요. vibrancy 쪽만 배경을 따라 스스로 조정됩니다."),
+                String(localized: "직접 지정한 고정 회색은 어느 한 배경에서 반드시 깨집니다, 그게 이 항목의 요지입니다."),
             ],
-            code: """
+            code: String(localized: """
             VStack {
                 Text("제목").foregroundStyle(.primary)
                 Text("보조 설명").foregroundStyle(.secondary)   // vibrancy
@@ -36,7 +36,7 @@ enum MaterialDemos {
             }
             .padding()
             .background(.regularMaterial, in: .rect(cornerRadius: 16))
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { VibrancyDemoScreen() },
     ]
 }
@@ -107,8 +107,8 @@ private struct MaterialDemoScreen: View {
 
     private var controls: some View {
         VStack(spacing: 12) {
-            DemoPicker(title: "재료 두께", options: DemoMaterial.allCases, label: \.rawValue, selection: $thickness)
-            DemoPicker(title: "배경", options: DemoBackdrop.allCases, label: \.rawValue, selection: $backdrop)
+            DemoPicker(title: String(localized: "재료 두께"), options: DemoMaterial.allCases, label: \.rawValue, selection: $thickness)
+            DemoPicker(title: String(localized: "배경"), options: DemoBackdrop.allCases, label: backdropTitle, selection: $backdrop)
         }
         .padding(14)
         .demoChromeSafe()
@@ -126,14 +126,14 @@ private struct VibrancyDemoScreen: View {
 
             ScrollView {
                 VStack(spacing: 16) {
-                    sample(title: "vibrancy 적용", vibrant: true)
+                    sample(title: String(localized: "vibrancy 적용"), vibrant: true)
                         .opacity(vibrancy ? 1 : 0.999)
-                    sample(title: "고정 회색", vibrant: false)
+                    sample(title: String(localized: "고정 회색"), vibrant: false)
 
                     VStack(spacing: 12) {
                         Toggle("두 카드 비교 강조", isOn: $vibrancy)
-                        DemoPicker(title: "배경", options: DemoBackdrop.allCases, label: \.rawValue, selection: $backdrop)
-                        DemoNote(text: "배경을 바꿔보면 **한쪽만** 따라옵니다. 색을 직접 박아 넣은 쪽은 배경 사정을 모릅니다.")
+                        DemoPicker(title: String(localized: "배경"), options: DemoBackdrop.allCases, label: backdropTitle, selection: $backdrop)
+                        DemoNote(text: String(localized: "배경을 바꿔보면 **한쪽만** 따라옵니다. 색을 직접 박아 넣은 쪽은 배경 사정을 모릅니다."))
                     }
                     .padding(14)
                     .demoChromeSafe()
@@ -167,5 +167,14 @@ private struct VibrancyDemoScreen: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(16)
         .background(.regularMaterial, in: .rect(cornerRadius: 18))
+    }
+}
+
+/// 배경 전환기의 화면 표시 이름. rawValue 는 식별용이라 그대로 두고 표시만 번역한다.
+private func backdropTitle(_ backdrop: DemoBackdrop) -> String {
+    switch backdrop {
+    case .dark:  String(localized: "어두운 단색")
+    case .photo: String(localized: "사진")
+    case .white: String(localized: "흰 배경")
     }
 }

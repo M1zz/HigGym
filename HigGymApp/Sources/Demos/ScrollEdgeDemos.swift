@@ -8,55 +8,55 @@ enum ScrollEdgeDemos {
         EntryDemo(
             "s1",
             hints: [
-                "스크롤해서 카드가 상단 바 아래로 들어가는 순간을 보세요, 경계 없이 **번지듯** 사라집니다.",
-                "화면 안 배경 전환기로 **흰 배경**을 골라보세요. 부드러운 페이드가 어디까지 버티는지 드러납니다.",
-                "배경을 **사진**으로 바꾸면 밝은 부분에서 버튼이 흐려집니다, 그때가 hard로 옮길 때입니다.",
+                String(localized: "스크롤해서 카드가 상단 바 아래로 들어가는 순간을 보세요, 경계 없이 **번지듯** 사라집니다."),
+                String(localized: "화면 안 배경 전환기로 **흰 배경**을 골라보세요. 부드러운 페이드가 어디까지 버티는지 드러납니다."),
+                String(localized: "배경을 **사진**으로 바꾸면 밝은 부분에서 버튼이 흐려집니다, 그때가 hard로 옮길 때입니다."),
             ],
-            code: """
+            code: String(localized: """
             ScrollView { /* 콘텐츠 */ }
                 .scrollEdgeEffectStyle(.soft, for: .top)
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { ScrollEdgeDemoScreen(style: .soft) },
 
         EntryDemo(
             "s2",
             hints: [
-                "스크롤하면 바 아래로 **선명한 경계**가 생깁니다. 콘텐츠와 바가 딱 나뉩니다.",
-                "1.3.1(Soft)과 번갈아 열어 같은 배경에서 비교해 보세요.",
-                "밝은 사진 배경에서 특히 유리합니다, 대비를 배경에 맡기지 않고 스스로 만들기 때문입니다.",
+                String(localized: "스크롤하면 바 아래로 **선명한 경계**가 생깁니다. 콘텐츠와 바가 딱 나뉩니다."),
+                String(localized: "1.3.1(Soft)과 번갈아 열어 같은 배경에서 비교해 보세요."),
+                String(localized: "밝은 사진 배경에서 특히 유리합니다, 대비를 배경에 맡기지 않고 스스로 만들기 때문입니다."),
             ],
-            code: """
+            code: String(localized: """
             ScrollView { /* 콘텐츠 */ }
                 .scrollEdgeEffectStyle(.hard, for: .top)
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { ScrollEdgeDemoScreen(style: .hard) },
 
         EntryDemo(
             "s3",
             hints: [
-                "hard 경계 + **두꺼운 재료** 배경입니다. 바 뒤가 거의 비치지 않습니다.",
-                "배경을 흰색·사진으로 바꿔도 버튼 대비가 흔들리지 않는지 확인해 보세요.",
-                "그만큼 \"떠 있는 유리\" 느낌은 줄어듭니다, 가독성과 재료감을 맞바꾼 구성입니다(8.1.4).",
+                String(localized: "hard 경계 + **두꺼운 재료** 배경입니다. 바 뒤가 거의 비치지 않습니다."),
+                String(localized: "배경을 흰색·사진으로 바꿔도 버튼 대비가 흔들리지 않는지 확인해 보세요."),
+                String(localized: "그만큼 \"떠 있는 유리\" 느낌은 줄어듭니다, 가독성과 재료감을 맞바꾼 구성입니다(8.1.4)."),
             ],
-            code: """
+            code: String(localized: """
             ScrollView { /* 콘텐츠 */ }
                 .scrollEdgeEffectStyle(.hard, for: .top)
                 .toolbarBackground(.thickMaterial, for: .navigationBar)
                 .toolbarBackgroundVisibility(.visible, for: .navigationBar)
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { ScrollEdgeDemoScreen(style: .hardThick) },
 
         EntryDemo(
             "s4",
             hints: [
-                "효과가 없습니다, 콘텐츠가 **아무 처리 없이** 바 밑을 그대로 지나갑니다.",
-                "배경을 **사진**으로 바꾸고 밝은 부분이 버튼 뒤로 지나가게 해보세요. 무엇이 문제인지 바로 보입니다.",
-                "쓸 수 있는 경우는 콘텐츠가 바 아래로 절대 지나가지 않을 때뿐입니다.",
+                String(localized: "효과가 없습니다, 콘텐츠가 **아무 처리 없이** 바 밑을 그대로 지나갑니다."),
+                String(localized: "배경을 **사진**으로 바꾸고 밝은 부분이 버튼 뒤로 지나가게 해보세요. 무엇이 문제인지 바로 보입니다."),
+                String(localized: "쓸 수 있는 경우는 콘텐츠가 바 아래로 절대 지나가지 않을 때뿐입니다."),
             ],
-            code: """
+            code: String(localized: """
             ScrollView { /* 콘텐츠 */ }
                 .scrollEdgeEffectHidden(true, for: .top)
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { ScrollEdgeDemoScreen(style: .hidden) },
     ]
 }
@@ -75,14 +75,14 @@ private struct ScrollEdgeDemoScreen: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 12) {
-                    DemoPicker(title: "배경", options: DemoBackdrop.allCases, label: \.rawValue, selection: $backdrop)
+                    DemoPicker(title: String(localized: "배경"), options: DemoBackdrop.allCases, label: backdropTitle, selection: $backdrop)
                         .demoChromeSafe()
                         .foregroundStyle(backdrop.contentColor)
                         .padding(.horizontal, 16)
 
                     if backdrop == .photo {
                         // 사진이 바 밑을 그대로 지나가야 밝은 면에서 버튼이 흐려지는 순간이 보인다.
-                        DemoPhotoGrid(count: 36) { log.tap("사진 \($0 + 1)") }
+                        DemoPhotoGrid(count: 36) { log.tap(String(localized: "사진 \($0 + 1)")) }
                     } else {
                         LazyVStack(spacing: 10) {
                             ForEach(0..<18, id: \.self) { i in
@@ -100,8 +100,8 @@ private struct ScrollEdgeDemoScreen: View {
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button("공유", systemImage: "square.and.arrow.up") { log.tap("공유") }
-                    Button("선택", systemImage: "checkmark.circle") { log.tap("선택 모드") }
+                    Button("공유", systemImage: "square.and.arrow.up") { log.tap(String(localized: "공유")) }
+                    Button("선택", systemImage: "checkmark.circle") { log.tap(String(localized: "선택 모드")) }
                 }
             }
             .modifier(EdgeStyleModifier(style: style))
@@ -153,5 +153,14 @@ private struct EdgeStyleModifier: ViewModifier {
         case .hidden:
             content.scrollEdgeEffectHidden(true, for: .top)
         }
+    }
+}
+
+/// 배경 전환기의 화면 표시 이름. rawValue 는 식별용이라 그대로 두고 표시만 번역한다.
+private func backdropTitle(_ backdrop: DemoBackdrop) -> String {
+    switch backdrop {
+    case .dark:  String(localized: "어두운 단색")
+    case .photo: String(localized: "사진")
+    case .white: String(localized: "흰 배경")
     }
 }

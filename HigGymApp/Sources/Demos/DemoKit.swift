@@ -16,18 +16,18 @@ struct DemoMail: Identifiable, Hashable {
 
 enum DemoData {
     static let mail: [DemoMail] = [
-        .init(id: 0, sender: "김하늘", subject: "다음 주 스프린트 리뷰", preview: "화요일 오후 3시로 옮겨도 괜찮을까요? 회의실은 그대로 3층입니다.", time: "오전 9:41", unread: true),
-        .init(id: 1, sender: "App Store Connect", subject: "심사가 통과되었습니다", preview: "버전 2.4.0 이 App Store 에 게시되었습니다.", time: "오전 8:12", unread: true),
-        .init(id: 2, sender: "박도윤", subject: "디자인 시안 v3", preview: "툴바 아이템을 네 개에서 두 개로 줄였습니다. 나머지는 오버플로로 접었어요.", time: "어제", unread: false),
-        .init(id: 3, sender: "이서연", subject: "Re: 접근성 점검 결과", preview: "Dynamic Type 최대 크기에서 하단 바 라벨이 잘립니다.", time: "어제", unread: false),
-        .init(id: 4, sender: "정민준", subject: "주간 보고", preview: "이번 주 크래시율 0.12%, 지난주 대비 0.04%p 개선.", time: "화요일", unread: false),
-        .init(id: 5, sender: "TestFlight", subject: "새 빌드를 테스트할 수 있습니다", preview: "빌드 118 이 배포되었습니다.", time: "화요일", unread: false),
-        .init(id: 6, sender: "최지우", subject: "사진 정리 부탁드려요", preview: "지난 워크숍 사진 중에서 열 장만 골라주시면 됩니다.", time: "월요일", unread: false),
-        .init(id: 7, sender: "한소율", subject: "계약서 검토 완료", preview: "3조 2항만 문구를 다듬었습니다. 확인 후 회신 주세요.", time: "월요일", unread: false),
-        .init(id: 8, sender: "강태민", subject: "라이브러리 업데이트", preview: "iOS 26 대응 브랜치를 main 에 머지했습니다.", time: "지난주", unread: false),
-        .init(id: 9, sender: "윤채원", subject: "점심 어때요", preview: "1층에 새로 생긴 곳 가보실 분?", time: "지난주", unread: false),
-        .init(id: 10, sender: "오세훈", subject: "분기 목표 정리", preview: "OKR 초안입니다. 코멘트 남겨주세요.", time: "지난주", unread: false),
-        .init(id: 11, sender: "배수아", subject: "새 폰트 라이선스", preview: "본문용 서체 계약이 갱신되었습니다.", time: "지난달", unread: false),
+        .init(id: 0, sender: String(localized: "김하늘"), subject: String(localized: "다음 주 스프린트 리뷰"), preview: String(localized: "화요일 오후 3시로 옮겨도 괜찮을까요? 회의실은 그대로 3층입니다."), time: String(localized: "오전 9:41"), unread: true),
+        .init(id: 1, sender: "App Store Connect", subject: String(localized: "심사가 통과되었습니다"), preview: String(localized: "버전 2.4.0 이 App Store 에 게시되었습니다."), time: String(localized: "오전 8:12"), unread: true),
+        .init(id: 2, sender: String(localized: "박도윤"), subject: String(localized: "디자인 시안 v3"), preview: String(localized: "툴바 아이템을 네 개에서 두 개로 줄였습니다. 나머지는 오버플로로 접었어요."), time: String(localized: "어제"), unread: false),
+        .init(id: 3, sender: String(localized: "이서연"), subject: String(localized: "Re: 접근성 점검 결과"), preview: String(localized: "Dynamic Type 최대 크기에서 하단 바 라벨이 잘립니다."), time: String(localized: "어제"), unread: false),
+        .init(id: 4, sender: String(localized: "정민준"), subject: String(localized: "주간 보고"), preview: String(localized: "이번 주 크래시율 0.12%, 지난주 대비 0.04%p 개선."), time: String(localized: "화요일"), unread: false),
+        .init(id: 5, sender: "TestFlight", subject: String(localized: "새 빌드를 테스트할 수 있습니다"), preview: String(localized: "빌드 118 이 배포되었습니다."), time: String(localized: "화요일"), unread: false),
+        .init(id: 6, sender: String(localized: "최지우"), subject: String(localized: "사진 정리 부탁드려요"), preview: String(localized: "지난 워크숍 사진 중에서 열 장만 골라주시면 됩니다."), time: String(localized: "월요일"), unread: false),
+        .init(id: 7, sender: String(localized: "한소율"), subject: String(localized: "계약서 검토 완료"), preview: String(localized: "3조 2항만 문구를 다듬었습니다. 확인 후 회신 주세요."), time: String(localized: "월요일"), unread: false),
+        .init(id: 8, sender: String(localized: "강태민"), subject: String(localized: "라이브러리 업데이트"), preview: String(localized: "iOS 26 대응 브랜치를 main 에 머지했습니다."), time: String(localized: "지난주"), unread: false),
+        .init(id: 9, sender: String(localized: "윤채원"), subject: String(localized: "점심 어때요"), preview: String(localized: "1층에 새로 생긴 곳 가보실 분?"), time: String(localized: "지난주"), unread: false),
+        .init(id: 10, sender: String(localized: "오세훈"), subject: String(localized: "분기 목표 정리"), preview: String(localized: "OKR 초안입니다. 코멘트 남겨주세요."), time: String(localized: "지난주"), unread: false),
+        .init(id: 11, sender: String(localized: "배수아"), subject: String(localized: "새 폰트 라이선스"), preview: String(localized: "본문용 서체 계약이 갱신되었습니다."), time: String(localized: "지난달"), unread: false),
     ]
 
     /// 사진 격자 - zoom 전환·그리드 전환·재료 뒤 배경으로 두루 쓴다.
@@ -36,69 +36,69 @@ enum DemoData {
         .indigo, .red, .mint, .yellow, .cyan, .brown,
     ]
 
-    static let longText = "가장자리 효과는 스크롤되는 콘텐츠와 떠 있는 컨트롤이 만나는 지점을 어떻게 처리할지에 대한 계약입니다. 콘텐츠가 유리 아래로 지나갈 때 글자가 컨트롤과 겹쳐 읽히지 않는 순간을 막는 것이 목적이며, 배경이 밝을수록 더 강한 처리가 필요합니다."
+    static let longText = String(localized: "가장자리 효과는 스크롤되는 콘텐츠와 떠 있는 컨트롤이 만나는 지점을 어떻게 처리할지에 대한 계약입니다. 콘텐츠가 유리 아래로 지나갈 때 글자가 컨트롤과 겹쳐 읽히지 않는 순간을 막는 것이 목적이며, 배경이 밝을수록 더 강한 처리가 필요합니다.")
 
-    static let longTitle = "2026년 3분기 사용자 인터페이스 개선 계획서 최종본"
+    static let longTitle = String(localized: "2026년 3분기 사용자 인터페이스 개선 계획서 최종본")
 
     static let filePath = "/Users/designer/Documents/Projects/2026/Design/Toolbar/Specification.pdf"
 
     /// 사진 앨범 - 카드·행 목록이 "항목 1, 2, 3" 대신 쓰는 표본. 순서대로 돌려 쓰도록 `album(_:)` 로 꺼낸다.
     static let albums: [DemoAlbum] = [
-        .init(name: "제주 여름휴가", detail: "사진 128장 · 8월 12일"),
-        .init(name: "성수동 카페 투어", detail: "사진 36장 · 9월 3일"),
-        .init(name: "봄 벚꽃 산책", detail: "사진 54장 · 4월 6일"),
-        .init(name: "팀 워크숍 가평", detail: "사진 212장 · 6월 20일"),
-        .init(name: "우리 집 고양이 보리", detail: "사진 431장 · 어제"),
-        .init(name: "부산 해운대 일출", detail: "사진 19장 · 1월 1일"),
-        .init(name: "을지로 필름 사진", detail: "사진 72장 · 5월 18일"),
-        .init(name: "강릉 바다 드라이브", detail: "사진 45장 · 7월 27일"),
-        .init(name: "엄마 생신 저녁", detail: "사진 23장 · 3월 9일"),
-        .init(name: "한강 야경", detail: "사진 61장 · 8월 30일"),
-        .init(name: "교토 단풍 여행", detail: "사진 187장 · 지난해 11월"),
-        .init(name: "스크린샷", detail: "사진 956장 · 오늘"),
-        .init(name: "북한산 등산", detail: "사진 28장 · 10월 2일"),
-        .init(name: "주말 베이킹 기록", detail: "사진 40장 · 9월 21일"),
-        .init(name: "전주 한옥마을", detail: "사진 66장 · 2월 11일"),
-        .init(name: "즐겨찾는 항목", detail: "사진 88장 · 지난주"),
+        .init(name: String(localized: "제주 여름휴가"), detail: String(localized: "사진 128장 · 8월 12일")),
+        .init(name: String(localized: "성수동 카페 투어"), detail: String(localized: "사진 36장 · 9월 3일")),
+        .init(name: String(localized: "봄 벚꽃 산책"), detail: String(localized: "사진 54장 · 4월 6일")),
+        .init(name: String(localized: "팀 워크숍 가평"), detail: String(localized: "사진 212장 · 6월 20일")),
+        .init(name: String(localized: "우리 집 고양이 보리"), detail: String(localized: "사진 431장 · 어제")),
+        .init(name: String(localized: "부산 해운대 일출"), detail: String(localized: "사진 19장 · 1월 1일")),
+        .init(name: String(localized: "을지로 필름 사진"), detail: String(localized: "사진 72장 · 5월 18일")),
+        .init(name: String(localized: "강릉 바다 드라이브"), detail: String(localized: "사진 45장 · 7월 27일")),
+        .init(name: String(localized: "엄마 생신 저녁"), detail: String(localized: "사진 23장 · 3월 9일")),
+        .init(name: String(localized: "한강 야경"), detail: String(localized: "사진 61장 · 8월 30일")),
+        .init(name: String(localized: "교토 단풍 여행"), detail: String(localized: "사진 187장 · 지난해 11월")),
+        .init(name: String(localized: "스크린샷"), detail: String(localized: "사진 956장 · 오늘")),
+        .init(name: String(localized: "북한산 등산"), detail: String(localized: "사진 28장 · 10월 2일")),
+        .init(name: String(localized: "주말 베이킹 기록"), detail: String(localized: "사진 40장 · 9월 21일")),
+        .init(name: String(localized: "전주 한옥마을"), detail: String(localized: "사진 66장 · 2월 11일")),
+        .init(name: String(localized: "즐겨찾는 항목"), detail: String(localized: "사진 88장 · 지난주")),
     ]
 
     static func album(_ i: Int) -> DemoAlbum { albums[i % albums.count] }
 
     /// 메모 제목 - 짧은 카드 머리글로 쓴다.
     static let noteTitles = [
-        "3분기 회고 메모", "이사 준비 체크리스트", "읽고 싶은 책", "주간 장보기",
-        "여행 짐 목록", "운동 루틴 정리", "선물 아이디어", "회의록 · 디자인 리뷰",
+        String(localized: "3분기 회고 메모"), String(localized: "이사 준비 체크리스트"), String(localized: "읽고 싶은 책"), String(localized: "주간 장보기"),
+        String(localized: "여행 짐 목록"), String(localized: "운동 루틴 정리"), String(localized: "선물 아이디어"), String(localized: "회의록 · 디자인 리뷰"),
     ]
 
     /// 설정 화면처럼 보이는 옵션 행.
     static let settingRows = [
-        "알림", "공유 대상", "사진 보관 방식", "iCloud 동기화", "앨범 정렬",
-        "추억 추천", "위치 정보 포함", "셀룰러 데이터 사용", "숨겨진 앨범 표시",
-        "Face ID로 잠그기", "저장 공간 관리", "도움말",
+        String(localized: "알림"), String(localized: "공유 대상"), String(localized: "사진 보관 방식"), String(localized: "iCloud 동기화"), String(localized: "앨범 정렬"),
+        String(localized: "추억 추천"), String(localized: "위치 정보 포함"), String(localized: "셀룰러 데이터 사용"), String(localized: "숨겨진 앨범 표시"),
+        String(localized: "Face ID로 잠그기"), String(localized: "저장 공간 관리"), String(localized: "도움말"),
     ]
 
     /// 문서 상세 화면의 본문 줄 - 회의록 한 편.
     static let meetingNotes = [
-        "참석: 김하늘, 박도윤, 이서연, 정민준",
-        "안건 1. 하단 툴바 아이템 정리",
-        "작성 버튼을 오른쪽 아래로 옮기기로 결정했습니다.",
-        "보관·삭제는 더보기 메뉴 안으로 넣습니다.",
-        "안건 2. 탭바 구성",
-        "탭은 홈, 탐색, 보관함, 알림 네 개로 줄입니다.",
-        "설정은 프로필 화면 안으로 옮깁니다.",
-        "안건 3. 접근성 점검",
-        "가장 큰 글씨에서 하단 바 라벨이 잘리는 문제가 있습니다.",
-        "라벨을 줄이지 않고 아이콘만 남기는 방식을 검토합니다.",
-        "안건 4. 다크 모드 대비",
-        "사진 위 버튼은 가장자리 효과를 켜서 대비를 확보합니다.",
-        "안건 5. 출시 일정",
-        "TestFlight 빌드는 목요일에 배포합니다.",
-        "심사 제출은 다음 주 월요일로 잡습니다.",
-        "할 일 · 박도윤: 툴바 시안 v4",
-        "할 일 · 이서연: Dynamic Type 재점검",
-        "할 일 · 정민준: 크래시 리포트 정리",
-        "다음 회의: 목요일 오후 2시, 3층 회의실",
-        "작성: 김하늘",
+        String(localized: "참석: 김하늘, 박도윤, 이서연, 정민준"),
+        String(localized: "안건 1. 하단 툴바 아이템 정리"),
+        String(localized: "작성 버튼을 오른쪽 아래로 옮기기로 결정했습니다."),
+        String(localized: "보관·삭제는 더보기 메뉴 안으로 넣습니다."),
+        String(localized: "안건 2. 탭바 구성"),
+        String(localized: "탭은 홈, 탐색, 보관함, 알림 네 개로 줄입니다."),
+        String(localized: "설정은 프로필 화면 안으로 옮깁니다."),
+        String(localized: "안건 3. 접근성 점검"),
+        String(localized: "가장 큰 글씨에서 하단 바 라벨이 잘리는 문제가 있습니다."),
+        String(localized: "라벨을 줄이지 않고 아이콘만 남기는 방식을 검토합니다."),
+        String(localized: "안건 4. 다크 모드 대비"),
+        String(localized: "사진 위 버튼은 가장자리 효과를 켜서 대비를 확보합니다."),
+        String(localized: "안건 5. 출시 일정"),
+        String(localized: "TestFlight 빌드는 목요일에 배포합니다."),
+        String(localized: "심사 제출은 다음 주 월요일로 잡습니다."),
+        String(localized: "할 일 · 박도윤: 툴바 시안 v4"),
+        String(localized: "할 일 · 이서연: Dynamic Type 재점검"),
+        String(localized: "할 일 · 정민준: 크래시 리포트 정리"),
+        String(localized: "다음 회의: 목요일 오후 2시, 3층 회의실"),
+        String(localized: "작성: 김하늘"),
     ]
 }
 
@@ -263,12 +263,21 @@ struct DemoPhoto: View {
 // 가장자리 효과·재료는 **뒤에 무엇이 있느냐**로 판정이 갈린다(1.3 · 6.1).
 // 그래서 배경을 바꿔볼 수 없는 데모는 반쪽짜리다.
 
-enum DemoBackdrop: String, CaseIterable, Identifiable {
-    case dark = "어두운 단색"
-    case photo = "사진"
-    case white = "흰 배경"
+enum DemoBackdrop: CaseIterable, Identifiable {
+    case dark
+    case photo
+    case white
 
-    var id: String { rawValue }
+    var id: Self { self }
+
+    /// 선택기에 보이는 이름. 호출부가 `label: \.rawValue` 로 꺼내 쓰므로 이름은 그대로 두고 번역만 입힌다.
+    var rawValue: String {
+        switch self {
+        case .dark:  String(localized: "어두운 단색")
+        case .photo: String(localized: "사진")
+        case .white: String(localized: "흰 배경")
+        }
+    }
 
     @ViewBuilder
     var view: some View {

@@ -55,16 +55,16 @@ struct QuizResultView: View {
 
     private var message: String {
         switch score {
-        case 1:         "전부 맞혔습니다. 다른 유형으로 넘어가 보세요."
-        case 0.7...:    "기준이 잡혀 있습니다. 틀린 항목만 실습으로 확인해보세요."
-        case 0.4..<0.7: "판단은 서지만 근거가 흔들립니다. 아래 항목의 본문을 다시 보세요."
-        default:        "괜찮습니다, 원칙 7개부터 다시 훑는 것을 권합니다."
+        case 1:         String(localized: "전부 맞혔습니다. 다른 유형으로 넘어가 보세요.")
+        case 0.7...:    String(localized: "기준이 잡혀 있습니다. 틀린 항목만 실습으로 확인해보세요.")
+        case 0.4..<0.7: String(localized: "판단은 서지만 근거가 흔들립니다. 아래 항목의 본문을 다시 보세요.")
+        default:        String(localized: "괜찮습니다, 원칙 7개부터 다시 훑는 것을 권합니다.")
         }
     }
 
     private var weakSpots: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionLabel("다시 볼 항목", accent: .hgRed)
+            SectionLabel(String(localized: "다시 볼 항목"), accent: .hgRed)
 
             ForEach(wrongResults, id: \.question.id) { result in
                 VStack(alignment: .leading, spacing: 8) {

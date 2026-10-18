@@ -157,7 +157,7 @@ struct LiveQuizPlayView: View {
             Button {
                 if answered { zoomed = option } else { withAnimation(.snappy(duration: 0.15)) { chosen = position } }
             } label: {
-                Label(answered ? "크게 보기" : option.label, systemImage: answered ? "arrow.up.left.and.arrow.down.right" : (picked ? "largecircle.fill.circle" : "circle"))
+                Label(answered ? String(localized: "크게 보기") : option.label, systemImage: answered ? "arrow.up.left.and.arrow.down.right" : (picked ? "largecircle.fill.circle" : "circle"))
                     .font(.footnote.weight(.semibold))
                     .foregroundStyle(answered ? .hgAccent : (picked ? .hgAccent : .hgMuted))
                     .frame(maxWidth: .infinity)

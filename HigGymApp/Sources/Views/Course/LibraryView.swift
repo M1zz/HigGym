@@ -69,8 +69,8 @@ struct LibraryView: View {
     }
 
     private func row(
-        _ destination: Destination, _ title: String, _ count: String,
-        _ subtitle: String, _ symbol: String, _ tint: Color
+        _ destination: Destination, _ title: LocalizedStringKey, _ count: LocalizedStringKey,
+        _ subtitle: LocalizedStringKey, _ symbol: String, _ tint: Color
     ) -> some View {
         Button { opened = destination } label: {
             HStack(spacing: 13) {

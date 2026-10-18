@@ -9,16 +9,16 @@ struct ToolbarLabView: View {
     private var diagnoses: [Diagnosis] { ToolbarDiagnostics.evaluate(config) }
 
     var body: some View {
-        LabScaffold(title: "툴바 배치 실험실", subtitle: "자리와 묶음의 문법을 직접 어겨보기") {
+        LabScaffold(title: String(localized: "툴바 배치 실험실"), subtitle: String(localized: "자리와 묶음의 문법을 직접 어겨보기")) {
                 LiveMockup(
                     nodes: MockupBuilder.toolbar(config),
-                    caption: "설정을 바꾸면 이 그림이 바로 다시 그려집니다, 문서의 프리뷰와 같은 언어",
+                    caption: String(localized: "설정을 바꾸면 이 그림이 바로 다시 그려집니다, 문서의 프리뷰와 같은 언어"),
                     selected: $selectedPart
                 )
 
                 RunStageCard(
-                    title: "실제 SwiftUI로도 확인하기",
-                    body_: "그림으로 배치를 잡았다면, 실행해서 시스템이 그리는 진짜 툴바와 대조해보세요."
+                    title: String(localized: "실제 SwiftUI로도 확인하기"),
+                    body_: String(localized: "그림으로 배치를 잡았다면, 실행해서 시스템이 그리는 진짜 툴바와 대조해보세요.")
                 ) { running = true }
 
                 presets
@@ -50,7 +50,7 @@ struct ToolbarLabView: View {
 
     private var presets: some View {
         VStack(alignment: .leading, spacing: 8) {
-            SectionLabel("먼저 눌러볼 것", accent: .hgAccent)
+            SectionLabel(String(localized: "먼저 눌러볼 것"), accent: .hgAccent)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
                     presetButton("액션 하나", "1.1.1", .hgGreen) {
@@ -95,7 +95,7 @@ struct ToolbarLabView: View {
     }
 
     private func presetButton(
-        _ title: String, _ source: String, _ tint: Color, _ make: @escaping () -> ToolbarConfig
+        _ title: LocalizedStringKey, _ source: String, _ tint: Color, _ make: @escaping () -> ToolbarConfig
     ) -> some View {
         Button {
             withAnimation(.snappy) { config = make() }
@@ -123,7 +123,7 @@ struct ToolbarLabView: View {
 
     private var slotEditors: some View {
         VStack(alignment: .leading, spacing: 10) {
-            SectionLabel("자리에 넣기", accent: .hgAccent)
+            SectionLabel(String(localized: "자리에 넣기"), accent: .hgAccent)
             Text("자리마다 원래 말하는 것이 있습니다, 그 문법과 어긋나면 아래 진단에 잡힙니다.")
                 .font(.footnote)
                 .foregroundStyle(.hgDim)
@@ -151,13 +151,13 @@ struct ToolbarLabView: View {
 
     private var titleAndSearch: some View {
         VStack(alignment: .leading, spacing: 12) {
-            SectionLabel("제목 표시 방식", accent: .hgAmber)
+            SectionLabel(String(localized: "제목 표시 방식"), accent: .hgAmber)
             Picker("제목", selection: $config.titleMode) {
                 ForEach(TitleMode.allCases) { Text($0.label).tag($0) }
             }
             .pickerStyle(.segmented)
 
-            SectionLabel("검색 배치", accent: .hgAmber)
+            SectionLabel(String(localized: "검색 배치"), accent: .hgAmber)
             Picker("검색", selection: $config.search) {
                 ForEach(SearchOption.allCases) { Text($0.label).tag($0) }
             }
@@ -170,7 +170,7 @@ struct ToolbarLabView: View {
     private var diagnosisSection: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
-                SectionLabel("실시간 판정", accent: .hgGreen)
+                SectionLabel(String(localized: "실시간 판정"), accent: .hgGreen)
                 Spacer()
                 Text("\(diagnoses.count)건")
                     .font(.system(.caption, design: .monospaced))
@@ -203,7 +203,7 @@ private struct SlotEditor: View {
                             withAnimation(.snappy) { config.toggle(spec, in: slot) }
                         } label: {
                             Label(
-                                "\(spec.name) · \(spec.role.label)\(spec.frequent ? " · 고빈도" : "")",
+                                menuTitle(for: spec),
                                 systemImage: assigned.contains(spec) ? "checkmark" : spec.symbol
                             )
                         }
@@ -230,6 +230,12 @@ private struct SlotEditor: View {
         .padding(12)
         .background(Color.hgCard, in: .rect(cornerRadius: 14))
         .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(Color.hgLine, lineWidth: 1))
+    }
+
+    private func menuTitle(for spec: ToolbarItemSpec) -> String {
+        spec.frequent
+            ? String(localized: "\(spec.name) · \(spec.role.label) · 고빈도")
+            : "\(spec.name) · \(spec.role.label)"
     }
 }
 
@@ -308,7 +314,7 @@ private struct ToolbarStage: View {
                 .toolbar {
                     if !config.isRoot {
                         ToolbarItem(placement: .topBarLeading) {
-                            Button("뒤로", systemImage: "chevron.backward") { log.tap("뒤로") }
+                            Button("뒤로", systemImage: "chevron.backward") { log.tap(String(localized: "뒤로")) }
                         }
                     }
                 }
@@ -386,10 +392,10 @@ private struct TitleModeModifier: ViewModifier {
             content
                 .toolbarTitleDisplayMode(.inline)
                 .toolbarTitleMenu {
-                    Button("이름 변경", systemImage: "pencil") { log.tap("이름 변경") }
-                    Button("폴더 전환", systemImage: "folder") { log.tap("폴더 전환") }
+                    Button("이름 변경", systemImage: "pencil") { log.tap(String(localized: "이름 변경")) }
+                    Button("폴더 전환", systemImage: "folder") { log.tap(String(localized: "폴더 전환")) }
                     Divider()
-                    Button("삭제", systemImage: "trash", role: .destructive) { log.tap("삭제") }
+                    Button("삭제", systemImage: "trash", role: .destructive) { log.tap(String(localized: "삭제")) }
                 }
         case .custom:
             content.toolbarTitleDisplayMode(.inline)

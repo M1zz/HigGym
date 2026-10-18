@@ -8,140 +8,140 @@ enum TabBarDemos {
         EntryDemo(
             "tb1",
             hints: [
-                "탭을 하나씩 눌러보세요, 아이콘과 한 단어 제목이 함께 있는 표준형입니다.",
-                "선택된 탭만 틴트로 강조됩니다. \"지금 어디에 있는가\"를 색으로 말합니다.",
-                "제목을 지운 형태(3.1.2)와 비교하면, 라벨이 있는 쪽이 처음 온 사람에게 얼마나 친절한지 보입니다.",
+                String(localized: "탭을 하나씩 눌러보세요, 아이콘과 한 단어 제목이 함께 있는 표준형입니다."),
+                String(localized: "선택된 탭만 틴트로 강조됩니다. \"지금 어디에 있는가\"를 색으로 말합니다."),
+                String(localized: "제목을 지운 형태(3.1.2)와 비교하면, 라벨이 있는 쪽이 처음 온 사람에게 얼마나 친절한지 보입니다."),
             ],
-            code: """
+            code: String(localized: """
             TabView {
                 Tab("홈", systemImage: "house") { HomeView() }
                 Tab("둘러보기", systemImage: "safari") { BrowseView() }
                 Tab("보관함", systemImage: "square.stack") { LibraryView() }
                 Tab("설정", systemImage: "gearshape") { SettingsView() }
             }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { TabDemoScreen(config: .init(count: 4)) },
 
         EntryDemo(
             "tb2",
             hints: [
-                "라벨이 없습니다. 아이콘만 보고 각 탭이 무엇일지 **맞혀보세요**.",
-                "3.1.1과 번갈아 열어보면, 라벨이 사라졌을 때 무엇을 잃는지 바로 느껴집니다.",
-                "누구나 아는 소수의 아이콘(홈·검색)에만 쓸 수 있는 형태입니다.",
+                String(localized: "라벨이 없습니다. 아이콘만 보고 각 탭이 무엇일지 **맞혀보세요**."),
+                String(localized: "3.1.1과 번갈아 열어보면, 라벨이 사라졌을 때 무엇을 잃는지 바로 느껴집니다."),
+                String(localized: "누구나 아는 소수의 아이콘(홈·검색)에만 쓸 수 있는 형태입니다."),
             ],
-            code: """
+            code: String(localized: """
             Tab(value: id) {
                 HomeView()
             } label: {
                 Image(systemName: "house")   // 라벨 없이 아이콘만
             }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { TabDemoScreen(config: .init(count: 4, iconOnly: true)) },
 
         EntryDemo(
             "tb3",
             hints: [
-                "첫 번째 탭 우상단의 **빨간 3**이 배지입니다.",
-                "그 탭에 들어가 목록의 항목을 눌러 읽으면 **배지 숫자가 실제로 줄어듭니다**.",
-                "0이 되면 배지가 사라집니다, 배지는 \"처리할 것이 남았다\"는 뜻이지 장식이 아닙니다.",
+                String(localized: "첫 번째 탭 우상단의 **빨간 3**이 배지입니다."),
+                String(localized: "그 탭에 들어가 목록의 항목을 눌러 읽으면 **배지 숫자가 실제로 줄어듭니다**."),
+                String(localized: "0이 되면 배지가 사라집니다, 배지는 \"처리할 것이 남았다\"는 뜻이지 장식이 아닙니다."),
             ],
-            code: """
+            code: String(localized: """
             Tab("알림", systemImage: "bell") { InboxView() }
                 .badge(unreadCount)   // 0 이면 자동으로 사라진다
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { TabDemoScreen(config: .init(count: 4, badge: .count)) },
 
         EntryDemo(
             "tb4",
             hints: [
-                "숫자 대신 **NEW** 라는 짧은 텍스트가 붙어 있습니다.",
-                "그 탭에 한 번 들어갔다 나오면 배지가 사라집니다, \"새 것\"은 한 번 보면 새 것이 아니니까요.",
-                "긴 문장을 넣으면 배지가 탭 라벨을 덮습니다. 두세 글자가 한계입니다.",
+                String(localized: "숫자 대신 **NEW** 라는 짧은 텍스트가 붙어 있습니다."),
+                String(localized: "그 탭에 한 번 들어갔다 나오면 배지가 사라집니다, \"새 것\"은 한 번 보면 새 것이 아니니까요."),
+                String(localized: "긴 문장을 넣으면 배지가 탭 라벨을 덮습니다. 두세 글자가 한계입니다."),
             ],
-            code: """
+            code: String(localized: """
             Tab("스토어", systemImage: "bag") { StoreView() }
                 .badge(hasNew ? Text("NEW") : nil)
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { TabDemoScreen(config: .init(count: 4, badge: .text)) },
 
         EntryDemo(
             "tc1",
             hints: [
-                "탭이 둘뿐입니다, 하단 바 전체를 두 목적지가 나눠 씁니다.",
-                "터치 타깃이 아주 넉넉합니다. 두 세계를 오가는 앱이라면 이 이상 필요하지 않습니다.",
-                "탭이 둘인데 한쪽을 거의 안 쓴다면, 그건 탭이 아니라 화면 안의 전환일 수 있습니다.",
+                String(localized: "탭이 둘뿐입니다, 하단 바 전체를 두 목적지가 나눠 씁니다."),
+                String(localized: "터치 타깃이 아주 넉넉합니다. 두 세계를 오가는 앱이라면 이 이상 필요하지 않습니다."),
+                String(localized: "탭이 둘인데 한쪽을 거의 안 쓴다면, 그건 탭이 아니라 화면 안의 전환일 수 있습니다."),
             ],
-            code: """
+            code: String(localized: """
             TabView {
                 Tab("홈", systemImage: "house") { HomeView() }
                 Tab("설정", systemImage: "gearshape") { SettingsView() }
             }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { TabDemoScreen(config: .init(count: 2)) },
 
         EntryDemo(
             "tc2",
             hints: [
-                "목록을 **아래로 스크롤**해 보세요, 탭바가 작게 접힙니다.",
-                "다시 위로 올리면 원래대로 펼쳐집니다. 읽는 동안엔 물러나고, 이동하려 하면 돌아옵니다.",
-                "접힌 상태에서도 탭은 그대로 눌립니다. 사라지는 게 아니라 **작아지는** 것입니다.",
+                String(localized: "목록을 **아래로 스크롤**해 보세요, 탭바가 작게 접힙니다."),
+                String(localized: "다시 위로 올리면 원래대로 펼쳐집니다. 읽는 동안엔 물러나고, 이동하려 하면 돌아옵니다."),
+                String(localized: "접힌 상태에서도 탭은 그대로 눌립니다. 사라지는 게 아니라 **작아지는** 것입니다."),
             ],
-            code: """
+            code: String(localized: """
             TabView { /* 탭 2개 */ }
                 .tabBarMinimizeBehavior(.onScrollDown)
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { TabDemoScreen(config: .init(count: 2, minimize: true)) },
 
         EntryDemo(
             "tc3",
             hints: [
-                "네 개, 대부분의 앱이 도달하는 균형점입니다. 눌러 옮겨 다녀 보세요.",
-                "라벨이 잘리지 않고, 손가락이 옆 탭을 건드리지도 않습니다.",
-                "6개(3.2.4)와 번갈아 열어보면 이 여유가 어디서 온 것인지 보입니다.",
+                String(localized: "네 개, 대부분의 앱이 도달하는 균형점입니다. 눌러 옮겨 다녀 보세요."),
+                String(localized: "라벨이 잘리지 않고, 손가락이 옆 탭을 건드리지도 않습니다."),
+                String(localized: "6개(3.2.4)와 번갈아 열어보면 이 여유가 어디서 온 것인지 보입니다."),
             ],
-            code: """
+            code: String(localized: """
             TabView {
                 Tab("홈", systemImage: "house") { … }
                 Tab("둘러보기", systemImage: "safari") { … }
                 Tab("보관함", systemImage: "square.stack") { … }
                 Tab("설정", systemImage: "gearshape") { … }
             }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { TabDemoScreen(config: .init(count: 4)) },
 
         EntryDemo(
             "tc4",
             hints: [
-                "탭 6개입니다. **라벨이 어떻게 되는지** 보세요, 줄어들거나 잘립니다.",
-                "가장 오른쪽 탭을 한 손으로 눌러보세요. 옆 탭을 잘못 누르지 않는지도요.",
-                "여기까지 왔다면 대개 정보 구조를 다시 짜야 한다는 신호입니다.",
+                String(localized: "탭 6개입니다. **라벨이 어떻게 되는지** 보세요, 줄어들거나 잘립니다."),
+                String(localized: "가장 오른쪽 탭을 한 손으로 눌러보세요. 옆 탭을 잘못 누르지 않는지도요."),
+                String(localized: "여기까지 왔다면 대개 정보 구조를 다시 짜야 한다는 신호입니다."),
             ],
-            code: """
+            code: String(localized: """
             TabView { /* 탭 6개, 표준 범위(3~5)를 넘어선 한계 케이스 */ }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { TabDemoScreen(config: .init(count: 6)) },
 
         EntryDemo(
             "tv1",
             hints: [
-                "목록에서 **상세 화면으로 들어가기**를 눌러 깊이 들어가 보세요.",
-                "탭바가 그대로 있습니다, 상세를 보다가도 다른 탭으로 바로 건너뛸 수 있습니다.",
-                "\"지금 어느 세계에 있는가\"가 계속 보이는 것이 기본 동작인 이유입니다.",
+                String(localized: "목록에서 **상세 화면으로 들어가기**를 눌러 깊이 들어가 보세요."),
+                String(localized: "탭바가 그대로 있습니다, 상세를 보다가도 다른 탭으로 바로 건너뛸 수 있습니다."),
+                String(localized: "\"지금 어느 세계에 있는가\"가 계속 보이는 것이 기본 동작인 이유입니다."),
             ],
-            code: """
+            code: String(localized: """
             NavigationStack {
                 List { NavigationLink("상세") { DetailView() } }
             }
             // 아무것도 하지 않으면 탭바는 계속 보인다
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { TabDemoScreen(config: .init(count: 4)) },
 
         EntryDemo(
             "tv2",
             hints: [
-                "상세 화면으로 들어가 보세요, 탭바가 **사라집니다**.",
-                "출구가 뒤로가기 하나뿐입니다. 몰입은 얻고 이동성은 잃습니다.",
-                "3.3.1과 번갈아 보며, 이 화면이 정말 몰입이 필요한 화면인지 스스로 물어보세요.",
+                String(localized: "상세 화면으로 들어가 보세요, 탭바가 **사라집니다**."),
+                String(localized: "출구가 뒤로가기 하나뿐입니다. 몰입은 얻고 이동성은 잃습니다."),
+                String(localized: "3.3.1과 번갈아 보며, 이 화면이 정말 몰입이 필요한 화면인지 스스로 물어보세요."),
             ],
             code: """
             DetailView()
@@ -152,110 +152,110 @@ enum TabBarDemos {
         EntryDemo(
             "ts1",
             hints: [
-                "검색이 **다른 탭과 나란히** 있습니다, 동급의 한 세계라는 선언입니다.",
-                "검색 탭에 들어가면 최근 검색·추천이 있는 별도의 화면입니다. 단순 필터가 아닙니다.",
-                "3.4.2(search role)와 비교해 보세요. 자리 하나가 의미를 바꿉니다.",
+                String(localized: "검색이 **다른 탭과 나란히** 있습니다, 동급의 한 세계라는 선언입니다."),
+                String(localized: "검색 탭에 들어가면 최근 검색·추천이 있는 별도의 화면입니다. 단순 필터가 아닙니다."),
+                String(localized: "3.4.2(search role)와 비교해 보세요. 자리 하나가 의미를 바꿉니다."),
             ],
-            code: """
+            code: String(localized: """
             TabView {
                 Tab("홈", systemImage: "house") { … }
                 Tab("검색", systemImage: "magnifyingglass") { SearchWorld() }
             }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { TabDemoScreen(config: .init(count: 3, search: .plainTab)) },
 
         EntryDemo(
             "ts2",
             hints: [
-                "오른쪽 끝 검색이 **다른 탭과 분리된 캡슐**로 떠 있습니다. 눌러보세요.",
-                "시스템이 검색임을 알고 자리를 따로 준 것입니다, 라벨이 아니라 role 이 만든 차이입니다.",
-                "검색 화면에서 실제로 걸러지는지 쳐보세요.",
+                String(localized: "오른쪽 끝 검색이 **다른 탭과 분리된 캡슐**로 떠 있습니다. 눌러보세요."),
+                String(localized: "시스템이 검색임을 알고 자리를 따로 준 것입니다, 라벨이 아니라 role 이 만든 차이입니다."),
+                String(localized: "검색 화면에서 실제로 걸러지는지 쳐보세요."),
             ],
-            code: """
+            code: String(localized: """
             TabView {
                 Tab("홈", systemImage: "house") { … }
                 Tab(role: .search) { SearchView() }
             }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { TabDemoScreen(config: .init(count: 3, search: .role)) },
 
         EntryDemo(
             "ts3",
             hints: [
-                "스크롤해 보세요, 탭바는 접히고 **검색 캡슐은 남습니다**.",
-                "접힌 상태에서 검색을 눌러보세요. 읽는 중에도 검색만은 한 손에 닿습니다.",
-                "무엇을 접고 무엇을 남길지, 시스템이 이미 정해둔 우선순위를 확인하는 항목입니다.",
+                String(localized: "스크롤해 보세요, 탭바는 접히고 **검색 캡슐은 남습니다**."),
+                String(localized: "접힌 상태에서 검색을 눌러보세요. 읽는 중에도 검색만은 한 손에 닿습니다."),
+                String(localized: "무엇을 접고 무엇을 남길지, 시스템이 이미 정해둔 우선순위를 확인하는 항목입니다."),
             ],
-            code: """
+            code: String(localized: """
             TabView {
                 Tab("홈", systemImage: "house") { … }
                 Tab(role: .search) { SearchView() }
             }
             .tabBarMinimizeBehavior(.onScrollDown)
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { TabDemoScreen(config: .init(count: 3, minimize: true, search: .role)) },
 
         EntryDemo(
             "ts4",
             hints: [
-                "지금 보이는 오른쪽 분리 캡슐은 **검색 role**로 만든 것입니다.",
-                "iOS 27의 `.prominent` 는 이 자리를 검색이 아닌 탭에도 열어줍니다, 예: \"만들기\".",
-                "그때 판단 기준은 하나입니다. 그 탭이 정말 **다른 탭들과 격이 다른가**.",
+                String(localized: "지금 보이는 오른쪽 분리 캡슐은 **검색 role**로 만든 것입니다."),
+                String(localized: "iOS 27의 `.prominent` 는 이 자리를 검색이 아닌 탭에도 열어줍니다, 예: \"만들기\"."),
+                String(localized: "그때 판단 기준은 하나입니다. 그 탭이 정말 **다른 탭들과 격이 다른가**."),
             ],
-            code: """
+            code: String(localized: """
             // iOS 27 (WWDC26) 예정 API
             TabView {
                 Tab("홈", systemImage: "house") { … }
                 Tab("만들기", systemImage: "plus", role: .prominent) { CreateView() }
             }
-            """,
-            note: "이 앱이 쓰는 iOS 26 SDK에는 `.prominent` 가 아직 없습니다. 그래서 여기서는 **같은 자리를 쓰는 `.search` role** 로 대신 보여줍니다, 자리와 분리 방식은 동일합니다."
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is."),
+            note: String(localized: "이 앱이 쓰는 iOS 26 SDK에는 `.prominent` 가 아직 없습니다. 그래서 여기서는 **같은 자리를 쓰는 `.search` role** 로 대신 보여줍니다, 자리와 분리 방식은 동일합니다.")
         ) { TabDemoScreen(config: .init(count: 3, search: .role, prominentNote: true)) },
 
         EntryDemo(
             "ta1",
             hints: [
-                "탭바 위에 **미니 플레이어**가 얹혀 있습니다. 재생 버튼을 눌러보세요, 실제로 상태가 바뀝니다.",
-                "탭을 옮겨 다녀도 재생 상태가 유지됩니다. 화면이 아니라 **앱 전체의 상태**이기 때문입니다.",
-                "액세서리를 눌러 확장 화면을 열어보세요.",
+                String(localized: "탭바 위에 **미니 플레이어**가 얹혀 있습니다. 재생 버튼을 눌러보세요, 실제로 상태가 바뀝니다."),
+                String(localized: "탭을 옮겨 다녀도 재생 상태가 유지됩니다. 화면이 아니라 **앱 전체의 상태**이기 때문입니다."),
+                String(localized: "액세서리를 눌러 확장 화면을 열어보세요."),
             ],
-            code: """
+            code: String(localized: """
             TabView { /* 탭 3개 */ }
                 .tabViewBottomAccessory {
                     MiniPlayer(isPlaying: $isPlaying)
                 }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { TabDemoScreen(config: .init(count: 3, accessory: true)) },
 
         EntryDemo(
             "ta2",
             hints: [
-                "스크롤해 보세요, 탭바가 접히면서 액세서리가 **그 자리로 내려앉습니다**.",
-                "접힌 상태에서도 재생·일시정지는 그대로 눌립니다. 기능을 잃지 않고 자리만 줄입니다.",
-                "다시 위로 올려 원래 배치로 돌아오는 것까지 확인해 보세요.",
+                String(localized: "스크롤해 보세요, 탭바가 접히면서 액세서리가 **그 자리로 내려앉습니다**."),
+                String(localized: "접힌 상태에서도 재생·일시정지는 그대로 눌립니다. 기능을 잃지 않고 자리만 줄입니다."),
+                String(localized: "다시 위로 올려 원래 배치로 돌아오는 것까지 확인해 보세요."),
             ],
-            code: """
+            code: String(localized: """
             TabView { /* 탭 3개 */ }
                 .tabViewBottomAccessory { MiniPlayer() }
                 .tabBarMinimizeBehavior(.onScrollDown)
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { TabDemoScreen(config: .init(count: 3, minimize: true, accessory: true)) },
 
         EntryDemo(
             "ta3",
             hints: [
-                "하단 시스템의 풀 구성입니다, 탭 + 검색 캡슐 + 액세서리 + 최소화.",
-                "스크롤하며 **네 요소가 각각 어떻게 반응하는지** 하나씩 눈으로 따라가 보세요.",
-                "여기까지 쌓았다면 하단은 포화 상태입니다. 더 넣을 자리는 없습니다.",
+                String(localized: "하단 시스템의 풀 구성입니다, 탭 + 검색 캡슐 + 액세서리 + 최소화."),
+                String(localized: "스크롤하며 **네 요소가 각각 어떻게 반응하는지** 하나씩 눈으로 따라가 보세요."),
+                String(localized: "여기까지 쌓았다면 하단은 포화 상태입니다. 더 넣을 자리는 없습니다."),
             ],
-            code: """
+            code: String(localized: """
             TabView {
                 Tab("홈", systemImage: "house") { … }
                 Tab(role: .search) { SearchView() }
             }
             .tabViewBottomAccessory { MiniPlayer() }
             .tabBarMinimizeBehavior(.onScrollDown)
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { TabDemoScreen(config: .init(count: 3, minimize: true, search: .role, accessory: true)) },
     ]
 }
@@ -288,7 +288,10 @@ private struct TabDemoScreen: View {
     @State private var expanded = false
     @State private var log = DemoLog()
 
-    private static let names = ["홈", "둘러보기", "보관함", "알림", "설정", "더보기"]
+    private static let names = [
+        String(localized: "홈"), String(localized: "둘러보기"), String(localized: "보관함"),
+        String(localized: "알림"), String(localized: "설정"), String(localized: "더보기"),
+    ]
     private static let symbols = ["house", "safari", "square.stack", "bell", "gearshape", "ellipsis"]
 
     var body: some View {
@@ -350,14 +353,14 @@ private struct TabDemoScreen: View {
             Group {
                 switch index % 6 {
                 case 1:
-                    ScrollView { DemoPhotoGrid(count: 36) { log.tap("사진 \($0 + 1) 열기") } }
+                    ScrollView { DemoPhotoGrid(count: 36) { log.tap(String(localized: "사진 \($0 + 1) 열기")) } }
                 case 4:
                     DemoSettingsPage()
                 default:
                     List {
                         if config.prominentNote {
                             Section {
-                                DemoNote(text: "오른쪽 끝 캡슐이 iOS 27 `.prominent` 가 노리는 **바로 그 자리**입니다. 지금은 `.search` role 로 대신 보여줍니다.", symbol: "sparkles")
+                                DemoNote(text: String(localized: "오른쪽 끝 캡슐이 iOS 27 `.prominent` 가 노리는 **바로 그 자리**입니다. 지금은 `.search` role 로 대신 보여줍니다."), symbol: "sparkles")
                                     .listRowInsets(.init(top: 6, leading: 12, bottom: 6, trailing: 12))
                             }
                         }
@@ -391,8 +394,8 @@ private struct TabDemoScreen: View {
         List {
             DemoNote(
                 text: config.hideOnDetail
-                    ? "탭바를 **숨겼습니다**, 뒤로가기가 유일한 출구입니다."
-                    : "탭바가 **유지됩니다**, 지금 어느 탭 안에 있는지가 계속 보이고, 바로 건너뛸 수 있습니다.",
+                    ? String(localized: "탭바를 **숨겼습니다**, 뒤로가기가 유일한 출구입니다.")
+                    : String(localized: "탭바가 **유지됩니다**, 지금 어느 탭 안에 있는지가 계속 보이고, 바로 건너뛸 수 있습니다."),
                 symbol: config.hideOnDetail ? "eye.slash" : "eye"
             )
             .listRowInsets(.init(top: 6, leading: 12, bottom: 6, trailing: 12))
@@ -429,20 +432,20 @@ private struct DemoSearchPage: View {
                 if query.isEmpty {
                     if asWorld {
                         Section("최근 검색") {
-                            ForEach(["디자인 시안", "스프린트", "TestFlight"], id: \.self) { term in
+                            ForEach([String(localized: "디자인 시안"), String(localized: "스프린트"), "TestFlight"], id: \.self) { term in
                                 Button { query = term } label: {
                                     Label(term, systemImage: "clock.arrow.circlepath")
                                 }
                             }
                         }
                         Section("추천") {
-                            ForEach(["읽지 않음", "첨부 있음", "지난 7일"], id: \.self) { term in
+                            ForEach([String(localized: "읽지 않음"), String(localized: "첨부 있음"), String(localized: "지난 7일")], id: \.self) { term in
                                 Label(term, systemImage: "sparkles")
                             }
                         }
                     } else {
                         Section {
-                            DemoNote(text: "검색어를 입력하면 목록이 좁혀집니다, **김 · 디자인 · 빌드**를 쳐보세요.")
+                            DemoNote(text: String(localized: "검색어를 입력하면 목록이 좁혀집니다, **김 · 디자인 · 빌드**를 쳐보세요."))
                                 .listRowInsets(.init(top: 6, leading: 12, bottom: 6, trailing: 12))
                         }
                     }

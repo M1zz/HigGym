@@ -6,21 +6,21 @@ enum LabID: String, Codable, CaseIterable, Identifiable, Sendable {
 
     var title: String {
         switch self {
-        case .toolbar:    "툴바 배치 실험실"
-        case .scrollEdge: "스크롤 엣지 이펙트"
-        case .text:       "텍스트 잘림·축소"
-        case .tabBar:     "탭바 구성"
-        case .sheet:      "시트 디텐트"
+        case .toolbar:    String(localized: "툴바 배치 실험실")
+        case .scrollEdge: String(localized: "스크롤 엣지 이펙트")
+        case .text:       String(localized: "텍스트 잘림·축소")
+        case .tabBar:     String(localized: "탭바 구성")
+        case .sheet:      String(localized: "시트 디텐트")
         }
     }
 
     var subtitle: String {
         switch self {
-        case .toolbar:    "자리와 묶음의 문법을 직접 어겨보기"
-        case .scrollEdge: "최악의 배경에서 컨트롤이 읽히는지"
-        case .text:       "잘려도 뜻이 통하는가"
-        case .tabBar:     "몇 개까지가 탭바인가"
-        case .sheet:      "얼마나 덮을 것인가"
+        case .toolbar:    String(localized: "자리와 묶음의 문법을 직접 어겨보기")
+        case .scrollEdge: String(localized: "최악의 배경에서 컨트롤이 읽히는지")
+        case .text:       String(localized: "잘려도 뜻이 통하는가")
+        case .tabBar:     String(localized: "몇 개까지가 탭바인가")
+        case .sheet:      String(localized: "얼마나 덮을 것인가")
         }
     }
 
@@ -56,10 +56,10 @@ struct Question: Identifiable, Hashable, Sendable {
 
         var label: String {
             switch self {
-            case .judgement:      "판별"
-            case .whenMatch:      "선택"
-            case .principleMatch: "원칙"
-            case .scenario:       "실무"
+            case .judgement:      String(localized: "판별")
+            case .whenMatch:      String(localized: "선택")
+            case .principleMatch: String(localized: "원칙")
+            case .scenario:       String(localized: "실무")
             }
         }
     }
@@ -136,19 +136,23 @@ struct QuizBank: Sendable {
                     let (headline, rationale) = PromptText.split(raw)
                     guard headline.count > 6 else { continue }
                     let basis = entry.criterion.isEmpty ? entry.why : entry.criterion
-                    var explanation = isGood
-                        ? "적절합니다. \(rationale ?? "")"
-                        : "부적절합니다. \(rationale ?? "")"
-                    explanation = explanation.trimmingCharacters(in: .whitespaces)
-                    explanation += "\n\n**기준**, \(PromptText.stripCrossReferences(basis))"
+                    let verdict = (isGood
+                        ? String(localized: "적절합니다. \(rationale ?? "")")
+                        : String(localized: "부적절합니다. \(rationale ?? "")"))
+                        .trimmingCharacters(in: .whitespaces)
+                    let criterion = PromptText.stripCrossReferences(basis)
+                    let explanation = String(localized: "\(verdict)\n\n**기준**, \(criterion)")
+                    let context = entry.chapter == 8
+                        ? entry.title
+                        : String(localized: "\(entry.sectionTitle) · \(entry.title)")
 
                     out.append(
                         Question(
                             id: "judge-\(entry.id)-\(isGood ? "ok" : "ng")-\(i)",
                             kind: .judgement,
-                            prompt: "\(entry.chapter == 8 ? entry.title : "\(entry.sectionTitle) · \(entry.title)")\n이 설계 판단은 적절한가요?",
+                            prompt: String(localized: "\(context)\n이 설계 판단은 적절한가요?"),
                             subject: headline,
-                            options: ["적절하다", "부적절하다"],
+                            options: [String(localized: "적절하다"), String(localized: "부적절하다")],
                             answerIndex: isGood ? 0 : 1,
                             explanation: explanation,
                             sourceIndex: entry.index,
@@ -177,12 +181,12 @@ struct QuizBank: Sendable {
                 Question(
                     id: "when-\(entry.id)",
                     kind: .whenMatch,
-                    prompt: "다음 상황에 맞는 것은? (\(entry.chapterTitle) · \(entry.sectionTitle))",
+                    prompt: String(localized: "다음 상황에 맞는 것은? (\(entry.chapterTitle) · \(entry.sectionTitle))"),
                     subject: PromptText.mask(entry.when, term: entry.title),
                     options: choices.map(\.title),
                     optionSources: choices.map(\.index),
                     answerIndex: answerIndex,
-                    explanation: "**\(entry.title)**, \(entry.summary)\n\n**왜**, \(entry.why)",
+                    explanation: String(localized: "**\(entry.title)**, \(entry.summary)\n\n**왜**, \(entry.why)"),
                     sourceIndex: entry.index,
                     sourceTitle: entry.title,
                     lab: LabID.forSection(entry.section)
@@ -213,11 +217,11 @@ struct QuizBank: Sendable {
                     Question(
                         id: "prin-\(principle.id)-\(i)",
                         kind: .principleMatch,
-                        prompt: "이 설계는 어떤 원칙을 어겼나요?",
+                        prompt: String(localized: "이 설계는 어떤 원칙을 어겼나요?"),
                         subject: headline,
                         options: options,
                         answerIndex: answerIndex,
-                        explanation: "\(rationale ?? "")\n\n**기준**, \(PromptText.stripCrossReferences(principle.criterion))"
+                        explanation: String(localized: "\(rationale ?? "")\n\n**기준**, \(PromptText.stripCrossReferences(principle.criterion))")
                             .trimmingCharacters(in: .whitespacesAndNewlines),
                         sourceIndex: principle.index,
                         sourceTitle: principle.title,

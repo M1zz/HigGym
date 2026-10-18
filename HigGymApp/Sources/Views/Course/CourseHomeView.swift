@@ -16,7 +16,7 @@ struct CourseHomeView: View {
                     intro
                     resumeCard
 
-                    SectionLabel("\(Lesson.all.count)편", accent: .hgAccent)
+                    SectionLabel(String(localized: "\(Lesson.all.count)편"), accent: .hgAccent)
                     ForEach(Lesson.all) { lesson in
                         LessonRow(lesson: lesson, note: notebook.note(for: lesson)) {
                             playing = lesson
@@ -127,9 +127,9 @@ struct CourseHomeView: View {
     private func resumeTitle(done: Int, next: Lesson) -> String {
         let step = notebook.resumeStep(for: next)
         if step > 0, let name = LessonPlayerView.Step(rawValue: step)?.title {
-            return "이어서 하기 · \(name)부터"
+            return String(localized: "이어서 하기 · \(name)부터")
         }
-        return done == 0 && next.id == Lesson.all.first?.id ? "1편부터 시작하기" : "이어서 하기"
+        return done == 0 && next.id == Lesson.all.first?.id ? String(localized: "1편부터 시작하기") : String(localized: "이어서 하기")
     }
 
     private var footnote: some View {
@@ -146,8 +146,8 @@ private struct LessonRow: View {
     let action: () -> Void
 
     private var state: (label: String, color: Color, symbol: String) {
-        if note.isCompleted { return ("마침", .hgGreen, "checkmark.circle.fill") }
-        if !note.isEmpty { return ("쓰는 중", .hgAmber, "ellipsis.circle.fill") }
+        if note.isCompleted { return (String(localized: "마침"), .hgGreen, "checkmark.circle.fill") }
+        if !note.isEmpty { return (String(localized: "쓰는 중"), .hgAmber, "ellipsis.circle.fill") }
         return ("", .hgDim, "circle")
     }
 

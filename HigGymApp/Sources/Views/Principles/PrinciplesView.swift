@@ -123,7 +123,7 @@ struct PrincipleDetailView: View {
                     MarkdownText(raw: principle.summary, font: .subheadline, color: .hgMuted)
                 }
 
-                block("기준", principle.criterion, .hgAmber, "scope")
+                block(String(localized: "기준"), principle.criterion, .hgAmber, "scope")
 
                 // 원칙은 어겼을 때와 지켰을 때를 나란히 만져봐야 몸에 남는다.
                 if let demo {
@@ -131,10 +131,10 @@ struct PrincipleDetailView: View {
                 }
 
                 if !principle.good.isEmpty {
-                    examples("기준을 통과한 예", principle.good, .hgGreen, "checkmark.circle.fill")
+                    examples(String(localized: "기준을 통과한 예"), principle.good, .hgGreen, "checkmark.circle.fill")
                 }
                 if !principle.bad.isEmpty {
-                    examples("기준을 위반한 예", principle.bad, .hgRed, "xmark.octagon.fill")
+                    examples(String(localized: "기준을 위반한 예"), principle.bad, .hgRed, "xmark.octagon.fill")
                 }
 
                 if !mistakes.isEmpty {

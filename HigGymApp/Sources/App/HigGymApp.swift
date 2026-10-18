@@ -15,6 +15,9 @@ struct HigGymApp: App {
         // 크래시 진단 · 원격 킬스위치(→ HigGymFlags.swift) · DEBUG 프리플라이트.
         // 통계·진단·플래그는 FeedbackHub(CloudKit)를 쓴다, 그 iCloud 컨테이너 권한은 HigGymApp/HigGym.entitlements 에 있다.
         LeeoKit.bootstrap(HigGymSpec.self, flags: HigGymFlag.self)
+        #if DEBUG
+        Self.logContractAudit()
+        #endif
 
         let notebook = NotebookStore()
         // 세이프 모드: 연속으로 죽었다면 가장 의심스러운 두 가지를 건너뛴다.
@@ -33,6 +36,26 @@ struct HigGymApp: App {
         }
         HigGymFunnel.reach(.firstOpen)
     }
+
+    #if DEBUG
+    /// 부트스트랩의 감사는 Xcode 콘솔에만 찍힌다. 기기에서 Xcode 없이 띄운 개발 빌드(시연 · 촬영)에서도
+    /// 계약 문제가 보이도록 같은 감사 결과를 통합 로그(launch)에 남긴다. 출시를 막는 것은 단위 시험이다.
+    private static func logContractAudit() {
+        let issues = LeeoPreflight.audit(HigGymSpec.self)
+        guard !issues.isEmpty else {
+            HigGymLog.launch.info("LeeoPreflight: 계약 문제 없음")
+            return
+        }
+        for issue in issues {
+            let line = "LeeoPreflight \(issue.severity.symbol) [\(issue.code)] \(issue.message)"
+            if issue.severity == .error {
+                HigGymLog.launch.error("\(line, privacy: .public)")
+            } else {
+                HigGymLog.launch.warning("\(line, privacy: .public)")
+            }
+        }
+    }
+    #endif
 
     var body: some Scene {
         WindowGroup {

@@ -67,7 +67,9 @@ struct SettingsView: View {
 
     /// 개발자 메일 - 받는 사람과 제목을 채워 메일 앱을 연다.
     private static var mailURL: URL? {
-        let subject = "[\(HigGymSpec.appName)] 문의"
+        // appName 은 LeeoKit 이 쓰는 식별자라 한국어 그대로다. 제목에는 기기 언어의 표시 이름을 쓴다.
+        let name = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? HigGymSpec.appName
+        let subject = String(localized: "[\(name)] 문의")
             .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         return URL(string: "mailto:\(HigGymSpec.developerEmail)?subject=\(subject)")
     }

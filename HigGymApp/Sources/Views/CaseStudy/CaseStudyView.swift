@@ -17,59 +17,59 @@ struct NoteAppDecision: Identifiable, Hashable {
 
     static let all: [NoteAppDecision] = [
         .init(
-            knob: .compose, place: "화면 아래 오른쪽 · 새 노트",
-            decision: "이 화면에서 가장 자주 하는 일을 하단 오른쪽 끝에 뒀다.",
-            why: "빈도가 높을수록 엄지에 가깝게. 목록 화면에서 반복되는 액션은 새 노트 하나뿐이라 그 자리를 그것에 줬다.",
-            ifFlipped: "상단으로 올리면 누를 때마다 기기를 고쳐 쥐게 되고, 그만큼 덜 쓰인다.",
+            knob: .compose, place: String(localized: "화면 아래 오른쪽 · 새 노트"),
+            decision: String(localized: "이 화면에서 가장 자주 하는 일을 하단 오른쪽 끝에 뒀다."),
+            why: String(localized: "빈도가 높을수록 엄지에 가깝게. 목록 화면에서 반복되는 액션은 새 노트 하나뿐이라 그 자리를 그것에 줬다."),
+            ifFlipped: String(localized: "상단으로 올리면 누를 때마다 기기를 고쳐 쥐게 되고, 그만큼 덜 쓰인다."),
             sources: ["1.1.4", "8.1.2"]
         ),
         .init(
-            knob: .deletion, place: "목록의 행 · 왼쪽으로 밀기",
-            decision: "삭제를 툴바가 아니라 행 위에 뒀다.",
-            why: "액션은 대상 위에 있어야 무엇을 지우는지가 분명하다. 미는 동작이 한 단계 역할을 해서 오탭도 막는다.",
-            ifFlipped: "하단 바에 삭제를 단독으로 두면 엄지가 지나가다 눌러 되돌릴 수 없는 일이 벌어진다.",
+            knob: .deletion, place: String(localized: "목록의 행 · 왼쪽으로 밀기"),
+            decision: String(localized: "삭제를 툴바가 아니라 행 위에 뒀다."),
+            why: String(localized: "액션은 대상 위에 있어야 무엇을 지우는지가 분명하다. 미는 동작이 한 단계 역할을 해서 오탭도 막는다."),
+            ifFlipped: String(localized: "하단 바에 삭제를 단독으로 두면 엄지가 지나가다 눌러 되돌릴 수 없는 일이 벌어진다."),
             sources: ["8.1.7", "1.1.4"]
         ),
         .init(
-            knob: .grouping, place: "오른쪽 위 · 편집",
-            decision: "상단에는 확정 액션 하나만 남기고 도구는 넣지 않았다.",
-            why: "한 캡슐에 든 것들은 한 세트로 읽힌다. 성격이 다른 것을 섞지 않으려면 애초에 자리를 나눈다.",
-            ifFlipped: "삭제·정렬·편집을 한 캡슐에 묶으면 삭제가 도구처럼 보여 잘못 눌린다.",
+            knob: .grouping, place: String(localized: "오른쪽 위 · 편집"),
+            decision: String(localized: "상단에는 확정 액션 하나만 남기고 도구는 넣지 않았다."),
+            why: String(localized: "한 캡슐에 든 것들은 한 세트로 읽힌다. 성격이 다른 것을 섞지 않으려면 애초에 자리를 나눈다."),
+            ifFlipped: String(localized: "삭제·정렬·편집을 한 캡슐에 묶으면 삭제가 도구처럼 보여 잘못 눌린다."),
             sources: ["1.1.2", "8.1.3"]
         ),
         .init(
-            knob: .title, place: "제목 · 노트 ⌄",
-            decision: "폴더 전환을 제목 자체에 붙였다.",
-            why: "제목이 곧 \"지금 무엇을 보고 있는가\"이므로, 그것을 바꾸는 액션은 제목 위에 있는 게 맞다.",
-            ifFlipped: "별도 폴더 버튼을 만들면 대상과 액션이 떨어져 사용자가 둘을 머릿속에서 이어야 한다.",
+            knob: .title, place: String(localized: "제목 · 노트 ⌄"),
+            decision: String(localized: "폴더 전환을 제목 자체에 붙였다."),
+            why: String(localized: "제목이 곧 \"지금 무엇을 보고 있는가\"이므로, 그것을 바꾸는 액션은 제목 위에 있는 게 맞다."),
+            ifFlipped: String(localized: "별도 폴더 버튼을 만들면 대상과 액션이 떨어져 사용자가 둘을 머릿속에서 이어야 한다."),
             sources: ["1.2.5", "8.1.7"]
         ),
         .init(
-            knob: .search, place: "화면 아래 · 검색 캡슐",
-            decision: "검색을 상단 서랍이 아니라 하단 툴바에 뒀다.",
-            why: "검색은 한 손으로 자주 여는 입구다. iOS 26이 검색을 아래로 내린 것과 같은 이유, 엄지 도달성.",
-            ifFlipped: "항상 보이는 상단 서랍에 두면 세로 한 줄을 상시로 먹고, 손은 화면 위까지 올라가야 한다.",
+            knob: .search, place: String(localized: "화면 아래 · 검색 캡슐"),
+            decision: String(localized: "검색을 상단 서랍이 아니라 하단 툴바에 뒀다."),
+            why: String(localized: "검색은 한 손으로 자주 여는 입구다. iOS 26이 검색을 아래로 내린 것과 같은 이유, 엄지 도달성."),
+            ifFlipped: String(localized: "항상 보이는 상단 서랍에 두면 세로 한 줄을 상시로 먹고, 손은 화면 위까지 올라가야 한다."),
             sources: ["1.4.1", "1.4.4"]
         ),
         .init(
-            knob: .date, place: "행 오른쪽 · 수정 시각",
-            decision: "날짜를 문자열로 조립하지 않고 값으로 들고 있다.",
-            why: "표기 규칙은 문화권의 것이다. 값만 들고 있으면 로케일이 바뀌어도 앱 코드는 그대로다.",
-            ifFlipped: "\"8월 21일\"처럼 굳혀 두면 다른 언어 사용자에게도 그 표기가 그대로 나간다.",
+            knob: .date, place: String(localized: "행 오른쪽 · 수정 시각"),
+            decision: String(localized: "날짜를 문자열로 조립하지 않고 값으로 들고 있다."),
+            why: String(localized: "표기 규칙은 문화권의 것이다. 값만 들고 있으면 로케일이 바뀌어도 앱 코드는 그대로다."),
+            ifFlipped: String(localized: "\"8월 21일\"처럼 굳혀 두면 다른 언어 사용자에게도 그 표기가 그대로 나간다."),
             sources: ["2.2.1", "8.1.6"]
         ),
         .init(
-            knob: .selection, place: "노트 상세 · 본문",
-            decision: "본문을 길게 눌러 선택·복사할 수 있게 열어 뒀다.",
-            why: "운송장 번호처럼 다른 앱으로 옮겨질 값이 본문에 있다. 옮길 방법이 없으면 사용자가 눈으로 받아 적는다.",
-            ifFlipped: "막아 두면 사용자가 화면을 보며 손으로 옮겨 적고, 그 과정에서 오타가 난다.",
+            knob: .selection, place: String(localized: "노트 상세 · 본문"),
+            decision: String(localized: "본문을 길게 눌러 선택·복사할 수 있게 열어 뒀다."),
+            why: String(localized: "운송장 번호처럼 다른 앱으로 옮겨질 값이 본문에 있다. 옮길 방법이 없으면 사용자가 눈으로 받아 적는다."),
+            ifFlipped: String(localized: "막아 두면 사용자가 화면을 보며 손으로 옮겨 적고, 그 과정에서 오타가 난다."),
             sources: ["2.1.5"]
         ),
         .init(
-            knob: .editorExit, place: "새 노트 · 취소 / 완료",
-            decision: "전체 화면 편집기에 출구를 직접 만들었다.",
-            why: "전체 화면 커버는 일부러 쓸어내려 닫히지 않는다. 작성 중인 글을 지키는 대신 출구를 만들 의무가 따라온다.",
-            ifFlipped: "닫기 버튼이 없으면 나갈 길이 없어, 사용자에게는 앱이 멈춘 것처럼 보인다.",
+            knob: .editorExit, place: String(localized: "새 노트 · 취소 / 완료"),
+            decision: String(localized: "전체 화면 편집기에 출구를 직접 만들었다."),
+            why: String(localized: "전체 화면 커버는 일부러 쓸어내려 닫히지 않는다. 작성 중인 글을 지키는 대신 출구를 만들 의무가 따라온다."),
+            ifFlipped: String(localized: "닫기 버튼이 없으면 나갈 길이 없어, 사용자에게는 앱이 멈춘 것처럼 보인다."),
             sources: ["4.2.1"]
         ),
     ]
@@ -212,8 +212,8 @@ private struct DecisionCard: View {
 
                 if expanded {
                     VStack(alignment: .leading, spacing: 9) {
-                        labeled("왜", decision.why, .hgAccent2)
-                        labeled("뒤집으면", decision.ifFlipped, .hgRed)
+                        labeled(String(localized: "왜"), decision.why, .hgAccent2)
+                        labeled(String(localized: "뒤집으면"), decision.ifFlipped, .hgRed)
                         HStack(spacing: 5) {
                             ForEach(decision.sources, id: \.self) { Pill(text: $0) }
                         }

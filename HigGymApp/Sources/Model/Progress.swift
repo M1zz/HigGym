@@ -123,11 +123,11 @@ final class QuizSession {
 
         var title: String {
             switch self {
-            case .mixed:            "랜덤 훈련"
-            case .chapter(let n):   "\(n)장 집중"
-            case .principles:       "원칙 판정"
-            case .review:           "오답 복습"
-            case .kind(let k):      "\(k.label) 모드"
+            case .mixed:            String(localized: "랜덤 훈련")
+            case .chapter(let n):   String(localized: "\(n)장 집중")
+            case .principles:       String(localized: "원칙 판정")
+            case .review:           String(localized: "오답 복습")
+            case .kind(let k):      String(localized: "\(k.label) 모드")
             }
         }
     }

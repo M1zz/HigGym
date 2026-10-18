@@ -10,12 +10,13 @@ struct MistakeStoryView: View {
 
     /// 절 제목마다 성격이 다르다 - 색으로 흐름(증상 → 원인 → 기준 → 해결)을 보이게 한다.
     private func tint(for heading: String) -> Color {
+        // 절 제목은 콘텐츠 번역을 거쳐 현재 언어로 들어오므로, 비교도 번역된 값과 한다.
         switch heading {
-        case "증상":                    .hgRed
-        case "그때는 왜 그게 맞아 보였나":  .hgAmber
-        case "무엇이 부러졌나":            .hgRed
-        case "기준":                    .hgAccent2
-        case "고친 뒤":                  .hgGreen
+        case ContentLocalization.string("증상"):                   .hgRed
+        case ContentLocalization.string("그때는 왜 그게 맞아 보였나"): .hgAmber
+        case ContentLocalization.string("무엇이 부러졌나"):           .hgRed
+        case ContentLocalization.string("기준"):                   .hgAccent2
+        case ContentLocalization.string("고친 뒤"):                 .hgGreen
         default:                       .hgAccent
         }
     }
@@ -72,7 +73,7 @@ struct MistakeStoryView: View {
     private var footer: some View {
         VStack(alignment: .leading, spacing: 8) {
             Divider().background(Color.hgLine)
-            Text("근거 · " + mistake.sources.map(\.index).joined(separator: " · "))
+            Text("근거 · \(mistake.sources.map(\.index).joined(separator: " · "))")
                 .font(.system(.caption, design: .monospaced))
                 .foregroundStyle(.hgDim)
             MarkdownText(raw: mistake.criterion, font: .footnote, color: .hgDim)

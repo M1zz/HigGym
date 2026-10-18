@@ -21,7 +21,7 @@ struct ABCompareView<Broken: View, Fixed: View>: View {
     private enum Side: String, CaseIterable, Identifiable {
         case broken, fixed
         var id: String { rawValue }
-        var label: String { self == .broken ? "이렇게 했다" : "이렇게 고쳤다" }
+        var label: String { self == .broken ? String(localized: "이렇게 했다") : String(localized: "이렇게 고쳤다") }
         var tint: Color { self == .broken ? .hgRed : .hgGreen }
         var symbol: String { self == .broken ? "xmark.octagon.fill" : "checkmark.seal.fill" }
     }
@@ -82,7 +82,7 @@ struct ABCompareView<Broken: View, Fixed: View>: View {
 
     private var activeNote: String {
         let note = current == .broken ? brokenNote : fixedNote
-        return note ?? (current == .broken ? "지금 보는 건 어긴 화면입니다" : "지금 보는 건 고친 화면입니다")
+        return note ?? (current == .broken ? String(localized: "지금 보는 건 어긴 화면입니다") : String(localized: "지금 보는 건 고친 화면입니다"))
     }
 
     @ViewBuilder

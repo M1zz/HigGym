@@ -8,27 +8,27 @@ enum ToolbarItemsDemos {
         EntryDemo(
             "i1",
             hints: [
-                "오른쪽 위 **편집**을 눌러보세요, 액션 하나가 화면 전체의 모드를 바꿉니다.",
-                "편집 중에는 같은 자리가 **완료**로 바뀝니다. 자리는 그대로, 역할만 이어집니다.",
-                "왼쪽은 비어 있습니다, 뒤로가기가 선점하는 자리라 액션을 두지 않습니다.",
+                String(localized: "오른쪽 위 **편집**을 눌러보세요, 액션 하나가 화면 전체의 모드를 바꿉니다."),
+                String(localized: "편집 중에는 같은 자리가 **완료**로 바뀝니다. 자리는 그대로, 역할만 이어집니다."),
+                String(localized: "왼쪽은 비어 있습니다, 뒤로가기가 선점하는 자리라 액션을 두지 않습니다."),
             ],
-            code: """
+            code: String(localized: """
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(editing ? "완료" : "편집") { editing.toggle() }
                 }
             }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { SingleTrailingDemo() },
 
         EntryDemo(
             "i2",
             hints: [
-                "줄을 몇 개 추가한 뒤 왼쪽 **실행취소 / 다시실행**을 눌러보세요, 실제로 되돌아갑니다.",
-                "두 버튼은 한 캡슐에 묶여 있습니다. \"같은 세트\"라는 신호입니다.",
-                "오른쪽 **완료**는 혼자 떨어져 있습니다, 도구가 아니라 결정이기 때문입니다.",
+                String(localized: "줄을 몇 개 추가한 뒤 왼쪽 **실행취소 / 다시실행**을 눌러보세요, 실제로 되돌아갑니다."),
+                String(localized: "두 버튼은 한 캡슐에 묶여 있습니다. \"같은 세트\"라는 신호입니다."),
+                String(localized: "오른쪽 **완료**는 혼자 떨어져 있습니다, 도구가 아니라 결정이기 때문입니다."),
             ],
-            code: """
+            code: String(localized: """
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) {
                     Button("실행취소", systemImage: "arrow.uturn.backward") { undo() }
@@ -40,17 +40,17 @@ enum ToolbarItemsDemos {
                     Button("완료") { save() }
                 }
             }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { LeadingClusterDemo() },
 
         EntryDemo(
             "i3",
             hints: [
-                "왼쪽 캡슐, **보기 전환**과 **정렬**. 둘 다 \"어떻게 볼 것인가\"입니다.",
-                "오른쪽 캡슐, **선택**과 **공유**. 콘텐츠를 다루는 일입니다.",
-                "두 캡슐 사이의 빈 공간이 \"서로 다른 일\"이라는 신호입니다. 하나로 합쳐진 모습을 상상해 보세요.",
+                String(localized: "왼쪽 캡슐, **보기 전환**과 **정렬**. 둘 다 \"어떻게 볼 것인가\"입니다."),
+                String(localized: "오른쪽 캡슐, **선택**과 **공유**. 콘텐츠를 다루는 일입니다."),
+                String(localized: "두 캡슐 사이의 빈 공간이 \"서로 다른 일\"이라는 신호입니다. 하나로 합쳐진 모습을 상상해 보세요."),
             ],
-            code: """
+            code: String(localized: """
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) {
                     Button(grid ? "목록" : "격자", systemImage: grid ? "list.bullet" : "square.grid.2x2") {
@@ -63,17 +63,17 @@ enum ToolbarItemsDemos {
                     Button("공유", systemImage: "square.and.arrow.up") { share() }
                 }
             }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { TwoClustersDemo() },
 
         EntryDemo(
             "i4",
             hints: [
-                "화면 아래 오른쪽에 떠 있는 **작성** 버튼을 눌러보세요, 엄지가 닿는 자리입니다.",
-                "같은 액션이 오른쪽 위에 있었다면 한 손으로 몇 번이나 눌렀을지 상상해 보세요.",
-                "목록을 스크롤해도 하단 버튼은 그대로 떠 있습니다.",
+                String(localized: "화면 아래 오른쪽에 떠 있는 **작성** 버튼을 눌러보세요, 엄지가 닿는 자리입니다."),
+                String(localized: "같은 액션이 오른쪽 위에 있었다면 한 손으로 몇 번이나 눌렀을지 상상해 보세요."),
+                String(localized: "목록을 스크롤해도 하단 버튼은 그대로 떠 있습니다."),
             ],
-            code: """
+            code: String(localized: """
             .toolbar {
                 // 단독 아이템은 기본이 가운데다. 메일 앱처럼 오른쪽 끝에 두려면 Spacer 로 민다.
                 ToolbarItemGroup(placement: .bottomBar) {
@@ -82,17 +82,17 @@ enum ToolbarItemsDemos {
                 }
             }
             .sheet(isPresented: $composing) { ComposeView() }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { BottomItemDemo() },
 
         EntryDemo(
             "i5",
             hints: [
-                "정중앙의 **지도 / 목록** 세그먼트를 눌러보세요, 화면 전체가 바뀝니다.",
-                "제목이 없습니다. 이 컨트롤이 곧 \"이 화면이 무엇인가\"이기 때문입니다.",
-                "여기에 공유 버튼이 있었다면 어땠을지, 가장 강한 자리가 잡일에 쓰였을 겁니다.",
+                String(localized: "정중앙의 **지도 / 목록** 세그먼트를 눌러보세요, 화면 전체가 바뀝니다."),
+                String(localized: "제목이 없습니다. 이 컨트롤이 곧 \"이 화면이 무엇인가\"이기 때문입니다."),
+                String(localized: "여기에 공유 버튼이 있었다면 어땠을지, 가장 강한 자리가 잡일에 쓰였을 겁니다."),
             ],
-            code: """
+            code: String(localized: """
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Picker("보기", selection: $mode) {
@@ -102,17 +102,17 @@ enum ToolbarItemsDemos {
                     .pickerStyle(.segmented)
                 }
             }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { PrincipalDemo() },
 
         EntryDemo(
             "i6",
             hints: [
-                "중앙 세그먼트로 화면을 바꾸고, 오른쪽 **⋯** 메뉴도 열어보세요.",
-                "오른쪽 액션은 어느 모드에서도 그대로입니다, 모드와 무관한 부가 기능이기 때문입니다.",
-                "세그먼트를 더 길게 만들면 오른쪽과 공간을 다투게 됩니다. 그래서 trailing은 하나로 절제합니다.",
+                String(localized: "중앙 세그먼트로 화면을 바꾸고, 오른쪽 **⋯** 메뉴도 열어보세요."),
+                String(localized: "오른쪽 액션은 어느 모드에서도 그대로입니다, 모드와 무관한 부가 기능이기 때문입니다."),
+                String(localized: "세그먼트를 더 길게 만들면 오른쪽과 공간을 다투게 됩니다. 그래서 trailing은 하나로 절제합니다."),
             ],
-            code: """
+            code: String(localized: """
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Picker("보기", selection: $mode) { /* 지도 · 목록 */ }
@@ -122,17 +122,17 @@ enum ToolbarItemsDemos {
                     Menu("더보기", systemImage: "ellipsis") { /* 부가 액션 */ }
                 }
             }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { PrincipalTrailingDemo() },
 
         EntryDemo(
             "i7",
             hints: [
-                "화면 안 스테퍼로 아이템을 **하나씩 늘려보세요**. 어느 순간 시스템이 나머지를 **…** 안으로 접습니다.",
-                "접히는 순서는 선언 순서를 따릅니다, 자주 쓰는 것을 앞에 둬야 하는 이유입니다.",
-                "억지로 다 펼쳤다면 버튼이 손가락보다 작아졌을 겁니다. 접기는 최소 터치 크기를 지키는 장치입니다.",
+                String(localized: "화면 안 스테퍼로 아이템을 **하나씩 늘려보세요**. 어느 순간 시스템이 나머지를 **…** 안으로 접습니다."),
+                String(localized: "접히는 순서는 선언 순서를 따릅니다, 자주 쓰는 것을 앞에 둬야 하는 이유입니다."),
+                String(localized: "억지로 다 펼쳤다면 버튼이 손가락보다 작아졌을 겁니다. 접기는 최소 터치 크기를 지키는 장치입니다."),
             ],
-            code: """
+            code: String(localized: """
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     ForEach(actions.prefix(count)) { action in
@@ -141,17 +141,17 @@ enum ToolbarItemsDemos {
                 }
             }
             // 폭이 모자라면 시스템이 뒤쪽부터 ··· 메뉴로 접는다.
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { OverflowDemo() },
 
         EntryDemo(
             "i8",
             hints: [
-                "하단 바의 **슬라이더**를 끌어보세요, 버튼이 아닌 뷰도 툴바에 들어갑니다.",
-                "격자 크기가 실제로 바뀝니다. 조작 대상(사진)을 보면서 조작합니다.",
-                "왼쪽 진행 표시처럼 **상태를 보여주기만 하는 뷰**도 같은 자리에 놓을 수 있습니다.",
+                String(localized: "하단 바의 **슬라이더**를 끌어보세요, 버튼이 아닌 뷰도 툴바에 들어갑니다."),
+                String(localized: "격자 크기가 실제로 바뀝니다. 조작 대상(사진)을 보면서 조작합니다."),
+                String(localized: "왼쪽 진행 표시처럼 **상태를 보여주기만 하는 뷰**도 같은 자리에 놓을 수 있습니다."),
             ],
-            code: """
+            code: String(localized: """
             .toolbar {
                 ToolbarItem(placement: .bottomBar) {
                     HStack(spacing: 12) {
@@ -162,24 +162,24 @@ enum ToolbarItemsDemos {
                     }
                 }
             }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { CustomBottomViewsDemo() },
 
         EntryDemo(
             "i9",
             hints: [
-                "네 자리가 한 화면에 다 있습니다, 왼쪽 묶음 · 중앙 컨트롤 · 오른쪽 액션 · 하단 바.",
-                "전부 눌러보세요. 다 동작하지만, 이 화면에서 **정말 필요한 것이 몇 개인지** 세어 보세요.",
-                "하단 스위치로 \"필요한 것만\" 구성과 비교해 보세요. 같은 화면이 얼마나 조용해지는지 봅니다.",
+                String(localized: "네 자리가 한 화면에 다 있습니다, 왼쪽 묶음 · 중앙 컨트롤 · 오른쪽 액션 · 하단 바."),
+                String(localized: "전부 눌러보세요. 다 동작하지만, 이 화면에서 **정말 필요한 것이 몇 개인지** 세어 보세요."),
+                String(localized: "하단 스위치로 \"필요한 것만\" 구성과 비교해 보세요. 같은 화면이 얼마나 조용해지는지 봅니다."),
             ],
-            code: """
+            code: String(localized: """
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) { /* 도구 묶음 */ }
                 ToolbarItem(placement: .principal) { /* 화면을 정의하는 컨트롤 */ }
                 ToolbarItemGroup(placement: .topBarTrailing) { /* 결정 액션 */ }
                 ToolbarItemGroup(placement: .bottomBar) { /* 고빈도 액션 */ }
             }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { MixedToolbarDemo() },
     ]
 }
@@ -218,11 +218,17 @@ private struct SingleTrailingDemo: View {
 // MARK: - 1.1.2 도구 묶음 + 결정
 
 private struct LeadingClusterDemo: View {
-    @State private var lines: [String] = ["회의록 초안", "참석자 정리"]
+    @State private var lines: [String] = [String(localized: "회의록 초안"), String(localized: "참석자 정리")]
     @State private var undone: [String] = []
     @State private var log = DemoLog()
 
-    private let pool = ["할 일 정리", "다음 액션 아이템", "일정 확정", "공유 대상", "예산 확인"]
+    private let pool = [
+        String(localized: "할 일 정리"),
+        String(localized: "다음 액션 아이템"),
+        String(localized: "일정 확정"),
+        String(localized: "공유 대상"),
+        String(localized: "예산 확인"),
+    ]
 
     var body: some View {
         NavigationStack {
@@ -254,7 +260,7 @@ private struct LeadingClusterDemo: View {
                     .disabled(undone.isEmpty)
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("완료") { log.tap("저장했습니다 · \(lines.count)줄") }
+                    Button("완료") { log.tap(String(localized: "저장했습니다 · \(lines.count)줄")) }
                         .fontWeight(.semibold)
                 }
             }
@@ -269,6 +275,14 @@ private struct TwoClustersDemo: View {
     private enum Sort: String, CaseIterable, Identifiable {
         case recent = "최신순", sender = "보낸사람", unread = "안 읽음 먼저"
         var id: String { rawValue }
+
+        var title: String {
+            switch self {
+            case .recent: String(localized: "최신순")
+            case .sender: String(localized: "보낸사람")
+            case .unread: String(localized: "안 읽음 먼저")
+            }
+        }
     }
 
     @State private var grid = false
@@ -331,7 +345,7 @@ private struct TwoClustersDemo: View {
                     }
                     Menu("정렬", systemImage: "arrow.up.arrow.down") {
                         Picker("정렬", selection: $sort) {
-                            ForEach(Sort.allCases) { Text($0.rawValue).tag($0) }
+                            ForEach(Sort.allCases) { Text($0.title).tag($0) }
                         }
                     }
                 }
@@ -340,7 +354,7 @@ private struct TwoClustersDemo: View {
                         withAnimation { selecting.toggle() }
                     }
                     Button("공유", systemImage: "square.and.arrow.up") {
-                        log.tap(selecting ? "선택한 항목을 공유합니다" : "먼저 선택 모드를 켜보세요")
+                        log.tap(selecting ? String(localized: "선택한 항목을 공유합니다") : String(localized: "먼저 선택 모드를 켜보세요"))
                     }
                 }
             }
@@ -419,6 +433,13 @@ private struct PrincipalDemo: View {
     enum Mode: String, CaseIterable, Identifiable {
         case map = "지도", list = "목록"
         var id: String { rawValue }
+
+        var title: String {
+            switch self {
+            case .map:  String(localized: "지도")
+            case .list: String(localized: "목록")
+            }
+        }
     }
 
     @State private var mode = Mode.map
@@ -429,7 +450,7 @@ private struct PrincipalDemo: View {
                 .toolbar {
                     ToolbarItem(placement: .principal) {
                         Picker("보기", selection: $mode) {
-                            ForEach(Mode.allCases) { Text($0.rawValue).tag($0) }
+                            ForEach(Mode.allCases) { Text($0.title).tag($0) }
                         }
                         .pickerStyle(.segmented)
                         .frame(width: 160)
@@ -507,7 +528,7 @@ private struct PrincipalTrailingDemo: View {
             .toolbar {
                 ToolbarItem(placement: .principal) {
                     Picker("보기", selection: $mode) {
-                        ForEach(PrincipalDemo.Mode.allCases) { Text($0.rawValue).tag($0) }
+                        ForEach(PrincipalDemo.Mode.allCases) { Text($0.title).tag($0) }
                     }
                     .pickerStyle(.segmented)
                     .frame(width: 150)
@@ -515,9 +536,9 @@ private struct PrincipalTrailingDemo: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Menu("더보기", systemImage: "ellipsis") {
                         Toggle("위성 사진", isOn: $satellite)
-                        Button("현재 위치", systemImage: "location") { log.tap("현재 위치로 이동") }
+                        Button("현재 위치", systemImage: "location") { log.tap(String(localized: "현재 위치로 이동")) }
                         Divider()
-                        Button("이 지역 공유", systemImage: "square.and.arrow.up") { log.tap("공유 시트 열기") }
+                        Button("이 지역 공유", systemImage: "square.and.arrow.up") { log.tap(String(localized: "공유 시트 열기")) }
                     }
                 }
             }
@@ -536,13 +557,13 @@ private struct OverflowDemo: View {
     }
 
     private let actions: [Action] = [
-        .init(id: "star", name: "별표", symbol: "star"),
-        .init(id: "flag", name: "깃발", symbol: "flag"),
-        .init(id: "folder", name: "이동", symbol: "folder"),
-        .init(id: "share", name: "공유", symbol: "square.and.arrow.up"),
-        .init(id: "reply", name: "답장", symbol: "arrowshape.turn.up.left"),
-        .init(id: "print", name: "프린트", symbol: "printer"),
-        .init(id: "trash", name: "삭제", symbol: "trash"),
+        .init(id: "star", name: String(localized: "별표"), symbol: "star"),
+        .init(id: "flag", name: String(localized: "깃발"), symbol: "flag"),
+        .init(id: "folder", name: String(localized: "이동"), symbol: "folder"),
+        .init(id: "share", name: String(localized: "공유"), symbol: "square.and.arrow.up"),
+        .init(id: "reply", name: String(localized: "답장"), symbol: "arrowshape.turn.up.left"),
+        .init(id: "print", name: String(localized: "프린트"), symbol: "printer"),
+        .init(id: "trash", name: String(localized: "삭제"), symbol: "trash"),
     ]
 
     @State private var count = 2
@@ -553,7 +574,7 @@ private struct OverflowDemo: View {
             List {
                 Section {
                     Stepper("툴바 아이템 \(count)개", value: $count, in: 1...7)
-                    DemoNote(text: "숫자를 올리다 보면 어느 지점에서 **…** 가 나타납니다. 그 순간이 시스템이 \"더 넣으면 손가락보다 작아진다\"고 판단한 지점입니다.")
+                    DemoNote(text: String(localized: "숫자를 올리다 보면 어느 지점에서 **…** 가 나타납니다. 그 순간이 시스템이 \"더 넣으면 손가락보다 작아진다\"고 판단한 지점입니다."))
                         .listRowInsets(.init(top: 6, leading: 12, bottom: 6, trailing: 12))
                 }
                 Section("메시지") {
@@ -565,7 +586,7 @@ private struct OverflowDemo: View {
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     ForEach(actions.prefix(count)) { action in
-                        Button(action.name, systemImage: action.symbol) { log.tap("\(action.name) 실행") }
+                        Button(action.name, systemImage: action.symbol) { log.tap(String(localized: "\(action.name) 실행")) }
                     }
                 }
             }
@@ -584,7 +605,7 @@ private struct CustomBottomViewsDemo: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                DemoPhotoGrid(count: 30, columns: Int(zoom)) { i in log.tap("사진 \(i + 1) 열기") }
+                DemoPhotoGrid(count: 30, columns: Int(zoom)) { i in log.tap(String(localized: "사진 \(i + 1) 열기")) }
                     .animation(.snappy(duration: 0.25), value: zoom)
             }
             .navigationTitle("사진")
@@ -632,8 +653,8 @@ private struct MixedToolbarDemo: View {
                     Toggle("필요한 것만 남기기", isOn: $minimal.animation(.snappy))
                     DemoNote(
                         text: minimal
-                            ? "액션 두 개만 남았습니다. 화면이 조용해지고 시선이 콘텐츠로 돌아옵니다, 8.1.1."
-                            : "네 자리를 다 채웠습니다. 다 동작하지만, 이 화면에서 정말 필요한 것이 몇 개인지 세어 보세요.",
+                            ? String(localized: "액션 두 개만 남았습니다. 화면이 조용해지고 시선이 콘텐츠로 돌아옵니다, 8.1.1.")
+                            : String(localized: "네 자리를 다 채웠습니다. 다 동작하지만, 이 화면에서 정말 필요한 것이 몇 개인지 세어 보세요."),
                         symbol: minimal ? "checkmark.seal.fill" : "exclamationmark.triangle.fill"
                     )
                     .listRowInsets(.init(top: 6, leading: 12, bottom: 6, trailing: 12))
@@ -646,14 +667,14 @@ private struct MixedToolbarDemo: View {
             .toolbar {
                 ToolbarItemGroup(placement: .topBarLeading) {
                     if !minimal {
-                        Button("정렬", systemImage: "arrow.up.arrow.down") { log.tap("정렬 기준 변경") }
-                        Button("필터", systemImage: "line.3.horizontal.decrease") { log.tap("필터 적용") }
+                        Button("정렬", systemImage: "arrow.up.arrow.down") { log.tap(String(localized: "정렬 기준 변경")) }
+                        Button("필터", systemImage: "line.3.horizontal.decrease") { log.tap(String(localized: "필터 적용")) }
                     }
                 }
                 ToolbarItem(placement: .principal) {
                     if !minimal {
                         Picker("보기", selection: $mode) {
-                            ForEach(PrincipalDemo.Mode.allCases) { Text($0.rawValue).tag($0) }
+                            ForEach(PrincipalDemo.Mode.allCases) { Text($0.title).tag($0) }
                         }
                         .pickerStyle(.segmented)
                         .frame(width: 130)
@@ -662,16 +683,16 @@ private struct MixedToolbarDemo: View {
                     }
                 }
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button("완료") { log.tap("저장했습니다") }
+                    Button("완료") { log.tap(String(localized: "저장했습니다")) }
                     if !minimal {
-                        Button("별표", systemImage: "star") { log.tap("별표 표시") }
+                        Button("별표", systemImage: "star") { log.tap(String(localized: "별표 표시")) }
                     }
                 }
                 ToolbarItemGroup(placement: .bottomBar) {
-                    Button("새로 만들기", systemImage: "square.and.pencil") { log.tap("새 문서") }
+                    Button("새로 만들기", systemImage: "square.and.pencil") { log.tap(String(localized: "새 문서")) }
                     if !minimal {
                         Spacer()
-                        Button("삭제", systemImage: "trash", role: .destructive) { log.tap("삭제, 가장 누르기 쉬운 자리에 두면 위험합니다") }
+                        Button("삭제", systemImage: "trash", role: .destructive) { log.tap(String(localized: "삭제, 가장 누르기 쉬운 자리에 두면 위험합니다")) }
                     }
                 }
             }

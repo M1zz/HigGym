@@ -30,8 +30,8 @@ struct DecorButtonsScreen: View {
                 .padding(18)
                 .contextMenu {
                     // 지운 게 아니라 대상 위로 옮긴 것 - 기능은 그대로다.
-                    Button("공유", systemImage: "square.and.arrow.up") { log.tap("공유") }
-                    Button("별표", systemImage: "star") { log.tap("별표 표시") }
+                    Button("공유", systemImage: "square.and.arrow.up") { log.tap(String(localized: "공유")) }
+                    Button("별표", systemImage: "star") { log.tap(String(localized: "별표 표시")) }
                 }
             }
             .navigationTitle("메모")
@@ -41,9 +41,9 @@ struct DecorButtonsScreen: View {
                     Button("완료") { saved += 1 }
                         .fontWeight(.semibold)
                     if broken {
-                        Button("공유", systemImage: "square.and.arrow.up") { log.tap("공유") }
-                        Button("별표", systemImage: "star") { log.tap("별표 표시") }
-                        Button("더보기", systemImage: "ellipsis") { log.tap("더보기") }
+                        Button("공유", systemImage: "square.and.arrow.up") { log.tap(String(localized: "공유")) }
+                        Button("별표", systemImage: "star") { log.tap(String(localized: "별표 표시")) }
+                        Button("더보기", systemImage: "ellipsis") { log.tap(String(localized: "더보기")) }
                     }
                 }
             }
@@ -85,7 +85,7 @@ struct AdBarScreen: View {
                     // 시선이 오래 머무는 자리 = 엄지가 지나가는 자리. 노출과 오탭이 같이 온다.
                     ToolbarItemGroup(placement: .bottomBar) {
                         Button {
-                            log.tap("이벤트 페이지로 이동")
+                            log.tap(String(localized: "이벤트 페이지로 이동"))
                         } label: {
                             Label("이번 주 혜택 보기", systemImage: "gift.fill")
                                 .font(.subheadline.weight(.semibold))
@@ -106,7 +106,7 @@ struct AdBarScreen: View {
 
     private var promo: some View {
         Button {
-            log.tap("이벤트 페이지로 이동")
+            log.tap(String(localized: "이벤트 페이지로 이동"))
         } label: {
             HStack(spacing: 10) {
                 Image(systemName: "gift.fill")
@@ -131,8 +131,8 @@ struct CustomNavBarScreen: View {
     @State private var log = DemoLog()
 
     private let actions: [(String, String)] = [
-        ("저장", "tray.and.arrow.down"), ("이동", "folder"), ("별표", "star"),
-        ("깃발", "flag"), ("프린트", "printer"),
+        (String(localized: "저장"), "tray.and.arrow.down"), (String(localized: "이동"), "folder"), (String(localized: "별표"), "star"),
+        (String(localized: "깃발"), "flag"), (String(localized: "프린트"), "printer"),
     ]
 
     var body: some View {
@@ -229,9 +229,9 @@ struct MapControlsScreen: View {
 
     private var controls: some View {
         HStack(spacing: 10) {
-            Button("현재 위치", systemImage: "location.fill") { log.tap("현재 위치") }
+            Button("현재 위치", systemImage: "location.fill") { log.tap(String(localized: "현재 위치")) }
             Divider().frame(height: 16)
-            Button("경로", systemImage: "arrow.triangle.turn.up.right.diamond.fill") { log.tap("경로 안내") }
+            Button("경로", systemImage: "arrow.triangle.turn.up.right.diamond.fill") { log.tap(String(localized: "경로 안내")) }
         }
         .font(.subheadline.weight(.semibold))
         .foregroundStyle(broken ? .white : .primary)
@@ -301,9 +301,9 @@ struct AmountScreen: View {
     let broken: Bool
 
     private let orders: [(String, String, String)] = [
-        ("무선 이어폰 프로 실버", "₩1,284,000", "2건"),
-        ("책상 정리 세트", "₩38,900", "1건"),
-        ("연간 구독 · 프리미엄 플랜", "₩264,000", "1건"),
+        (String(localized: "무선 이어폰 프로 실버"), "₩1,284,000", String(localized: "\(2)건")),
+        (String(localized: "책상 정리 세트"), "₩38,900", String(localized: "\(1)건")),
+        (String(localized: "연간 구독 · 프리미엄 플랜"), "₩264,000", String(localized: "\(1)건")),
     ]
 
     var body: some View {
@@ -342,8 +342,8 @@ struct TabCountScreen: View {
     let broken: Bool
     @State private var log = DemoLog()
 
-    private let six = ["홈", "둘러보기", "보관함", "알림", "내 정보", "설정"]
-    private let four = ["홈", "둘러보기", "보관함", "내 정보"]
+    private let six = [String(localized: "홈"), String(localized: "둘러보기"), String(localized: "보관함"), String(localized: "알림"), String(localized: "내 정보"), String(localized: "설정")]
+    private let four = [String(localized: "홈"), String(localized: "둘러보기"), String(localized: "보관함"), String(localized: "내 정보")]
     private let symbols = ["house", "safari", "square.stack", "bell", "person.crop.circle", "gearshape"]
 
     var body: some View {
@@ -419,7 +419,7 @@ struct CheckoutTabScreen: View {
                     Button("결제하기") {
                         card = ""
                         lost = false
-                        log.tap("결제 완료 · ₩128,400")
+                        log.tap(String(localized: "결제 완료 · ₩128,400"))
                     }
                         .disabled(card.isEmpty)
                 }
@@ -436,7 +436,7 @@ struct CheckoutTabScreen: View {
         }
     }
 
-    private func simple(_ title: String) -> some View {
+    private func simple(_ title: LocalizedStringKey) -> some View {
         NavigationStack {
             List(DemoData.mail.prefix(5)) { DemoMailRow(mail: $0) }
                 .listStyle(.plain)
@@ -454,7 +454,8 @@ struct PaymentSheetScreen: View {
     @State private var showing = false
     /// 시트를 연 순간의 금액 - 뒤에서 수량이 바뀌면 이 값과 실제가 갈라진다.
     @State private var quoted = 0
-    @State private var result: String?
+    /// 결과 문구와 금액이 어긋났는지. 판정은 문구가 아니라 이 값으로 한다.
+    @State private var result: (text: String, mismatch: Bool)?
 
     private let unit = 64_200
 
@@ -473,9 +474,9 @@ struct PaymentSheetScreen: View {
                 }
                 if let result {
                     Section {
-                        Text(result)
+                        Text(result.text)
                             .font(.footnote)
-                            .foregroundStyle(result.contains("불일치") ? .red : .green)
+                            .foregroundStyle(result.mismatch ? .red : .green)
                     }
                 }
             }
@@ -496,15 +497,15 @@ struct PaymentSheetScreen: View {
                     LabeledContent("표시된 금액", value: "₩\(quoted.formatted())")
                     if !broken {
                         // 확정하는 시트는 참조할 내용을 안으로 가져온다 - 뒤를 만질 이유를 없앤다.
-                        LabeledContent("수량", value: "\(quantity)개")
+                        LabeledContent("수량", value: String(localized: "\(quantity)개"))
                     }
                 }
                 Section {
                     Button("결제하기") {
                         let actual = unit * quantity
                         result = actual == quoted
-                            ? "결제 완료 · ₩\(actual.formatted())"
-                            : "금액 불일치, 표시 ₩\(quoted.formatted()) / 청구 ₩\(actual.formatted())"
+                            ? (String(localized: "결제 완료 · ₩\(actual.formatted())"), false)
+                            : (String(localized: "금액 불일치, 표시 ₩\(quoted.formatted()) / 청구 ₩\(actual.formatted())"), true)
                         showing = false
                     }
                 }
@@ -531,7 +532,7 @@ struct PaymentSheetScreen: View {
 struct MenuOrderScreen: View {
     let broken: Bool
 
-    @State private var files = ["분기 보고서", "디자인 시안 v3", "회의록 0821", "예산안"]
+    @State private var files = [String(localized: "분기 보고서"), String(localized: "디자인 시안 v3"), String(localized: "회의록 0821"), String(localized: "예산안")]
     @State private var log = DemoLog()
 
     var body: some View {
@@ -544,16 +545,16 @@ struct MenuOrderScreen: View {
                         Menu("더보기", systemImage: "ellipsis") {
                             if broken {
                                 // 작업 흐름 순서대로 - 삭제가 한가운데 섞인다.
-                                Button("이름 변경", systemImage: "pencil") { log.tap("이름 변경") }
-                                Button("복제", systemImage: "doc.on.doc") { log.tap("복제") }
+                                Button("이름 변경", systemImage: "pencil") { log.tap(String(localized: "이름 변경")) }
+                                Button("복제", systemImage: "doc.on.doc") { log.tap(String(localized: "복제")) }
                                 Button("삭제", systemImage: "trash") { remove(index) }
-                                Button("이동", systemImage: "folder") { log.tap("이동") }
-                                Button("공유", systemImage: "square.and.arrow.up") { log.tap("공유") }
+                                Button("이동", systemImage: "folder") { log.tap(String(localized: "이동")) }
+                                Button("공유", systemImage: "square.and.arrow.up") { log.tap(String(localized: "공유")) }
                             } else {
-                                Button("이름 변경", systemImage: "pencil") { log.tap("이름 변경") }
-                                Button("복제", systemImage: "doc.on.doc") { log.tap("복제") }
-                                Button("이동", systemImage: "folder") { log.tap("이동") }
-                                Button("공유", systemImage: "square.and.arrow.up") { log.tap("공유") }
+                                Button("이름 변경", systemImage: "pencil") { log.tap(String(localized: "이름 변경")) }
+                                Button("복제", systemImage: "doc.on.doc") { log.tap(String(localized: "복제")) }
+                                Button("이동", systemImage: "folder") { log.tap(String(localized: "이동")) }
+                                Button("공유", systemImage: "square.and.arrow.up") { log.tap(String(localized: "공유")) }
                                 Divider()
                                 Button("삭제", systemImage: "trash", role: .destructive) { remove(index) }
                             }
@@ -569,7 +570,7 @@ struct MenuOrderScreen: View {
                 ToolbarItemGroup(placement: .bottomBar) {
                     Spacer()
                     Button("되돌리기", systemImage: "arrow.uturn.backward") {
-                        files = ["분기 보고서", "디자인 시안 v3", "회의록 0821", "예산안"]
+                        files = [String(localized: "분기 보고서"), String(localized: "디자인 시안 v3"), String(localized: "회의록 0821"), String(localized: "예산안")]
                     }
                 }
             }
@@ -580,6 +581,6 @@ struct MenuOrderScreen: View {
     private func remove(_ index: Int) {
         guard files.indices.contains(index) else { return }
         let name = files.remove(at: index)
-        log.tap("\(name) 삭제됨")
+        log.tap(String(localized: "\(name) 삭제됨"))
     }
 }

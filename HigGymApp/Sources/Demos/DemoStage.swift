@@ -75,7 +75,7 @@ struct EntryDemoStage: View {
         .padding(demo.chromeEdge.padding, 8)
     }
 
-    private func chromeButton(_ symbol: String, label: String, action: @escaping () -> Void) -> some View {
+    private func chromeButton(_ symbol: String, label: LocalizedStringKey, action: @escaping () -> Void) -> some View {
         Button(action: action) {
             Image(systemName: symbol)
                 .font(.subheadline.weight(.bold))
@@ -137,21 +137,21 @@ struct DemoGuideInfo {
         summary = entry.summary
         var blocks: [Block] = []
         if !entry.when.isEmpty {
-            blocks.append(.init(id: "when", title: "어느 상황에서", body: entry.when, tint: .hgGreen))
+            blocks.append(.init(id: "when", title: String(localized: "어느 상황에서"), body: entry.when, tint: .hgGreen))
         }
         if !entry.why.isEmpty {
-            blocks.append(.init(id: "why", title: "왜 이렇게", body: entry.why, tint: .hgAccent2))
+            blocks.append(.init(id: "why", title: String(localized: "왜 이렇게"), body: entry.why, tint: .hgAccent2))
         }
         self.blocks = blocks
     }
 
     init(mistake: Mistake) {
-        badge = "실수 #\(mistake.number)"
+        badge = String(localized: "실수 #\(mistake.number)")
         title = mistake.title
         summary = mistake.why
         blocks = [
-            .init(id: "criterion", title: "판단 기준", body: mistake.criterion, tint: .hgAccent2),
-            .init(id: "fix", title: "고치면", body: mistake.fix, tint: .hgGreen),
+            .init(id: "criterion", title: String(localized: "판단 기준"), body: mistake.criterion, tint: .hgAccent2),
+            .init(id: "fix", title: String(localized: "고치면"), body: mistake.fix, tint: .hgGreen),
         ]
     }
 }
@@ -169,7 +169,7 @@ private struct DemoGuideSheet: View {
                     header
                     hints
                     if let note = demo.note { noteBlock(note) }
-                    CodePanel(code: demo.code, title: "이 화면의 코드")
+                    CodePanel(code: demo.code, title: String(localized: "이 화면의 코드"))
                     criteria
                 }
                 .padding(18)
@@ -202,7 +202,7 @@ private struct DemoGuideSheet: View {
 
     private var hints: some View {
         VStack(alignment: .leading, spacing: 9) {
-            SectionLabel("해보세요", accent: .hgGreen)
+            SectionLabel(String(localized: "해보세요"), accent: .hgGreen)
             ForEach(Array(demo.hints.enumerated()), id: \.offset) { index, hint in
                 HStack(alignment: .top, spacing: 9) {
                     Text("\(index + 1)")

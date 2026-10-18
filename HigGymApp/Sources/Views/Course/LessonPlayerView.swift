@@ -28,11 +28,11 @@ struct LessonPlayerView: View {
 
         var title: String {
             switch self {
-            case .use:      "써보기"
-            case .write:    "적어보기"
-            case .reveal:   "이유 확인"
-            case .compare:  "비교"
-            case .takeaway: "배운 것"
+            case .use:      String(localized: "써보기")
+            case .write:    String(localized: "적어보기")
+            case .reveal:   String(localized: "이유 확인")
+            case .compare:  String(localized: "비교")
+            case .takeaway: String(localized: "배운 것")
             }
         }
         var symbol: String {
@@ -318,7 +318,7 @@ struct LessonPlayerView: View {
         .overlay(RoundedRectangle(cornerRadius: 13).strokeBorder(Color.hgRed.opacity(0.28), lineWidth: 1))
     }
 
-    private func block(_ title: String, _ body: String, _ tint: Color, _ symbol: String) -> some View {
+    private func block(_ title: LocalizedStringKey, _ body: String, _ tint: Color, _ symbol: String) -> some View {
         VStack(alignment: .leading, spacing: 7) {
             Label(title, systemImage: symbol)
                 .font(.caption.weight(.bold))
@@ -368,7 +368,7 @@ struct LessonPlayerView: View {
 
                 LessonEditor(
                     text: $takeaway,
-                    placeholder: "예: 자리를 정할 땐 중요도가 아니라 하루에 몇 번 누르는지를 먼저 센다.",
+                    placeholder: String(localized: "예: 자리를 정할 땐 중요도가 아니라 하루에 몇 번 누르는지를 먼저 센다."),
                     minHeight: 160
                 )
 
@@ -440,11 +440,11 @@ struct LessonPlayerView: View {
 
     private var nextLabel: String {
         switch step {
-        case .use:      "다 해봤어요"
-        case .write:    impression.isEmpty ? "건너뛰고 이유 보기" : "이유 확인하기"
-        case .reveal:   "어긴 화면과 비교하기"
-        case .compare:  "배운 것 적기"
-        case .takeaway: "이 레슨 마치기"
+        case .use:      String(localized: "다 해봤어요")
+        case .write:    impression.isEmpty ? String(localized: "건너뛰고 이유 보기") : String(localized: "이유 확인하기")
+        case .reveal:   String(localized: "어긴 화면과 비교하기")
+        case .compare:  String(localized: "배운 것 적기")
+        case .takeaway: String(localized: "이 레슨 마치기")
         }
     }
 }

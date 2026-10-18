@@ -8,11 +8,11 @@ enum MenuDemos {
         EntryDemo(
             "mn1",
             hints: [
-                "오른쪽 위 **⋯** 를 열어보세요, 아이콘 · 구분선 · 서브메뉴 · 토글 · 삭제가 모두 들어 있습니다.",
-                "정렬과 표시 옵션을 바꾸면 목록이 **실제로** 바뀝니다. 메뉴는 창고가 아니라 조작 장치입니다.",
-                "행을 **길게 눌러** 보세요, 같은 액션이 대상 위에 직접 붙습니다(8.1.7 직접 조작).",
+                String(localized: "오른쪽 위 **⋯** 를 열어보세요, 아이콘 · 구분선 · 서브메뉴 · 토글 · 삭제가 모두 들어 있습니다."),
+                String(localized: "정렬과 표시 옵션을 바꾸면 목록이 **실제로** 바뀝니다. 메뉴는 창고가 아니라 조작 장치입니다."),
+                String(localized: "행을 **길게 눌러** 보세요, 같은 액션이 대상 위에 직접 붙습니다(8.1.7 직접 조작)."),
             ],
-            code: """
+            code: String(localized: """
             Menu("더보기", systemImage: "ellipsis") {
                 Picker("정렬", selection: $sort) { /* … */ }
                 Divider()
@@ -24,7 +24,7 @@ enum MenuDemos {
 
             // 대상 위에서 바로 - 행에는 contextMenu
             .contextMenu { … }
-            """
+            """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { MenuDemoScreen() },
     ]
 }
@@ -33,11 +33,26 @@ private struct MenuDemoScreen: View {
     private enum Sort: String, CaseIterable, Identifiable {
         case recent = "최신순", sender = "보낸사람", subject = "제목"
         var id: String { rawValue }
+
+        var title: String {
+            switch self {
+            case .recent:  String(localized: "최신순")
+            case .sender:  String(localized: "보낸사람")
+            case .subject: String(localized: "제목")
+            }
+        }
     }
 
     private enum Density: String, CaseIterable, Identifiable {
         case comfy = "여유롭게", compact = "빽빽하게"
         var id: String { rawValue }
+
+        var title: String {
+            switch self {
+            case .comfy:   String(localized: "여유롭게")
+            case .compact: String(localized: "빽빽하게")
+            }
+        }
     }
 
     @State private var sort = Sort.recent
@@ -59,7 +74,9 @@ private struct MenuDemoScreen: View {
         NavigationStack {
             List {
                 Section {
-                    DemoNote(text: "메뉴에서 무엇을 바꾸든 **이 목록이 바로 반응합니다**. 지금 정렬: \(sort.rawValue) · \(unreadOnly ? "안 읽음만" : "전체")")
+                    DemoNote(text: unreadOnly
+                        ? String(localized: "메뉴에서 무엇을 바꾸든 **이 목록이 바로 반응합니다**. 지금 정렬: \(sort.title) · 안 읽음만")
+                        : String(localized: "메뉴에서 무엇을 바꾸든 **이 목록이 바로 반응합니다**. 지금 정렬: \(sort.title) · 전체"))
                         .listRowInsets(.init(top: 6, leading: 12, bottom: 6, trailing: 12))
                 }
                 ForEach(visible) { mail in
@@ -86,7 +103,7 @@ private struct MenuDemoScreen: View {
                     Menu("더보기", systemImage: "ellipsis") {
                         Picker("정렬", selection: $sort) {
                             ForEach(Sort.allCases) { option in
-                                Label(option.rawValue, systemImage: "arrow.up.arrow.down").tag(option)
+                                Label(option.title, systemImage: "arrow.up.arrow.down").tag(option)
                             }
                         }
 
@@ -98,7 +115,7 @@ private struct MenuDemoScreen: View {
 
                         Menu {
                             Picker("밀도", selection: $density) {
-                                ForEach(Density.allCases) { Text($0.rawValue).tag($0) }
+                                ForEach(Density.allCases) { Text($0.title).tag($0) }
                             }
                         } label: {
                             Label("보기", systemImage: "textformat.size")
@@ -108,11 +125,11 @@ private struct MenuDemoScreen: View {
 
                         Button("모두 읽음으로 표시", systemImage: "envelope.open") {
                             rows = rows.map { var m = $0; m.unread = false; return m }
-                            log.tap("모두 읽음으로 표시했습니다")
+                            log.tap(String(localized: "모두 읽음으로 표시했습니다"))
                         }
                         Button("모두 삭제", systemImage: "trash", role: .destructive) {
                             withAnimation { rows.removeAll() }
-                            log.tap("전부 삭제했습니다")
+                            log.tap(String(localized: "전부 삭제했습니다"))
                         }
                     }
                 }
@@ -120,7 +137,7 @@ private struct MenuDemoScreen: View {
                     Spacer()
                     Button("되돌리기", systemImage: "arrow.uturn.backward") {
                         withAnimation { rows = DemoData.mail }
-                        log.tap("원래대로 되돌렸습니다")
+                        log.tap(String(localized: "원래대로 되돌렸습니다"))
                     }
                 }
             }

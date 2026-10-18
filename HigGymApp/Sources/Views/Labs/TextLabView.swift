@@ -9,21 +9,21 @@ enum TextSample: String, CaseIterable, Identifiable {
 
     var label: String {
         switch self {
-        case .sentence: "본문"
-        case .amount:   "금액"
-        case .timer:    "타이머"
-        case .path:     "경로"
-        case .name:     "이름"
+        case .sentence: String(localized: "본문")
+        case .amount:   String(localized: "금액")
+        case .timer:    String(localized: "타이머")
+        case .path:     String(localized: "경로")
+        case .name:     String(localized: "이름")
         }
     }
 
     var text: String {
         switch self {
-        case .sentence: "회의 일정이 다음 주 화요일 오후 3시로 변경되었습니다. 준비 자료는 미리 공유 부탁드립니다."
+        case .sentence: String(localized: "회의 일정이 다음 주 화요일 오후 3시로 변경되었습니다. 준비 자료는 미리 공유 부탁드립니다.")
         case .amount:   "₩1,234,000"
         case .timer:    "12:34:56"
         case .path:     "/Users/designer/Documents/Projects/2026/Toolbar/report.pdf"
-        case .name:     "홍길동"
+        case .name:     String(localized: "홍길동")
         }
     }
 
@@ -32,11 +32,11 @@ enum TextSample: String, CaseIterable, Identifiable {
 
     var semantics: String {
         switch self {
-        case .sentence: "문장, 잘려도 앞부분으로 뜻이 통한다"
-        case .amount:   "값, 잘리면 틀린 금액이 된다"
-        case .timer:    "값, 잘리면 다른 시간이 된다"
-        case .path:     "값, 정보 가치가 양 끝에 있다"
-        case .name:     "값, 표기 규칙이 문화권마다 다르다"
+        case .sentence: String(localized: "문장, 잘려도 앞부분으로 뜻이 통한다")
+        case .amount:   String(localized: "값, 잘리면 틀린 금액이 된다")
+        case .timer:    String(localized: "값, 잘리면 다른 시간이 된다")
+        case .path:     String(localized: "값, 정보 가치가 양 끝에 있다")
+        case .name:     String(localized: "값, 표기 규칙이 문화권마다 다르다")
         }
     }
 }
@@ -70,7 +70,7 @@ struct TextLabView: View {
     @State private var typeSize: DynamicTypeSize = .large
 
     var body: some View {
-        LabScaffold(title: "텍스트 잘림·축소", subtitle: "잘려도 뜻이 통하는가") {
+        LabScaffold(title: String(localized: "텍스트 잘림·축소"), subtitle: String(localized: "잘려도 뜻이 통하는가")) {
                 preview
                 semanticsCard
                 controls
@@ -131,13 +131,13 @@ struct TextLabView: View {
 
     private var controls: some View {
         VStack(alignment: .leading, spacing: 14) {
-            SectionLabel("무엇을 넣는가", accent: .hgAmber)
+            SectionLabel(String(localized: "무엇을 넣는가"), accent: .hgAmber)
             Picker("샘플", selection: $sample) {
                 ForEach(TextSample.allCases) { Text($0.label).tag($0) }
             }
             .pickerStyle(.segmented)
 
-            SectionLabel("공간", accent: .hgAccent)
+            SectionLabel(String(localized: "공간"), accent: .hgAccent)
             VStack(alignment: .leading, spacing: 4) {
                 Text("폭 \(Int(width))pt")
                     .font(.system(.footnote, design: .monospaced))
@@ -155,7 +155,7 @@ struct TextLabView: View {
                 .foregroundStyle(.hgText)
                 .tint(.hgAccent)
 
-            SectionLabel("넘칠 때의 처리", accent: .hgAccent)
+            SectionLabel(String(localized: "넘칠 때의 처리"), accent: .hgAccent)
             Picker("truncation", selection: $truncation) {
                 ForEach(TruncationOption.allCases) { Text($0.label).tag($0) }
             }
@@ -169,7 +169,7 @@ struct TextLabView: View {
                     .tint(.hgAccent)
             }
 
-            SectionLabel("접근성", accent: .hgGreen)
+            SectionLabel(String(localized: "접근성"), accent: .hgGreen)
             Picker("Dynamic Type", selection: $typeSize) {
                 Text("기본").tag(DynamicTypeSize.large)
                 Text("XXL").tag(DynamicTypeSize.xxLarge)
@@ -181,9 +181,9 @@ struct TextLabView: View {
 
     private var typeSizeLabel: String {
         switch typeSize {
-        case .accessibility5: "접근성 최대"
+        case .accessibility5: String(localized: "접근성 최대")
         case .xxLarge:        "XXL"
-        default:              "기본"
+        default:              String(localized: "기본")
         }
     }
 
@@ -205,7 +205,7 @@ struct TextLabView: View {
         if overflows && !sample.isSentence && !scaling {
             out.append(.init(
                 level: .violation,
-                message: "**\(sample.label)**은(는) 잘리는 순간 정보가 파괴되는 “값”인데 지금 잘리고 있습니다. “₩1,234,0…”은 뜻이 통하는 게 아니라 **틀린 값**을 보여주는 것입니다, minimumScaleFactor로 줄이세요.",
+                message: String(localized: "**\(sample.label)** 항목은 잘리는 순간 정보가 파괴되는 “값”인데 지금 잘리고 있습니다. “₩1,234,0…”은 뜻이 통하는 게 아니라 **틀린 값**을 보여주는 것입니다, minimumScaleFactor로 줄이세요."),
                 source: "2.1.3 · 8.1.5"
             ))
         }
@@ -213,7 +213,7 @@ struct TextLabView: View {
         if overflows && sample.isSentence && lineLimit >= 2 {
             out.append(.init(
                 level: .good,
-                message: "본문은 문장이라 잘려도 앞부분으로 뜻이 통하고, 전문은 상세 화면이 담당합니다. 목록의 목적(훑기)에 맞게 높이를 계약으로 고정한 정석입니다.",
+                message: String(localized: "본문은 문장이라 잘려도 앞부분으로 뜻이 통하고, 전문은 상세 화면이 담당합니다. 목록의 목적(훑기)에 맞게 높이를 계약으로 고정한 정석입니다."),
                 source: "2.1.1"
             ))
         }
@@ -221,13 +221,13 @@ struct TextLabView: View {
         if sample == .path && truncation != .middle && overflows {
             out.append(.init(
                 level: .violation,
-                message: "경로는 앞이 공통 접두사라 앞만 보이면 항목을 구분할 수 없습니다. 정보 가치가 양 끝에 있으니 **.middle**로 가운데를 접어야 합니다.",
+                message: String(localized: "경로는 앞이 공통 접두사라 앞만 보이면 항목을 구분할 수 없습니다. 정보 가치가 양 끝에 있으니 **.middle**로 가운데를 접어야 합니다."),
                 source: "2.1.2"
             ))
         } else if sample == .path && truncation == .middle {
             out.append(.init(
                 level: .good,
-                message: "가운데를 접어 양 끝(루트와 파일명)을 남겼습니다, 정보 가치가 있는 쪽을 보존하는 선택입니다.",
+                message: String(localized: "가운데를 접어 양 끝(루트와 파일명)을 남겼습니다, 정보 가치가 있는 쪽을 보존하는 선택입니다."),
                 source: "2.1.2"
             ))
         }
@@ -235,13 +235,13 @@ struct TextLabView: View {
         if scaleFactor < 0.5 {
             out.append(.init(
                 level: .violation,
-                message: "절반 이하로 줄여야 들어간다면 축소가 아니라 **설계 문제**입니다. 폭을 늘리거나 표기 자체를 줄이세요(1,234,000 → 1.2M). 잘림·축소는 안전장치이지 레이아웃 수단이 아닙니다.",
+                message: String(localized: "절반 이하로 줄여야 들어간다면 축소가 아니라 **설계 문제**입니다. 폭을 늘리거나 표기 자체를 줄이세요(1,234,000 → 1.2M). 잘림·축소는 안전장치이지 레이아웃 수단이 아닙니다."),
                 source: "8.1.5"
             ))
         } else if scaling && !sample.isSentence {
             out.append(.init(
                 level: .good,
-                message: "값 타입에 축소를 적용했습니다, 자르지 않고 줄여 정보를 보존하는 올바른 선택입니다.",
+                message: String(localized: "값 타입에 축소를 적용했습니다, 자르지 않고 줄여 정보를 보존하는 올바른 선택입니다."),
                 source: "2.1.3"
             ))
         }
@@ -249,7 +249,7 @@ struct TextLabView: View {
         if scaling && sample.isSentence {
             out.append(.init(
                 level: .caution,
-                message: "문장에 축소를 걸면 글자만 작아지고 읽기는 더 어려워집니다. 문장은 자르거나(truncation) 줄 수를 늘리는 쪽이 맞습니다.",
+                message: String(localized: "문장에 축소를 걸면 글자만 작아지고 읽기는 더 어려워집니다. 문장은 자르거나(truncation) 줄 수를 늘리는 쪽이 맞습니다."),
                 source: "2.1.1 · 2.1.3"
             ))
         }
@@ -257,7 +257,7 @@ struct TextLabView: View {
         if reservesSpace && lineLimit >= 2 {
             out.append(.init(
                 level: .caution,
-                message: "공간 예약의 목적은 **그리드·가로 카드의 균일성**입니다. 균일성이 필요 없는 세로 목록에 걸면 짧은 셀마다 빈 공간만 상시 소모합니다.",
+                message: String(localized: "공간 예약의 목적은 **그리드·가로 카드의 균일성**입니다. 균일성이 필요 없는 세로 목록에 걸면 짧은 셀마다 빈 공간만 상시 소모합니다."),
                 source: "2.1.4"
             ))
         }
@@ -265,7 +265,7 @@ struct TextLabView: View {
         if typeSize == .accessibility5 && overflows {
             out.append(.init(
                 level: .violation,
-                message: "접근성 최대 글씨에서 내용이 잘립니다. 기본 크기에서만 확인하고 넘어가면 이 상태가 그대로 출시됩니다, 검증 기준은 가장 나쁜 조건입니다.",
+                message: String(localized: "접근성 최대 글씨에서 내용이 잘립니다. 기본 크기에서만 확인하고 넘어가면 이 상태가 그대로 출시됩니다, 검증 기준은 가장 나쁜 조건입니다."),
                 source: "2.1.1 · 8.1.4"
             ))
         }
@@ -273,7 +273,7 @@ struct TextLabView: View {
         if out.isEmpty {
             out.append(.init(
                 level: .good,
-                message: "지금 폭에서는 내용이 온전히 들어갑니다. 폭을 줄이거나 Dynamic Type을 키워 한계 조건을 만들어보세요.",
+                message: String(localized: "지금 폭에서는 내용이 온전히 들어갑니다. 폭을 줄이거나 Dynamic Type을 키워 한계 조건을 만들어보세요."),
                 source: "8.1.5"
             ))
         }
@@ -284,9 +284,9 @@ struct TextLabView: View {
     private var diagnosisSection: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
-                SectionLabel("실시간 판정", accent: .hgGreen)
+                SectionLabel(String(localized: "실시간 판정"), accent: .hgGreen)
                 Spacer()
-                Pill(text: overflows ? "넘침" : "들어감", color: overflows ? .hgRed : .hgGreen)
+                Pill(text: overflows ? String(localized: "넘침") : String(localized: "들어감"), color: overflows ? .hgRed : .hgGreen)
             }
             ForEach(diagnoses) { DiagnosisRow(diagnosis: $0) }
         }
@@ -386,7 +386,7 @@ private struct FormatStyleSection: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            SectionLabel("값은 앱이, 표기는 로케일이", accent: .hgAccent2)
+            SectionLabel(String(localized: "값은 앱이, 표기는 로케일이"), accent: .hgAccent2)
             Text("아래 값들은 앱이 문자열을 만들지 않습니다. 같은 데이터가 로케일에 따라 다르게 렌더링되는 것을 확인하세요.")
                 .font(.footnote)
                 .foregroundStyle(.hgDim)
@@ -406,7 +406,7 @@ private struct FormatStyleSection: View {
 
             DiagnosisRow(diagnosis: .init(
                 level: .good,
-                message: "앱은 값만 소유하고 표기는 시스템에 위임했습니다. `\"\\(distance) km\"` 로 조립했다면 미국 사용자에게 킬로미터를 강요하는 국제화 버그가 됩니다.",
+                message: String(localized: "앱은 값만 소유하고 표기는 시스템에 위임했습니다. `\"\\(distance) km\"` 로 조립했다면 미국 사용자에게 킬로미터를 강요하는 국제화 버그가 됩니다."),
                 source: "2.2.1 · 2.2.2 · 8.1.6"
             ))
         }

@@ -66,13 +66,20 @@ enum SampleNotes {
     /// 회고·퀴즈가 같은 데이터를 쓰도록 기준 시각을 고정한다.
     static let now = Date(timeIntervalSince1970: 1_787_000_000)
 
+    /// 폴더 이름. 화면에 보이는 이름이 곧 값이라 현재 언어로 한 번 정해 두고, 비교도 이 값으로만 한다.
+    static let allFolder = String(localized: "전체")
+    static let workFolder = String(localized: "업무")
+    static let personalFolder = String(localized: "개인")
+    /// 운송장 번호가 든 노트 - 번호 복사 버튼을 붙일 대상.
+    static let trackingNoteID = 2
+
     static let all: [SampleNote] = [
-        .init(id: 0, title: "스프린트 회고", body: "이번 주에 배운 것 세 가지. 첫째, 하단 바에 삭제를 두면 안 된다는 것.", edited: now.addingTimeInterval(-60 * 12), folder: "업무", unread: true),
-        .init(id: 1, title: "장보기", body: "우유, 달걀, 사과 두 봉지, 커피 원두 200g", edited: now.addingTimeInterval(-60 * 90), folder: "개인", unread: true),
-        .init(id: 2, title: "운송장 번호", body: "1Z 999 AA1 0123 4567, 목요일 도착 예정", edited: now.addingTimeInterval(-60 * 60 * 26), folder: "개인", unread: false),
-        .init(id: 3, title: "면접 질문 정리", body: "탭바는 목적지, 툴바는 액션. 이 구분을 어떻게 설명할 것인가.", edited: now.addingTimeInterval(-60 * 60 * 50), folder: "업무", unread: false),
-        .init(id: 4, title: "읽을 것", body: "HIG Toolbars, WWDC25 세션 323, Liquid Glass 해설 글", edited: now.addingTimeInterval(-60 * 60 * 24 * 6), folder: "개인", unread: false),
-        .init(id: 5, title: "이사 체크리스트", body: "인터넷 이전 신청, 우편물 주소 변경, 관리비 정산", edited: now.addingTimeInterval(-60 * 60 * 24 * 20), folder: "개인", unread: false),
+        .init(id: 0, title: String(localized: "스프린트 회고"), body: String(localized: "이번 주에 배운 것 세 가지. 첫째, 하단 바에 삭제를 두면 안 된다는 것."), edited: now.addingTimeInterval(-60 * 12), folder: workFolder, unread: true),
+        .init(id: 1, title: String(localized: "장보기"), body: String(localized: "우유, 달걀, 사과 두 봉지, 커피 원두 200g"), edited: now.addingTimeInterval(-60 * 90), folder: personalFolder, unread: true),
+        .init(id: 2, title: String(localized: "운송장 번호"), body: String(localized: "1Z 999 AA1 0123 4567, 목요일 도착 예정"), edited: now.addingTimeInterval(-60 * 60 * 26), folder: personalFolder, unread: false),
+        .init(id: 3, title: String(localized: "면접 질문 정리"), body: String(localized: "탭바는 목적지, 툴바는 액션. 이 구분을 어떻게 설명할 것인가."), edited: now.addingTimeInterval(-60 * 60 * 50), folder: workFolder, unread: false),
+        .init(id: 4, title: String(localized: "읽을 것"), body: String(localized: "HIG Toolbars, WWDC25 세션 323, Liquid Glass 해설 글"), edited: now.addingTimeInterval(-60 * 60 * 24 * 6), folder: personalFolder, unread: false),
+        .init(id: 5, title: String(localized: "이사 체크리스트"), body: String(localized: "인터넷 이전 신청, 우편물 주소 변경, 관리비 정산"), edited: now.addingTimeInterval(-60 * 60 * 24 * 20), folder: personalFolder, unread: false),
     ]
 }
 
@@ -86,14 +93,14 @@ struct SampleNoteApp: View {
 
     @State private var notes = SampleNotes.all
     @State private var query = ""
-    @State private var folder = "전체"
+    @State private var folder = SampleNotes.allFolder
     @State private var editing = false
     @State private var composing = false
     @State private var selection = Set<Int>()
     @State private var opened: SampleNote?
 
     private var visible: [SampleNote] {
-        var rows = folder == "전체" ? notes : notes.filter { $0.folder == folder }
+        var rows = folder == SampleNotes.allFolder ? notes : notes.filter { $0.folder == folder }
         if !query.isEmpty {
             rows = rows.filter {
                 $0.title.localizedCaseInsensitiveContains(query)
@@ -106,7 +113,7 @@ struct SampleNoteApp: View {
     var body: some View {
         NavigationStack {
             list
-                .navigationTitle(folder == "전체" ? "노트" : folder)
+                .navigationTitle(folder == SampleNotes.allFolder ? String(localized: "노트") : folder)
                 .modifier(TitleMenuModifier(config: config, folder: $folder, spotlight: spotlight))
                 .toolbar { toolbarContent }
                 .modifier(SearchPlacement(config: config, query: $query, spotlight: spotlight))
@@ -121,7 +128,7 @@ struct SampleNoteApp: View {
             NoteEditorScreen(config: config, spotlight: spotlight) { title, body in
                 notes.insert(
                     SampleNote(id: (notes.map(\.id).max() ?? 0) + 1, title: title, body: body,
-                               edited: SampleNotes.now, folder: folder == "전체" ? "개인" : folder, unread: false),
+                               edited: SampleNotes.now, folder: folder == SampleNotes.allFolder ? SampleNotes.personalFolder : folder, unread: false),
                     at: 0
                 )
             }
@@ -256,7 +263,9 @@ enum SampleFormat {
         case .hardcoded:
             let calendar = Calendar(identifier: .gregorian)
             let components = calendar.dateComponents([.month, .day], from: date)
-            return "\(components.month ?? 1)월 \(components.day ?? 1)일"
+            // 일부러 손으로 조립한 표기 - 로케일을 따르지 않는 잘못된 예다.
+            return String(localized: "\(components.month ?? 1)월 \(components.day ?? 1)일",
+                          comment: "Deliberately hand-built month/day date (the wrong example). Keep it a fixed, hand-written format.")
         }
     }
 }
@@ -280,7 +289,7 @@ struct NoteDetailScreen: View {
                     .font(.title2.weight(.bold))
                     .lineLimit(3)
 
-                Text(SampleFormat.edited(note.edited, style: config.date) + " 수정 · " + note.folder)
+                Text("\(SampleFormat.edited(note.edited, style: config.date)) 수정 · \(note.folder)")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
 
@@ -290,7 +299,7 @@ struct NoteDetailScreen: View {
                     .modifier(SelectableModifier(config: config))
                     .spotlightRing(spotlight == .selection)
 
-                if note.title.contains("운송장") {
+                if note.id == SampleNotes.trackingNoteID {
                     Button {
                         UIPasteboard.general.string = "1Z 999 AA1 0123 4567"
                         withAnimation { copied = true }
@@ -310,10 +319,10 @@ struct NoteDetailScreen: View {
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
                 Menu("더보기", systemImage: "ellipsis") {
-                    Button("공유", systemImage: "square.and.arrow.up") { log.tap("공유") }
+                    Button("공유", systemImage: "square.and.arrow.up") { log.tap(String(localized: "공유")) }
                     Divider()
                     Button("삭제", systemImage: "trash", role: .destructive) {
-                        if let onDelete { onDelete() } else { log.tap("삭제") }
+                        if let onDelete { onDelete() } else { log.tap(String(localized: "삭제")) }
                     }
                 }
             }
@@ -374,7 +383,7 @@ struct NoteEditorScreen: View {
                     }
                     ToolbarItem(placement: .topBarTrailing) {
                         Button("완료") {
-                            onSave(title.isEmpty ? "제목 없음" : title, body_)
+                            onSave(title.isEmpty ? String(localized: "제목 없음") : title, body_)
                             dismiss()
                         }
                         .fontWeight(.semibold)
@@ -403,7 +412,7 @@ private struct TitleMenuModifier: ViewModifier {
     @Binding var folder: String
     let spotlight: NoteAppConfig.Knob?
 
-    private let folders = ["전체", "업무", "개인"]
+    private let folders = [SampleNotes.allFolder, SampleNotes.workFolder, SampleNotes.personalFolder]
 
     func body(content: Content) -> some View {
         switch config.title {

@@ -59,11 +59,11 @@ private struct OverflowOrderScreen: View {
     }
 
     private var actions: [Act] {
-        let star = Act(id: "star", name: "별표", symbol: "star")
-        let flag = Act(id: "flag", name: "깃발", symbol: "flag")
-        let print_ = Act(id: "print", name: "프린트", symbol: "printer")
-        let move = Act(id: "move", name: "이동", symbol: "folder")
-        let save = Act(id: "save", name: "저장", symbol: "tray.and.arrow.down")
+        let star = Act(id: "star", name: String(localized: "별표"), symbol: "star")
+        let flag = Act(id: "flag", name: String(localized: "깃발"), symbol: "flag")
+        let print_ = Act(id: "print", name: String(localized: "프린트"), symbol: "printer")
+        let move = Act(id: "move", name: String(localized: "이동"), symbol: "folder")
+        let save = Act(id: "save", name: String(localized: "저장"), symbol: "tray.and.arrow.down")
         // 폭이 모자라면 시스템은 뒤쪽부터 ⋯ 안으로 접는다. 순서가 곧 우선순위 선언이다.
         return broken ? [star, flag, print_, move, save] : [save, move, star, flag, print_]
     }
@@ -127,8 +127,8 @@ private struct ScrollEdgeScreen: View {
             .toolbarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
-                    Button("선택", systemImage: "checkmark.circle") { log.tap("선택 모드") }
-                    Button("공유", systemImage: "square.and.arrow.up") { log.tap("공유") }
+                    Button("선택", systemImage: "checkmark.circle") { log.tap(String(localized: "선택 모드")) }
+                    Button("공유", systemImage: "square.and.arrow.up") { log.tap(String(localized: "공유")) }
                 }
             }
             .modifier(EdgeModifier(hidden: broken))
@@ -154,10 +154,10 @@ private struct ClampedTextScreen: View {
     let broken: Bool
 
     private let rows: [(String, String)] = [
-        ("배송지", "서울특별시 성동구 아차산로 111 무학빌딩 7층 703호"),
-        ("결제 금액", "₩1,284,000"),
-        ("주문번호", "2026-0821-A7K9-4421"),
-        ("받는 사람", "김하늘 (010-1234-5678)"),
+        (String(localized: "배송지"), String(localized: "서울특별시 성동구 아차산로 111 무학빌딩 7층 703호")),
+        (String(localized: "결제 금액"), "₩1,284,000"),
+        (String(localized: "주문번호"), "2026-0821-A7K9-4421"),
+        (String(localized: "받는 사람"), String(localized: "김하늘 (010-1234-5678)")),
     ]
 
     var body: some View {
@@ -287,7 +287,7 @@ private struct FakeTabScreen: View {
         .sheet(isPresented: $composing) { DemoComposeSheet() }
     }
 
-    private func page(_ title: String, compose: (() -> Void)? = nil) -> some View {
+    private func page(_ title: LocalizedStringKey, compose: (() -> Void)? = nil) -> some View {
         NavigationStack {
             List(DemoData.mail.prefix(8)) { DemoMailRow(mail: $0) }
                 .listStyle(.plain)
