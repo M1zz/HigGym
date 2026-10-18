@@ -6,6 +6,8 @@
 <title>개인정보처리방침, 앱 디자인 실습</title>
 <link rel="canonical" href="https://m1zz.github.io/HigGym/privacy.html">
 <link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/privacy.html">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/privacy.html">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/privacy.html">
 <link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/privacy.html">
 <style>
   :root{
@@ -24,6 +26,8 @@
   .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
   h1{font-size:1.75rem;margin:0;line-height:1.3}
   .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
   nav.lang{font-size:.9rem;margin-bottom:28px}
   h2{font-size:1.15rem;margin:36px 0 10px}
   section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
@@ -37,9 +41,10 @@
 </head>
 <body>
 <main>
+  <nav class="langs" aria-label="언어"><a href="./privacy.html" aria-current="page">한국어</a> · <a href="./en/privacy.html" hreflang="en" lang="en">English</a> · <a href="./ja/privacy.html" hreflang="ja" lang="ja">日本語</a></nav>
   <header><div class="mark" aria-hidden="true"></div><h1>개인정보처리방침</h1></header>
   <p class="meta">앱 디자인 실습 (iOS) · 시행일 2026년 10월 17일</p>
-  <nav class="lang"><a href="#en">English</a> · <a href="./app/">앱 소개</a> · <a href="./support.html">지원 페이지</a></nav>
+  <nav class="lang"><a href="./app/">앱 소개</a> · <a href="./support.html">지원 페이지</a></nav>
 
   <section class="card">
     <h2>요약</h2>
@@ -87,57 +92,7 @@
   <p>개인정보와 관련한 질문은 <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> 또는 <a href="https://github.com/M1zz/HigGym/issues">GitHub Issues</a>에 남겨 주세요.</p>
 
   <hr>
-
-  <header id="en"><div class="mark" aria-hidden="true"></div><h1>Privacy Policy</h1></header>
-  <p class="meta">App Design Practice (iOS) · Effective October 17, 2026</p>
-
-  <section class="card">
-    <h2>Summary</h2>
-    <p><strong>This app does not collect any personal data.</strong> There is no account, and no advertising, third-party analytics, or tracking tools are used. Your progress and notes stay on your device. To learn how many people use the app and to fix crashes, it sends only anonymous usage statistics and crash reports.</p>
-  </section>
-
-  <h2>1. Data we collect</h2>
-  <p>No personal data. The app contains no third-party SDKs, does not use the advertising identifier (IDFA), and does not access location, contacts, photos, or the camera. The only data that leaves your device is listed under “Anonymous usage statistics” below, plus any feedback you choose to send yourself (section 3).</p>
-  <h3>Anonymous usage statistics</h3>
-  <p>To learn how many people use the app and to fix crashes, the app sends the following anonymous statistics to Apple’s iCloud (CloudKit), where only the developer can read them:</p>
-  <ul>
-    <li>A random ID created when the app is installed (not linked to you, your Apple ID, your device, or other apps; it changes if you reinstall)</li>
-    <li>App version, iOS version, and region/language setting</li>
-    <li>How many times the app was opened and the days it was opened, the install date, and the number of days since install</li>
-    <li>Crash and freeze reports (app version, iOS version, device type, and technical details of the crash)</li>
-  </ul>
-  <p>No name, contact details, location, or anything you create, such as study notes or quiz results, is included. Statistics are sent only if you are signed in to iCloud. They are sent by LeeoKit, a library the developer wrote, and are never shared with third parties.</p>
-
-  <h2>2. Data stored only on your device</h2>
-  <p>To let you pick up where you left off, the following is stored <strong>on your device only</strong> and is never transmitted to anyone, including the developer:</p>
-  <ul>
-    <li>Lesson progress and the study notes you write in lessons</li>
-    <li>Quiz results, labs you have visited, and mistakes you have checked off</li>
-  </ul>
-  <p>This data is removed when you delete the app. If device backups (such as iCloud Backup) are turned on, it may be included in those backups under Apple's policies.</p>
-
-  <h2>3. When you export something yourself</h2>
-  <ul>
-    <li><strong>Copy</strong>, copying notes or sample code places them on the device clipboard.</li>
-    <li><strong>Share</strong>, exporting notes as a Markdown file opens the iOS share sheet. You choose the destination; the app is not involved in what happens after that.</li>
-    <li><strong>Send Feedback</strong>, when you tap send in Settings › Send Feedback, the text you wrote, along with the app version, iOS version, and device type, is sent to Apple’s iCloud (CloudKit), where only the developer can read it. Your name and contact details are not requested, and replies appear inside the app.</li>
-    <li><strong>Email and Instagram</strong>, the contact rows in Settings open your Mail app or Instagram. What happens after that is governed by those services.</li>
-  </ul>
-
-  <h2>4. External links</h2>
-  <p>Reference links (Apple Developer documentation, blogs, etc.) open in your device's browser. Those sites are governed by their own policies.</p>
-
-  <h2>5. Children's privacy</h2>
-  <p>The app does not collect personal data from users of any age. The anonymous statistics cannot be traced back to anyone.</p>
-
-  <h2>6. Changes</h2>
-  <p>If the way the app handles data changes, this page will be updated first with a new effective date.</p>
-
-  <h2>7. Contact</h2>
-  <p>For privacy questions, email <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> or open an issue on <a href="https://github.com/M1zz/HigGym/issues">GitHub Issues</a>.</p>
-
-  <hr>
-  <footer><a href="./app/">앱 소개</a> · <a href="./support.html">지원 / Support</a> · <a href="./toolbar-annotated.html">HigGym 문서</a></footer>
+  <footer><a href="./app/">앱 소개</a> · <a href="./support.html">지원</a> · <a href="./toolbar-annotated.html">HigGym 문서</a></footer>
 </main>
 </body>
 </html>

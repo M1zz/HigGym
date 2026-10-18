@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>アプリデザイン実習｜Apple HIG を手で覚えるワークブック</title>
+<meta name="description" content="ガイドラインに反した画面を実際に触り、気づいたことを書き、直した画面と見比べる。Apple の Human Interface Guidelines を手を動かして身につける iPhone 向けワークブックアプリです。">
+<link rel="canonical" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/app/">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/app/">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.8;
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",Meiryo,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="言語"><a href="../../app/" hreflang="ko" lang="ko">한국어</a> · <a href="../../en/app/" hreflang="en" lang="en">English</a> · <a href="./" aria-current="page">日本語</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>アプリデザイン実習</h1></header>
+  <p class="meta">Apple HIG と SwiftUI（iOS 26）のワークブックアプリ・iPhone</p>
+  <nav class="lang"><a href="#contact">お問い合わせ</a> · <a href="../support.html">サポート</a> · <a href="../privacy.html">プライバシーポリシー</a></nav>
+
+  <section class="card">
+    <h2>読むだけで終わらないデザインの勉強</h2>
+    <p>Apple の Human Interface Guidelines を読むだけでなく、<strong>ガイドラインに反した画面を実際に触り、気づいたことを書き、基準と見比べる</strong>ワークブックです。
+      レッスン23本、解説項目68個、よくあるミス100件、原則7つ、実習5種類、クイズ396問を収録しています。アプリ全体を日本語、英語、韓国語で利用できます。</p>
+  </section>
+
+  <h2>レッスンは5つのステップ</h2>
+  <ol>
+    <li><strong>触ってみる</strong>：見本のアプリを実寸で表示し、課題を出します。ここで触る画面は、あえてガイドラインに反しています。</li>
+    <li><strong>書いてみる</strong>：答えを見る前に、違和感を覚えたところを先に書きます。</li>
+    <li><strong>理由を確かめる</strong>：自分の書いたことと基準を並べ、なぜその判断をしたのか、逆にすると何が崩れるのかを根拠の項目と一緒に確認します。</li>
+    <li><strong>比べる</strong>：反した画面と直した画面を同じ場所で切り替えて、違いを確かめます。</li>
+    <li><strong>学んだことを書く</strong>：次に使える一文として残します。ノートはテキストとしてコピーしたり、Markdownファイルとして書き出したりできます。</li>
+  </ol>
+
+  <h2>3つのタブ</h2>
+  <ul>
+    <li><strong>学習</strong>：23本のレッスンからなるコース。画面下の作成ボタン、スワイプで削除、ツールバーのまとめ方、検索の置き場所、タブの数といった判断を1つずつ扱います。</li>
+    <li><strong>ノート</strong>：レッスンで書いた文章がたまっていく場所です。</li>
+    <li><strong>資料</strong>：ツールバー、テキスト、タブバー、シート、メニューなど68項目を図で見渡せます。図の部分をタップすると、その場所のルールと根拠が表示されます。項目ごとに実際に動くサンプル画面があります。</li>
+  </ul>
+
+  <h2>こんな方におすすめ</h2>
+  <ul>
+    <li>iOSアプリを作りながら、画面レイアウトの判断基準を知りたい開発者やデザイナー</li>
+    <li>ガイドラインを読んでも、なかなか身につかなかった方</li>
+  </ul>
+  <p>ログインは不要で、すべての内容がアプリに入っているのでオフラインでも使えます。進み具合とノートは端末の中にだけ保存されます。</p>
+  <p>解説はWebでも読めます（英語）：<a href="../../toolbar-annotated.html?lang=en">HigGym 項目別の解説</a></p>
+
+  <section class="card" id="contact">
+    <h2>お問い合わせ</h2>
+    <p>不具合、内容の誤り、取り上げてほしい画面があれば教えてください。端末の機種、iOSのバージョン、どの画面で起きたかを書き添えていただくと、早く確認できます。
+      アプリ内では<strong>学習タブ › 右上の設定 › フィードバックを送る</strong>から直接送れます。</p>
+    <p>メール <a href="mailto:leeo@kakao.com?subject=%5B%E3%82%A2%E3%83%97%E3%83%AA%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3%E5%AE%9F%E7%BF%92%5D%20%E3%81%8A%E5%95%8F%E3%81%84%E5%90%88%E3%82%8F%E3%81%9B">leeo@kakao.com</a> · <a href="https://github.com/M1zz/HigGym/issues/new">GitHub Issues</a> · <a href="https://instagram.com/lee25_ios">Instagram</a></p>
+    <p>個人情報は収集しません。詳しくは<a href="../privacy.html">プライバシーポリシー</a>をご覧ください。</p>
+  </section>
+
+  <hr>
+  <footer><a href="../support.html">サポート</a> · <a href="../privacy.html">プライバシーポリシー</a> · <a href="https://github.com/M1zz/HigGym">GitHub</a></footer>
+</main>
+</body>
+</html>

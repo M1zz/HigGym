@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>App Design Lab, learn Apple HIG by doing</title>
+<meta name="description" content="Use screens that break a guideline, write down what felt off, and compare them with the fixed version. An iPhone workbook for learning Apple's Human Interface Guidelines hands-on.">
+<link rel="canonical" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/app/">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/app/">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Language"><a href="../../app/" hreflang="ko" lang="ko">한국어</a> · <a href="./" aria-current="page">English</a> · <a href="../../ja/app/" hreflang="ja" lang="ja">日本語</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>App Design Lab</h1></header>
+  <p class="meta">A hands-on workbook for Apple HIG and SwiftUI (iOS 26) · iPhone</p>
+  <nav class="lang"><a href="#contact">Contact</a> · <a href="../support.html">Support</a> · <a href="../privacy.html">Privacy Policy</a></nav>
+
+  <section class="card">
+    <h2>Design study that goes beyond reading</h2>
+    <p>Instead of only reading Apple's Human Interface Guidelines, you <strong>use a screen that breaks a guideline, write down what felt off, and then compare it with the rule</strong>.
+      The app includes 23 lessons, 68 annotated topics, 100 common mistakes, 7 principles, 5 labs, and 396 quiz questions. Everything is available in English, Japanese, and Korean.</p>
+  </section>
+
+  <h2>Every lesson has five steps</h2>
+  <ol>
+    <li><strong>Try it</strong>: open a sample app at full size and get a task. The screen you use here breaks a guideline on purpose.</li>
+    <li><strong>Write it down</strong>: before you see the answer, note what felt strange.</li>
+    <li><strong>See why</strong>: your notes sit next to the rule, along with the decision, the reasoning behind it, and what breaks if you flip it.</li>
+    <li><strong>Compare</strong>: switch between the broken screen and the fixed one in the same spot and see the difference.</li>
+    <li><strong>Write what you learned</strong>: save a sentence you can reuse next time. Notes can be copied as text or exported as a Markdown file.</li>
+  </ol>
+
+  <h2>Three tabs</h2>
+  <ul>
+    <li><strong>Learn</strong>: a course of 23 lessons, one design decision each, such as bottom compose buttons, swipe to delete, grouped toolbar items, search placement, and how many tabs to use.</li>
+    <li><strong>Notes</strong>: everything you wrote during lessons, in one place.</li>
+    <li><strong>Library</strong>: browse 68 topics, including toolbars, text, tab bars, sheets, and menus, as illustrations. Tap any part of a picture to see its rule and the reasoning, and open a working example for every topic.</li>
+  </ul>
+
+  <h2>Who it is for</h2>
+  <ul>
+    <li>Developers and designers building iOS apps who want a reason behind every layout choice</li>
+    <li>Anyone who has read the guidelines but found that little of it stuck</li>
+  </ul>
+  <p>No sign in is required, and everything is built into the app, so it works offline. Your progress and notes are stored only on your device.</p>
+  <p>The annotated guide can also be read on the web: <a href="../../toolbar-annotated.html?lang=en">HigGym guide by topic</a></p>
+
+  <section class="card" id="contact">
+    <h2>Contact</h2>
+    <p>Found a bug, a content error, or a screen you would like covered? Please let us know, and include your device model, iOS version, and the screen where it happened.
+      In the app, you can send it directly from <strong>Learn › Settings (top right) › Send Feedback</strong>.</p>
+    <p>Email <a href="mailto:leeo@kakao.com?subject=%5BApp%20Design%20Lab%5D%20Support">leeo@kakao.com</a> · <a href="https://github.com/M1zz/HigGym/issues/new">GitHub Issues</a> · <a href="https://instagram.com/lee25_ios">Instagram</a></p>
+    <p>We do not collect personal information. See the <a href="../privacy.html">Privacy Policy</a> for details.</p>
+  </section>
+
+  <hr>
+  <footer><a href="../support.html">Support</a> · <a href="../privacy.html">Privacy Policy</a> · <a href="https://github.com/M1zz/HigGym">GitHub</a></footer>
+</main>
+</body>
+</html>

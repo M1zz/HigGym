@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>プライバシーポリシー｜アプリデザイン実習</title>
+<link rel="canonical" href="https://m1zz.github.io/HigGym/ja/privacy.html">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/privacy.html">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/privacy.html">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/privacy.html">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.8;
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Segoe UI",Meiryo,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  ul{padding-left:1.2em}
+  li{margin:4px 0}
+  a{color:var(--accent)}
+  code{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:.9em}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="言語"><a href="../privacy.html" hreflang="ko" lang="ko">한국어</a> · <a href="../en/privacy.html" hreflang="en" lang="en">English</a> · <a href="./privacy.html" aria-current="page">日本語</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>プライバシーポリシー</h1></header>
+  <p class="meta">アプリデザイン実習（iOS）・施行日 2026年10月17日</p>
+  <nav class="lang"><a href="./app/">アプリの紹介</a> · <a href="./support.html">サポート</a></nav>
+
+  <section class="card">
+    <h2>概要</h2>
+    <p><strong>アプリデザイン実習は個人情報を収集しません。</strong>会員登録はなく、広告、外部の分析ツール、トラッキングツールも使用していません。学習の進み具合とノートは端末の中にだけ保存されます。利用者数の把握と不具合の修正のために、匿名の利用統計とエラーレポートだけを送信します。</p>
+  </section>
+
+  <h2>1. 収集する情報</h2>
+  <p>個人情報は収集しません。本アプリには、サードパーティ製SDKの組み込み、広告識別子（IDFA）の使用、位置情報・連絡先・写真・カメラへのアクセスはありません。端末の外に送られるのは、下記「匿名の利用統計」に記載した項目と、ご自身で送ると決めたご意見（第3項）だけです。</p>
+  <h3>匿名の利用統計</h3>
+  <p>利用者数の把握と不具合の修正のために、次の匿名統計をApple の iCloud（CloudKit）に送信します。閲覧できるのは開発者のみです。</p>
+  <ul>
+    <li>インストール時に作成されるランダムなID（利用者、Apple ID、端末、ほかのアプリとは結び付かず、再インストールすると変わります）</li>
+    <li>アプリのバージョン、iOSのバージョン、地域と言語の設定</li>
+    <li>アプリを開いた回数と開いた日、インストール日とインストールからの経過日数</li>
+    <li>アプリが停止または終了したときのエラーレポート（アプリのバージョン、iOSのバージョン、端末の種類、エラーの技術情報）</li>
+  </ul>
+  <p>名前、連絡先、位置情報、学習ノートやクイズの記録など、利用者が作成した内容は含みません。iCloudにサインインしているときだけ送信します。この統計は開発者自身が作成した共通ライブラリ（LeeoKit）が送信し、第三者に提供することはありません。</p>
+
+  <h2>2. 端末の中にだけ保存される情報</h2>
+  <p>学習を続きから再開できるよう、次の内容を<strong>利用者の端末の中にだけ</strong>保存します。開発者を含め、誰にも送信されません。</p>
+  <ul>
+    <li>レッスンの進み具合と、レッスンでご自身が書いた学習ノート</li>
+    <li>クイズの正解・不正解の記録、訪れた実習、チェックしたミスの項目</li>
+  </ul>
+  <p>これらの情報はアプリを削除すると一緒に消去されます。端末のバックアップ（iCloudバックアップなど）をオンにしている場合は、Appleのバックアップポリシーに従ってバックアップに含まれることがあります。</p>
+
+  <h2>3. ご自身で書き出す場合</h2>
+  <ul>
+    <li><strong>コピー</strong>：学習ノートやサンプルコードをコピーすると、端末のクリップボードに入ります。</li>
+    <li><strong>共有</strong>：学習ノートをMarkdownファイルとして書き出すと、iOSの共有シートが開きます。送り先は利用者が選び、その後の処理にアプリは関与しません。</li>
+    <li><strong>ご意見の送信</strong>：設定の「フィードバックを送る」で送信をタップすると、ご自身で書いた文章と、アプリのバージョン、iOSのバージョン、端末の種類がApple の iCloud（CloudKit）に送信され、開発者だけが読みます。名前や連絡先はお尋ねしません。返信はアプリ内で確認できます。</li>
+    <li><strong>メール・Instagramでのお問い合わせ</strong>：設定のお問い合わせの行をタップすると、端末のメールアプリまたはInstagramが開きます。その後の処理は各サービスのポリシーに従います。</li>
+  </ul>
+
+  <h2>4. 外部リンク</h2>
+  <p>根拠資料のリンク（Apple Developerのドキュメント、参考ブログなど）をタップすると、Safariなど端末のブラウザで開きます。各サイトでの情報の取り扱いは、それぞれのサイトのポリシーに従います。</p>
+
+  <h2>5. 子どもの個人情報</h2>
+  <p>本アプリは、年齢を問わずどの利用者からも個人情報を収集しません。匿名の利用統計も、誰のものかを特定することはできません。</p>
+
+  <h2>6. ポリシーの変更</h2>
+  <p>アプリによる情報の取り扱いが変わる場合は、まずこのページを更新し、新しい施行日を記載します。</p>
+
+  <h2>7. お問い合わせ</h2>
+  <p>個人情報に関するご質問は、<a href="mailto:leeo@kakao.com">leeo@kakao.com</a> または <a href="https://github.com/M1zz/HigGym/issues">GitHub Issues</a> までお寄せください。</p>
+
+  <hr>
+  <footer><a href="./app/">アプリの紹介</a> · <a href="./support.html">サポート</a> · <a href="../toolbar-annotated.html?lang=en">HigGym ガイド（Web・英語）</a></footer>
+</main>
+</body>
+</html>

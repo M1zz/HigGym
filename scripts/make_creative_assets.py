@@ -20,7 +20,7 @@ RAW = ROOT / "docs" / "screenshots" / "raw" / "creative"
 OUT = ROOT / "docs" / "screenshots" / "creative"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
-# 앱은 한국어 전용이고 스토어 언어도 ko 하나다(deploy.env LOCALES).
+# 스토어 언어 = deploy.env LOCALES (ko · en · ja). 폴더 이름이 로케일 그대로라 바꿀 것이 없다.
 STORE = {}
 
 # (가로, 세로, 안전 영역 left, top, right, bottom)
@@ -33,11 +33,15 @@ SPEC = {
 # 앱의 약속: 규칙을 외우는 게 아니라 어긴 화면을 직접 만져 보고 왜 그런지 확인한다.
 SEARCH = {
     "ko": ("앱 디자인 공부", "직접 만져 보며<br>배우는 앱 디자인", "어색한 화면을 써 보고<br>이유를 확인해요"),
+    "en": ("iOS design practice", "Learn app design<br>by touching it", "Use awkward screens,<br>then see why"),
+    "ja": ("アプリデザインの勉強", "触って学ぶ<br>アプリデザイン", "違和感のある画面を使って<br>理由を確かめる"),
 }
 
 # 헤더: 처음 온 사람에게 한 가지 약속.
 HEADER = {
     "ko": ("앱 디자인 실습", "써 보면 알게 되는<br>좋은 화면의 이유"),
+    "en": ("App Design Lab", "Use it, and see why<br>good screens work"),
+    "ja": ("アプリデザイン実習", "使ってわかる<br>良い画面の理由"),
 }
 
 # ⚠️ 바탕 · 글자색은 기존 스크린샷(make_marketing_screenshots.py)과 같다. 다르면 페이지에서

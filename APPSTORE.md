@@ -55,3 +55,115 @@ https://m1zz.github.io/HigGym/privacy.html
 ### 마케팅 URL
 
 https://m1zz.github.io/HigGym/app/
+
+## en
+
+### 이름
+
+App Design Lab: iOS HIG Guide
+
+### 부제
+
+Learn interface rules by doing
+
+### 키워드
+
+ui,ux,human,guidelines,toolbar,tabbar,sheet,navigation,layout,accessibility,usability,quiz,developer
+
+### 프로모션 텍스트
+
+Where should a toolbar button go? How should delete work? Use screens that get it wrong, note what feels off, then compare with the fix until good calls come naturally.
+
+### 설명
+
+Don't just read the Human Interface Guidelines. Feel them. App Design Lab is a hands-on iOS design workbook where you use screens that break the rules, then see exactly why.
+Each lesson tackles one decision in five steps: try a broken screen, write what felt off, see why, compare it with the fix, and write down what you learned.
+
+23 HANDS-ON LESSONS
+Try it: a sample app opens at full size with a task. The screen you are using breaks a guideline on purpose.
+Write it down: before you see the answer, note what you noticed.
+See why: the decision, the reasoning behind it, and what falls apart if you flip it, right next to what you wrote.
+Compare: switch between the broken screen and the fixed one in the same spot and spot the difference.
+Write what you learned: keep one sentence you can reuse next time. Your notes collect in the Notes tab, where you can copy them or export them as a Markdown file.
+
+A LIBRARY FOR GOING DEEPER
+68 topics: toolbars, titles, search, tab bars, sheets, and text, each drawn as a mockup. Tap any part of the picture to see the rule behind it, and open a live example screen for every topic.
+100 mistakes: what was done, why it seemed right at the time, and what changes once it is fixed, written as short retrospectives.
+7 principles: the core judgments behind all 68 topics, shown by flipping the same screen between a broken and a correct layout.
+5 labs: adjust toolbar placement, scroll edge effects, text truncation, tab bar setup, and sheet height, and get a verdict in real time.
+Quiz: 396 questions that ask you to look at a screen and make the call.
+
+MADE FOR
+Developers who want a reason behind every button they place
+Designers who want to get comfortable with the new iOS 26 toolbars and tab bars
+Teams who need to explain the why in design reviews
+
+Everything is free. There is no account, and your progress and notes stay on your device. The whole app is available in English, Japanese, and Korean.
+
+### 지원 URL
+
+https://m1zz.github.io/HigGym/en/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/HigGym/en/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/HigGym/en/app/
+
+## ja
+
+### 이름
+
+アプリデザイン実習：iOS HIG入門
+
+### 부제
+
+触って身につくUI設計ワークブック
+
+### 키워드
+
+ヒューマンインターフェイス,ガイドライン,UX,ツールバー,タブバー,シート,開発者,デザイナー,エンジニア,プログラミング,アクセシビリティ,レイアウト,画面設計,ユーザビリティ,クイズ,勉強
+
+### 프로모션 텍스트
+
+ツールバーのボタンはどこに置く？削除はどう操作させる？ルールに反した画面を触り、気づいたことを書き、直した画面と見比べて、デザインの判断を手で覚えましょう。
+
+### 설명
+
+Apple のヒューマンインターフェイスガイドラインを、読むだけでなく手を動かして身につける iOS デザインのワークブックです。
+1本のレッスンで扱う判断は1つだけ。ルールに反した画面を触り、気づいたことを書き、理由を確かめ、直した画面と比べて、学んだことを残します。
+
+23本のレッスン
+触ってみる：見本のアプリを実寸で表示し、課題を出します。ここで触るのは、あえてルールに反した画面です。
+書いてみる：答えを見る前に、実際に触って感じたことを先に書きます。
+理由を確かめる：このアプリが下した判断、なぜそうしたのか、逆にすると何が崩れるのかを、自分の書いたことと並べて確認します。
+比べる：反した画面と直した画面を同じ場所で切り替え、違いを確かめます。
+学んだことを書く：次に使える一文として残します。ノートタブにたまり、テキストとしてコピーしたり、Markdownファイルとして書き出したりできます。
+
+もっと知りたいときの資料
+68の項目：ツールバー、タイトル表示、検索、タブバー、シート、テキストをモックアップの図で見渡せます。図の部分をタップすると、その場所のルールと根拠が表示されます。項目ごとに実際に動くサンプル画面付きです。
+100のミス：何をしたのか、そのときはなぜ正しく見えたのか、直すとどうなるのかを振り返りとしてまとめました。
+7つの原則：68項目に共通する判断基準を、反した構成と守った構成を切り替えて比べます。
+5つの実習：ツールバーの配置、スクロールエッジ効果、テキストの切れ方、タブバーの構成、シートの高さを変えながら、その場で判定を受けられます。
+クイズ：画面を見て判断する396問で理解を確かめます。
+
+こんな方に
+SwiftUIでアプリを作りながら、ボタン1つの位置にも根拠を持ちたい開発者
+iOS 26の新しいツールバーとタブバーを手で覚えたいデザイナー
+デザインレビューで「なぜ」を説明する必要があるチーム
+
+すべての機能を無料で使えます。アカウントは不要で、学習の記録とノートは端末の中にだけ保存されます。アプリ全体を日本語、英語、韓国語で利用できます。
+
+### 지원 URL
+
+https://m1zz.github.io/HigGym/ja/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/HigGym/ja/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/HigGym/ja/app/

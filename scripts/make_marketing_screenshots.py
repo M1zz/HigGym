@@ -15,7 +15,7 @@ RAW = ROOT / "docs" / "screenshots" / "raw"
 OUT = ROOT / "docs" / "screenshots" / "marketing"
 WORK = pathlib.Path("/tmp") / "higgym-marketing"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-STORE = {"ko": "ko"}
+STORE = {"ko": "ko", "en": "en", "ja": "ja"}
 
 # (원본 파일, 헤드라인, 서브카피), 언어마다 따로 쓴다.
 SHOTS = {
@@ -26,6 +26,22 @@ SHOTS = {
         ("04-reason.png",  "왜 그랬는지<br>확인하고", "이 앱이 한 결정, 이유, 뒤집으면 생기는 일"),
         ("05-compare.png", "어긴 화면과<br>고친 화면을 비교", "같은 자리에서 바로 바꿔 보며 차이를 봐요"),
         ("06-items.png",   "HIG 68개 항목을<br>그림으로", "툴바 · 탭바 · 시트 · 텍스트를 목업으로 훑어요"),
+    ],
+    "en": [
+        ("01-course.png",  "Don't just read it.<br>Touch it.", "One decision per lesson, 23 hands-on lessons"),
+        ("02-try.png",     "Try it first", "Use the rule-breaking screen at full size"),
+        ("03-write.png",   "Write down<br>what you felt", "Before the answer, note what your hands noticed"),
+        ("04-reason.png",  "Then see why", "The decision, the reason, and what breaks if you flip it"),
+        ("05-compare.png", "Broken vs. fixed,<br>side by side", "Swap them in place and spot the difference"),
+        ("06-items.png",   "68 HIG topics,<br>drawn out", "Toolbars, tab bars, sheets and text as mockups"),
+    ],
+    "ja": [
+        ("01-course.png",  "読むより、<br>触って学ぶ", "1本に1つの判断、23本のデザイン実習"),
+        ("02-try.png",     "まず触ってみる", "ルールを破った画面を実寸で操作します"),
+        ("03-write.png",   "感じたことを<br>先に書く", "答えを見る前に、手が気づいたことを残す"),
+        ("04-reason.png",  "理由を<br>確かめる", "アプリの判断、その理由、逆にしたら起きること"),
+        ("05-compare.png", "破った画面と<br>直した画面を比べる", "同じ場所で切り替えて違いを見る"),
+        ("06-items.png",   "HIGの68項目を<br>図で見渡す", "ツールバー、タブバー、シート、テキストを図で"),
     ],
 }
 
@@ -38,13 +54,15 @@ CSS = """
 * { margin:0; padding:0; box-sizing:border-box; }
 html,body { width:%(W)dpx; height:%(H)dpx; overflow:hidden; }
 body { background:#0B0C10; position:relative;
-  font-family:-apple-system, "SF Pro Display", "Apple SD Gothic Neo", sans-serif; }
+  font-family:-apple-system, "SF Pro Display", "Apple SD Gothic Neo", "Hiragino Sans", sans-serif; }
 .glow { position:absolute; left:50%%; top:%(GT)dpx; width:%(GW)dpx; height:%(GW)dpx; margin-left:-%(GH)dpx;
   border-radius:50%%; filter:blur(200px); background:rgba(90,168,255,.22); }
 .t { position:absolute; left:80px; right:80px; top:%(TT)dpx; text-align:center; }
 .headline { font-size:%(HS)dpx; font-weight:800; color:#E9EDF4; letter-spacing:-0.03em; line-height:1.14; }
 .sub { margin-top:40px; font-size:%(SS)dpx; font-weight:500; color:#9AA4B2; letter-spacing:-0.01em; line-height:1.3; }
 :lang(ko) .headline, :lang(ko) .sub { word-break:keep-all; }
+:lang(ja) .headline { letter-spacing:0; }
+:lang(ja) .headline, :lang(ja) .sub { line-break:strict; word-break:keep-all; }
 .dev { position:absolute; left:50%%; top:%(DT)dpx; width:%(DW)dpx; margin-left:-%(DH)dpx; background:#181B22;
   border:4px solid #2A2F3A; padding:%(PAD)dpx; border-radius:%(R)dpx; box-shadow:0 60px 160px rgba(0,0,0,.6); }
 .dev img { width:100%%; display:block; border-radius:%(IR)dpx; }
