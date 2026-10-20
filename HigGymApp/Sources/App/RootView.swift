@@ -208,10 +208,10 @@ enum DebugLaunch {
         #endif
     }
 
-    /// 결제 화면의 가격 자리에 보여 줄 값 - 인앱 상품 심사용 스크린샷. (HG_PREVIEW_PRICE=₩9,900)
-    static var previewPrice: String? {
+    /// 결제 화면의 요금제 가격 - 인앱 상품 심사용 스크린샷. 주간|월간|평생 순서. (HG_PREVIEW_PRICES=₩2,900|₩9,900|₩50,000)
+    static var previewPrices: [String]? {
         #if DEBUG
-        ProcessInfo.processInfo.environment["HG_PREVIEW_PRICE"]
+        ProcessInfo.processInfo.environment["HG_PREVIEW_PRICES"]?.components(separatedBy: "|")
         #else
         nil
         #endif

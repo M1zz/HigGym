@@ -36,14 +36,19 @@ enum HigGymSpec: LeeoAppSpec {
         supportURL: URL(string: "https://m1zz.github.io/HigGym/support.html")!,
         marketingURL: URL(string: "https://m1zz.github.io/HigGym/")!
     )
+
+    /// 구독을 팔면 이용약관 링크가 심사 필수다. 따로 쓴 약관이 없어 Apple 표준 약관(EULA)을 건다.
+    static let termsURL = URL(string: "https://www.apple.com/legal/internet-services/itunes/dev/stdeula/")!
     // swiftlint:enable force_unwrapping
 
-    /// 수익모델 (LeeoKit 3.x 부터 필수), 부분유료: 앞부분은 무료, 평생 이용권 한 번으로 전부 연다.
+    /// 수익모델 (LeeoKit 3.x 부터 필수), 부분유료 + 구독: 앞부분은 무료, 주간 · 월간 구독이나
+    /// 평생 이용권 중 하나로 전부 연다. 셋 다 같은 Pro 를 연다 (entitlementIDs = 판매 상품 전체).
     /// 무엇이 몇 번째까지 무료인지의 판정은 HigGymPro.allows 가 이 선언을 읽어 한다.
     /// 1.0.2 (빌드 5) 이하로 처음 받은 사람은 평생 Pro 다 (HigGymPro.lastFreeBuild).
-    static let monetization = LeeoMonetization.freemium(
-        LeeoPurchaseConfig(
-            productIDs: [HigGymPro.productID],
+    static let monetization = LeeoMonetization.freemiumSubscription(
+        LeeoSubscriptionConfig(
+            productIDs: HigGymPro.productIDs,
+            termsURL: termsURL,
             gate: LeeoGatePolicy(
                 freeLimits: [
                     HigGymPro.Key.lesson: 3,       // 레슨 1~3편

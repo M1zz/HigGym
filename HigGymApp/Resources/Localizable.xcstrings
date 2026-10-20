@@ -40816,22 +40816,6 @@
         }
       }
     },
-    "한 번 결제로 모든 레슨과 자료를 엽니다. 무료로 해 본 그 방식 그대로입니다.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "One purchase unlocks every lesson and resource, in the same format you tried for free."
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "一度の購入で、すべてのレッスンと資料が開きます。無料で試したのと同じやり方です。"
-          }
-        }
-      }
-    },
     "레슨 %lld편 전부": {
       "localizations": {
         "en": {
@@ -40992,22 +40976,6 @@
         }
       }
     },
-    "구독이 아닙니다. 한 번 결제하면 계속 씁니다.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Not a subscription. Pay once and keep it."
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "サブスクリプションではありません。一度の購入でずっと使えます。"
-          }
-        }
-      }
-    },
     "항목 68개와 예제, 원칙 7개, 노트는 결제 없이 그대로입니다.": {
       "localizations": {
         "en": {
@@ -41100,54 +41068,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "プライバシーポリシー"
-          }
-        }
-      }
-    },
-    "평생 이용권 %@": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lifetime access %@"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "買い切り %@"
-          }
-        }
-      }
-    },
-    "한 번 결제로 모두 열기": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unlock everything with one purchase"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "一度の購入ですべて開く"
-          }
-        }
-      }
-    },
-    "App Store 계정으로 한 번 결제합니다": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Charges your App Store account once"
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "App Storeのアカウントで一度だけ支払います"
           }
         }
       }
@@ -41248,28 +41168,6 @@
         }
       }
     },
-    "레슨 %lld편, 실수 %lld편, 실습실, 퀴즈 전부. 한 번 결제.": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%1$lld lessons, %2$lld mistakes, every lab and quiz. One purchase."
-          }
-        },
-        "ja": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "レッスン%1$lld編、ミス%2$lld編、実習室、クイズのすべて。一度の購入で。"
-          }
-        },
-        "ko": {
-          "stringUnit": {
-            "state": "new",
-            "value": "레슨 %1$lld편, 실수 %2$lld편, 실습실, 퀴즈 전부. 한 번 결제."
-          }
-        }
-      }
-    },
     "쓰던 기능은 평생 그대로입니다": {
       "localizations": {
         "en": {
@@ -41298,6 +41196,348 @@
           "stringUnit": {
             "state": "translated",
             "value": "このバージョンから、新しくダウンロードする方には一部が有料になります。これまで使ってくださった方は、購入なしですべてのレッスンと資料を使い続けられます。"
+          }
+        }
+      }
+    },
+    "주간, 월간 구독이나 평생 이용권으로 모든 레슨과 자료를 엽니다. 무료로 해 본 그 방식 그대로입니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A weekly or monthly subscription, or a lifetime purchase, unlocks every lesson and resource, in the same format you tried for free."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "週間・月額プラン、または買い切りで、すべてのレッスンと資料が開きます。無料で試したのと同じやり方です。"
+          }
+        }
+      }
+    },
+    "구독은 언제든 해지할 수 있고, 평생 이용권은 한 번 결제로 끝납니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel a subscription anytime. The lifetime purchase is a one-time payment."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プランはいつでも解約でき、買い切りは一度の支払いで終わります。"
+          }
+        }
+      }
+    },
+    "구독 아님": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No subscription"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自動更新なし"
+          }
+        }
+      }
+    },
+    "주간 구독": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Weekly"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "週間プラン"
+          }
+        }
+      }
+    },
+    "월간 구독": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monthly"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "月額プラン"
+          }
+        }
+      }
+    },
+    "평생 이용권": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lifetime"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "買い切り"
+          }
+        }
+      }
+    },
+    "한 주만 집중해서 끝내 보기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Focus for a week and finish"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1週間集中して終わらせる"
+          }
+        }
+      }
+    },
+    "꾸준히 한 편씩 밟아 가기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Work through one lesson at a time"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1本ずつ着実に進める"
+          }
+        }
+      }
+    },
+    "한 번 결제로 계속 쓰기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pay once, keep it"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一度の支払いでずっと使う"
+          }
+        }
+      }
+    },
+    "%@ / 주": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ / week"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ / 週"
+          }
+        }
+      }
+    },
+    "%@ / 월": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ / month"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ / 月"
+          }
+        }
+      }
+    },
+    "결제는 App Store 계정으로 한 번만 청구됩니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your App Store account is charged once."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "お支払いはApp Storeのアカウントに一度だけ請求されます。"
+          }
+        }
+      }
+    },
+    "구독은 기간이 끝나기 24시간 전까지 해지하지 않으면 같은 가격으로 자동 갱신되고, App Store 계정으로 청구됩니다. 설정 › Apple 계정 › 구독에서 언제든 해지할 수 있습니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subscriptions renew automatically at the same price unless canceled at least 24 hours before the period ends, and are charged to your App Store account. Cancel anytime in Settings › Apple Account › Subscriptions."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プランは期間終了の24時間前までに解約しない限り、同じ価格で自動更新され、App Storeのアカウントに請求されます。設定 › Appleアカウント › サブスクリプションでいつでも解約できます。"
+          }
+        }
+      }
+    },
+    "이용약관": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terms of Use"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "利用規約"
+          }
+        }
+      }
+    },
+    "App Store 계정으로 결제합니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Charges your App Store account"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App Storeのアカウントで支払います"
+          }
+        }
+      }
+    },
+    "주간 구독 시작하기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start Weekly"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "週間プランを始める"
+          }
+        }
+      }
+    },
+    "월간 구독 시작하기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start Monthly"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "月額プランを始める"
+          }
+        }
+      }
+    },
+    "평생 이용권 구매하기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buy Lifetime"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "買い切りで購入"
+          }
+        }
+      }
+    },
+    "구독으로 모든 레슨과 자료가 열려 있습니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your subscription unlocks every lesson and resource."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プランですべてのレッスンと資料が開いています。"
+          }
+        }
+      }
+    },
+    "구독 관리": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manage Subscription"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "サブスクリプションを管理"
+          }
+        }
+      }
+    },
+    "레슨 %lld편, 실수 %lld편, 실습실, 퀴즈 전부. 주간 · 월간 구독 또는 평생 이용권.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld lessons, %2$lld mistakes, every lab and quiz. Weekly, monthly, or lifetime."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "レッスン%1$lld編、ミス%2$lld編、実習室、クイズのすべて。週間・月額プランまたは買い切り。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "레슨 %1$lld편, 실수 %2$lld편, 실습실, 퀴즈 전부. 주간 · 월간 구독 또는 평생 이용권."
           }
         }
       }

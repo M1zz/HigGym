@@ -1,4 +1,5 @@
 import SwiftUI
+import StoreKit
 import LeeoKit
 
 /// 설정 - 학습 화면 오른쪽 위 톱니바퀴에서 연다.
@@ -9,6 +10,7 @@ struct SettingsView: View {
     @State private var showsOnboarding = false
     @State private var showsWhatsNew = false
     @State private var showsPaywall = false
+    @State private var managesSubscription = false
     @ObservedObject private var pro = HigGymPro.shared
 
     var body: some View {
@@ -70,6 +72,7 @@ struct SettingsView: View {
         .sheet(isPresented: $showsPaywall) {
             HigGymPaywallView()
         }
+        .manageSubscriptionsSheet(isPresented: $managesSubscription)
     }
 
     /// Pro 상태 한 줄과 구매 복원. 복원은 결제 화면 밖에서도 찾을 수 있어야 한다 (심사 요건).
@@ -82,12 +85,21 @@ struct SettingsView: View {
                             .foregroundStyle(.hgText)
                         Text(pro.isGrandfathered
                              ? "처음부터 함께해 주셔서 모든 기능을 평생 그대로 씁니다."
-                             : "모든 레슨과 자료가 열려 있습니다.")
+                             : pro.isSubscriber
+                                ? "구독으로 모든 레슨과 자료가 열려 있습니다."
+                                : "모든 레슨과 자료가 열려 있습니다.")
                             .font(.footnote)
                             .foregroundStyle(.hgMuted)
                     }
                 } icon: {
                     Image(systemName: "checkmark.seal.fill").foregroundStyle(.hgGreen)
+                }
+                if pro.isSubscriber {
+                    Button {
+                        managesSubscription = true
+                    } label: {
+                        Label("구독 관리", systemImage: "creditcard")
+                    }
                 }
             } else {
                 Button {
@@ -97,7 +109,7 @@ struct SettingsView: View {
                         VStack(alignment: .leading, spacing: 2) {
                             Text("Pro로 모두 열기")
                                 .foregroundStyle(.hgText)
-                            Text("레슨 \(Lesson.all.count)편, 실수 \(MistakeStore.shared.mistakes.count)편, 실습실, 퀴즈 전부. 한 번 결제.")
+                            Text("레슨 \(Lesson.all.count)편, 실수 \(MistakeStore.shared.mistakes.count)편, 실습실, 퀴즈 전부. 주간 · 월간 구독 또는 평생 이용권.")
                                 .font(.footnote)
                                 .foregroundStyle(.hgMuted)
                         }

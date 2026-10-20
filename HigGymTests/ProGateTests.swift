@@ -43,10 +43,14 @@ struct ProGateTests {
     }
 
     /// 상품 ID 는 App Store Connect 와의 계약이고, 판매 상품과 권한 상품이 같아야 산 사람이 열린다.
+    /// 주간 · 월간 구독과 평생 이용권, 어느 것을 사도 같은 Pro 다.
     @Test func 파는_상품이_곧_여는_상품이다() throws {
         let paywall = try #require(HigGymSpec.paywall)
-        #expect(paywall.productIDs == ["com.leeo.higgym.pro"])
-        #expect(paywall.entitlementIDs == ["com.leeo.higgym.pro"])
+        let ids = ["com.leeo.higgym.pro.weekly", "com.leeo.higgym.pro.monthly", "com.leeo.higgym.pro"]
+        #expect(paywall.productIDs == ids)
+        #expect(paywall.entitlementIDs == Set(ids))
+        #expect(HigGymSpec.monetization.sellsSubscription)
+        #expect(paywall.termsURL != nil)
     }
 
     /// "모든 기능이 무료" 라고 받은 마지막 빌드는 1.0.2 의 빌드 5 다. 이 숫자가 줄면 그 사람들이 잠긴다.

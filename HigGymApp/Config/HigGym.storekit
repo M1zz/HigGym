@@ -1,65 +1,131 @@
 {
-  "appPolicies" : {
-    "eula" : "",
-    "policies" : [
+  "appPolicies": {
+    "eula": "",
+    "policies": [
       {
-        "locale" : "en_US",
-        "policyText" : "",
-        "policyURL" : ""
+        "locale": "en_US",
+        "policyText": "",
+        "policyURL": ""
       }
     ]
   },
-  "identifier" : "4A7D2E91",
-  "nonRenewingSubscriptions" : [
-
-  ],
-  "products" : [
+  "identifier": "4A7D2E91",
+  "nonRenewingSubscriptions": [],
+  "products": [
     {
-      "displayPrice" : "50000",
-      "familyShareable" : false,
-      "internalID" : "9C51B7E2",
-      "localizations" : [
+      "displayPrice": "50000",
+      "familyShareable": false,
+      "internalID": "9C51B7E2",
+      "localizations": [
         {
-          "description" : "모든 레슨, 실수 100편, 실습실, 퀴즈를 평생 엽니다",
-          "displayName" : "앱 디자인 실습 Pro",
-          "locale" : "ko"
+          "description": "모든 레슨, 실수 100편, 실습실, 퀴즈를 평생 엽니다",
+          "displayName": "앱 디자인 실습 Pro",
+          "locale": "ko"
         },
         {
-          "description" : "Unlock every lesson, all 100 mistakes, labs and quizzes for life",
-          "displayName" : "App Design Lab Pro",
-          "locale" : "en_US"
+          "description": "Unlock every lesson, all 100 mistakes, labs and quizzes for life",
+          "displayName": "App Design Lab Pro",
+          "locale": "en_US"
         },
         {
-          "description" : "すべてのレッスン、ミス100、実習室、クイズをずっと使えます",
-          "displayName" : "アプリデザイン実習 Pro",
-          "locale" : "ja"
+          "description": "すべてのレッスン、ミス100、実習室、クイズをずっと使えます",
+          "displayName": "アプリデザイン実習 Pro",
+          "locale": "ja"
         }
       ],
-      "productID" : "com.leeo.higgym.pro",
-      "referenceName" : "Pro Lifetime",
-      "type" : "NonConsumable"
+      "productID": "com.leeo.higgym.pro",
+      "referenceName": "Pro Lifetime",
+      "type": "NonConsumable"
     }
   ],
-  "settings" : {
-    "_askToBuyEnabled" : false,
-    "_billingGracePeriodEnabled" : false,
-    "_billingIssuesEnabled" : false,
-    "_developerTeamID" : "QGAQ3AY3R3",
-    "_disableDialogs" : false,
-    "_failTransactionsEnabled" : false,
-    "_locale" : "ko",
-    "_renewalBillingIssuesEnabled" : false,
-    "_storefront" : "KOR",
-    "_storeKitErrors" : [
-
-    ],
-    "_timeRate" : 0
+  "settings": {
+    "_askToBuyEnabled": false,
+    "_billingGracePeriodEnabled": false,
+    "_billingIssuesEnabled": false,
+    "_developerTeamID": "QGAQ3AY3R3",
+    "_disableDialogs": false,
+    "_failTransactionsEnabled": false,
+    "_locale": "ko",
+    "_renewalBillingIssuesEnabled": false,
+    "_storefront": "KOR",
+    "_storeKitErrors": [],
+    "_timeRate": 0
   },
-  "subscriptionGroups" : [
-
+  "subscriptionGroups": [
+    {
+      "id": "5E2A9C10",
+      "localizations": [],
+      "name": "Pro",
+      "subscriptions": [
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "9900",
+          "familyShareable": false,
+          "groupNumber": 1,
+          "internalID": "7B3D1A22",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "모든 레슨과 자료를 한 달 단위로 엽니다",
+              "displayName": "Pro 월간 구독",
+              "locale": "ko"
+            },
+            {
+              "description": "All lessons and resources, billed monthly",
+              "displayName": "Pro Monthly",
+              "locale": "en_US"
+            },
+            {
+              "description": "すべてのレッスンと資料を月単位で使えます",
+              "displayName": "Pro 月額プラン",
+              "locale": "ja"
+            }
+          ],
+          "productID": "com.leeo.higgym.pro.monthly",
+          "recurringSubscriptionPeriod": "P1M",
+          "referenceName": "Pro Monthly",
+          "subscriptionGroupID": "5E2A9C10",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        },
+        {
+          "adHocOffers": [],
+          "codeOffers": [],
+          "displayPrice": "2900",
+          "familyShareable": false,
+          "groupNumber": 2,
+          "internalID": "7B3D1A23",
+          "introductoryOffer": null,
+          "localizations": [
+            {
+              "description": "모든 레슨과 자료를 한 주 단위로 엽니다",
+              "displayName": "Pro 주간 구독",
+              "locale": "ko"
+            },
+            {
+              "description": "All lessons and resources, billed weekly",
+              "displayName": "Pro Weekly",
+              "locale": "en_US"
+            },
+            {
+              "description": "すべてのレッスンと資料を週単位で使えます",
+              "displayName": "Pro 週間プラン",
+              "locale": "ja"
+            }
+          ],
+          "productID": "com.leeo.higgym.pro.weekly",
+          "recurringSubscriptionPeriod": "P1W",
+          "referenceName": "Pro Weekly",
+          "subscriptionGroupID": "5E2A9C10",
+          "type": "RecurringSubscription",
+          "winbackOffers": []
+        }
+      ]
+    }
   ],
-  "version" : {
-    "major" : 4,
-    "minor" : 0
+  "version": {
+    "major": 4,
+    "minor": 0
   }
 }

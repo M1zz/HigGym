@@ -43,7 +43,9 @@
 디자인 리뷰에서 왜를 설명해야 하는 팀
 
 무료로 레슨 3편, 실수 10편, 툴바 실습실, 퀴즈 첫 장을 해 볼 수 있고, 항목 68개와 원칙 7개, 노트는 늘 무료입니다.
-평생 이용권을 한 번 결제하면 모든 레슨과 자료가 열립니다. 구독이 아닙니다.
+주간 구독, 월간 구독, 평생 이용권 중 하나로 모든 레슨과 자료가 열립니다. 평생 이용권은 한 번만 결제합니다.
+구독은 기간이 끝나기 24시간 전까지 해지하지 않으면 같은 가격으로 자동 갱신되며, App Store 계정 설정에서 언제든 해지할 수 있습니다.
+이용약관: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 계정이 없고, 학습 기록과 노트는 기기 안에만 저장됩니다.
 
 ### 지원 URL
@@ -101,7 +103,9 @@ Designers who want to get comfortable with the latest toolbars, tab bars, and sh
 Teams who need to explain the why in design reviews
 
 Try 3 lessons, 10 mistakes, the toolbar lab, and the first quiz chapter for free. The 68 topics, 7 principles, and your notes are always free.
-A one-time lifetime purchase unlocks every lesson and resource. It is not a subscription.
+A weekly subscription, a monthly subscription, or a one-time lifetime purchase unlocks every lesson and resource.
+Subscriptions renew automatically at the same price unless canceled at least 24 hours before the period ends. Manage or cancel anytime in your App Store account settings.
+Terms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 There is no account, and your progress and notes stay on your device. The whole app is available in English, Japanese, and Korean.
 
 ### 지원 URL
@@ -159,7 +163,9 @@ https://m1zz.github.io/HigGym/en/app/
 デザインレビューで「なぜ」を説明する必要があるチーム
 
 レッスン3本、ミス10本、ツールバーの実習室、クイズの最初の章を無料で試せます。68のトピック、7つの原則、ノートはいつでも無料です。
-買い切りの購入を一度するだけで、すべてのレッスンと資料が開きます。サブスクリプションではありません。
+週間プラン、月額プラン、買い切りのいずれかで、すべてのレッスンと資料が開きます。買い切りは一度だけのお支払いです。
+プランは期間終了の24時間前までに解約しない限り、同じ価格で自動更新されます。App Storeのアカウント設定でいつでも管理・解約できます。
+利用規約：https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 アカウントは不要で、学習の記録とノートは端末の中にだけ保存されます。アプリ全体を日本語、英語、韓国語で利用できます。
 
 ### 지원 URL

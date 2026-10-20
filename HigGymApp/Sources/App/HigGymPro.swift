@@ -15,8 +15,14 @@ import LeeoKit
 final class HigGymPro: ObservableObject {
     static let shared = HigGymPro()
 
-    /// 비소모성 평생 이용권. App Store Connect 의 상품 ID 와의 계약이다, 바꾸지 않는다.
-    nonisolated static let productID = "com.leeo.higgym.pro"
+    // App Store Connect 의 상품 ID 와의 계약이다, 바꾸지 않는다. 셋 다 같은 Pro 를 연다.
+    /// 자동 갱신 구독 (구독 그룹 "Pro"). 월간이 그룹 레벨 1, 주간이 2.
+    nonisolated static let monthlyID = "com.leeo.higgym.pro.monthly"
+    nonisolated static let weeklyID = "com.leeo.higgym.pro.weekly"
+    /// 비소모성 평생 이용권.
+    nonisolated static let lifetimeID = "com.leeo.higgym.pro"
+    /// 결제 화면에 보이는 순서: 주간 · 월간 · 평생.
+    nonisolated static let productIDs = [weeklyID, monthlyID, lifetimeID]
 
     /// 결제 없이 나간 마지막 빌드 번호. 이 빌드 이하로 처음 설치한 사람은 평생 Pro 다
     /// ("모든 기능이 무료" 라고 약속하고 받은 사용자). 1.0.2 (빌드 5) 가 마지막 무료판이다.
@@ -79,7 +85,12 @@ final class HigGymPro: ObservableObject {
 
     var hasPro: Bool { store.hasPro }
     /// 처음부터 함께한 사람이라 결제 없이 Pro 인가.
-    var isGrandfathered: Bool { store.isGrandfathered && !store.purchasedProductIDs.contains(Self.productID) }
+    var isGrandfathered: Bool { store.isGrandfathered && store.purchasedProductIDs.isEmpty }
+    /// 자동 갱신 구독으로 Pro 인가 (설정에 '구독 관리' 를 보일지). 평생 이용권이 있으면 구독은 의미가 없다.
+    var isSubscriber: Bool {
+        !store.purchasedProductIDs.contains(Self.lifetimeID)
+            && !store.purchasedProductIDs.isDisjoint(with: [Self.weeklyID, Self.monthlyID])
+    }
 
     func allows(_ feature: Feature) -> Bool {
         Self.allows(feature, gate: store.gate)
