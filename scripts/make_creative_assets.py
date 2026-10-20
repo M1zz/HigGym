@@ -20,6 +20,12 @@ RAW = ROOT / "docs" / "screenshots" / "raw" / "creative"
 OUT = ROOT / "docs" / "screenshots" / "creative"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
+
+def profile():
+    """켜 둔 Chrome 의 프로필, 또는 막 끝난 앞 호출의 프로필과 부딪히면 아무것도 안 그리고 끝난다.
+    부를 때마다 새 빈 프로필로 띄운다."""
+    return f"--user-data-dir={tempfile.mkdtemp(prefix='higgym-chrome-')}"
+
 # 스토어 언어 = deploy.env LOCALES (ko · en · ja). 폴더 이름이 로케일 그대로라 바꿀 것이 없다.
 STORE = {}
 
@@ -32,9 +38,9 @@ SPEC = {
 # 검색 결과: 눈썹글은 검색창에 칠 말, 헤드라인과 보조 문장은 앱이 하는 일 그대로.
 # 앱의 약속: 규칙을 외우는 게 아니라 어긴 화면을 직접 만져 보고 왜 그런지 확인한다.
 SEARCH = {
-    "ko": ("앱 디자인 공부", "직접 만져 보며<br>배우는 앱 디자인", "어색한 화면을 써 보고<br>이유를 확인해요"),
-    "en": ("iOS design practice", "Learn app design<br>by touching it", "Use awkward screens,<br>then see why"),
-    "ja": ("アプリデザインの勉強", "触って学ぶ<br>アプリデザイン", "違和感のある画面を使って<br>理由を確かめる"),
+    "ko": ("UI/UX 공부", "직접 만져 보며<br>배우는 UI/UX", "어색한 화면을 써 보고<br>이유를 확인해요"),
+    "en": ("UI/UX practice", "Learn UI/UX<br>by touching it", "Use awkward screens,<br>then see why"),
+    "ja": ("UI/UXの勉強", "触って学ぶ<br>UI/UX", "違和感のある画面を使って<br>理由を確かめる"),
 }
 
 # 헤더: 처음 온 사람에게 한 가지 약속.
@@ -159,7 +165,7 @@ def render(lang, kind):
     html_path = pathlib.Path(tempfile.gettempdir()) / f"higgym-creative-{lang}-{kind}.html"
     html_path.write_text(page, encoding="utf-8")
     # 글이 끝까지 안 맞으면 그림을 만들지 않는다(잘린 글이 스토어에 올라가는 것보다 낫다).
-    dom = subprocess.run([CHROME, "--headless=new", "--dump-dom", f"--window-size={W},{H}",
+    dom = subprocess.run([CHROME, "--headless=new", profile(), "--dump-dom", f"--window-size={W},{H}",
                           "--force-device-scale-factor=1", "--disable-gpu", "--virtual-time-budget=3000",
                           html_path.as_uri()], capture_output=True, text=True, timeout=90).stdout
     if 'data-done="1"' not in dom:
@@ -172,7 +178,7 @@ def render(lang, kind):
     # ⚠️ Chrome 은 가끔 아무것도 안 그리고 끝나거나 멈춘다. 세 번까지 한다.
     for _ in range(3):
         try:
-            r = subprocess.run([CHROME, "--headless=new", f"--screenshot={out_png}",
+            r = subprocess.run([CHROME, "--headless=new", profile(), f"--screenshot={out_png}",
                                 f"--window-size={W},{H}", "--force-device-scale-factor=1",
                                 "--hide-scrollbars", "--disable-gpu", "--virtual-time-budget=3000",
                                 "--allow-file-access-from-files", html_path.as_uri()],

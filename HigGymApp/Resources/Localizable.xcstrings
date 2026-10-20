@@ -40697,6 +40697,610 @@
           }
         }
       }
+    },
+    "앱 디자인 실습 Pro": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App Design Lab Pro"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アプリデザイン実習 Pro"
+          }
+        }
+      }
+    },
+    "결정 하나하나에 이유를 대는 디자이너로": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Have a reason behind every design call"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "すべてのデザイン判断に、理由を持てる人へ"
+          }
+        }
+      }
+    },
+    "%lld편부터는 Pro에서 이어집니다. 앞에서 해 본 그 방식으로 나머지 %lld편을 밟습니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lesson %1$lld onward is part of Pro. Work through the remaining %2$lld the same way you just did."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld編からはProで続きます。ここまでと同じやり方で、残りの%2$lld編に進みます。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$lld편부터는 Pro에서 이어집니다. 앞에서 해 본 그 방식으로 나머지 %2$lld편을 밟습니다."
+          }
+        }
+      }
+    },
+    "실수 %lld편은 Pro에서 열립니다. 무엇을 했고, 왜 그게 맞아 보였고, 어떻게 고치는지까지 전부 봅니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mistake %lld is part of Pro. See what was done, why it seemed right, and how to fix it, for every one."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ミス%lldはProで開きます。何をしたか、なぜ正しく見えたか、どう直すかまで、すべて読めます。"
+          }
+        }
+      }
+    },
+    "%@ 실습실은 Pro에서 열립니다. 설정을 바꿀 때마다 그 자리에서 판정을 받습니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The “%@” lab is part of Pro. Get a verdict on the spot every time you change a setting."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "「%@」はProで開きます。設定を変えるたびに、その場で判定が出ます。"
+          }
+        }
+      }
+    },
+    "이 장의 퀴즈는 Pro에서 열립니다. 모든 장과 훈련 모드로 판단을 손에 익힙니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This chapter's quiz is part of Pro. Train your judgment across every chapter and mode."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "この章のクイズはProで開きます。すべての章とトレーニングモードで、判断を身につけます。"
+          }
+        }
+      }
+    },
+    "이 훈련은 Pro에서 열립니다. 화면을 보고 판단하는 문제를 끝까지 풉니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This drill is part of Pro. Solve every question that asks you to judge a real screen."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このトレーニングはProで開きます。画面を見て判断する問題を、最後まで解けます。"
+          }
+        }
+      }
+    },
+    "한 번 결제로 모든 레슨과 자료를 엽니다. 무료로 해 본 그 방식 그대로입니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "One purchase unlocks every lesson and resource, in the same format you tried for free."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一度の購入で、すべてのレッスンと資料が開きます。無料で試したのと同じやり方です。"
+          }
+        }
+      }
+    },
+    "레슨 %lld편 전부": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All %lld lessons"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "レッスン全%lld編"
+          }
+        }
+      }
+    },
+    "써 보고, 적고, 이유를 보고, 고친 화면과 비교합니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Try it, write it down, see why, and compare with the fix"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使って、書いて、理由を確かめ、直した画面と比べます"
+          }
+        }
+      }
+    },
+    "실수 %lld편과 회고": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All %lld mistakes with retrospectives"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ミス%lld編と振り返り"
+          }
+        }
+      }
+    },
+    "그때는 왜 맞아 보였는지까지 읽습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Including why each one seemed right at the time"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "なぜその時は正しく見えたのかまで読めます"
+          }
+        }
+      }
+    },
+    "실습실 %lld종": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld hands-on labs"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "実習室%lld種"
+          }
+        }
+      }
+    },
+    "툴바, 가장자리 효과, 글자 잘림, 탭바, 시트": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toolbars, edge effects, text truncation, tab bars, sheets"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ツールバー、エッジ効果、文字の切れ、タブバー、シート"
+          }
+        }
+      }
+    },
+    "퀴즈 %lld문항과 실전 문제": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld quiz questions plus real-screen drills"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "クイズ%lld問と実戦問題"
+          }
+        }
+      }
+    },
+    "모든 장, 모든 훈련 모드, 화면으로 판단하기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Every chapter, every mode, judging real screens"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "すべての章、すべてのモード、画面で判断"
+          }
+        }
+      }
+    },
+    "앞으로 더해질 레슨까지": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Future lessons included"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "これから増えるレッスンも"
+          }
+        }
+      }
+    },
+    "새로 나오는 편도 추가 결제 없이 엽니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New lessons open at no extra cost"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "新しいレッスンも追加料金なしで開きます"
+          }
+        }
+      }
+    },
+    "구독이 아닙니다. 한 번 결제하면 계속 씁니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not a subscription. Pay once and keep it."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "サブスクリプションではありません。一度の購入でずっと使えます。"
+          }
+        }
+      }
+    },
+    "항목 68개와 예제, 원칙 7개, 노트는 결제 없이 그대로입니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The 68 topics with examples, 7 principles, and your notes stay free."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "68項目と例、7つの原則、ノートは購入しなくてもそのまま使えます。"
+          }
+        }
+      }
+    },
+    "계정이 없고, 쓴 글은 기기 안에만 남습니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No account. What you write stays on your device."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "アカウントは不要で、書いた内容は端末の中だけに残ります。"
+          }
+        }
+      }
+    },
+    "Pro가 열렸습니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro is unlocked"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proが開きました"
+          }
+        }
+      }
+    },
+    "가격을 불러오지 못했습니다. 다시 시도": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't load the price. Try again"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "価格を読み込めませんでした。もう一度試す"
+          }
+        }
+      }
+    },
+    "구매 복원": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restore Purchases"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "購入を復元"
+          }
+        }
+      }
+    },
+    "개인정보처리방침": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Privacy Policy"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "プライバシーポリシー"
+          }
+        }
+      }
+    },
+    "평생 이용권 %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lifetime access %@"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "買い切り %@"
+          }
+        }
+      }
+    },
+    "한 번 결제로 모두 열기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock everything with one purchase"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "一度の購入ですべて開く"
+          }
+        }
+      }
+    },
+    "App Store 계정으로 한 번 결제합니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Charges your App Store account once"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App Storeのアカウントで一度だけ支払います"
+          }
+        }
+      }
+    },
+    "Pro": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro"
+          }
+        }
+      }
+    },
+    "Pro에서 열림": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlocks with Pro"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proで開きます"
+          }
+        }
+      }
+    },
+    "Pro 사용 중": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro active"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro利用中"
+          }
+        }
+      }
+    },
+    "처음부터 함께해 주셔서 모든 기능을 평생 그대로 씁니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You've been here from the start, so everything stays unlocked for life."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "最初から使ってくださったので、すべての機能をずっとそのまま使えます。"
+          }
+        }
+      }
+    },
+    "모든 레슨과 자료가 열려 있습니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Every lesson and resource is unlocked."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "すべてのレッスンと資料が開いています。"
+          }
+        }
+      }
+    },
+    "Pro로 모두 열기": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock Everything with Pro"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Proですべて開く"
+          }
+        }
+      }
+    },
+    "레슨 %lld편, 실수 %lld편, 실습실, 퀴즈 전부. 한 번 결제.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld lessons, %2$lld mistakes, every lab and quiz. One purchase."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "レッスン%1$lld編、ミス%2$lld編、実習室、クイズのすべて。一度の購入で。"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "new",
+            "value": "레슨 %1$lld편, 실수 %2$lld편, 실습실, 퀴즈 전부. 한 번 결제."
+          }
+        }
+      }
+    },
+    "쓰던 기능은 평생 그대로입니다": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Everything you use stays free for life"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使っていた機能は、ずっとそのままです"
+          }
+        }
+      }
+    },
+    "이번 버전부터 새로 받는 분께는 일부가 유료로 바뀝니다. 그동안 함께해 주신 분은 결제 없이 모든 레슨과 자료를 계속 씁니다.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Starting with this version, part of the app is paid for new downloads. If you've been with us, you keep every lesson and resource with no purchase."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "このバージョンから、新しくダウンロードする方には一部が有料になります。これまで使ってくださった方は、購入なしですべてのレッスンと資料を使い続けられます。"
+          }
+        }
+      }
     }
   },
   "version": "1.0"

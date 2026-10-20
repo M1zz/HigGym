@@ -8,9 +8,13 @@ import LeeoKit
 struct SettingsView: View {
     @State private var showsOnboarding = false
     @State private var showsWhatsNew = false
+    @State private var showsPaywall = false
+    @ObservedObject private var pro = HigGymPro.shared
 
     var body: some View {
         List {
+            proSection
+
             Section {
                 Button {
                     showsOnboarding = true
@@ -62,6 +66,60 @@ struct SettingsView: View {
         }
         .sheet(isPresented: $showsWhatsNew) {
             WhatsNewView { showsWhatsNew = false }
+        }
+        .sheet(isPresented: $showsPaywall) {
+            HigGymPaywallView()
+        }
+    }
+
+    /// Pro 상태 한 줄과 구매 복원. 복원은 결제 화면 밖에서도 찾을 수 있어야 한다 (심사 요건).
+    private var proSection: some View {
+        Section {
+            if pro.hasPro {
+                Label {
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Pro 사용 중")
+                            .foregroundStyle(.hgText)
+                        Text(pro.isGrandfathered
+                             ? "처음부터 함께해 주셔서 모든 기능을 평생 그대로 씁니다."
+                             : "모든 레슨과 자료가 열려 있습니다.")
+                            .font(.footnote)
+                            .foregroundStyle(.hgMuted)
+                    }
+                } icon: {
+                    Image(systemName: "checkmark.seal.fill").foregroundStyle(.hgGreen)
+                }
+            } else {
+                Button {
+                    showsPaywall = true
+                } label: {
+                    Label {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Pro로 모두 열기")
+                                .foregroundStyle(.hgText)
+                            Text("레슨 \(Lesson.all.count)편, 실수 \(MistakeStore.shared.mistakes.count)편, 실습실, 퀴즈 전부. 한 번 결제.")
+                                .font(.footnote)
+                                .foregroundStyle(.hgMuted)
+                        }
+                    } icon: {
+                        Image(systemName: "lock.open.fill").foregroundStyle(.hgAccent2)
+                    }
+                }
+                Button {
+                    Task { await pro.store.restore() }
+                } label: {
+                    HStack {
+                        Label("구매 복원", systemImage: "arrow.clockwise")
+                        if pro.store.isRestoring {
+                            Spacer()
+                            ProgressView()
+                        }
+                    }
+                }
+                .disabled(pro.store.isRestoring)
+            }
+        } header: {
+            Text("Pro")
         }
     }
 

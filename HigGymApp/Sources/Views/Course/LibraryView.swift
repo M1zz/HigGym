@@ -30,8 +30,6 @@ struct LibraryView: View {
                         "설정을 바꿔가며 실시간 판정 받기", "hammer.fill", .hgGreen)
 
                     quizRow
-
-                    source
                 }
                 .padding(18)
             }
@@ -133,12 +131,5 @@ struct LibraryView: View {
             .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(Color.hgLine, lineWidth: 1))
         }
         .buttonStyle(.plain)
-    }
-
-    private var source: some View {
-        Text("모든 자료는 `toolbar-annotated.html` 한 문서에서 나옵니다. 문서를 고치고 `Tools/extract_content.py` → `Tools/build_mistakes.py` 를 실행하면 앱 내용이 함께 갱신됩니다.")
-            .font(.footnote)
-            .foregroundStyle(.hgDim)
-            .padding(.top, 4)
     }
 }

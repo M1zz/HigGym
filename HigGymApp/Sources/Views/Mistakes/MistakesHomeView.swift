@@ -10,6 +10,7 @@ struct MistakesHomeView: View {
     private let store = MistakeStore.shared
 
     @Environment(ProgressStore.self) private var progress
+    @ObservedObject private var pro = HigGymPro.shared
     @State private var query = ""
     @State private var category: String?
     @State private var onlyUnchecked = false
@@ -38,7 +39,8 @@ struct MistakesHomeView: View {
                     Section {
                         ForEach(filtered) { mistake in
                             NavigationLink(value: mistake) {
-                                MistakeRow(mistake: mistake, checked: progress.isChecked(mistake))
+                                MistakeRow(mistake: mistake, checked: progress.isChecked(mistake),
+                                           locked: !pro.allows(.mistake(number: mistake.number)))
                             }
                             .buttonStyle(.plain)
                             // 상세에 들어가지 않고도 목록에서 바로 '나도 해봤다'를 표시하고 지운다 (VoiceOver 동작).
@@ -212,6 +214,7 @@ struct MistakesHomeView: View {
 private struct MistakeRow: View {
     let mistake: Mistake
     let checked: Bool
+    var locked = false
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
@@ -251,16 +254,25 @@ private struct MistakeRow: View {
 
             Spacer(minLength: 0)
 
-            Image(systemName: checked ? "checkmark.circle.fill" : "chevron.right")
-                .font((checked ? Font.callout : Font.footnote).weight(.semibold))
-                .foregroundStyle(checked ? .hgGreen : .hgDim)
-                .padding(.top, 2)
-                // 체크 표시는 색과 모양으로만 보이므로 VoiceOver 에는 말로 알린다.
-                .accessibilityHidden(!checked)
-                .accessibilityLabel("해 본 실수로 체크함")
+            if locked {
+                ProBadge()
+                    .padding(.top, 1)
+            } else {
+                checkmark
+            }
         }
         .padding(13)
         .background(Color.hgCard, in: .rect(cornerRadius: 14))
         .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(Color.hgLine, lineWidth: 1))
+    }
+
+    private var checkmark: some View {
+        Image(systemName: checked ? "checkmark.circle.fill" : "chevron.right")
+            .font((checked ? Font.callout : Font.footnote).weight(.semibold))
+            .foregroundStyle(checked ? .hgGreen : .hgDim)
+            .padding(.top, 2)
+            // 체크 표시는 색과 모양으로만 보이므로 VoiceOver 에는 말로 알린다.
+            .accessibilityHidden(!checked)
+            .accessibilityLabel("해 본 실수로 체크함")
     }
 }

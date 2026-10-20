@@ -67,7 +67,9 @@ struct NotebookView: View {
             .sensoryFeedback(.success, trigger: copied) { _, new in new }
         }
         .fullScreenCover(item: $editing) { lesson in
-            LessonPlayerView(lesson: lesson) { editing = nil }
+            ProGate(feature: .lesson(id: lesson.id), onClose: { editing = nil }) {
+                LessonPlayerView(lesson: lesson) { editing = nil }
+            }
         }
     }
 

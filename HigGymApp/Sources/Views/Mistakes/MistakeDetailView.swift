@@ -27,7 +27,12 @@ struct MistakeDetailView: View {
     private var dedicated: EntryDemo? { MistakeDemos.demo(for: mistake) }
     private var checked: Bool { progress.isChecked(mistake) }
 
+    /// 실수 상세는 목록 · 항목 상세 · 원칙 상세에서 열린다. 잠금은 이 화면 한 곳에서 건다.
     var body: some View {
+        ProGate(feature: .mistake(number: mistake.number)) { detail }
+    }
+
+    private var detail: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 head

@@ -8,6 +8,9 @@ struct QuizHomeView: View {
     @State private var session: QuizSession?
     @State private var liveKind: LiveQuestion.Kind?
     @State private var caseStudy = false
+    @ObservedObject private var pro = HigGymPro.shared
+    /// 잠긴 훈련을 눌렀을 때 띄우는 결제 화면.
+    @State private var paywall: HigGymPro.Feature?
 
     private let bank = QuizBank.shared
     private let store = ContentStore.shared
@@ -46,6 +49,7 @@ struct QuizHomeView: View {
             .fullScreenCover(isPresented: $caseStudy) {
                 CaseStudyView()
             }
+            .proPaywallSheet($paywall)
     }
 
     // MARK: 성적
@@ -125,7 +129,10 @@ struct QuizHomeView: View {
     }
 
     private func liveRow(_ kind: LiveQuestion.Kind, _ subtitle: String, _ tint: Color) -> some View {
-        Button { liveKind = kind } label: {
+        let locked = !pro.allows(.liveQuiz)
+        return Button {
+            if locked { paywall = .liveQuiz } else { liveKind = kind }
+        } label: {
             HStack(spacing: 13) {
                 Image(systemName: kind.symbol)
                     .font(.callout.weight(.semibold))
@@ -142,10 +149,14 @@ struct QuizHomeView: View {
                         .multilineTextAlignment(.leading)
                 }
                 Spacer(minLength: 8)
-                MasteryBar(value: progress.liveMastery(kind: kind))
-                Image(systemName: "chevron.right")
-                    .font(.footnote.weight(.semibold))
-                    .foregroundStyle(.hgDim)
+                if locked {
+                    ProBadge()
+                } else {
+                    MasteryBar(value: progress.liveMastery(kind: kind))
+                    Image(systemName: "chevron.right")
+                        .font(.footnote.weight(.semibold))
+                        .foregroundStyle(.hgDim)
+                }
             }
             .padding(13)
             .background(Color.hgCard, in: .rect(cornerRadius: 14))
@@ -190,8 +201,17 @@ struct QuizHomeView: View {
         _ title: String, _ subtitle: String, _ symbol: String,
         _ tint: Color, _ mode: QuizSession.Mode
     ) -> some View {
-        Button {
-            session = QuizSession(mode: mode, bank: bank, progress: progress)
+        // 오답 복습은 늘 연다. 틀린 문제는 이미 푼 문제다.
+        let locked: Bool = {
+            if case .review = mode { return false }
+            return !pro.allows(.quizMode)
+        }()
+        return Button {
+            if locked {
+                paywall = .quizMode
+            } else {
+                session = QuizSession(mode: mode, bank: bank, progress: progress)
+            }
         } label: {
             HStack(spacing: 13) {
                 Image(systemName: symbol)
@@ -208,9 +228,13 @@ struct QuizHomeView: View {
                         .foregroundStyle(.hgMuted)
                 }
                 Spacer()
-                Image(systemName: "chevron.right")
-                    .font(.footnote.weight(.semibold))
-                    .foregroundStyle(.hgDim)
+                if locked {
+                    ProBadge()
+                } else {
+                    Image(systemName: "chevron.right")
+                        .font(.footnote.weight(.semibold))
+                        .foregroundStyle(.hgDim)
+                }
             }
             .padding(13)
             .background(Color.hgCard, in: .rect(cornerRadius: 14))
@@ -225,9 +249,14 @@ struct QuizHomeView: View {
         VStack(alignment: .leading, spacing: 10) {
             SectionLabel(String(localized: "챕터별 집중"), accent: .hgAmber)
 
-            ForEach(store.chapters) { chapter in
+            ForEach(Array(store.chapters.enumerated()), id: \.element.id) { position, chapter in
+                let locked = !pro.allows(.quizChapter(position))
                 Button {
-                    session = QuizSession(mode: .chapter(chapter.number), bank: bank, progress: progress)
+                    if locked {
+                        paywall = .quizChapter(position)
+                    } else {
+                        session = QuizSession(mode: .chapter(chapter.number), bank: bank, progress: progress)
+                    }
                 } label: {
                     HStack(spacing: 12) {
                         Text("\(chapter.number)")
@@ -248,7 +277,11 @@ struct QuizHomeView: View {
 
                         Spacer(minLength: 8)
 
-                        MasteryBar(value: progress.mastery(chapter: chapter.number, bank: bank))
+                        if locked {
+                            ProBadge()
+                        } else {
+                            MasteryBar(value: progress.mastery(chapter: chapter.number, bank: bank))
+                        }
                     }
                     .padding(12)
                     .background(Color.hgCard, in: .rect(cornerRadius: 12))

@@ -4,23 +4,23 @@
 
 ### 이름
 
-앱 디자인 실습: iOS HIG 공부
+앱 디자인 실습: UI/UX 공부
 
 ### 부제
 
-직접 만져 보는 SwiftUI 디자인
+직접 만져 보는 화면 설계 워크북
 
 ### 키워드
 
-툴바,화면설계,탭바,가이드라인,iOS개발,다크모드,타이포그래피,앱개발,개발자,포트폴리오,스위프트,UI,UX,휴먼인터페이스,레이아웃,디자이너,컴포넌트,접근성,코딩
+툴바,탭바,가이드라인,다크모드,타이포그래피,앱개발,개발자,포트폴리오,레이아웃,디자이너,컴포넌트,접근성,코딩,사용성,인터페이스,와이어프레임,프로토타입,모바일,퀴즈
 
 ### 프로모션 텍스트
 
-툴바 버튼은 어디에 두고, 삭제는 어떻게 시킬까요? 어긴 화면을 직접 써 보고, 느낀 것을 적고, 고친 화면과 비교하며 디자인 판단을 손에 익히세요.
+툴바 버튼은 어디에 두고, 삭제는 어떻게 시킬까요? 어긴 화면을 직접 써 보고, 느낀 것을 적고, 고친 화면과 비교하며 UI/UX 판단을 손에 익히세요.
 
 ### 설명
 
-Apple 휴먼 인터페이스 가이드라인을 읽기만 하지 않고, 직접 만져 보며 익히는 iOS 디자인 워크북입니다.
+좋은 UI/UX는 작은 결정이 쌓여 만들어집니다. 앱 디자인 실습은 그 결정을 읽기만 하지 않고, 직접 만져 보며 익히는 화면 설계 워크북입니다.
 한 편에 결정 하나. 어긴 화면을 써 보고, 느낀 것을 적고, 이유를 확인하고, 고친 화면과 비교한 뒤, 배운 것을 남깁니다.
 
 스물세 편의 레슨
@@ -38,11 +38,13 @@ Apple 휴먼 인터페이스 가이드라인을 읽기만 하지 않고, 직접 
 퀴즈: 화면을 보고 판단하는 문항 396개로 확인합니다.
 
 이런 분께
-SwiftUI로 앱을 만들면서 버튼 하나의 자리에도 근거를 대고 싶은 개발자
-iOS 26의 새 툴바와 탭바를 손으로 익히고 싶은 디자이너
+앱을 만들면서 버튼 하나의 자리에도 근거를 대고 싶은 개발자
+최신 툴바와 탭바, 시트를 손으로 익히고 싶은 디자이너
 디자인 리뷰에서 왜를 설명해야 하는 팀
 
-모든 기능이 무료입니다. 계정이 없고, 학습 기록과 노트는 기기 안에만 저장됩니다.
+무료로 레슨 3편, 실수 10편, 툴바 실습실, 퀴즈 첫 장을 해 볼 수 있고, 항목 68개와 원칙 7개, 노트는 늘 무료입니다.
+평생 이용권을 한 번 결제하면 모든 레슨과 자료가 열립니다. 구독이 아닙니다.
+계정이 없고, 학습 기록과 노트는 기기 안에만 저장됩니다.
 
 ### 지원 URL
 
@@ -60,7 +62,7 @@ https://m1zz.github.io/HigGym/app/
 
 ### 이름
 
-App Design Lab: iOS HIG Guide
+App Design Lab: UI/UX Practice
 
 ### 부제
 
@@ -68,19 +70,19 @@ Learn interface rules by doing
 
 ### 키워드
 
-accessibility,guidelines,ui,ux,human,toolbar,tabbar,sheet,navigation,layout,usability,developer
+accessibility,guidelines,toolbar,tabbar,sheet,navigation,layout,usability,developer,wireframe,quiz
 
 ### 프로모션 텍스트
 
-Where should a toolbar button go? How should delete work? Use screens that get it wrong, note what feels off, then compare with the fix until good calls come naturally.
+Where should a toolbar button go? How should delete work? Use screens that get it wrong, note what feels off, and compare with the fix until good UI/UX calls feel easy.
 
 ### 설명
 
-Don't just read the Human Interface Guidelines. Feel them. App Design Lab is a hands-on iOS design workbook where you use screens that break the rules, then see exactly why.
+Great UI/UX is a stack of small decisions. App Design Lab is a hands-on workbook where you use screens that get those decisions wrong, then see exactly why.
 Each lesson tackles one decision in five steps: try a broken screen, write what felt off, see why, compare it with the fix, and write down what you learned.
 
 23 HANDS-ON LESSONS
-Try it: a sample app opens at full size with a task. The screen you are using breaks a guideline on purpose.
+Try it: a sample app opens at full size with a task. The screen you are using breaks a rule on purpose.
 Write it down: before you see the answer, note what you noticed.
 See why: the decision, the reasoning behind it, and what falls apart if you flip it, right next to what you wrote.
 Compare: switch between the broken screen and the fixed one in the same spot and spot the difference.
@@ -95,10 +97,12 @@ Quiz: 396 questions that ask you to look at a screen and make the call.
 
 MADE FOR
 Developers who want a reason behind every button they place
-Designers who want to get comfortable with the new iOS 26 toolbars and tab bars
+Designers who want to get comfortable with the latest toolbars, tab bars, and sheets
 Teams who need to explain the why in design reviews
 
-Everything is free. There is no account, and your progress and notes stay on your device. The whole app is available in English, Japanese, and Korean.
+Try 3 lessons, 10 mistakes, the toolbar lab, and the first quiz chapter for free. The 68 topics, 7 principles, and your notes are always free.
+A one-time lifetime purchase unlocks every lesson and resource. It is not a subscription.
+There is no account, and your progress and notes stay on your device. The whole app is available in English, Japanese, and Korean.
 
 ### 지원 URL
 
@@ -116,23 +120,23 @@ https://m1zz.github.io/HigGym/en/app/
 
 ### 이름
 
-アプリデザイン実習：iOS HIG入門
+アプリデザイン実習：UI/UX練習
 
 ### 부제
 
-触って身につくUI設計ワークブック
+触って身につく画面設計ワークブック
 
 ### 키워드
 
-ヒューマンインターフェイス,ガイドライン,UX,ツールバー,タブバー,シート,開発者,デザイナー,エンジニア,プログラミング,アクセシビリティ,レイアウト,画面設計,ユーザビリティ,クイズ,勉強
+ガイドライン,ツールバー,タブバー,シート,開発者,デザイナー,エンジニア,プログラミング,アクセシビリティ,レイアウト,ユーザビリティ,ワイヤーフレーム,タイポグラフィ,クイズ,勉強
 
 ### 프로모션 텍스트
 
-ツールバーのボタンはどこに置く？削除はどう操作させる？ルールに反した画面を触り、気づいたことを書き、直した画面と見比べて、デザインの判断を手で覚えましょう。
+ツールバーのボタンはどこに置く？削除はどう操作させる？ルールに反した画面を触り、気づいたことを書き、直した画面と見比べて、UI/UXの判断を手で覚えましょう。
 
 ### 설명
 
-Apple のヒューマンインターフェイスガイドラインを、読むだけでなく手を動かして身につける iOS デザインのワークブックです。
+よいUI/UXは、小さな判断の積み重ねでできています。アプリデザイン実習は、その判断を読むだけでなく、手を動かして身につける画面設計のワークブックです。
 1本のレッスンで扱う判断は1つだけ。ルールに反した画面を触り、気づいたことを書き、理由を確かめ、直した画面と比べて、学んだことを残します。
 
 23本のレッスン
@@ -143,18 +147,20 @@ Apple のヒューマンインターフェイスガイドラインを、読む�
 学んだことを書く：次に使える一文として残します。ノートタブにたまり、テキストとしてコピーしたり、Markdownファイルとして書き出したりできます。
 
 もっと知りたいときの資料
-68の項目：ツールバー、タイトル表示、検索、タブバー、シート、テキストをモックアップの図で見渡せます。図の部分をタップすると、その場所のルールと根拠が表示されます。項目ごとに実際に動くサンプル画面付きです。
-100のミス：何をしたのか、そのときはなぜ正しく見えたのか、直すとどうなるのかを振り返りとしてまとめました。
-7つの原則：68項目に共通する判断基準を、反した構成と守った構成を切り替えて比べます。
-5つの実習：ツールバーの配置、スクロールエッジ効果、テキストの切れ方、タブバーの構成、シートの高さを変えながら、その場で判定を受けられます。
+68のトピック：ツールバー、タイトル表示、検索、タブバー、シート、テキストをモックアップの図で見渡せます。図の部分をタップすると、その場所のルールと根拠が表示されます。トピックごとに実際に動くサンプル画面付きです。
+ミス100：何をしたのか、そのときはなぜ正しく見えたのか、直すとどうなるのかを振り返りとしてまとめました。
+7つの原則：68のトピックに共通する判断基準を、反した構成と守った構成を切り替えて比べます。
+5つの実習室：ツールバーの配置、スクロールエッジ効果、テキストの切れ方、タブバーの構成、シートの高さを変えながら、その場で判定を受けられます。
 クイズ：画面を見て判断する396問で理解を確かめます。
 
 こんな方に
-SwiftUIでアプリを作りながら、ボタン1つの位置にも根拠を持ちたい開発者
-iOS 26の新しいツールバーとタブバーを手で覚えたいデザイナー
+アプリを作りながら、ボタン1つの位置にも根拠を持ちたい開発者
+最新のツールバー、タブバー、シートを手で覚えたいデザイナー
 デザインレビューで「なぜ」を説明する必要があるチーム
 
-すべての機能を無料で使えます。アカウントは不要で、学習の記録とノートは端末の中にだけ保存されます。アプリ全体を日本語、英語、韓国語で利用できます。
+レッスン3本、ミス10本、ツールバーの実習室、クイズの最初の章を無料で試せます。68のトピック、7つの原則、ノートはいつでも無料です。
+買い切りの購入を一度するだけで、すべてのレッスンと資料が開きます。サブスクリプションではありません。
+アカウントは不要で、学習の記録とノートは端末の中にだけ保存されます。アプリ全体を日本語、英語、韓国語で利用できます。
 
 ### 지원 URL
 

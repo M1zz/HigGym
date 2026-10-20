@@ -38,6 +38,9 @@ targets:
       testTargets:
         - HigGymTests
         - HigGymUITests
+      # 시뮬레이터 실행 · UI 시험에서 Pro 평생 이용권(com.leeo.higgym.pro)을 App Store 없이 사고 복원해 본다.
+      # 출시 빌드와는 상관없다. 실제 가격은 App Store Connect 에서 정한다.
+      storeKitConfiguration: HigGymApp/Config/HigGym.storekit
     info:
       path: HigGymApp/Info.plist
       properties:

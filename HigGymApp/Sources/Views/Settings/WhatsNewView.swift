@@ -52,6 +52,11 @@ struct WhatsNewView: View {
                     }
 
                     VStack(alignment: .leading, spacing: 18) {
+                        // 이 안내는 이미 쓰던 사람에게만 뜬다(→ shouldPresent). 그 사람들은 모두
+                        // 무료판으로 받은 사람이라 평생 Pro 다(→ HigGymPro.lastFreeBuild).
+                        row("gift",
+                            "쓰던 기능은 평생 그대로입니다",
+                            "이번 버전부터 새로 받는 분께는 일부가 유료로 바뀝니다. 그동안 함께해 주신 분은 결제 없이 모든 레슨과 자료를 계속 씁니다.")
                         row("globe",
                             "영어와 일본어로도 배웁니다",
                             "레슨, 항목, 실수 100편, 퀴즈까지 앱 전체가 기기 언어를 따라갑니다.")

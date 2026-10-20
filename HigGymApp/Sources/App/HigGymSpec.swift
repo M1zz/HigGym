@@ -38,8 +38,23 @@ enum HigGymSpec: LeeoAppSpec {
     )
     // swiftlint:enable force_unwrapping
 
-    /// 수익모델 (LeeoKit 3.x 부터 필수), 인앱 결제가 없는 무료 앱.
-    static let monetization = LeeoMonetization.free
+    /// 수익모델 (LeeoKit 3.x 부터 필수), 부분유료: 앞부분은 무료, 평생 이용권 한 번으로 전부 연다.
+    /// 무엇이 몇 번째까지 무료인지의 판정은 HigGymPro.allows 가 이 선언을 읽어 한다.
+    /// 1.0.2 (빌드 5) 이하로 처음 받은 사람은 평생 Pro 다 (HigGymPro.lastFreeBuild).
+    static let monetization = LeeoMonetization.freemium(
+        LeeoPurchaseConfig(
+            productIDs: [HigGymPro.productID],
+            gate: LeeoGatePolicy(
+                freeLimits: [
+                    HigGymPro.Key.lesson: 3,       // 레슨 1~3편
+                    HigGymPro.Key.mistake: 10,     // 실수 1~10편
+                    HigGymPro.Key.lab: 1,          // 첫 실습실(툴바 배치)
+                    HigGymPro.Key.quizChapter: 1,  // 퀴즈 1장 집중
+                ],
+                proOnly: [HigGymPro.Key.quizMode, HigGymPro.Key.liveQuiz]
+            )
+        )
+    )
 
     /// 익명 사용 통계 → FeedbackHub(CloudKit). 기본값(Noop)이면 부트스트랩이 아무것도 보내지 않는다.
     static let analytics: any LeeoAnalytics = LeeoUsageAnalytics(spec: HigGymSpec.self)

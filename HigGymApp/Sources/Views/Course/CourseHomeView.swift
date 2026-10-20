@@ -7,6 +7,7 @@ import SwiftUI
 struct CourseHomeView: View {
     @Environment(NotebookStore.self) private var notebook
     @Environment(Router.self) private var router
+    @ObservedObject private var pro = HigGymPro.shared
     @State private var playing: Lesson?
 
     var body: some View {
@@ -18,7 +19,8 @@ struct CourseHomeView: View {
 
                     SectionLabel(String(localized: "\(Lesson.all.count)편"), accent: .hgAccent)
                     ForEach(Lesson.all) { lesson in
-                        LessonRow(lesson: lesson, note: notebook.note(for: lesson)) {
+                        LessonRow(lesson: lesson, note: notebook.note(for: lesson),
+                                  locked: !pro.allows(.lesson(id: lesson.id))) {
                             playing = lesson
                         }
                     }
@@ -49,7 +51,10 @@ struct CourseHomeView: View {
             }
         }
         .fullScreenCover(item: $playing) { lesson in
-            LessonPlayerView(lesson: lesson) { playing = nil }
+            // 잠긴 편이면 그 자리에 결제 화면이 뜨고, 결제하면 같은 자리에서 레슨이 열린다.
+            ProGate(feature: .lesson(id: lesson.id), onClose: { playing = nil }) {
+                LessonPlayerView(lesson: lesson) { playing = nil }
+            }
         }
     }
 
@@ -93,7 +98,7 @@ struct CourseHomeView: View {
 
                 if let next {
                     HStack(spacing: 10) {
-                        Image(systemName: "play.fill")
+                        Image(systemName: pro.allows(.lesson(id: next.id)) ? "play.fill" : "lock.fill")
                             .font(.subheadline.weight(.bold))
                             .foregroundStyle(.white)
                             .frame(width: 32, height: 32)
@@ -143,6 +148,7 @@ struct CourseHomeView: View {
 private struct LessonRow: View {
     let lesson: Lesson
     let note: LessonNote
+    var locked = false
     let action: () -> Void
 
     private var state: (label: String, color: Color, symbol: String) {
@@ -183,10 +189,15 @@ private struct LessonRow: View {
 
                 Spacer(minLength: 0)
 
-                Image(systemName: "chevron.right")
-                    .font(.footnote.weight(.semibold))
-                    .foregroundStyle(.hgDim)
-                    .padding(.top, 8)
+                if locked {
+                    ProBadge()
+                        .padding(.top, 6)
+                } else {
+                    Image(systemName: "chevron.right")
+                        .font(.footnote.weight(.semibold))
+                        .foregroundStyle(.hgDim)
+                        .padding(.top, 8)
+                }
             }
             .padding(13)
             .background(Color.hgCard, in: .rect(cornerRadius: 14))

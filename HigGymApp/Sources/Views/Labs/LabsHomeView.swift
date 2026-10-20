@@ -1,13 +1,15 @@
 import SwiftUI
 
-@ViewBuilder
+/// 실습실은 목록 · 퀴즈 해설 · 항목 상세 여러 곳에서 열린다. 잠금은 여기 한 곳에서 건다.
 func labDestination(_ lab: LabID) -> some View {
-    switch lab {
-    case .toolbar:    ToolbarLabView()
-    case .scrollEdge: ScrollEdgeLabView()
-    case .text:       TextLabView()
-    case .tabBar:     TabBarLabView()
-    case .sheet:      SheetLabView()
+    ProGate(feature: .lab(lab)) {
+        switch lab {
+        case .toolbar:    ToolbarLabView()
+        case .scrollEdge: ScrollEdgeLabView()
+        case .text:       TextLabView()
+        case .tabBar:     TabBarLabView()
+        case .sheet:      SheetLabView()
+        }
     }
 }
 
@@ -16,6 +18,7 @@ struct LabsHomeView: View {
 
     @Environment(Router.self) private var router
     @Environment(ProgressStore.self) private var progress
+    @ObservedObject private var pro = HigGymPro.shared
 
     var body: some View {
         @Bindable var router = router
@@ -29,7 +32,8 @@ struct LabsHomeView: View {
                         Button {
                             router.presentedLab = lab
                         } label: {
-                            LabCard(lab: lab, visited: progress.visitedLabs.contains(lab.rawValue))
+                            LabCard(lab: lab, visited: progress.visitedLabs.contains(lab.rawValue),
+                                    locked: !pro.allows(.lab(lab)))
                         }
                         .buttonStyle(.plain)
                     }
@@ -79,6 +83,7 @@ struct LabsHomeView: View {
 private struct LabCard: View {
     let lab: LabID
     let visited: Bool
+    var locked = false
 
     var body: some View {
         HStack(spacing: 14) {
@@ -99,14 +104,18 @@ private struct LabCard: View {
 
             Spacer(minLength: 4)
 
-            if visited {
-                Image(systemName: "checkmark.circle.fill")
-                    .foregroundStyle(.hgGreen)
-                    .font(.callout)
+            if locked {
+                ProBadge()
+            } else {
+                if visited {
+                    Image(systemName: "checkmark.circle.fill")
+                        .foregroundStyle(.hgGreen)
+                        .font(.callout)
+                }
+                Image(systemName: "chevron.right")
+                    .font(.subheadline.weight(.semibold))
+                    .foregroundStyle(.hgDim)
             }
-            Image(systemName: "chevron.right")
-                .font(.subheadline.weight(.semibold))
-                .foregroundStyle(.hgDim)
         }
         .hgCard()
     }

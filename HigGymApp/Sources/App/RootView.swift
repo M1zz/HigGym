@@ -199,6 +199,24 @@ enum DebugLaunch {
         #endif
     }
 
+    /// 결제 화면만 단독으로 띄운다 - 인앱 상품 심사용 스크린샷. (HG_PAYWALL=1, 잠긴 상태는 HG_PRO=0 과 함께)
+    static var paywall: Bool {
+        #if DEBUG
+        ProcessInfo.processInfo.environment["HG_PAYWALL"] == "1"
+        #else
+        false
+        #endif
+    }
+
+    /// 결제 화면의 가격 자리에 보여 줄 값 - 인앱 상품 심사용 스크린샷. (HG_PREVIEW_PRICE=₩9,900)
+    static var previewPrice: String? {
+        #if DEBUG
+        ProcessInfo.processInfo.environment["HG_PREVIEW_PRICE"]
+        #else
+        nil
+        #endif
+    }
+
     /// 실습을 열자마자 전체 화면 무대까지 띄운다 - 스크린샷 검증용.
     static var autoRunStage: Bool {
         #if DEBUG
@@ -224,7 +242,9 @@ struct RootView: View {
         && !DebugLaunch.isScripted
 
     var body: some View {
-        if let lab = DebugLaunch.lab {
+        if DebugLaunch.paywall {
+            HigGymPaywallView(onClose: {})
+        } else if let lab = DebugLaunch.lab {
             // 스크린샷 검증용 - 실습 화면만 단독으로 띄운다.
             labDestination(lab)
                 .environment(router)
