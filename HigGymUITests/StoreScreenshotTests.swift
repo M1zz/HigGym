@@ -75,7 +75,7 @@ final class StoreScreenshotTests: XCTestCase {
     /// 인앱 상품 심사용 결제 화면과, 무료 사용자가 보는 잠긴 목록. 스토어 스크린샷에는 쓰지 않는다.
     /// UI 시험이 띄운 앱에는 스킴의 StoreKit 설정이 닿지 않아, 가격은 HG_PREVIEW_PRICE 로 넣는다.
     func testCaptureProScreens() {
-        let price = ["ko": "₩9,900", "en": "$6.99", "ja": "¥1,000"][language] ?? "$6.99"
+        let price = ["ko": "₩50,000", "en": "$29.99", "ja": "¥5,000"][language] ?? "$29.99"
         var app = launch(["HG_PAYWALL": "1", "HG_PRO": "0", "HG_PREVIEW_PRICE": price])
         shoot("pro-paywall.png", after: 4)
         app.terminate()

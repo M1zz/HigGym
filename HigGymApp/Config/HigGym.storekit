@@ -15,8 +15,8 @@
   ],
   "products" : [
     {
-      "displayPrice" : "9900",
-      "familyShareable" : true,
+      "displayPrice" : "50000",
+      "familyShareable" : false,
       "internalID" : "9C51B7E2",
       "localizations" : [
         {
