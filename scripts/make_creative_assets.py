@@ -40,6 +40,7 @@ SPEC = {
 SEARCH = {
     "ko": ("UI/UX 공부", "직접 만져 보며<br>배우는 UI/UX", "어색한 화면을 써 보고<br>이유를 확인해요"),
     "en": ("UI/UX practice", "Learn UI/UX<br>by touching it", "Use awkward screens,<br>then see why"),
+    "en-GB": ("UI/UX practice", "Learn UI/UX<br>by touching it", "Use awkward screens,<br>then see why"),
     "ja": ("UI/UXの勉強", "触って学ぶ<br>UI/UX", "違和感のある画面を使って<br>理由を確かめる"),
 }
 
@@ -47,6 +48,7 @@ SEARCH = {
 HEADER = {
     "ko": ("앱 디자인 실습", "써 보면 알게 되는<br>좋은 화면의 이유"),
     "en": ("App Design Lab", "Use it, and see why<br>good screens work"),
+    "en-GB": ("App Design Lab", "Use it, and see why<br>good screens work"),
     "ja": ("アプリデザイン実習", "使ってわかる<br>良い画面の理由"),
 }
 

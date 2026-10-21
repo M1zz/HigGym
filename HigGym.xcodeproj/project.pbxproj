@@ -604,6 +604,7 @@
 			knownRegions = (
 				Base,
 				en,
+				"en-GB",
 				ja,
 				ko,
 			);

@@ -5,13 +5,13 @@
     "CFBundleDisplayName": {
       "extractionState": "manual",
       "localizations": {
-        "ko": {
+        "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "앱 디자인 실습"
+            "value": "Design Lab"
           }
         },
-        "en": {
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Design Lab"
@@ -21,6 +21,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "デザイン実習"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "앱 디자인 실습"
           }
         }
       }
@@ -28,13 +34,13 @@
     "CFBundleName": {
       "extractionState": "manual",
       "localizations": {
-        "ko": {
+        "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "앱 디자인 실습"
+            "value": "Design Lab"
           }
         },
-        "en": {
+        "en-GB": {
           "stringUnit": {
             "state": "translated",
             "value": "Design Lab"
@@ -44,6 +50,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "デザイン実習"
+          }
+        },
+        "ko": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "앱 디자인 실습"
           }
         }
       }

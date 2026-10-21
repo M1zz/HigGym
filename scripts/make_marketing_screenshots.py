@@ -15,7 +15,7 @@ RAW = ROOT / "docs" / "screenshots" / "raw"
 OUT = ROOT / "docs" / "screenshots" / "marketing"
 WORK = pathlib.Path("/tmp") / "higgym-marketing"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-STORE = {"ko": "ko", "en": "en", "ja": "ja"}
+STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja"}
 
 # (원본 파일, 헤드라인, 서브카피), 언어마다 따로 쓴다.
 SHOTS = {
@@ -28,6 +28,14 @@ SHOTS = {
         ("06-items.png",   "UI/UX 68개 항목을<br>그림으로", "툴바 · 탭바 · 시트 · 텍스트를 목업으로 훑어요"),
     ],
     "en": [
+        ("01-course.png",  "Don't just read it.<br>Touch it.", "One decision per lesson, 23 UI/UX lessons"),
+        ("02-try.png",     "Try it first", "Use the rule-breaking screen at full size"),
+        ("03-write.png",   "Write down<br>what you felt", "Before the answer, note what your hands noticed"),
+        ("04-reason.png",  "Then see why", "The decision, the reason, and what breaks if you flip it"),
+        ("05-compare.png", "Broken vs. fixed,<br>side by side", "Swap them in place and spot the difference"),
+        ("06-items.png",   "68 UI/UX topics,<br>drawn out", "Toolbars, tab bars, sheets and text as mockups"),
+    ],
+    "en-GB": [
         ("01-course.png",  "Don't just read it.<br>Touch it.", "One decision per lesson, 23 UI/UX lessons"),
         ("02-try.png",     "Try it first", "Use the rule-breaking screen at full size"),
         ("03-write.png",   "Write down<br>what you felt", "Before the answer, note what your hands noticed"),

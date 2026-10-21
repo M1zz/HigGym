@@ -120,6 +120,66 @@ https://m1zz.github.io/HigGym/en/privacy.html
 
 https://m1zz.github.io/HigGym/en/app/
 
+## en-GB
+
+### 이름
+
+App Design Lab: UI/UX Practice
+
+### 부제
+
+Learn interface rules by doing
+
+### 키워드
+
+accessibility,guidelines,toolbar,tabbar,sheet,navigation,layout,usability,developer,wireframe,quiz
+
+### 프로모션 텍스트
+
+Where should a toolbar button go? How should delete work? Use screens that get it wrong, note what feels off, and compare with the fix until good UI/UX calls feel easy.
+
+### 설명
+
+Great UI/UX is a stack of small decisions. App Design Lab is a hands-on workbook where you use screens that get those decisions wrong, then see exactly why.
+Each lesson tackles one decision in five steps: try a broken screen, write what felt off, see why, compare it with the fix, and write down what you learned.
+
+23 HANDS-ON LESSONS
+Try it: a sample app opens at full size with a task. The screen you are using breaks a rule on purpose.
+Write it down: before you see the answer, note what you noticed.
+See why: the decision, the reasoning behind it, and what falls apart if you flip it, right next to what you wrote.
+Compare: switch between the broken screen and the fixed one in the same spot and spot the difference.
+Write what you learned: keep one sentence you can reuse next time. Your notes collect in the Notes tab, where you can copy them or export them as a Markdown file.
+
+A LIBRARY FOR GOING DEEPER
+68 topics: toolbars, titles, search, tab bars, sheets, and text, each drawn as a mockup. Tap any part of the picture to see the rule behind it, and open a live example screen for every topic.
+100 mistakes: what was done, why it seemed right at the time, and what changes once it is fixed, written as short retrospectives.
+7 principles: the core judgments behind all 68 topics, shown by flipping the same screen between a broken and a correct layout.
+5 labs: adjust toolbar placement, scroll edge effects, text truncation, tab bar setup, and sheet height, and get a verdict in real time.
+Quiz: 396 questions that ask you to look at a screen and make the call.
+
+MADE FOR
+Developers who want a reason behind every button they place
+Designers who want to get comfortable with the latest toolbars, tab bars, and sheets
+Teams who need to explain the why in design reviews
+
+Try 3 lessons, 10 mistakes, the toolbar lab, and the first quiz chapter for free. The 68 topics, 7 principles, and your notes are always free.
+A weekly subscription, a monthly subscription, or a one-time lifetime purchase unlocks every lesson and resource.
+Subscriptions renew automatically at the same price unless cancelled at least 24 hours before the period ends. Manage or cancel anytime in your App Store account settings.
+Terms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+There is no account, and your progress and notes stay on your device. The whole app is available in British English, Japanese, and Korean.
+
+### 지원 URL
+
+https://m1zz.github.io/HigGym/en/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/HigGym/en/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/HigGym/en/app/
+
 ## ja
 
 ### 이름
