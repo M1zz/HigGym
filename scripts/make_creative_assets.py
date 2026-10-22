@@ -26,7 +26,7 @@ def profile():
     부를 때마다 새 빈 프로필로 띄운다."""
     return f"--user-data-dir={tempfile.mkdtemp(prefix='higgym-chrome-')}"
 
-# 스토어 언어 = deploy.env LOCALES (ko · en · ja · zh-Hans · zh-Hant · ru · es · de · fr · it · pt-BR · th · vi · cs · da · el · fi · id). 폴더 이름이 로케일 그대로라 바꿀 것이 없다.
+# 스토어 언어 = deploy.env LOCALES (ko · en · ja · zh-Hans · zh-Hant · ru · es · de · fr · it · pt-BR · th · vi · cs · da · el · fi · id · nb). 폴더 이름이 로케일 그대로라 바꿀 것이 없다.
 STORE = {}
 
 # (가로, 세로, 안전 영역 left, top, right, bottom)
@@ -57,6 +57,7 @@ SEARCH = {
     "el": ("Εξάσκηση UI/UX", "Μάθε UI/UX<br>πατώντας", "Χρησιμοποίησε μια οθόνη που σκαλώνει<br>και κατάλαβε γιατί"),
     "fi": ("UI/UX-harjoitus", "Opi UI/UX<br>napauttamalla", "Käytä hiertävää näkymää<br>ja ymmärrä miksi"),
     "id": ("Latihan UI/UX", "Belajar UI/UX<br>dengan mengetuk", "Pakai layar yang janggal<br>dan pahami alasannya"),
+    "nb": ("UI/UX-øvelse", "Lær UI/UX<br>ved å trykke", "Bruk en skurrende skjerm<br>og forstå hvorfor"),
 }
 
 # 헤더: 처음 온 사람에게 한 가지 약속.
@@ -80,6 +81,7 @@ HEADER = {
     "el": ("Εξάσκηση Σχεδιασμού", "Δοκίμασε και κατάλαβε<br>γιατί δουλεύουν οι καλές οθόνες"),
     "fi": ("Suunnitteluharjoitus", "Kokeile ja ymmärrä,<br>miksi hyvät näkymät toimivat"),
     "id": ("Latihan Desain", "Coba dan pahami<br>mengapa layar yang baik berhasil"),
+    "nb": ("Designpraksis", "Prøv og forstå<br>hvorfor gode skjermer fungerer"),
 }
 
 # ⚠️ 바탕 · 글자색은 기존 스크린샷(make_marketing_screenshots.py)과 같다. 다르면 페이지에서

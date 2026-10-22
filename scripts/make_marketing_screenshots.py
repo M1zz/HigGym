@@ -15,7 +15,7 @@ RAW = ROOT / "docs" / "screenshots" / "raw"
 OUT = ROOT / "docs" / "screenshots" / "marketing"
 WORK = pathlib.Path("/tmp") / "higgym-marketing"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id"}
+STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "nb"}
 
 # (원본 파일, 헤드라인, 서브카피), 언어마다 따로 쓴다.
 SHOTS = {
@@ -170,6 +170,14 @@ SHOTS = {
         ("04-reason.png",  "Lalu lihat alasannya",  "Keputusan, alasan, dan apa yang rusak"),
         ("05-compare.png",  "Yang rusak dan yang benar<br>berdampingan",  "Beralih di tempat dan rasakan bedanya"),
         ("06-items.png",  "68 topik UI/UX<br>dalam gambar",  "Bilah alat, tab, lembar, dan teks sebagai sketsa"),
+    ],
+    "nb": [
+        ("01-course.png",  "Ikke les.<br>Trykk.",  "Én leksjon, én beslutning, 23 UI/UX-leksjoner"),
+        ("02-try.png",  "Prøv først",  "Bruk en skjerm i full størrelse som bryter regelen"),
+        ("03-write.png",  "Skriv ned<br>det du følte",  "Før svaret: noter hva hånden din merket"),
+        ("04-reason.png",  "Se så begrunnelsen",  "Beslutningen, grunnen og hva som går i stykker"),
+        ("05-compare.png",  "Ødelagt og rettet<br>side om side",  "Bytt på stedet og kjenn forskjellen"),
+        ("06-items.png",  "68 UI/UX-emner<br>i tegninger",  "Verktøylinjer, faner, ark og tekst som skisser"),
     ],
 }
 

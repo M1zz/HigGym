@@ -118,6 +118,12 @@
             "state": "translated",
             "value": "Lanjutkan belajar di ${applicationName}"
           }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fortsett å lære i ${applicationName}"
+          }
         }
       }
     },
@@ -236,6 +242,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Lanjutkan ${applicationName}"
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gjenoppta ${applicationName}"
           }
         }
       }
@@ -356,6 +368,12 @@
             "state": "translated",
             "value": "Buka catatan ${applicationName}"
           }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Åpne notater i ${applicationName}"
+          }
         }
       }
     },
@@ -474,6 +492,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tampilkan catatanku di ${applicationName}"
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vis notatene mine i ${applicationName}"
           }
         }
       }

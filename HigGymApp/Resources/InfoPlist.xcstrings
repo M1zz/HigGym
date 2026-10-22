@@ -118,6 +118,12 @@
             "state": "translated",
             "value": "Latihan Desain"
           }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Designpraksis"
+          }
         }
       }
     },
@@ -236,6 +242,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Latihan Desain"
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Designpraksis"
           }
         }
       }
