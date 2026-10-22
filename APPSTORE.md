@@ -1019,3 +1019,63 @@ https://m1zz.github.io/HigGym/el/privacy.html
 ### 마케팅 URL
 
 https://m1zz.github.io/HigGym/el/app/
+
+## fi
+
+### 이름
+
+Suunnitteluharjoitus: UI/UX
+
+### 부제
+
+Opi UI/UX kokeilemalla
+
+### 키워드
+
+käyttöliittymä,navigointi,wireframe,mockup,tietovisa,kehittäjä,periaatteet,arkki,iOS,saavutettavuus
+
+### 프로모션 텍스트
+
+Minne painike kuuluu? Käytä rikkinäisiä näkymiä, kirjoita muistiin, mikä hiertää, ja vertaa korjaukseen, kunnes hyvät suunnittelutavat tulevat luonnostaan.
+
+### 설명
+
+Hyvä UI/UX on pienten päätösten pino. Suunnitteluharjoitus on käytännönläheinen harjoituskirja, jossa käytät näkymiä, jotka tekevät nuo päätökset väärin, ja näet sitten tarkalleen miksi.
+Jokainen oppitunti käsittelee yhden päätöksen viidessä vaiheessa: kokeile rikkinäistä näkymää, kirjoita muistiin, mikä tuntui oudolta, katso miksi, vertaa korjattuun versioon ja kirjoita, mitä opit.
+
+23 KÄYTÄNNÖN OPPITUNTIA
+Kokeile: esimerkkisovellus avautuu täysikokoisena tehtävän kanssa. Näkymä, jota käytät, rikkoo tarkoituksella sääntöä.
+Kirjoita muistiin: ennen kuin näet vastauksen, kirjoita, mitä huomasit.
+Katso miksi: päätös, sen taustalla oleva perustelu ja se, mikä hajoaa, jos käännät sen, aivan kirjoittamasi vieressä.
+Vertaa: vaihda rikkinäisen ja korjatun näkymän välillä samassa paikassa ja huomaa ero.
+Kirjoita, mitä opit: tallenna lause, jonka voit käyttää uudelleen ensi kerralla. Muistiinpanosi kerääntyvät Muistiinpanot-välilehdelle, jossa voit kopioida ne tai viedä ne Markdown-tiedostona.
+
+KIRJASTO SYVENTYMISTÄ VARTEN
+68 aihetta: työkalupalkit, otsikot, haku, välilehtipalkit, arkit ja teksti, kukin piirretty luonnoksena. Napauta mitä tahansa kuvan osaa nähdäksesi sen takana olevan säännön ja avaa elävä esimerkki jokaiselle aiheelle.
+100 virhettä: mitä tehtiin, miksi se tuntui silloin oikealta ja mikä muuttuu korjattaessa, kirjoitettuna lyhyinä takaumina.
+7 periaatetta: kaikkien 68 aiheen taustalla olevat perusarviot, näytettyinä vaihtamalla samaa näkymää rikkinäisen ja oikean asettelun välillä.
+5 laboratoriota: säädä työkalupalkin sijoitusta, vierityksen reunaefektejä, tekstin katkaisua, välilehtipalkin asetelmaa ja arkin korkeutta ja saat arvion reaaliajassa.
+Tietovisa: 396 kysymystä, jotka saavat sinut katsomaan näkymää ja päättämään.
+
+KENELLE
+Kehittäjille, jotka haluavat perustelun jokaiselle sijoittamalleen painikkeelle
+Suunnittelijoille, jotka haluavat tutustua uusimpiin työkalupalkkeihin, välilehtipalkkeihin ja arkkeihin
+Tiimeille, joiden täytyy selittää miksi suunnittelukatselmuksissa
+
+Kokeile ilmaiseksi 3 oppituntia, 10 virhettä, työkalupalkin laboratoriota ja tietovisan ensimmäistä lukua. 68 aihetta, 7 periaatetta ja muistiinpanosi ovat aina ilmaisia.
+Viikkotilaus, kuukausitilaus tai kertaluonteinen elinikäinen osto avaa kaikki oppitunnit ja resurssit.
+Tilaukset uusiutuvat automaattisesti samalla hinnalla, ellei niitä peruuteta vähintään 24 tuntia ennen jakson päättymistä. Voit hallita tai peruuttaa ne milloin tahansa App Store -tilisi asetuksissa.
+Käyttöehdot: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Tiliä ei ole, ja edistymisesi ja muistiinpanosi pysyvät laitteellasi. Koko sovellus on saatavilla suomeksi, englanniksi, japaniksi, koreaksi ja monilla muilla kielillä.
+
+### 지원 URL
+
+https://m1zz.github.io/HigGym/fi/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/HigGym/fi/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/HigGym/fi/app/

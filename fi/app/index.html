@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suunnitteluharjoitus: UI/UX-harjoituskirja</title>
+<meta name="description" content="Käytä näkymiä, jotka rikkovat ohjetta, kirjoita muistiin, mikä tuntui oudolta, ja vertaa korjattuun versioon. Käytännönläheinen harjoituskirja UI/UX-arvostelukyvyn rakentamiseen.">
+<link rel="canonical" href="https://m1zz.github.io/HigGym/fi/app/">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/app/">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/app/">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/app/">
+<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/HigGym/ru/app/">
+<link rel="alternate" hreflang="es" href="https://m1zz.github.io/HigGym/es/app/">
+<link rel="alternate" hreflang="de" href="https://m1zz.github.io/HigGym/de/app/">
+<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/HigGym/fr/app/">
+<link rel="alternate" hreflang="it" href="https://m1zz.github.io/HigGym/it/app/">
+<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/HigGym/pt-br/app/">
+<link rel="alternate" hreflang="th" href="https://m1zz.github.io/HigGym/th/app/">
+<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/HigGym/vi/app/">
+<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/HigGym/cs/app/">
+<link rel="alternate" hreflang="da" href="https://m1zz.github.io/HigGym/da/app/">
+<link rel="alternate" hreflang="el" href="https://m1zz.github.io/HigGym/el/app/">
+<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/HigGym/fi/app/">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/app/">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Kieli"><a href="../../app/" hreflang="ko" lang="ko">한국어</a> · <a href="../../en/app/" hreflang="en" lang="en">English</a> · <a href="../../ja/app/" hreflang="ja" lang="ja">日本語</a> · <a href="../../zh-hans/app/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="../../zh-hant/app/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> · <a href="../../ru/app/" hreflang="ru" lang="ru">Русский</a> · <a href="../../es/app/" hreflang="es" lang="es">Español</a> · <a href="../../de/app/" hreflang="de" lang="de">Deutsch</a> · <a href="../../fr/app/" hreflang="fr" lang="fr">Français</a> · <a href="../../it/app/" hreflang="it" lang="it">Italiano</a> · <a href="../../pt-br/app/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../th/app/" hreflang="th" lang="th">ไทย</a> · <a href="../../vi/app/" hreflang="vi" lang="vi">Tiếng Việt</a> · <a href="../../cs/app/" hreflang="cs" lang="cs">Čeština</a> · <a href="../../da/app/" hreflang="da" lang="da">Dansk</a> · <a href="../../el/app/" hreflang="el" lang="el">Ελληνικά</a> · <a href="./" aria-current="page">Suomi</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>Suunnitteluharjoitus</h1></header>
+  <p class="meta">Harjoituskirjasovellus UI/UX:stä · iPhone</p>
+  <nav class="lang"><a href="#contact">Yhteystiedot</a> · <a href="../support.html">Tuki</a> · <a href="../privacy.html">Tietosuojakäytäntö</a></nav>
+
+  <section class="card">
+    <h2>Suunnitteluopiskelua, joka menee lukemista pidemmälle</h2>
+    <p>Hyvä UI/UX on pienten päätösten pino. Sen sijaan että vain lukisit niistä, <strong>käytät näkymää, joka rikkoo ohjetta, kirjoitat muistiin, mikä tuntui oudolta, ja vertaat sitten sääntöön</strong>.
+      Sovellus sisältää 23 oppituntia, 68 kommentoitua aihetta, 100 yleistä virhettä, 7 periaatetta, 5 laboratoriota ja 396 tietovisakysymystä. Koko sovellus on saatavilla suomeksi, englanniksi, japaniksi, koreaksi ja monilla muilla kielillä.</p>
+  </section>
+
+  <h2>Jokaisessa oppitunnissa on viisi vaihetta</h2>
+  <ol>
+    <li><strong>Kokeile</strong>: avaa esimerkkisovellus täysikokoisena ja saat tehtävän. Näkymä, jota käytät tässä, rikkoo tarkoituksella ohjetta.</li>
+    <li><strong>Kirjoita muistiin</strong>: ennen kuin näet vastauksen, kirjoita, mikä tuntui oudolta.</li>
+    <li><strong>Katso miksi</strong>: muistiinpanosi istuvat säännön vieressä, yhdessä päätöksen, sen taustalla olevan perustelun ja sen kanssa, mikä rikkoutuu, jos käännät sen.</li>
+    <li><strong>Vertaa</strong>: vaihda rikkinäisen ja korjatun näkymän välillä samassa paikassa ja näe ero.</li>
+    <li><strong>Kirjoita, mitä opit</strong>: tallenna lause, jonka voit käyttää uudelleen ensi kerralla. Muistiinpanot voi kopioida tekstinä tai viedä Markdown-tiedostona.</li>
+  </ol>
+
+  <h2>Kolme välilehteä</h2>
+  <ul>
+    <li><strong>Opi</strong>: 23 oppitunnin kurssi, kukin yksi suunnittelupäätös, kuten alareunan kirjoituspainikkeet, pyyhkäisy poistoon, ryhmitellyt työkalupalkin kohteet, haun sijoitus ja kuinka monta välilehteä käyttää.</li>
+    <li><strong>Muistiinpanot</strong>: kaikki, mitä kirjoitit oppituntien aikana, yhdessä paikassa.</li>
+    <li><strong>Kirjasto</strong>: selaa 68 aihetta, kuten työkalupalkit, teksti, välilehtipalkit, arkit ja valikot, kuvituksina. Napauta mitä tahansa kuvan osaa nähdäksesi sen säännön ja perustelun, ja avaa toimiva esimerkki jokaiselle aiheelle.</li>
+  </ul>
+
+  <h2>Kenelle se on</h2>
+  <ul>
+    <li>Sovelluksia rakentaville kehittäjille ja suunnittelijoille, jotka haluavat perustelun jokaiselle asettelun valinnalle</li>
+    <li>Kaikille, jotka ovat lukeneet ohjeet mutta huomanneet, että vain vähän jäi mieleen</li>
+  </ul>
+  <p>Sisäänkirjautumista ei tarvita, ja kaikki on sisäänrakennettu sovellukseen, joten se toimii offline-tilassa. Edistymisesi ja muistiinpanosi tallennetaan vain laitteellesi.</p>
+
+  <h2>Ilmainen ja Pro</h2>
+  <p>Kokeile ilmaiseksi 3 oppituntia, 10 virhettä, työkalupalkin laboratoriota ja tietovisan ensimmäistä lukua. 68 aihetta, 7 periaatetta ja muistiinpanosi ovat aina ilmaisia. <strong>Viikko- tai kuukausitilaus tai elinikäinen osto</strong> avaa kaikki oppitunnit ja resurssit. Peruuta tilaus milloin tahansa; elinikäinen osto maksetaan kerran. <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Käyttöehdot</a></p>
+  <p>Jos asensit sovelluksen versiolla 1.0.2 tai vanhemmalla, säilytät kaiken ilman ostoa.</p>
+
+  <section class="card" id="contact">
+    <h2>Yhteystiedot</h2>
+    <p>Löysitkö virheen, sisältövirheen tai näkymän, jonka haluaisit käsiteltävän? Kerro meille ja liitä mukaan laitteesi malli, iOS-versio ja näkymä, jossa se tapahtui.
+      Sovelluksessa voit lähettää sen suoraan kohdasta <strong>Opi › Asetukset (oikea yläkulma) › Lähetä palaute</strong>.</p>
+    <p>Sähköposti <a href="mailto:leeo@kakao.com?subject=%5BSuunnitteluharjoitus%5D%20Tuki">leeo@kakao.com</a> · <a href="https://github.com/M1zz/HigGym/issues/new">GitHub Issues</a> · <a href="https://instagram.com/lee25_ios">Instagram</a></p>
+    <p>Emme kerää henkilötietoja. Katso lisätietoja <a href="../privacy.html">Tietosuojakäytännöstä</a>.</p>
+  </section>
+
+  <hr>
+  <footer><a href="../support.html">Tuki</a> · <a href="../privacy.html">Tietosuojakäytäntö</a> · <a href="https://github.com/M1zz/HigGym">GitHub</a></footer>
+</main>
+</body>
+</html>

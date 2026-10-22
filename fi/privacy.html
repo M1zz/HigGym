@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tietosuojakäytäntö, Suunnitteluharjoitus</title>
+<link rel="canonical" href="https://m1zz.github.io/HigGym/fi/privacy.html">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/privacy.html">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/privacy.html">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/privacy.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/privacy.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/privacy.html">
+<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/HigGym/ru/privacy.html">
+<link rel="alternate" hreflang="es" href="https://m1zz.github.io/HigGym/es/privacy.html">
+<link rel="alternate" hreflang="de" href="https://m1zz.github.io/HigGym/de/privacy.html">
+<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/HigGym/fr/privacy.html">
+<link rel="alternate" hreflang="it" href="https://m1zz.github.io/HigGym/it/privacy.html">
+<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/HigGym/pt-br/privacy.html">
+<link rel="alternate" hreflang="th" href="https://m1zz.github.io/HigGym/th/privacy.html">
+<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/HigGym/vi/privacy.html">
+<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/HigGym/cs/privacy.html">
+<link rel="alternate" hreflang="da" href="https://m1zz.github.io/HigGym/da/privacy.html">
+<link rel="alternate" hreflang="el" href="https://m1zz.github.io/HigGym/el/privacy.html">
+<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/HigGym/fi/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/privacy.html">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  ul{padding-left:1.2em}
+  li{margin:4px 0}
+  a{color:var(--accent)}
+  code{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:.9em}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Kieli"><a href="../privacy.html" hreflang="ko" lang="ko">한국어</a> · <a href="../en/privacy.html" hreflang="en" lang="en">English</a> · <a href="../ja/privacy.html" hreflang="ja" lang="ja">日本語</a> · <a href="../zh-hans/privacy.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="../zh-hant/privacy.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> · <a href="../ru/privacy.html" hreflang="ru" lang="ru">Русский</a> · <a href="../es/privacy.html" hreflang="es" lang="es">Español</a> · <a href="../de/privacy.html" hreflang="de" lang="de">Deutsch</a> · <a href="../fr/privacy.html" hreflang="fr" lang="fr">Français</a> · <a href="../it/privacy.html" hreflang="it" lang="it">Italiano</a> · <a href="../pt-br/privacy.html" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../th/privacy.html" hreflang="th" lang="th">ไทย</a> · <a href="../vi/privacy.html" hreflang="vi" lang="vi">Tiếng Việt</a> · <a href="../cs/privacy.html" hreflang="cs" lang="cs">Čeština</a> · <a href="../da/privacy.html" hreflang="da" lang="da">Dansk</a> · <a href="../el/privacy.html" hreflang="el" lang="el">Ελληνικά</a> · <a href="./privacy.html" aria-current="page">Suomi</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>Tietosuojakäytäntö</h1></header>
+  <p class="meta">Suunnitteluharjoitus (iOS) · Voimassa 20. lokakuuta 2026 alkaen</p>
+  <nav class="lang"><a href="./app/">Tietoa sovelluksesta</a> · <a href="./support.html">Tuki</a></nav>
+
+  <section class="card">
+    <h2>Yhteenveto</h2>
+    <p><strong>Suunnitteluharjoitus ei kerää henkilötietoja.</strong> Tiliä ei ole, mainoksia ei ole, eikä kolmansien osapuolten analytiikka- tai seurantatyökaluja käytetä. Edistymisesi ja muistiinpanosi pysyvät laitteellasi. Nähdäksemme, kuinka moni käyttää sovellusta, ja korjataksemme kaatumisia sovellus lähettää vain nimettömiä käyttötilastoja ja kaatumisraportteja.</p>
+  </section>
+
+  <h2>1. Keräämämme tiedot</h2>
+  <p>Ei henkilötietoja. Sovellus ei sisällä kolmansien osapuolten SDK:ita, ei käytä mainostunnistetta (IDFA) eikä pääse käsiksi sijaintiin, yhteystietoihin, valokuviin tai kameraan. Ainoat laitteeltasi lähtevät tiedot on lueteltu alla kohdassa ”Nimettömät käyttötilastot”, sekä palaute, jonka itse päätät lähettää (kohta 3).</p>
+  <h3>Nimettömät käyttötilastot</h3>
+  <p>Nähdäksemme, kuinka moni käyttää sovellusta, ja korjataksemme kaatumisia sovellus lähettää seuraavat nimettömät tilastot Applen iCloudiin (CloudKit), jossa vain kehittäjä voi lukea ne:</p>
+  <ul>
+    <li>Satunnainen tunniste, joka luodaan sovellusta asennettaessa (ei liity sinuun, Apple ID:hesi, laitteeseesi tai muihin sovelluksiin; se muuttuu uudelleenasennuksessa)</li>
+    <li>Sovelluksen versio, iOS-versio sekä alue- ja kieliasetukset</li>
+    <li>Kuinka monta kertaa sovellus on avattu ja minä päivinä, asennuspäivämäärä ja asennuksesta kuluneet päivät</li>
+    <li>Kaatumis- ja odottamattoman päättymisen raportit (sovelluksen versio, iOS-versio, laitteen tyyppi ja tekniset virhetiedot)</li>
+  </ul>
+  <p>Tähän ei sisälly nimeä, yhteystietoja, sijaintia tai mitään, mitä itse luot, kuten opintomuistiinpanoja tai tietovisan tuloksia. Tilastot lähetetään vain, kun olet kirjautunut iCloudiin. Ne lähettää LeeoKit, kehittäjän kirjoittama jaettu kirjasto, eikä niitä koskaan luovuteta kolmansille osapuolille.</p>
+
+  <h2>2. Tiedot, jotka pysyvät vain laitteellasi</h2>
+  <p>Jotta voit jatkaa siitä, mihin jäit, seuraavat tallennetaan <strong>vain laitteellesi</strong>, eikä niitä lähetetä kenellekään, ei edes kehittäjälle:</p>
+  <ul>
+    <li>Edistyminen oppitunneilla ja opintomuistiinpanot, jotka kirjoitat oppitunneilla</li>
+    <li>Tietovisojen tulokset, vierailemasi laboratoriot ja virheet, jotka olet merkinnyt</li>
+  </ul>
+  <p>Nämä tiedot poistuvat, kun poistat sovelluksen. Jos laitteen varmuuskopiot ovat käytössä (esimerkiksi iCloud-varmuuskopio), ne voivat sisältyä niihin Applen varmuuskopiokäytännön mukaisesti.</p>
+
+  <h2>3. Kun viet jotain itse</h2>
+  <ul>
+    <li><strong>Kopioi</strong>: opintomuistiinpanojen tai esimerkkikoodin kopiointi asettaa ne laitteen leikepöydälle.</li>
+    <li><strong>Jaa</strong>: opintomuistiinpanojen vienti Markdown-tiedostona avaa iOS:n jakoarkin. Sinä valitset, minne se menee; sovellus ei osallistu siihen, mitä sen jälkeen tapahtuu.</li>
+    <li><strong>Lähetä palaute</strong>: kun napautat lähetä kohdassa Asetukset › Lähetä palaute, kirjoittamasi teksti, sovelluksen versio, iOS-versio ja laitteen tyyppi lähetetään Applen iCloudiin (CloudKit), jossa vain kehittäjä voi lukea ne. Nimeäsi tai yhteystietojasi ei vaadita, ja vastaukset näytetään suoraan sovelluksessa.</li>
+    <li><strong>Sähköposti ja Instagram</strong>: Asetusten yhteydenottorivit avaavat Mail-sovelluksen tai Instagramin laitteellasi. Se, mitä sen jälkeen tapahtuu, noudattaa kyseisen palvelun käytäntöä.</li>
+  </ul>
+
+  <h2>4. Sovelluksensisäiset ostot</h2>
+  <p>Pro-tilauksen ja elinikäisen oston maksun käsittelee Apple App Storen kautta. Sovellus tai kehittäjä ei vastaanota kortin numeroasi tai maksutietojasi. Selvittääkseen, onko Pro avattu, sovellus lukee vain ostotietueen, jonka Apple asettaa saataville laitteellasi, ja tulos pysyy laitteellasi.</p>
+
+  <h2>5. Ulkoiset linkit</h2>
+  <p>Viitelinkit (Apple Developer -dokumentaatio, blogit ja vastaavat) avautuvat laitteesi selaimessa, esimerkiksi Safarissa. Nämä sivustot käsittelevät tietoja omien käytäntöjensä mukaisesti.</p>
+
+  <h2>6. Lasten yksityisyys</h2>
+  <p>Sovellus ei kerää henkilötietoja minkään ikäryhmän käyttäjiltä. Nimettömiä käyttötilastoja ei voi jäljittää keneenkään.</p>
+
+  <h2>7. Muutokset tähän käytäntöön</h2>
+  <p>Jos sovelluksen tietojenkäsittely muuttuu, tämä sivu päivitetään ensin ja se saa uuden voimaantulopäivän.</p>
+
+  <h2>8. Yhteystiedot</h2>
+  <p>Lähetä sähköpostia osoitteeseen <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> tietosuojakysymyksissä tai avaa issue sivustolla <a href="https://github.com/M1zz/HigGym/issues">GitHub Issues</a>.</p>
+
+  <hr>
+  <footer><a href="./app/">Tietoa sovelluksesta</a> · <a href="./support.html">Tuki</a> · <a href="../toolbar-annotated.html?lang=en">HigGym-opas (web, englanti)</a></footer>
+</main>
+</body>
+</html>

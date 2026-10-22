@@ -15,7 +15,7 @@ RAW = ROOT / "docs" / "screenshots" / "raw"
 OUT = ROOT / "docs" / "screenshots" / "marketing"
 WORK = pathlib.Path("/tmp") / "higgym-marketing"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el"}
+STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi"}
 
 # (원본 파일, 헤드라인, 서브카피), 언어마다 따로 쓴다.
 SHOTS = {
@@ -154,6 +154,14 @@ SHOTS = {
         ("04-reason.png",  "Μετά δες τη λογική",  "Η απόφαση, ο λόγος και τι χαλάει"),
         ("05-compare.png",  "Χαλασμένο και διορθωμένο<br>δίπλα-δίπλα",  "Εναλλαγή επιτόπου και νιώσε τη διαφορά"),
         ("06-items.png",  "68 θέματα UI/UX<br>σχεδιασμένα",  "Γραμμές εργαλείων, καρτέλες, φύλλα και κείμενο ως mockups"),
+    ],
+    "fi": [
+        ("01-course.png",  "Älä lue.<br>Napauta.",  "Yksi oppitunti, yksi päätös, 23 UI/UX-oppituntia"),
+        ("02-try.png",  "Kokeile ensin",  "Käytä täysikokoisena näkymää, joka rikkoo sääntöä"),
+        ("03-write.png",  "Kirjoita muistiin,<br>mitä tunsit",  "Ennen vastausta: kirjoita, mitä kätesi huomasi"),
+        ("04-reason.png",  "Katso sitten perustelu",  "Päätös, syy ja se, mikä rikkoutuu"),
+        ("05-compare.png",  "Rikkinäinen ja korjattu<br>rinnakkain",  "Vaihda paikallaan ja tunne ero"),
+        ("06-items.png",  "68 UI/UX-aihetta<br>piirrettynä",  "Työkalupalkit, välilehdet, arkit ja teksti luonnoksina"),
     ],
 }
 

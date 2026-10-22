@@ -106,6 +106,12 @@
             "state": "translated",
             "value": "Εργαστήριο Σχεδιασμού"
           }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suunnittelulaboratorio"
+          }
         }
       }
     },
@@ -212,6 +218,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Εργαστήριο Σχεδιασμού"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Suunnittelulaboratorio"
           }
         }
       }

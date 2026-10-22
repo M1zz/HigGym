@@ -106,6 +106,12 @@
             "state": "translated",
             "value": "Συνέχισε τη μάθηση στο ${applicationName}"
           }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jatka oppimista sovelluksessa ${applicationName}"
+          }
         }
       }
     },
@@ -212,6 +218,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Συνέχιση του ${applicationName}"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Jatka sovellusta ${applicationName}"
           }
         }
       }
@@ -320,6 +332,12 @@
             "state": "translated",
             "value": "Άνοιγμα των σημειώσεων του ${applicationName}"
           }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Avaa ${applicationName}-muistiinpanot"
+          }
         }
       }
     },
@@ -426,6 +444,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Δείξε τις σημειώσεις μου στο ${applicationName}"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Näytä muistiinpanoni sovelluksessa ${applicationName}"
           }
         }
       }
