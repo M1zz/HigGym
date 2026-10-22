@@ -70,6 +70,12 @@
             "state": "translated",
             "value": "Pratica del Design"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prática de Design"
+          }
         }
       }
     },
@@ -140,6 +146,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pratica del Design"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prática de Design"
           }
         }
       }

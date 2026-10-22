@@ -70,6 +70,12 @@
             "state": "translated",
             "value": "Continua a imparare in ${applicationName}"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continue aprendendo no ${applicationName}"
+          }
         }
       }
     },
@@ -140,6 +146,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Riprendi ${applicationName}"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Retomar o ${applicationName}"
           }
         }
       }
@@ -212,6 +224,12 @@
             "state": "translated",
             "value": "Apri le note di ${applicationName}"
           }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abrir as notas do ${applicationName}"
+          }
         }
       }
     },
@@ -282,6 +300,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Mostra le mie note in ${applicationName}"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostrar minhas notas no ${applicationName}"
           }
         }
       }

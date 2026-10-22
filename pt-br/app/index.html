@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prática de Design: um caderno prático de UI/UX</title>
+<meta name="description" content="Use telas que infringem uma diretriz, anote o que pareceu estranho e compare com a versão corrigida. Um caderno prático para desenvolver o discernimento em UI/UX.">
+<link rel="canonical" href="https://m1zz.github.io/HigGym/pt-br/app/">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/app/">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/app/">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/app/">
+<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/HigGym/ru/app/">
+<link rel="alternate" hreflang="es" href="https://m1zz.github.io/HigGym/es/app/">
+<link rel="alternate" hreflang="de" href="https://m1zz.github.io/HigGym/de/app/">
+<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/HigGym/fr/app/">
+<link rel="alternate" hreflang="it" href="https://m1zz.github.io/HigGym/it/app/">
+<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/HigGym/pt-br/app/">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/app/">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Idioma"><a href="../../app/" hreflang="ko" lang="ko">한국어</a> · <a href="../../en/app/" hreflang="en" lang="en">English</a> · <a href="../../ja/app/" hreflang="ja" lang="ja">日本語</a> · <a href="../../zh-hans/app/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="../../zh-hant/app/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> · <a href="../../ru/app/" hreflang="ru" lang="ru">Русский</a> · <a href="../../es/app/" hreflang="es" lang="es">Español</a> · <a href="../../de/app/" hreflang="de" lang="de">Deutsch</a> · <a href="../../fr/app/" hreflang="fr" lang="fr">Français</a> · <a href="../../it/app/" hreflang="it" lang="it">Italiano</a> · <a href="./" aria-current="page">Português (Brasil)</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>Prática de Design</h1></header>
+  <p class="meta">Um app para praticar UI/UX · iPhone</p>
+  <nav class="lang"><a href="#contact">Contato</a> · <a href="../support.html">Suporte</a> · <a href="../privacy.html">Política de Privacidade</a></nav>
+
+  <section class="card">
+    <h2>Um estudo de design que vai além da leitura</h2>
+    <p>Uma boa UI/UX é uma pilha de pequenas decisões. Em vez de só ler sobre elas, você <strong>usa uma tela que infringe uma diretriz, anota o que pareceu estranho e depois a compara com a regra</strong>.
+      O app inclui 23 lições, 68 tópicos comentados, 100 erros comuns, 7 princípios, 5 laboratórios e 396 perguntas de quiz. Tudo está disponível em português, inglês, japonês, coreano e outros idiomas.</p>
+  </section>
+
+  <h2>Cada lição tem cinco passos</h2>
+  <ol>
+    <li><strong>Experimente</strong>: abra um app de exemplo em tamanho real e receba uma tarefa. A tela que você usa aqui infringe de propósito uma diretriz.</li>
+    <li><strong>Anote</strong>: antes de ver a resposta, registre o que pareceu estranho.</li>
+    <li><strong>Entenda o porquê</strong>: suas anotações ficam ao lado da regra, junto com a decisão, o seu motivo e o que quebra se você a inverter.</li>
+    <li><strong>Compare</strong>: alterne no mesmo lugar entre a tela quebrada e a corrigida e veja a diferença.</li>
+    <li><strong>Escreva o que aprendeu</strong>: salve uma frase que poderá reutilizar da próxima vez. As notas podem ser copiadas como texto ou exportadas como arquivo Markdown.</li>
+  </ol>
+
+  <h2>Três abas</h2>
+  <ul>
+    <li><strong>Aprender</strong>: um curso de 23 lições, cada uma sobre uma decisão de design, como botões de escrita embaixo, deslizar para excluir, itens agrupados da barra de ferramentas, posição da busca e número de abas.</li>
+    <li><strong>Notas</strong>: tudo o que você escreveu durante as lições, num só lugar.</li>
+    <li><strong>Biblioteca</strong>: navegue por 68 tópicos, incluindo barras de ferramentas, texto, barras de abas, folhas e menus, como ilustrações. Toque em qualquer parte de uma imagem para ver a regra e o motivo, e abra um exemplo funcionando para cada tópico.</li>
+  </ul>
+
+  <h2>Para quem é</h2>
+  <ul>
+    <li>Desenvolvedores e designers que criam apps e querem um motivo por trás de cada escolha de layout</li>
+    <li>Quem leu as diretrizes mas percebeu que pouco ficou</li>
+  </ul>
+  <p>Não é preciso entrar em conta nenhuma, e tudo está integrado ao app, então funciona offline. Seu progresso e suas notas são salvos somente no seu dispositivo.</p>
+
+  <h2>Grátis e Pro</h2>
+  <p>Experimente de graça 3 lições, 10 erros, o laboratório da barra de ferramentas e o primeiro capítulo do quiz. Os 68 tópicos, os 7 princípios e as suas notas são sempre grátis. <strong>Uma assinatura semanal ou mensal, ou uma compra vitalícia</strong>, desbloqueia todas as lições e recursos. Cancele uma assinatura a qualquer momento; a compra vitalícia é paga uma vez. <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Termos de Uso</a></p>
+  <p>Se você instalou o app com a versão 1.0.2 ou anterior, mantém tudo sem nenhuma compra.</p>
+
+  <section class="card" id="contact">
+    <h2>Contato</h2>
+    <p>Encontrou um bug, um erro de conteúdo ou uma tela que gostaria de ver abordada? Conte para nós e informe o modelo do dispositivo, a versão do iOS e a tela em que aconteceu.
+      No app, você pode enviar direto em <strong>Aprender › Ajustes (canto superior direito) › Enviar feedback</strong>.</p>
+    <p>E-mail: <a href="mailto:leeo@kakao.com?subject=%5BPr%C3%A1tica%20de%20Design%5D%20Suporte">leeo@kakao.com</a> · <a href="https://github.com/M1zz/HigGym/issues/new">GitHub Issues</a> · <a href="https://instagram.com/lee25_ios">Instagram</a></p>
+    <p>Não coletamos nenhuma informação pessoal. Veja a <a href="../privacy.html">Política de Privacidade</a> para mais detalhes.</p>
+  </section>
+
+  <hr>
+  <footer><a href="../support.html">Suporte</a> · <a href="../privacy.html">Política de Privacidade</a> · <a href="https://github.com/M1zz/HigGym">GitHub</a></footer>
+</main>
+</body>
+</html>
