@@ -130,6 +130,12 @@
             "state": "translated",
             "value": "Ga verder met leren in ${applicationName}"
           }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kontynuuj naukę w ${applicationName}"
+          }
         }
       }
     },
@@ -260,6 +266,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Hervat ${applicationName}"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wznów ${applicationName}"
           }
         }
       }
@@ -392,6 +404,12 @@
             "state": "translated",
             "value": "Open notities van ${applicationName}"
           }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otwórz notatki w ${applicationName}"
+          }
         }
       }
     },
@@ -522,6 +540,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Toon mijn notities in ${applicationName}"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pokaż moje notatki w ${applicationName}"
           }
         }
       }

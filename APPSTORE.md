@@ -1259,3 +1259,63 @@ https://m1zz.github.io/HigGym/nl/privacy.html
 ### 마케팅 URL
 
 https://m1zz.github.io/HigGym/nl/app/
+
+## pl
+
+### 이름
+
+Praktyka designu: UI/UX
+
+### 부제
+
+Ucz się UI/UX w praktyce
+
+### 키워드
+
+interfejs,nawigacja,wireframe,makieta,quiz,deweloper,zasady,arkusz,iOS,dostępność,projektowanie
+
+### 프로모션 텍스트
+
+Gdzie powinien być ten przycisk? Korzystaj z zepsutych ekranów, zapisuj, co zgrzyta, i porównuj z poprawką, aż dobre decyzje projektowe wejdą w nawyk.
+
+### 설명
+
+Dobre UI/UX to stos drobnych decyzji. Praktyka designu to praktyczny zeszyt ćwiczeń, w którym korzystasz z ekranów podejmujących te decyzje źle, a potem widzisz dokładnie dlaczego.
+Każda lekcja obejmuje jedną decyzję w pięciu krokach: wypróbuj zepsuty ekran, zapisz, co wydawało się dziwne, zobacz dlaczego, porównaj z poprawioną wersją i zapisz, czego się nauczyłeś.
+
+23 PRAKTYCZNE LEKCJE
+Wypróbuj: przykładowa aplikacja otwiera się w pełnym rozmiarze z zadaniem. Ekran, z którego korzystasz, celowo łamie regułę.
+Zapisz: zanim zobaczysz odpowiedź, zanotuj, co zauważyłeś.
+Zobacz dlaczego: decyzja, jej uzasadnienie i to, co się psuje, gdy ją odwrócisz, tuż obok tego, co napisałeś.
+Porównaj: przełączaj w tym samym miejscu między zepsutym a poprawionym ekranem i poczuj różnicę.
+Zapisz, czego się nauczyłeś: zachowaj zdanie, którego użyjesz następnym razem. Twoje notatki zbierają się na karcie Notatki, gdzie możesz je skopiować lub wyeksportować jako plik Markdown.
+
+BIBLIOTEKA DO POGŁĘBIANIA WIEDZY
+68 tematów: paski narzędzi, tytuły, wyszukiwanie, paski kart, arkusze i tekst, każdy narysowany jako szkic. Stuknij dowolną część obrazka, by zobaczyć stojącą za nią regułę, i otwórz żywy przykład dla każdego tematu.
+100 błędów: co zrobiono, dlaczego wtedy wydawało się dobre i co się zmienia po poprawce, napisane jako krótkie retrospektywy.
+7 zasad: podstawowe kompromisy stojące za wszystkimi 68 tematami, pokazane przez przełączanie tego samego ekranu między zepsutym a właściwym układem.
+5 laboratoriów: zmieniaj umiejscowienie paska narzędzi, efekty krawędzi przewijania, obcinanie tekstu, układ paska kart i wysokość arkusza i oglądaj ocenę na żywo.
+Quiz: 396 pytań, w których patrzysz na ekran i decydujesz.
+
+DLA KOGO
+Deweloperzy, którzy chcą mieć powód za każdym przyciskiem, który umieszczają
+Projektanci, którzy chcą poznać najnowsze paski narzędzi, paski kart i arkusze
+Zespoły, które na przeglądach designu muszą wyjaśniać dlaczego
+
+Wypróbuj bezpłatnie 3 lekcje, 10 błędów, laboratorium paska narzędzi i pierwszy rozdział quizu. 68 tematów, 7 zasad i twoje notatki są zawsze bezpłatne.
+Subskrypcja tygodniowa, subskrypcja miesięczna lub jednorazowy zakup na zawsze odblokowuje każdą lekcję i każdy zasób.
+Subskrypcje odnawiają się automatycznie w tej samej cenie, chyba że zostaną anulowane co najmniej 24 godziny przed końcem okresu. Możesz nimi zarządzać lub je anulować w dowolnej chwili w ustawieniach konta App Store.
+Warunki użytkowania: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Bez konta, a twoje postępy i notatki zostają na urządzeniu. Cała aplikacja jest dostępna po polsku, angielsku, japońsku, koreańsku i w wielu innych językach.
+
+### 지원 URL
+
+https://m1zz.github.io/HigGym/pl/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/HigGym/pl/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/HigGym/pl/app/

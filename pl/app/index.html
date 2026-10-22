@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Praktyka designu: zeszyt ćwiczeń UI/UX</title>
+<meta name="description" content="Korzystaj z ekranów łamiących wytyczną, zapisuj, co wydawało się dziwne, i porównuj z poprawioną wersją. Praktyczny zeszyt ćwiczeń do budowania wyczucia UI/UX.">
+<link rel="canonical" href="https://m1zz.github.io/HigGym/pl/app/">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/app/">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/app/">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/app/">
+<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/HigGym/ru/app/">
+<link rel="alternate" hreflang="es" href="https://m1zz.github.io/HigGym/es/app/">
+<link rel="alternate" hreflang="de" href="https://m1zz.github.io/HigGym/de/app/">
+<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/HigGym/fr/app/">
+<link rel="alternate" hreflang="it" href="https://m1zz.github.io/HigGym/it/app/">
+<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/HigGym/pt-br/app/">
+<link rel="alternate" hreflang="th" href="https://m1zz.github.io/HigGym/th/app/">
+<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/HigGym/vi/app/">
+<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/HigGym/cs/app/">
+<link rel="alternate" hreflang="da" href="https://m1zz.github.io/HigGym/da/app/">
+<link rel="alternate" hreflang="el" href="https://m1zz.github.io/HigGym/el/app/">
+<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/HigGym/fi/app/">
+<link rel="alternate" hreflang="id" href="https://m1zz.github.io/HigGym/id/app/">
+<link rel="alternate" hreflang="nb" href="https://m1zz.github.io/HigGym/nb/app/">
+<link rel="alternate" hreflang="nl" href="https://m1zz.github.io/HigGym/nl/app/">
+<link rel="alternate" hreflang="pl" href="https://m1zz.github.io/HigGym/pl/app/">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/app/">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Język"><a href="../../app/" hreflang="ko" lang="ko">한국어</a> · <a href="../../en/app/" hreflang="en" lang="en">English</a> · <a href="../../ja/app/" hreflang="ja" lang="ja">日本語</a> · <a href="../../zh-hans/app/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="../../zh-hant/app/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> · <a href="../../ru/app/" hreflang="ru" lang="ru">Русский</a> · <a href="../../es/app/" hreflang="es" lang="es">Español</a> · <a href="../../de/app/" hreflang="de" lang="de">Deutsch</a> · <a href="../../fr/app/" hreflang="fr" lang="fr">Français</a> · <a href="../../it/app/" hreflang="it" lang="it">Italiano</a> · <a href="../../pt-br/app/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../th/app/" hreflang="th" lang="th">ไทย</a> · <a href="../../vi/app/" hreflang="vi" lang="vi">Tiếng Việt</a> · <a href="../../cs/app/" hreflang="cs" lang="cs">Čeština</a> · <a href="../../da/app/" hreflang="da" lang="da">Dansk</a> · <a href="../../el/app/" hreflang="el" lang="el">Ελληνικά</a> · <a href="../../fi/app/" hreflang="fi" lang="fi">Suomi</a> · <a href="../../id/app/" hreflang="id" lang="id">Bahasa Indonesia</a> · <a href="../../nb/app/" hreflang="nb" lang="nb">Norsk bokmål</a> · <a href="../../nl/app/" hreflang="nl" lang="nl">Nederlands</a> · <a href="./" aria-current="page">Polski</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>Praktyka designu</h1></header>
+  <p class="meta">Aplikacja-zeszyt ćwiczeń o UI/UX · iPhone</p>
+  <nav class="lang"><a href="#contact">Kontakt</a> · <a href="../support.html">Support</a> · <a href="../privacy.html">Polityka prywatności</a></nav>
+
+  <section class="card">
+    <h2>Nauka designu, która wykracza poza czytanie</h2>
+    <p>Dobre UI/UX to stos drobnych decyzji. Zamiast tylko o nich czytać, <strong>korzystasz z ekranu łamiącego wytyczną, zapisujesz, co wydawało się dziwne, a potem porównujesz to z regułą</strong>.
+      Aplikacja zawiera 23 lekcje, 68 opisanych tematów, 100 częstych błędów, 7 zasad, 5 laboratoriów i 396 pytań quizowych. Cała aplikacja jest dostępna po polsku, angielsku, japońsku, koreańsku i w wielu innych językach.</p>
+  </section>
+
+  <h2>Każda lekcja ma pięć kroków</h2>
+  <ol>
+    <li><strong>Wypróbuj</strong>: otwórz przykładową aplikację w pełnym rozmiarze i dostań zadanie. Ekran, z którego tu korzystasz, celowo łamie wytyczną.</li>
+    <li><strong>Zapisz</strong>: zanim zobaczysz odpowiedź, zanotuj, co wydawało się dziwne.</li>
+    <li><strong>Zobacz dlaczego</strong>: twoje notatki trafiają obok reguły, razem z decyzją, jej uzasadnieniem i tym, co się psuje, gdy ją odwrócisz.</li>
+    <li><strong>Porównaj</strong>: przełączaj w tym samym miejscu między zepsutym a poprawionym ekranem i zobacz różnicę.</li>
+    <li><strong>Zapisz, czego się nauczyłeś</strong>: zachowaj zdanie, którego użyjesz następnym razem. Notatki można skopiować jako tekst lub wyeksportować jako plik Markdown.</li>
+  </ol>
+
+  <h2>Trzy karty</h2>
+  <ul>
+    <li><strong>Nauka</strong>: kurs 23 lekcji, w każdej jedna decyzja projektowa, jak przyciski tworzenia na dole, przesunięcie do usunięcia, grupowane elementy paska narzędzi, umiejscowienie wyszukiwania i liczba kart.</li>
+    <li><strong>Notatki</strong>: wszystko, co napisałeś podczas lekcji, w jednym miejscu.</li>
+    <li><strong>Biblioteka</strong>: przeglądaj 68 tematów, w tym paski narzędzi, tekst, paski kart, arkusze i menu, w formie ilustracji. Stuknij dowolną część obrazka, by zobaczyć regułę i jej uzasadnienie, i otwórz działający przykład dla każdego tematu.</li>
+  </ul>
+
+  <h2>Dla kogo</h2>
+  <ul>
+    <li>Deweloperzy i projektanci tworzący aplikacje, którzy chcą mieć powód za każdym wyborem układu</li>
+    <li>Każdy, kto przeczytał wytyczne, ale zauważył, że niewiele z nich zostało w głowie</li>
+  </ul>
+  <p>Logowanie nie jest potrzebne, a wszystko jest w aplikacji, więc działa offline. Twoje postępy i notatki są przechowywane tylko na urządzeniu.</p>
+
+  <h2>Bezpłatnie i Pro</h2>
+  <p>Wypróbuj bezpłatnie 3 lekcje, 10 błędów, laboratorium paska narzędzi i pierwszy rozdział quizu. 68 tematów, 7 zasad i twoje notatki są zawsze bezpłatne. <strong>Subskrypcja tygodniowa lub miesięczna albo zakup na zawsze</strong> odblokowuje każdą lekcję i każdy zasób. Subskrypcję możesz anulować w dowolnej chwili; zakup na zawsze to jednorazowa płatność. <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Warunki użytkowania</a></p>
+  <p>Jeśli zainstalowałeś aplikację w wersji 1.0.2 lub wcześniejszej, zachowujesz wszystko bez zakupu.</p>
+
+  <section class="card" id="contact">
+    <h2>Kontakt</h2>
+    <p>Znalazłeś błąd, pomyłkę w treści albo ekran, który chciałbyś zobaczyć omówiony? Daj nam znać i podaj model urządzenia, wersję iOS i ekran, na którym to się stało.
+      W aplikacji możesz wysłać to bezpośrednio z <strong>Nauka › Ustawienia (prawy górny róg) › Wyślij opinię</strong>.</p>
+    <p>E-mail <a href="mailto:leeo@kakao.com?subject=%5BPraktyka%20designu%5D%20Support">leeo@kakao.com</a> · <a href="https://github.com/M1zz/HigGym/issues/new">GitHub Issues</a> · <a href="https://instagram.com/lee25_ios">Instagram</a></p>
+    <p>Nie zbieramy danych osobowych. Szczegóły w <a href="../privacy.html">Polityce prywatności</a>.</p>
+  </section>
+
+  <hr>
+  <footer><a href="../support.html">Support</a> · <a href="../privacy.html">Polityka prywatności</a> · <a href="https://github.com/M1zz/HigGym">GitHub</a></footer>
+</main>
+</body>
+</html>

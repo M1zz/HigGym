@@ -15,7 +15,7 @@ RAW = ROOT / "docs" / "screenshots" / "raw"
 OUT = ROOT / "docs" / "screenshots" / "marketing"
 WORK = pathlib.Path("/tmp") / "higgym-marketing"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "nb", "nl": "nl"}
+STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "nb", "nl": "nl", "pl": "pl"}
 
 # (원본 파일, 헤드라인, 서브카피), 언어마다 따로 쓴다.
 SHOTS = {
@@ -186,6 +186,14 @@ SHOTS = {
         ("04-reason.png",  "Zie dan de reden",  "De beslissing, de reden en wat er breekt"),
         ("05-compare.png",  "Kapot en gerepareerd<br>naast elkaar",  "Wissel ter plekke en voel het verschil"),
         ("06-items.png",  "68 UI/UX-onderwerpen<br>in tekeningen",  "Werkbalken, tabbladen, sheets en tekst als schetsen"),
+    ],
+    "pl": [
+        ("01-course.png",  "Nie czytaj.<br>Stukaj.",  "Jedna lekcja, jedna decyzja, 23 lekcje UI/UX"),
+        ("02-try.png",  "Najpierw wypróbuj",  "Użyj ekranu w pełnym rozmiarze, który łamie regułę"),
+        ("03-write.png",  "Zapisz,<br>co poczułeś",  "Przed odpowiedzią: zanotuj, co wyczuła twoja dłoń"),
+        ("04-reason.png",  "Potem zobacz powód",  "Decyzja, powód i to, co się psuje"),
+        ("05-compare.png",  "Zepsute i poprawione<br>obok siebie",  "Przełączaj na miejscu i poczuj różnicę"),
+        ("06-items.png",  "68 tematów UI/UX<br>w rysunkach",  "Paski narzędzi, karty, arkusze i tekst jako szkice"),
     ],
 }
 

@@ -130,6 +130,12 @@
             "state": "translated",
             "value": "Ontwerppraktijk"
           }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Praktyka designu"
+          }
         }
       }
     },
@@ -260,6 +266,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ontwerppraktijk"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Praktyka designu"
           }
         }
       }
