@@ -419,3 +419,63 @@ https://m1zz.github.io/HigGym/ru/privacy.html
 ### 마케팅 URL
 
 https://m1zz.github.io/HigGym/ru/app/
+
+## es
+
+### 이름
+
+Práctica de Diseño: UI/UX
+
+### 부제
+
+Aprende interfaces haciéndolas
+
+### 키워드
+
+barra,pestañas,navegación,maqueta,usabilidad,desarrollador,wireframe,quiz,pautas,prototipo,hoja,iOS
+
+### 프로모션 텍스트
+
+¿Dónde va un botón de la barra? ¿Cómo debe funcionar eliminar? Prueba pantallas con fallos, anota qué te chirría y compara con la solución hasta que acertar sea natural.
+
+### 설명
+
+Un buen UI/UX es una pila de pequeñas decisiones. Práctica de Diseño es un cuaderno práctico donde usas pantallas que toman mal esas decisiones y luego ves exactamente por qué.
+Cada lección aborda una decisión en cinco pasos: probar una pantalla rota, anotar qué te chirrió, entender por qué, compararla con la solución y escribir lo aprendido.
+
+23 LECCIONES PRÁCTICAS
+Pruébalo: se abre una app de ejemplo a tamaño completo con una tarea. La pantalla que usas incumple una regla a propósito.
+Anótalo: antes de ver la respuesta, apunta lo que notaste.
+Entiende por qué: la decisión, su razón y lo que se rompe si la inviertes, junto a lo que escribiste.
+Compara: alterna entre la pantalla rota y la corregida en el mismo sitio y detecta la diferencia.
+Escribe lo aprendido: guarda una frase que puedas reutilizar. Tus notas se reúnen en la pestaña Notas, donde puedes copiarlas o exportarlas como archivo Markdown.
+
+UNA BIBLIOTECA PARA PROFUNDIZAR
+68 temas: barras de herramientas, títulos, búsqueda, barras de pestañas, hojas y texto, cada uno dibujado como maqueta. Toca cualquier parte de la imagen para ver la regla que hay detrás y abre una pantalla de ejemplo en vivo de cada tema.
+100 errores: qué se hizo, por qué parecía correcto entonces y qué cambia al corregirlo, en forma de breves retrospectivas.
+7 principios: los criterios de fondo de los 68 temas, mostrados alternando la misma pantalla entre un diseño roto y uno correcto.
+5 laboratorios: ajusta la colocación de la barra de herramientas, los efectos de borde de desplazamiento, el truncamiento del texto, la barra de pestañas y la altura de las hojas, y recibe un veredicto en tiempo real.
+Cuestionario: 396 preguntas que te piden mirar una pantalla y decidir.
+
+PARA QUIÉN
+Desarrolladores que quieren una razón detrás de cada botón que colocan
+Diseñadores que quieren dominar las barras de herramientas, de pestañas y hojas más recientes
+Equipos que necesitan explicar el porqué en las revisiones de diseño
+
+Prueba gratis 3 lecciones, 10 errores, el laboratorio de barra de herramientas y el primer capítulo del cuestionario. Los 68 temas, los 7 principios y tus notas son siempre gratis.
+Una suscripción semanal, una mensual o una compra única de por vida desbloquea todas las lecciones y recursos.
+Las suscripciones se renuevan automáticamente al mismo precio salvo que se cancelen al menos 24 horas antes del final del periodo. Gestiona o cancela cuando quieras en los ajustes de tu cuenta de App Store.
+Términos de uso: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+No hay cuenta, y tu progreso y tus notas se quedan en tu dispositivo. Toda la app está disponible en español, inglés, japonés, coreano y otros idiomas.
+
+### 지원 URL
+
+https://m1zz.github.io/HigGym/es/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/HigGym/es/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/HigGym/es/app/

@@ -46,6 +46,12 @@
             "state": "translated",
             "value": "Продолжить учиться в ${applicationName}"
           }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sigue aprendiendo en ${applicationName}"
+          }
         }
       }
     },
@@ -92,6 +98,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Вернуться в ${applicationName}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Retoma ${applicationName}"
           }
         }
       }
@@ -140,6 +152,12 @@
             "state": "translated",
             "value": "Открыть заметки в ${applicationName}"
           }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abre las notas de ${applicationName}"
+          }
         }
       }
     },
@@ -186,6 +204,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Показать мои заметки в ${applicationName}"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Muestra mis notas en ${applicationName}"
           }
         }
       }
