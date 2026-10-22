@@ -58,6 +58,12 @@
             "state": "translated",
             "value": "Design-Praxis"
           }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pratique du Design"
+          }
         }
       }
     },
@@ -116,6 +122,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Design-Praxis"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pratique du Design"
           }
         }
       }

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pratique du Design : un cahier pratique d'UI/UX</title>
+<meta name="description" content="Utilisez des écrans qui enfreignent une consigne, notez ce qui vous a paru bizarre et comparez-les à la version corrigée. Un cahier pratique pour développer son jugement en UI/UX.">
+<link rel="canonical" href="https://m1zz.github.io/HigGym/fr/app/">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/app/">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/app/">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/app/">
+<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/HigGym/ru/app/">
+<link rel="alternate" hreflang="es" href="https://m1zz.github.io/HigGym/es/app/">
+<link rel="alternate" hreflang="de" href="https://m1zz.github.io/HigGym/de/app/">
+<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/HigGym/fr/app/">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/app/">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Langue"><a href="../../app/" hreflang="ko" lang="ko">한국어</a> · <a href="../../en/app/" hreflang="en" lang="en">English</a> · <a href="../../ja/app/" hreflang="ja" lang="ja">日本語</a> · <a href="../../zh-hans/app/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="../../zh-hant/app/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> · <a href="../../ru/app/" hreflang="ru" lang="ru">Русский</a> · <a href="../../es/app/" hreflang="es" lang="es">Español</a> · <a href="../../de/app/" hreflang="de" lang="de">Deutsch</a> · <a href="./" aria-current="page">Français</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>Pratique du Design</h1></header>
+  <p class="meta">Une app de pratique de l'UI/UX · iPhone</p>
+  <nav class="lang"><a href="#contact">Contact</a> · <a href="../support.html">Assistance</a> · <a href="../privacy.html">Politique de confidentialité</a></nav>
+
+  <section class="card">
+    <h2>Un apprentissage du design qui va au-delà de la lecture</h2>
+    <p>Un bon UI/UX est un empilement de petites décisions. Au lieu de seulement lire à leur sujet, <strong>vous utilisez un écran qui enfreint une consigne, notez ce qui vous a paru bizarre, puis le comparez à la règle</strong>.
+      L'app comprend 23 leçons, 68 sujets commentés, 100 erreurs courantes, 7 principes, 5 laboratoires et 396 questions de quiz. Tout est disponible en français, en anglais, en japonais, en coréen et dans d'autres langues.</p>
+  </section>
+
+  <h2>Chaque leçon compte cinq étapes</h2>
+  <ol>
+    <li><strong>Essayer</strong> : ouvrez une app d'exemple en taille réelle et recevez une tâche. L'écran que vous utilisez ici enfreint exprès une consigne.</li>
+    <li><strong>Noter</strong> : avant de voir la réponse, notez ce qui vous a paru étrange.</li>
+    <li><strong>Comprendre pourquoi</strong> : vos notes se placent à côté de la règle, avec la décision, sa raison et ce qui casse si on l'inverse.</li>
+    <li><strong>Comparer</strong> : alternez au même endroit entre l'écran fautif et l'écran corrigé et voyez la différence.</li>
+    <li><strong>Écrire ce que vous avez appris</strong> : enregistrez une phrase que vous pourrez réutiliser la prochaine fois. Les notes peuvent être copiées sous forme de texte ou exportées en fichier Markdown.</li>
+  </ol>
+
+  <h2>Trois onglets</h2>
+  <ul>
+    <li><strong>Apprendre</strong> : un cours de 23 leçons, chacune portant sur une décision de design, comme les boutons de rédaction en bas, le balayage pour supprimer, les éléments de barre d'outils groupés, le placement de la recherche et le nombre d'onglets.</li>
+    <li><strong>Notes</strong> : tout ce que vous avez écrit pendant les leçons, au même endroit.</li>
+    <li><strong>Bibliothèque</strong> : parcourez 68 sujets, dont les barres d'outils, le texte, les barres d'onglets, les feuilles et les menus, sous forme d'illustrations. Touchez n'importe quelle partie d'une image pour voir sa règle et sa raison, et ouvrez un exemple fonctionnel pour chaque sujet.</li>
+  </ul>
+
+  <h2>À qui elle s'adresse</h2>
+  <ul>
+    <li>Les développeurs et designers qui créent des apps et veulent une raison derrière chaque choix de mise en page</li>
+    <li>Ceux qui ont lu les consignes mais ont constaté qu'il en restait peu</li>
+  </ul>
+  <p>Aucune connexion n'est requise, et tout est intégré à l'app, donc elle fonctionne hors ligne. Votre progression et vos notes sont enregistrées uniquement sur votre appareil.</p>
+
+  <h2>Gratuit et Pro</h2>
+  <p>Essayez gratuitement 3 leçons, 10 erreurs, le laboratoire de la barre d'outils et le premier chapitre du quiz. Les 68 sujets, les 7 principes et vos notes sont toujours gratuits. <strong>Un abonnement hebdomadaire ou mensuel, ou un achat à vie</strong>, débloque toutes les leçons et ressources. Résiliez un abonnement à tout moment ; l'achat à vie se paie une seule fois. <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Conditions d'utilisation</a></p>
+  <p>Si vous avez installé l'app avec la version 1.0.2 ou antérieure, vous gardez tout sans achat.</p>
+
+  <section class="card" id="contact">
+    <h2>Contact</h2>
+    <p>Un bogue, une erreur de contenu ou un écran que vous aimeriez voir traité ? Dites-le-nous et indiquez le modèle de votre appareil, la version d'iOS et l'écran où cela s'est produit.
+      Dans l'app, vous pouvez l'envoyer directement depuis <strong>Apprendre › Réglages (en haut à droite) › Envoyer des commentaires</strong>.</p>
+    <p>E-mail : <a href="mailto:leeo@kakao.com?subject=%5BPratique%20du%20Design%5D%20Assistance">leeo@kakao.com</a> · <a href="https://github.com/M1zz/HigGym/issues/new">GitHub Issues</a> · <a href="https://instagram.com/lee25_ios">Instagram</a></p>
+    <p>Nous ne collectons aucune information personnelle. Consultez la <a href="../privacy.html">Politique de confidentialité</a> pour plus de détails.</p>
+  </section>
+
+  <hr>
+  <footer><a href="../support.html">Assistance</a> · <a href="../privacy.html">Politique de confidentialité</a> · <a href="https://github.com/M1zz/HigGym">GitHub</a></footer>
+</main>
+</body>
+</html>
