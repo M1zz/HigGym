@@ -1379,3 +1379,63 @@ https://m1zz.github.io/HigGym/sv/privacy.html
 ### 마케팅 URL
 
 https://m1zz.github.io/HigGym/sv/app/
+
+## tr
+
+### 이름
+
+Tasarım Pratiği: UI/UX
+
+### 부제
+
+UI/UX'i yaparak öğren
+
+### 키워드
+
+arayüz,gezinme,wireframe,taslak,sınav,geliştirici,ilkeler,sayfa,iOS,erişilebilirlik,tasarım
+
+### 프로모션 텍스트
+
+O düğme nereye gitmeli? Bozuk ekranları kullan, neyin rahatsız ettiğini yaz ve çözümle karşılaştır; iyi tasarım kararları içgüdüne dönüşene kadar.
+
+### 설명
+
+Harika UI/UX, küçük kararların bir yığınıdır. Tasarım Pratiği, bu kararları yanlış veren ekranları kullandığın ve sonra nedenini tam olarak gördüğün uygulamalı bir çalışma kitabıdır.
+Her ders tek bir kararı beş adımda ele alır: bozuk bir ekranı dene, neyin tuhaf geldiğini yaz, nedenini gör, düzeltilmiş sürümle karşılaştır ve ne öğrendiğini yaz.
+
+23 UYGULAMALI DERS
+Dene: örnek bir uygulama bir görevle tam boyutta açılır. Kullandığın ekran bilerek bir kuralı bozar.
+Yaz: cevabı görmeden önce fark ettiğin şeyi not et.
+Nedenini gör: karar, arkasındaki gerekçe ve tersine çevirirsen nelerin bozulduğu, yazdığının hemen yanında.
+Karşılaştır: bozuk ekranla düzeltilmiş ekran arasında aynı yerde geçiş yap ve farkı hisset.
+Ne öğrendiğini yaz: bir dahaki sefere yeniden kullanabileceğin bir cümle kaydet. Notların Notlar sekmesinde toplanır; oradan kopyalayabilir ya da Markdown dosyası olarak dışa aktarabilirsin.
+
+DERİNLEŞMEK İÇİN KİTAPLIK
+68 konu: araç çubukları, başlıklar, arama, sekme çubukları, sayfalar ve metin, her biri bir çizim olarak. Bir resmin herhangi bir yerine dokunarak arkasındaki kuralı gör ve her konu için canlı bir örnek aç.
+100 hata: ne yapıldı, o zaman neden doğru göründü ve düzelttiğinde ne değişiyor; kısa geri dönüşler olarak yazıldı.
+7 ilke: 68 konunun hepsinin arkasındaki temel ödünleşimler, aynı ekranı bozuk ve doğru bir düzen arasında değiştirerek gösterilir.
+5 laboratuvar: araç çubuğu yerleşimini, kaydırma kenarı efektlerini, metin kesmeyi, sekme çubuğu kurulumunu ve sayfa yüksekliğini değiştir ve yargıyı canlı gör.
+Sınav: bir ekrana bakıp karar verdiğin 396 soru.
+
+KİMİN İÇİN
+Yerleştirdiği her düğmenin arkasında bir neden isteyen geliştiriciler
+En yeni araç çubuklarını, sekme çubuklarını ve sayfaları öğrenmek isteyen tasarımcılar
+Tasarım incelemelerinde nedenini açıklaması gereken ekipler
+
+3 ders, 10 hata, araç çubuğu laboratuvarı ve ilk sınav bölümünü ücretsiz dene. 68 konu, 7 ilke ve notların her zaman ücretsiz.
+Haftalık abonelik, aylık abonelik ya da tek seferlik ömür boyu satın alma her dersi ve kaynağı açar.
+Abonelikler, dönem bitmeden en az 24 saat önce iptal edilmezse aynı fiyattan otomatik olarak yenilenir. App Store hesap ayarlarından istediğin zaman yönetebilir ya da iptal edebilirsin.
+Kullanım Koşulları: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Hesap yok; ilerlemen ve notların cihazında kalır. Uygulamanın tamamı Türkçe, İngilizce, Japonca, Korece ve daha pek çok dilde sunuluyor.
+
+### 지원 URL
+
+https://m1zz.github.io/HigGym/tr/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/HigGym/tr/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/HigGym/tr/app/

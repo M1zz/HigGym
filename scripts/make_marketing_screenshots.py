@@ -15,7 +15,7 @@ RAW = ROOT / "docs" / "screenshots" / "raw"
 OUT = ROOT / "docs" / "screenshots" / "marketing"
 WORK = pathlib.Path("/tmp") / "higgym-marketing"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "nb", "nl": "nl", "pl": "pl", "sv": "sv"}
+STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "nb", "nl": "nl", "pl": "pl", "sv": "sv", "tr": "tr"}
 
 # (원본 파일, 헤드라인, 서브카피), 언어마다 따로 쓴다.
 SHOTS = {
@@ -202,6 +202,14 @@ SHOTS = {
         ("04-reason.png",  "Se sedan skälet",  "Beslutet, skälet och vad som går sönder"),
         ("05-compare.png",  "Trasigt och rättat<br>sida vid sida",  "Växla på plats och känn skillnaden"),
         ("06-items.png",  "68 UI/UX-ämnen<br>i teckningar",  "Verktygsfält, flikar, ark och text som skisser"),
+    ],
+    "tr": [
+        ("01-course.png",  "Okuma.<br>Dokun.",  "Bir ders, bir karar, 23 UI/UX dersi"),
+        ("02-try.png",  "Önce dene",  "Kuralı bozan bir ekranı tam boyutta kullan"),
+        ("03-write.png",  "Hissettiğini<br>yaz",  "Cevaptan önce: elinin fark ettiğini not et"),
+        ("04-reason.png",  "Sonra nedenini gör",  "Karar, gerekçe ve nelerin bozulduğu"),
+        ("05-compare.png",  "Bozuk ve düzeltilmiş<br>yan yana",  "Yerinde geçiş yap ve farkı hisset"),
+        ("06-items.png",  "68 UI/UX konusu<br>çizimlerle",  "Araç çubukları, sekmeler, sayfalar ve metin eskizlerle"),
     ],
 }
 

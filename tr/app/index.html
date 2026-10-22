@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tasarım Pratiği: uygulamalı bir UI/UX çalışma kitabı</title>
+<meta name="description" content="Yönergeyi bozan ekranları kullan, neyin tuhaf geldiğini yaz ve düzeltilmiş sürümle karşılaştır. UI/UX muhakemesi kazanmak için uygulamalı bir çalışma kitabı.">
+<link rel="canonical" href="https://m1zz.github.io/HigGym/tr/app/">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/app/">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/app/">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/app/">
+<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/HigGym/ru/app/">
+<link rel="alternate" hreflang="es" href="https://m1zz.github.io/HigGym/es/app/">
+<link rel="alternate" hreflang="de" href="https://m1zz.github.io/HigGym/de/app/">
+<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/HigGym/fr/app/">
+<link rel="alternate" hreflang="it" href="https://m1zz.github.io/HigGym/it/app/">
+<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/HigGym/pt-br/app/">
+<link rel="alternate" hreflang="th" href="https://m1zz.github.io/HigGym/th/app/">
+<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/HigGym/vi/app/">
+<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/HigGym/cs/app/">
+<link rel="alternate" hreflang="da" href="https://m1zz.github.io/HigGym/da/app/">
+<link rel="alternate" hreflang="el" href="https://m1zz.github.io/HigGym/el/app/">
+<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/HigGym/fi/app/">
+<link rel="alternate" hreflang="id" href="https://m1zz.github.io/HigGym/id/app/">
+<link rel="alternate" hreflang="nb" href="https://m1zz.github.io/HigGym/nb/app/">
+<link rel="alternate" hreflang="nl" href="https://m1zz.github.io/HigGym/nl/app/">
+<link rel="alternate" hreflang="pl" href="https://m1zz.github.io/HigGym/pl/app/">
+<link rel="alternate" hreflang="sv" href="https://m1zz.github.io/HigGym/sv/app/">
+<link rel="alternate" hreflang="tr" href="https://m1zz.github.io/HigGym/tr/app/">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/app/">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Dil"><a href="../../app/" hreflang="ko" lang="ko">한국어</a> · <a href="../../en/app/" hreflang="en" lang="en">English</a> · <a href="../../ja/app/" hreflang="ja" lang="ja">日本語</a> · <a href="../../zh-hans/app/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="../../zh-hant/app/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> · <a href="../../ru/app/" hreflang="ru" lang="ru">Русский</a> · <a href="../../es/app/" hreflang="es" lang="es">Español</a> · <a href="../../de/app/" hreflang="de" lang="de">Deutsch</a> · <a href="../../fr/app/" hreflang="fr" lang="fr">Français</a> · <a href="../../it/app/" hreflang="it" lang="it">Italiano</a> · <a href="../../pt-br/app/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../th/app/" hreflang="th" lang="th">ไทย</a> · <a href="../../vi/app/" hreflang="vi" lang="vi">Tiếng Việt</a> · <a href="../../cs/app/" hreflang="cs" lang="cs">Čeština</a> · <a href="../../da/app/" hreflang="da" lang="da">Dansk</a> · <a href="../../el/app/" hreflang="el" lang="el">Ελληνικά</a> · <a href="../../fi/app/" hreflang="fi" lang="fi">Suomi</a> · <a href="../../id/app/" hreflang="id" lang="id">Bahasa Indonesia</a> · <a href="../../nb/app/" hreflang="nb" lang="nb">Norsk bokmål</a> · <a href="../../nl/app/" hreflang="nl" lang="nl">Nederlands</a> · <a href="../../pl/app/" hreflang="pl" lang="pl">Polski</a> · <a href="../../sv/app/" hreflang="sv" lang="sv">Svenska</a> · <a href="./" aria-current="page">Türkçe</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>Tasarım Pratiği</h1></header>
+  <p class="meta">Uygulamalı bir UI/UX çalışma kitabı uygulaması · iPhone</p>
+  <nav class="lang"><a href="#contact">İletişim</a> · <a href="../support.html">Destek</a> · <a href="../privacy.html">Gizlilik Politikası</a></nav>
+
+  <section class="card">
+    <h2>Okumanın ötesine geçen tasarım çalışması</h2>
+    <p>Harika UI/UX, küçük kararların bir yığınıdır. Onlar hakkında yalnızca okumak yerine <strong>bir yönergeyi bozan ekranı kullanır, neyin tuhaf geldiğini yazar, sonra kuralla karşılaştırırsın</strong>.
+      Uygulamada 23 ders, 68 notlu konu, 100 yaygın hata, 7 ilke, 5 laboratuvar ve 396 sınav sorusu var. Uygulamanın tamamı Türkçe, İngilizce, Japonca, Korece ve daha pek çok dilde sunuluyor.</p>
+  </section>
+
+  <h2>Her dersin beş adımı var</h2>
+  <ol>
+    <li><strong>Dene</strong>: örnek bir uygulamayı tam boyutta aç ve bir görev al. Burada kullandığın ekran bilerek bir yönergeyi bozar.</li>
+    <li><strong>Yaz</strong>: cevabı görmeden önce neyin tuhaf geldiğini not et.</li>
+    <li><strong>Nedenini gör</strong>: notların kuralın yanında durur; kararla, arkasındaki gerekçeyle ve tersine çevirirsen nelerin bozulduğuyla birlikte.</li>
+    <li><strong>Karşılaştır</strong>: bozuk ekranla düzeltilmiş ekran arasında aynı yerde geçiş yap ve farkı gör.</li>
+    <li><strong>Ne öğrendiğini yaz</strong>: bir dahaki sefere yeniden kullanabileceğin bir cümle kaydet. Notlar metin olarak kopyalanabilir ya da Markdown dosyası olarak dışa aktarılabilir.</li>
+  </ol>
+
+  <h2>Üç sekme</h2>
+  <ul>
+    <li><strong>Öğren</strong>: her biri bir tasarım kararı olan 23 derslik bir kurs; alttaki yazma düğmeleri, silmek için kaydırma, gruplanmış araç çubuğu öğeleri, aramanın yeri ve kaç sekme kullanılacağı gibi.</li>
+    <li><strong>Notlar</strong>: derslerde yazdığın her şey tek yerde.</li>
+    <li><strong>Kitaplık</strong>: araç çubukları, metin, sekme çubukları, sayfalar ve menüler dahil 68 konuya çizimler olarak göz at. Bir resmin herhangi bir yerine dokunarak kuralı ve gerekçeyi gör, her konu için çalışan bir örnek aç.</li>
+  </ul>
+
+  <h2>Kimin için</h2>
+  <ul>
+    <li>Uygulama yapan ve her yerleşim seçiminin arkasında bir neden isteyen geliştiriciler ve tasarımcılar</li>
+    <li>Yönergeleri okuyup pek azının aklında kaldığını fark eden herkes</li>
+  </ul>
+  <p>Oturum açmak gerekmez ve her şey uygulamanın içinde olduğu için çevrimdışı çalışır. İlerlemen ve notların yalnızca cihazında saklanır.</p>
+
+  <h2>Ücretsiz ve Pro</h2>
+  <p>3 ders, 10 hata, araç çubuğu laboratuvarı ve ilk sınav bölümünü ücretsiz dene. 68 konu, 7 ilke ve notların her zaman ücretsiz. <strong>Haftalık ya da aylık abonelik ya da ömür boyu satın alma</strong> her dersi ve kaynağı açar. Aboneliği istediğin zaman iptal et; ömür boyu satın alma tek seferlik ödemedir. <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Kullanım Koşulları</a></p>
+  <p>Uygulamayı 1.0.2 ya da daha eski bir sürümle yüklediysen satın alma olmadan her şeyi korursun.</p>
+
+  <section class="card" id="contact">
+    <h2>İletişim</h2>
+    <p>Bir hata, içerik yanlışı ya da ele alınmasını istediğin bir ekran mı buldun? Bize haber ver ve cihaz modelini, iOS sürümünü ve sorunun yaşandığı ekranı ekle.
+      Uygulamada doğrudan <strong>Öğren › Ayarlar (sağ üst) › Geri Bildirim Gönder</strong> yolundan gönderebilirsin.</p>
+    <p>E-posta <a href="mailto:leeo@kakao.com?subject=%5BTasar%C4%B1m%20Prati%C4%9Fi%5D%20Destek">leeo@kakao.com</a> · <a href="https://github.com/M1zz/HigGym/issues/new">GitHub Issues</a> · <a href="https://instagram.com/lee25_ios">Instagram</a></p>
+    <p>Kişisel bilgi toplamıyoruz. Ayrıntılar için <a href="../privacy.html">Gizlilik Politikası</a>'na bak.</p>
+  </section>
+
+  <hr>
+  <footer><a href="../support.html">Destek</a> · <a href="../privacy.html">Gizlilik Politikası</a> · <a href="https://github.com/M1zz/HigGym">GitHub</a></footer>
+</main>
+</body>
+</html>

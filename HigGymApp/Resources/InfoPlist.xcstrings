@@ -142,6 +142,12 @@
             "state": "translated",
             "value": "Designövning"
           }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tasarım Pratiği"
+          }
         }
       }
     },
@@ -284,6 +290,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Designövning"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tasarım Pratiği"
           }
         }
       }

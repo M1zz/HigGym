@@ -142,6 +142,12 @@
             "state": "translated",
             "value": "Fortsätt lära dig i ${applicationName}"
           }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "${applicationName} içinde öğrenmeye devam et"
+          }
         }
       }
     },
@@ -284,6 +290,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Återuppta ${applicationName}"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "${applicationName} uygulamasına devam et"
           }
         }
       }
@@ -428,6 +440,12 @@
             "state": "translated",
             "value": "Öppna anteckningar i ${applicationName}"
           }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "${applicationName} notlarını aç"
+          }
         }
       }
     },
@@ -570,6 +588,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Visa mina anteckningar i ${applicationName}"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notlarımı ${applicationName} içinde göster"
           }
         }
       }
