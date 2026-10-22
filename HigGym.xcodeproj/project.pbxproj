@@ -613,6 +613,7 @@
 				es,
 				de,
 				fr,
+				it,
 			);
 			mainGroup = 4913498C47A04FF8747D4BE4;
 			minimizedProjectReferenceProxies = 1;

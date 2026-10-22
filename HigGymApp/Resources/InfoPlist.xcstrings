@@ -64,6 +64,12 @@
             "state": "translated",
             "value": "Pratique du Design"
           }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pratica del Design"
+          }
         }
       }
     },
@@ -128,6 +134,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pratique du Design"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pratica del Design"
           }
         }
       }

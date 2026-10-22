@@ -64,6 +64,12 @@
             "state": "translated",
             "value": "Continuer d'apprendre dans ${applicationName}"
           }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Continua a imparare in ${applicationName}"
+          }
         }
       }
     },
@@ -128,6 +134,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Reprendre ${applicationName}"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Riprendi ${applicationName}"
           }
         }
       }
@@ -194,6 +206,12 @@
             "state": "translated",
             "value": "Ouvrir les notes de ${applicationName}"
           }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Apri le note di ${applicationName}"
+          }
         }
       }
     },
@@ -258,6 +276,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Afficher mes notes dans ${applicationName}"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mostra le mie note in ${applicationName}"
           }
         }
       }
