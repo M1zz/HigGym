@@ -15,7 +15,7 @@ RAW = ROOT / "docs" / "screenshots" / "raw"
 OUT = ROOT / "docs" / "screenshots" / "marketing"
 WORK = pathlib.Path("/tmp") / "higgym-marketing"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant"}
+STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru"}
 
 # (원본 파일, 헤드라인, 서브카피), 언어마다 따로 쓴다.
 SHOTS = {
@@ -66,6 +66,14 @@ SHOTS = {
         ("04-reason.png",  "再看原因", "這個決定、理由，以及顛倒後會出的問題"),
         ("05-compare.png", "出問題的介面<br>和改好的並排對比", "在同一個位置切換，看出差別"),
         ("06-items.png",   "68 個 UI/UX 條目<br>用圖呈現", "工具列、標籤列、工作表、文字，用示意圖瀏覽"),
+    ],
+    "ru": [
+        ("01-course.png",  "Не читайте,<br>пробуйте", "Одно решение на урок, 23 урока по UI/UX"),
+        ("02-try.png",     "Сначала попробуйте", "Работайте с экраном-нарушителем в натуральную величину"),
+        ("03-write.png",   "Сначала запишите,<br>что почувствовали", "Перед ответом отметьте, что заметили ваши руки"),
+        ("04-reason.png",  "Затем узнайте почему", "Решение, причина и что сломается, если сделать наоборот"),
+        ("05-compare.png", "Сломанный и исправленный<br>рядом", "Переключайтесь на месте и находите разницу"),
+        ("06-items.png",   "68 тем UI/UX<br>в картинках", "Панели инструментов, вкладок, шторки и текст в макетах"),
     ],
 }
 

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Политика конфиденциальности, Дизайн-практикум</title>
+<link rel="canonical" href="https://m1zz.github.io/HigGym/ru/privacy.html">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/privacy.html">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/privacy.html">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/privacy.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/privacy.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/privacy.html">
+<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/HigGym/ru/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/privacy.html">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  ul{padding-left:1.2em}
+  li{margin:4px 0}
+  a{color:var(--accent)}
+  code{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:.9em}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Язык"><a href="../privacy.html" hreflang="ko" lang="ko">한국어</a> · <a href="../en/privacy.html" hreflang="en" lang="en">English</a> · <a href="../ja/privacy.html" hreflang="ja" lang="ja">日本語</a> · <a href="../zh-hans/privacy.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="../zh-hant/privacy.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> · <a href="./privacy.html" aria-current="page">Русский</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>Политика конфиденциальности</h1></header>
+  <p class="meta">Дизайн-практикум (iOS) · Действует с 20 октября 2026 г.</p>
+  <nav class="lang"><a href="./app/">О приложении</a> · <a href="./support.html">Поддержка</a></nav>
+
+  <section class="card">
+    <h2>Коротко</h2>
+    <p><strong>Дизайн-практикум не собирает никаких персональных данных.</strong> Учётной записи нет, рекламы, сторонней аналитики и средств слежения тоже нет. Ваш прогресс и заметки остаются на вашем устройстве. Чтобы понимать, сколько людей пользуются приложением, и исправлять сбои, оно отправляет только анонимную статистику использования и отчёты о сбоях.</p>
+  </section>
+
+  <h2>1. Какие данные мы собираем</h2>
+  <p>Персональных данных нет. В приложении нет сторонних SDK, оно не использует рекламный идентификатор (IDFA) и не обращается к геолокации, контактам, фото и камере. С вашего устройства уходят только данные, перечисленные ниже в разделе «Анонимная статистика использования», и отзыв, который вы решите отправить сами (раздел 3).</p>
+  <h3>Анонимная статистика использования</h3>
+  <p>Чтобы понимать, сколько людей пользуются приложением, и исправлять сбои, приложение отправляет в iCloud (CloudKit) от Apple следующую анонимную статистику, которую может прочитать только разработчик:</p>
+  <ul>
+    <li>Случайный идентификатор, созданный при установке приложения (он не связан с вами, вашим Apple ID, устройством или другими приложениями и меняется при переустановке)</li>
+    <li>Версия приложения, версия iOS, регион и язык</li>
+    <li>Сколько раз открывали приложение и в какие дни, дата установки и число дней с установки</li>
+    <li>Отчёты о сбоях и неожиданных завершениях (версия приложения, версия iOS, тип устройства и технические подробности ошибки)</li>
+  </ul>
+  <p>Имя, контактные данные, местоположение и всё, что вы создаёте, например учебные заметки или результаты тестов, в эти данные не входит. Статистика отправляется только пока вы вошли в iCloud. Её отправляет LeeoKit, общая библиотека разработчика, и третьим лицам она не передаётся.</p>
+
+  <h2>2. Данные, которые хранятся только на устройстве</h2>
+  <p>Чтобы вы могли продолжить с того места, где остановились, следующее хранится <strong>только на вашем устройстве</strong> и никому не передаётся, в том числе разработчику:</p>
+  <ul>
+    <li>Прогресс по урокам и учебные заметки, которые вы пишете в уроках</li>
+    <li>Результаты тестов, посещённые лаборатории и отмеченные ошибки</li>
+  </ul>
+  <p>Эти данные удаляются вместе с приложением. Если включено резервное копирование устройства (например, копия в iCloud), они могут попасть в такие копии по правилам Apple.</p>
+
+  <h2>3. Когда вы экспортируете что-то сами</h2>
+  <ul>
+    <li><strong>Копирование</strong>: при копировании учебных заметок или примеров кода они попадают в буфер обмена устройства.</li>
+    <li><strong>Поделиться</strong>: при экспорте заметок в файл Markdown открывается системное меню «Поделиться» iOS. Вы сами выбираете, куда отправить; что происходит дальше, приложение не контролирует.</li>
+    <li><strong>Отправка отзыва</strong>: когда вы нажимаете «Отправить» в разделе «Настройки › Отправить отзыв», написанный вами текст вместе с версией приложения, версией iOS и типом устройства уходит в iCloud (CloudKit) от Apple, где его может прочитать только разработчик. Ваше имя и контакты не запрашиваются, а ответы появляются внутри приложения.</li>
+    <li><strong>Почта и Instagram</strong>: строки для связи в настройках открывают приложение «Почта» на вашем устройстве или Instagram. Дальше действуют правила каждого сервиса.</li>
+  </ul>
+
+  <h2>4. Покупки в приложении</h2>
+  <p>Оплату подписок Pro и покупки навсегда обрабатывает Apple через App Store. Ни приложение, ни разработчик не получают номер вашей карты и платёжные данные. Чтобы понять, открыт ли Pro, приложение читает только запись о покупке, которую Apple предоставляет на вашем устройстве, и результат остаётся на устройстве.</p>
+
+  <h2>5. Внешние ссылки</h2>
+  <p>Справочные ссылки (документация Apple Developer, блоги и так далее) открываются в браузере вашего устройства, например в Safari. Эти сайты обрабатывают информацию по собственным правилам.</p>
+
+  <h2>6. Конфиденциальность детей</h2>
+  <p>Приложение не собирает персональные данные пользователей любого возраста. Анонимную статистику использования нельзя связать ни с кем.</p>
+
+  <h2>7. Изменения этой политики</h2>
+  <p>Если способ обработки данных в приложении изменится, эта страница будет обновлена первой, и для неё будет указана новая дата вступления в силу.</p>
+
+  <h2>8. Контакты</h2>
+  <p>По вопросам конфиденциальности пишите на <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> или создайте обращение в <a href="https://github.com/M1zz/HigGym/issues">GitHub Issues</a>.</p>
+
+  <hr>
+  <footer><a href="./app/">О приложении</a> · <a href="./support.html">Поддержка</a> · <a href="../toolbar-annotated.html?lang=en">Руководство HigGym (веб, на английском)</a></footer>
+</main>
+</body>
+</html>

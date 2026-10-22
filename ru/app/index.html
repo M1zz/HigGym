@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Дизайн-практикум: практика UI/UX своими руками</title>
+<meta name="description" content="Пользуйтесь экранами, нарушающими правила, записывайте, что показалось не так, и сравнивайте с исправленным вариантом. Практикум, который развивает чутьё в UI/UX.">
+<link rel="canonical" href="https://m1zz.github.io/HigGym/ru/app/">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/app/">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/app/">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/app/">
+<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/HigGym/ru/app/">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/app/">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Язык"><a href="../../app/" hreflang="ko" lang="ko">한국어</a> · <a href="../../en/app/" hreflang="en" lang="en">English</a> · <a href="../../ja/app/" hreflang="ja" lang="ja">日本語</a> · <a href="../../zh-hans/app/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="../../zh-hant/app/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> · <a href="./" aria-current="page">Русский</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>Дизайн-практикум</h1></header>
+  <p class="meta">Приложение-практикум по UI/UX · iPhone</p>
+  <nav class="lang"><a href="#contact">Связаться</a> · <a href="../support.html">Поддержка</a> · <a href="../privacy.html">Политика конфиденциальности</a></nav>
+
+  <section class="card">
+    <h2>Изучение дизайна, которое идёт дальше чтения</h2>
+    <p>Хороший UI/UX складывается из множества мелких решений. Вместо того чтобы только читать о них, вы <strong>пользуетесь экраном, нарушающим правило, записываете, что показалось не так, а затем сравниваете с правилом</strong>.
+      В приложении 23 урока, 68 разобранных тем, 100 типичных ошибок, 7 принципов, 5 лабораторий и 396 вопросов теста. Всё доступно на русском, английском, японском, корейском и других языках.</p>
+  </section>
+
+  <h2>В каждом уроке пять шагов</h2>
+  <ol>
+    <li><strong>Попробуйте</strong>: откройте пример приложения в натуральную величину и получите задание. Экран, с которым вы здесь работаете, намеренно нарушает правило.</li>
+    <li><strong>Запишите</strong>: прежде чем увидеть ответ, отметьте, что показалось странным.</li>
+    <li><strong>Узнайте почему</strong>: ваши заметки лежат рядом с правилом, решением, его причиной и тем, что сломается, если сделать наоборот.</li>
+    <li><strong>Сравните</strong>: переключайтесь между сломанным и исправленным экраном на одном месте и смотрите на разницу.</li>
+    <li><strong>Запишите вывод</strong>: сохраните фразу, которую сможете использовать в следующий раз. Заметки можно скопировать как текст или экспортировать в файл Markdown.</li>
+  </ol>
+
+  <h2>Три вкладки</h2>
+  <ul>
+    <li><strong>Обучение</strong>: курс из 23 уроков, в каждом одно дизайнерское решение, например кнопка создания внизу, удаление смахиванием, группировка элементов панели инструментов, место поиска и число вкладок.</li>
+    <li><strong>Заметки</strong>: всё, что вы записали на уроках, в одном месте.</li>
+    <li><strong>Библиотека</strong>: 68 тем, включая панели инструментов, текст, панели вкладок, шторки и меню, в виде иллюстраций. Нажмите на любую часть рисунка, чтобы увидеть правило и его причину, и откройте рабочий пример для каждой темы.</li>
+  </ul>
+
+  <h2>Для кого</h2>
+  <ul>
+    <li>Для разработчиков и дизайнеров, которые хотят знать причину каждого решения по макету</li>
+    <li>Для тех, кто читал руководства, но почти ничего не запомнил</li>
+  </ul>
+  <p>Входить в учётную запись не нужно, всё встроено в приложение и работает без сети. Ваш прогресс и заметки хранятся только на вашем устройстве.</p>
+
+  <h2>Бесплатно и Pro</h2>
+  <p>Бесплатно доступны 3 урока, 10 ошибок, лаборатория панели инструментов и первая глава теста. 68 тем, 7 принципов и ваши заметки бесплатны всегда. <strong>Недельная или месячная подписка, а также покупка навсегда</strong> открывает все уроки и материалы. Подписку можно отменить в любой момент; покупка навсегда оплачивается один раз. <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Условия использования</a></p>
+  <p>Если вы установили приложение версии 1.0.2 или раньше, всё остаётся у вас без покупки.</p>
+
+  <section class="card" id="contact">
+    <h2>Связаться</h2>
+    <p>Нашли ошибку, неточность в материале или хотите, чтобы разобрали какой-то экран? Сообщите нам, указав модель устройства, версию iOS и экран, где это произошло.
+      В приложении можно отправить это прямо из раздела <strong>«Обучение › Настройки (вверху справа) › Отправить отзыв»</strong>.</p>
+    <p>Почта: <a href="mailto:leeo@kakao.com?subject=%5B%D0%94%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD-%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D1%83%D0%BC%5D%20%D0%9F%D0%BE%D0%B4%D0%B4%D0%B5%D1%80%D0%B6%D0%BA%D0%B0">leeo@kakao.com</a> · <a href="https://github.com/M1zz/HigGym/issues/new">GitHub Issues</a> · <a href="https://instagram.com/lee25_ios">Instagram</a></p>
+    <p>Мы не собираем персональные данные. Подробности в <a href="../privacy.html">Политике конфиденциальности</a>.</p>
+  </section>
+
+  <hr>
+  <footer><a href="../support.html">Поддержка</a> · <a href="../privacy.html">Политика конфиденциальности</a> · <a href="https://github.com/M1zz/HigGym">GitHub</a></footer>
+</main>
+</body>
+</html>
