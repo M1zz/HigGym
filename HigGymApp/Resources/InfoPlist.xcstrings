@@ -34,6 +34,12 @@
             "state": "translated",
             "value": "设计实践"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設計實踐"
+          }
         }
       }
     },
@@ -68,6 +74,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "设计实践"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "設計實踐"
           }
         }
       }

@@ -34,6 +34,12 @@
             "state": "translated",
             "value": "在${applicationName}中继续学习"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在${applicationName}中繼續學習"
+          }
         }
       }
     },
@@ -68,6 +74,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "继续${applicationName}"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "繼續${applicationName}"
           }
         }
       }
@@ -104,6 +116,12 @@
             "state": "translated",
             "value": "打开${applicationName}笔记"
           }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "開啟${applicationName}筆記"
+          }
         }
       }
     },
@@ -138,6 +156,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "在${applicationName}中查看学习笔记"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在${applicationName}中檢視學習筆記"
           }
         }
       }

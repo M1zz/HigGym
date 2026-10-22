@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>App 設計實踐</title>
+<meta name="description" content="使用違反規範的介面，寫下哪裡感覺不對，再與改好的介面對比。動手培養 UI/UX 判斷力的工作冊。">
+<link rel="canonical" href="https://m1zz.github.io/HigGym/zh-hant/app/">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/app/">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/app/">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/app/">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/app/">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="語言"><a href="../../app/" hreflang="ko" lang="ko">한국어</a> · <a href="../../en/app/" hreflang="en" lang="en">English</a> · <a href="../../ja/app/" hreflang="ja" lang="ja">日本語</a> · <a href="../../zh-hans/app/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="./" aria-current="page">繁體中文</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>App 設計實踐</h1></header>
+  <p class="meta">動手練習的 UI/UX 工作冊應用程式 · iPhone</p>
+  <nav class="lang"><a href="#contact">聯絡我們</a> · <a href="../support.html">支援</a> · <a href="../privacy.html">隱私政策</a></nav>
+
+  <section class="card">
+    <h2>不止於閱讀的設計學習</h2>
+    <p>好的 UI/UX 是由許多小決定堆疊而成的。與其只讀，不如<strong>親手使用一個故意違反規範的介面，寫下哪裡感覺不對，再與規則對照</strong>。
+      應用程式包含 23 節課程、68 個帶註解的條目、100 篇常見失誤、7 條原則、5 個練習室和 396 道測驗題。全部內容提供繁體中文、英語、日語和韓語。</p>
+  </section>
+
+  <h2>每節課分五步</h2>
+  <ol>
+    <li><strong>動手試試</strong>：以實際大小開啟一個示例應用程式並領取任務。你在這裡使用的介面是故意違反規範的。</li>
+    <li><strong>寫下來</strong>：在看到答案之前，先記下哪裡讓你覺得奇怪。</li>
+    <li><strong>看原因</strong>：你的筆記與規則並排顯示，還有這個決定、背後的理由，以及把它顛倒後會出什麼問題。</li>
+    <li><strong>對比</strong>：在同一個位置來回切換出問題的介面和改好的介面，看看差別。</li>
+    <li><strong>寫下學到的</strong>：留下一句下次能用上的話。筆記可以複製為文字，也可以匯出為 Markdown 檔案。</li>
+  </ol>
+
+  <h2>三個標籤頁</h2>
+  <ul>
+    <li><strong>學習</strong>：由 23 節課程組成的課程，每節講一個設計決定，例如底部撰寫按鈕、滑動刪除、工具列項目分組、搜尋的位置、該用幾個標籤。</li>
+    <li><strong>筆記</strong>：你在課程中寫下的所有內容，匯集在一處。</li>
+    <li><strong>資料</strong>：以示意圖瀏覽 68 個條目，包括工具列、文字、標籤列、工作表和選單。輕點圖中的任意部位，就能看到它的規則和理由，每個條目還可以開啟一個能執行的示例。</li>
+  </ul>
+
+  <h2>適合誰</h2>
+  <ul>
+    <li>在做應用程式、想為每個佈局選擇找到理由的開發者和設計師</li>
+    <li>讀過設計指南，卻覺得沒留下多少印象的人</li>
+  </ul>
+  <p>無需登入，所有內容都內建在應用程式中，離線也能使用。你的進度和筆記只儲存在你的裝置上。</p>
+
+  <h2>免費與 Pro</h2>
+  <p>可以免費試用 3 節課程、10 篇失誤、工具列練習室和測驗第一章。68 個條目、7 條原則和筆記始終免費。<strong>每週或每月訂閱，或終身使用權</strong>可解鎖所有課程和資料。訂閱可隨時取消；終身使用權只需付費一次。<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">使用條款</a></p>
+  <p>如果你是用 1.0.2 或更早版本安裝的應用程式，無需購買即可保留全部內容。</p>
+
+  <section class="card" id="contact">
+    <h2>聯絡我們</h2>
+    <p>發現了 bug、內容錯誤，或者希望我們講解某個介面？請告訴我們，並附上裝置型號、iOS 版本以及出現問題的介面。
+      在應用程式內，可以透過<strong>學習 › 設定（右上角） › 傳送反饋</strong>直接傳送。</p>
+    <p>郵件 <a href="mailto:leeo@kakao.com?subject=%5BApp%20Design%20Lab%5D%20Support">leeo@kakao.com</a> · <a href="https://github.com/M1zz/HigGym/issues/new">GitHub Issues</a> · <a href="https://instagram.com/lee25_ios">Instagram</a></p>
+    <p>我們不收集個人資訊。詳情請見<a href="../privacy.html">隱私政策</a>。</p>
+  </section>
+
+  <hr>
+  <footer><a href="../support.html">支援</a> · <a href="../privacy.html">隱私政策</a> · <a href="https://github.com/M1zz/HigGym">GitHub</a></footer>
+</main>
+</body>
+</html>

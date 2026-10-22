@@ -15,7 +15,7 @@ RAW = ROOT / "docs" / "screenshots" / "raw"
 OUT = ROOT / "docs" / "screenshots" / "marketing"
 WORK = pathlib.Path("/tmp") / "higgym-marketing"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans"}
+STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant"}
 
 # (원본 파일, 헤드라인, 서브카피), 언어마다 따로 쓴다.
 SHOTS = {
@@ -59,6 +59,14 @@ SHOTS = {
         ("05-compare.png", "出问题的界面<br>和改好的并排对比", "在同一个位置切换，看出差别"),
         ("06-items.png",   "68 个 UI/UX 条目<br>用图呈现", "工具栏、标签栏、弹层、文字，用示意图浏览"),
     ],
+    "zh-Hant": [
+        ("01-course.png",  "別只讀，<br>動手試試", "每節一個決定，共 23 節 UI/UX 課程"),
+        ("02-try.png",     "先用起來", "以實際大小使用違反規範的介面"),
+        ("03-write.png",   "先寫下<br>你的感受", "看答案之前，記下你的手感受到了什麼"),
+        ("04-reason.png",  "再看原因", "這個決定、理由，以及顛倒後會出的問題"),
+        ("05-compare.png", "出問題的介面<br>和改好的並排對比", "在同一個位置切換，看出差別"),
+        ("06-items.png",   "68 個 UI/UX 條目<br>用圖呈現", "工具列、標籤列、工作表、文字，用示意圖瀏覽"),
+    ],
 }
 
 DEVICES = {
@@ -70,7 +78,7 @@ CSS = """
 * { margin:0; padding:0; box-sizing:border-box; }
 html,body { width:%(W)dpx; height:%(H)dpx; overflow:hidden; }
 body { background:#0B0C10; position:relative;
-  font-family:-apple-system, "SF Pro Display", "Apple SD Gothic Neo", "Hiragino Sans", "PingFang SC", sans-serif; }
+  font-family:-apple-system, "SF Pro Display", "Apple SD Gothic Neo", "Hiragino Sans", "PingFang SC", "PingFang TC", sans-serif; }
 .glow { position:absolute; left:50%%; top:%(GT)dpx; width:%(GW)dpx; height:%(GW)dpx; margin-left:-%(GH)dpx;
   border-radius:50%%; filter:blur(200px); background:rgba(90,168,255,.22); }
 .t { position:absolute; left:80px; right:80px; top:%(TT)dpx; text-align:center; }
