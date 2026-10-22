@@ -11463,7 +11463,7 @@
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": ".toolbar {\n    ToolbarItem(placement: .bottomBar) {\n        HStack(spacing: 12) {\n            Text(\"\\\\(count) bilder\").font(.footnote).monospacedDigit()\n            Slider(value: $zoom, in: 2...5, step: 1)\n                .frame(width: 140)\n            ProgressView(value: uploaded).frame(width: 44)\n        }\n    }\n}"
+            "value": ".toolbar {\n    ToolbarItem(placement: .bottomBar) {\n        HStack(spacing: 12) {\n            Text(\"\\(count) bilder\").font(.footnote).monospacedDigit()\n            Slider(value: $zoom, in: 2...5, step: 1)\n                .frame(width: 140)\n            ProgressView(value: uploaded).frame(width: 44)\n        }\n    }\n}"
           }
         }
       }
@@ -13838,7 +13838,7 @@
         "nb": {
           "stringUnit": {
             "state": "translated",
-            "value": "// Før\nText(\"\\\\(distanceKm) km\")\n\n// Etter\nlet distance = Measurement(value: distanceKm, unit: UnitLength.kilometers)\nText(distance.formatted(.measurement(width: .abbreviated, usage: .road)))"
+            "value": "// Før\nText(\"\\(distanceKm) km\")\n\n// Etter\nlet distance = Measurement(value: distanceKm, unit: UnitLength.kilometers)\nText(distance.formatted(.measurement(width: .abbreviated, usage: .road)))"
           }
         }
       }
