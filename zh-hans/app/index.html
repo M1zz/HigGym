@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>App 设计实践</title>
+<meta name="description" content="使用违反规范的界面，写下哪里感觉不对，再与改好的界面对比。动手培养 UI/UX 判断力的工作册。">
+<link rel="canonical" href="https://m1zz.github.io/HigGym/zh-hans/app/">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/app/">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/app/">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/app/">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="语言"><a href="../../app/" hreflang="ko" lang="ko">한국어</a> · <a href="../../en/app/" hreflang="en" lang="en">English</a> · <a href="../../ja/app/" hreflang="ja" lang="ja">日本語</a> · <a href="./" aria-current="page">简体中文</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>App 设计实践</h1></header>
+  <p class="meta">动手练习的 UI/UX 工作册应用 · iPhone</p>
+  <nav class="lang"><a href="#contact">联系我们</a> · <a href="../support.html">支持</a> · <a href="../privacy.html">隐私政策</a></nav>
+
+  <section class="card">
+    <h2>不止于阅读的设计学习</h2>
+    <p>好的 UI/UX 是由许多小决定堆叠而成的。与其只读，不如<strong>亲手使用一个故意违反规范的界面，写下哪里感觉不对，再与规则对照</strong>。
+      应用包含 23 节课程、68 个带注解的条目、100 篇常见失误、7 条原则、5 个练习室和 396 道测验题。全部内容提供简体中文、英语、日语和韩语。</p>
+  </section>
+
+  <h2>每节课分五步</h2>
+  <ol>
+    <li><strong>动手试试</strong>：以实际大小打开一个示例应用并领取任务。你在这里使用的界面是故意违反规范的。</li>
+    <li><strong>写下来</strong>：在看到答案之前，先记下哪里让你觉得奇怪。</li>
+    <li><strong>看原因</strong>：你的笔记与规则并排显示，还有这个决定、背后的理由，以及把它颠倒后会出什么问题。</li>
+    <li><strong>对比</strong>：在同一个位置来回切换出问题的界面和改好的界面，看看差别。</li>
+    <li><strong>写下学到的</strong>：留下一句下次能用上的话。笔记可以复制为文本，也可以导出为 Markdown 文件。</li>
+  </ol>
+
+  <h2>三个标签页</h2>
+  <ul>
+    <li><strong>学习</strong>：由 23 节课程组成的课程，每节讲一个设计决定，例如底部撰写按钮、滑动删除、工具栏项目分组、搜索的位置、该用几个标签。</li>
+    <li><strong>笔记</strong>：你在课程中写下的所有内容，汇集在一处。</li>
+    <li><strong>资料</strong>：以示意图浏览 68 个条目，包括工具栏、文字、标签栏、弹层和菜单。点按图中的任意部位，就能看到它的规则和理由，每个条目还可以打开一个能运行的示例。</li>
+  </ul>
+
+  <h2>适合谁</h2>
+  <ul>
+    <li>在做应用、想为每个布局选择找到理由的开发者和设计师</li>
+    <li>读过设计指南，却觉得没留下多少印象的人</li>
+  </ul>
+  <p>无需登录，所有内容都内置在应用中，离线也能使用。你的进度和笔记只保存在你的设备上。</p>
+
+  <h2>免费与 Pro</h2>
+  <p>可以免费试用 3 节课程、10 篇失误、工具栏练习室和测验第一章。68 个条目、7 条原则和笔记始终免费。<strong>每周或每月订阅，或终身使用权</strong>可解锁所有课程和资料。订阅可随时取消；终身使用权只需付费一次。<a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">使用条款</a></p>
+  <p>如果你是用 1.0.2 或更早版本安装的应用，无需购买即可保留全部内容。</p>
+
+  <section class="card" id="contact">
+    <h2>联系我们</h2>
+    <p>发现了 bug、内容错误，或者希望我们讲解某个界面？请告诉我们，并附上设备型号、iOS 版本以及出现问题的界面。
+      在应用内，可以通过<strong>学习 › 设置（右上角） › 发送反馈</strong>直接发送。</p>
+    <p>邮件 <a href="mailto:leeo@kakao.com?subject=%5BApp%20Design%20Lab%5D%20Support">leeo@kakao.com</a> · <a href="https://github.com/M1zz/HigGym/issues/new">GitHub Issues</a> · <a href="https://instagram.com/lee25_ios">Instagram</a></p>
+    <p>我们不收集个人信息。详情请见<a href="../privacy.html">隐私政策</a>。</p>
+  </section>
+
+  <hr>
+  <footer><a href="../support.html">支持</a> · <a href="../privacy.html">隐私政策</a> · <a href="https://github.com/M1zz/HigGym">GitHub</a></footer>
+</main>
+</body>
+</html>

@@ -26,7 +26,7 @@ def profile():
     부를 때마다 새 빈 프로필로 띄운다."""
     return f"--user-data-dir={tempfile.mkdtemp(prefix='higgym-chrome-')}"
 
-# 스토어 언어 = deploy.env LOCALES (ko · en · ja). 폴더 이름이 로케일 그대로라 바꿀 것이 없다.
+# 스토어 언어 = deploy.env LOCALES (ko · en · ja · zh-Hans). 폴더 이름이 로케일 그대로라 바꿀 것이 없다.
 STORE = {}
 
 # (가로, 세로, 안전 영역 left, top, right, bottom)
@@ -42,6 +42,7 @@ SEARCH = {
     "en": ("UI/UX practice", "Learn UI/UX<br>by touching it", "Use awkward screens,<br>then see why"),
     "en-GB": ("UI/UX practice", "Learn UI/UX<br>by touching it", "Use awkward screens,<br>then see why"),
     "ja": ("UI/UXの勉強", "触って学ぶ<br>UI/UX", "違和感のある画面を使って<br>理由を確かめる"),
+    "zh-Hans": ("UI/UX 学习", "动手体验<br>学 UI/UX", "先用别扭的界面<br>再看清原因"),
 }
 
 # 헤더: 처음 온 사람에게 한 가지 약속.
@@ -50,6 +51,7 @@ HEADER = {
     "en": ("App Design Lab", "Use it, and see why<br>good screens work"),
     "en-GB": ("App Design Lab", "Use it, and see why<br>good screens work"),
     "ja": ("アプリデザイン実習", "使ってわかる<br>良い画面の理由"),
+    "zh-Hans": ("App 设计实践", "用过才懂<br>好界面的理由"),
 }
 
 # ⚠️ 바탕 · 글자색은 기존 스크린샷(make_marketing_screenshots.py)과 같다. 다르면 페이지에서

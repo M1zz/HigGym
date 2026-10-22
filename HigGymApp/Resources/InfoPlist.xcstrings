@@ -28,6 +28,12 @@
             "state": "translated",
             "value": "앱 디자인 실습"
           }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设计实践"
+          }
         }
       }
     },
@@ -56,6 +62,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "앱 디자인 실습"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "设计实践"
           }
         }
       }

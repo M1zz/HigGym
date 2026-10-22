@@ -15,7 +15,7 @@ RAW = ROOT / "docs" / "screenshots" / "raw"
 OUT = ROOT / "docs" / "screenshots" / "marketing"
 WORK = pathlib.Path("/tmp") / "higgym-marketing"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja"}
+STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans"}
 
 # (원본 파일, 헤드라인, 서브카피), 언어마다 따로 쓴다.
 SHOTS = {
@@ -51,6 +51,14 @@ SHOTS = {
         ("05-compare.png", "破った画面と<br>直した画面を比べる", "同じ場所で切り替えて違いを見る"),
         ("06-items.png",   "UI/UXの68項目を<br>図で見渡す", "ツールバー、タブバー、シート、テキストを図で"),
     ],
+    "zh-Hans": [
+        ("01-course.png",  "别只读，<br>动手试试", "每节一个决定，共 23 节 UI/UX 课程"),
+        ("02-try.png",     "先用起来", "以实际大小使用违反规范的界面"),
+        ("03-write.png",   "先写下<br>你的感受", "看答案之前，记下你的手感受到了什么"),
+        ("04-reason.png",  "再看原因", "这个决定、理由，以及颠倒后会出的问题"),
+        ("05-compare.png", "出问题的界面<br>和改好的并排对比", "在同一个位置切换，看出差别"),
+        ("06-items.png",   "68 个 UI/UX 条目<br>用图呈现", "工具栏、标签栏、弹层、文字，用示意图浏览"),
+    ],
 }
 
 DEVICES = {
@@ -62,7 +70,7 @@ CSS = """
 * { margin:0; padding:0; box-sizing:border-box; }
 html,body { width:%(W)dpx; height:%(H)dpx; overflow:hidden; }
 body { background:#0B0C10; position:relative;
-  font-family:-apple-system, "SF Pro Display", "Apple SD Gothic Neo", "Hiragino Sans", sans-serif; }
+  font-family:-apple-system, "SF Pro Display", "Apple SD Gothic Neo", "Hiragino Sans", "PingFang SC", sans-serif; }
 .glow { position:absolute; left:50%%; top:%(GT)dpx; width:%(GW)dpx; height:%(GW)dpx; margin-left:-%(GH)dpx;
   border-radius:50%%; filter:blur(200px); background:rgba(90,168,255,.22); }
 .t { position:absolute; left:80px; right:80px; top:%(TT)dpx; text-align:center; }

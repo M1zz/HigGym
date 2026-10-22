@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>支持，App 设计实践</title>
+<link rel="canonical" href="https://m1zz.github.io/HigGym/zh-hans/support.html">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/support.html">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/support.html">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/support.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/support.html">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/support.html">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="语言"><a href="../support.html" hreflang="ko" lang="ko">한국어</a> · <a href="../en/support.html" hreflang="en" lang="en">English</a> · <a href="../ja/support.html" hreflang="ja" lang="ja">日本語</a> · <a href="./support.html" aria-current="page">简体中文</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>App 设计实践 支持</h1></header>
+  <p class="meta">动手练习的 UI/UX 工作册应用</p>
+  <nav class="lang"><a href="./app/">应用介绍</a> · <a href="./privacy.html">隐私政策</a></nav>
+
+  <section class="card">
+    <h2>联系我们</h2>
+    <p>如发现错误、内容有误或有功能建议，请在 GitHub Issues 留言，或发送邮件至 <a href="mailto:leeo@kakao.com?subject=%5BApp%20Design%20Lab%5D%20Support">leeo@kakao.com</a>。附上设备型号、iOS 版本以及出现问题的界面，我们能更快确认。</p>
+    <a class="btn" href="https://github.com/M1zz/HigGym/issues/new">提交 Issue</a>
+  </section>
+
+  <h2>关于本应用</h2>
+  <p>这是一本不止于阅读的 UI/UX 工作册：你会<strong>亲手使用一个故意违反规范的界面，写下哪里感觉不对，再与规则对照</strong>。内容包括 23 节课程、68 个带注解的条目、100 篇常见失误、7 条原则、5 个练习室和测验。整个应用提供简体中文、英语、日语和韩语。</p>
+
+  <h2>常见问题</h2>
+
+  <h3>需要账户或网络吗？</h3>
+  <p>不需要。所有内容都内置在应用中，离线也能使用。只有打开参考链接时才需要网络。</p>
+
+  <h3>我的学习笔记保存在哪里？</h3>
+  <p>只保存在你的设备上，不会发送到任何地方。在<strong>笔记</strong>标签页中，可以把笔记复制为文本，或导出为 Markdown 文件。</p>
+
+  <h3>重新安装应用后，进度不见了。</h3>
+  <p>进度和笔记只保存在你的设备上，所以删除应用时也会一并清除。删除应用之前，请先在笔记标签页中导出笔记。</p>
+
+  <h3>“动手试试”的界面用起来很别扭，是 bug 吗？</h3>
+  <p>每节课第一步用到的界面是<strong>故意</strong>违反规范的。亲身体会这种别扭正是目的，第三步会揭晓哪里出了问题。如果在“对比”步骤中仍然觉得哪里不对，请告诉我们。</p>
+
+  <h3>文字太大或太小。</h3>
+  <p>应用会跟随 iOS 的文字大小设置。请在 <em>设置 › 显示与亮度 › 文字大小</em> 中调整。浅色与深色模式也跟随系统设置。</p>
+
+  <h3>哪些免费，哪些付费？</h3>
+  <p>3 节课程、10 篇失误、工具栏练习室、测验第一章、68 个条目、7 条原则和笔记均可免费使用。<strong>每周订阅、每月订阅或终身使用权</strong>可解锁其余的课程、失误、练习室和测验。终身使用权只需付费一次。</p>
+
+  <h3>如何取消订阅？</h3>
+  <p>在 iPhone 上前往 <em>设置 › Apple 账户 › 订阅</em>。也可以点按应用设置顶部的<strong>管理订阅</strong>。请在当前订阅期结束前至少 24 小时取消，以免下一期被扣款；订阅期结束前你仍可继续使用。</p>
+
+  <h3>我已经用了一段时间了，需要付费吗？</h3>
+  <p>不需要。如果你是用 1.0.2 或更早版本安装的应用，无需购买即可保留全部内容。设置顶部会显示 <strong>Pro 使用中</strong>。</p>
+
+  <h3>在新设备上找不到我的购买。</h3>
+  <p>请登录同一个 Apple 账户，然后点按 <em>学习标签页 › 设置（右上角） › 恢复购买</em>。购买界面底部也有同样的按钮。</p>
+
+  <h3>可以在 iPad 上使用吗？</h3>
+  <p>目前不可以。应用仅支持 iPhone，因为练习室是以竖屏的 iPhone 界面重现的。</p>
+
+  <hr>
+  <footer><a href="./privacy.html">隐私政策</a> · <a href="./app/">应用介绍</a></footer>
+</main>
+</body>
+</html>

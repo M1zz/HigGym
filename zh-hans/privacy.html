@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>隐私政策，App 设计实践</title>
+<link rel="canonical" href="https://m1zz.github.io/HigGym/zh-hans/privacy.html">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/privacy.html">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/privacy.html">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/privacy.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/privacy.html">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  ul{padding-left:1.2em}
+  li{margin:4px 0}
+  a{color:var(--accent)}
+  code{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:.9em}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="语言"><a href="../privacy.html" hreflang="ko" lang="ko">한국어</a> · <a href="../en/privacy.html" hreflang="en" lang="en">English</a> · <a href="../ja/privacy.html" hreflang="ja" lang="ja">日本語</a> · <a href="./privacy.html" aria-current="page">简体中文</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>隐私政策</h1></header>
+  <p class="meta">App 设计实践 (iOS) · 2026 年 10 月 20 日起生效</p>
+  <nav class="lang"><a href="./app/">应用介绍</a> · <a href="./support.html">支持</a></nav>
+
+  <section class="card">
+    <h2>概要</h2>
+    <p><strong>App 设计实践不收集任何个人数据。</strong>没有账户，不使用广告、第三方统计或跟踪工具。你的进度和笔记只保存在你的设备上。为了了解有多少人在使用应用并修复崩溃，应用只会发送匿名的使用统计和崩溃报告。</p>
+  </section>
+
+  <h2>1. 我们收集的数据</h2>
+  <p>不收集个人数据。应用不含任何第三方 SDK，不使用广告标识符（IDFA），也不访问位置、通讯录、照片或相机。离开你设备的数据，仅限下文“匿名使用统计”中列出的内容，以及你自己选择发送的反馈（第 3 节）。</p>
+  <h3>匿名使用统计</h3>
+  <p>为了了解有多少人在使用应用并修复崩溃，应用会把以下匿名统计发送到 Apple 的 iCloud（CloudKit），只有开发者可以读取：</p>
+  <ul>
+    <li>安装应用时生成的随机 ID（与你、你的 Apple ID、你的设备或其他应用均无关联，重新安装后会改变）</li>
+    <li>应用版本、iOS 版本，以及地区和语言设置</li>
+    <li>应用的打开次数和打开的日期、安装日期以及安装后的天数</li>
+    <li>崩溃和意外退出的报告（应用版本、iOS 版本、设备类型以及错误的技术细节）</li>
+  </ul>
+  <p>不包含姓名、联系方式、位置，也不包含你创建的任何内容，例如学习笔记或测验结果。统计仅在你登录 iCloud 时发送。它们由开发者编写的共用库 LeeoKit 发送，绝不会提供给第三方。</p>
+
+  <h2>2. 仅保存在你设备上的数据</h2>
+  <p>为了让你能从上次中断的地方继续，以下内容<strong>只保存在你的设备上</strong>，绝不会传给任何人，包括开发者：</p>
+  <ul>
+    <li>课程进度，以及你在课程中写下的学习笔记</li>
+    <li>测验结果、你访问过的练习室，以及你勾选过的失误</li>
+  </ul>
+  <p>删除应用时，这些数据会一并删除。如果开启了设备备份（如 iCloud 备份），这些数据可能会按照 Apple 的备份政策被包含在备份中。</p>
+
+  <h2>3. 当你自己导出内容时</h2>
+  <ul>
+    <li><strong>复制</strong>：复制学习笔记或示例代码，会把它们放到设备的剪贴板上。</li>
+    <li><strong>分享</strong>：把学习笔记导出为 Markdown 文件时，会打开 iOS 分享面板。发送到哪里由你选择，之后发生的事应用不会参与。</li>
+    <li><strong>发送反馈</strong>：在“设置 › 发送反馈”中点按发送后，你写下的文字，连同应用版本、iOS 版本和设备类型，会发送到 Apple 的 iCloud（CloudKit），只有开发者可以读取。不会要求你提供姓名和联系方式，回复会显示在应用内。</li>
+    <li><strong>邮件和 Instagram</strong>：设置中的联系行会打开你设备上的“邮件”应用或 Instagram。之后的处理由各服务自己的政策决定。</li>
+  </ul>
+
+  <h2>4. 应用内购买</h2>
+  <p>Pro 订阅和终身使用权的付款由 Apple 通过 App Store 处理。应用和开发者都不会收到你的银行卡号或付款信息。为了确认 Pro 是否已解锁，应用只读取 Apple 在你设备上提供的购买记录，结果只保存在你的设备上。</p>
+
+  <h2>5. 外部链接</h2>
+  <p>参考链接（Apple Developer 文档、博客等）会在你设备的浏览器（如 Safari）中打开。这些网站按各自的政策处理信息。</p>
+
+  <h2>6. 儿童隐私</h2>
+  <p>应用不会收集任何年龄用户的个人数据。匿名使用统计无法追溯到任何人。</p>
+
+  <h2>7. 政策变更</h2>
+  <p>如果应用处理数据的方式发生变化，会先更新本页面并标注新的生效日期。</p>
+
+  <h2>8. 联系我们</h2>
+  <p>如有隐私方面的问题，请发送邮件至 <a href="mailto:leeo@kakao.com">leeo@kakao.com</a>，或在 <a href="https://github.com/M1zz/HigGym/issues">GitHub Issues</a> 提交 issue。</p>
+
+  <hr>
+  <footer><a href="./app/">应用介绍</a> · <a href="./support.html">支持</a> · <a href="../toolbar-annotated.html?lang=en">HigGym 指南（网页，英文）</a></footer>
+</main>
+</body>
+</html>
