@@ -15,7 +15,7 @@ RAW = ROOT / "docs" / "screenshots" / "raw"
 OUT = ROOT / "docs" / "screenshots" / "marketing"
 WORK = pathlib.Path("/tmp") / "higgym-marketing"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs"}
+STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da"}
 
 # (원본 파일, 헤드라인, 서브카피), 언어마다 따로 쓴다.
 SHOTS = {
@@ -138,6 +138,14 @@ SHOTS = {
         ("04-reason.png",  "Pak se podívejte na důvod",  "Rozhodnutí, důvod a co se rozbije, když ho obrátíte"),
         ("05-compare.png",  "Rozbité a opravené<br>vedle sebe",  "Přepínejte na místě a pocítíte rozdíl"),
         ("06-items.png",  "68 témat UI/UX<br>nakreslených",  "Panely nástrojů, karty, sheety a text v mockupech"),
+    ],
+    "da": [
+        ("01-course.png",  "Læs ikke.<br>Tryk.",  "Én lektion, én beslutning, 23 lektioner i UI/UX"),
+        ("02-try.png",  "Prøv det først",  "Brug en skærm, der bryder reglen, i fuld størrelse"),
+        ("03-write.png",  "Skriv ned, hvad<br>du mærkede",  "Før svaret: skriv, hvad din hånd lagde mærke til"),
+        ("04-reason.png",  "Se så begrundelsen",  "Beslutningen, begrundelsen og hvad der går i stykker"),
+        ("05-compare.png",  "Ødelagt og rettet<br>side om side",  "Skift på stedet og mærk forskellen"),
+        ("06-items.png",  "68 UI/UX-emner<br>tegnet op",  "Værktøjslinjer, faner, ark og tekst som mockups"),
     ],
 }
 

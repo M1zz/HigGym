@@ -94,6 +94,12 @@
             "state": "translated",
             "value": "Designová praxe"
           }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Designpraksis"
+          }
         }
       }
     },
@@ -188,6 +194,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Designová praxe"
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Designpraksis"
           }
         }
       }

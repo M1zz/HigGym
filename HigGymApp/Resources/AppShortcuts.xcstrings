@@ -94,6 +94,12 @@
             "state": "translated",
             "value": "Pokračovat v učení v ${applicationName}"
           }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fortsæt med at lære i ${applicationName}"
+          }
         }
       }
     },
@@ -188,6 +194,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Vrátit se do ${applicationName}"
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Genoptag ${applicationName}"
           }
         }
       }
@@ -284,6 +296,12 @@
             "state": "translated",
             "value": "Otevřít poznámky v ${applicationName}"
           }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Åbn noter fra ${applicationName}"
+          }
         }
       }
     },
@@ -378,6 +396,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Zobrazit mé poznámky v ${applicationName}"
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vis mine noter i ${applicationName}"
           }
         }
       }

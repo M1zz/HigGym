@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Designpraksis: en arbejdsbog i UI/UX</title>
+<meta name="description" content="Brug skærme, der bryder en retningslinje, skriv ned, hvad der føltes forkert, og sammenlign med den rettede version. En praktisk arbejdsbog til at opbygge dømmekraft i UI/UX.">
+<link rel="canonical" href="https://m1zz.github.io/HigGym/da/app/">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/app/">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/app/">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/app/">
+<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/HigGym/ru/app/">
+<link rel="alternate" hreflang="es" href="https://m1zz.github.io/HigGym/es/app/">
+<link rel="alternate" hreflang="de" href="https://m1zz.github.io/HigGym/de/app/">
+<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/HigGym/fr/app/">
+<link rel="alternate" hreflang="it" href="https://m1zz.github.io/HigGym/it/app/">
+<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/HigGym/pt-br/app/">
+<link rel="alternate" hreflang="th" href="https://m1zz.github.io/HigGym/th/app/">
+<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/HigGym/vi/app/">
+<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/HigGym/cs/app/">
+<link rel="alternate" hreflang="da" href="https://m1zz.github.io/HigGym/da/app/">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/app/">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Sprog"><a href="../../app/" hreflang="ko" lang="ko">한국어</a> · <a href="../../en/app/" hreflang="en" lang="en">English</a> · <a href="../../ja/app/" hreflang="ja" lang="ja">日本語</a> · <a href="../../zh-hans/app/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="../../zh-hant/app/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> · <a href="../../ru/app/" hreflang="ru" lang="ru">Русский</a> · <a href="../../es/app/" hreflang="es" lang="es">Español</a> · <a href="../../de/app/" hreflang="de" lang="de">Deutsch</a> · <a href="../../fr/app/" hreflang="fr" lang="fr">Français</a> · <a href="../../it/app/" hreflang="it" lang="it">Italiano</a> · <a href="../../pt-br/app/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../th/app/" hreflang="th" lang="th">ไทย</a> · <a href="../../vi/app/" hreflang="vi" lang="vi">Tiếng Việt</a> · <a href="../../cs/app/" hreflang="cs" lang="cs">Čeština</a> · <a href="./" aria-current="page">Dansk</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>Designpraksis</h1></header>
+  <p class="meta">En arbejdsbogsapp om UI/UX · iPhone</p>
+  <nav class="lang"><a href="#contact">Kontakt</a> · <a href="../support.html">Support</a> · <a href="../privacy.html">Privatlivspolitik</a></nav>
+
+  <section class="card">
+    <h2>Designstudier, der går videre end at læse</h2>
+    <p>Godt UI/UX er en stak små beslutninger. I stedet for kun at læse om dem <strong>bruger du en skærm, der bryder en retningslinje, skriver ned, hvad der føltes forkert, og sammenligner så med reglen</strong>.
+      Appen indeholder 23 lektioner, 68 kommenterede emner, 100 almindelige fejl, 7 principper, 5 labs og 396 quizspørgsmål. Hele appen findes på dansk, engelsk, japansk, koreansk og mange andre sprog.</p>
+  </section>
+
+  <h2>Hver lektion har fem trin</h2>
+  <ol>
+    <li><strong>Prøv det</strong>: åbn en eksempelapp i fuld størrelse og få en opgave. Den skærm, du bruger her, bryder med vilje en retningslinje.</li>
+    <li><strong>Skriv det ned</strong>: før du ser svaret, så noter, hvad der føltes mærkeligt.</li>
+    <li><strong>Se hvorfor</strong>: dine noter står ved siden af reglen sammen med beslutningen, begrundelsen bag den og det, der går i stykker, hvis du vender den om.</li>
+    <li><strong>Sammenlign</strong>: skift mellem den ødelagte skærm og den rettede på samme sted, og se forskellen.</li>
+    <li><strong>Skriv, hvad du lærte</strong>: gem en sætning, du kan bruge igen næste gang. Noter kan kopieres som tekst eller eksporteres som en Markdown-fil.</li>
+  </ol>
+
+  <h2>Tre faner</h2>
+  <ul>
+    <li><strong>Lær</strong>: et kursus med 23 lektioner, hver om én designbeslutning, som nederste skriveknapper, stryg for at slette, grupperede værktøjslinjeelementer, placering af søgning og hvor mange faner man skal bruge.</li>
+    <li><strong>Noter</strong>: alt, hvad du skrev under lektionerne, samlet ét sted.</li>
+    <li><strong>Bibliotek</strong>: gennemse 68 emner, herunder værktøjslinjer, tekst, fanelinjer, ark og menuer, som illustrationer. Tryk på en vilkårlig del af et billede for at se dens regel og begrundelse, og åbn et fungerende eksempel til hvert emne.</li>
+  </ul>
+
+  <h2>Hvem den er til</h2>
+  <ul>
+    <li>Udviklere og designere, der bygger apps og vil have en grund bag hvert layoutvalg</li>
+    <li>Alle, der har læst retningslinjerne, men oplevede, at kun lidt blev hængende</li>
+  </ul>
+  <p>Ingen login er nødvendigt, og alt er indbygget i appen, så den virker offline. Dine fremskridt og noter gemmes kun på din enhed.</p>
+
+  <h2>Gratis og Pro</h2>
+  <p>Prøv 3 lektioner, 10 fejl, værktøjslinjelaben og det første quizkapitel gratis. De 68 emner, de 7 principper og dine noter er altid gratis. Et <strong>ugentligt eller månedligt abonnement eller et livstidskøb</strong> låser alle lektioner og ressourcer op. Opsig et abonnement når som helst; livstidskøbet betales én gang. <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Brugsvilkår</a></p>
+  <p>Hvis du installerede appen med version 1.0.2 eller tidligere, beholder du alt uden køb.</p>
+
+  <section class="card" id="contact">
+    <h2>Kontakt</h2>
+    <p>Har du fundet en fejl, en indholdsfejl eller en skærm, du gerne vil have dækket? Så fortæl os det, og oplys din enhedsmodel, iOS-version og den skærm, hvor det skete.
+      I appen kan du sende det direkte fra <strong>Lær › Indstillinger (øverst til højre) › Send feedback</strong>.</p>
+    <p>E-mail <a href="mailto:leeo@kakao.com?subject=%5BDesignpraksis%5D%20Support">leeo@kakao.com</a> · <a href="https://github.com/M1zz/HigGym/issues/new">GitHub Issues</a> · <a href="https://instagram.com/lee25_ios">Instagram</a></p>
+    <p>Vi indsamler ikke personoplysninger. Se <a href="../privacy.html">Privatlivspolitikken</a> for detaljer.</p>
+  </section>
+
+  <hr>
+  <footer><a href="../support.html">Support</a> · <a href="../privacy.html">Privatlivspolitik</a> · <a href="https://github.com/M1zz/HigGym">GitHub</a></footer>
+</main>
+</body>
+</html>

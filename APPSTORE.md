@@ -899,3 +899,63 @@ https://m1zz.github.io/HigGym/cs/privacy.html
 ### 마케팅 URL
 
 https://m1zz.github.io/HigGym/cs/app/
+
+## da
+
+### 이름
+
+Designpraksis: UI/UX
+
+### 부제
+
+Lær UI/UX ved at prøve
+
+### 키워드
+
+brugerflade,navigation,wireframe,mockup,quiz,udvikler,principper,fanelinje,ark,iOS,tilgængelighed
+
+### 프로모션 텍스트
+
+Hvor hører knappen hjemme? Brug ødelagte skærme, skriv ned, hvad der skurrer, og sammenlign med rettelsen, til gode designvaner kommer af sig selv.
+
+### 설명
+
+Godt UI/UX er en stak små beslutninger. Designpraksis er en praktisk arbejdsbog, hvor du bruger skærme, der træffer de beslutninger forkert, og så ser præcis hvorfor.
+Hver lektion tager én beslutning i fem trin: prøv den ødelagte skærm, skriv ned, hvad der føltes forkert, se hvorfor, sammenlign med den rettede version, og skriv, hvad du lærte.
+
+23 PRAKTISKE LEKTIONER
+Prøv det: en eksempelapp åbner i fuld størrelse med en opgave. Den skærm, du bruger, bryder med vilje reglen.
+Skriv det ned: før du ser svaret, så noter, hvad du lagde mærke til.
+Se hvorfor: beslutningen, begrundelsen bag den og det, der falder fra hinanden, hvis du vender den om, lige ved siden af det, du skrev.
+Sammenlign: skift mellem den ødelagte og den rettede skærm på samme sted, og læg mærke til forskellen.
+Skriv, hvad du lærte: gem en sætning, du kan bruge igen næste gang. Dine noter samles under fanen Noter, hvor du kan kopiere dem eller eksportere dem som en Markdown-fil.
+
+ET BIBLIOTEK TIL AT GÅ DYBERE
+68 emner: værktøjslinjer, titler, søgning, fanelinjer, ark og tekst, hver tegnet som et mockup. Tryk på en vilkårlig del af et billede for at se reglen bag den, og åbn et levende eksempel til hvert emne.
+100 fejl: hvad der blev gjort, hvorfor det virkede rigtigt dengang, og hvad der ændres, når det rettes, skrevet som korte tilbageblik.
+7 principper: de grundlæggende vurderinger bag alle 68 emner, vist ved at skifte den samme skærm mellem et ødelagt og et korrekt layout.
+5 labs: justér placering af værktøjslinjen, scroll-kanteffekter, tekstafkortning, fanelinjeopsætning og arkhøjde, og få en dom i realtid.
+Quiz: 396 spørgsmål, der får dig til at se på skærmen og beslutte.
+
+TIL HVEM
+Udviklere, der vil have en grund bag hver knap, de placerer
+Designere, der vil blive fortrolige med de nyeste værktøjslinjer, fanelinjer og ark
+Teams, der skal forklare hvorfor i designgennemgange
+
+Prøv 3 lektioner, 10 fejl, værktøjslinjelaben og det første quizkapitel gratis. De 68 emner, de 7 principper og dine noter er altid gratis.
+Et ugentligt abonnement, et månedligt abonnement eller et enkelt livstidskøb låser alle lektioner og ressourcer op.
+Abonnementer fornyes automatisk til samme pris, medmindre de opsiges mindst 24 timer før perioden udløber. Du kan til enhver tid administrere eller opsige dem i dine App Store-kontoindstillinger.
+Brugsvilkår: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Der er ingen konto, og dine fremskridt og noter bliver på din enhed. Hele appen findes på dansk, engelsk, japansk, koreansk og mange andre sprog.
+
+### 지원 URL
+
+https://m1zz.github.io/HigGym/da/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/HigGym/da/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/HigGym/da/app/
