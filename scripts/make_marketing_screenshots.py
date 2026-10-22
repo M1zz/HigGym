@@ -15,7 +15,7 @@ RAW = ROOT / "docs" / "screenshots" / "raw"
 OUT = ROOT / "docs" / "screenshots" / "marketing"
 WORK = pathlib.Path("/tmp") / "higgym-marketing"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da"}
+STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el"}
 
 # (원본 파일, 헤드라인, 서브카피), 언어마다 따로 쓴다.
 SHOTS = {
@@ -146,6 +146,14 @@ SHOTS = {
         ("04-reason.png",  "Se så begrundelsen",  "Beslutningen, begrundelsen og hvad der går i stykker"),
         ("05-compare.png",  "Ødelagt og rettet<br>side om side",  "Skift på stedet og mærk forskellen"),
         ("06-items.png",  "68 UI/UX-emner<br>tegnet op",  "Værktøjslinjer, faner, ark og tekst som mockups"),
+    ],
+    "el": [
+        ("01-course.png",  "Μην διαβάζεις.<br>Πάτα.",  "Ένα μάθημα, μία απόφαση, 23 μαθήματα UI/UX"),
+        ("02-try.png",  "Δοκίμασέ το πρώτα",  "Χρησιμοποίησε σε πλήρες μέγεθος μια οθόνη που σπάει τον κανόνα"),
+        ("03-write.png",  "Γράψε τι<br>ένιωσες",  "Πριν την απάντηση: γράψε τι πρόσεξε το χέρι σου"),
+        ("04-reason.png",  "Μετά δες τη λογική",  "Η απόφαση, ο λόγος και τι χαλάει"),
+        ("05-compare.png",  "Χαλασμένο και διορθωμένο<br>δίπλα-δίπλα",  "Εναλλαγή επιτόπου και νιώσε τη διαφορά"),
+        ("06-items.png",  "68 θέματα UI/UX<br>σχεδιασμένα",  "Γραμμές εργαλείων, καρτέλες, φύλλα και κείμενο ως mockups"),
     ],
 }
 

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Εξάσκηση Σχεδιασμού: ένα τετράδιο εξάσκησης UI/UX</title>
+<meta name="description" content="Χρησιμοποίησε οθόνες που παραβιάζουν μια οδηγία, σημείωσε τι σου φάνηκε περίεργο και σύγκρινέ τες με τη διορθωμένη εκδοχή. Ένα τετράδιο εξάσκησης για να χτίσεις κρίση στο UI/UX.">
+<link rel="canonical" href="https://m1zz.github.io/HigGym/el/app/">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/app/">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/app/">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/app/">
+<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/HigGym/ru/app/">
+<link rel="alternate" hreflang="es" href="https://m1zz.github.io/HigGym/es/app/">
+<link rel="alternate" hreflang="de" href="https://m1zz.github.io/HigGym/de/app/">
+<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/HigGym/fr/app/">
+<link rel="alternate" hreflang="it" href="https://m1zz.github.io/HigGym/it/app/">
+<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/HigGym/pt-br/app/">
+<link rel="alternate" hreflang="th" href="https://m1zz.github.io/HigGym/th/app/">
+<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/HigGym/vi/app/">
+<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/HigGym/cs/app/">
+<link rel="alternate" hreflang="da" href="https://m1zz.github.io/HigGym/da/app/">
+<link rel="alternate" hreflang="el" href="https://m1zz.github.io/HigGym/el/app/">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/app/">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Γλώσσα"><a href="../../app/" hreflang="ko" lang="ko">한국어</a> · <a href="../../en/app/" hreflang="en" lang="en">English</a> · <a href="../../ja/app/" hreflang="ja" lang="ja">日本語</a> · <a href="../../zh-hans/app/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="../../zh-hant/app/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> · <a href="../../ru/app/" hreflang="ru" lang="ru">Русский</a> · <a href="../../es/app/" hreflang="es" lang="es">Español</a> · <a href="../../de/app/" hreflang="de" lang="de">Deutsch</a> · <a href="../../fr/app/" hreflang="fr" lang="fr">Français</a> · <a href="../../it/app/" hreflang="it" lang="it">Italiano</a> · <a href="../../pt-br/app/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../th/app/" hreflang="th" lang="th">ไทย</a> · <a href="../../vi/app/" hreflang="vi" lang="vi">Tiếng Việt</a> · <a href="../../cs/app/" hreflang="cs" lang="cs">Čeština</a> · <a href="../../da/app/" hreflang="da" lang="da">Dansk</a> · <a href="./" aria-current="page">Ελληνικά</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>Εξάσκηση Σχεδιασμού</h1></header>
+  <p class="meta">Μια εφαρμογή-τετράδιο εξάσκησης για UI/UX · iPhone</p>
+  <nav class="lang"><a href="#contact">Επικοινωνία</a> · <a href="../support.html">Υποστήριξη</a> · <a href="../privacy.html">Πολιτική απορρήτου</a></nav>
+
+  <section class="card">
+    <h2>Μελέτη σχεδιασμού που πάει πέρα από την ανάγνωση</h2>
+    <p>Το καλό UI/UX είναι μια στοίβα μικρών αποφάσεων. Αντί να διαβάζεις απλώς γι' αυτές, <strong>χρησιμοποιείς μια οθόνη που παραβιάζει μια οδηγία, σημειώνεις τι σου φάνηκε περίεργο και μετά τη συγκρίνεις με τον κανόνα</strong>.
+      Η εφαρμογή περιλαμβάνει 23 μαθήματα, 68 σχολιασμένα θέματα, 100 συνηθισμένα λάθη, 7 αρχές, 5 εργαστήρια και 396 ερωτήσεις κουίζ. Ολόκληρη η εφαρμογή διατίθεται στα ελληνικά, αγγλικά, ιαπωνικά, κορεατικά και σε πολλές άλλες γλώσσες.</p>
+  </section>
+
+  <h2>Κάθε μάθημα έχει πέντε βήματα</h2>
+  <ol>
+    <li><strong>Δοκίμασέ το</strong>: άνοιξε μια δείγμα εφαρμογή σε πλήρες μέγεθος και πάρε μια εργασία. Η οθόνη που χρησιμοποιείς εδώ παραβιάζει σκόπιμα μια οδηγία.</li>
+    <li><strong>Σημείωσέ το</strong>: πριν δεις την απάντηση, γράψε τι σου φάνηκε περίεργο.</li>
+    <li><strong>Δες γιατί</strong>: οι σημειώσεις σου κάθονται δίπλα στον κανόνα, μαζί με την απόφαση, τη λογική πίσω της και τι χαλάει αν την αντιστρέψεις.</li>
+    <li><strong>Σύγκρινε</strong>: εναλλάσσεσαι ανάμεσα στη χαλασμένη οθόνη και τη διορθωμένη στο ίδιο σημείο και βλέπεις τη διαφορά.</li>
+    <li><strong>Γράψε τι έμαθες</strong>: αποθήκευσε μια πρόταση που μπορείς να ξαναχρησιμοποιήσεις την επόμενη φορά. Οι σημειώσεις αντιγράφονται ως κείμενο ή εξάγονται ως αρχείο Markdown.</li>
+  </ol>
+
+  <h2>Τρεις καρτέλες</h2>
+  <ul>
+    <li><strong>Μάθηση</strong>: ένα μάθημα 23 ενοτήτων, μία απόφαση σχεδιασμού η καθεμία, όπως κουμπιά σύνταξης κάτω, σύρσιμο για διαγραφή, ομαδοποιημένα στοιχεία γραμμής εργαλείων, τοποθέτηση της αναζήτησης και πόσες καρτέλες να χρησιμοποιήσεις.</li>
+    <li><strong>Σημειώσεις</strong>: ό,τι έγραψες στα μαθήματα, σε ένα μέρος.</li>
+    <li><strong>Βιβλιοθήκη</strong>: περιηγήσου σε 68 θέματα, όπως γραμμές εργαλείων, κείμενο, γραμμές καρτελών, φύλλα και μενού, ως εικονογραφήσεις. Πάτησε οποιοδήποτε μέρος μιας εικόνας για να δεις τον κανόνα και τη λογική του, και άνοιξε ένα λειτουργικό παράδειγμα για κάθε θέμα.</li>
+  </ul>
+
+  <h2>Για ποιον είναι</h2>
+  <ul>
+    <li>Προγραμματιστές και σχεδιαστές που φτιάχνουν εφαρμογές και θέλουν έναν λόγο πίσω από κάθε επιλογή διάταξης</li>
+    <li>Όποιον έχει διαβάσει τις οδηγίες αλλά διαπίστωσε ότι έμεινε λίγο από αυτές</li>
+  </ul>
+  <p>Δεν απαιτείται σύνδεση λογαριασμού, και όλα είναι ενσωματωμένα στην εφαρμογή, οπότε δουλεύει εκτός σύνδεσης. Η πρόοδος και οι σημειώσεις σου αποθηκεύονται μόνο στη συσκευή σου.</p>
+
+  <h2>Δωρεάν και Pro</h2>
+  <p>Δοκίμασε δωρεάν 3 μαθήματα, 10 λάθη, το εργαστήριο γραμμής εργαλείων και το πρώτο κεφάλαιο κουίζ. Τα 68 θέματα, οι 7 αρχές και οι σημειώσεις σου είναι πάντα δωρεάν. Μια <strong>εβδομαδιαία ή μηνιαία συνδρομή, ή μια αγορά εφ' όρου ζωής</strong>, ξεκλειδώνει όλα τα μαθήματα και τους πόρους. Ακύρωσε τη συνδρομή όποτε θέλεις· η αγορά εφ' όρου ζωής πληρώνεται μία φορά. <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Όροι χρήσης</a></p>
+  <p>Αν εγκατέστησες την εφαρμογή με την έκδοση 1.0.2 ή παλαιότερη, κρατάς τα πάντα χωρίς αγορά.</p>
+
+  <section class="card" id="contact">
+    <h2>Επικοινωνία</h2>
+    <p>Βρήκες σφάλμα, λάθος περιεχομένου ή μια οθόνη που θα ήθελες να καλύψουμε; Πες μας, και συμπερίλαβε το μοντέλο της συσκευής σου, την έκδοση iOS και την οθόνη όπου συνέβη.
+      Στην εφαρμογή μπορείς να το στείλεις απευθείας από <strong>Μάθηση › Ρυθμίσεις (πάνω δεξιά) › Αποστολή σχολίων</strong>.</p>
+    <p>Email <a href="mailto:leeo@kakao.com?subject=%5B%CE%95%CE%BE%CE%AC%CF%83%CE%BA%CE%B7%CF%83%CE%B7%20%CE%A3%CF%87%CE%B5%CE%B4%CE%B9%CE%B1%CF%83%CE%BC%CE%BF%CF%8D%5D%20%CE%A5%CF%80%CE%BF%CF%83%CF%84%CE%AE%CF%81%CE%B9%CE%BE%CE%B7">leeo@kakao.com</a> · <a href="https://github.com/M1zz/HigGym/issues/new">GitHub Issues</a> · <a href="https://instagram.com/lee25_ios">Instagram</a></p>
+    <p>Δεν συλλέγουμε προσωπικά δεδομένα. Δες την <a href="../privacy.html">Πολιτική απορρήτου</a> για λεπτομέρειες.</p>
+  </section>
+
+  <hr>
+  <footer><a href="../support.html">Υποστήριξη</a> · <a href="../privacy.html">Πολιτική απορρήτου</a> · <a href="https://github.com/M1zz/HigGym">GitHub</a></footer>
+</main>
+</body>
+</html>

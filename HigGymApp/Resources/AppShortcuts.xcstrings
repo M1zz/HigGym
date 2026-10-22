@@ -100,6 +100,12 @@
             "state": "translated",
             "value": "Fortsæt med at lære i ${applicationName}"
           }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Συνέχισε τη μάθηση στο ${applicationName}"
+          }
         }
       }
     },
@@ -200,6 +206,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Genoptag ${applicationName}"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Συνέχιση του ${applicationName}"
           }
         }
       }
@@ -302,6 +314,12 @@
             "state": "translated",
             "value": "Åbn noter fra ${applicationName}"
           }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Άνοιγμα των σημειώσεων του ${applicationName}"
+          }
         }
       }
     },
@@ -402,6 +420,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Vis mine noter i ${applicationName}"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δείξε τις σημειώσεις μου στο ${applicationName}"
           }
         }
       }

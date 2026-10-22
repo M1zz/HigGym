@@ -100,6 +100,12 @@
             "state": "translated",
             "value": "Designpraksis"
           }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Εργαστήριο Σχεδιασμού"
+          }
         }
       }
     },
@@ -200,6 +206,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Designpraksis"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Εργαστήριο Σχεδιασμού"
           }
         }
       }
