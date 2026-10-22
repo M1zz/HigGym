@@ -82,6 +82,12 @@
             "state": "translated",
             "value": "เรียนต่อใน ${applicationName}"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tiếp tục học trong ${applicationName}"
+          }
         }
       }
     },
@@ -164,6 +170,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "กลับไปที่ ${applicationName}"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quay lại ${applicationName}"
           }
         }
       }
@@ -248,6 +260,12 @@
             "state": "translated",
             "value": "เปิดโน้ตของ ${applicationName}"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mở ghi chú của ${applicationName}"
+          }
         }
       }
     },
@@ -330,6 +348,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "แสดงโน้ตของฉันใน ${applicationName}"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hiện ghi chú của tôi trong ${applicationName}"
           }
         }
       }

@@ -779,3 +779,63 @@ https://m1zz.github.io/HigGym/th/privacy.html
 ### 마케팅 URL
 
 https://m1zz.github.io/HigGym/th/app/
+
+## vi
+
+### 이름
+
+Luyện Thiết Kế: UI/UX
+
+### 부제
+
+Học UI/UX bằng thực hành
+
+### 키워드
+
+giaodien,trainghiem,nguyentac,mockup,wireframe,prototype,toolbar,tabbar,sheet,navigation,quiz,iOS
+
+### 프로모션 텍스트
+
+Nút nên đặt ở đâu? Xóa thế nào cho đúng? Dùng những màn hình sai, ghi lại điều thấy gợn rồi so với bản sửa, cho đến khi bản năng thiết kế tốt dần thành nếp.
+
+### 설명
+
+UI/UX tốt là một chồng những quyết định nhỏ. Luyện Thiết Kế là cuốn sổ tay thực hành, nơi bạn dùng những màn hình quyết định sai, rồi thấy rõ vì sao chúng sai.
+Mỗi bài học xử lý một quyết định qua năm bước: dùng thử một màn hình hỏng, ghi lại điều thấy gợn, xem vì sao, so với bản đã sửa, và viết điều đã học.
+
+23 BÀI HỌC THỰC HÀNH
+Dùng thử: một app mẫu mở ở kích thước đầy đủ kèm một nhiệm vụ. Màn hình bạn đang dùng cố ý vi phạm một quy tắc.
+Ghi lại: trước khi xem đáp án, hãy ghi điều bạn nhận thấy.
+Xem vì sao: quyết định, lý do đằng sau và cái gì sụp đổ nếu đảo ngược, nằm ngay cạnh điều bạn đã viết.
+So sánh: chuyển qua lại giữa màn hình hỏng và màn hình đã sửa ngay tại chỗ để thấy khác biệt.
+Viết điều đã học: giữ lại một câu bạn dùng lại được lần sau. Ghi chú của bạn được gom trong tab Ghi chú, nơi bạn sao chép hoặc xuất thành tệp Markdown.
+
+THƯ VIỆN ĐỂ HỌC SÂU HƠN
+68 chủ đề: thanh công cụ, tiêu đề, tìm kiếm, thanh tab, sheet và chữ, mỗi chủ đề được vẽ thành một mockup. Chạm vào bất kỳ phần nào của hình để xem quy tắc đằng sau, và mở một màn hình ví dụ chạy được cho mọi chủ đề.
+100 lỗi: đã làm gì, vì sao lúc đó có vẻ đúng, và điều gì đổi khi sửa, viết thành những bài nhìn lại ngắn.
+7 nguyên tắc: các phán đoán cốt lõi đằng sau cả 68 chủ đề, thể hiện bằng cách đảo cùng một màn hình giữa bố cục hỏng và đúng.
+5 lab: chỉnh vị trí thanh công cụ, hiệu ứng cạnh cuộn, cách cắt chữ, thiết lập thanh tab và chiều cao sheet, và nhận phán quyết theo thời gian thực.
+Câu đố: 396 câu hỏi yêu cầu bạn nhìn một màn hình và đưa ra quyết định.
+
+DÀNH CHO AI
+Lập trình viên muốn có lý do đằng sau mỗi nút mình đặt
+Nhà thiết kế muốn làm quen với thanh công cụ, thanh tab và sheet mới nhất
+Các nhóm cần giải thích lý do trong buổi duyệt thiết kế
+
+Dùng thử miễn phí 3 bài học, 10 lỗi, lab thanh công cụ và chương câu đố đầu tiên. 68 chủ đề, 7 nguyên tắc và ghi chú của bạn luôn miễn phí.
+Một gói đăng ký theo tuần, theo tháng, hoặc mua trọn đời một lần mở khóa mọi bài học và tài nguyên.
+Gói đăng ký tự động gia hạn với cùng mức giá trừ khi bị hủy ít nhất 24 giờ trước khi kỳ hạn kết thúc. Quản lý hoặc hủy bất cứ lúc nào trong cài đặt tài khoản App Store của bạn.
+Điều khoản sử dụng: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Không có tài khoản, và tiến độ cùng ghi chú của bạn nằm trên thiết bị của bạn. Toàn bộ app có tiếng Việt, tiếng Anh, tiếng Nhật, tiếng Hàn và nhiều ngôn ngữ khác.
+
+### 지원 URL
+
+https://m1zz.github.io/HigGym/vi/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/HigGym/vi/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/HigGym/vi/app/

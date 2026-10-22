@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Luyện Thiết Kế: sổ tay thực hành UI/UX</title>
+<meta name="description" content="Dùng những màn hình vi phạm nguyên tắc, ghi lại điều thấy gợn, rồi so với bản đã sửa. Sổ tay thực hành để rèn óc phán đoán UI/UX.">
+<link rel="canonical" href="https://m1zz.github.io/HigGym/vi/app/">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/app/">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/app/">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/app/">
+<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/HigGym/ru/app/">
+<link rel="alternate" hreflang="es" href="https://m1zz.github.io/HigGym/es/app/">
+<link rel="alternate" hreflang="de" href="https://m1zz.github.io/HigGym/de/app/">
+<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/HigGym/fr/app/">
+<link rel="alternate" hreflang="it" href="https://m1zz.github.io/HigGym/it/app/">
+<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/HigGym/pt-br/app/">
+<link rel="alternate" hreflang="th" href="https://m1zz.github.io/HigGym/th/app/">
+<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/HigGym/vi/app/">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/app/">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Ngôn ngữ"><a href="../../app/" hreflang="ko" lang="ko">한국어</a> · <a href="../../en/app/" hreflang="en" lang="en">English</a> · <a href="../../ja/app/" hreflang="ja" lang="ja">日本語</a> · <a href="../../zh-hans/app/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="../../zh-hant/app/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> · <a href="../../ru/app/" hreflang="ru" lang="ru">Русский</a> · <a href="../../es/app/" hreflang="es" lang="es">Español</a> · <a href="../../de/app/" hreflang="de" lang="de">Deutsch</a> · <a href="../../fr/app/" hreflang="fr" lang="fr">Français</a> · <a href="../../it/app/" hreflang="it" lang="it">Italiano</a> · <a href="../../pt-br/app/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../th/app/" hreflang="th" lang="th">ไทย</a> · <a href="./" aria-current="page">Tiếng Việt</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>Luyện Thiết Kế</h1></header>
+  <p class="meta">Ứng dụng sổ tay thực hành UI/UX · iPhone</p>
+  <nav class="lang"><a href="#contact">Liên hệ</a> · <a href="../support.html">Hỗ trợ</a> · <a href="../privacy.html">Chính sách quyền riêng tư</a></nav>
+
+  <section class="card">
+    <h2>Học thiết kế vượt ra ngoài việc đọc</h2>
+    <p>UI/UX tốt là một chồng những quyết định nhỏ. Thay vì chỉ đọc về chúng, bạn <strong>dùng một màn hình vi phạm nguyên tắc, ghi lại điều thấy gợn, rồi so với quy tắc</strong>.
+      App gồm 23 bài học, 68 chủ đề có chú giải, 100 lỗi thường gặp, 7 nguyên tắc, 5 lab và 396 câu đố. Toàn bộ app có tiếng Việt, tiếng Anh, tiếng Nhật, tiếng Hàn và nhiều ngôn ngữ khác.</p>
+  </section>
+
+  <h2>Mỗi bài học có năm bước</h2>
+  <ol>
+    <li><strong>Dùng thử</strong>: mở một app mẫu ở kích thước đầy đủ và nhận một nhiệm vụ. Màn hình bạn dùng ở đây cố ý vi phạm một nguyên tắc.</li>
+    <li><strong>Ghi lại</strong>: trước khi xem đáp án, hãy ghi điều bạn thấy lạ.</li>
+    <li><strong>Xem vì sao</strong>: ghi chú của bạn nằm cạnh quy tắc, cùng quyết định, lý do đằng sau và cái gì hỏng nếu đảo ngược nó.</li>
+    <li><strong>So sánh</strong>: chuyển qua lại giữa màn hình hỏng và màn hình đã sửa ngay tại chỗ và thấy sự khác biệt.</li>
+    <li><strong>Viết điều đã học</strong>: lưu một câu bạn dùng lại được lần sau. Ghi chú có thể được sao chép thành văn bản hoặc xuất thành tệp Markdown.</li>
+  </ol>
+
+  <h2>Ba tab</h2>
+  <ul>
+    <li><strong>Học</strong>: một khóa 23 bài học, mỗi bài một quyết định thiết kế, như nút soạn ở dưới, vuốt để xóa, nhóm mục thanh công cụ, vị trí tìm kiếm và nên dùng bao nhiêu tab.</li>
+    <li><strong>Ghi chú</strong>: mọi thứ bạn viết trong các bài học, ở một chỗ.</li>
+    <li><strong>Thư viện</strong>: duyệt 68 chủ đề, gồm thanh công cụ, chữ, thanh tab, sheet và menu, dưới dạng hình minh họa. Chạm vào bất kỳ phần nào của hình để xem quy tắc và lý do, và mở một ví dụ chạy được cho mọi chủ đề.</li>
+  </ul>
+
+  <h2>Dành cho ai</h2>
+  <ul>
+    <li>Lập trình viên và nhà thiết kế đang xây app, muốn có lý do đằng sau mỗi lựa chọn bố cục</li>
+    <li>Bất kỳ ai đã đọc các nguyên tắc nhưng thấy đọng lại rất ít</li>
+  </ul>
+  <p>Không cần đăng nhập, và mọi thứ nằm sẵn trong app nên chạy ngoại tuyến. Tiến độ và ghi chú của bạn chỉ được lưu trên thiết bị của bạn.</p>
+
+  <h2>Miễn phí và Pro</h2>
+  <p>Dùng thử miễn phí 3 bài học, 10 lỗi, lab thanh công cụ và chương câu đố đầu tiên. 68 chủ đề, 7 nguyên tắc và ghi chú của bạn luôn miễn phí. Một <strong>gói đăng ký theo tuần hoặc theo tháng, hoặc mua trọn đời</strong>, mở khóa mọi bài học và tài nguyên. Bạn hủy đăng ký bất cứ lúc nào; gói mua trọn đời chỉ trả một lần. <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Điều khoản sử dụng</a></p>
+  <p>Nếu bạn đã cài app từ phiên bản 1.0.2 trở về trước, bạn giữ mọi thứ mà không cần mua.</p>
+
+  <section class="card" id="contact">
+    <h2>Liên hệ</h2>
+    <p>Thấy lỗi, sai sót nội dung, hay một màn hình bạn muốn được đề cập? Xin hãy cho chúng tôi biết, kèm kiểu thiết bị, phiên bản iOS và màn hình xảy ra sự việc.
+      Trong app, bạn có thể gửi trực tiếp từ <strong>Học › Cài đặt (góc trên bên phải) › Gửi phản hồi</strong>.</p>
+    <p>Email <a href="mailto:leeo@kakao.com?subject=%5BLuy%E1%BB%87n%20Thi%E1%BA%BFt%20K%E1%BA%BF%5D%20H%E1%BB%97%20tr%E1%BB%A3">leeo@kakao.com</a> · <a href="https://github.com/M1zz/HigGym/issues/new">GitHub Issues</a> · <a href="https://instagram.com/lee25_ios">Instagram</a></p>
+    <p>Chúng tôi không thu thập thông tin cá nhân. Xem <a href="../privacy.html">Chính sách quyền riêng tư</a> để biết chi tiết.</p>
+  </section>
+
+  <hr>
+  <footer><a href="../support.html">Hỗ trợ</a> · <a href="../privacy.html">Chính sách quyền riêng tư</a> · <a href="https://github.com/M1zz/HigGym">GitHub</a></footer>
+</main>
+</body>
+</html>

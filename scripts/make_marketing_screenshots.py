@@ -15,7 +15,7 @@ RAW = ROOT / "docs" / "screenshots" / "raw"
 OUT = ROOT / "docs" / "screenshots" / "marketing"
 WORK = pathlib.Path("/tmp") / "higgym-marketing"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th"}
+STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi"}
 
 # (원본 파일, 헤드라인, 서브카피), 언어마다 따로 쓴다.
 SHOTS = {
@@ -122,6 +122,14 @@ SHOTS = {
         ("04-reason.png",  "แล้วค่อยดูเหตุผล",  "การตัดสินใจ เหตุผล และสิ่งที่พังถ้าพลิกมัน"),
         ("05-compare.png",  "ที่ผิดกับที่แก้แล้ว<br>เคียงกัน",  "สลับในที่เดียวกันแล้วสัมผัสความต่าง"),
         ("06-items.png",  "68 หัวข้อ UI/UX<br>วาดเป็นภาพ",  "แถบเครื่องมือ แท็บ ชีต และข้อความในรูปม็อกอัป"),
+    ],
+    "vi": [
+        ("01-course.png",  "Đừng đọc.<br>Hãy chạm.",  "Mỗi bài một quyết định, 23 bài học UI/UX"),
+        ("02-try.png",  "Dùng thử trước",  "Dùng màn hình vi phạm quy tắc ở kích thước thật"),
+        ("03-write.png",  "Ghi lại điều<br>bạn cảm thấy",  "Trước đáp án, viết điều tay bạn nhận ra"),
+        ("04-reason.png",  "Rồi xem lý do",  "Quyết định, lý do và cái gì hỏng nếu đảo ngược"),
+        ("05-compare.png",  "Bản hỏng và bản sửa<br>cạnh nhau",  "Chuyển qua lại ngay tại chỗ để cảm nhận khác biệt"),
+        ("06-items.png",  "68 chủ đề UI/UX<br>vẽ thành hình",  "Thanh công cụ, tab, sheet và chữ trong mockup"),
     ],
 }
 

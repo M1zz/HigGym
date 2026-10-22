@@ -82,6 +82,12 @@
             "state": "translated",
             "value": "ฝึกดีไซน์"
           }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Luyện Thiết Kế"
+          }
         }
       }
     },
@@ -164,6 +170,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "ฝึกดีไซน์"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Luyện Thiết Kế"
           }
         }
       }
