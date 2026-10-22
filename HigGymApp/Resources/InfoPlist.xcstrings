@@ -112,6 +112,12 @@
             "state": "translated",
             "value": "Suunnittelulaboratorio"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Latihan Desain"
+          }
         }
       }
     },
@@ -224,6 +230,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Suunnittelulaboratorio"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Latihan Desain"
           }
         }
       }

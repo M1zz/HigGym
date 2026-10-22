@@ -1079,3 +1079,63 @@ https://m1zz.github.io/HigGym/fi/privacy.html
 ### 마케팅 URL
 
 https://m1zz.github.io/HigGym/fi/app/
+
+## id
+
+### 이름
+
+Latihan Desain: UI/UX
+
+### 부제
+
+Belajar UI/UX dengan mencoba
+
+### 키워드
+
+antarmuka,navigasi,wireframe,mockup,kuis,pengembang,prinsip,lembar,iOS,aksesibilitas
+
+### 프로모션 텍스트
+
+Tombol ini harus di mana? Pakai layar yang rusak, tuliskan apa yang janggal, dan bandingkan dengan perbaikannya sampai desain yang baik jadi naluri.
+
+### 설명
+
+UI/UX yang baik adalah tumpukan keputusan kecil. Latihan Desain adalah buku latihan praktis tempat kamu memakai layar yang mengambil keputusan itu dengan salah, lalu melihat persis mengapa.
+Setiap pelajaran mengangkat satu keputusan dalam lima langkah: coba layar yang rusak, tuliskan apa yang terasa janggal, lihat alasannya, bandingkan dengan versi yang diperbaiki, dan tuliskan yang kamu pelajari.
+
+23 PELAJARAN PRAKTIK
+Coba: aplikasi contoh terbuka dalam ukuran penuh bersama sebuah tugas. Layar yang kamu pakai sengaja melanggar sebuah aturan.
+Tuliskan: sebelum melihat jawabannya, catat apa yang kamu rasakan.
+Lihat alasannya: keputusan, alasan di baliknya, dan apa yang rusak jika dibalik, tepat di samping tulisanmu.
+Bandingkan: beralih antara layar yang rusak dan yang diperbaiki di tempat yang sama dan rasakan bedanya.
+Tuliskan yang kamu pelajari: simpan satu kalimat yang bisa dipakai lagi lain kali. Catatanmu terkumpul di tab Catatan, tempat kamu bisa menyalinnya atau mengekspornya sebagai berkas Markdown.
+
+PUSTAKA UNTUK MENDALAMI
+68 topik: bilah alat, judul, pencarian, bilah tab, lembar, dan teks, masing-masing digambar sebagai sketsa. Ketuk bagian mana pun dari gambar untuk melihat aturan di baliknya, dan buka contoh hidup untuk setiap topik.
+100 kesalahan: apa yang dilakukan, mengapa terasa benar saat itu, dan apa yang berubah saat diperbaiki, ditulis sebagai kilas balik singkat.
+7 prinsip: penilaian dasar di balik ke-68 topik, ditunjukkan dengan mengganti layar yang sama antara tata letak yang rusak dan yang benar.
+5 laboratorium: atur penempatan bilah alat, efek tepi gulir, pemotongan teks, tata letak bilah tab, dan tinggi lembar, dan lihat penilaiannya secara langsung.
+Kuis: 396 soal yang membuatmu melihat sebuah layar dan memutuskan.
+
+UNTUK SIAPA
+Pengembang yang menginginkan alasan di balik setiap tombol yang mereka letakkan
+Desainer yang ingin mengenal bilah alat, bilah tab, dan lembar terbaru
+Tim yang perlu menjelaskan mengapa dalam tinjauan desain
+
+Coba gratis 3 pelajaran, 10 kesalahan, laboratorium bilah alat, dan bab kuis pertama. 68 topik, 7 prinsip, dan catatanmu selalu gratis.
+Langganan mingguan, langganan bulanan, atau pembelian seumur hidup sekali bayar membuka semua pelajaran dan sumber daya.
+Langganan diperpanjang otomatis dengan harga yang sama kecuali dibatalkan setidaknya 24 jam sebelum periode berakhir. Kamu dapat mengelola atau membatalkannya kapan saja di pengaturan akun App Store-mu.
+Ketentuan Penggunaan: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Tidak ada akun, dan kemajuan serta catatanmu tetap berada di perangkatmu. Seluruh aplikasi tersedia dalam bahasa Indonesia, Inggris, Jepang, Korea, dan banyak bahasa lain.
+
+### 지원 URL
+
+https://m1zz.github.io/HigGym/id/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/HigGym/id/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/HigGym/id/app/

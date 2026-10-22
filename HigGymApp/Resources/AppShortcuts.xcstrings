@@ -112,6 +112,12 @@
             "state": "translated",
             "value": "Jatka oppimista sovelluksessa ${applicationName}"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lanjutkan belajar di ${applicationName}"
+          }
         }
       }
     },
@@ -224,6 +230,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Jatka sovellusta ${applicationName}"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lanjutkan ${applicationName}"
           }
         }
       }
@@ -338,6 +350,12 @@
             "state": "translated",
             "value": "Avaa ${applicationName}-muistiinpanot"
           }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buka catatan ${applicationName}"
+          }
         }
       }
     },
@@ -450,6 +468,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Näytä muistiinpanoni sovelluksessa ${applicationName}"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tampilkan catatanku di ${applicationName}"
           }
         }
       }
