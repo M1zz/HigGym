@@ -136,6 +136,12 @@
             "state": "translated",
             "value": "Kontynuuj naukę w ${applicationName}"
           }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fortsätt lära dig i ${applicationName}"
+          }
         }
       }
     },
@@ -272,6 +278,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Wznów ${applicationName}"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Återuppta ${applicationName}"
           }
         }
       }
@@ -410,6 +422,12 @@
             "state": "translated",
             "value": "Otwórz notatki w ${applicationName}"
           }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Öppna anteckningar i ${applicationName}"
+          }
         }
       }
     },
@@ -546,6 +564,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Pokaż moje notatki w ${applicationName}"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Visa mina anteckningar i ${applicationName}"
           }
         }
       }

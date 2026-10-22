@@ -1319,3 +1319,63 @@ https://m1zz.github.io/HigGym/pl/privacy.html
 ### 마케팅 URL
 
 https://m1zz.github.io/HigGym/pl/app/
+
+## sv
+
+### 이름
+
+Designövning: UI/UX
+
+### 부제
+
+Lär dig UI/UX genom att göra
+
+### 키워드
+
+gränssnitt,navigering,wireframe,skiss,quiz,utvecklare,principer,ark,iOS,tillgänglighet,design
+
+### 프로모션 텍스트
+
+Var ska den där knappen sitta? Använd trasiga skärmar, skriv ner vad som skaver och jämför med lösningen, tills bra designval sitter i ryggraden.
+
+### 설명
+
+Bra UI/UX är en hög av små beslut. Designövning är en praktisk övningsbok där du använder skärmar som fattar de besluten fel, och sedan ser exakt varför.
+Varje lektion behandlar ett beslut i fem steg: prova en trasig skärm, skriv ner vad som kändes konstigt, se varför, jämför med den rättade versionen och skriv vad du lärde dig.
+
+23 PRAKTISKA LEKTIONER
+Prova: en exempelapp öppnas i full storlek med en uppgift. Skärmen du använder bryter medvetet mot en regel.
+Skriv ner: anteckna vad du märkte innan du ser svaret.
+Se varför: beslutet, resonemanget bakom det och vad som går sönder om du vänder på det, precis bredvid det du skrev.
+Jämför: växla på samma plats mellan den trasiga och den rättade skärmen och känn skillnaden.
+Skriv vad du lärde dig: spara en mening som du kan återanvända nästa gång. Dina anteckningar samlas på fliken Anteckningar, där du kan kopiera dem eller exportera dem som en Markdown-fil.
+
+BIBLIOTEK FÖR ATT FÖRDJUPA DIG
+68 ämnen: verktygsfält, rubriker, sökning, flikfält, ark och text, vart och ett ritat som en skiss. Tryck på valfri del av en bild för att se regeln bakom, och öppna ett levande exempel för varje ämne.
+100 misstag: vad som gjordes, varför det kändes rätt då och vad som ändras när du rättar det, skrivet som korta återblickar.
+7 principer: de grundläggande avvägningarna bakom alla 68 ämnen, visade genom att växla samma skärm mellan en trasig och en rätt layout.
+5 labb: ändra verktygsfältets placering, rullningskanteffekter, textkapning, flikfältets uppsättning och arkets höjd och se bedömningen live.
+Quiz: 396 frågor där du tittar på en skärm och bestämmer dig.
+
+VEM DEN ÄR TILL FÖR
+Utvecklare som vill ha ett skäl bakom varje knapp de placerar
+Designers som vill lära sig de senaste verktygsfälten, flikfälten och arken
+Team som måste förklara varför på designgranskningar
+
+Prova 3 lektioner, 10 misstag, verktygsfältslabbet och första quizkapitlet gratis. De 68 ämnena, 7 principerna och dina anteckningar är alltid gratis.
+En veckoprenumeration, en månadsprenumeration eller ett engångsköp för livstid låser upp varje lektion och resurs.
+Prenumerationer förnyas automatiskt till samma pris om de inte avslutas minst 24 timmar innan perioden går ut. Du kan hantera eller avsluta dem när som helst i inställningarna för ditt App Store-konto.
+Användarvillkor: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Inget konto, och dina framsteg och anteckningar stannar på din enhet. Hela appen finns på svenska, engelska, japanska, koreanska och många andra språk.
+
+### 지원 URL
+
+https://m1zz.github.io/HigGym/sv/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/HigGym/sv/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/HigGym/sv/app/

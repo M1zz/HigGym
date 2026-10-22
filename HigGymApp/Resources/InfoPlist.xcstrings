@@ -136,6 +136,12 @@
             "state": "translated",
             "value": "Praktyka designu"
           }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Designövning"
+          }
         }
       }
     },
@@ -272,6 +278,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Praktyka designu"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Designövning"
           }
         }
       }
