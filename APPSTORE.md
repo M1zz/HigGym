@@ -1199,3 +1199,63 @@ https://m1zz.github.io/HigGym/nb/privacy.html
 ### 마케팅 URL
 
 https://m1zz.github.io/HigGym/nb/app/
+
+## nl
+
+### 이름
+
+Ontwerppraktijk: UI/UX
+
+### 부제
+
+Leer UI/UX door te doen
+
+### 키워드
+
+interface,navigatie,wireframe,mockup,quiz,ontwikkelaar,principes,sheet,iOS,toegankelijkheid
+
+### 프로모션 텍스트
+
+Waar hoort die knop? Gebruik kapotte schermen, schrijf op wat wringt en vergelijk met de oplossing, tot goede ontwerpkeuzes vanzelf gaan.
+
+### 설명
+
+Goede UI/UX is een stapel kleine beslissingen. Ontwerppraktijk is een praktisch werkboek waarin je schermen gebruikt die die beslissingen verkeerd nemen, en dan precies ziet waarom.
+Elke les behandelt één beslissing in vijf stappen: probeer een kapot scherm, schrijf op wat er vreemd voelde, zie waarom, vergelijk met de gerepareerde versie en schrijf wat je leerde.
+
+23 PRAKTISCHE LESSEN
+Probeer het: een voorbeeldapp opent op volledige grootte met een taak. Het scherm dat je gebruikt breekt met opzet een regel.
+Schrijf het op: noteer voordat je het antwoord ziet wat je opviel.
+Zie waarom: de beslissing, de redenering erachter en wat er breekt als je hem omdraait, direct naast wat je schreef.
+Vergelijk: wissel op dezelfde plek tussen het kapotte en het gerepareerde scherm en voel het verschil.
+Schrijf wat je leerde: bewaar een zin die je de volgende keer kunt hergebruiken. Je notities verzamelen zich in het tabblad Notities, waar je ze kunt kopiëren of als Markdown-bestand kunt exporteren.
+
+BIBLIOTHEEK OM DIEPER TE GAAN
+68 onderwerpen: werkbalken, titels, zoeken, tabbalken, sheets en tekst, elk getekend als schets. Tik op een willekeurig deel van een plaatje om de regel erachter te zien, en open voor elk onderwerp een levend voorbeeld.
+100 fouten: wat er werd gedaan, waarom het toen goed voelde en wat er verandert als je het repareert, geschreven als korte terugblikken.
+7 principes: de basisafwegingen achter alle 68 onderwerpen, getoond door hetzelfde scherm te wisselen tussen een kapotte en een juiste layout.
+5 labs: pas werkbalkplaatsing, scrollrandeffecten, tekstafkapping, tabbalkopzet en sheethoogte aan en zie het oordeel live.
+Quiz: 396 vragen die je naar een scherm laten kijken en laten beslissen.
+
+VOOR WIE HET IS
+Ontwikkelaars die een reden willen achter elke knop die ze plaatsen
+Ontwerpers die de nieuwste werkbalken, tabbalken en sheets willen leren kennen
+Teams die in ontwerpreviews het waarom moeten uitleggen
+
+Probeer 3 lessen, 10 fouten, het werkbalklab en het eerste quizhoofdstuk gratis. De 68 onderwerpen, 7 principes en je notities zijn altijd gratis.
+Een wekelijks abonnement, een maandelijks abonnement of een eenmalige aankoop voor altijd ontgrendelt elke les en elke bron.
+Abonnementen worden automatisch verlengd tegen dezelfde prijs, tenzij ze minstens 24 uur voor het einde van de periode worden opgezegd. Je kunt ze op elk moment beheren of opzeggen in je App Store-accountinstellingen.
+Gebruiksvoorwaarden: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Geen account, en je voortgang en notities blijven op je apparaat. De hele app is beschikbaar in het Nederlands, Engels, Japans, Koreaans en vele andere talen.
+
+### 지원 URL
+
+https://m1zz.github.io/HigGym/nl/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/HigGym/nl/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/HigGym/nl/app/

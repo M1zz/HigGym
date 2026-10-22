@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ontwerppraktijk: een werkboek voor UI/UX</title>
+<meta name="description" content="Gebruik schermen die een richtlijn breken, schrijf op wat er vreemd voelde en vergelijk met de gerepareerde versie. Een praktisch werkboek om UI/UX-oordeel op te bouwen.">
+<link rel="canonical" href="https://m1zz.github.io/HigGym/nl/app/">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/app/">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/app/">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/app/">
+<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/HigGym/ru/app/">
+<link rel="alternate" hreflang="es" href="https://m1zz.github.io/HigGym/es/app/">
+<link rel="alternate" hreflang="de" href="https://m1zz.github.io/HigGym/de/app/">
+<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/HigGym/fr/app/">
+<link rel="alternate" hreflang="it" href="https://m1zz.github.io/HigGym/it/app/">
+<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/HigGym/pt-br/app/">
+<link rel="alternate" hreflang="th" href="https://m1zz.github.io/HigGym/th/app/">
+<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/HigGym/vi/app/">
+<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/HigGym/cs/app/">
+<link rel="alternate" hreflang="da" href="https://m1zz.github.io/HigGym/da/app/">
+<link rel="alternate" hreflang="el" href="https://m1zz.github.io/HigGym/el/app/">
+<link rel="alternate" hreflang="fi" href="https://m1zz.github.io/HigGym/fi/app/">
+<link rel="alternate" hreflang="id" href="https://m1zz.github.io/HigGym/id/app/">
+<link rel="alternate" hreflang="nb" href="https://m1zz.github.io/HigGym/nb/app/">
+<link rel="alternate" hreflang="nl" href="https://m1zz.github.io/HigGym/nl/app/">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/app/">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Taal"><a href="../../app/" hreflang="ko" lang="ko">한국어</a> · <a href="../../en/app/" hreflang="en" lang="en">English</a> · <a href="../../ja/app/" hreflang="ja" lang="ja">日本語</a> · <a href="../../zh-hans/app/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="../../zh-hant/app/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> · <a href="../../ru/app/" hreflang="ru" lang="ru">Русский</a> · <a href="../../es/app/" hreflang="es" lang="es">Español</a> · <a href="../../de/app/" hreflang="de" lang="de">Deutsch</a> · <a href="../../fr/app/" hreflang="fr" lang="fr">Français</a> · <a href="../../it/app/" hreflang="it" lang="it">Italiano</a> · <a href="../../pt-br/app/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../th/app/" hreflang="th" lang="th">ไทย</a> · <a href="../../vi/app/" hreflang="vi" lang="vi">Tiếng Việt</a> · <a href="../../cs/app/" hreflang="cs" lang="cs">Čeština</a> · <a href="../../da/app/" hreflang="da" lang="da">Dansk</a> · <a href="../../el/app/" hreflang="el" lang="el">Ελληνικά</a> · <a href="../../fi/app/" hreflang="fi" lang="fi">Suomi</a> · <a href="../../id/app/" hreflang="id" lang="id">Bahasa Indonesia</a> · <a href="../../nb/app/" hreflang="nb" lang="nb">Norsk bokmål</a> · <a href="./" aria-current="page">Nederlands</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>Ontwerppraktijk</h1></header>
+  <p class="meta">Een werkboek-app over UI/UX · iPhone</p>
+  <nav class="lang"><a href="#contact">Contact</a> · <a href="../support.html">Support</a> · <a href="../privacy.html">Privacybeleid</a></nav>
+
+  <section class="card">
+    <h2>Ontwerpstudie die verder gaat dan lezen</h2>
+    <p>Goede UI/UX is een stapel kleine beslissingen. In plaats van er alleen over te lezen, <strong>gebruik je een scherm dat een richtlijn breekt, schrijf je op wat er vreemd voelde en vergelijk je het dan met de regel</strong>.
+      De app bevat 23 lessen, 68 geannoteerde onderwerpen, 100 veelvoorkomende fouten, 7 principes, 5 labs en 396 quizvragen. De hele app is beschikbaar in het Nederlands, Engels, Japans, Koreaans en vele andere talen.</p>
+  </section>
+
+  <h2>Elke les heeft vijf stappen</h2>
+  <ol>
+    <li><strong>Probeer het</strong>: open een voorbeeldapp op volledige grootte en krijg een taak. Het scherm dat je hier gebruikt breekt met opzet een richtlijn.</li>
+    <li><strong>Schrijf het op</strong>: noteer voordat je het antwoord ziet wat er vreemd voelde.</li>
+    <li><strong>Zie waarom</strong>: je notities komen naast de regel te staan, samen met de beslissing, de redenering erachter en wat er breekt als je hem omdraait.</li>
+    <li><strong>Vergelijk</strong>: wissel op dezelfde plek tussen het kapotte en het gerepareerde scherm en zie het verschil.</li>
+    <li><strong>Schrijf wat je leerde</strong>: bewaar een zin die je de volgende keer kunt hergebruiken. Notities kunnen als tekst worden gekopieerd of als Markdown-bestand worden geëxporteerd.</li>
+  </ol>
+
+  <h2>Drie tabbladen</h2>
+  <ul>
+    <li><strong>Leren</strong>: een cursus van 23 lessen, elk met één ontwerpbeslissing, zoals schrijfknoppen onderaan, vegen om te verwijderen, gegroepeerde werkbalkitems, de plaatsing van zoeken en hoeveel tabbladen je gebruikt.</li>
+    <li><strong>Notities</strong>: alles wat je tijdens lessen schreef, op één plek.</li>
+    <li><strong>Bibliotheek</strong>: blader als illustraties door 68 onderwerpen, waaronder werkbalken, tekst, tabbalken, sheets en menu's. Tik op een willekeurig deel van een plaatje om de regel en de redenering te zien, en open voor elk onderwerp een werkend voorbeeld.</li>
+  </ul>
+
+  <h2>Voor wie het is</h2>
+  <ul>
+    <li>Ontwikkelaars en ontwerpers die apps bouwen en een reden willen achter elke layoutkeuze</li>
+    <li>Iedereen die de richtlijnen heeft gelezen maar merkte dat er weinig bleef hangen</li>
+  </ul>
+  <p>Inloggen is niet nodig, en alles zit in de app, dus hij werkt offline. Je voortgang en notities worden alleen op je apparaat opgeslagen.</p>
+
+  <h2>Gratis en Pro</h2>
+  <p>Probeer 3 lessen, 10 fouten, het werkbalklab en het eerste quizhoofdstuk gratis. De 68 onderwerpen, 7 principes en je notities zijn altijd gratis. <strong>Een wekelijks of maandelijks abonnement, of een aankoop voor altijd</strong>, ontgrendelt elke les en elke bron. Zeg een abonnement op wanneer je wilt; de aankoop voor altijd is een eenmalige betaling. <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Gebruiksvoorwaarden</a></p>
+  <p>Als je de app met versie 1.0.2 of eerder hebt geïnstalleerd, behoud je alles zonder aankoop.</p>
+
+  <section class="card" id="contact">
+    <h2>Contact</h2>
+    <p>Een bug, een inhoudsfout of een scherm gevonden dat je behandeld wilt zien? Laat het ons weten, en vermeld je apparaatmodel, iOS-versie en het scherm waar het gebeurde.
+      In de app kun je het direct versturen via <strong>Leren › Instellingen (rechtsboven) › Stuur feedback</strong>.</p>
+    <p>E-mail <a href="mailto:leeo@kakao.com?subject=%5BOntwerppraktijk%5D%20Support">leeo@kakao.com</a> · <a href="https://github.com/M1zz/HigGym/issues/new">GitHub Issues</a> · <a href="https://instagram.com/lee25_ios">Instagram</a></p>
+    <p>We verzamelen geen persoonsgegevens. Zie het <a href="../privacy.html">Privacybeleid</a> voor details.</p>
+  </section>
+
+  <hr>
+  <footer><a href="../support.html">Support</a> · <a href="../privacy.html">Privacybeleid</a> · <a href="https://github.com/M1zz/HigGym">GitHub</a></footer>
+</main>
+</body>
+</html>

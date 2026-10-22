@@ -124,6 +124,12 @@
             "state": "translated",
             "value": "Designpraksis"
           }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ontwerppraktijk"
+          }
         }
       }
     },
@@ -248,6 +254,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Designpraksis"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ontwerppraktijk"
           }
         }
       }
