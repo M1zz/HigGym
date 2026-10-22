@@ -15,7 +15,7 @@ RAW = ROOT / "docs" / "screenshots" / "raw"
 OUT = ROOT / "docs" / "screenshots" / "marketing"
 WORK = pathlib.Path("/tmp") / "higgym-marketing"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR"}
+STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th"}
 
 # (원본 파일, 헤드라인, 서브카피), 언어마다 따로 쓴다.
 SHOTS = {
@@ -114,6 +114,14 @@ SHOTS = {
         ("04-reason.png",  "Depois entenda o porquê",  "A decisão, o motivo e o que quebra se você a inverter"),
         ("05-compare.png",  "Com erro e corrigida,<br>lado a lado",  "Alterne no mesmo lugar e perceba a diferença"),
         ("06-items.png",  "68 tópicos de UI/UX<br>desenhados",  "Barras de ferramentas, abas, folhas e texto como mockups"),
+    ],
+    "th": [
+        ("01-course.png",  "อย่าอ่าน<br>ให้แตะ",  "หนึ่งบทเรียนหนึ่งการตัดสินใจ 23 บทเรียน UI/UX"),
+        ("02-try.png",  "ลองก่อน",  "ใช้หน้าจอที่ฝ่าฝืนกฎในขนาดจริง"),
+        ("03-write.png",  "จดสิ่งที่<br>คุณรู้สึก",  "ก่อนเฉลย เขียนสิ่งที่มือของคุณสังเกต"),
+        ("04-reason.png",  "แล้วค่อยดูเหตุผล",  "การตัดสินใจ เหตุผล และสิ่งที่พังถ้าพลิกมัน"),
+        ("05-compare.png",  "ที่ผิดกับที่แก้แล้ว<br>เคียงกัน",  "สลับในที่เดียวกันแล้วสัมผัสความต่าง"),
+        ("06-items.png",  "68 หัวข้อ UI/UX<br>วาดเป็นภาพ",  "แถบเครื่องมือ แท็บ ชีต และข้อความในรูปม็อกอัป"),
     ],
 }
 

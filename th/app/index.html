@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ฝึกดีไซน์: สมุดฝึก UI/UX ภาคปฏิบัติ</title>
+<meta name="description" content="ใช้หน้าจอที่ฝ่าฝืนแนวทาง จดสิ่งที่รู้สึกแปลก แล้วเปรียบเทียบกับเวอร์ชันที่แก้แล้ว สมุดฝึกภาคปฏิบัติเพื่อสร้างวิจารณญาณด้าน UI/UX">
+<link rel="canonical" href="https://m1zz.github.io/HigGym/th/app/">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/app/">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/app/">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/app/">
+<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/HigGym/ru/app/">
+<link rel="alternate" hreflang="es" href="https://m1zz.github.io/HigGym/es/app/">
+<link rel="alternate" hreflang="de" href="https://m1zz.github.io/HigGym/de/app/">
+<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/HigGym/fr/app/">
+<link rel="alternate" hreflang="it" href="https://m1zz.github.io/HigGym/it/app/">
+<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/HigGym/pt-br/app/">
+<link rel="alternate" hreflang="th" href="https://m1zz.github.io/HigGym/th/app/">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/app/">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="ภาษา"><a href="../../app/" hreflang="ko" lang="ko">한국어</a> · <a href="../../en/app/" hreflang="en" lang="en">English</a> · <a href="../../ja/app/" hreflang="ja" lang="ja">日本語</a> · <a href="../../zh-hans/app/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="../../zh-hant/app/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> · <a href="../../ru/app/" hreflang="ru" lang="ru">Русский</a> · <a href="../../es/app/" hreflang="es" lang="es">Español</a> · <a href="../../de/app/" hreflang="de" lang="de">Deutsch</a> · <a href="../../fr/app/" hreflang="fr" lang="fr">Français</a> · <a href="../../it/app/" hreflang="it" lang="it">Italiano</a> · <a href="../../pt-br/app/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="./" aria-current="page">ไทย</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>ฝึกดีไซน์</h1></header>
+  <p class="meta">แอปฝึก UI/UX ภาคปฏิบัติ · iPhone</p>
+  <nav class="lang"><a href="#contact">ติดต่อ</a> · <a href="../support.html">ฝ่ายสนับสนุน</a> · <a href="../privacy.html">นโยบายความเป็นส่วนตัว</a></nav>
+
+  <section class="card">
+    <h2>การเรียนดีไซน์ที่ไปไกลกว่าการอ่าน</h2>
+    <p>UI/UX ที่ดีคือการสะสมการตัดสินใจเล็ก ๆ แทนที่จะอ่านเรื่องเหล่านั้นอย่างเดียว คุณ<strong>ใช้หน้าจอที่ฝ่าฝืนแนวทาง จดสิ่งที่รู้สึกแปลก แล้วเปรียบเทียบกับกฎ</strong>
+      แอปมี 23 บทเรียน 68 หัวข้อพร้อมคำอธิบายประกอบ ข้อผิดพลาดที่พบบ่อย 100 ข้อ 7 หลักการ 5 แล็บ และคำถามแบบทดสอบ 396 ข้อ ทั้งหมดมีให้เลือกในภาษาไทย อังกฤษ ญี่ปุ่น เกาหลี และภาษาอื่น ๆ</p>
+  </section>
+
+  <h2>ทุกบทเรียนมีห้าขั้นตอน</h2>
+  <ol>
+    <li><strong>ลองดู</strong>: เปิดแอปตัวอย่างขนาดจริงและรับงานหนึ่งอย่าง หน้าจอที่คุณใช้ตรงนี้ฝ่าฝืนแนวทางโดยตั้งใจ</li>
+    <li><strong>จดไว้</strong>: ก่อนเห็นเฉลย ให้บันทึกสิ่งที่รู้สึกแปลก</li>
+    <li><strong>ดูเหตุผล</strong>: โน้ตของคุณอยู่ข้างกฎ พร้อมการตัดสินใจ เหตุผลเบื้องหลัง และสิ่งที่พังถ้าพลิกมัน</li>
+    <li><strong>เปรียบเทียบ</strong>: สลับในที่เดียวกันระหว่างหน้าจอที่พังกับหน้าจอที่แก้แล้ว แล้วดูความต่าง</li>
+    <li><strong>เขียนสิ่งที่เรียนรู้</strong>: บันทึกประโยคที่นำกลับมาใช้ได้ในครั้งหน้า โน้ตคัดลอกเป็นข้อความหรือส่งออกเป็นไฟล์ Markdown ได้</li>
+  </ol>
+
+  <h2>สามแท็บ</h2>
+  <ul>
+    <li><strong>เรียนรู้</strong>: คอร์ส 23 บทเรียน แต่ละบทเกี่ยวกับการตัดสินใจด้านดีไซน์หนึ่งอย่าง เช่นปุ่มเขียนด้านล่าง การปัดเพื่อลบ การจัดกลุ่มรายการแถบเครื่องมือ ตำแหน่งการค้นหา และจำนวนแท็บ</li>
+    <li><strong>โน้ต</strong>: ทุกสิ่งที่คุณเขียนระหว่างบทเรียน รวมไว้ที่เดียว</li>
+    <li><strong>คลัง</strong>: เรียกดู 68 หัวข้อ รวมถึงแถบเครื่องมือ ข้อความ แถบแท็บ ชีต และเมนู ในรูปภาพประกอบ แตะส่วนใดก็ได้ของภาพเพื่อดูกฎและเหตุผล และเปิดตัวอย่างที่ใช้งานได้สำหรับทุกหัวข้อ</li>
+  </ul>
+
+  <h2>เหมาะกับใคร</h2>
+  <ul>
+    <li>นักพัฒนาและดีไซเนอร์ที่สร้างแอปและอยากมีเหตุผลเบื้องหลังทุกการเลือกเลย์เอาต์</li>
+    <li>ผู้ที่เคยอ่านแนวทางแล้วพบว่าจำได้น้อย</li>
+  </ul>
+  <p>ไม่ต้องลงชื่อเข้า และทุกอย่างอยู่ในแอป จึงใช้งานแบบออฟไลน์ได้ ความคืบหน้าและโน้ตของคุณเก็บไว้บนอุปกรณ์ของคุณเท่านั้น</p>
+
+  <h2>ฟรีและ Pro</h2>
+  <p>ลอง 3 บทเรียน 10 ข้อผิดพลาด แล็บแถบเครื่องมือ และบทแรกของแบบทดสอบได้ฟรี 68 หัวข้อ 7 หลักการ และโน้ตของคุณฟรีเสมอ <strong>การสมัครสมาชิกรายสัปดาห์หรือรายเดือน หรือการซื้อแบบตลอดชีพ</strong>ปลดล็อกทุกบทเรียนและทรัพยากร ยกเลิกการสมัครสมาชิกได้ทุกเมื่อ การซื้อแบบตลอดชีพชำระครั้งเดียว <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">ข้อกำหนดการใช้งาน</a></p>
+  <p>ถ้าคุณติดตั้งแอปด้วยเวอร์ชัน 1.0.2 หรือเก่ากว่า คุณได้ทุกอย่างโดยไม่ต้องซื้อ</p>
+
+  <section class="card" id="contact">
+    <h2>ติดต่อ</h2>
+    <p>พบบั๊ก ข้อผิดพลาดของเนื้อหา หรือหน้าจอที่อยากให้ครอบคลุมไหม แจ้งเราพร้อมรุ่นอุปกรณ์ เวอร์ชันของ iOS และหน้าจอที่เกิดปัญหา
+      ในแอป คุณส่งได้โดยตรงที่ <strong>เรียนรู้ › การตั้งค่า (มุมขวาบน) › ส่งความคิดเห็น</strong></p>
+    <p>อีเมล: <a href="mailto:leeo@kakao.com?subject=%5B%E0%B8%9D%E0%B8%B6%E0%B8%81%E0%B8%94%E0%B8%B5%E0%B9%84%E0%B8%8B%E0%B8%99%E0%B9%8C%5D%20%E0%B8%9D%E0%B9%88%E0%B8%B2%E0%B8%A2%E0%B8%AA%E0%B8%99%E0%B8%B1%E0%B8%9A%E0%B8%AA%E0%B8%99%E0%B8%B8%E0%B8%99">leeo@kakao.com</a> · <a href="https://github.com/M1zz/HigGym/issues/new">GitHub Issues</a> · <a href="https://instagram.com/lee25_ios">Instagram</a></p>
+    <p>เราไม่เก็บข้อมูลส่วนบุคคลใด ๆ ดูรายละเอียดที่ <a href="../privacy.html">นโยบายความเป็นส่วนตัว</a></p>
+  </section>
+
+  <hr>
+  <footer><a href="../support.html">ฝ่ายสนับสนุน</a> · <a href="../privacy.html">นโยบายความเป็นส่วนตัว</a> · <a href="https://github.com/M1zz/HigGym">GitHub</a></footer>
+</main>
+</body>
+</html>

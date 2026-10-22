@@ -76,6 +76,12 @@
             "state": "translated",
             "value": "Prática de Design"
           }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ฝึกดีไซน์"
+          }
         }
       }
     },
@@ -152,6 +158,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Prática de Design"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ฝึกดีไซน์"
           }
         }
       }
