@@ -88,6 +88,12 @@
             "state": "translated",
             "value": "Luyện Thiết Kế"
           }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Designová praxe"
+          }
         }
       }
     },
@@ -176,6 +182,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Luyện Thiết Kế"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Designová praxe"
           }
         }
       }

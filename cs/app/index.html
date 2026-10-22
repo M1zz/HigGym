@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Designová praxe: cvičebnice UI/UX</title>
+<meta name="description" content="Používejte obrazovky, které porušují zásadu, zapisujte si, co vám přišlo divné, a porovnávejte s opravenou verzí. Praktická cvičebnice pro rozvoj úsudku v UI/UX.">
+<link rel="canonical" href="https://m1zz.github.io/HigGym/cs/app/">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/app/">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/app/">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/app/">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/app/">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/app/">
+<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/HigGym/ru/app/">
+<link rel="alternate" hreflang="es" href="https://m1zz.github.io/HigGym/es/app/">
+<link rel="alternate" hreflang="de" href="https://m1zz.github.io/HigGym/de/app/">
+<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/HigGym/fr/app/">
+<link rel="alternate" hreflang="it" href="https://m1zz.github.io/HigGym/it/app/">
+<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/HigGym/pt-br/app/">
+<link rel="alternate" hreflang="th" href="https://m1zz.github.io/HigGym/th/app/">
+<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/HigGym/vi/app/">
+<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/HigGym/cs/app/">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/app/">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  h3{font-size:1rem;margin:20px 0 4px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  .btn{display:inline-block;margin-top:6px;padding:9px 16px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+  ul,ol{padding-left:1.2em}
+  li{margin:4px 0}
+  p{margin:6px 0}
+  a{color:var(--accent)}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Jazyk"><a href="../../app/" hreflang="ko" lang="ko">한국어</a> · <a href="../../en/app/" hreflang="en" lang="en">English</a> · <a href="../../ja/app/" hreflang="ja" lang="ja">日本語</a> · <a href="../../zh-hans/app/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="../../zh-hant/app/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> · <a href="../../ru/app/" hreflang="ru" lang="ru">Русский</a> · <a href="../../es/app/" hreflang="es" lang="es">Español</a> · <a href="../../de/app/" hreflang="de" lang="de">Deutsch</a> · <a href="../../fr/app/" hreflang="fr" lang="fr">Français</a> · <a href="../../it/app/" hreflang="it" lang="it">Italiano</a> · <a href="../../pt-br/app/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../../th/app/" hreflang="th" lang="th">ไทย</a> · <a href="../../vi/app/" hreflang="vi" lang="vi">Tiếng Việt</a> · <a href="./" aria-current="page">Čeština</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>Designová praxe</h1></header>
+  <p class="meta">Aplikace se cvičebnicí UI/UX · iPhone</p>
+  <nav class="lang"><a href="#contact">Kontakt</a> · <a href="../support.html">Podpora</a> · <a href="../privacy.html">Zásady ochrany osobních údajů</a></nav>
+
+  <section class="card">
+    <h2>Studium designu, které jde dál než čtení</h2>
+    <p>Skvělé UI/UX je hromada malých rozhodnutí. Místo pouhého čtení o nich <strong>použijete obrazovku, která porušuje zásadu, zapíšete si, co vám přišlo divné, a pak ji porovnáte s pravidlem</strong>.
+      Aplikace obsahuje 23 lekcí, 68 komentovaných témat, 100 častých chyb, 7 zásad, 5 labů a 396 otázek kvízu. Celá aplikace je dostupná v češtině, angličtině, japonštině, korejštině a mnoha dalších jazycích.</p>
+  </section>
+
+  <h2>Každá lekce má pět kroků</h2>
+  <ol>
+    <li><strong>Vyzkoušet</strong>: otevřete ukázkovou aplikaci v plné velikosti a dostanete úkol. Obrazovka, kterou tu používáte, záměrně porušuje zásadu.</li>
+    <li><strong>Zapsat</strong>: dřív než uvidíte odpověď, poznamenejte si, co vám přišlo divné.</li>
+    <li><strong>Zjistit proč</strong>: vaše poznámky sedí vedle pravidla, spolu s rozhodnutím, důvodem za ním a tím, co se rozbije, když ho obrátíte.</li>
+    <li><strong>Porovnat</strong>: přepínejte na stejném místě mezi rozbitou obrazovkou a opravenou a sledujte rozdíl.</li>
+    <li><strong>Napsat, co jste se naučili</strong>: uložte větu, kterou příště použijete znovu. Poznámky lze zkopírovat jako text nebo exportovat jako soubor Markdown.</li>
+  </ol>
+
+  <h2>Tři karty</h2>
+  <ul>
+    <li><strong>Učení</strong>: kurz o 23 lekcích, každá o jednom designovém rozhodnutí, jako spodní tlačítka psaní, přejetí pro smazání, seskupené položky panelu nástrojů, umístění hledání a kolik karet použít.</li>
+    <li><strong>Poznámky</strong>: všechno, co jste napsali během lekcí, na jednom místě.</li>
+    <li><strong>Knihovna</strong>: procházejte 68 témat, včetně panelů nástrojů, textu, panelů karet, sheetů a nabídek, jako ilustrace. Klepněte na libovolnou část obrázku a uvidíte její pravidlo a důvod a otevřete fungující příklad ke každému tématu.</li>
+  </ul>
+
+  <h2>Pro koho je</h2>
+  <ul>
+    <li>Vývojáře a designéry, kteří staví aplikace a chtějí mít důvod za každou volbou rozvržení</li>
+    <li>Každého, kdo četl zásady, ale zjistil, že z nich zůstalo jen málo</li>
+  </ul>
+  <p>Není třeba se přihlašovat a všechno je přímo v aplikaci, takže funguje offline. Váš postup a poznámky jsou uloženy jen ve vašem zařízení.</p>
+
+  <h2>Zdarma a Pro</h2>
+  <p>Vyzkoušejte zdarma 3 lekce, 10 chyb, lab panelu nástrojů a první kapitolu kvízu. 68 témat, 7 zásad a vaše poznámky jsou vždy zdarma. <strong>Týdenní nebo měsíční předplatné či doživotní nákup</strong> odemkne každou lekci a zdroj. Předplatné můžete kdykoli zrušit; doživotní nákup se platí jednou. <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Podmínky použití</a></p>
+  <p>Pokud jste aplikaci nainstalovali ve verzi 1.0.2 nebo dřívější, zachováte si všechno bez nákupu.</p>
+
+  <section class="card" id="contact">
+    <h2>Kontakt</h2>
+    <p>Našli jste chybu, nepřesnost v obsahu nebo obrazovku, kterou byste chtěli pokrýt? Dejte nám vědět a uveďte model zařízení, verzi iOS a obrazovku, na které se to stalo.
+      V aplikaci to můžete odeslat přímo z <strong>Učení › Nastavení (vpravo nahoře) › Odeslat zpětnou vazbu</strong>.</p>
+    <p>E-mail <a href="mailto:leeo@kakao.com?subject=%5BDesignov%C3%A1%20praxe%5D%20Podpora">leeo@kakao.com</a> · <a href="https://github.com/M1zz/HigGym/issues/new">GitHub Issues</a> · <a href="https://instagram.com/lee25_ios">Instagram</a></p>
+    <p>Neshromažďujeme osobní údaje. Podrobnosti najdete v <a href="../privacy.html">Zásadách ochrany osobních údajů</a>.</p>
+  </section>
+
+  <hr>
+  <footer><a href="../support.html">Podpora</a> · <a href="../privacy.html">Zásady ochrany osobních údajů</a> · <a href="https://github.com/M1zz/HigGym">GitHub</a></footer>
+</main>
+</body>
+</html>

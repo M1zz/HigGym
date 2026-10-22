@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zásady ochrany osobních údajů, Designová praxe</title>
+<link rel="canonical" href="https://m1zz.github.io/HigGym/cs/privacy.html">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/privacy.html">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/privacy.html">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/privacy.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/privacy.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/privacy.html">
+<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/HigGym/ru/privacy.html">
+<link rel="alternate" hreflang="es" href="https://m1zz.github.io/HigGym/es/privacy.html">
+<link rel="alternate" hreflang="de" href="https://m1zz.github.io/HigGym/de/privacy.html">
+<link rel="alternate" hreflang="fr" href="https://m1zz.github.io/HigGym/fr/privacy.html">
+<link rel="alternate" hreflang="it" href="https://m1zz.github.io/HigGym/it/privacy.html">
+<link rel="alternate" hreflang="pt-BR" href="https://m1zz.github.io/HigGym/pt-br/privacy.html">
+<link rel="alternate" hreflang="th" href="https://m1zz.github.io/HigGym/th/privacy.html">
+<link rel="alternate" hreflang="vi" href="https://m1zz.github.io/HigGym/vi/privacy.html">
+<link rel="alternate" hreflang="cs" href="https://m1zz.github.io/HigGym/cs/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/privacy.html">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  ul{padding-left:1.2em}
+  li{margin:4px 0}
+  a{color:var(--accent)}
+  code{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:.9em}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Jazyk"><a href="../privacy.html" hreflang="ko" lang="ko">한국어</a> · <a href="../en/privacy.html" hreflang="en" lang="en">English</a> · <a href="../ja/privacy.html" hreflang="ja" lang="ja">日本語</a> · <a href="../zh-hans/privacy.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="../zh-hant/privacy.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> · <a href="../ru/privacy.html" hreflang="ru" lang="ru">Русский</a> · <a href="../es/privacy.html" hreflang="es" lang="es">Español</a> · <a href="../de/privacy.html" hreflang="de" lang="de">Deutsch</a> · <a href="../fr/privacy.html" hreflang="fr" lang="fr">Français</a> · <a href="../it/privacy.html" hreflang="it" lang="it">Italiano</a> · <a href="../pt-br/privacy.html" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../th/privacy.html" hreflang="th" lang="th">ไทย</a> · <a href="../vi/privacy.html" hreflang="vi" lang="vi">Tiếng Việt</a> · <a href="./privacy.html" aria-current="page">Čeština</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>Zásady ochrany osobních údajů</h1></header>
+  <p class="meta">Designová praxe (iOS) · Platí od 20. října 2026</p>
+  <nav class="lang"><a href="./app/">O aplikaci</a> · <a href="./support.html">Podpora</a></nav>
+
+  <section class="card">
+    <h2>Shrnutí</h2>
+    <p><strong>Designová praxe neshromažďuje žádné osobní údaje.</strong> Není tu žádný účet, žádná reklama, žádná analytika ani sledovací nástroje třetích stran. Váš postup a poznámky zůstávají ve vašem zařízení. Aby se zjistilo, kolik lidí aplikaci používá, a aby se opravovaly pády, aplikace odesílá jen anonymní statistiky používání a hlášení o pádech.</p>
+  </section>
+
+  <h2>1. Údaje, které shromažďujeme</h2>
+  <p>Žádné osobní údaje. Aplikace neobsahuje žádné SDK třetích stran, nepoužívá reklamní identifikátor (IDFA) a nepřistupuje k poloze, kontaktům, fotkám ani fotoaparátu. Jediné údaje, které opouštějí vaše zařízení, jsou uvedeny níže v části „Anonymní statistiky používání“, plus zpětná vazba, kterou se sami rozhodnete odeslat (oddíl 3).</p>
+  <h3>Anonymní statistiky používání</h3>
+  <p>Aby se zjistilo, kolik lidí aplikaci používá, a aby se opravovaly pády, aplikace odesílá následující anonymní statistiky do iCloudu (CloudKit) společnosti Apple, kde je může číst jen vývojář:</p>
+  <ul>
+    <li>Náhodné ID vytvořené při instalaci aplikace (nespojené s vámi, vaším Apple ID, zařízením ani jinými aplikacemi; při přeinstalaci se změní)</li>
+    <li>Verze aplikace, verze iOS a nastavení regionu a jazyka</li>
+    <li>Kolikrát byla aplikace otevřena a ve které dny, datum instalace a počet dní od instalace</li>
+    <li>Hlášení o pádech a neočekávaných ukončeních (verze aplikace, verze iOS, typ zařízení a technické podrobnosti chyby)</li>
+  </ul>
+  <p>Nezahrnuje se jméno, kontaktní údaje, poloha ani nic, co vytvoříte, jako studijní poznámky nebo výsledky kvízů. Statistiky se odesílají, jen když jste přihlášeni do iCloudu. Odesílá je LeeoKit, sdílená knihovna napsaná vývojářem, a nikdy se nepředávají třetím stranám.</p>
+
+  <h2>2. Údaje uložené jen ve vašem zařízení</h2>
+  <p>Abyste mohli pokračovat tam, kde jste skončili, je následující uloženo <strong>jen ve vašem zařízení</strong> a nikdy se nikomu neodesílá, ani vývojáři:</p>
+  <ul>
+    <li>Postup v lekcích a studijní poznámky, které píšete v lekcích</li>
+    <li>Výsledky kvízů, laby, které jste navštívili, a chyby, které jste si odškrtli</li>
+  </ul>
+  <p>Tyto údaje se odstraní, když aplikaci smažete. Pokud jsou zapnuté zálohy zařízení (například Zálohování iCloudu), mohou být součástí těchto záloh podle zásad zálohování společnosti Apple.</p>
+
+  <h2>3. Když sami něco exportujete</h2>
+  <ul>
+    <li><strong>Kopírování</strong>: zkopírování studijních poznámek nebo ukázkového kódu je vloží do schránky zařízení.</li>
+    <li><strong>Sdílení</strong>: export studijních poznámek jako souboru Markdown otevře list sdílení iOS. Vy si vyberete, kam půjde; aplikace se na tom, co se děje potom, nepodílí.</li>
+    <li><strong>Odeslat zpětnou vazbu</strong>: když v Nastavení › Odeslat zpětnou vazbu klepnete na odeslat, text, který jste napsali, spolu s verzí aplikace, verzí iOS a typem zařízení se odešle do iCloudu (CloudKit) společnosti Apple, kde ho může číst jen vývojář. Vaše jméno ani kontaktní údaje se nevyžadují a odpovědi se zobrazí přímo v aplikaci.</li>
+    <li><strong>E-mail a Instagram</strong>: kontaktní řádky v Nastavení otevřou aplikaci Pošta nebo Instagram ve vašem zařízení. To, co se děje potom, se řídí zásadami dané služby.</li>
+  </ul>
+
+  <h2>4. Nákupy v aplikaci</h2>
+  <p>Platbu za předplatné Pro a doživotní nákup zpracovává Apple prostřednictvím App Store. Aplikace ani vývojář nezískají číslo vaší karty ani platební údaje. Aby aplikace zjistila, zda je Pro odemčeno, čte jen záznam o nákupu, který Apple poskytuje ve vašem zařízení, a výsledek zůstává ve vašem zařízení.</p>
+
+  <h2>5. Externí odkazy</h2>
+  <p>Odkazy na zdroje (dokumentace Apple Developer, blogy a podobně) se otevírají v prohlížeči vašeho zařízení, například v Safari. Tyto weby zpracovávají informace podle vlastních zásad.</p>
+
+  <h2>6. Soukromí dětí</h2>
+  <p>Aplikace neshromažďuje osobní údaje od uživatelů jakéhokoli věku. Anonymní statistiky používání nelze vysledovat k nikomu.</p>
+
+  <h2>7. Změny těchto zásad</h2>
+  <p>Pokud se změní způsob, jakým aplikace nakládá s údaji, tato stránka se aktualizuje jako první a dostane nové datum účinnosti.</p>
+
+  <h2>8. Kontakt</h2>
+  <p>S dotazy ke soukromí pište na <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> nebo otevřete issue na <a href="https://github.com/M1zz/HigGym/issues">GitHub Issues</a>.</p>
+
+  <hr>
+  <footer><a href="./app/">O aplikaci</a> · <a href="./support.html">Podpora</a> · <a href="../toolbar-annotated.html?lang=en">Průvodce HigGym (web, anglicky)</a></footer>
+</main>
+</body>
+</html>

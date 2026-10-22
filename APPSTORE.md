@@ -839,3 +839,63 @@ https://m1zz.github.io/HigGym/vi/privacy.html
 ### 마케팅 URL
 
 https://m1zz.github.io/HigGym/vi/app/
+
+## cs
+
+### 이름
+
+Designová praxe: UI/UX
+
+### 부제
+
+Učte se UI/UX prakticky
+
+### 키워드
+
+rozhraní,použitelnost,navigace,wireframe,mockup,kvíz,vývojář,zásady,panel,sheet,iOS,přístupnost
+
+### 프로모션 텍스트
+
+Kam patří tlačítko? Jak správně mazat? Použijte špatné obrazovky, zapište, co drhne, a porovnávejte s opravou, dokud dobré designové návyky nepřijdou samy.
+
+### 설명
+
+Skvělé UI/UX je hromada malých rozhodnutí. Designová praxe je praktická cvičebnice, v níž používáte obrazovky, které tato rozhodnutí dělají špatně, a pak přesně vidíte proč.
+Každá lekce řeší jedno rozhodnutí v pěti krocích: vyzkoušet rozbitou obrazovku, zapsat, co vám přišlo divné, zjistit proč, porovnat s opravenou verzí a napsat, co jste se naučili.
+
+23 PRAKTICKÝCH LEKCÍ
+Vyzkoušet: ukázková aplikace se otevře v plné velikosti s úkolem. Obrazovka, kterou používáte, záměrně porušuje pravidlo.
+Zapsat: dřív než uvidíte odpověď, poznamenejte si, čeho jste si všimli.
+Zjistit proč: rozhodnutí, důvod za ním a to, co se rozsype, když ho obrátíte, hned vedle toho, co jste napsali.
+Porovnat: přepínejte na stejném místě mezi rozbitou a opravenou obrazovkou a všimněte si rozdílu.
+Napsat, co jste se naučili: uložte větu, kterou příště použijete znovu. Vaše poznámky se sbírají na kartě Poznámky, kde je můžete zkopírovat nebo exportovat jako soubor Markdown.
+
+KNIHOVNA PRO HLUBŠÍ STUDIUM
+68 témat: panely nástrojů, nadpisy, hledání, panely karet, sheety a text, každé nakreslené jako mockup. Klepněte na libovolnou část obrázku a uvidíte pravidlo za ní a otevřete živý ukázkový příklad ke každému tématu.
+100 chyb: co se udělalo, proč se to tehdy zdálo správné a co se změní po opravě, napsané jako krátké retrospektivy.
+7 zásad: základní úsudky za všemi 68 tématy, ukázané přepínáním téže obrazovky mezi rozbitým a správným rozvržením.
+5 labů: upravte umístění panelu nástrojů, okrajové efekty posouvání, ořez textu, nastavení panelu karet a výšku sheetu a získejte verdikt v reálném čase.
+Kvíz: 396 otázek, které vás nutí podívat se na obrazovku a rozhodnout.
+
+PRO KOHO
+Vývojáře, kteří chtějí mít důvod za každým tlačítkem, které umístí
+Designéry, kteří se chtějí sžít s nejnovějšími panely nástrojů, panely karet a sheety
+Týmy, které musejí v designových revizích vysvětlovat proč
+
+Vyzkoušejte zdarma 3 lekce, 10 chyb, lab panelu nástrojů a první kapitolu kvízu. 68 témat, 7 zásad a vaše poznámky jsou vždy zdarma.
+Týdenní předplatné, měsíční předplatné nebo jednorázový doživotní nákup odemkne každou lekci a zdroj.
+Předplatné se automaticky obnovuje za stejnou cenu, pokud není zrušeno alespoň 24 hodin před koncem období. Spravovat nebo zrušit ho můžete kdykoli v nastavení účtu App Store.
+Podmínky použití: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Není tu žádný účet a váš postup a poznámky zůstávají ve vašem zařízení. Celá aplikace je dostupná v češtině, angličtině, japonštině, korejštině a mnoha dalších jazycích.
+
+### 지원 URL
+
+https://m1zz.github.io/HigGym/cs/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/HigGym/cs/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/HigGym/cs/app/

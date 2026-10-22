@@ -88,6 +88,12 @@
             "state": "translated",
             "value": "Tiếp tục học trong ${applicationName}"
           }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pokračovat v učení v ${applicationName}"
+          }
         }
       }
     },
@@ -176,6 +182,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Quay lại ${applicationName}"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vrátit se do ${applicationName}"
           }
         }
       }
@@ -266,6 +278,12 @@
             "state": "translated",
             "value": "Mở ghi chú của ${applicationName}"
           }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Otevřít poznámky v ${applicationName}"
+          }
         }
       }
     },
@@ -354,6 +372,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Hiện ghi chú của tôi trong ${applicationName}"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zobrazit mé poznámky v ${applicationName}"
           }
         }
       }
