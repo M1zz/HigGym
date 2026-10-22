@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datenschutzerklärung, Design-Praxis</title>
+<link rel="canonical" href="https://m1zz.github.io/HigGym/de/privacy.html">
+<link rel="alternate" hreflang="ko" href="https://m1zz.github.io/HigGym/privacy.html">
+<link rel="alternate" hreflang="en" href="https://m1zz.github.io/HigGym/en/privacy.html">
+<link rel="alternate" hreflang="ja" href="https://m1zz.github.io/HigGym/ja/privacy.html">
+<link rel="alternate" hreflang="zh-Hans" href="https://m1zz.github.io/HigGym/zh-hans/privacy.html">
+<link rel="alternate" hreflang="zh-Hant" href="https://m1zz.github.io/HigGym/zh-hant/privacy.html">
+<link rel="alternate" hreflang="ru" href="https://m1zz.github.io/HigGym/ru/privacy.html">
+<link rel="alternate" hreflang="es" href="https://m1zz.github.io/HigGym/es/privacy.html">
+<link rel="alternate" hreflang="de" href="https://m1zz.github.io/HigGym/de/privacy.html">
+<link rel="alternate" hreflang="x-default" href="https://m1zz.github.io/HigGym/privacy.html">
+<style>
+  :root{
+    --bg:#0b0c10; --card:#181b22; --line:#2a2f3a; --text:#e9edf4; --muted:#9aa4b2; --accent:#5aa8ff; --accent-2:#7b6cff;
+    color-scheme:light dark;
+  }
+  @media (prefers-color-scheme: light){
+    :root{ --bg:#f4f6fa; --card:#ffffff; --line:#dce1ea; --text:#14171e; --muted:#525b6b; --accent:#1668e3; --accent-2:#5a48d6; }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);line-height:1.7;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+    padding:48px 20px 64px}
+  main{max-width:720px;margin:0 auto}
+  header{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+  .mark{width:44px;height:44px;border-radius:11px;background:linear-gradient(135deg,var(--accent),var(--accent-2));flex:0 0 auto}
+  h1{font-size:1.75rem;margin:0;line-height:1.3}
+  .meta{color:var(--muted);font-size:.9rem;margin:0 0 28px}
+  nav.langs{font-size:.85rem;color:var(--muted);margin-bottom:20px}
+  nav.langs [aria-current]{color:var(--text);font-weight:600;text-decoration:none}
+  nav.lang{font-size:.9rem;margin-bottom:28px}
+  h2{font-size:1.15rem;margin:36px 0 10px}
+  section.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 22px 18px;margin-bottom:28px}
+  ul{padding-left:1.2em}
+  li{margin:4px 0}
+  a{color:var(--accent)}
+  code{font-family:"SF Mono",ui-monospace,Menlo,monospace;font-size:.9em}
+  hr{border:0;border-top:1px solid var(--line);margin:48px 0}
+  footer{color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<main>
+  <nav class="langs" aria-label="Sprache"><a href="../privacy.html" hreflang="ko" lang="ko">한국어</a> · <a href="../en/privacy.html" hreflang="en" lang="en">English</a> · <a href="../ja/privacy.html" hreflang="ja" lang="ja">日本語</a> · <a href="../zh-hans/privacy.html" hreflang="zh-Hans" lang="zh-Hans">简体中文</a> · <a href="../zh-hant/privacy.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a> · <a href="../ru/privacy.html" hreflang="ru" lang="ru">Русский</a> · <a href="../es/privacy.html" hreflang="es" lang="es">Español</a> · <a href="./privacy.html" aria-current="page">Deutsch</a></nav>
+  <header><div class="mark" aria-hidden="true"></div><h1>Datenschutzerklärung</h1></header>
+  <p class="meta">Design-Praxis (iOS) · Gültig ab 20. Oktober 2026</p>
+  <nav class="lang"><a href="./app/">Über die App</a> · <a href="./support.html">Support</a></nav>
+
+  <section class="card">
+    <h2>Zusammenfassung</h2>
+    <p><strong>Design-Praxis erhebt keine personenbezogenen Daten.</strong> Es gibt kein Konto, keine Werbung, keine Analysen von Drittanbietern und keine Tracking-Tools. Dein Fortschritt und deine Notizen bleiben auf deinem Gerät. Um zu erfahren, wie viele Menschen die App nutzen, und um Fehler zu beheben, sendet sie nur anonyme Nutzungsstatistiken und Absturzberichte.</p>
+  </section>
+
+  <h2>1. Welche Daten wir erheben</h2>
+  <p>Keine personenbezogenen Daten. Die App enthält keine Drittanbieter-SDKs, nutzt nicht die Werbe-ID (IDFA) und greift weder auf Standort, Kontakte, Fotos noch Kamera zu. Dein Gerät verlassen nur die unten unter „Anonyme Nutzungsstatistiken“ genannten Daten sowie Feedback, das du selbst sendest (Abschnitt 3).</p>
+  <h3>Anonyme Nutzungsstatistiken</h3>
+  <p>Um zu erfahren, wie viele Menschen die App nutzen, und um Fehler zu beheben, sendet die App die folgenden anonymen Statistiken an Apples iCloud (CloudKit), wo nur der Entwickler sie lesen kann:</p>
+  <ul>
+    <li>Eine zufällige Kennung, die bei der Installation der App erzeugt wird (sie ist nicht mit dir, deiner Apple-ID, deinem Gerät oder anderen Apps verknüpft und ändert sich bei einer Neuinstallation)</li>
+    <li>App-Version, iOS-Version sowie Einstellungen für Region und Sprache</li>
+    <li>Wie oft die App geöffnet wurde und an welchen Tagen, das Installationsdatum und die seit der Installation vergangenen Tage</li>
+    <li>Absturz- und Fehlerberichte (App-Version, iOS-Version, Gerätetyp und technische Details des Fehlers)</li>
+  </ul>
+  <p>Enthalten sind weder Name, Kontaktdaten, Standort noch irgendetwas, das du erstellst, wie Lernnotizen oder Quizergebnisse. Die Statistiken werden nur gesendet, solange du bei iCloud angemeldet bist. Sie werden von LeeoKit gesendet, einer gemeinsamen Bibliothek des Entwicklers, und niemals an Dritte weitergegeben.</p>
+
+  <h2>2. Nur auf deinem Gerät gespeicherte Daten</h2>
+  <p>Damit du dort weitermachen kannst, wo du aufgehört hast, wird Folgendes <strong>nur auf deinem Gerät</strong> gespeichert und an niemanden übertragen, auch nicht an den Entwickler:</p>
+  <ul>
+    <li>Der Fortschritt in den Lektionen und die Lernnotizen, die du dazu schreibst</li>
+    <li>Quizergebnisse, besuchte Labore und von dir markierte Fehler</li>
+  </ul>
+  <p>Diese Daten werden beim Löschen der App entfernt. Sind Gerätesicherungen (etwa die iCloud-Sicherung) aktiviert, können sie gemäß Apples Sicherungsrichtlinien darin enthalten sein.</p>
+
+  <h2>3. Wenn du selbst etwas exportierst</h2>
+  <ul>
+    <li><strong>Kopieren</strong>: Beim Kopieren von Lernnotizen oder Beispielcode landen sie in der Zwischenablage deines Geräts.</li>
+    <li><strong>Teilen</strong>: Beim Exportieren der Lernnotizen als Markdown-Datei öffnet sich das iOS-Teilen-Blatt. Du entscheidest, wohin sie gehen; die App hat keinen Einfluss darauf, was danach geschieht.</li>
+    <li><strong>Feedback senden</strong>: Wenn du unter Einstellungen › Feedback senden auf Senden tippst, werden dein Text sowie App-Version, iOS-Version und Gerätetyp an Apples iCloud (CloudKit) gesendet, wo nur der Entwickler sie lesen kann. Name und Kontaktdaten werden nicht abgefragt, und Antworten erscheinen in der App.</li>
+    <li><strong>E-Mail und Instagram</strong>: Die Kontaktzeilen in den Einstellungen öffnen die Mail-App deines Geräts oder Instagram. Was danach geschieht, richtet sich nach den Richtlinien des jeweiligen Dienstes.</li>
+  </ul>
+
+  <h2>4. In-App-Käufe</h2>
+  <p>Die Zahlung für die Pro-Abos und den Einmalkauf wickelt Apple über den App Store ab. Weder die App noch der Entwickler erhalten deine Kartennummer oder Zahlungsdaten. Um zu prüfen, ob Pro freigeschaltet ist, liest die App nur den Kaufbeleg, den Apple auf deinem Gerät bereitstellt, und das Ergebnis bleibt auf deinem Gerät.</p>
+
+  <h2>5. Externe Links</h2>
+  <p>Referenzlinks (Apple-Entwicklerdokumentation, Blogs usw.) öffnen sich im Browser deines Geräts, etwa in Safari. Diese Websites behandeln Informationen nach ihren eigenen Richtlinien.</p>
+
+  <h2>6. Datenschutz von Kindern</h2>
+  <p>Die App erhebt von Nutzern jeden Alters keine personenbezogenen Daten. Die anonymen Nutzungsstatistiken lassen sich niemandem zuordnen.</p>
+
+  <h2>7. Änderungen dieser Erklärung</h2>
+  <p>Ändert sich der Umgang der App mit Daten, wird diese Seite zuerst aktualisiert und erhält ein neues Datum des Inkrafttretens.</p>
+
+  <h2>8. Kontakt</h2>
+  <p>Bei Datenschutzfragen schreibe an <a href="mailto:leeo@kakao.com">leeo@kakao.com</a> oder eröffne ein Issue auf <a href="https://github.com/M1zz/HigGym/issues">GitHub Issues</a>.</p>
+
+  <hr>
+  <footer><a href="./app/">Über die App</a> · <a href="./support.html">Support</a> · <a href="../toolbar-annotated.html?lang=en">HigGym-Leitfaden (Web, auf Englisch)</a></footer>
+</main>
+</body>
+</html>

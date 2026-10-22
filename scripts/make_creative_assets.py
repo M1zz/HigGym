@@ -26,7 +26,7 @@ def profile():
     부를 때마다 새 빈 프로필로 띄운다."""
     return f"--user-data-dir={tempfile.mkdtemp(prefix='higgym-chrome-')}"
 
-# 스토어 언어 = deploy.env LOCALES (ko · en · ja · zh-Hans · zh-Hant · ru · es). 폴더 이름이 로케일 그대로라 바꿀 것이 없다.
+# 스토어 언어 = deploy.env LOCALES (ko · en · ja · zh-Hans · zh-Hant · ru · es · de). 폴더 이름이 로케일 그대로라 바꿀 것이 없다.
 STORE = {}
 
 # (가로, 세로, 안전 영역 left, top, right, bottom)
@@ -46,6 +46,7 @@ SEARCH = {
     "zh-Hant": ("UI/UX 學習", "動手體驗<br>學 UI/UX", "先用彆扭的介面<br>再看清原因"),
     "ru": ("Практика UI/UX", "UI/UX<br>руками", "Пробуйте неудобные экраны<br>и узнайте причину"),
     "es": ("Práctica de UI/UX", "Aprende UI/UX<br>tocándolo", "Usa pantallas incómodas<br>y entiende por qué"),
+    "de": ("UI/UX-Praxis", "UI/UX lernen,<br>indem du es anfasst", "Nutze unbequeme Bildschirme<br>und verstehe warum"),
 }
 
 # 헤더: 처음 온 사람에게 한 가지 약속.
@@ -58,6 +59,7 @@ HEADER = {
     "zh-Hant": ("App 設計實踐", "用過才懂<br>好介面的理由"),
     "ru": ("Дизайн-практикум", "Попробуйте и поймёте,<br>почему экран удачный"),
     "es": ("Práctica de Diseño", "Úsalo y entiende por qué<br>funcionan las buenas pantallas"),
+    "de": ("Design-Praxis", "Nutze es und verstehe, warum<br>gute Bildschirme funktionieren"),
 }
 
 # ⚠️ 바탕 · 글자색은 기존 스크린샷(make_marketing_screenshots.py)과 같다. 다르면 페이지에서

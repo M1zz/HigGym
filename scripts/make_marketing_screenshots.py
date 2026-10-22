@@ -15,7 +15,7 @@ RAW = ROOT / "docs" / "screenshots" / "raw"
 OUT = ROOT / "docs" / "screenshots" / "marketing"
 WORK = pathlib.Path("/tmp") / "higgym-marketing"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es"}
+STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de"}
 
 # (원본 파일, 헤드라인, 서브카피), 언어마다 따로 쓴다.
 SHOTS = {
@@ -82,6 +82,14 @@ SHOTS = {
         ("04-reason.png",  "Luego entiende por qué",  "La decisión, la razón y lo que se rompe si la inviertes"),
         ("05-compare.png",  "Rota y corregida,<br>lado a lado",  "Alterna en el sitio y detecta la diferencia"),
         ("06-items.png",  "68 temas de UI/UX<br>dibujados",  "Barras de herramientas, pestañas, hojas y texto en maquetas"),
+    ],
+    "de": [
+        ("01-course.png",  "Nicht lesen,<br>anfassen",  "Eine Entscheidung pro Lektion, 23 UI/UX-Lektionen"),
+        ("02-try.png",  "Erst ausprobieren",  "Nutze den regelbrechenden Bildschirm in voller Größe"),
+        ("03-write.png",  "Schreibe auf,<br>was du gespürt hast",  "Notiere vor der Antwort, was deinen Händen aufgefallen ist"),
+        ("04-reason.png",  "Dann verstehe warum",  "Die Entscheidung, der Grund und was kaputtgeht, wenn man sie umdreht"),
+        ("05-compare.png",  "Fehlerhaft und korrigiert,<br>nebeneinander",  "Wechsle an Ort und Stelle und erkenne den Unterschied"),
+        ("06-items.png",  "68 UI/UX-Themen<br>gezeichnet",  "Symbolleisten, Tab-Leisten, Sheets und Text als Mockups"),
     ],
 }
 

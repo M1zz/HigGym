@@ -479,3 +479,63 @@ https://m1zz.github.io/HigGym/es/privacy.html
 ### 마케팅 URL
 
 https://m1zz.github.io/HigGym/es/app/
+
+## de
+
+### 이름
+
+Design-Praxis: UI/UX
+
+### 부제
+
+UI/UX durch Tun lernen
+
+### 키워드
+
+Leiste,Tabs,Navigation,Mockup,Usability,Entwickler,Wireframe,Quiz,Richtlinien,Prototyp,Sheet,iOS
+
+### 프로모션 텍스트
+
+Wohin gehört ein Button? Wie sollte Löschen funktionieren? Probiere fehlerhafte Bildschirme aus, notiere, was stört, und vergleiche mit der Lösung, bis es sitzt.
+
+### 설명
+
+Gutes UI/UX ist ein Stapel kleiner Entscheidungen. Design-Praxis ist ein praktisches Arbeitsbuch, in dem du Bildschirme nutzt, die diese Entscheidungen falsch treffen, und dann genau siehst, warum.
+Jede Lektion widmet sich einer Entscheidung in fünf Schritten: einen fehlerhaften Bildschirm ausprobieren, aufschreiben, was sich falsch anfühlte, verstehen warum, mit der Lösung vergleichen und festhalten, was du gelernt hast.
+
+23 PRAKTISCHE LEKTIONEN
+Ausprobieren: Eine Beispiel-App öffnet sich in voller Größe mit einer Aufgabe. Der Bildschirm, den du nutzt, verletzt absichtlich eine Regel.
+Aufschreiben: Notiere, bevor du die Antwort siehst, was dir aufgefallen ist.
+Warum verstehen: die Entscheidung, ihre Begründung und was kaputtgeht, wenn man sie umdreht, neben dem, was du geschrieben hast.
+Vergleichen: Wechsle an derselben Stelle zwischen dem fehlerhaften und dem korrigierten Bildschirm und erkenne den Unterschied.
+Aufschreiben, was du gelernt hast: Speichere einen Satz, den du wiederverwenden kannst. Deine Notizen sammeln sich im Tab Notizen, wo du sie kopieren oder als Markdown-Datei exportieren kannst.
+
+EINE BIBLIOTHEK ZUM VERTIEFEN
+68 Themen: Symbolleisten, Titel, Suche, Tab-Leisten, Sheets und Text, jeweils als Mockup gezeichnet. Tippe auf einen beliebigen Teil des Bildes, um die Regel dahinter zu sehen, und öffne zu jedem Thema einen funktionierenden Beispielbildschirm.
+100 Fehler: was gemacht wurde, warum es damals richtig aussah und was sich bei der Korrektur ändert, als kurze Rückblicke.
+7 Prinzipien: die Kriterien hinter den 68 Themen, gezeigt durch Wechsel desselben Bildschirms zwischen fehlerhaftem und richtigem Design.
+5 Labore: Stelle Platzierung der Symbolleiste, Scroll-Kanteneffekte, Textabschneiden, Tab-Leiste und Sheet-Höhe ein und erhalte ein Urteil in Echtzeit.
+Quiz: 396 Fragen, bei denen du einen Bildschirm ansiehst und entscheidest.
+
+FÜR WEN
+Entwickler, die für jeden Button, den sie setzen, einen Grund haben wollen
+Designer, die neueste Symbolleisten, Tab-Leisten und Sheets beherrschen wollen
+Teams, die in Design-Reviews das Warum erklären müssen
+
+Probiere 3 Lektionen, 10 Fehler, das Symbolleisten-Labor und das erste Quizkapitel kostenlos aus. Die 68 Themen, die 7 Prinzipien und deine Notizen sind immer kostenlos.
+Ein Wochen-Abo, ein Monats-Abo oder ein einmaliger Einmalkauf schaltet alle Lektionen und Inhalte frei.
+Abos verlängern sich automatisch zum selben Preis, sofern sie nicht mindestens 24 Stunden vor Ende des Zeitraums gekündigt werden. Verwalte oder kündige jederzeit in den Einstellungen deines App-Store-Accounts.
+Nutzungsbedingungen: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
+Es gibt kein Konto, und dein Fortschritt und deine Notizen bleiben auf deinem Gerät. Die ganze App gibt es auf Deutsch, Englisch, Japanisch, Koreanisch und in weiteren Sprachen.
+
+### 지원 URL
+
+https://m1zz.github.io/HigGym/de/support.html
+
+### 개인정보처리방침 URL
+
+https://m1zz.github.io/HigGym/de/privacy.html
+
+### 마케팅 URL
+
+https://m1zz.github.io/HigGym/de/app/

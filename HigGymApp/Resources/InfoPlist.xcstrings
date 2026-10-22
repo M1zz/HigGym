@@ -52,6 +52,12 @@
             "state": "translated",
             "value": "Práctica de Diseño"
           }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Design-Praxis"
+          }
         }
       }
     },
@@ -104,6 +110,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Práctica de Diseño"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Design-Praxis"
           }
         }
       }
