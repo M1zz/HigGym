@@ -8,7 +8,7 @@
 
 바탕·글자색은 제품 페이지 헤더(make_creative_assets.py)와 같다: 먹색 바탕 + 파랑.
 """
-import subprocess, sys, pathlib
+import subprocess, sys, pathlib, time
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RAW = ROOT / "docs" / "screenshots" / "raw"
@@ -270,6 +270,8 @@ def render(lang, device):
         else:
             sys.exit(f"렌더 실패: {target}")
         print("rendered", target.relative_to(ROOT))
+        # 공유 Mac 이다. 헤드리스 Chrome 을 연달아 띄우면 부하가 치솟는다, 장마다 쉰다.
+        time.sleep(3)
 
 
 if __name__ == "__main__":

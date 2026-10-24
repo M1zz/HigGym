@@ -1392,7 +1392,7 @@ UI/UX'i yaparak öğren
 
 ### 키워드
 
-arayüz,gezinme,wireframe,taslak,sınav,geliştirici,ilkeler,sayfa,iOS,erişilebilirlik,tasarım
+arayüz,gezinme,wireframe,taslak,sınav,geliştirici,ilkeler,sayfa,iOS,erişilebilirlik,prototip,düzen
 
 ### 프로모션 텍스트
 

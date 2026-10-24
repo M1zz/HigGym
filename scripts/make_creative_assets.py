@@ -13,7 +13,7 @@
 
 ⚠️ 가격 · 할인 · 주소(URL) · 수상 · 다른 플랫폼 이름은 넣지 않는다(Apple 가이드).
 """
-import subprocess, sys, pathlib, tempfile
+import subprocess, sys, pathlib, tempfile, time
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 RAW = ROOT / "docs" / "screenshots" / "raw" / "creative"
@@ -46,7 +46,7 @@ SEARCH = {
     "zh-Hant": ("UI/UX 學習", "動手體驗<br>學 UI/UX", "先用彆扭的介面<br>再看清原因"),
     "ru": ("Практика UI/UX", "UI/UX<br>руками", "Пробуйте неудобные экраны<br>и узнайте причину"),
     "es": ("Práctica de UI/UX", "Aprende UI/UX<br>tocándolo", "Usa pantallas incómodas<br>y entiende por qué"),
-    "de": ("UI/UX-Praxis", "UI/UX lernen,<br>indem du es anfasst", "Nutze unbequeme Bildschirme<br>und verstehe warum"),
+    "de": ("UI/UX-Praxis", "UI/UX lernen<br>durch Anfassen", "Nutze unbequeme Bildschirme<br>und verstehe warum"),
     "fr": ("Pratique de l'UI/UX", "Apprenez l'UI/UX<br>en la touchant", "Utilisez des écrans gênants<br>et comprenez pourquoi"),
     "it": ("Pratica di UI/UX", "Impara l'UI/UX<br>toccandola", "Usa schermate scomode<br>e scopri perché"),
     "pt-BR": ("Prática de UI/UX", "Aprenda UI/UX<br>tocando", "Use telas incômodas<br>e entenda o porquê"),
@@ -82,7 +82,7 @@ HEADER = {
     "vi": ("Luyện Thiết Kế", "Dùng để hiểu vì sao<br>màn hình tốt lại dễ dùng"),
     "cs": ("Designová praxe", "Použijte to a pochopte,<br>proč dobré obrazovky fungují"),
     "da": ("Designpraksis", "Prøv det og forstå,<br>hvorfor gode skærme virker"),
-    "el": ("Εξάσκηση Σχεδιασμού", "Δοκίμασε και κατάλαβε<br>γιατί δουλεύουν οι καλές οθόνες"),
+    "el": ("Εξάσκηση Σχεδιασμού", "Δοκίμασε και δες<br>γιατί πετυχαίνει μια οθόνη"),
     "fi": ("Suunnitteluharjoitus", "Kokeile ja ymmärrä,<br>miksi hyvät näkymät toimivat"),
     "id": ("Latihan Desain", "Coba dan pahami<br>mengapa layar yang baik berhasil"),
     "nb": ("Designpraksis", "Prøv og forstå<br>hvorfor gode skjermer fungerer"),
@@ -210,6 +210,7 @@ def render(lang, kind):
     dom = subprocess.run([CHROME, "--headless=new", profile(), "--dump-dom", f"--window-size={W},{H}",
                           "--force-device-scale-factor=1", "--disable-gpu", "--virtual-time-budget=3000",
                           html_path.as_uri()], capture_output=True, text=True, timeout=90).stdout
+    time.sleep(3)
     if 'data-done="1"' not in dom:
         raise SystemExit(f"글 맞추기가 끝나지 않았다: {lang} {kind}")
     if 'data-overflow="1"' in dom:
@@ -232,6 +233,7 @@ def render(lang, kind):
     else:
         raise SystemExit(f"Chrome 이 그리지 못했다: {out_png}")
     print(f"rendered {out_png}")
+    time.sleep(3)  # 공유 Mac: 헤드리스 Chrome 을 쉬지 않고 띄우지 않는다.
 
 
 if __name__ == "__main__":

@@ -138,10 +138,30 @@ struct MarkdownText: View {
     }
 
     private var attributed: AttributedString {
+        let parsed = Self.parse(raw)
+        // CommonMark 는 문장부호에 붙은 ** 를 굵게로 보지 않는다(중국어 `。**有`, 한국어 `”**만`, 태국어 `"**ก่อน`).
+        // 그러면 별표가 화면에 그대로 남는다. 그럴 때만 ** 짝을 직접 굵게 바꾼다.
+        let parts = raw.components(separatedBy: "**")
+        guard parts.count > 1, parts.count % 2 == 1, String(parsed.characters).contains("**") else { return parsed }
+        var out = AttributedString()
+        for (index, part) in parts.enumerated() {
+            var piece = Self.parse(part)
+            if index % 2 == 1 {
+                for range in piece.runs.map(\.range) {
+                    let intent = piece[range].inlinePresentationIntent ?? []
+                    piece[range].inlinePresentationIntent = intent.union(.stronglyEmphasized)
+                }
+            }
+            out += piece
+        }
+        return out
+    }
+
+    private static func parse(_ text: String) -> AttributedString {
         (try? AttributedString(
-            markdown: raw,
+            markdown: text,
             options: .init(interpretedSyntax: .inlineOnlyPreservingWhitespace)
-        )) ?? AttributedString(raw)
+        )) ?? AttributedString(text)
     }
 }
 

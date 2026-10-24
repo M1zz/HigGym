@@ -27,7 +27,12 @@ final class StoreScreenshotTests: XCTestCase {
 
     private func launch(_ environment: [String: String]) -> XCUIApplication {
         let app = XCUIApplication()
-        let locale = ["ko": "ko_KR", "en": "en_US", "ja": "ja_JP"][language] ?? "en_US"
+        let locale = [
+            "ko": "ko_KR", "en": "en_US", "en-GB": "en_GB", "ja": "ja_JP", "zh-Hans": "zh_CN", "zh-Hant": "zh_TW",
+            "ru": "ru_RU", "es": "es_ES", "de": "de_DE", "fr": "fr_FR", "it": "it_IT", "pt-BR": "pt_BR",
+            "th": "th_TH", "vi": "vi_VN", "cs": "cs_CZ", "da": "da_DK", "el": "el_GR", "fi": "fi_FI",
+            "id": "id_ID", "nb": "nb_NO", "nl": "nl_NL", "pl": "pl_PL", "sv": "sv_SE", "tr": "tr_TR",
+        ][language] ?? "en_US"
         app.launchArguments = ["-AppleLanguages", "(\(language))", "-AppleLocale", locale]
         app.launchEnvironment = environment.merging(["HG_SHOTS": "1"]) { $1 }
         app.launch()
