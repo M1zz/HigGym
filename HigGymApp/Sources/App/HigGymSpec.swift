@@ -57,6 +57,14 @@ enum HigGymSpec: LeeoAppSpec {
                     HigGymPro.Key.quizChapter: 1,  // 퀴즈 1장 집중
                 ],
                 proOnly: [HigGymPro.Key.quizMode, HigGymPro.Key.liveQuiz]
+            ),
+            // Pro 선물하기. 보내는 사람은 소모성 선물 상품을 사고, 받는 사람은 평생 이용권을 산 것과 같아진다.
+            // 선물 기록은 피드백과 같은 허브 컨테이너의 공개 DB 에 둔다. entitlements 에 이미 있다.
+            // ⚠️ 선물 상품은 productIDs · entitlementIDs 에 넣지 않는다. 넣으면 선물을 산 사람이 Pro 가 된다.
+            gift: LeeoGiftConfig(
+                productID: HigGymPro.giftID,
+                grantsProductID: HigGymPro.lifetimeID,
+                containerIdentifier: "iCloud.com.Ysoup.FeedbackHub"
             )
         )
     )

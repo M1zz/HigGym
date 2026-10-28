@@ -23,6 +23,9 @@ final class HigGymPro: ObservableObject {
     nonisolated static let lifetimeID = "com.leeo.higgym.pro"
     /// 결제 화면에 보이는 순서: 주간 · 월간 · 평생.
     nonisolated static let productIDs = [weeklyID, monthlyID, lifetimeID]
+    /// Pro 선물 (소모성). 받는 사람은 `lifetimeID` 를 산 것과 같아진다.
+    /// ⚠️ `productIDs` 에 넣지 않는다. 넣으면 선물을 산 사람 자신이 Pro 가 된다.
+    nonisolated static let giftID = "com.leeo.higgym.gift.pro"
 
     /// 결제 없이 나간 마지막 빌드 번호. 이 빌드 이하로 처음 설치한 사람은 평생 Pro 다
     /// ("모든 기능이 무료" 라고 약속하고 받은 사용자). 1.0.2 (빌드 5) 가 마지막 무료판이다.
@@ -84,6 +87,9 @@ final class HigGymPro: ObservableObject {
     }
 
     var hasPro: Bool { store.hasPro }
+    /// Pro 선물하기 엔진. 상품은 앱이 뜬 뒤에 오고 이 객체는 그 변화를 알리지 않으므로,
+    /// 화면은 이 엔진을 따로 관찰한다(`SettingsView` 의 `GiftRows`).
+    var gift: LeeoGiftStore? { store.gift }
     /// 처음부터 함께한 사람이라 결제 없이 Pro 인가.
     var isGrandfathered: Bool { store.isGrandfathered && store.purchasedProductIDs.isEmpty }
     /// 자동 갱신 구독으로 Pro 인가 (설정에 '구독 관리' 를 보일지). 평생 이용권이 있으면 구독은 의미가 없다.

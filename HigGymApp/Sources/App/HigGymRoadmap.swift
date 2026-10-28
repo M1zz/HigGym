@@ -16,6 +16,10 @@ import LeeoKit
 
 extension HigGymSpec {
     static var roadmap: [LeeoRoadmapItem] {[
+        // MARK: 만들고 있어요
+        .init(id: "gift", status: .building,
+              title: NSLocalizedString("Pro 선물하기", comment: "Roadmap item: gift"),
+              detail: NSLocalizedString("친구나 동료에게 Pro 를 선물할 수 있어요.", comment: "Roadmap item detail: gift")),
         // MARK: 다음에 만들어요
         .init(id: "a11y.voiceover", status: .planned,
               title: NSLocalizedString("VoiceOver로 더 편하게", comment: "Roadmap item: a11y.voiceover"),

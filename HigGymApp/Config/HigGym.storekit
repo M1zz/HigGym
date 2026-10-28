@@ -36,6 +36,31 @@
       "productID": "com.leeo.higgym.pro",
       "referenceName": "Pro Lifetime",
       "type": "NonConsumable"
+    },
+    {
+      "displayPrice": "50000",
+      "familyShareable": false,
+      "internalID": "6D2F8A41",
+      "localizations": [
+        {
+          "description": "다른 사람에게 Pro 를 선물합니다. 코드를 보내 주세요.",
+          "displayName": "앱 디자인 실습 Pro 선물",
+          "locale": "ko"
+        },
+        {
+          "description": "Give Pro to someone else with a gift code.",
+          "displayName": "Gift App Design Lab Pro",
+          "locale": "en_US"
+        },
+        {
+          "description": "ギフトコードで Pro を他の人に贈ります",
+          "displayName": "アプリデザイン実習 Pro ギフト",
+          "locale": "ja"
+        }
+      ],
+      "productID": "com.leeo.higgym.gift.pro",
+      "referenceName": "Gift Pro",
+      "type": "Consumable"
     }
   ],
   "settings": {

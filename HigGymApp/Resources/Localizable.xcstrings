@@ -279771,6 +279771,40 @@
           }
         }
       }
+    },
+    "Pro 선물하기": {
+      "comment": "Roadmap item: gift",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gift Pro"
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro をプレゼント"
+          }
+        }
+      }
+    },
+    "친구나 동료에게 Pro 를 선물할 수 있어요.": {
+      "comment": "Roadmap item detail: gift",
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Give Pro to a friend or teammate."
+          }
+        },
+        "ja": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "友だちや同僚に Pro をプレゼントできます。"
+          }
+        }
+      }
     }
   },
   "version": "1.0"
