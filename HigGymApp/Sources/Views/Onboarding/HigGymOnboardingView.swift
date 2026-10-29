@@ -47,7 +47,7 @@ struct HigGymOnboardingView: View {
                         .foregroundStyle(.hgMuted)
                 }
             }
-            .frame(height: 44)
+            .frame(minHeight: 44)
             .padding(.horizontal, 20)
 
             TabView(selection: $page) {

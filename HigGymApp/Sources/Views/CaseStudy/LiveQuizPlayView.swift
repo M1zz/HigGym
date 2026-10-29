@@ -15,6 +15,8 @@ struct LiveQuizPlayView: View {
     @State private var chosen: Int?
     @State private var results: [Bool] = []
     @State private var zoomed: LiveOption?
+    /// 두 화면 아래의 버튼·해설 몫. 화면 그림은 고정이고, 글자가 커지면 그 아래 칸만 늘어난다.
+    @ScaledMetric(relativeTo: .footnote) private var optionTextRoom: CGFloat = 100
 
     private var question: LiveQuestion? { index < questions.count ? questions[index] : nil }
     private var answered: Bool { chosen != nil }
@@ -83,6 +85,7 @@ struct LiveQuizPlayView: View {
                     .background(Color.hgCard, in: .circle)
             }
             .buttonStyle(.plain)
+            .accessibilityLabel("닫기")
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(kind.title)
@@ -99,6 +102,8 @@ struct LiveQuizPlayView: View {
                 Text("\(results.filter { $0 }.count)")
                     .font(.system(.callout, design: .rounded, weight: .bold))
                     .foregroundStyle(.hgGreen)
+                    .accessibilityLabel("맞았습니다")
+                    .accessibilityValue("\(results.filter { $0 }.count)")
             }
         }
         .padding(.horizontal, 16)
@@ -134,7 +139,7 @@ struct LiveQuizPlayView: View {
                 }
             }
         }
-        .frame(height: 430)
+        .frame(height: 330 + optionTextRoom)
     }
 
     private func screenOption(_ option: LiveOption, at position: Int, width: CGFloat, question: LiveQuestion) -> some View {
@@ -165,6 +170,10 @@ struct LiveQuizPlayView: View {
                     .background(picked && !answered ? Color.hgAccent.opacity(0.12) : Color.hgCard, in: .rect(cornerRadius: 9))
             }
             .buttonStyle(.plain)
+            .accessibilityLabel(option.label)
+            .accessibilityHint(answered ? String(localized: "크게 보기") : "")
+            .accessibilityValue(answered ? (option.isCorrect ? String(localized: "정답") : (picked ? String(localized: "오답") : "")) : "")
+            .accessibilityAddTraits(picked ? .isSelected : [])
 
             if answered {
                 MarkdownText(raw: option.note, font: .caption, color: .hgMuted)
@@ -229,6 +238,8 @@ struct LiveQuizPlayView: View {
             .overlay(RoundedRectangle(cornerRadius: 12).strokeBorder(tint, lineWidth: picked || (answered && option.isCorrect) ? 2 : 1))
         }
         .buttonStyle(.plain)
+        .accessibilityValue(answered && (option.isCorrect || picked) ? (option.isCorrect ? String(localized: "정답") : String(localized: "오답")) : "")
+        .accessibilityAddTraits(picked ? .isSelected : [])
     }
 
     // MARK: 판정

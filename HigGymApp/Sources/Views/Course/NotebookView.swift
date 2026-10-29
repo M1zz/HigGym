@@ -146,6 +146,7 @@ private struct NoteCard: View {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.subheadline)
                         .foregroundStyle(.hgGreen)
+                        .accessibilityLabel("마침")
                 }
             }
 

@@ -114,7 +114,7 @@ struct LessonPlayerView: View {
                     Text("\(lesson.number). \(lesson.title)")
                         .font(.subheadline.weight(.bold))
                         .foregroundStyle(.hgText)
-                        .lineLimit(1)
+                        .lineLimit(2)
                     Text(lesson.subtitle)
                         .font(.caption)
                         .foregroundStyle(.hgDim)
@@ -227,6 +227,7 @@ struct LessonPlayerView: View {
 
                 LessonEditor(
                     text: $impression,
+                    label: Step.write.title,
                     placeholder: lesson.placeholder,
                     minHeight: 190
                 )
@@ -368,6 +369,7 @@ struct LessonPlayerView: View {
 
                 LessonEditor(
                     text: $takeaway,
+                    label: Step.takeaway.title,
                     placeholder: String(localized: "예: 자리를 정할 땐 중요도가 아니라 하루에 몇 번 누르는지를 먼저 센다."),
                     minHeight: 160
                 )
@@ -454,6 +456,8 @@ struct LessonPlayerView: View {
 /// 레슨에서 쓰는 입력칸. 비어 있을 때 예시를 흐리게 깔아 무엇을 쓰라는 건지 알려준다.
 private struct LessonEditor: View {
     @Binding var text: String
+    /// VoiceOver·음성 명령이 부르는 칸 이름. 깔린 예시는 이름이 아니라 힌트로 읽힌다.
+    let label: String
     let placeholder: String
     var minHeight: CGFloat = 160
 
@@ -468,6 +472,7 @@ private struct LessonEditor: View {
                     .padding(.horizontal, 14)
                     .padding(.vertical, 14)
                     .allowsHitTesting(false)
+                    .accessibilityHidden(true)
             }
             TextEditor(text: $text)
                 .font(.callout)
@@ -476,6 +481,8 @@ private struct LessonEditor: View {
                 .padding(.horizontal, 9)
                 .padding(.vertical, 6)
                 .focused($focused)
+                .accessibilityLabel(label)
+                .accessibilityHint(placeholder)
         }
         .frame(minHeight: minHeight)
         .background(Color.hgCard, in: .rect(cornerRadius: 14))

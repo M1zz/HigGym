@@ -21,10 +21,10 @@ extension HigGymSpec {
               title: NSLocalizedString("Pro 선물하기", comment: "Roadmap item: gift"),
               detail: NSLocalizedString("친구나 동료에게 Pro 를 선물할 수 있어요.", comment: "Roadmap item detail: gift")),
         // MARK: 다음에 만들어요
-        .init(id: "a11y.voiceover", status: .planned,
+        .init(id: "a11y.voiceover", status: .building,
               title: NSLocalizedString("VoiceOver로 더 편하게", comment: "Roadmap item: a11y.voiceover"),
               detail: NSLocalizedString("화면 읽기 기능이 실습 화면과 단추를 빠짐없이, 알맞은 순서로 읽어 줘요.", comment: "Roadmap item detail: a11y.voiceover")),
-        .init(id: "a11y.largetext", status: .planned,
+        .init(id: "a11y.largetext", status: .building,
               title: NSLocalizedString("큰 글씨에 맞춘 화면", comment: "Roadmap item: a11y.largetext"),
               detail: NSLocalizedString("글자 크기를 키워도 잘리지 않고 보기 좋게 다시 배치돼요.", comment: "Roadmap item detail: a11y.largetext")),
         .init(id: "a11y.contrast", status: .shipped("1.0.3"),

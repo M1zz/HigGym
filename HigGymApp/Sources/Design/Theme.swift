@@ -21,6 +21,10 @@ enum HG {
     static let green      = Color(light: 0x0A7650, dark: 0x37D39B)
     static let amber      = Color(light: 0x8F5A08, dark: 0xF5B451)
     static let red        = Color(light: 0xB82424, dark: 0xFF6B6B)
+    /// 흰 글자를 얹는 그라디언트(주 버튼·단계 표시)의 양 끝. 다크의 강조색은 어두운 바탕 위 글자용이라
+    /// 흰 글자를 얹으면 대비가 2.5:1 로 무너진다. 같은 색조를 한 단계 눌러 4.5:1 을 넘긴다.
+    static let brandStart = Color(light: 0x125CCB, dark: 0x2A6FD1)
+    static let brandEnd   = Color(light: 0x5A48D6, dark: 0x6A55F0)
 
     /// 카드 안의 은은한 채움. 다크에선 흰색을 아주 옅게, 라이트에선 검정을 아주 옅게.
     static let fill = Color(lightWhite: 0.0, lightAlpha: 0.035, darkWhite: 1.0, darkAlpha: 0.02)
@@ -117,7 +121,7 @@ extension ShapeStyle where Self == LinearGradient {
     /// 챕터 번호 배지 등에 쓰는 문서와 동일한 그라디언트.
     static var hgBrand: LinearGradient {
         LinearGradient(
-            colors: [.hgAccent, .hgAccent2],
+            colors: [HG.brandStart, HG.brandEnd],
             startPoint: .topLeading,
             endPoint: .bottomTrailing
         )
@@ -257,6 +261,8 @@ struct DiagnosisRow: View {
                 .foregroundStyle(diagnosis.level.color)
                 .font(.subheadline)
                 .padding(.top, 1)
+                // 통과·주의·위반이 색과 모양으로만 갈리지 않게 말로도 읽힌다.
+                .accessibilityLabel(diagnosis.level.label)
             VStack(alignment: .leading, spacing: 4) {
                 MarkdownText(raw: diagnosis.message, font: .subheadline, color: .hgText)
                 Text(diagnosis.source)
@@ -271,6 +277,7 @@ struct DiagnosisRow: View {
             RoundedRectangle(cornerRadius: 12)
                 .strokeBorder(diagnosis.level.color.opacity(0.25), lineWidth: 1)
         )
+        .accessibilityElement(children: .combine)
     }
 }
 

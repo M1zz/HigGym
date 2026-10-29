@@ -213,6 +213,7 @@ private struct SlotEditor: View {
                         .font(.title3)
                         .foregroundStyle(.hgAccent)
                 }
+                .accessibilityLabel("추가")
             }
 
             if assigned.isEmpty {

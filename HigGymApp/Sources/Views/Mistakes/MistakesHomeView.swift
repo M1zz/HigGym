@@ -199,13 +199,15 @@ struct MistakesHomeView: View {
                     .font(.system(.caption, design: .monospaced, weight: .bold))
                     .opacity(0.75)
             }
-            .foregroundStyle(active ? .white : color)
+            // 다크에서는 칩 색이 밝아 흰 글자가 묻힌다. 카드 색(라이트 흰색 · 다크 먹색)을 얹으면 두 모드 모두 대비가 선다.
+            .foregroundStyle(active ? Color.hgCard : color)
             .padding(.horizontal, 11)
             .padding(.vertical, 6)
             .background(active ? AnyShapeStyle(color) : AnyShapeStyle(color.opacity(0.12)), in: .capsule)
             .overlay(Capsule().strokeBorder(color.opacity(active ? 0 : 0.3), lineWidth: 1))
         }
         .buttonStyle(.plain)
+        .accessibilityAddTraits(active ? .isSelected : [])
     }
 }
 
@@ -215,6 +217,14 @@ private struct MistakeRow: View {
     let mistake: Mistake
     let checked: Bool
     var locked = false
+    @Environment(\.dynamicTypeSize) private var typeSize
+
+    /// 큰 글씨에서는 표식들을 한 줄에 몰지 않고 세로로 쌓는다 - 한 줄이면 서로를 짓눌러 잘린다.
+    private var metaLayout: AnyLayout {
+        typeSize.isAccessibilitySize
+            ? AnyLayout(VStackLayout(alignment: .leading, spacing: 4))
+            : AnyLayout(HStackLayout(spacing: 6))
+    }
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
@@ -231,7 +241,7 @@ private struct MistakeRow: View {
                     .multilineTextAlignment(.leading)
                     .strikethrough(checked, color: .hgDim)
 
-                HStack(spacing: 6) {
+                metaLayout {
                     Label(mistake.severityLabel, systemImage: mistake.level.symbol)
                         .font(.caption.weight(.semibold))
                         .foregroundStyle(mistake.level.color)

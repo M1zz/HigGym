@@ -18,6 +18,7 @@ struct StageChrome<Controls: View>: ViewModifier {
                         .accessibilityLabel("돌아가기")
                     Divider().frame(width: 22)
                     button("slider.horizontal.3") { showControls = true }
+                        .accessibilityLabel("설정")
                 }
                 .padding(.vertical, 8)
                 .hgChromeBackground(in: Capsule())

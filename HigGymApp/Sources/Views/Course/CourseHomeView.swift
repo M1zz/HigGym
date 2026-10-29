@@ -110,7 +110,7 @@ struct CourseHomeView: View {
                             Text("\(next.number). \(next.title)")
                                 .font(.footnote)
                                 .foregroundStyle(.hgDim)
-                                .lineLimit(1)
+                                .lineLimit(2)
                         }
                         Spacer(minLength: 4)
                         Image(systemName: "chevron.right")

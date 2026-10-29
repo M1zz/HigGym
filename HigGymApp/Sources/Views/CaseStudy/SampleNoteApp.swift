@@ -487,6 +487,8 @@ private struct RowDeletionModifier: ViewModifier {
 private struct SpotlightRing: ViewModifier {
     let active: Bool
     @State private var pulse = false
+    /// '동작 줄이기'에서는 깜빡이지 않고 테두리만 둔다.
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     func body(content: Content) -> some View {
         content
@@ -497,7 +499,7 @@ private struct SpotlightRing: ViewModifier {
                         .padding(-5)
                         .opacity(pulse ? 0.35 : 1)
                         .animation(.easeInOut(duration: 0.8).repeatForever(autoreverses: true), value: pulse)
-                        .onAppear { pulse = true }
+                        .onAppear { pulse = !reduceMotion }
                 }
             }
     }

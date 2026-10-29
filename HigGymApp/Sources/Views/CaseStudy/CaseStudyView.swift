@@ -105,6 +105,7 @@ struct CaseStudyView: View {
                 .accessibilityLabel("돌아가기")
             Divider().frame(height: 18)
             button("list.bullet.rectangle") { showNotes = true }
+                .accessibilityLabel("이 앱은 왜 이렇게 생겼나")
         }
         .padding(.horizontal, 7)
         .hgBarBackground(in: Capsule())

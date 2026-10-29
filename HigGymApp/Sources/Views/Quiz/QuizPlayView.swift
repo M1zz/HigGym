@@ -291,6 +291,10 @@ private struct MockupOption: View {
             }
         }
         .opacity(state == .dimmed ? 0.5 : 1)
+        // 그림을 눈으로 볼 수 없으면 고를 길이 없다. VoiceOver 에는 처음부터 이름으로 보기를 준다.
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(title)
+        .accessibilityValue(state.spoken ?? "")
     }
 
     /// 색 대신 모양으로 말하는 표시 - 정답은 체크, 내가 고른 오답은 엑스.
@@ -304,7 +308,18 @@ private struct MockupOption: View {
 }
 
 struct OptionRow: View {
-    enum State { case idle, correct, wrong, dimmed }
+    enum State {
+        case idle, correct, wrong, dimmed
+
+        /// VoiceOver 가 보기 뒤에 읽는 채점 결과.
+        var spoken: String? {
+            switch self {
+            case .correct: String(localized: "정답")
+            case .wrong:   String(localized: "오답")
+            default:       nil
+            }
+        }
+    }
 
     let text: String
     let state: State
@@ -325,6 +340,8 @@ struct OptionRow: View {
         .background(background, in: .rect(cornerRadius: 13))
         .overlay(RoundedRectangle(cornerRadius: 13).strokeBorder(tint.opacity(borderOpacity), lineWidth: 1))
         .opacity(state == .dimmed ? 0.55 : 1)
+        // 채점 결과가 색과 아이콘으로만 보이지 않게 말로도 붙인다.
+        .accessibilityValue(state.spoken ?? "")
     }
 
     private var symbol: String {
