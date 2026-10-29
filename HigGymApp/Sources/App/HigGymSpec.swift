@@ -65,7 +65,9 @@ enum HigGymSpec: LeeoAppSpec {
                 productID: HigGymPro.giftID,
                 grantsProductID: HigGymPro.lifetimeID,
                 containerIdentifier: "iCloud.com.Ysoup.FeedbackHub"
-            )
+            ),
+            // 개발자 응원 팁 세 가지. 소모성이고 아무것도 열지 않는다.
+            tipJar: LeeoTipJarConfig(productIDs: HigGymPro.tipIDs)
         )
     )
 

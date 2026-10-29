@@ -1,9 +1,12 @@
 import SwiftUI
+import LeeoKit
 
 struct QuizResultView: View {
     let session: QuizSession
     let onClose: () -> Void
     @State private var presentedLab: LabID?
+    @Environment(ProgressStore.self) private var progress
+    @ObservedObject private var pro = HigGymPro.shared
 
     private var score: Double {
         session.results.isEmpty ? 0 : Double(session.correctCount) / Double(session.results.count)
@@ -13,6 +16,11 @@ struct QuizResultView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 18) {
                 scoreCard
+                // 한 판을 막 끝낸 자리. 이미 Pro 인 사람에게만 드물게 응원을 부탁한다(안 산 사람은 페이월이 맞는 길).
+                if pro.hasPro, let tipJar = pro.tipJar {
+                    LeeoTipAskSlot<HigGymSpec>(tipJar: tipJar,
+                                               reached: HigGymTipMoments.reached(answered: progress.answeredCount))
+                }
                 if !wrongResults.isEmpty {
                     weakSpots
                 }
@@ -97,6 +105,22 @@ struct QuizResultView: View {
                 .background(Color.hgCard, in: .rect(cornerRadius: 14))
                 .overlay(RoundedRectangle(cornerRadius: 14).strokeBorder(Color.hgLine, lineWidth: 1))
             }
+        }
+    }
+}
+
+// MARK: - 응원 부탁의 순간
+
+/// 이 앱이 그 사람에게 도움이 됐다는 숫자: 지금까지 푼 문제 수(`ProgressStore.answeredCount`).
+enum HigGymTipMoments {
+    /// 큰 것부터.
+    static let answered = [500, 200, 50]
+
+    static func reached(answered count: Int) -> [LeeoTipMoment] {
+        answered.filter { count >= $0 }.map { threshold in
+            LeeoTipMoment(id: "answered.\(threshold)",
+                          message: String(localized: "지금까지 문제 \(count)개를 풀었어요",
+                                          comment: "Tip ask card: total quiz questions answered so far"))
         }
     }
 }
