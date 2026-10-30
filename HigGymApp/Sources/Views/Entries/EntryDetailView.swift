@@ -1,4 +1,5 @@
 import SwiftUI
+import LeeoKit
 
 /// 한 항목의 화면 - 목업이 위에 있고 설명이 그 그림에 붙는다.
 struct EntryDetailView: View {
@@ -34,9 +35,10 @@ struct EntryDetailView: View {
         // 예제는 push 가 아니라 전체 화면으로 - EntryDemoStage 주석 참고.
         .fullScreenCover(item: $runningDemo) { demo in
             EntryDemoStage(entry: entry, demo: demo)
+                .foldConfined()
         }
         .onAppear { if DebugLaunch.autoDemo { runningDemo = demo } }
-        .fullScreenCover(item: $presentedLab) { labDestination($0) }
+        .fullScreenCover(item: $presentedLab) { labDestination($0).foldConfined() }
     }
 
     // MARK: 목업 - 이 화면의 근간

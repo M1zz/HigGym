@@ -37,7 +37,7 @@ struct StageChrome<Controls: View>: ViewModifier {
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
                         ToolbarItem(placement: .topBarTrailing) {
-                            Button("닫기") { showControls = false }
+                            Button("닫기", systemImage: "xmark") { showControls = false }
                         }
                     }
                 }

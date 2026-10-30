@@ -1,4 +1,5 @@
 import SwiftUI
+import LeeoKit
 
 /// 8장 원칙 7개 - 실습 판정과 퀴즈 해설이 모두 여기서 나온다.
 struct PrinciplesView: View {
@@ -150,6 +151,7 @@ struct PrincipleDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(item: $runningDemo) { demo in
             EntryDemoStage(entry: principle, demo: demo)
+                .foldConfined()
         }
         .onAppear { if DebugLaunch.autoDemo { runningDemo = demo } }
     }

@@ -1,4 +1,5 @@
 import SwiftUI
+import LeeoKit
 
 /// 앱의 첫 화면 - 여덟 편짜리 코스.
 ///
@@ -55,6 +56,7 @@ struct CourseHomeView: View {
             ProGate(feature: .lesson(id: lesson.id), onClose: { playing = nil }) {
                 LessonPlayerView(lesson: lesson) { playing = nil }
             }
+            .foldConfined()
         }
     }
 

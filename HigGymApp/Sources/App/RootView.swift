@@ -242,6 +242,13 @@ struct RootView: View {
         && !DebugLaunch.isScripted
 
     var body: some View {
+        content
+            // 창 크기로 접힘을 재서 아래로 흘린다. 시트 · 알림창도 접힌 선을 비킨다 (LeeoKit Fold).
+            .foldAware()
+    }
+
+    @ViewBuilder
+    private var content: some View {
         if DebugLaunch.paywall {
             HigGymPaywallView(onClose: {})
         } else if let lab = DebugLaunch.lab {
@@ -256,20 +263,29 @@ struct RootView: View {
     /// 학습이 앱의 본문이고, 노트는 학습자가 쓴 것, 자료는 필요할 때 여는 뒤편이다.
     private var tabs: some View {
         TabView(selection: $router.tab) {
+            // 아이폰 듀오를 펴면 고르는 쪽(가로면 왼쪽, 세로면 아래)에 이 탭, 결과 쪽(오른쪽, 위)에 노트가 선다.
+            // 접혀 있거나 보통 아이폰이면 이 탭만 그린다. 지금 화면 그대로다.
             Tab("학습", systemImage: "graduationcap.fill", value: Router.TabID.course) {
-                CourseHomeView()
+                FoldWithNotebook { CourseHomeView() }
             }
             Tab("노트", systemImage: "text.book.closed.fill", value: Router.TabID.notebook) {
                 NotebookView()
             }
             Tab("자료", systemImage: "books.vertical.fill", value: Router.TabID.library) {
-                LibraryView()
+                FoldWithNotebook { LibraryView() }
             }
         }
+        // 펴면 시스템 탭바 대신 고르는 쪽 판 바닥에 막대가 선다. 노트는 늘 결과 쪽 판에 있으므로 빠진다.
+        .foldTabBar(items: [
+            .init(value: Router.TabID.course, title: String(localized: "학습"), symbol: "graduationcap.fill"),
+            .init(value: Router.TabID.library, title: String(localized: "자료"), symbol: "books.vertical.fill"),
+        ], selected: router.tab == .notebook ? .course : router.tab) { router.tab = $0 }
+        .modifier(FoldNotebookTabRedirect(tab: $router.tab))
         .environment(router)
         .modifier(SatisfactionCheck(isEnabled: asksSatisfaction))
         .fullScreenCover(isPresented: onboardingPresented) {
             HigGymOnboardingView { hasSeenOnboarding = true }
+                .foldConfined()
         }
         .sheet(isPresented: $showsWhatsNew, onDismiss: { WhatsNewContent.markSeen() }) {
             WhatsNewView { showsWhatsNew = false }
@@ -325,5 +341,41 @@ private struct SatisfactionCheck: ViewModifier {
         } else {
             content
         }
+    }
+}
+
+// MARK: - 아이폰 듀오
+
+/// 펼친 화면의 탭 한 장: 고르는 쪽은 그 탭, 결과 쪽은 내가 쓴 노트.
+/// 레슨을 고르고 하는 쪽과, 그렇게 해서 남은 글을 보는 쪽이 접힌 선을 사이에 둔다.
+private struct FoldWithNotebook<Choose: View>: View {
+    @ViewBuilder let choose: () -> Choose
+
+    var body: some View {
+        FoldSplitView {
+            choose()
+        } result: {
+            NotebookView()
+                // 이 판 안에서는 접히지 않은 화면처럼 선다.
+                .environment(\.foldLayout, .single)
+        }
+        .foldTabBarRoom()
+    }
+}
+
+/// 펼쳤을 때 노트 탭에 있었다면 학습으로 옮긴다. 노트는 그 결과 쪽 판에 그대로 서 있다.
+private struct FoldNotebookTabRedirect: ViewModifier {
+    @Environment(\.foldLayout) private var fold
+    @Binding var tab: Router.TabID
+
+    func body(content: Content) -> some View {
+        content
+            .onChange(of: fold.isUnfolded, initial: true) { _, unfolded in
+                if unfolded, tab == .notebook { tab = .course }
+            }
+            // 단축어("노트 열기")가 노트 탭을 골라도 펼친 화면에서는 노트가 이미 서 있다.
+            .onChange(of: tab) { _, now in
+                if fold.isUnfolded, now == .notebook { tab = .course }
+            }
     }
 }

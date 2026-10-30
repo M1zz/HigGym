@@ -1,4 +1,5 @@
 import SwiftUI
+import LeeoKit
 
 /// 실수 한 편. 회고 한 편이 그대로 화면이 된 구조다 -
 /// **무엇을 했나 → 그때는 왜 맞아 보였나 → 판단 기준 → 고치면 → 직접 해보기 → 근거**.
@@ -56,11 +57,14 @@ struct MistakeDetailView: View {
             }
         }
         .fullScreenCover(item: $runningDemo) { demo in
-            if demo.id == mistake.id {
-                EntryDemoStage(info: DemoGuideInfo(mistake: mistake), demo: demo)
-            } else if let demoEntry {
-                EntryDemoStage(entry: demoEntry, demo: demo)
+            Group {
+                if demo.id == mistake.id {
+                    EntryDemoStage(info: DemoGuideInfo(mistake: mistake), demo: demo)
+                } else if let demoEntry {
+                    EntryDemoStage(entry: demoEntry, demo: demo)
+                }
             }
+            .foldConfined()
         }
     }
 

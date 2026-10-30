@@ -1,4 +1,5 @@
 import SwiftUI
+import LeeoKit
 
 struct QuizHomeView: View {
     /// 자료 탭 안으로 push 될 때는 바깥 스택을 쓴다 - 스택을 겹치면 안쪽 툴바가 바깥으로 끌려 올라간다.
@@ -42,12 +43,15 @@ struct QuizHomeView: View {
             }
             .fullScreenCover(item: $session) { session in
                 QuizPlayView(session: session) { self.session = nil }
+                    .foldConfined()
             }
             .fullScreenCover(item: $liveKind) { kind in
                 LiveQuizPlayView(kind: kind) { liveKind = nil }
+                    .foldConfined()
             }
             .fullScreenCover(isPresented: $caseStudy) {
                 CaseStudyView()
+                    .foldConfined()
             }
             .proPaywallSheet($paywall)
     }

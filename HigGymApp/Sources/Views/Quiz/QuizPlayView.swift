@@ -33,7 +33,7 @@ struct QuizPlayView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("닫기") { onClose() }
+                    Button("닫기", systemImage: "xmark") { onClose() }
                 }
             }
         }

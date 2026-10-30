@@ -1,4 +1,5 @@
 import SwiftUI
+import LeeoKit
 import UIKit
 import TipKit
 
@@ -70,6 +71,7 @@ struct NotebookView: View {
             ProGate(feature: .lesson(id: lesson.id), onClose: { editing = nil }) {
                 LessonPlayerView(lesson: lesson) { editing = nil }
             }
+            .foldConfined()
         }
     }
 

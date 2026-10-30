@@ -1,4 +1,5 @@
 import SwiftUI
+import LeeoKit
 
 /// 실습실은 목록 · 퀴즈 해설 · 항목 상세 여러 곳에서 열린다. 잠금은 여기 한 곳에서 건다.
 func labDestination(_ lab: LabID) -> some View {
@@ -55,6 +56,7 @@ struct LabsHomeView: View {
         .fullScreenCover(item: $router.presentedLab) { lab in
             labDestination(lab)
                 .onAppear { progress.markLabVisited(lab) }
+                .foldConfined()
         }
     }
 

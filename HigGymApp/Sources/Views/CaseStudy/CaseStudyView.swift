@@ -164,7 +164,7 @@ private struct DecisionSheet: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("닫기") { spotlight = nil; dismiss() }
+                    Button("닫기", systemImage: "xmark") { spotlight = nil; dismiss() }
                 }
             }
         }
