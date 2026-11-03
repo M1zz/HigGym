@@ -4,7 +4,8 @@ import LeeoKit
 
 @main
 struct HigGymApp: App {
-    @State private var progress = ProgressStore()
+    /// 둘 다 금고(bootstrap 안)가 예약된 복원을 먼저 적용한 뒤에 읽도록 init 에서 만든다.
+    @State private var progress: ProgressStore
     @State private var notebook: NotebookStore
 
     /// 켤 때마다 같은 자리에서 죽는 일을 알아채는 가드. 두 번 연속 첫 화면까지 못 가면 다음 실행을 세이프 모드로 연다.
@@ -19,6 +20,7 @@ struct HigGymApp: App {
         Self.logContractAudit()
         #endif
 
+        _progress = State(initialValue: ProgressStore())
         let notebook = NotebookStore()
         // 세이프 모드: 연속으로 죽었다면 가장 의심스러운 두 가지를 건너뛴다.
         // ① 하다 만 레슨을 멈춘 단계(실물 크기 비교 화면 등)에서 다시 여는 일 → 그 레슨의 첫 단계부터 연다. 쓴 글은 그대로다.
