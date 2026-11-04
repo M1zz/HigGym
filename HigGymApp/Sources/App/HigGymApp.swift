@@ -7,6 +7,7 @@ struct HigGymApp: App {
     /// 둘 다 금고(bootstrap 안)가 예약된 복원을 먼저 적용한 뒤에 읽도록 init 에서 만든다.
     @State private var progress: ProgressStore
     @State private var notebook: NotebookStore
+    @Environment(\.scenePhase) private var scenePhase
 
     /// 켤 때마다 같은 자리에서 죽는 일을 알아채는 가드. 두 번 연속 첫 화면까지 못 가면 다음 실행을 세이프 모드로 연다.
     private static let crashGuard = LeeoCrashLoopGuard(name: "app", defaults: .standard)
@@ -69,6 +70,12 @@ struct HigGymApp: App {
                 .tint(.hgAccent)
                 // 첫 화면이 뜨고 몇 초 살아 있으면 이번 시작은 성공이다.
                 .task { Self.crashGuard.markLaunchSucceededAfterSurvivalDelay() }
+        }
+        // 노트 Spotlight 색인을 지금 글에 맞춘다
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .active || phase == .background {
+                Task { await NoteQuery.reindex() }
+            }
         }
     }
 }

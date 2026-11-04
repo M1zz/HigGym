@@ -1,5 +1,6 @@
 import SwiftUI
 import LeeoKit
+import AppIntents
 
 /// 앱의 첫 화면 - 여덟 편짜리 코스.
 ///
@@ -74,7 +75,11 @@ struct CourseHomeView: View {
         let next = notebook.next
 
         return Button {
-            if let next { playing = next }
+            if let next {
+                playing = next
+                // Siri 가 "이어서 학습하기" 를 알맞은 때에 권하도록 알린다
+                IntentDonationManager.shared.donate(intent: ResumeLessonIntent())
+            }
         } label: {
             VStack(alignment: .leading, spacing: 12) {
                 HStack {
