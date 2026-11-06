@@ -1,5 +1,175 @@
 # 릴리즈 노트
 
+## 1.0.7
+
+### 앱스토어 (한국어)
+
+VoiceOver와 큰 글씨로 더 편하게 배워요.
+다크 모드에서도 버튼과 글자가 또렷해요.
+학습 노트를 iPhone 검색에서 바로 열어요.
+학습 기록이 매일 자동으로 백업돼요.
+
+### App Store (en)
+
+Easier with VoiceOver and larger text.
+Clearer buttons and text in Dark Mode.
+Open your study notes from search.
+Your progress is backed up every day.
+
+### App Store (en-GB)
+
+Easier with VoiceOver and larger text.
+Clearer buttons and text in Dark Mode.
+Open your study notes from search.
+Your progress is backed up every day.
+
+### App Store (ja)
+
+VoiceOverや大きな文字で学びやすくなりました。
+ダークモードでもボタンと文字がくっきり。
+学習ノートをiPhoneの検索から開けます。
+学習記録を毎日自動でバックアップします。
+
+### App Store (zh-Hans)
+
+使用旁白或大字体学习更方便。
+深色模式下按钮和文字更清晰。
+可从 iPhone 搜索直接打开学习笔记。
+学习记录每天自动备份。
+
+### App Store (zh-Hant)
+
+使用旁白或大字體學習更方便。
+深色模式下按鈕和文字更清楚。
+可從 iPhone 搜尋直接打開學習筆記。
+學習紀錄每天自動備份。
+
+### 앱스토어 (러시아어)
+
+Удобнее с VoiceOver и крупным шрифтом.
+В тёмном режиме кнопки и текст чётче.
+Открывайте заметки из поиска iPhone.
+Ваш прогресс сохраняется каждый день.
+
+### 앱스토어 (스페인어)
+
+Más fácil con VoiceOver o texto grande.
+Botones más claros en modo oscuro.
+Abre tus notas desde la búsqueda.
+Tu progreso se respalda cada día.
+
+### 앱스토어 (독일어)
+
+Besser mit VoiceOver und großer Schrift.
+Klarere Tasten und Texte im Dunkelmodus.
+Lernnotizen direkt aus der Suche öffnen.
+Dein Fortschritt wird täglich gesichert.
+
+### 앱스토어 (프랑스어)
+
+VoiceOver et gros texte mieux gérés.
+Boutons plus nets en mode sombre.
+Ouvrez vos notes depuis la recherche.
+Vos progrès sauvegardés chaque jour.
+
+### 앱스토어 (이탈리아어)
+
+Più facile con VoiceOver o testo grande.
+Pulsanti più chiari in modalità scura.
+Apri le tue note dalla ricerca.
+I tuoi progressi salvati ogni giorno.
+
+### App Store (pt-BR)
+
+Mais fácil com VoiceOver e letra grande.
+Botões mais nítidos no modo escuro.
+Abra suas notas pela busca do iPhone.
+Seu progresso tem backup todo dia.
+
+### 앱스토어 (태국어)
+
+เรียนง่ายขึ้นด้วย VoiceOver และตัวใหญ่
+ปุ่มและตัวอักษรชัดขึ้นในโหมดมืด
+เปิดโน้ตการเรียนได้จากการค้นหาใน iPhone
+ความคืบหน้าสำรองอัตโนมัติทุกวัน
+
+### 앱스토어 (베트남어)
+
+Học dễ hơn với VoiceOver và chữ lớn.
+Nút và chữ rõ hơn ở chế độ tối.
+Mở ghi chú học tập từ tìm kiếm.
+Tiến độ học được sao lưu mỗi ngày.
+
+### 앱스토어 (체코어)
+
+Snazší s VoiceOverem a velkým písmem.
+Čitelnější tlačítka v tmavém režimu.
+Poznámky otevřete přímo z hledání.
+Váš pokrok se denně zálohuje.
+
+### 앱스토어 (덴마크어)
+
+Nemmere med VoiceOver og stor tekst.
+Tydeligere knapper i mørk tilstand.
+Åbn dine noter fra søgning.
+Dine fremskridt gemmes sikkert dagligt.
+
+### 앱스토어 (그리스어)
+
+Καλύτερο VoiceOver και μεγάλα γράμματα.
+Πιο καθαρά κουμπιά σε σκούρο θέμα.
+Ανοίξτε τις σημειώσεις από αναζήτηση.
+Η πρόοδός σας σώζεται καθημερινά.
+
+### 앱스토어 (핀란드어)
+
+Parempi VoiceOver ja isompi teksti.
+Selkeämmät painikkeet tummassa tilassa.
+Avaa muistiinpanot suoraan hausta.
+Opinnot varmuuskopioidaan päivittäin.
+
+### 앱스토어 (인도네시아어)
+
+Belajar lebih mudah dengan VoiceOver.
+Tombol lebih jelas di mode gelap.
+Buka catatan belajar dari pencarian.
+Kemajuan belajar dicadangkan tiap hari.
+
+### 앱스토어 (노르웨이어(보크말))
+
+Lettere med VoiceOver og stor tekst.
+Tydeligere knapper i mørk modus.
+Åpne notatene dine fra søk.
+Fremgangen sikkerhetskopieres daglig.
+
+### 앱스토어 (네덜란드어)
+
+Fijner met VoiceOver of grote tekst.
+Duidelijkere knoppen in donkere modus.
+Open je notities via zoeken.
+Dagelijks een back-up van je voortgang.
+
+### 앱스토어 (폴란드어)
+
+Łatwiej z VoiceOver i dużym tekstem.
+Wyraźniejsze przyciski w trybie ciemnym.
+Otwieraj notatki z wyszukiwarki.
+Postępy są codziennie kopiowane.
+
+### 앱스토어 (스웨덴어)
+
+Lättare med VoiceOver och stor text.
+Tydligare knappar och text i mörkt läge.
+Öppna dina anteckningar från sökningen.
+Dina framsteg sparas säkert varje dag.
+
+### 앱스토어 (튀르키예어)
+
+VoiceOver ve büyük yazıyla daha kolay.
+Koyu modda düğmeler ve yazılar daha net.
+Notlarınızı aramadan açın.
+İlerlemeniz her gün yedeklenir.
+
 ## 1.0.4
 
 ### 앱스토어 (한국어)
