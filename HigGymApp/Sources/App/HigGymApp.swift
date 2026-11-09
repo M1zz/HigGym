@@ -68,6 +68,8 @@ struct HigGymApp: App {
                 // 다크를 강제하지 않는다 - 팔레트가 두 모드를 다 갖고 있고,
                 // 예제는 시스템 컴포넌트라 모드를 따라가야 실물과 같아진다.
                 .tint(.hgAccent)
+                // 개발자가 보낸 의견에 답장하면, 앱이 앞으로 올 때 답장을 시트로 보여 준다 (LeeoKit).
+                .leeoFeedbackReplyNotice(HigGymSpec.self)
                 // 첫 화면이 뜨고 몇 초 살아 있으면 이번 시작은 성공이다.
                 .task { Self.crashGuard.markLaunchSucceededAfterSurvivalDelay() }
         }
