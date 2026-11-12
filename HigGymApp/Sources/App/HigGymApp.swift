@@ -72,6 +72,8 @@ struct HigGymApp: App {
                 .leeoFeedbackReplyNotice(HigGymSpec.self)
                 // 첫 화면이 뜨고 몇 초 살아 있으면 이번 시작은 성공이다.
                 .task { Self.crashGuard.markLaunchSucceededAfterSurvivalDelay() }
+                // 콘텐츠를 메인 밖에서 미리 읽어, 처음 여는 화면이 해독하느라 멈추지 않게 한다.
+                .task { await ContentLocalization.preload() }
         }
         // 노트 Spotlight 색인을 지금 글에 맞춘다
         .onChange(of: scenePhase) { _, phase in

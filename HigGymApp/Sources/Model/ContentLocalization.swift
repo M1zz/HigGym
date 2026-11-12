@@ -11,6 +11,16 @@ import Foundation
 enum ContentLocalization {
     static let table = "Content"
 
+    /// 번들 콘텐츠 두 벌(entries · mistakes, 합쳐 약 850KB)을 메인 스레드 밖에서 미리 읽어 둔다.
+    /// 안 하면 처음 쓰는 화면이 메인에서 해독과 번역을 하느라 멈춘다
+    /// (1.0.7 멈춤 진단: 설정의 Pro 칸이 `MistakeStore.shared` 를 처음 건드리며 1초 넘게 멈춤).
+    static func preload() async {
+        await Task.detached(priority: .utility) {
+            _ = ContentStore.shared
+            _ = MistakeStore.shared
+        }.value
+    }
+
     /// 번들의 JSON 을 읽어 번역을 입히고 디코딩한다. 실패하면 이유를 로그에 남기고 nil.
     static func decode<T: Decodable>(_ type: T.Type, resource: String, bundle: Bundle = .main) -> T? {
         let signposter = HigGymLog.signposter
