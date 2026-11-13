@@ -242,7 +242,7 @@ struct RootView: View {
         && !DebugLaunch.isScripted
 
     var body: some View {
-        content
+        WidePadPanes { content }
             // 창 크기로 접힘을 재서 아래로 흘린다. 시트 · 알림창도 접힌 선을 비킨다 (LeeoKit Fold).
             .foldAware()
     }
@@ -285,7 +285,7 @@ struct RootView: View {
         .modifier(SatisfactionCheck(isEnabled: asksSatisfaction))
         .fullScreenCover(isPresented: onboardingPresented) {
             HigGymOnboardingView { hasSeenOnboarding = true }
-                .foldConfined()
+                .coverConfined()
         }
         .sheet(isPresented: $showsWhatsNew, onDismiss: { WhatsNewContent.markSeen() }) {
             WhatsNewView { showsWhatsNew = false }
@@ -344,7 +344,51 @@ private struct SatisfactionCheck: ViewModifier {
     }
 }
 
-// MARK: - 아이폰 듀오
+// MARK: - 아이폰 듀오 · 넓은 아이패드
+
+/// 넓은 아이패드도 가로로 편 아이폰 듀오와 같은 짝으로 세운다: 왼쪽 학습 · 자료, 오른쪽 노트.
+/// 아이패드는 접히지 않아 Fold 가 한 쪽(single)으로 재므로, regular 폭이면 여기서 펼친 자세로 바꿔 흘린다.
+/// Slide Over · 좁은 분할(compact)은 아이폰처럼 탭 그대로.
+private struct WidePadPanes<Content: View>: View {
+    @Environment(\.foldLayout) private var fold
+    @Environment(\.horizontalSizeClass) private var sizeClass
+    @ViewBuilder let content: () -> Content
+
+    var body: some View {
+        content()
+            .environment(\.foldLayout, layout)
+            .environment(\.isWidePadPanes, layout.isUnfolded && !fold.isUnfolded)
+    }
+
+    private var layout: FoldLayout {
+        guard UIDevice.current.userInterfaceIdiom == .pad, sizeClass == .regular,
+              fold.windowSize != .zero else { return fold }
+        return FoldLayout(posture: .innerLandscape, windowSize: fold.windowSize)
+    }
+}
+
+extension EnvironmentValues {
+    /// 넓은 아이패드라서 두 쪽으로 세웠는가(진짜 접는 폰이 아니라).
+    @Entry var isWidePadPanes = false
+}
+
+extension View {
+    /// 전체 화면 덮개(레슨 · 실습 · 퀴즈)에 건다. 펼친 아이폰 듀오에서는 고르는 쪽 판에만 서고(접힌 선을 넘지 않게),
+    /// 넓은 아이패드는 접힌 선이 없으니 화면을 다 쓴다.
+    func coverConfined() -> some View { modifier(CoverConfined()) }
+}
+
+private struct CoverConfined: ViewModifier {
+    @Environment(\.isWidePadPanes) private var widePad
+
+    func body(content: Content) -> some View {
+        if widePad {
+            content.environment(\.foldLayout, .single)
+        } else {
+            content.foldConfined()
+        }
+    }
+}
 
 /// 펼친 화면의 탭 한 장: 고르는 쪽은 그 탭, 결과 쪽은 내가 쓴 노트.
 /// 레슨을 고르고 하는 쪽과, 그렇게 해서 남은 글을 보는 쪽이 접힌 선을 사이에 둔다.

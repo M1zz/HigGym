@@ -1,5 +1,151 @@
 # 릴리즈 노트
 
+## 1.0.8
+
+### 앱스토어 (한국어)
+
+이제 iPad에서도 배울 수 있어요.
+넓은 화면에서 레슨과 노트를 나란히 봐요.
+예제 화면을 iPad 크기 그대로 만져 봐요.
+
+### App Store (en)
+
+Now you can learn on iPad too.
+Lessons and notes side by side on iPad.
+Try the examples at full iPad size.
+
+### App Store (en-GB)
+
+Now you can learn on iPad too.
+Lessons and notes side by side on iPad.
+Try the examples at full iPad size.
+
+### App Store (ja)
+
+iPadでも学べるようになりました。
+広い画面でレッスンとノートを並べて表示。
+例の画面をiPadの大きさのまま試せます。
+
+### App Store (zh-Hans)
+
+现在也能在 iPad 上学习了。
+大屏幕上课程与笔记并排显示。
+以 iPad 原尺寸亲手试用示例界面。
+
+### App Store (zh-Hant)
+
+現在也能在 iPad 上學習了。
+大螢幕上課程與筆記並排顯示。
+以 iPad 原尺寸親手試用範例畫面。
+
+### 앱스토어 (러시아어)
+
+Теперь учиться можно и на iPad.
+Уроки и заметки рядом на iPad.
+Примеры — в полный размер iPad.
+
+### 앱스토어 (스페인어)
+
+Ahora también puedes aprender en iPad.
+Lecciones y notas lado a lado en iPad.
+Prueba los ejemplos a tamaño de iPad.
+
+### 앱스토어 (독일어)
+
+Jetzt auch auf dem iPad lernen.
+Lektionen und Notizen nebeneinander.
+Beispiele in voller iPad-Größe testen.
+
+### 앱스토어 (프랑스어)
+
+Apprenez désormais aussi sur iPad.
+Leçons et notes côte à côte sur iPad.
+Les exemples en taille réelle sur iPad.
+
+### 앱스토어 (이탈리아어)
+
+Ora puoi imparare anche su iPad.
+Lezioni e note fianco a fianco su iPad.
+Prova gli esempi a misura di iPad.
+
+### App Store (pt-BR)
+
+Agora você também aprende no iPad.
+Lições e notas lado a lado no iPad.
+Teste os exemplos no tamanho do iPad.
+
+### 앱스토어 (태국어)
+
+เรียนบน iPad ได้แล้ว
+บนจอใหญ่ ดูบทเรียนกับโน้ตคู่กัน
+ลองหน้าจอตัวอย่างในขนาด iPad จริง
+
+### 앱스토어 (베트남어)
+
+Giờ bạn đã học được trên iPad.
+Bài học và ghi chú cạnh nhau trên iPad.
+Thử ví dụ ở đúng kích thước iPad.
+
+### 앱스토어 (체코어)
+
+Teď se můžete učit i na iPadu.
+Lekce a poznámky vedle sebe na iPadu.
+Příklady vyzkoušíte ve velikosti iPadu.
+
+### 앱스토어 (덴마크어)
+
+Nu kan du også lære på iPad.
+Lektioner og noter side om side på iPad.
+Prøv eksemplerne i fuld iPad-størrelse.
+
+### 앱스토어 (그리스어)
+
+Τώρα μαθαίνετε και στο iPad.
+Μαθήματα και σημειώσεις δίπλα δίπλα.
+Δοκιμάστε παραδείγματα σε μέγεθος iPad.
+
+### 앱스토어 (핀란드어)
+
+Nyt voit opiskella myös iPadilla.
+Oppitunnit ja muistiinpanot rinnakkain.
+Kokeile esimerkkejä iPadin koossa.
+
+### 앱스토어 (인도네시아어)
+
+Kini bisa belajar di iPad juga.
+Pelajaran dan catatan berdampingan.
+Coba contoh dalam ukuran penuh iPad.
+
+### 앱스토어 (노르웨이어(보크말))
+
+Nå kan du lære på iPad også.
+Leksjoner og notater side om side.
+Prøv eksemplene i full iPad-størrelse.
+
+### 앱스토어 (네덜란드어)
+
+Nu kun je ook op iPad leren.
+Lessen en notities naast elkaar op iPad.
+Probeer de voorbeelden op iPad-formaat.
+
+### 앱스토어 (폴란드어)
+
+Teraz nauczysz się też na iPadzie.
+Lekcje i notatki obok siebie na iPadzie.
+Wypróbuj przykłady w rozmiarze iPada.
+
+### 앱스토어 (스웨덴어)
+
+Nu kan du lära dig på iPad också.
+Lektion och anteckningar sida vid sida.
+Prova exemplen i full iPad-storlek.
+
+### 앱스토어 (튀르키예어)
+
+Artık iPad'de de öğrenebilirsiniz.
+iPad'de dersler ve notlar yan yana.
+Örnekleri tam iPad boyutunda deneyin.
+
 ## 1.0.7
 
 ### 앱스토어 (한국어)

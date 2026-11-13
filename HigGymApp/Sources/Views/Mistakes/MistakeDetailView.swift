@@ -64,7 +64,7 @@ struct MistakeDetailView: View {
                     EntryDemoStage(entry: demoEntry, demo: demo)
                 }
             }
-            .foldConfined()
+            .coverConfined()
         }
     }
 

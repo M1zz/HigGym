@@ -35,10 +35,10 @@ struct EntryDetailView: View {
         // 예제는 push 가 아니라 전체 화면으로 - EntryDemoStage 주석 참고.
         .fullScreenCover(item: $runningDemo) { demo in
             EntryDemoStage(entry: entry, demo: demo)
-                .foldConfined()
+                .coverConfined()
         }
         .onAppear { if DebugLaunch.autoDemo { runningDemo = demo } }
-        .fullScreenCover(item: $presentedLab) { labDestination($0).foldConfined() }
+        .fullScreenCover(item: $presentedLab) { labDestination($0).coverConfined() }
     }
 
     // MARK: 목업 - 이 화면의 근간

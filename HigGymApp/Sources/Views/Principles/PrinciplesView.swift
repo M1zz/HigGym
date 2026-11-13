@@ -151,7 +151,7 @@ struct PrincipleDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(item: $runningDemo) { demo in
             EntryDemoStage(entry: principle, demo: demo)
-                .foldConfined()
+                .coverConfined()
         }
         .onAppear { if DebugLaunch.autoDemo { runningDemo = demo } }
     }

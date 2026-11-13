@@ -71,7 +71,7 @@ struct NotebookView: View {
             ProGate(feature: .lesson(id: lesson.id), onClose: { editing = nil }) {
                 LessonPlayerView(lesson: lesson) { editing = nil }
             }
-            .foldConfined()
+            .coverConfined()
         }
     }
 

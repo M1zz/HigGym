@@ -57,7 +57,7 @@ struct CourseHomeView: View {
             ProGate(feature: .lesson(id: lesson.id), onClose: { playing = nil }) {
                 LessonPlayerView(lesson: lesson) { playing = nil }
             }
-            .foldConfined()
+            .coverConfined()
         }
     }
 

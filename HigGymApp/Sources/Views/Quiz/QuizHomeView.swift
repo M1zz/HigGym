@@ -43,15 +43,15 @@ struct QuizHomeView: View {
             }
             .fullScreenCover(item: $session) { session in
                 QuizPlayView(session: session) { self.session = nil }
-                    .foldConfined()
+                    .coverConfined()
             }
             .fullScreenCover(item: $liveKind) { kind in
                 LiveQuizPlayView(kind: kind) { liveKind = nil }
-                    .foldConfined()
+                    .coverConfined()
             }
             .fullScreenCover(isPresented: $caseStudy) {
                 CaseStudyView()
-                    .foldConfined()
+                    .coverConfined()
             }
             .proPaywallSheet($paywall)
     }

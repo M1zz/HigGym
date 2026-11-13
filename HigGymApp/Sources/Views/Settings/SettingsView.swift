@@ -75,7 +75,7 @@ struct SettingsView: View {
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(isPresented: $showsOnboarding) {
             HigGymOnboardingView { showsOnboarding = false }
-                .foldConfined()
+                .coverConfined()
         }
         .sheet(isPresented: $showsWhatsNew) {
             WhatsNewView { showsWhatsNew = false }

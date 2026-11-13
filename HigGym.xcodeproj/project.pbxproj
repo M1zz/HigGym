@@ -209,7 +209,7 @@
 		ECA0DD59B8276E7AB7D670A2 /* DemoKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoKit.swift; sourceTree = "<group>"; };
 		F79AF87F982F35EDCD75CC80 /* MockupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupView.swift; sourceTree = "<group>"; };
 		FEFBE5660F8B685ED2FC9E48 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
-		"TEMP_444D999E-5DF6-4E8A-80A7-1CBEF1D08333" /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
+		"TEMP_8D7CE133-82C9-4916-AF6E-167907D7A38D" /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -506,10 +506,10 @@
 			path = Principles;
 			sourceTree = "<group>";
 		};
-		"TEMP_48CB5B78-49F2-4E6E-9123-CA768F9AE83F" /* 디자인실습 */ = {
+		"TEMP_9B272BC9-FE78-4D8A-A04E-1C9BB01B822D" /* 디자인실습 */ = {
 			isa = PBXGroup;
 			children = (
-				"TEMP_444D999E-5DF6-4E8A-80A7-1CBEF1D08333" /* Version.xcconfig */,
+				"TEMP_8D7CE133-82C9-4916-AF6E-167907D7A38D" /* Version.xcconfig */,
 			);
 			path = "디자인실습";
 			sourceTree = "<group>";
@@ -603,30 +603,30 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
-				en,
-				"en-GB",
-				ja,
-				ko,
-				"zh-Hans",
-				"zh-Hant",
-				ru,
-				es,
-				de,
-				fr,
-				it,
-				"pt-BR",
-				th,
-				vi,
 				cs,
 				da,
+				de,
 				el,
+				en,
+				"en-GB",
+				es,
 				fi,
+				fr,
 				id,
+				it,
+				ja,
+				ko,
 				nb,
 				nl,
 				pl,
+				"pt-BR",
+				ru,
 				sv,
+				th,
 				tr,
+				vi,
+				"zh-Hans",
+				"zh-Hant",
 			);
 			mainGroup = 4913498C47A04FF8747D4BE4;
 			minimizedProjectReferenceProxies = 1;
@@ -800,7 +800,7 @@
 		};
 		5711437EF425E4184734E060 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_444D999E-5DF6-4E8A-80A7-1CBEF1D08333" /* Version.xcconfig */;
+			baseConfigurationReference = "TEMP_8D7CE133-82C9-4916-AF6E-167907D7A38D" /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -878,7 +878,7 @@
 		};
 		8FE6E8404CE52551C781809B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_444D999E-5DF6-4E8A-80A7-1CBEF1D08333" /* Version.xcconfig */;
+			baseConfigurationReference = "TEMP_8D7CE133-82C9-4916-AF6E-167907D7A38D" /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -975,7 +975,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.higgym;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -993,7 +993,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.higgym;
 				SDKROOT = iphoneos;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1061,7 +1061,7 @@
 			repositoryURL = "https://github.com/M1zz/LeeoKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.38.1;
+				minimumVersion = 3.44.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

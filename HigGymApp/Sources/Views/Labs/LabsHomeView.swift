@@ -56,7 +56,7 @@ struct LabsHomeView: View {
         .fullScreenCover(item: $router.presentedLab) { lab in
             labDestination(lab)
                 .onAppear { progress.markLabVisited(lab) }
-                .foldConfined()
+                .coverConfined()
         }
     }
 
