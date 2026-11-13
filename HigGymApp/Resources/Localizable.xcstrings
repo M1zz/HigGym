@@ -279786,6 +279786,132 @@
             "state": "translated",
             "value": "Pro をプレゼント"
           }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gift Pro"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "赠送 Pro"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "贈送 Pro"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Подарить Pro"
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Regalar Pro"
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro verschenken"
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Offrir Pro"
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Regala Pro"
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Presentear Pro"
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "มอบ Pro เป็นของขวัญ"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tặng Pro"
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Darovat Pro"
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Giv Pro i gave"
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δώρισε το Pro"
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lahjoita Pro"
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hadiahkan Pro"
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gi bort Pro"
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro cadeau doen"
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Podaruj Pro"
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ge bort Pro"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro hediye et"
+          }
         }
       }
     },
@@ -279802,6 +279928,132 @@
           "stringUnit": {
             "state": "translated",
             "value": "友だちや同僚に Pro をプレゼントできます。"
+          }
+        },
+        "en-GB": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You can give Pro to a friend or colleague."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可以把 Pro 送给朋友或同事。"
+          }
+        },
+        "zh-Hant": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可以把 Pro 送給朋友或同事。"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Можно подарить Pro другу или коллеге."
+          }
+        },
+        "es": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puedes regalar Pro a un amigo o compañero."
+          }
+        },
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Du kannst Pro an Freunde oder Kollegen verschenken."
+          }
+        },
+        "fr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vous pouvez offrir Pro à un ami ou un collègue."
+          }
+        },
+        "it": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Puoi regalare Pro a un amico o a un collega."
+          }
+        },
+        "pt-BR": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Você pode presentear Pro a um amigo ou colega."
+          }
+        },
+        "th": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "มอบ Pro ให้เพื่อนหรือเพื่อนร่วมงานได้"
+          }
+        },
+        "vi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bạn có thể tặng Pro cho bạn bè hoặc đồng nghiệp."
+          }
+        },
+        "cs": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro můžete darovat kamarádovi nebo kolegovi."
+          }
+        },
+        "da": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Du kan give Pro til en ven eller kollega."
+          }
+        },
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μπορείτε να χαρίσετε το Pro σε φίλο ή συνάδελφο."
+          }
+        },
+        "fi": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Voit lahjoittaa Pron ystävälle tai työkaverille."
+          }
+        },
+        "id": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kamu bisa menghadiahkan Pro ke teman atau rekan kerja."
+          }
+        },
+        "nb": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Du kan gi Pro til en venn eller kollega."
+          }
+        },
+        "nl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Je kunt Pro cadeau doen aan een vriend of collega."
+          }
+        },
+        "pl": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Możesz podarować Pro znajomemu lub współpracownikowi."
+          }
+        },
+        "sv": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Du kan ge Pro till en vän eller kollega."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro'yu bir arkadaşına ya da iş arkadaşına hediye edebilirsin."
           }
         }
       }
