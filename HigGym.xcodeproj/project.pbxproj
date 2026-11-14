@@ -90,6 +90,7 @@
 		DEA12C6975F9BD9031DC4F20 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D6037DEEEB793033D6502B04 /* InfoPlist.xcstrings */; };
 		E378FA42C197BD3377F22A3D /* HigGymSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AA28FB57613ABE385E940EA /* HigGymSpec.swift */; };
 		E3A28AC8CA80D4666FAD5D95 /* ProgressStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6B4181C96520B1529789FB /* ProgressStoreTests.swift */; };
+		E73B97A634466DB82A649AE3 /* MacShotWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80CE510FD6C8CCB8FEFC03B /* MacShotWindow.swift */; };
 		E984B75E022FA8986EDB9361 /* WhatsNewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B32F0BDEC81CBEFE416CC5E0 /* WhatsNewView.swift */; };
 		F2AE897695A9A9517E90B0AF /* MistakeStoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7810DF27B474D45074593C /* MistakeStoryView.swift */; };
 		F375333588A33CCAD7ACC391 /* StageChrome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB85FC655CF38291B0FF26F /* StageChrome.swift */; };
@@ -191,6 +192,7 @@
 		B58F92DDD78DAED2242801AC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		C15CE2F3B227C2DC48224AA4 /* LabScaffold.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabScaffold.swift; sourceTree = "<group>"; };
 		C64F86E8696D7F9D836BFC62 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
+		C80CE510FD6C8CCB8FEFC03B /* MacShotWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacShotWindow.swift; sourceTree = "<group>"; };
 		CCDE605C55EC154F83E4604B /* HigGymFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HigGymFlags.swift; sourceTree = "<group>"; };
 		CEB882767011698CC5501222 /* HigGymTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = HigGymTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF2581EC1428A2ECF4414DA3 /* LiveQuizPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveQuizPlayView.swift; sourceTree = "<group>"; };
@@ -209,7 +211,7 @@
 		ECA0DD59B8276E7AB7D670A2 /* DemoKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoKit.swift; sourceTree = "<group>"; };
 		F79AF87F982F35EDCD75CC80 /* MockupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupView.swift; sourceTree = "<group>"; };
 		FEFBE5660F8B685ED2FC9E48 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
-		"TEMP_8D7CE133-82C9-4916-AF6E-167907D7A38D" /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
+		"TEMP_1712E5CB-285E-4F13-AAB5-4FB71D38940C" /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -300,6 +302,7 @@
 				84162017F9C4667E63DF43EB /* HigGymPro.swift */,
 				63EE792FCCEC6A1534659A02 /* HigGymRoadmap.swift */,
 				5AA28FB57613ABE385E940EA /* HigGymSpec.swift */,
+				C80CE510FD6C8CCB8FEFC03B /* MacShotWindow.swift */,
 				91BAC941417831B34E2DE809 /* RootView.swift */,
 			);
 			path = App;
@@ -506,10 +509,10 @@
 			path = Principles;
 			sourceTree = "<group>";
 		};
-		"TEMP_9B272BC9-FE78-4D8A-A04E-1C9BB01B822D" /* 디자인실습 */ = {
+		"TEMP_11D7C821-F1D4-4DD4-B703-68F28239B31C" /* 디자인실습 */ = {
 			isa = PBXGroup;
 			children = (
-				"TEMP_8D7CE133-82C9-4916-AF6E-167907D7A38D" /* Version.xcconfig */,
+				"TEMP_1712E5CB-285E-4F13-AAB5-4FB71D38940C" /* Version.xcconfig */,
 			);
 			path = "디자인실습";
 			sourceTree = "<group>";
@@ -721,6 +724,7 @@
 				F9B0E8613ACAE3A49F4BC6E4 /* LiveMockup.swift in Sources */,
 				B33B471F174D2ABBFCBE0395 /* LiveQuiz.swift in Sources */,
 				733761C715508FAEAD37EDF7 /* LiveQuizPlayView.swift in Sources */,
+				E73B97A634466DB82A649AE3 /* MacShotWindow.swift in Sources */,
 				B128BF71217A01E6F7825E0D /* MaterialDemos.swift in Sources */,
 				A849932442F0E1A8B27DE5B0 /* MenuDemos.swift in Sources */,
 				D4AFE030086CD2AC9B01A453 /* MistakeComparison.swift in Sources */,
@@ -800,7 +804,7 @@
 		};
 		5711437EF425E4184734E060 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_8D7CE133-82C9-4916-AF6E-167907D7A38D" /* Version.xcconfig */;
+			baseConfigurationReference = "TEMP_1712E5CB-285E-4F13-AAB5-4FB71D38940C" /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -878,7 +882,7 @@
 		};
 		8FE6E8404CE52551C781809B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_8D7CE133-82C9-4916-AF6E-167907D7A38D" /* Version.xcconfig */;
+			baseConfigurationReference = "TEMP_1712E5CB-285E-4F13-AAB5-4FB71D38940C" /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -967,7 +971,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HigGymApp/HigGym.entitlements;
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "HigGymApp/HigGym-macCatalyst.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = NO;
 				INFOPLIST_FILE = HigGymApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -975,6 +981,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.higgym;
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -985,7 +993,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = HigGymApp/HigGym.entitlements;
+				"CODE_SIGN_ENTITLEMENTS[sdk=macosx*]" = "HigGymApp/HigGym-macCatalyst.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = NO;
 				INFOPLIST_FILE = HigGymApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -993,6 +1003,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.leeo.higgym;
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;

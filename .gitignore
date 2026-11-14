@@ -15,3 +15,4 @@ __pycache__/
 
 # 최상단 build/ 는 빌드 · 배포 도구가 남기는 산출물이다
 /build/
+build/

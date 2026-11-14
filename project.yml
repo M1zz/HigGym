@@ -71,6 +71,11 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.leeo.higgym
         TARGETED_DEVICE_FAMILY: "1,2"
+        # Mac 은 Catalyst 로 같은 앱(같은 번들 ID — 한 번 사면 Mac 에서도). Mac 은 샌드박스 엔타이틀먼트를 따로 쓴다.
+        SUPPORTS_MACCATALYST: YES
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER: NO
+        "CODE_SIGN_ENTITLEMENTS[sdk=macosx*]": HigGymApp/HigGym-macCatalyst.entitlements
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
 

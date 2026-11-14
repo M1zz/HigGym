@@ -63,6 +63,9 @@ struct HigGymApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
+                #if DEBUG && targetEnvironment(macCatalyst)
+                .onAppear { MacShotWindow.applyIfAsked() }
+                #endif
                 .environment(progress)
                 .environment(notebook)
                 // 다크를 강제하지 않는다 - 팔레트가 두 모드를 다 갖고 있고,
