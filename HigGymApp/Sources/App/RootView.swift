@@ -283,6 +283,7 @@ struct RootView: View {
         .modifier(FoldNotebookTabRedirect(tab: $router.tab))
         .environment(router)
         .modifier(SatisfactionCheck(isEnabled: asksSatisfaction))
+        .leeoCelebrations(appName: HigGymSpec.displayName)
         .fullScreenCover(isPresented: onboardingPresented) {
             HigGymOnboardingView { hasSeenOnboarding = true }
                 .coverConfined()
