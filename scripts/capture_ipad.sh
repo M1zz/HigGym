@@ -1,6 +1,6 @@
 #!/bin/zsh
-# iPad 13" 스토어 스크린샷 — 꾸미지 않은 2064×2752 를 docs/screenshots/marketing/<스토어 로케일>/ipad-0N-….png 에 둔다.
-# (아이폰 제출본과 한 폴더 — DeployBar 가 크기로 기기를 가른다)
+# iPad 13" 스토어 스크린샷: 꾸미지 않은 2064×2752 를 docs/screenshots/marketing/<스토어 로케일>/ipad-0N-….png 에 둔다.
+# (아이폰 제출본과 한 폴더: DeployBar 가 크기로 기기를 가른다)
 #
 # 사용법: zsh scripts/capture_ipad.sh <iPad 시뮬레이터 UDID> [앱 언어 ...]   (언어를 안 주면 24개 모두)
 #   - Debug 빌드가 build/dd/Build/Products/Debug-iphonesimulator/HigGym.app 에 있어야 한다(HG_ 훅은 DEBUG 전용).
@@ -28,7 +28,7 @@ env_of() {
 
 t() { perl -e 'alarm shift; exec @ARGV' "$@"; }   # 시뮬레이터가 멈추면 기다리지 않는다
 
-# 아이패드 상태 막대(시각·날짜)가 그려졌는가 — 앱을 띄운 직후엔 가끔 통째로 비어 찍힌다
+# 아이패드 상태 막대(시각·날짜)가 그려졌는가: 앱을 띄운 직후엔 가끔 통째로 비어 찍힌다
 has_bar() { python3 -c "import sys;from PIL import Image;p=list(Image.open(sys.argv[1]).convert('L').crop((40,12,420,52)).getdata());sys.exit(max(p)-min(p)<40)" $1; }
 
 locale_of() {
@@ -51,7 +51,7 @@ for lang in $LANGS; do
   t 30 xcrun simctl spawn $DEV defaults write .GlobalPreferences AppleLanguages -array $lang
   t 30 xcrun simctl spawn $DEV defaults write .GlobalPreferences AppleLocale $(locale_of $lang)
   t 30 xcrun simctl spawn $DEV launchctl stop com.apple.SpringBoard
-  # 홈이 다시 서고 상태 막대가 돌아올 때까지 — 짧으면 첫 그림에 상태 막대가 비어 나온다
+  # 홈이 다시 서고 상태 막대가 돌아올 때까지: 짧으면 첫 그림에 상태 막대가 비어 나온다
   sleep 30; t 60 xcrun simctl status_bar $DEV override --time 9:41 --dataNetwork wifi --wifiMode active --wifiBars 3 --batteryState charged --batteryLevel 100 >/dev/null 2>&1
   # 표본 노트는 처음 켤 때 그 언어로 한 번만 쓰인다 → 언어마다 지우고 새로 깐다
   t 120 xcrun simctl uninstall $DEV $BUNDLE 2>/dev/null

@@ -1,6 +1,6 @@
 #!/bin/zsh
-# Mac App Store 스크린샷 — 꾸미지 않은 창 그대로 2880×1800 을 docs/screenshots/marketing/<언어>/mac-0N-<장면>.png 에 둔다.
-# (iPhone · iPad 제출본과 한 폴더 — DeployBar 가 크기로 기기를 가른다)
+# Mac App Store 스크린샷: 꾸미지 않은 창 그대로 2880×1800 을 docs/screenshots/marketing/<언어>/mac-0N-<장면>.png 에 둔다.
+# (iPhone · iPad 제출본과 한 폴더: DeployBar 가 크기로 기기를 가른다)
 #
 # 사용법: zsh scripts/capture_mac.sh [언어 ...]   (언어를 안 주면 24개 모두)
 #   - Debug Catalyst 빌드가 build/mac/Build/Products/Debug-maccatalyst/HigGym.app 에 있어야 한다:
