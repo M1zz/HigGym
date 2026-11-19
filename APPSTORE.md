@@ -72,7 +72,7 @@ Learn interface rules by doing
 
 ### 키워드
 
-accessibility,guidelines,toolbar,tabbar,sheet,navigation,layout,usability,developer,wireframe,quiz
+tabbar,wireframe,components,tutorial,prototype,typography,portfolio,product design,accessibility
 
 ### 프로모션 텍스트
 
@@ -192,7 +192,7 @@ https://m1zz.github.io/HigGym/en/app/
 
 ### 키워드
 
-ガイドライン,ツールバー,タブバー,シート,開発者,デザイナー,エンジニア,プログラミング,アクセシビリティ,レイアウト,ユーザビリティ,ワイヤーフレーム,タイポグラフィ,クイズ,勉強
+ガイドライン,タブバー,ユーザビリティ,ワイヤーフレーム,UI練習,UIデザイン,UXデザイン,デザイン勉強,プロトタイプ,ポートフォリオ,アクセシビリティ,開発者,タイポグラフィ,エンジニア,クイズ
 
 ### 프로모션 텍스트
 
@@ -252,7 +252,7 @@ App 设计实践：UI/UX 练习
 
 ### 키워드
 
-工具栏,标签栏,规范,深色模式,排版,开发者,作品集,布局,设计师,组件,无障碍,可用性,线框图,原型,测验,移动端,指南,弹层,导航,编程,学习,交互,案例,技巧,前端,产品经理,面试,入门,自学
+标签栏,作品集,可用性,线框图,原型,弹层,设计面试,设计规范,设计练习,UX设计,UI设计,产品设计,设计学习,无障碍,规范,深色模式,移动端,测验,案例,交互,面试,前端,产品经理,开发者,技巧
 
 ### 프로모션 텍스트
 
