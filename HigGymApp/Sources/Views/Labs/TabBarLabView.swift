@@ -71,6 +71,8 @@ struct TabBarLabView: View {
                 controls
                 diagnosisSection
             }
+            .phoneStaged()
+            .background(Color.hgBackground.ignoresSafeArea())
         }
     }
 

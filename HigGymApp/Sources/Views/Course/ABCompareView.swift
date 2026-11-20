@@ -44,11 +44,16 @@ struct ABCompareView<Broken: View, Fixed: View>: View {
                     .allowsHitTesting(current == .fixed)
                     .accessibilityHidden(current != .fixed)
             }
+            #if targetEnvironment(macCatalyst)
+            // Mac 에서는 두 화면을 같은 아이폰 한 대 안에서 갈아 끼운다.
+            .phoneStaged()
+            #else
             .clipShape(.rect(cornerRadius: 20))
             .overlay(
                 RoundedRectangle(cornerRadius: 20)
                     .strokeBorder(current.tint.opacity(0.55), lineWidth: 2)
             )
+            #endif
             .padding(.horizontal, 8)
 
             caption

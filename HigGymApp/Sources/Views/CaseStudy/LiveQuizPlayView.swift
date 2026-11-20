@@ -63,6 +63,8 @@ struct LiveQuizPlayView: View {
                 .padding(.top, 4)
                 .padding(.trailing, 12)
             }
+            .phoneStaged()
+            .background(Color.hgBackground.ignoresSafeArea())
         }
     }
 

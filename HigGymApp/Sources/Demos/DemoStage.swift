@@ -31,6 +31,9 @@ struct EntryDemoStage: View {
             .sheet(isPresented: $showGuide) {
                 DemoGuideSheet(info: info, demo: demo)
             }
+            // Mac 에서는 아이폰 크기 화면으로 세운다. 안내 시트도 그 화면 안에서 뜬다.
+            .phoneStaged()
+            .background(Color.hgBackground.ignoresSafeArea())
             .onAppear(perform: presentGuideIfFirstVisit)
     }
 

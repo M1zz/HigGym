@@ -43,6 +43,8 @@ struct ToolbarLabView: View {
                     titleAndSearch
                     diagnosisSection
                 }
+                .phoneStaged()
+                .background(Color.hgBackground.ignoresSafeArea())
         }
     }
 

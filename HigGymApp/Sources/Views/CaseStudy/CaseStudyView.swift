@@ -97,6 +97,8 @@ struct CaseStudyView: View {
             .sheet(isPresented: $showNotes) {
                 DecisionSheet(spotlight: $spotlight)
             }
+            .phoneStaged()
+            .background(Color.hgBackground.ignoresSafeArea())
     }
 
     private var chrome: some View {

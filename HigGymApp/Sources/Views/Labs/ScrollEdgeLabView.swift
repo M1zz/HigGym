@@ -57,6 +57,8 @@ struct ScrollEdgeLabView: View {
                 controls
                 diagnosisSection
             }
+            .phoneStaged()
+            .background(Color.hgBackground.ignoresSafeArea())
         }
     }
 

@@ -177,8 +177,13 @@ struct LessonPlayerView: View {
             taskCard
 
             practiceScreen
+                #if targetEnvironment(macCatalyst)
+                // Mac 에서는 아이폰 한 대로 세운다. 테두리는 베젤이 대신한다.
+                .phoneStaged()
+                #else
                 .clipShape(.rect(cornerRadius: 18))
                 .overlay(RoundedRectangle(cornerRadius: 18).strokeBorder(Color.hgLine, lineWidth: 1))
+                #endif
                 .padding(.horizontal, 8)
                 .padding(.bottom, 6)
         }
