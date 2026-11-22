@@ -61,6 +61,11 @@ targets:
         ITSAppUsesNonExemptEncryption: false
         # Mac App Store 업로드에 필수(없으면 90242 로 거부). 스토어에 보이는 카테고리는 App Store Connect 가 정한다.
         LSApplicationCategoryType: public.app-category.education
+        # App Store 이벤트 링크(com.leeo.higgym://paywall)로 열리면 요금제를 띄운다 (LeeoKit LeeoPaywallLink)
+        CFBundleURLTypes:
+          - CFBundleURLName: com.leeo.higgym
+            CFBundleURLSchemes:
+              - com.leeo.higgym
     # 익명 사용 통계·크래시 진단을 FeedbackHub(CloudKit)로 올리는 권한. 빼면 CKContainer 를 만드는 순간 앱이 죽는다.
     entitlements:
       path: HigGymApp/HigGym.entitlements

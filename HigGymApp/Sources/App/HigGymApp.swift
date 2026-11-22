@@ -74,6 +74,8 @@ struct HigGymApp: App {
                 .tint(.hgAccent)
                 // 개발자가 보낸 의견에 답장하면, 앱이 앞으로 올 때 답장을 시트로 보여 준다 (LeeoKit).
                 .leeoFeedbackReplyNotice(HigGymSpec.self)
+                // App Store 이벤트 링크(<번들 ID>://paywall)로 열리면 요금제를 띄운다 (LeeoKit).
+                .leeoPaywallLink { HigGymPaywallView().environment(progress).environment(notebook) }
                 // 첫 화면이 뜨고 몇 초 살아 있으면 이번 시작은 성공이다.
                 .task { Self.crashGuard.markLaunchSucceededAfterSurvivalDelay() }
                 // 콘텐츠를 메인 밖에서 미리 읽어, 처음 여는 화면이 해독하느라 멈추지 않게 한다.
