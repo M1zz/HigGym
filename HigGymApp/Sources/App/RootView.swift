@@ -284,13 +284,13 @@ struct RootView: View {
         .environment(router)
         .modifier(SatisfactionCheck(isEnabled: asksSatisfaction))
         .modifier(Celebrations(isEnabled: !DebugLaunch.isScripted))
-        .fullScreenCover(isPresented: onboardingPresented) {
+        .fullScreenCover(isPresented: onboardingPresented) { Group {
             HigGymOnboardingView { hasSeenOnboarding = true }
                 .coverConfined()
-        }
-        .sheet(isPresented: $showsWhatsNew, onDismiss: { WhatsNewContent.markSeen() }) {
+        }.arabicLayout() }
+        .sheet(isPresented: $showsWhatsNew, onDismiss: { WhatsNewContent.markSeen() }) { Group {
             WhatsNewView { showsWhatsNew = false }
-        }
+        }.arabicLayout() }
         .onAppear {
             if let tab = DebugLaunch.tab { router.tab = tab }
             #if DEBUG

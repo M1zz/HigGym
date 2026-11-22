@@ -33,12 +33,12 @@ struct EntryDetailView: View {
         .navigationTitle(entry.index)
         .navigationBarTitleDisplayMode(.inline)
         // 예제는 push 가 아니라 전체 화면으로 - EntryDemoStage 주석 참고.
-        .fullScreenCover(item: $runningDemo) { demo in
+        .fullScreenCover(item: $runningDemo) { demo in Group {
             EntryDemoStage(entry: entry, demo: demo)
                 .coverConfined()
-        }
+        }.arabicLayout() }
         .onAppear { if DebugLaunch.autoDemo { runningDemo = demo } }
-        .fullScreenCover(item: $presentedLab) { labDestination($0).coverConfined() }
+        .fullScreenCover(item: $presentedLab) { lab in labDestination(lab).coverConfined().arabicLayout() }
     }
 
     // MARK: 목업 - 이 화면의 근간

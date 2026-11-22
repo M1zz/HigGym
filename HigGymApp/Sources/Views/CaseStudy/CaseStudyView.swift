@@ -94,9 +94,9 @@ struct CaseStudyView: View {
     var body: some View {
         SampleNoteApp(config: .recommended, spotlight: spotlight)
             .overlay(alignment: .bottom) { chrome }
-            .sheet(isPresented: $showNotes) {
+            .sheet(isPresented: $showNotes) { Group {
                 DecisionSheet(spotlight: $spotlight)
-            }
+            }.arabicLayout() }
             .phoneStaged()
             .background(Color.hgBackground.ignoresSafeArea())
     }

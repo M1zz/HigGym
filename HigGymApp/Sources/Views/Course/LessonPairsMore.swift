@@ -483,11 +483,11 @@ struct PaymentSheetScreen: View {
             .navigationTitle("장바구니")
             .navigationBarTitleDisplayMode(.inline)
         }
-        .sheet(isPresented: $showing) {
+        .sheet(isPresented: $showing) { Group {
             sheet
                 .presentationDetents([.medium])
                 .modifier(NonmodalModifier(enabled: broken))
-        }
+        }.arabicLayout() }
     }
 
     private var sheet: some View {

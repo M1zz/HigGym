@@ -49,7 +49,7 @@ struct LiveQuizPlayView: View {
         }
         .background(Color.hgBackground)
         .onAppear { if questions.isEmpty { start() } }
-        .fullScreenCover(item: $zoomed) { option in
+        .fullScreenCover(item: $zoomed) { option in Group {
             ZStack(alignment: .topTrailing) {
                 option.screen?()
                 Button { zoomed = nil } label: {
@@ -65,7 +65,7 @@ struct LiveQuizPlayView: View {
             }
             .phoneStaged()
             .background(Color.hgBackground.ignoresSafeArea())
-        }
+        }.arabicLayout() }
     }
 
     private func start() {

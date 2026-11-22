@@ -149,10 +149,10 @@ struct PrincipleDetailView: View {
         .background(Color.hgBackground)
         .navigationTitle("원칙 \(principle.index)")
         .navigationBarTitleDisplayMode(.inline)
-        .fullScreenCover(item: $runningDemo) { demo in
+        .fullScreenCover(item: $runningDemo) { demo in Group {
             EntryDemoStage(entry: principle, demo: demo)
                 .coverConfined()
-        }
+        }.arabicLayout() }
         .onAppear { if DebugLaunch.autoDemo { runningDemo = demo } }
     }
 

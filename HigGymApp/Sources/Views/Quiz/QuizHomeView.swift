@@ -41,18 +41,18 @@ struct QuizHomeView: View {
                     session = QuizSession(mode: mode, bank: bank, progress: progress)
                 }
             }
-            .fullScreenCover(item: $session) { session in
+            .fullScreenCover(item: $session) { session in Group {
                 QuizPlayView(session: session) { self.session = nil }
                     .coverConfined()
-            }
-            .fullScreenCover(item: $liveKind) { kind in
+            }.arabicLayout() }
+            .fullScreenCover(item: $liveKind) { kind in Group {
                 LiveQuizPlayView(kind: kind) { liveKind = nil }
                     .coverConfined()
-            }
-            .fullScreenCover(isPresented: $caseStudy) {
+            }.arabicLayout() }
+            .fullScreenCover(isPresented: $caseStudy) { Group {
                 CaseStudyView()
                     .coverConfined()
-            }
+            }.arabicLayout() }
             .proPaywallSheet($paywall)
     }
 

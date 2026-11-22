@@ -284,7 +284,7 @@ private struct FakeTabScreen: View {
                 }
             }
         }
-        .sheet(isPresented: $composing) { DemoComposeSheet() }
+        .sheet(isPresented: $composing) { Group { DemoComposeSheet() }.arabicLayout() }
     }
 
     private func page(_ title: LocalizedStringKey, compose: (() -> Void)? = nil) -> some View {

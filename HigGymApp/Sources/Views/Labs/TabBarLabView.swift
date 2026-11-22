@@ -58,7 +58,7 @@ struct TabBarLabView: View {
                 CodePanel(code: code)
         }
         .onAppear { if DebugLaunch.autoRunStage { running = true } }
-        .fullScreenCover(isPresented: $running) {
+        .fullScreenCover(isPresented: $running) { Group {
             TabBarStage(
                 tabCount: tabCount,
                 badge: badge,
@@ -73,7 +73,7 @@ struct TabBarLabView: View {
             }
             .phoneStaged()
             .background(Color.hgBackground.ignoresSafeArea())
-        }
+        }.arabicLayout() }
     }
 
     private var controls: some View {

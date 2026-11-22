@@ -52,13 +52,13 @@ struct CourseHomeView: View {
                 playing = Lesson.lesson(id)
             }
         }
-        .fullScreenCover(item: $playing) { lesson in
+        .fullScreenCover(item: $playing) { lesson in Group {
             // 잠긴 편이면 그 자리에 결제 화면이 뜨고, 결제하면 같은 자리에서 레슨이 열린다.
             ProGate(feature: .lesson(id: lesson.id), onClose: { playing = nil }) {
                 LessonPlayerView(lesson: lesson) { playing = nil }
             }
             .coverConfined()
-        }
+        }.arabicLayout() }
     }
 
     private var intro: some View {

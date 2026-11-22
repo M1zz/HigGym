@@ -67,12 +67,12 @@ struct NotebookView: View {
             .task(id: notebook.notes) { refreshExport() }
             .sensoryFeedback(.success, trigger: copied) { _, new in new }
         }
-        .fullScreenCover(item: $editing) { lesson in
+        .fullScreenCover(item: $editing) { lesson in Group {
             ProGate(feature: .lesson(id: lesson.id), onClose: { editing = nil }) {
                 LessonPlayerView(lesson: lesson) { editing = nil }
             }
             .coverConfined()
-        }
+        }.arabicLayout() }
     }
 
     /// 공유 시트는 항목을 미리 요구하므로, 글이 바뀔 때마다 임시 파일을 다시 써 둔다.

@@ -71,8 +71,8 @@ struct SheetLabView: View {
                 diagnosisSection
                 CodePanel(code: code)
         }
-        .sheet(isPresented: $showSheet) { sheetContent }
-        .fullScreenCover(isPresented: $showCover) { coverContent }
+        .sheet(isPresented: $showSheet) { Group { sheetContent }.arabicLayout() }
+        .fullScreenCover(isPresented: $showCover) { Group { coverContent }.arabicLayout() }
     }
 
     // MARK: 배경 - 시트가 얼마나 덮는지 비교할 대상
@@ -268,9 +268,9 @@ struct SheetLabView: View {
     private var code: String {
         if kind == .cover {
             return """
-            .fullScreenCover(isPresented: $show) {
+            .fullScreenCover(isPresented: $show) { Group {
                 OnboardingView()
-            }
+            }.arabicLayout() }
             """
         }
         var lines = [".sheet(isPresented: $show) {", "    DetailView()"]

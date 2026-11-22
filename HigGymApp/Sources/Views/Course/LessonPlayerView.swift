@@ -77,9 +77,9 @@ struct LessonPlayerView: View {
         .onChange(of: step) { _, _ in save() }
         // 단계를 넘길 때 손에 작은 마디를 준다 - 다섯 단계 중 어디까지 왔는지 몸으로도 안다.
         .sensoryFeedback(.selection, trigger: step)
-        .sheet(isPresented: $showReference) {
+        .sheet(isPresented: $showReference) { Group {
             LessonReferenceSheet(lesson: lesson)
-        }
+        }.arabicLayout() }
     }
 
     private func save() {

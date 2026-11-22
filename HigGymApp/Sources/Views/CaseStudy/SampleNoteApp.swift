@@ -124,7 +124,7 @@ struct SampleNoteApp: View {
                     }
                 }
         }
-        .fullScreenCover(isPresented: $composing) {
+        .fullScreenCover(isPresented: $composing) { Group {
             NoteEditorScreen(config: config, spotlight: spotlight) { title, body in
                 notes.insert(
                     SampleNote(id: (notes.map(\.id).max() ?? 0) + 1, title: title, body: body,
@@ -132,7 +132,7 @@ struct SampleNoteApp: View {
                     at: 0
                 )
             }
-        }
+        }.arabicLayout() }
     }
 
     private var list: some View {

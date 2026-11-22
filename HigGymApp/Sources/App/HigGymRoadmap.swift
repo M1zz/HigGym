@@ -80,10 +80,10 @@ struct RoadmapScreen: View {
 
     var body: some View {
         LeeoRoadmapView<HigGymSpec>(onSuggest: { showFeedback = true })
-            .sheet(isPresented: $showFeedback) {
+            .sheet(isPresented: $showFeedback) { Group {
                 NavigationStack {
                     LeeoFeedbackView<HigGymSpec>()
                 }
-            }
+            }.arabicLayout() }
     }
 }

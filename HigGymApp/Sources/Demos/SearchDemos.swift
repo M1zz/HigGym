@@ -133,7 +133,7 @@ private struct SearchDemoScreen: View {
             .toolbar { extraItems }
             .modifier(SearchPlacementModifier(placement: placement, query: $query))
         }
-        .sheet(isPresented: $composing) { DemoComposeSheet() }
+        .sheet(isPresented: $composing) { Group { DemoComposeSheet() }.arabicLayout() }
         .demoToast(log)
     }
 

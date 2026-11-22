@@ -298,9 +298,9 @@ private struct TabDemoScreen: View {
         TabView(selection: $selection) { tabs }
             .modifier(TabMinimize(enabled: config.minimize))
             .modifier(TabAccessory(enabled: config.accessory, playing: $playing, expanded: $expanded))
-            .sheet(isPresented: $expanded) {
+            .sheet(isPresented: $expanded) { Group {
                 DemoPlayerSheet(playing: $playing)
-            }
+            }.arabicLayout() }
             .onChange(of: selection) { _, new in
                 // 배지는 "처리할 것이 남았다"는 뜻 - 보고 나면 줄어야 한다.
                 if new == 0, config.badge == .text { hasNew = false }

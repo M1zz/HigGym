@@ -47,7 +47,7 @@ struct LibraryView: View {
                 }
             }
         }
-        .fullScreenCover(item: $opened) { destination in
+        .fullScreenCover(item: $opened) { destination in Group {
             Group {
                 switch destination {
                 case .entries:    EntriesHomeView(onClose: { opened = nil })
@@ -56,7 +56,7 @@ struct LibraryView: View {
                 case .labs:       LabsHomeView(onClose: { opened = nil })
                 }
             }
-        }
+        }.arabicLayout() }
     }
 
     private var intro: some View {

@@ -36,7 +36,7 @@ struct ToolbarLabView: View {
         }
         .animation(.snappy(duration: 0.25), value: config.allItems)
         .onAppear { if DebugLaunch.autoRunStage { running = true } }
-        .fullScreenCover(isPresented: $running) {
+        .fullScreenCover(isPresented: $running) { Group {
             ToolbarStage(config: config)
                 .stageChrome(onClose: { running = false }) {
                     presets
@@ -45,7 +45,7 @@ struct ToolbarLabView: View {
                 }
                 .phoneStaged()
                 .background(Color.hgBackground.ignoresSafeArea())
-        }
+        }.arabicLayout() }
     }
 
     // MARK: 프리셋 - 좋은 예 / 나쁜 예를 한 번에 불러와 비교

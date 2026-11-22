@@ -56,7 +56,7 @@ struct MistakeDetailView: View {
                 runningDemo = dedicated ?? demoEntry.flatMap { EntryDemos.demo(for: $0) }
             }
         }
-        .fullScreenCover(item: $runningDemo) { demo in
+        .fullScreenCover(item: $runningDemo) { demo in Group {
             Group {
                 if demo.id == mistake.id {
                     EntryDemoStage(info: DemoGuideInfo(mistake: mistake), demo: demo)
@@ -65,7 +65,7 @@ struct MistakeDetailView: View {
                 }
             }
             .coverConfined()
-        }
+        }.arabicLayout() }
     }
 
     // MARK: 실수 자체

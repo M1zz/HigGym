@@ -38,7 +38,7 @@ struct QuizResultView: View {
             }
             .padding(18)
         }
-        .fullScreenCover(item: $presentedLab) { labDestination($0) }
+        .fullScreenCover(item: $presentedLab) { lab in labDestination(lab).arabicLayout() }
     }
 
     private var wrongResults: [(question: Question, correct: Bool)] {

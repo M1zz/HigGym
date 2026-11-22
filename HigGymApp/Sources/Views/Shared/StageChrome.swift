@@ -26,7 +26,7 @@ struct StageChrome<Controls: View>: ViewModifier {
                 .padding(.leading, 10)
                 .shadow(color: .black.opacity(0.4), radius: 10, y: 4)
             }
-            .sheet(isPresented: $showControls) {
+            .sheet(isPresented: $showControls) { Group {
                 NavigationStack {
                     ScrollView {
                         VStack(alignment: .leading, spacing: 16) { controls }
@@ -45,7 +45,7 @@ struct StageChrome<Controls: View>: ViewModifier {
                 .presentationDragIndicator(.visible)
                 // 시트를 연 채로 뒤 화면을 만지며 비교할 수 있게 - 4.1.5 비모달.
                 .presentationBackgroundInteraction(.enabled(upThrough: .medium))
-            }
+            }.arabicLayout() }
     }
 
     private func button(_ symbol: String, action: @escaping () -> Void) -> some View {

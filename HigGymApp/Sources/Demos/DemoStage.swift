@@ -28,9 +28,9 @@ struct EntryDemoStage: View {
     var body: some View {
         demo.make()
             .overlay(alignment: demo.chromeEdge.alignment) { chrome }
-            .sheet(isPresented: $showGuide) {
+            .sheet(isPresented: $showGuide) { Group {
                 DemoGuideSheet(info: info, demo: demo)
-            }
+            }.arabicLayout() }
             // Mac 에서는 아이폰 크기 화면으로 세운다. 안내 시트도 그 화면 안에서 뜬다.
             .phoneStaged()
             .background(Color.hgBackground.ignoresSafeArea())

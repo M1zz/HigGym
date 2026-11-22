@@ -13,10 +13,10 @@ enum SheetDemos {
                 String(localized: "뒤 화면의 카드를 눌러보려 해도 반응하지 않습니다, 모달이라는 뜻입니다."),
             ],
             code: """
-            .sheet(isPresented: $showing) {
+            .sheet(isPresented: $showing) { Group {
                 DetailSheet()
                     .presentationDetents([.large])
-            }
+            }.arabicLayout() }
             """
         ) { SheetDemoScreen(kind: .large) },
 
@@ -28,10 +28,10 @@ enum SheetDemos {
                 String(localized: "뒤가 보이는 것과 뒤를 만질 수 있는 것은 다릅니다. 4.1.5에서 확인해 보세요."),
             ],
             code: """
-            .sheet(isPresented: $showing) {
+            .sheet(isPresented: $showing) { Group {
                 FilterSheet()
                     .presentationDetents([.medium])
-            }
+            }.arabicLayout() }
             """
         ) { SheetDemoScreen(kind: .medium) },
 
@@ -83,9 +83,9 @@ enum SheetDemos {
                 String(localized: "작성 중이던 내용을 지키는 대신 사용자를 가둡니다, 그 무게에 맞는 화면에만 씁니다."),
             ],
             code: String(localized: """
-            .fullScreenCover(isPresented: $editing) {
+            .fullScreenCover(isPresented: $editing) { Group {
                 EditorView()   // 닫기 버튼을 반드시 직접 제공한다
-            }
+            }.arabicLayout() }
             """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { SheetDemoScreen(kind: .fullScreen) },
 
@@ -97,9 +97,9 @@ enum SheetDemos {
                 String(localized: "4.3.2(zoom)와 번갈아 보면 그 연결이 있고 없고의 차이가 분명합니다."),
             ],
             code: """
-            .sheet(item: $selected) { card in
+            .sheet(item: $selected) { card in Group {
                 CardDetail(card: card)
-            }
+            }.arabicLayout() }
             """
         ) { ZoomTransitionDemo(zoom: false, fullScreen: false) },
 
@@ -114,10 +114,10 @@ enum SheetDemos {
             CardView(card)
                 .matchedTransitionSource(id: card.id, in: namespace)
 
-            .sheet(item: $selected) { card in
+            .sheet(item: $selected) { card in Group {
                 CardDetail(card: card)
                     .navigationTransition(.zoom(sourceID: card.id, in: namespace))
-            }
+            }.arabicLayout() }
             """
         ) { ZoomTransitionDemo(zoom: true, fullScreen: false) },
 
@@ -129,10 +129,10 @@ enum SheetDemos {
                 String(localized: "전체를 덮는 화면일수록 어디서 왔는지가 중요해집니다, zoom이 특히 값을 하는 이유입니다."),
             ],
             code: """
-            .fullScreenCover(item: $selected) { photo in
+            .fullScreenCover(item: $selected) { photo in Group {
                 PhotoViewer(photo: photo)
                     .navigationTransition(.zoom(sourceID: photo.id, in: namespace))
-            }
+            }.arabicLayout() }
             """
         ) { ZoomTransitionDemo(zoom: true, fullScreen: true) },
     ]
@@ -208,13 +208,13 @@ private struct SheetDemoScreen: View {
             .navigationTitle("시트")
             .navigationBarTitleDisplayMode(.inline)
         }
-        .sheet(isPresented: $showing) {
+        .sheet(isPresented: $showing) { Group {
             DemoSheetBody(kind: kind, detent: $detent)
                 .modifier(DetentModifier(kind: kind, detent: $detent, useFraction: useFraction, grabber: grabber))
-        }
-        .fullScreenCover(isPresented: $covering) {
+        }.arabicLayout() }
+        .fullScreenCover(isPresented: $covering) { Group {
             DemoFullScreenBody()
-        }
+        }.arabicLayout() }
     }
 }
 
@@ -377,16 +377,16 @@ private struct PresentModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         if fullScreen {
-            content.fullScreenCover(item: $selected) { card in
+            content.fullScreenCover(item: $selected) { card in Group {
                 DemoCardDetail(card: card, fullScreen: true)
                     .modifier(ZoomModifier(zoom: zoom, id: card.id, namespace: namespace))
-            }
+            }.arabicLayout() }
         } else {
-            content.sheet(item: $selected) { card in
+            content.sheet(item: $selected) { card in Group {
                 DemoCardDetail(card: card, fullScreen: false)
                     .presentationDetents([.large])
                     .modifier(ZoomModifier(zoom: zoom, id: card.id, namespace: namespace))
-            }
+            }.arabicLayout() }
         }
     }
 }

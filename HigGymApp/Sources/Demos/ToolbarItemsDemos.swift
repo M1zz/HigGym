@@ -81,7 +81,7 @@ enum ToolbarItemsDemos {
                     Button("새 메일", systemImage: "square.and.pencil") { composing = true }
                 }
             }
-            .sheet(isPresented: $composing) { ComposeView() }
+            .sheet(isPresented: $composing) { Group { ComposeView() }.arabicLayout() }
             """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is.")
         ) { BottomItemDemo() },
 
@@ -390,9 +390,9 @@ private struct BottomItemDemo: View {
                     }
                 }
         }
-        .sheet(isPresented: $composing) {
+        .sheet(isPresented: $composing) { Group {
             DemoComposeSheet { sent += 1 }
-        }
+        }.arabicLayout() }
     }
 }
 

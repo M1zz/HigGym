@@ -36,10 +36,14 @@ locale_of() {
 }
 
 
-PREFS=~/Library/Containers/com.leeo.higgym/Data/Library/Preferences/com.leeo.higgym.plist
+# 앱 컨테이너 이름은 번들 ID 가 아니라 UUID 일 수 있다 → 메타데이터로 찾는다. 파일을 직접 덮으면 cfprefsd 가 무시하니 defaults 로 뜨고 되돌린다.
+CONT=$(grep -l "com.leeo.higgym" ~/Library/Containers/*/.com.apple.containermanagerd.metadata.plist 2>/dev/null | head -1)
+PREFS=${CONT:h}/Data/Library/Preferences/com.leeo.higgym
 BACKUP=$(mktemp -t higgym-prefs)
-had=0; [[ -f $PREFS ]] && { cp $PREFS $BACKUP; had=1; }
-restore() { pkill -x HigGym; sleep 1; if (( had )); then cp $BACKUP $PREFS; else rm -f $PREFS; fi; rm -f $BACKUP; }
+had=0; [[ -n $CONT ]] && defaults export $PREFS $BACKUP 2>/dev/null && had=1
+# 장면마다 노트 · 이어 보기만 비운다(내 노트가 있으면 예시 노트가 들어가지 않는다). 끝나면 통째로 되돌린다.
+clear_scene() { for k in higgym.lessonNotes higgym.resumeLesson higgym.resumeStep; do defaults delete $PREFS $k 2>/dev/null; done; }
+restore() { pkill -x HigGym; sleep 1; if (( had )); then defaults import $PREFS $BACKUP; else defaults delete $PREFS 2>/dev/null; fi; rm -f $BACKUP; }
 trap restore EXIT
 
 for lang in $LANGS; do
@@ -51,7 +55,7 @@ for lang in $LANGS; do
     file=$out/mac-0$n-$scene.png
     envs=(--env HG_MAC_WINDOW=1871,1169); for v in ${=$(env_of $scene)}; do envs+=(--env $v); done
     # 앞 장면이 고른 레슨 · 단계가 남지 않게 매번 같은 설정에서 연다
-    if (( had )); then cp $BACKUP $PREFS 2>/dev/null; else rm -f $PREFS; fi
+    clear_scene
     open -n $APP $envs --args -AppleLanguages "($lang)" -AppleLocale $(locale_of $lang) -ApplePersistenceIgnoreState YES
     pid=""; for i in {1..50}; do pid=$(pgrep -nx HigGym); [[ -n $pid ]] && break; sleep 0.2; done
     [[ -z $pid ]] && { echo "  ✗ $file (실행 안 됨)"; continue; }

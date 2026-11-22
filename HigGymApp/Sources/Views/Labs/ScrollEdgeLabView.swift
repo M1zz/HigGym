@@ -52,14 +52,14 @@ struct ScrollEdgeLabView: View {
                 CodePanel(code: code)
         }
         .onAppear { if DebugLaunch.autoRunStage { running = true } }
-        .fullScreenCover(isPresented: $running) {
+        .fullScreenCover(isPresented: $running) { Group {
             stage.stageChrome(onClose: { running = false }) {
                 controls
                 diagnosisSection
             }
             .phoneStaged()
             .background(Color.hgBackground.ignoresSafeArea())
-        }
+        }.arabicLayout() }
     }
 
     // MARK: 실제 API를 적용한 화면

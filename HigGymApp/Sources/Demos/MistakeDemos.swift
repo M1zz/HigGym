@@ -204,13 +204,13 @@ enum MistakeDemos {
             ],
             code: String(localized: """
             // fullScreenCover 는 쓸어내려 닫히지 않는다. 출구는 직접 만들어야 한다.
-            .fullScreenCover(isPresented: $editing) {
+            .fullScreenCover(isPresented: $editing) { Group {
                 EditorView()
                     .toolbar {
                         ToolbarItem(placement: .topBarLeading) { Button("취소") { editing = false } }
                         ToolbarItem(placement: .topBarTrailing) { Button("완료") { save() } }
                     }
-            }
+            }.arabicLayout() }
             """, comment: "On-screen SwiftUI code sample. Translate only Korean comments and string literals; keep Swift code as is."),
             note: String(localized: "왼쪽 화면의 **빨간 점선 '예제에서 나가기'** 는 이 교재가 넣은 비상구입니다. 실제로 이 실수를 저지른 앱에는 그 버튼이 없습니다."),
             chromeEdge: .bottom
@@ -383,7 +383,7 @@ private struct M007: View {
                         Button("새 메일", systemImage: "square.and.pencil") { composing = true }
                     }
                 }
-                .sheet(isPresented: $composing) { DemoComposeSheet() }
+                .sheet(isPresented: $composing) { Group { DemoComposeSheet() }.arabicLayout() }
             }
         }
     }
@@ -790,7 +790,7 @@ private struct M068: View {
                 badComposing = true
                 badSelection = 0
             }
-            .sheet(isPresented: $badComposing) { DemoComposeSheet() }
+            .sheet(isPresented: $badComposing) { Group { DemoComposeSheet() }.arabicLayout() }
         } good: {
             TabView(selection: $goodSelection) {
                 Tab("홈", systemImage: "house", value: 0) {
@@ -798,7 +798,7 @@ private struct M068: View {
                 }
                 Tab("설정", systemImage: "gearshape", value: 2) { page("설정") }
             }
-            .sheet(isPresented: $goodComposing) { DemoComposeSheet() }
+            .sheet(isPresented: $goodComposing) { Group { DemoComposeSheet() }.arabicLayout() }
         }
     }
 
@@ -836,7 +836,7 @@ private struct M081: View {
             NavigationStack {
                 editorEntry { badEditing = true }
             }
-            .fullScreenCover(isPresented: $badEditing) {
+            .fullScreenCover(isPresented: $badEditing) { Group {
                 NavigationStack {
                     editorBody
                         .navigationTitle("편집기")
@@ -854,12 +854,12 @@ private struct M081: View {
                                 .padding(.bottom, 10)
                         }
                 }
-            }
+            }.arabicLayout() }
         } good: {
             NavigationStack {
                 editorEntry { goodEditing = true }
             }
-            .fullScreenCover(isPresented: $goodEditing) {
+            .fullScreenCover(isPresented: $goodEditing) { Group {
                 NavigationStack {
                     editorBody
                         .navigationTitle("편집기")
@@ -873,7 +873,7 @@ private struct M081: View {
                             }
                         }
                 }
-            }
+            }.arabicLayout() }
         }
     }
 

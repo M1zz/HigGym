@@ -37,7 +37,7 @@ struct QuizPlayView: View {
                 }
             }
         }
-        .fullScreenCover(item: $presentedLab) { labDestination($0) }
+        .fullScreenCover(item: $presentedLab) { lab in labDestination(lab).arabicLayout() }
         .sensoryFeedback(trigger: session.selection) { _, _ in answerFeedback }
         .onChange(of: session.selection) { _, selection in
             // 해설 카드는 화면 아래에 생긴다. VoiceOver 사용자가 거기까지 가지 않아도 결과를 듣게 한다.

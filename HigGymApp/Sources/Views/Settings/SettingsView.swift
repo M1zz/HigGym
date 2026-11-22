@@ -73,16 +73,16 @@ struct SettingsView: View {
         }
         .navigationTitle("설정")
         .navigationBarTitleDisplayMode(.inline)
-        .fullScreenCover(isPresented: $showsOnboarding) {
+        .fullScreenCover(isPresented: $showsOnboarding) { Group {
             HigGymOnboardingView { showsOnboarding = false }
                 .coverConfined()
-        }
-        .sheet(isPresented: $showsWhatsNew) {
+        }.arabicLayout() }
+        .sheet(isPresented: $showsWhatsNew) { Group {
             WhatsNewView { showsWhatsNew = false }
-        }
-        .sheet(isPresented: $showsPaywall) {
+        }.arabicLayout() }
+        .sheet(isPresented: $showsPaywall) { Group {
             HigGymPaywallView()
-        }
+        }.arabicLayout() }
         .manageSubscriptionsSheet(isPresented: $managesSubscription)
     }
 
@@ -191,12 +191,12 @@ private struct GiftRows: View {
                     }
                 }
             }
-            .sheet(isPresented: $showsSupport) {
+            .sheet(isPresented: $showsSupport) { Group {
                 NavigationStack {
                     LeeoFeedbackView<HigGymSpec>(initialType: .bug, extraInfo: gift.supportLines,
                                                  initialCategory: .purchase)
                 }
-            }
+            }.arabicLayout() }
         }
     }
 }

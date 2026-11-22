@@ -53,11 +53,11 @@ struct LabsHomeView: View {
                 }
             }
         }
-        .fullScreenCover(item: $router.presentedLab) { lab in
+        .fullScreenCover(item: $router.presentedLab) { lab in Group {
             labDestination(lab)
                 .onAppear { progress.markLabVisited(lab) }
                 .coverConfined()
-        }
+        }.arabicLayout() }
     }
 
     private var header: some View {
