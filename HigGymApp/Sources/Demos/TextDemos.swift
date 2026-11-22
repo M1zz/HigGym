@@ -145,7 +145,7 @@ private struct TextDemoScaffold<Controls: View, Sample: View>: View {
                         controls
 
                         if showWidth {
-                            labeled(String(localized: "폭 \(Int(width))pt")) {
+                            labeled(String(localized: "폭 \(Int(width))pt", locale: HGLanguage.locale)) {
                                 Slider(value: $width, in: 110...340)
                             }
                         }

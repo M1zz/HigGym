@@ -194,7 +194,7 @@ struct QuizHomeView: View {
 
             if !progress.wrongIDs.isEmpty {
                 modeRow(
-                    String(localized: "오답 복습 \(progress.wrongIDs.count)문항"), String(localized: "틀렸던 것만 다시"),
+                    String(localized: "오답 복습 \(progress.wrongIDs.count)문항", locale: HGLanguage.locale), String(localized: "틀렸던 것만 다시"),
                     "arrow.counterclockwise", .hgRed, .review
                 )
             }

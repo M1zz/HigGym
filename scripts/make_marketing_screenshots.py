@@ -15,7 +15,7 @@ RAW = ROOT / "docs" / "screenshots" / "raw"
 OUT = ROOT / "docs" / "screenshots" / "marketing"
 WORK = pathlib.Path("/tmp") / "higgym-marketing"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
-STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "nb", "nl": "nl", "pl": "pl", "sv": "sv", "tr": "tr"}
+STORE = {"ko": "ko", "en": "en", "en-GB": "en-GB", "ja": "ja", "zh-Hans": "zh-Hans", "zh-Hant": "zh-Hant", "ru": "ru", "es": "es", "de": "de", "fr": "fr", "it": "it", "pt-BR": "pt-BR", "th": "th", "vi": "vi", "cs": "cs", "da": "da", "el": "el", "fi": "fi", "id": "id", "nb": "nb", "nl": "nl", "pl": "pl", "sv": "sv", "tr": "tr", "ar": "ar"}
 
 # (원본 파일, 헤드라인, 서브카피), 언어마다 따로 쓴다.
 SHOTS = {
@@ -211,6 +211,14 @@ SHOTS = {
         ("05-compare.png",  "Bozuk ve düzeltilmiş<br>yan yana",  "Yerinde geçiş yap ve farkı hisset"),
         ("06-items.png",  "68 UI/UX konusu<br>çizimlerle",  "Araç çubukları, sekmeler, sayfalar ve metin eskizlerle"),
     ],
+    "ar": [
+        ("01-course.png",  "لا تكتفِ بالقراءة<br>جرّب بيدك",  "قرار واحد في كل درس، 23 درسًا في UI/UX"),
+        ("02-try.png",  "جرّبها أولًا",  "استخدم الشاشة المخالفة للقاعدة بحجمها الحقيقي"),
+        ("03-write.png",  "اكتب<br>ما شعرت به",  "قبل الإجابة، دوّن ما لاحظته يدك"),
+        ("04-reason.png",  "ثم اعرف السبب",  "القرار وسببه وما ينهار لو عكسته"),
+        ("05-compare.png",  "المخالفة والمصححة<br>جنبًا إلى جنب",  "بدّل بينهما في المكان نفسه ولاحظ الفرق"),
+        ("06-items.png",  "68 بندًا في UI/UX<br>بالرسم",  "أشرطة الأدوات والتبويبات والأوراق والنصوص نماذج مرسومة"),
+    ],
 }
 
 DEVICES = {
@@ -222,7 +230,7 @@ CSS = """
 * { margin:0; padding:0; box-sizing:border-box; }
 html,body { width:%(W)dpx; height:%(H)dpx; overflow:hidden; }
 body { background:#0B0C10; position:relative;
-  font-family:-apple-system, "SF Pro Display", "Apple SD Gothic Neo", "Hiragino Sans", "PingFang SC", "PingFang TC", sans-serif; }
+  font-family:-apple-system, "SF Pro Display", "Apple SD Gothic Neo", "Hiragino Sans", "PingFang SC", "PingFang TC", "SF Arabic", "Geeza Pro", sans-serif; }
 .glow { position:absolute; left:50%%; top:%(GT)dpx; width:%(GW)dpx; height:%(GW)dpx; margin-left:-%(GH)dpx;
   border-radius:50%%; filter:blur(200px); background:rgba(90,168,255,.22); }
 .t { position:absolute; left:80px; right:80px; top:%(TT)dpx; text-align:center; }
@@ -230,13 +238,15 @@ body { background:#0B0C10; position:relative;
 .sub { margin-top:40px; font-size:%(SS)dpx; font-weight:500; color:#9AA4B2; letter-spacing:-0.01em; line-height:1.3; }
 :lang(ko) .headline, :lang(ko) .sub { word-break:keep-all; }
 :lang(ja) .headline { letter-spacing:0; }
+/* 아랍어는 자간을 좁히면 낱말이 붙는다. 오른쪽에서 왼쪽으로 읽는다(html dir). */
+:lang(ar) .headline, :lang(ar) .sub { letter-spacing:0; line-height:1.35; }
 :lang(ja) .headline, :lang(ja) .sub { line-break:strict; word-break:keep-all; }
 .dev { position:absolute; left:50%%; top:%(DT)dpx; width:%(DW)dpx; margin-left:-%(DH)dpx; background:#181B22;
   border:4px solid #2A2F3A; padding:%(PAD)dpx; border-radius:%(R)dpx; box-shadow:0 60px 160px rgba(0,0,0,.6); }
 .dev img { width:100%%; display:block; border-radius:%(IR)dpx; }
 """
 
-HTML = """<!doctype html><html lang="{lang}"><head><meta charset="utf-8"><style>{css}</style></head>
+HTML = """<!doctype html><html lang="{lang}" dir="{dir}"><head><meta charset="utf-8"><style>{css}</style></head>
 <body><div class="glow"></div><div class="t"><div class="headline">{h}</div><div class="sub">{s}</div></div>
 <div class="dev"><img src="{img}"></div></body></html>"""
 
@@ -253,7 +263,7 @@ def render(lang, device):
     for fname, h, s in SHOTS[lang]:
         img = src / fname
         html = WORK / f"{lang}-{device}-{fname}.html"
-        html.write_text(HTML.format(lang=lang, css=css, h=h, s=s, img=img.as_uri()), encoding="utf-8")
+        html.write_text(HTML.format(lang=lang, dir="rtl" if lang == "ar" else "ltr", css=css, h=h, s=s, img=img.as_uri()), encoding="utf-8")
         target = out / f"{prefix}{fname}"
         # 다른 세션의 Chrome 과 겹치면 가끔 실패하거나 끝나지 않는다, 새 프로필로 다시 시도한다.
         for attempt in range(4):

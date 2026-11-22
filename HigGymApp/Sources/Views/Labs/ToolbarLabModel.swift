@@ -222,7 +222,7 @@ enum ToolbarDiagnostics {
         if let wrong = principal.first(where: { $0.role != .identity }) {
             out.append(.init(
                 level: .violation,
-                message: String(localized: "principal에 **\(wrong.name)** 항목을 두었습니다. 제목 자리는 “화면의 정체성”을 말하는 문법이라 부가 액션이 오면 제목까지 사라지면서 이 화면이 무엇인지 말할 장치가 없어집니다."),
+                message: String(localized: "principal에 **\(wrong.name)** 항목을 두었습니다. 제목 자리는 “화면의 정체성”을 말하는 문법이라 부가 액션이 오면 제목까지 사라지면서 이 화면이 무엇인지 말할 장치가 없어집니다.", locale: HGLanguage.locale),
                 source: "1.1.5 · 8.1.3"
             ))
         } else if principal.contains(where: { $0.role == .identity }) {
@@ -244,7 +244,7 @@ enum ToolbarDiagnostics {
         if let confirm = c.items(in: .bottom).first(where: { $0.role == .confirm }) {
             out.append(.init(
                 level: .violation,
-                message: String(localized: "**\(confirm.name)** 항목은 화면당 한 번 누르는 확정 액션인데 하단에 있습니다. 고빈도 자리를 낭비하고, 탭바(이동)와 인접해 역할까지 혼동됩니다."),
+                message: String(localized: "**\(confirm.name)** 항목은 화면당 한 번 누르는 확정 액션인데 하단에 있습니다. 고빈도 자리를 낭비하고, 탭바(이동)와 인접해 역할까지 혼동됩니다.", locale: HGLanguage.locale),
                 source: "1.1.4 · 8.1.2"
             ))
         }
@@ -256,7 +256,7 @@ enum ToolbarDiagnostics {
             let name = ToolbarItemSpec.palette.first { $0.id == id }?.name ?? id
             out.append(.init(
                 level: .violation,
-                message: String(localized: "**\(name)** 항목이 두 자리에 중복 배치돼 있습니다. 같은 기능이 두 곳에 있으면 사용자는 둘을 다른 기능으로 읽습니다."),
+                message: String(localized: "**\(name)** 항목이 두 자리에 중복 배치돼 있습니다. 같은 기능이 두 곳에 있으면 사용자는 둘을 다른 기능으로 읽습니다.", locale: HGLanguage.locale),
                 source: "1.1.3"
             ))
         }
@@ -272,7 +272,7 @@ enum ToolbarDiagnostics {
             for item in c.items(in: slot) where item.frequent && item.role == .create {
                 out.append(.init(
                     level: .violation,
-                    message: String(localized: "**\(item.name)** 항목은 반복해서 누르는 고빈도 액션인데 상단에 있습니다. 빈도와 높이는 반비례해야 합니다, 하단이 엄지의 홈 그라운드입니다."),
+                    message: String(localized: "**\(item.name)** 항목은 반복해서 누르는 고빈도 액션인데 상단에 있습니다. 빈도와 높이는 반비례해야 합니다, 하단이 엄지의 홈 그라운드입니다.", locale: HGLanguage.locale),
                     source: "1.1.4 · 8.1.2"
                 ))
             }
@@ -281,7 +281,7 @@ enum ToolbarDiagnostics {
         for item in c.items(in: .bottom) where item.frequent {
             out.append(.init(
                 level: .good,
-                message: String(localized: "**\(item.name)**처럼 자주 반복하는 액션을 하단에 둔 것은 빈도·높이 반비례 기준에 맞습니다."),
+                message: String(localized: "**\(item.name)**처럼 자주 반복하는 액션을 하단에 둔 것은 빈도·높이 반비례 기준에 맞습니다.", locale: HGLanguage.locale),
                 source: "8.1.2"
             ))
         }
@@ -300,7 +300,7 @@ enum ToolbarDiagnostics {
             if list.contains(where: { $0.role == .destructive }) && list.count > 1 {
                 out.append(.init(
                     level: .violation,
-                    message: String(localized: "\(slot.title)에서 **삭제**가 다른 도구와 한 캡슐로 묶였습니다. 같은 캡슐 = 한 세트라서, 성격이 다른 파괴적 액션이 섞이면 묶음이 거짓 정보가 됩니다."),
+                    message: String(localized: "\(slot.title)에서 **삭제**가 다른 도구와 한 캡슐로 묶였습니다. 같은 캡슐 = 한 세트라서, 성격이 다른 파괴적 액션이 섞이면 묶음이 거짓 정보가 됩니다.", locale: HGLanguage.locale),
                     source: "1.1.3 · 8.1.3"
                 ))
             }
@@ -309,7 +309,7 @@ enum ToolbarDiagnostics {
             if roles.count >= 3 {
                 out.append(.init(
                     level: .caution,
-                    message: String(localized: "\(slot.title)에 서로 다른 역할 \(roles.count)종이 한 묶음입니다. 관련 없는 액션을 기계적으로 한 캡슐에 넣으면 “한 세트”라는 신호가 거짓이 됩니다."),
+                    message: String(localized: "\(slot.title)에 서로 다른 역할 \(roles.count)종이 한 묶음입니다. 관련 없는 액션을 기계적으로 한 캡슐에 넣으면 “한 세트”라는 신호가 거짓이 됩니다.", locale: HGLanguage.locale),
                     source: "1.1.3"
                 ))
             }
@@ -317,7 +317,7 @@ enum ToolbarDiagnostics {
             if list.count > 3 {
                 out.append(.init(
                     level: .caution,
-                    message: String(localized: "\(slot.title)에 \(list.count)개, 그룹당 2~3개가 적정입니다. 그 이상은 overflow(⋯)나 하단 바로 분산하세요."),
+                    message: String(localized: "\(slot.title)에 \(list.count)개, 그룹당 2~3개가 적정입니다. 그 이상은 overflow(⋯)나 하단 바로 분산하세요.", locale: HGLanguage.locale),
                     source: "1.1.3 · 1.1.7"
                 ))
             }

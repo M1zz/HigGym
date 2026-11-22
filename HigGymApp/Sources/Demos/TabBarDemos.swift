@@ -353,7 +353,7 @@ private struct TabDemoScreen: View {
             Group {
                 switch index % 6 {
                 case 1:
-                    ScrollView { DemoPhotoGrid(count: 36) { log.tap(String(localized: "사진 \($0 + 1) 열기")) } }
+                    ScrollView { DemoPhotoGrid(count: 36) { log.tap(String(localized: "사진 \($0 + 1) 열기", locale: HGLanguage.locale)) } }
                 case 4:
                     DemoSettingsPage()
                 default:

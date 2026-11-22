@@ -493,7 +493,7 @@ final class NotebookStore {
                 lines.append("**\(String(localized: "배운 것"))**")
                 lines.append(note.takeaway)
             }
-            lines.append(String(localized: "근거 · \(lesson.sources.joined(separator: " · "))"))
+            lines.append(String(localized: "근거 · \(lesson.sources.joined(separator: " · "))", locale: HGLanguage.locale))
             lines.append("")
         }
         return lines.joined(separator: "\n")

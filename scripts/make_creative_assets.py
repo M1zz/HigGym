@@ -26,7 +26,7 @@ def profile():
     부를 때마다 새 빈 프로필로 띄운다."""
     return f"--user-data-dir={tempfile.mkdtemp(prefix='higgym-chrome-')}"
 
-# 스토어 언어 = deploy.env LOCALES (ko · en · ja · zh-Hans · zh-Hant · ru · es · de · fr · it · pt-BR · th · vi · cs · da · el · fi · id · nb · nl · pl · sv · tr). 폴더 이름이 로케일 그대로라 바꿀 것이 없다.
+# 스토어 언어 = deploy.env LOCALES (ko · en · ja · zh-Hans · zh-Hant · ru · es · de · fr · it · pt-BR · th · vi · cs · da · el · fi · id · nb · nl · pl · sv · tr · ar). 폴더 이름이 로케일 그대로라 바꿀 것이 없다.
 STORE = {}
 
 # (가로, 세로, 안전 영역 left, top, right, bottom)
@@ -62,6 +62,7 @@ SEARCH = {
     "pl": ("Ćwiczenia UI/UX", "Ucz się UI/UX<br>przez stukanie", "Użyj ekranu, który zgrzyta<br>i zrozum dlaczego"),
     "sv": ("UI/UX-övning", "Lär dig UI/UX<br>genom att trycka", "Använd en skärm som skaver<br>och förstå varför"),
     "tr": ("UI/UX pratiği", "UI/UX'i dokunarak<br>öğren", "Rahatsız eden bir ekranı kullan<br>ve nedenini anla"),
+    "ar": ("تصميم الواجهات", "تعلّم UI/UX<br>بيدك", "جرّب شاشات غير مريحة<br>ثم اعرف السبب"),
 }
 
 # 헤더: 처음 온 사람에게 한 가지 약속.
@@ -90,6 +91,7 @@ HEADER = {
     "pl": ("Praktyka designu", "Wypróbuj i zrozum,<br>dlaczego dobre ekrany działają"),
     "sv": ("Designövning", "Prova och förstå<br>varför bra skärmar fungerar"),
     "tr": ("Tasarım Pratiği", "Dene ve iyi ekranların<br>neden işe yaradığını anla"),
+    "ar": ("مختبر التصميم", "جرّب بنفسك واعرف<br>سر الشاشات الجيدة"),
 }
 
 # ⚠️ 바탕 · 글자색은 기존 스크린샷(make_marketing_screenshots.py)과 같다. 다르면 페이지에서
@@ -98,7 +100,7 @@ BASE_CSS = """
 * { margin:0; padding:0; box-sizing:border-box; }
 html,body { width:%(W)dpx; height:%(H)dpx; overflow:hidden; }
 body { background:#0B0C10; position:relative;
-  font-family:-apple-system, "SF Pro Display", "Apple SD Gothic Neo", "Hiragino Sans", "PingFang SC", "Thonburi", sans-serif; }
+  font-family:-apple-system, "SF Pro Display", "Apple SD Gothic Neo", "Hiragino Sans", "PingFang SC", "Thonburi", "SF Arabic", "Geeza Pro", sans-serif; }
 .glow { position:absolute; border-radius:50%%; filter:blur(160px); pointer-events:none; }
 .text { position:absolute; display:flex; flex-direction:column; justify-content:center; }
 .eyebrow { font-weight:700; color:#5AA8FF; letter-spacing:-0.01em; line-height:1.15; }
@@ -107,6 +109,9 @@ body { background:#0B0C10; position:relative;
 :lang(th) .headline, :lang(th) .eyebrow, :lang(th) .sub,
 :lang(ja) .headline, :lang(zh) .headline { letter-spacing:0; }
 :lang(th) .headline { line-height:1.3; }
+/* 아랍어는 자간을 좁히면 낱말이 붙는다. */
+:lang(ar) .headline, :lang(ar) .eyebrow, :lang(ar) .sub { letter-spacing:0; }
+:lang(ar) .headline { line-height:1.3; }
 /* 한국어는 낱말 중간에서 끊지 않는다("키 / 보드"). */
 :lang(ko) .headline, :lang(ko) .sub, :lang(ko) .eyebrow { word-break:keep-all; }
 .phone { position:absolute; background:#181B22; border:6px solid #2A2F3A; padding:40px; border-radius:190px;
@@ -157,6 +162,10 @@ def search_html(lang):
     # 기기는 안전 영역 오른쪽 몫에 서서, 위아래로 넘쳐 화면 밖까지 이어진다(기기 그림은 잘려도 된다).
     ph_w = 1040
     ph_left = l + col + int(sw * 0.04)
+    text_left = l
+    if lang == "ar":   # 오른쪽에서 왼쪽으로 읽으니 글은 오른쪽, 기기는 왼쪽에 선다.
+        ph_left = r - col - int(sw * 0.04) - ph_w
+        text_left = r - col
     # 레슨의 '이유 확인' 단계: 방금 만진 화면이 왜 어색했는지 기준과 나란히 보여 준다.
     img = (RAW / lang / "02-reason.png").as_uri()
     return f"""
@@ -164,7 +173,7 @@ def search_html(lang):
 <div class="glow" style="left:{ph_left + 300}px;top:1300px;width:1200px;height:1200px;background:rgba(123,108,255,.14)"></div>
 <div class="glow" style="left:{l - 700}px;top:{t - 500}px;width:1400px;height:1000px;background:rgba(90,168,255,.07)"></div>
 {phone(img, ph_left, t - 360, ph_w, 0)}
-<div class="text" style="left:{l}px;top:{t}px;width:{col}px;height:{sh}px">
+<div class="text" style="left:{text_left}px;top:{t}px;width:{col}px;height:{sh}px">
   <div class="eyebrow" style="font-size:96px">{eyebrow}</div>
   <div class="headline" data-max="250" data-min="140" style="margin-top:36px">{headline}</div>
   <div class="sub" style="font-size:84px;margin-top:52px">{sub}</div>
@@ -178,6 +187,8 @@ def header_html(lang):
     # 왼쪽은 스물세 편의 코스, 오른쪽은 써 보고 배운 것을 적은 노트.
     left_img = (RAW / lang / "01-course.png").as_uri()
     right_img = (RAW / lang / "03-notebook.png").as_uri()
+    if lang == "ar":   # 오른쪽에서 왼쪽으로 읽으니 코스가 오른쪽, 노트가 왼쪽.
+        left_img, right_img = right_img, left_img
     # 앱 아이콘처럼 생긴 화면 윤곽선을 안전 영역 바깥에 흩는다. 아이폰에서는 잘려도 되는 장식이다.
     wires = [(-30, 70, 240, -14), (1000, 1250, 200, 10), (3380, 110, 230, 14), (3620, 1100, 250, -10),
              (2700, 1280, 180, -6), (760, 60, 170, 8)]
@@ -202,7 +213,8 @@ def html_lang(lang):
 def render(lang, kind):
     W, H, _ = SPEC[kind]
     body = search_html(lang) if kind == "search" else header_html(lang)
-    page = (f'<!doctype html><html lang="{html_lang(lang)}"><head><meta charset="utf-8"><style>'
+    direction = "rtl" if lang == "ar" else "ltr"
+    page = (f'<!doctype html><html lang="{html_lang(lang)}" dir="{direction}"><head><meta charset="utf-8"><style>'
             f'{BASE_CSS % {"W": W, "H": H}}</style></head><body>{body}{FIT_JS}</body></html>')
     html_path = pathlib.Path(tempfile.gettempdir()) / f"higgym-creative-{lang}-{kind}.html"
     html_path.write_text(page, encoding="utf-8")

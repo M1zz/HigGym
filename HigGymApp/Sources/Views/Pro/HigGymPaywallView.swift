@@ -90,11 +90,11 @@ struct HigGymPaywallView: View {
         switch feature {
         case .lesson(let id):
             let number = Lesson.all.first { $0.id == id }?.number ?? 4
-            return String(localized: "\(number)편부터는 Pro에서 이어집니다. 앞에서 해 본 그 방식으로 나머지 \(Lesson.all.count - number + 1)편을 밟습니다.")
+            return String(localized: "\(number)편부터는 Pro에서 이어집니다. 앞에서 해 본 그 방식으로 나머지 \(Lesson.all.count - number + 1)편을 밟습니다.", locale: HGLanguage.locale)
         case .mistake(let number):
-            return String(localized: "실수 \(number)편은 Pro에서 열립니다. 무엇을 했고, 왜 그게 맞아 보였고, 어떻게 고치는지까지 전부 봅니다.")
+            return String(localized: "실수 \(number)편은 Pro에서 열립니다. 무엇을 했고, 왜 그게 맞아 보였고, 어떻게 고치는지까지 전부 봅니다.", locale: HGLanguage.locale)
         case .lab(let lab):
-            return String(localized: "\(lab.title) 실습실은 Pro에서 열립니다. 설정을 바꿀 때마다 그 자리에서 판정을 받습니다.")
+            return String(localized: "\(lab.title) 실습실은 Pro에서 열립니다. 설정을 바꿀 때마다 그 자리에서 판정을 받습니다.", locale: HGLanguage.locale)
         case .quizChapter:
             return String(localized: "이 장의 퀴즈는 Pro에서 열립니다. 모든 장과 훈련 모드로 판단을 손에 익힙니다.")
         case .quizMode, .liveQuiz:
@@ -109,19 +109,19 @@ struct HigGymPaywallView: View {
     private var benefits: some View {
         VStack(spacing: 0) {
             benefit("graduationcap.fill", .hgAccent,
-                    String(localized: "레슨 \(Lesson.all.count)편 전부"),
+                    String(localized: "레슨 \(Lesson.all.count)편 전부", locale: HGLanguage.locale),
                     String(localized: "써 보고, 적고, 이유를 보고, 고친 화면과 비교합니다"))
             Divider().overlay(Color.hgLine).padding(.leading, 56)
             benefit("exclamationmark.triangle.fill", .hgAmber,
-                    String(localized: "실수 \(MistakeStore.shared.mistakes.count)편과 회고"),
+                    String(localized: "실수 \(MistakeStore.shared.mistakes.count)편과 회고", locale: HGLanguage.locale),
                     String(localized: "그때는 왜 맞아 보였는지까지 읽습니다"))
             Divider().overlay(Color.hgLine).padding(.leading, 56)
             benefit("hammer.fill", .hgGreen,
-                    String(localized: "실습실 \(LabID.allCases.count)종"),
+                    String(localized: "실습실 \(LabID.allCases.count)종", locale: HGLanguage.locale),
                     String(localized: "툴바, 가장자리 효과, 글자 잘림, 탭바, 시트"))
             Divider().overlay(Color.hgLine).padding(.leading, 56)
             benefit("checkmark.circle.fill", .hgRed,
-                    String(localized: "퀴즈 \(QuizBank.shared.questions.count)문항과 실전 문제"),
+                    String(localized: "퀴즈 \(QuizBank.shared.questions.count)문항과 실전 문제", locale: HGLanguage.locale),
                     String(localized: "모든 장, 모든 훈련 모드, 화면으로 판단하기"))
             Divider().overlay(Color.hgLine).padding(.leading, 56)
             benefit("sparkles", .hgAccent2,
@@ -282,8 +282,8 @@ struct HigGymPaywallView: View {
 
     private func priceLabel(_ plan: Plan) -> String {
         switch plan.kind {
-        case .weekly:   String(localized: "\(plan.price) / 주")
-        case .monthly:  String(localized: "\(plan.price) / 월")
+        case .weekly:   String(localized: "\(plan.price) / 주", locale: HGLanguage.locale)
+        case .monthly:  String(localized: "\(plan.price) / 월", locale: HGLanguage.locale)
         case .lifetime: plan.price
         }
     }

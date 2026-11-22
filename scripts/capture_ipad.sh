@@ -2,7 +2,7 @@
 # iPad 13" 스토어 스크린샷: 꾸미지 않은 2064×2752 를 docs/screenshots/marketing/<스토어 로케일>/ipad-0N-….png 에 둔다.
 # (아이폰 제출본과 한 폴더: DeployBar 가 크기로 기기를 가른다)
 #
-# 사용법: zsh scripts/capture_ipad.sh <iPad 시뮬레이터 UDID> [앱 언어 ...]   (언어를 안 주면 24개 모두)
+# 사용법: zsh scripts/capture_ipad.sh <iPad 시뮬레이터 UDID> [앱 언어 ...]   (언어를 안 주면 25개 모두)
 #   - Debug 빌드가 build/dd/Build/Products/Debug-iphonesimulator/HigGym.app 에 있어야 한다(HG_ 훅은 DEBUG 전용).
 #   - 일부만 다시: ONLY="try" zsh scripts/capture_ipad.sh <UDID> de
 # 넓은 아이패드는 왼쪽 학습 · 자료, 오른쪽 노트 두 쪽이다(RootView.swift 의 WidePadPanes).
@@ -12,7 +12,7 @@ cd "$(dirname "$0")/.."
 DEV=$1; shift
 APP=build/dd/Build/Products/Debug-iphonesimulator/HigGym.app
 BUNDLE=com.leeo.higgym
-ALL=(ko en en-GB ja zh-Hans zh-Hant ru es de fr it pt-BR th vi cs da el fi id nb nl pl sv tr)
+ALL=(ko en en-GB ja zh-Hans zh-Hant ru es de fr it pt-BR th vi cs da el fi id nb nl pl sv tr ar)
 if (( $# )); then LANGS=($@); else LANGS=($ALL); fi
 
 # 장면 이름 → HG_ 환경변수 (RootView.swift 의 DebugLaunch)
@@ -37,7 +37,7 @@ locale_of() {
     ja) echo ja_JP ;; ru) echo ru_RU ;; es) echo es_ES ;; de) echo de_DE ;; fr) echo fr_FR ;; it) echo it_IT ;;
     pt-BR) echo pt_BR ;; th) echo th_TH ;; vi) echo vi_VN ;; cs) echo cs_CZ ;; da) echo da_DK ;; el) echo el_GR ;;
     fi) echo fi_FI ;; id) echo id_ID ;; nb) echo nb_NO ;; nl) echo nl_NL ;; pl) echo pl_PL ;; sv) echo sv_SE ;;
-    tr) echo tr_TR ;; *) echo en_US ;;
+    tr) echo tr_TR ;; ar) echo ar_SA ;; *) echo en_US ;;
   esac
 }
 

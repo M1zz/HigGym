@@ -82,7 +82,7 @@ private struct ScrollEdgeDemoScreen: View {
 
                     if backdrop == .photo {
                         // 사진이 바 밑을 그대로 지나가야 밝은 면에서 버튼이 흐려지는 순간이 보인다.
-                        DemoPhotoGrid(count: 36) { log.tap(String(localized: "사진 \($0 + 1)")) }
+                        DemoPhotoGrid(count: 36) { log.tap(String(localized: "사진 \($0 + 1)", locale: HGLanguage.locale)) }
                     } else {
                         LazyVStack(spacing: 10) {
                             ForEach(0..<18, id: \.self) { i in

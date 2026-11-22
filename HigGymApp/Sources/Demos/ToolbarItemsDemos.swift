@@ -260,7 +260,7 @@ private struct LeadingClusterDemo: View {
                     .disabled(undone.isEmpty)
                 }
                 ToolbarItem(placement: .topBarTrailing) {
-                    Button("완료") { log.tap(String(localized: "저장했습니다 · \(lines.count)줄")) }
+                    Button("완료") { log.tap(String(localized: "저장했습니다 · \(lines.count)줄", locale: HGLanguage.locale)) }
                         .fontWeight(.semibold)
                 }
             }
@@ -586,7 +586,7 @@ private struct OverflowDemo: View {
             .toolbar {
                 ToolbarItemGroup(placement: .topBarTrailing) {
                     ForEach(actions.prefix(count)) { action in
-                        Button(action.name, systemImage: action.symbol) { log.tap(String(localized: "\(action.name) 실행")) }
+                        Button(action.name, systemImage: action.symbol) { log.tap(String(localized: "\(action.name) 실행", locale: HGLanguage.locale)) }
                     }
                 }
             }
@@ -605,7 +605,7 @@ private struct CustomBottomViewsDemo: View {
     var body: some View {
         NavigationStack {
             ScrollView {
-                DemoPhotoGrid(count: 30, columns: Int(zoom)) { i in log.tap(String(localized: "사진 \(i + 1) 열기")) }
+                DemoPhotoGrid(count: 30, columns: Int(zoom)) { i in log.tap(String(localized: "사진 \(i + 1) 열기", locale: HGLanguage.locale)) }
                     .animation(.snappy(duration: 0.25), value: zoom)
             }
             .navigationTitle("사진")

@@ -149,7 +149,7 @@ struct DemoGuideInfo {
     }
 
     init(mistake: Mistake) {
-        badge = String(localized: "실수 #\(mistake.number)")
+        badge = String(localized: "실수 #\(mistake.number)", locale: HGLanguage.locale)
         title = mistake.title
         summary = mistake.why
         blocks = [

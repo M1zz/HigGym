@@ -136,20 +136,20 @@ struct QuizBank: Sendable {
                     let (headline, rationale) = PromptText.split(raw)
                     let basis = entry.criterion.isEmpty ? entry.why : entry.criterion
                     let verdict = (isGood
-                        ? String(localized: "적절합니다. \(rationale ?? "")")
-                        : String(localized: "부적절합니다. \(rationale ?? "")"))
+                        ? String(localized: "적절합니다. \(rationale ?? "")", locale: HGLanguage.locale)
+                        : String(localized: "부적절합니다. \(rationale ?? "")", locale: HGLanguage.locale))
                         .trimmingCharacters(in: .whitespaces)
                     let criterion = PromptText.stripCrossReferences(basis)
-                    let explanation = String(localized: "\(verdict)\n\n**기준**, \(criterion)")
+                    let explanation = String(localized: "\(verdict)\n\n**기준**, \(criterion)", locale: HGLanguage.locale)
                     let context = entry.chapter == 8
                         ? entry.title
-                        : String(localized: "\(entry.sectionTitle) · \(entry.title)")
+                        : String(localized: "\(entry.sectionTitle) · \(entry.title)", locale: HGLanguage.locale)
 
                     out.append(
                         Question(
                             id: "judge-\(entry.id)-\(isGood ? "ok" : "ng")-\(i)",
                             kind: .judgement,
-                            prompt: String(localized: "\(context)\n이 설계 판단은 적절한가요?"),
+                            prompt: String(localized: "\(context)\n이 설계 판단은 적절한가요?", locale: HGLanguage.locale),
                             subject: headline,
                             options: [String(localized: "적절하다"), String(localized: "부적절하다")],
                             answerIndex: isGood ? 0 : 1,
@@ -180,12 +180,12 @@ struct QuizBank: Sendable {
                 Question(
                     id: "when-\(entry.id)",
                     kind: .whenMatch,
-                    prompt: String(localized: "다음 상황에 맞는 것은? (\(entry.chapterTitle) · \(entry.sectionTitle))"),
+                    prompt: String(localized: "다음 상황에 맞는 것은? (\(entry.chapterTitle) · \(entry.sectionTitle))", locale: HGLanguage.locale),
                     subject: PromptText.mask(entry.when, term: entry.title),
                     options: choices.map(\.title),
                     optionSources: choices.map(\.index),
                     answerIndex: answerIndex,
-                    explanation: String(localized: "**\(entry.title)**, \(entry.summary)\n\n**왜**, \(entry.why)"),
+                    explanation: String(localized: "**\(entry.title)**, \(entry.summary)\n\n**왜**, \(entry.why)", locale: HGLanguage.locale),
                     sourceIndex: entry.index,
                     sourceTitle: entry.title,
                     lab: LabID.forSection(entry.section)
@@ -219,7 +219,7 @@ struct QuizBank: Sendable {
                         subject: headline,
                         options: options,
                         answerIndex: answerIndex,
-                        explanation: String(localized: "\(rationale ?? "")\n\n**기준**, \(PromptText.stripCrossReferences(principle.criterion))")
+                        explanation: String(localized: "\(rationale ?? "")\n\n**기준**, \(PromptText.stripCrossReferences(principle.criterion))", locale: HGLanguage.locale)
                             .trimmingCharacters(in: .whitespacesAndNewlines),
                         sourceIndex: principle.index,
                         sourceTitle: principle.title,

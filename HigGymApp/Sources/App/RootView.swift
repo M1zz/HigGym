@@ -283,7 +283,7 @@ struct RootView: View {
         .modifier(FoldNotebookTabRedirect(tab: $router.tab))
         .environment(router)
         .modifier(SatisfactionCheck(isEnabled: asksSatisfaction))
-        .leeoCelebrations(appName: HigGymSpec.displayName)
+        .modifier(Celebrations(isEnabled: !DebugLaunch.isScripted))
         .fullScreenCover(isPresented: onboardingPresented) {
             HigGymOnboardingView { hasSeenOnboarding = true }
                 .coverConfined()
@@ -333,6 +333,20 @@ struct RootView: View {
 
 /// 만족도 질문(→ LeeoKit). 레슨을 마친 횟수가 쌓이면 루트에서 스스로 묻는다.
 /// 만족 → 시스템 리뷰 요청, 아쉬움 → 피드백 화면.
+/// 프로가 되면 콘페티, 모든 사용자는 한 번 감사를 받는다 (LeeoKit).
+/// 스크린샷을 찍는 실행에서는 붙이지 않는다, 감사 카드가 찍을 화면을 가린다.
+private struct Celebrations: ViewModifier {
+    let isEnabled: Bool
+
+    func body(content: Content) -> some View {
+        if isEnabled {
+            content.leeoCelebrations(appName: HigGymSpec.displayName)
+        } else {
+            content
+        }
+    }
+}
+
 private struct SatisfactionCheck: ViewModifier {
     let isEnabled: Bool
 

@@ -259,12 +259,12 @@ enum SampleFormat {
     static func edited(_ date: Date, style: NoteAppConfig.DateStyle) -> String {
         switch style {
         case .formatStyle:
-            return date.formatted(.relative(presentation: .numeric))
+            return date.formatted(.relative(presentation: .numeric).locale(HGLanguage.locale))
         case .hardcoded:
             let calendar = Calendar(identifier: .gregorian)
             let components = calendar.dateComponents([.month, .day], from: date)
             // 일부러 손으로 조립한 표기 - 로케일을 따르지 않는 잘못된 예다.
-            return String(localized: "\(components.month ?? 1)월 \(components.day ?? 1)일",
+            return String(localized: "\(components.month ?? 1)월 \(components.day ?? 1)일", locale: HGLanguage.locale,
                           comment: "Deliberately hand-built month/day date (the wrong example). Keep it a fixed, hand-written format.")
         }
     }

@@ -237,7 +237,7 @@ private struct SlotEditor: View {
 
     private func menuTitle(for spec: ToolbarItemSpec) -> String {
         spec.frequent
-            ? String(localized: "\(spec.name) · \(spec.role.label) · 고빈도")
+            ? String(localized: "\(spec.name) · \(spec.role.label) · 고빈도", locale: HGLanguage.locale)
             : "\(spec.name) · \(spec.role.label)"
     }
 }

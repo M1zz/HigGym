@@ -75,8 +75,8 @@ private struct MenuDemoScreen: View {
             List {
                 Section {
                     DemoNote(text: unreadOnly
-                        ? String(localized: "메뉴에서 무엇을 바꾸든 **이 목록이 바로 반응합니다**. 지금 정렬: \(sort.title) · 안 읽음만")
-                        : String(localized: "메뉴에서 무엇을 바꾸든 **이 목록이 바로 반응합니다**. 지금 정렬: \(sort.title) · 전체"))
+                        ? String(localized: "메뉴에서 무엇을 바꾸든 **이 목록이 바로 반응합니다**. 지금 정렬: \(sort.title) · 안 읽음만", locale: HGLanguage.locale)
+                        : String(localized: "메뉴에서 무엇을 바꾸든 **이 목록이 바로 반응합니다**. 지금 정렬: \(sort.title) · 전체", locale: HGLanguage.locale))
                         .listRowInsets(.init(top: 6, leading: 12, bottom: 6, trailing: 12))
                 }
                 ForEach(visible) { mail in

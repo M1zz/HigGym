@@ -32,6 +32,7 @@ final class StoreScreenshotTests: XCTestCase {
             "ru": "ru_RU", "es": "es_ES", "de": "de_DE", "fr": "fr_FR", "it": "it_IT", "pt-BR": "pt_BR",
             "th": "th_TH", "vi": "vi_VN", "cs": "cs_CZ", "da": "da_DK", "el": "el_GR", "fi": "fi_FI",
             "id": "id_ID", "nb": "nb_NO", "nl": "nl_NL", "pl": "pl_PL", "sv": "sv_SE", "tr": "tr_TR",
+            "ar": "ar_SA",
         ][language] ?? "en_US"
         app.launchArguments = ["-AppleLanguages", "(\(language))", "-AppleLocale", locale]
         app.launchEnvironment = environment.merging(["HG_SHOTS": "1"]) { $1 }

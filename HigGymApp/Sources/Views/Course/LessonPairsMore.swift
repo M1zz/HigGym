@@ -301,9 +301,9 @@ struct AmountScreen: View {
     let broken: Bool
 
     private let orders: [(String, String, String)] = [
-        (String(localized: "무선 이어폰 프로 실버"), "₩1,284,000", String(localized: "\(2)건")),
-        (String(localized: "책상 정리 세트"), "₩38,900", String(localized: "\(1)건")),
-        (String(localized: "연간 구독 · 프리미엄 플랜"), "₩264,000", String(localized: "\(1)건")),
+        (String(localized: "무선 이어폰 프로 실버"), "₩1,284,000", String(localized: "\(2)건", locale: HGLanguage.locale)),
+        (String(localized: "책상 정리 세트"), "₩38,900", String(localized: "\(1)건", locale: HGLanguage.locale)),
+        (String(localized: "연간 구독 · 프리미엄 플랜"), "₩264,000", String(localized: "\(1)건", locale: HGLanguage.locale)),
     ]
 
     var body: some View {
@@ -464,7 +464,7 @@ struct PaymentSheetScreen: View {
             Form {
                 Section("장바구니") {
                     Stepper("무선 이어폰 · \(quantity)개", value: $quantity, in: 1...9)
-                    LabeledContent("합계", value: "₩\((unit * quantity).formatted())")
+                    LabeledContent("합계", value: "₩\((unit * quantity).formatted(.number.locale(HGLanguage.locale)))")
                 }
                 Section {
                     Button("결제 시트 열기") {
@@ -494,18 +494,18 @@ struct PaymentSheetScreen: View {
         NavigationStack {
             Form {
                 Section("결제 확인") {
-                    LabeledContent("표시된 금액", value: "₩\(quoted.formatted())")
+                    LabeledContent("표시된 금액", value: "₩\(quoted.formatted(.number.locale(HGLanguage.locale)))")
                     if !broken {
                         // 확정하는 시트는 참조할 내용을 안으로 가져온다 - 뒤를 만질 이유를 없앤다.
-                        LabeledContent("수량", value: String(localized: "\(quantity)개"))
+                        LabeledContent("수량", value: String(localized: "\(quantity)개", locale: HGLanguage.locale))
                     }
                 }
                 Section {
                     Button("결제하기") {
                         let actual = unit * quantity
                         result = actual == quoted
-                            ? (String(localized: "결제 완료 · ₩\(actual.formatted())"), false)
-                            : (String(localized: "금액 불일치, 표시 ₩\(quoted.formatted()) / 청구 ₩\(actual.formatted())"), true)
+                            ? (String(localized: "결제 완료 · ₩\(actual.formatted(.number.locale(HGLanguage.locale)))", locale: HGLanguage.locale), false)
+                            : (String(localized: "금액 불일치, 표시 ₩\(quoted.formatted(.number.locale(HGLanguage.locale))) / 청구 ₩\(actual.formatted(.number.locale(HGLanguage.locale)))", locale: HGLanguage.locale), true)
                         showing = false
                     }
                 }
@@ -581,6 +581,6 @@ struct MenuOrderScreen: View {
     private func remove(_ index: Int) {
         guard files.indices.contains(index) else { return }
         let name = files.remove(at: index)
-        log.tap(String(localized: "\(name) 삭제됨"))
+        log.tap(String(localized: "\(name) 삭제됨", locale: HGLanguage.locale))
     }
 }

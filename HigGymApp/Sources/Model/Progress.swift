@@ -124,10 +124,10 @@ final class QuizSession {
         var title: String {
             switch self {
             case .mixed:            String(localized: "랜덤 훈련")
-            case .chapter(let n):   String(localized: "\(n)장 집중")
+            case .chapter(let n):   String(localized: "\(n)장 집중", locale: HGLanguage.locale)
             case .principles:       String(localized: "원칙 판정")
             case .review:           String(localized: "오답 복습")
-            case .kind(let k):      String(localized: "\(k.label) 모드")
+            case .kind(let k):      String(localized: "\(k.label) 모드", locale: HGLanguage.locale)
             }
         }
     }

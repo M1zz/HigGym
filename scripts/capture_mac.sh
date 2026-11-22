@@ -2,7 +2,7 @@
 # Mac App Store 스크린샷: 꾸미지 않은 창 그대로 2880×1800 을 docs/screenshots/marketing/<언어>/mac-0N-<장면>.png 에 둔다.
 # (iPhone · iPad 제출본과 한 폴더: DeployBar 가 크기로 기기를 가른다)
 #
-# 사용법: zsh scripts/capture_mac.sh [언어 ...]   (언어를 안 주면 24개 모두)
+# 사용법: zsh scripts/capture_mac.sh [언어 ...]   (언어를 안 주면 25개 모두)
 #   - Debug Catalyst 빌드가 build/mac/Build/Products/Debug-maccatalyst/HigGym.app 에 있어야 한다:
 #     xcodebuild -project HigGym.xcodeproj -scheme HigGym -destination 'platform=macOS,variant=Mac Catalyst' -derivedDataPath build/mac build
 #   - 창 크기는 HG_MAC_WINDOW(DEBUG 전용, MacShotWindow.swift)로 1440×900 pt 에 묶는다. iPad 크기 맞춤(77%) 이라 UIKit 으로는 1871×1169.
@@ -13,7 +13,7 @@ cd "$(dirname "$0")/.."
 APP=build/mac/Build/Products/Debug-maccatalyst/HigGym.app
 WIN=build/winlist
 [[ -x $WIN ]] || { mkdir -p build; swiftc -O scripts/winlist.swift -o $WIN; }
-ALL=(ko en en-GB ja zh-Hans zh-Hant ru es de fr it pt-BR th vi cs da el fi id nb nl pl sv tr)
+ALL=(ko en en-GB ja zh-Hans zh-Hant ru es de fr it pt-BR th vi cs da el fi id nb nl pl sv tr ar)
 if (( $# )); then LANGS=($@); else LANGS=($ALL); fi
 SCENES=(course try compare library)
 
@@ -31,7 +31,7 @@ locale_of() {
     ja) echo ja_JP ;; ru) echo ru_RU ;; es) echo es_ES ;; de) echo de_DE ;; fr) echo fr_FR ;; it) echo it_IT ;;
     pt-BR) echo pt_BR ;; th) echo th_TH ;; vi) echo vi_VN ;; cs) echo cs_CZ ;; da) echo da_DK ;; el) echo el_GR ;;
     fi) echo fi_FI ;; id) echo id_ID ;; nb) echo nb_NO ;; nl) echo nl_NL ;; pl) echo pl_PL ;; sv) echo sv_SE ;;
-    tr) echo tr_TR ;; *) echo en_US ;;
+    tr) echo tr_TR ;; ar) echo ar_SA ;; *) echo en_US ;;
   esac
 }
 

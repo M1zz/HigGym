@@ -19,7 +19,7 @@ struct CourseHomeView: View {
                     intro
                     resumeCard
 
-                    SectionLabel(String(localized: "\(Lesson.all.count)편"), accent: .hgAccent)
+                    SectionLabel(String(localized: "\(Lesson.all.count)편", locale: HGLanguage.locale), accent: .hgAccent)
                     ForEach(Lesson.all) { lesson in
                         LessonRow(lesson: lesson, note: notebook.note(for: lesson),
                                   locked: !pro.allows(.lesson(id: lesson.id))) {
@@ -139,7 +139,7 @@ struct CourseHomeView: View {
     private func resumeTitle(done: Int, next: Lesson) -> String {
         let step = notebook.resumeStep(for: next)
         if step > 0, let name = LessonPlayerView.Step(rawValue: step)?.title {
-            return String(localized: "이어서 하기 · \(name)부터")
+            return String(localized: "이어서 하기 · \(name)부터", locale: HGLanguage.locale)
         }
         return done == 0 && next.id == Lesson.all.first?.id ? String(localized: "1편부터 시작하기") : String(localized: "이어서 하기")
     }

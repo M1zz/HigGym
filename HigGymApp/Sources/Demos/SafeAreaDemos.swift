@@ -273,10 +273,10 @@ private struct BarsModifier: ViewModifier {
                 .font(.subheadline.weight(.medium))
                 .foregroundStyle(selection.isEmpty ? .secondary : .primary)
             Spacer()
-            Button("이동", systemImage: "folder") { log.tap(String(localized: "\(selection.count)개 이동")) }
+            Button("이동", systemImage: "folder") { log.tap(String(localized: "\(selection.count)개 이동", locale: HGLanguage.locale)) }
                 .disabled(selection.isEmpty)
             Button("삭제", systemImage: "trash", role: .destructive) {
-                log.tap(String(localized: "\(selection.count)개 삭제"))
+                log.tap(String(localized: "\(selection.count)개 삭제", locale: HGLanguage.locale))
                 selection.removeAll()
             }
             .disabled(selection.isEmpty)

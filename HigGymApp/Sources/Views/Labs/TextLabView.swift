@@ -205,7 +205,7 @@ struct TextLabView: View {
         if overflows && !sample.isSentence && !scaling {
             out.append(.init(
                 level: .violation,
-                message: String(localized: "**\(sample.label)** 항목은 잘리는 순간 정보가 파괴되는 “값”인데 지금 잘리고 있습니다. “₩1,234,0…”은 뜻이 통하는 게 아니라 **틀린 값**을 보여주는 것입니다, minimumScaleFactor로 줄이세요."),
+                message: String(localized: "**\(sample.label)** 항목은 잘리는 순간 정보가 파괴되는 “값”인데 지금 잘리고 있습니다. “₩1,234,0…”은 뜻이 통하는 게 아니라 **틀린 값**을 보여주는 것입니다, minimumScaleFactor로 줄이세요.", locale: HGLanguage.locale),
                 source: "2.1.3 · 8.1.5"
             ))
         }

@@ -617,11 +617,11 @@ private struct DirectActions: ViewModifier {
                     Button("삭제", systemImage: "trash", role: .destructive, action: onDelete)
                 }
                 .swipeActions(edge: .leading) {
-                    Button("보관", systemImage: "archivebox") { log.tap(String(localized: "\(mail.sender) 보관")) }
+                    Button("보관", systemImage: "archivebox") { log.tap(String(localized: "\(mail.sender) 보관", locale: HGLanguage.locale)) }
                         .tint(.blue)
                 }
                 .contextMenu {
-                    Button("보관", systemImage: "archivebox") { log.tap(String(localized: "\(mail.sender) 보관")) }
+                    Button("보관", systemImage: "archivebox") { log.tap(String(localized: "\(mail.sender) 보관", locale: HGLanguage.locale)) }
                     Divider()
                     Button("삭제", systemImage: "trash", role: .destructive, action: onDelete)
                 }

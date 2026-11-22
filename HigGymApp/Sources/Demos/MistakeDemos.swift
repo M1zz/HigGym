@@ -340,8 +340,8 @@ private struct M007: View {
     var body: some View {
         MistakeComparisonScreen(
             title: String(localized: "삭제가 엄지 자리에 혼자 있으면, 누를 생각이 없어도 눌린다"),
-            badNote: String(localized: "확인 없이 즉시 삭제, 지운 수 **\(badDeleted)**"),
-            goodNote: String(localized: "하단은 작성. 삭제는 행을 밀어야, 지운 수 **\(goodDeleted)**"),
+            badNote: String(localized: "확인 없이 즉시 삭제, 지운 수 **\(badDeleted)**", locale: HGLanguage.locale),
+            goodNote: String(localized: "하단은 작성. 삭제는 행을 밀어야, 지운 수 **\(goodDeleted)**", locale: HGLanguage.locale),
             takeaway: String(localized: "도달성 기준은 **무해한 고빈도 액션**에만 적용합니다. 되돌릴 수 없는 것은 일부러 한 단계 멀리 둡니다.")
         ) {
             NavigationStack {
@@ -419,8 +419,8 @@ private struct M011: View {
     var body: some View {
         MistakeComparisonScreen(
             title: String(localized: "폭이 모자라면 뒤쪽부터 접힌다, 무엇을 앞에 뒀는가의 문제"),
-            badNote: String(localized: "저장이 **⋯ 안**에. 저장 횟수 \(badSaves)"),
-            goodNote: String(localized: "저장이 밖에, 별표·프린트가 접힘. 저장 \(goodSaves)"),
+            badNote: String(localized: "저장이 **⋯ 안**에. 저장 횟수 \(badSaves)", locale: HGLanguage.locale),
+            goodNote: String(localized: "저장이 밖에, 별표·프린트가 접힘. 저장 \(goodSaves)", locale: HGLanguage.locale),
             takeaway: String(localized: "접기는 시스템이 최소 터치 크기를 지키는 방식입니다. 막을 게 아니라 **순서를 설계**하면 됩니다.")
         ) {
             screen(order: badOrder) { badSaves += 1 }
@@ -705,8 +705,8 @@ private struct M052: View {
     var body: some View {
         MistakeComparisonScreen(
             title: String(localized: "처리해도 줄지 않는 배지는, 그 앱의 모든 배지를 무효로 만든다"),
-            badNote: String(localized: "다 읽어도 **1** 그대로 (읽은 수 \(badRead))"),
-            goodNote: String(localized: "읽을 때마다 줄고 0이면 사라집니다 (남은 수 \(goodUnread))"),
+            badNote: String(localized: "다 읽어도 **1** 그대로 (읽은 수 \(badRead))", locale: HGLanguage.locale),
+            goodNote: String(localized: "읽을 때마다 줄고 0이면 사라집니다 (남은 수 \(goodUnread))", locale: HGLanguage.locale),
             takeaway: String(localized: "배지는 \"처리할 것이 남았다\"는 약속입니다. 한 번 거짓말하면 다시는 안 봅니다.")
         ) {
             TabView {

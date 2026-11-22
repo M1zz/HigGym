@@ -150,7 +150,7 @@ struct SettingsView: View {
     private static var mailURL: URL? {
         // appName 은 LeeoKit 이 쓰는 식별자라 한국어 그대로다. 제목에는 기기 언어의 표시 이름을 쓴다.
         let name = Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ?? HigGymSpec.appName
-        let subject = String(localized: "[\(name)] 문의")
+        let subject = String(localized: "[\(name)] 문의", locale: HGLanguage.locale)
             .addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
         return URL(string: "mailto:\(HigGymSpec.developerEmail)?subject=\(subject)")
     }
