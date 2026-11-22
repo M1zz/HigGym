@@ -1,5 +1,157 @@
 # 릴리즈 노트
 
+## 1.0.9
+
+### 앱스토어 (한국어)
+
+이제 아랍어로도 배울 수 있어요.
+아랍어에서는 화면이 오른쪽부터 놓여요.
+Mac에서 예제를 아이폰 모양 그대로 봐요.
+
+### App Store (en)
+
+Now available in Arabic.
+Arabic screens read right to left.
+On Mac, examples sit in an iPhone frame.
+
+### App Store (en-GB)
+
+Now available in Arabic.
+Arabic screens read right to left.
+On Mac, examples sit in an iPhone frame.
+
+### App Store (ja)
+
+アラビア語で学べるようになりました。
+アラビア語では画面が右から左に並びます。
+Macでは例の画面をiPhoneの形で表示します。
+
+### App Store (zh-Hans)
+
+现已支持阿拉伯语。
+阿拉伯语界面从右到左排列。
+在 Mac 上，示例以 iPhone 外观显示。
+
+### App Store (zh-Hant)
+
+現已支援阿拉伯語。
+阿拉伯語介面由右至左排列。
+在 Mac 上，範例以 iPhone 外觀顯示。
+
+### 앱스토어 (러시아어)
+
+Теперь доступен арабский язык.
+На арабском экраны идут справа налево.
+На Mac примеры в рамке iPhone.
+
+### 앱스토어 (스페인어)
+
+Ahora disponible en árabe.
+En árabe, se lee de derecha a izquierda.
+En Mac, los ejemplos van en un iPhone.
+
+### 앱스토어 (독일어)
+
+Jetzt auch auf Arabisch.
+Arabisch läuft von rechts nach links.
+Am Mac zeigt ein iPhone die Beispiele.
+
+### 앱스토어 (프랑스어)
+
+Désormais disponible en arabe.
+L'arabe se lit de droite à gauche.
+Sur Mac, un iPhone montre les exemples.
+
+### 앱스토어 (이탈리아어)
+
+Ora disponibile anche in arabo.
+In arabo tutto va da destra a sinistra.
+Su Mac gli esempi stanno in un iPhone.
+
+### App Store (pt-BR)
+
+Agora disponível em árabe.
+Em árabe, a leitura vai da direita.
+No Mac, os exemplos ficam num iPhone.
+
+### 앱스토어 (태국어)
+
+ตอนนี้ใช้งานเป็นภาษาอาหรับได้แล้ว
+ในภาษาอาหรับ หน้าจอเรียงจากขวาไปซ้าย
+บน Mac ตัวอย่างจะแสดงในกรอบ iPhone
+
+### 앱스토어 (베트남어)
+
+Nay đã có tiếng Ả Rập.
+Tiếng Ả Rập hiển thị từ phải sang trái.
+Trên Mac, ví dụ nằm trong khung iPhone.
+
+### 앱스토어 (체코어)
+
+Nově také v arabštině.
+Arabsky se vše čte zprava doleva.
+Na Macu jsou příklady v rámečku iPhonu.
+
+### 앱스토어 (덴마크어)
+
+Nu også på arabisk.
+Arabisk læses fra højre mod venstre.
+På Mac vises eksempler i en iPhone.
+
+### 앱스토어 (그리스어)
+
+Τώρα διαθέσιμο και στα αραβικά.
+Στα αραβικά όλα διαβάζονται από δεξιά.
+Στο Mac τα παραδείγματα είναι σε iPhone.
+
+### 앱스토어 (핀란드어)
+
+Nyt myös arabiaksi.
+Arabiaksi kaikki luetaan oikealta.
+Macilla esimerkit näkyvät iPhonessa.
+
+### 앱스토어 (인도네시아어)
+
+Kini tersedia dalam bahasa Arab.
+Bahasa Arab dibaca dari kanan ke kiri.
+Di Mac, contoh tampil dalam iPhone.
+
+### 앱스토어 (노르웨이어(보크말))
+
+Nå også på arabisk.
+Arabisk leses fra høyre mot venstre.
+På Mac vises eksempler i en iPhone.
+
+### 앱스토어 (네덜란드어)
+
+Nu ook in het Arabisch.
+Arabisch leest van rechts naar links.
+Op de Mac staan voorbeelden in iPhone.
+
+### 앱스토어 (폴란드어)
+
+Teraz także po arabsku.
+Po arabsku czytasz od prawej do lewej.
+Na Macu przykłady są w ramce iPhone'a.
+
+### 앱스토어 (스웨덴어)
+
+Nu även på arabiska.
+På arabiska läses allt från höger.
+På Mac visas exemplen i en iPhone-ram.
+
+### 앱스토어 (튀르키예어)
+
+Artık Arapça da var.
+Arapçada ekranlar sağdan sola okunur.
+Mac'te örnekler iPhone içinde görünür.
+
+### 앱스토어 (아랍어)
+
+التطبيق متاح الآن باللغة العربية.
+بالعربية تُعرض الشاشات من اليمين.
+على Mac تظهر الأمثلة داخل إطار iPhone.
+
 ## 1.0.8
 
 ### 앱스토어 (한국어)
