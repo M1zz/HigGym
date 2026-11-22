@@ -233,7 +233,7 @@ private struct ReachabilityDemo: View {
                             .font(.subheadline.weight(.semibold))
                         Spacer()
                         Text("\(composed) / 5")
-                            .font(.system(.subheadline, design: .monospaced, weight: .bold))
+                            .font(.system(.subheadline, design: .hgMono, weight: .bold))
                             .foregroundStyle(composed >= 5 ? .green : .secondary)
                     }
                     if composed >= 5 {
@@ -418,7 +418,7 @@ private struct ElasticTextDemo: View {
 
                     VStack(alignment: .leading, spacing: 2) {
                         Text("Dynamic Type · \(typeSize.demoLabel)")
-                            .font(.system(.caption, design: .monospaced, weight: .semibold))
+                            .font(.system(.caption, design: .hgMono, weight: .semibold))
                             .foregroundStyle(.secondary)
                         Slider(
                             value: Binding(

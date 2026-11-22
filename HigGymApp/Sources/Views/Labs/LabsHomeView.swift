@@ -114,7 +114,7 @@ private struct LabCard: View {
                         .foregroundStyle(.hgGreen)
                         .font(.callout)
                 }
-                Image(systemName: "chevron.right")
+                Image(systemName: "chevron.forward")
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(.hgDim)
             }

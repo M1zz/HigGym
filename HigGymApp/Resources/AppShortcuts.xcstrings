@@ -148,6 +148,12 @@
             "state": "translated",
             "value": "${applicationName} içinde öğrenmeye devam et"
           }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "تابع التعلّم في ${applicationName}"
+          }
         }
       }
     },
@@ -296,6 +302,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "${applicationName} uygulamasına devam et"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "استأنف ${applicationName}"
           }
         }
       }
@@ -446,6 +458,12 @@
             "state": "translated",
             "value": "${applicationName} notlarını aç"
           }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "افتح ملاحظات ${applicationName}"
+          }
         }
       }
     },
@@ -594,6 +612,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Notlarımı ${applicationName} içinde göster"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "اعرض ملاحظات التعلّم في ${applicationName}"
           }
         }
       }

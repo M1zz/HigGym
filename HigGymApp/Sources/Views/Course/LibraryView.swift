@@ -83,7 +83,7 @@ struct LibraryView: View {
                             .font(.callout.weight(.semibold))
                             .foregroundStyle(.hgText)
                         Text(count)
-                            .font(.system(.caption, design: .monospaced, weight: .bold))
+                            .font(.system(.caption, design: .hgMono, weight: .bold))
                             .foregroundStyle(tint)
                     }
                     Text(subtitle)
@@ -92,7 +92,7 @@ struct LibraryView: View {
                         .multilineTextAlignment(.leading)
                 }
                 Spacer(minLength: 4)
-                Image(systemName: "chevron.right")
+                Image(systemName: "chevron.forward")
                     .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
             }
@@ -122,7 +122,7 @@ struct LibraryView: View {
                         .foregroundStyle(.hgMuted)
                 }
                 Spacer(minLength: 4)
-                Image(systemName: "chevron.right")
+                Image(systemName: "chevron.forward")
                     .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
             }

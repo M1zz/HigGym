@@ -72,7 +72,7 @@ private struct MaterialDemoScreen: View {
                         ForEach(DemoMaterial.allCases) { option in
                             HStack {
                                 Text(option.rawValue)
-                                    .font(.system(.subheadline, design: .monospaced, weight: .semibold))
+                                    .font(.system(.subheadline, design: .hgMono, weight: .semibold))
                                 Spacer()
                                 Text("이 글자가 읽히는가")
                                     .font(.subheadline)
@@ -147,7 +147,7 @@ private struct VibrancyDemoScreen: View {
     private func sample(title: String, vibrant: Bool) -> some View {
         VStack(alignment: .leading, spacing: 7) {
             Text(title)
-                .font(.system(.caption, design: .monospaced, weight: .bold))
+                .font(.system(.caption, design: .hgMono, weight: .bold))
                 .foregroundStyle(vibrant ? AnyShapeStyle(.tint) : AnyShapeStyle(Color(white: 0.55)))
 
             HStack(spacing: 10) {

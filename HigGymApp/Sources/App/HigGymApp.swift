@@ -63,6 +63,7 @@ struct HigGymApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
+                .arabicLayout()
                 #if DEBUG && targetEnvironment(macCatalyst)
                 .onAppear { MacShotWindow.applyIfAsked() }
                 #endif

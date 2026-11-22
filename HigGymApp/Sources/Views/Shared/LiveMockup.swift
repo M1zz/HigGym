@@ -46,7 +46,7 @@ struct LiveMockup: View {
                     .foregroundStyle(.hgAmber)
                 Spacer()
                 Text(part.source)
-                    .font(.system(.caption, design: .monospaced))
+                    .font(.system(.caption, design: .hgMono))
                     .foregroundStyle(.hgDim)
             }
             MarkdownText(raw: part.meaning, font: .footnote, color: .hgText)

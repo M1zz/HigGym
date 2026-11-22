@@ -530,7 +530,7 @@ private struct M038: View {
             controls: {
                 ComparisonControls {
                     Text("Dynamic Type · \(typeSize.demoLabel)")
-                        .font(.system(.caption, design: .monospaced, weight: .semibold))
+                        .font(.system(.caption, design: .hgMono, weight: .semibold))
                         .foregroundStyle(.hgDim)
                     Slider(
                         value: Binding(
@@ -600,7 +600,7 @@ private struct M046: View {
                 Section("운송장") {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(number)
-                            .font(.system(.headline, design: .monospaced))
+                            .font(.system(.headline, design: .hgMono))
                             .modifier(SelectionMod(enabled: selectable))
                         if selectable {
                             Button {

@@ -174,7 +174,7 @@ private struct TextDemoScaffold<Controls: View, Sample: View>: View {
     private func labeled<V: View>(_ label: String, @ViewBuilder content: () -> V) -> some View {
         VStack(alignment: .leading, spacing: 2) {
             Text(label)
-                .font(.system(.caption, design: .monospaced, weight: .semibold))
+                .font(.system(.caption, design: .hgMono, weight: .semibold))
                 .foregroundStyle(.secondary)
             content()
         }
@@ -266,7 +266,7 @@ private struct TruncationDemo: View {
             DemoNote(text: String(localized: "정답은 취향이 아니라 **무엇이 식별에 쓰이는가**입니다. 경로는 끝(파일명)이, 제목은 앞이 결정적입니다."))
         } sample: {
             Text(sample.text)
-                .font(.system(.subheadline, design: sample == .path ? .monospaced : .default))
+                .font(.system(.subheadline, design: sample == .path ? .hgMono : .default))
                 .lineLimit(1)
                 .truncationMode(mode)
         }
@@ -285,7 +285,7 @@ private struct ScaleToFitDemo: View {
         TextDemoScaffold(title: "Scale to Fit", width: $width, typeSize: $typeSize) {
             VStack(alignment: .leading, spacing: 2) {
                 Text("minimumScaleFactor \(factor, specifier: "%.2f")")
-                    .font(.system(.caption, design: .monospaced, weight: .semibold))
+                    .font(.system(.caption, design: .hgMono, weight: .semibold))
                     .foregroundStyle(.secondary)
                 Slider(value: $factor, in: 0.3...1.0)
             }
@@ -375,7 +375,7 @@ private struct TextSelectionDemo: View {
                             .font(.caption.weight(.bold))
                             .foregroundStyle(.secondary)
                         Text("HG-2026-4F7K-9QX2")
-                            .font(.system(.title3, design: .monospaced, weight: .semibold))
+                            .font(.system(.title3, design: .hgMono, weight: .semibold))
                         Text(DemoData.longText)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
@@ -438,7 +438,7 @@ private struct MeasurementFormatDemo: View {
                             .font(.caption.weight(.bold))
                             .foregroundStyle(.secondary)
                         Text("Measurement(value: \(value, specifier: "%.1f"), unit: .kilometers)")
-                            .font(.system(.footnote, design: .monospaced))
+                            .font(.system(.footnote, design: .hgMono))
                     }
 
                     VStack(alignment: .leading, spacing: 6) {
@@ -455,7 +455,7 @@ private struct MeasurementFormatDemo: View {
 
                     VStack(alignment: .leading, spacing: 2) {
                         Text("값 \(value, format: .number.precision(.fractionLength(1))) km")
-                            .font(.system(.caption, design: .monospaced, weight: .semibold))
+                            .font(.system(.caption, design: .hgMono, weight: .semibold))
                             .foregroundStyle(.secondary)
                         Slider(value: $value, in: 0.1...42)
                     }
@@ -506,7 +506,7 @@ private struct NameFormatDemo: View {
                             .font(.caption.weight(.bold))
                             .foregroundStyle(.secondary)
                         Text("givenName: \(name.givenName ?? "") · familyName: \(name.familyName ?? "")")
-                            .font(.system(.footnote, design: .monospaced))
+                            .font(.system(.footnote, design: .hgMono))
                     }
 
                     HStack(spacing: 12) {

@@ -72,7 +72,7 @@ private struct PrincipleCard: View {
             HStack(spacing: 8) {
                 Pill(text: principle.index, color: .hgAccent2)
                 Spacer()
-                Image(systemName: "chevron.right")
+                Image(systemName: "chevron.forward")
                     .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
             }
@@ -205,7 +205,7 @@ struct PrincipleDetailView: View {
                             Text(ref.title)
                                 .font(.footnote)
                                 .multilineTextAlignment(.leading)
-                            Image(systemName: "arrow.up.right")
+                            Image(systemName: "arrow.up.forward")
                                 .font(.caption)
                         }
                         .foregroundStyle(.hgAccent)

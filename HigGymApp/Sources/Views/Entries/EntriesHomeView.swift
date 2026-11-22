@@ -85,7 +85,7 @@ struct EntriesHomeView: View {
         VStack(alignment: .leading, spacing: 12) {
             HStack(spacing: 8) {
                 Text(section)
-                    .font(.system(.footnote, design: .monospaced, weight: .bold))
+                    .font(.system(.footnote, design: .hgMono, weight: .bold))
                     .foregroundStyle(.hgAccent)
                 Text(items.first?.sectionTitle ?? "")
                     .font(.subheadline.weight(.semibold))
@@ -120,7 +120,7 @@ private struct ChapterHeader: View {
     var body: some View {
         HStack(spacing: 10) {
             Text("\(chapter.number)")
-                .font(.system(.subheadline, design: .monospaced, weight: .bold))
+                .font(.system(.subheadline, design: .hgMono, weight: .bold))
                 .foregroundStyle(.white)
                 .frame(width: 28, height: 28)
                 .background(.hgBrand, in: .rect(cornerRadius: 8))
@@ -152,7 +152,7 @@ private struct EntryThumbnail: View {
 
             VStack(alignment: .leading, spacing: 2) {
                 Text(entry.index)
-                    .font(.system(.caption, design: .monospaced))
+                    .font(.system(.caption, design: .hgMono))
                     .foregroundStyle(.hgDim)
                 Text(entry.title)
                     .font(.footnote.weight(.semibold))

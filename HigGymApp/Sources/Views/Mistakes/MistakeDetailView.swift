@@ -74,7 +74,7 @@ struct MistakeDetailView: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 7) {
                 Text("#\(mistake.number)")
-                    .font(.system(.caption, design: .monospaced, weight: .bold))
+                    .font(.system(.caption, design: .hgMono, weight: .bold))
                     .foregroundStyle(.hgDim)
                 if let category {
                     Label(category.title, systemImage: category.symbol)
@@ -107,7 +107,7 @@ struct MistakeDetailView: View {
                 Spacer()
                 if let principle = category?.principle, !principle.isEmpty {
                     Text("원칙 \(principle)")
-                        .font(.system(.caption, design: .monospaced))
+                        .font(.system(.caption, design: .hgMono))
                         .foregroundStyle(.hgDim)
                 }
             }
@@ -154,7 +154,7 @@ struct MistakeDetailView: View {
                         .foregroundStyle(.hgDim)
                 }
                 Spacer(minLength: 4)
-                Image(systemName: "chevron.right")
+                Image(systemName: "chevron.forward")
                     .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
             }
@@ -194,7 +194,7 @@ struct MistakeDetailView: View {
                             .multilineTextAlignment(.leading)
                     }
                     Spacer(minLength: 4)
-                    Image(systemName: "chevron.right")
+                    Image(systemName: "chevron.forward")
                         .font(.footnote.weight(.semibold))
                         .foregroundStyle(.hgDim)
                 }
@@ -229,7 +229,7 @@ struct MistakeDetailView: View {
                                 .multilineTextAlignment(.leading)
                         }
                         Spacer(minLength: 4)
-                        Image(systemName: "chevron.right")
+                        Image(systemName: "chevron.forward")
                             .font(.footnote.weight(.semibold))
                             .foregroundStyle(.hgDim)
                     }
@@ -261,7 +261,7 @@ struct MistakeDetailView: View {
                                 .multilineTextAlignment(.leading)
                                 .lineLimit(2)
                             Spacer(minLength: 0)
-                            Image(systemName: "chevron.right")
+                            Image(systemName: "chevron.forward")
                                 .font(.caption.weight(.semibold))
                                 .foregroundStyle(.hgDim)
                         }
@@ -287,7 +287,7 @@ struct MistakeDetailView: View {
                             Text(ref.title)
                                 .font(.footnote)
                                 .multilineTextAlignment(.leading)
-                            Image(systemName: "arrow.up.right").font(.caption)
+                            Image(systemName: "arrow.up.forward").font(.caption)
                         }
                         .foregroundStyle(.hgAccent)
                     }

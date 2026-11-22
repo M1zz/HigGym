@@ -609,6 +609,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
+				ar,
 				cs,
 				da,
 				de,

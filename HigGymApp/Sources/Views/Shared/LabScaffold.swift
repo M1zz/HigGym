@@ -29,7 +29,7 @@ struct LabScaffold<Content: View>: View {
     private var header: some View {
         HStack(spacing: 10) {
             Button { dismiss() } label: {
-                Image(systemName: "chevron.left")
+                Image(systemName: "chevron.backward")
                     .font(.callout.weight(.semibold))
                     .foregroundStyle(.hgAccent)
                     .frame(width: 32, height: 32)

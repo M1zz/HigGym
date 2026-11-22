@@ -116,7 +116,7 @@ struct QuizHomeView: View {
                                 .multilineTextAlignment(.leading)
                         }
                         Spacer(minLength: 4)
-                        Image(systemName: "chevron.right")
+                        Image(systemName: "chevron.forward")
                             .font(.footnote.weight(.semibold))
                             .foregroundStyle(.hgDim)
                     }
@@ -157,7 +157,7 @@ struct QuizHomeView: View {
                     ProBadge()
                 } else {
                     MasteryBar(value: progress.liveMastery(kind: kind))
-                    Image(systemName: "chevron.right")
+                    Image(systemName: "chevron.forward")
                         .font(.footnote.weight(.semibold))
                         .foregroundStyle(.hgDim)
                 }
@@ -235,7 +235,7 @@ struct QuizHomeView: View {
                 if locked {
                     ProBadge()
                 } else {
-                    Image(systemName: "chevron.right")
+                    Image(systemName: "chevron.forward")
                         .font(.footnote.weight(.semibold))
                         .foregroundStyle(.hgDim)
                 }
@@ -264,7 +264,7 @@ struct QuizHomeView: View {
                 } label: {
                     HStack(spacing: 12) {
                         Text("\(chapter.number)")
-                            .font(.system(.subheadline, design: .monospaced, weight: .bold))
+                            .font(.system(.subheadline, design: .hgMono, weight: .bold))
                             .foregroundStyle(.white)
                             .frame(width: 28, height: 28)
                             .background(.hgBrand, in: .rect(cornerRadius: 8))
@@ -309,7 +309,7 @@ private struct MasteryBar: View {
     var body: some View {
         VStack(alignment: .trailing, spacing: 3) {
             Text("\(Int(value * 100))%")
-                .font(.system(.caption, design: .monospaced, weight: .semibold))
+                .font(.system(.caption, design: .hgMono, weight: .semibold))
                 .foregroundStyle(value > 0 ? .hgGreen : .hgDim)
             Capsule()
                 .fill(Color.hgLine)

@@ -208,7 +208,7 @@ struct Pill: View {
 
     var body: some View {
         Text(text)
-            .font(.system(.caption, design: .monospaced, weight: .bold))
+            .font(.system(.caption, design: .hgMono, weight: .bold))
             .foregroundStyle(color)
             .padding(.horizontal, 8)
             .padding(.vertical, 3)
@@ -266,7 +266,7 @@ struct DiagnosisRow: View {
             VStack(alignment: .leading, spacing: 4) {
                 MarkdownText(raw: diagnosis.message, font: .subheadline, color: .hgText)
                 Text(diagnosis.source)
-                    .font(.system(.caption, design: .monospaced))
+                    .font(.system(.caption, design: .hgMono))
                     .foregroundStyle(.hgDim)
             }
         }
@@ -306,11 +306,12 @@ struct CodePanel: View {
                 .tint(.hgAccent)
             }
             ScrollView(.horizontal, showsIndicators: false) {
-                Text(code)
-                    .font(.system(.footnote, design: .monospaced))
+                Text(HGLanguage.leftToRightLines(code))
+                    .font(.system(.footnote, design: .hgMono))
                     .foregroundStyle(.hgText)
                     .textSelection(.enabled)
             }
+            .codeDirection()
         }
         .padding(14)
         .background(Color.hgCode, in: .rect(cornerRadius: 14))
@@ -353,5 +354,57 @@ extension View {
     /// 흰 아이콘을 얹는 크롬 캡슐 - 불투명할 때는 어두운 바탕.
     func hgChromeBackground<S: Shape>(in shape: S) -> some View {
         modifier(HGBarBackground(shape: shape, opaque: Color(white: 0.14)))
+    }
+}
+
+// MARK: - 아랍어 (오른쪽에서 왼쪽)
+
+/// 지금 앱이 읽고 있는 현지화가 아랍어인가. 기기 언어가 아니라 번들이 고른 lproj 를 본다.
+enum HGLanguage {
+    static let isArabic = Bundle.main.preferredLocalizations.first?.hasPrefix("ar") ?? false
+
+    /// 숫자와 날짜를 찍을 지역 설정. 아랍어에서는 숫자를 0~9 로, 달력을 양력으로 맞춘다.
+    /// 기기 지역을 따르면 ١٢٣ 과 본문의 123 이 한 화면에 섞이고, 사우디 지역에서는 날짜가 히즈라력이 된다.
+    /// 다른 언어는 기기 설정 그대로 둔다.
+    static var locale: Locale {
+        guard isArabic else { return .current }
+        var components = Locale.Components(locale: .current)
+        components.languageComponents = Locale.Language.Components(identifier: "ar")
+        components.numberingSystem = "latn"
+        components.calendar = .gregorian
+        return Locale(components: components)
+    }
+
+    /// 코드 한 줄 한 줄을 왼쪽에서 오른쪽 문단으로 읽게 한다(보여 줄 때만, 복사하는 코드는 그대로).
+    /// 아랍어 주석으로 시작하는 줄도 `//` 가 왼쪽에 남는다.
+    static func leftToRightLines(_ code: String) -> String {
+        guard isArabic else { return code }
+        return code.split(separator: "\n", omittingEmptySubsequences: false)
+            .map { "\u{200E}" + $0 }
+            .joined(separator: "\n")
+    }
+}
+
+extension Font.Design {
+    /// 고정폭 글꼴. 고정폭 글꼴에는 아랍 글자가 없어 글자가 끊어지므로 아랍어에서는 기본 글꼴을 쓴다.
+    static var hgMono: Font.Design { HGLanguage.isArabic ? .default : .monospaced }
+}
+
+extension View {
+    /// 아랍어에서는 화면을 오른쪽부터 놓고 숫자 · 날짜를 0~9 와 양력으로 맞춘다.
+    /// 맥(Catalyst)은 앱 언어만 아랍어일 때 창 안을 왼쪽부터 그릴 수 있어 방향을 직접 준다. 다른 언어는 그대로다.
+    @ViewBuilder
+    func arabicLayout() -> some View {
+        if HGLanguage.isArabic {
+            environment(\.locale, HGLanguage.locale)
+                .environment(\.layoutDirection, .rightToLeft)
+        } else {
+            self
+        }
+    }
+
+    /// 코드는 어느 언어에서나 왼쪽에서 오른쪽으로 읽는다.
+    func codeDirection() -> some View {
+        environment(\.layoutDirection, .leftToRight)
     }
 }

@@ -402,7 +402,7 @@ struct LessonPlayerView: View {
                         step = Step(rawValue: step.rawValue - 1) ?? .use
                     }
                 } label: {
-                    Image(systemName: "chevron.left")
+                    Image(systemName: "chevron.backward")
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(.hgMuted)
                         .frame(width: 46, height: 46)

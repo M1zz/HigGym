@@ -331,7 +331,7 @@ private struct SheetBody: View {
                             .font(.subheadline)
                             .foregroundStyle(.hgText)
                         Spacer()
-                        Image(systemName: "chevron.right")
+                        Image(systemName: "chevron.forward")
                             .font(.footnote)
                             .foregroundStyle(.hgDim)
                     }

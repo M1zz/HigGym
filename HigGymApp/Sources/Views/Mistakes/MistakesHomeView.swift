@@ -119,7 +119,7 @@ struct MistakesHomeView: View {
                     .foregroundStyle(.hgDim)
                 Spacer()
                 Text("\(done) / \(total)")
-                    .font(.system(.subheadline, design: .monospaced, weight: .bold))
+                    .font(.system(.subheadline, design: .hgMono, weight: .bold))
                     .foregroundStyle(done > 0 ? .hgAccent : .hgDim)
             }
             GeometryReader { geo in
@@ -196,7 +196,7 @@ struct MistakesHomeView: View {
             HStack(spacing: 5) {
                 Text(title).font(.footnote.weight(.semibold))
                 Text("\(count)")
-                    .font(.system(.caption, design: .monospaced, weight: .bold))
+                    .font(.system(.caption, design: .hgMono, weight: .bold))
                     .opacity(0.75)
             }
             // 다크에서는 칩 색이 밝아 흰 글자가 묻힌다. 카드 색(라이트 흰색 · 다크 먹색)을 얹으면 두 모드 모두 대비가 선다.
@@ -229,7 +229,7 @@ private struct MistakeRow: View {
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
             Text("\(mistake.number)")
-                .font(.system(.footnote, design: .monospaced, weight: .bold))
+                .font(.system(.footnote, design: .hgMono, weight: .bold))
                 .foregroundStyle(checked ? .hgDim : mistake.level.color)
                 .frame(width: 28, height: 24)
                 .background((checked ? Color.hgDim : mistake.level.color).opacity(0.12), in: .rect(cornerRadius: 7))
@@ -256,7 +256,7 @@ private struct MistakeRow: View {
                             .foregroundStyle(.hgGreen)
                     }
                     Text(mistake.sources.map(\.index).joined(separator: " · "))
-                        .font(.system(.caption, design: .monospaced))
+                        .font(.system(.caption, design: .hgMono))
                         .foregroundStyle(.hgDim)
                         .lineLimit(1)
                 }
@@ -277,7 +277,7 @@ private struct MistakeRow: View {
     }
 
     private var checkmark: some View {
-        Image(systemName: checked ? "checkmark.circle.fill" : "chevron.right")
+        Image(systemName: checked ? "checkmark.circle.fill" : "chevron.forward")
             .font((checked ? Font.callout : Font.footnote).weight(.semibold))
             .foregroundStyle(checked ? .hgGreen : .hgDim)
             .padding(.top, 2)

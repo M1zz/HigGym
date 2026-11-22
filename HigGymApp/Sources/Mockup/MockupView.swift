@@ -68,7 +68,7 @@ struct MockupNodeView: View {
             .font(.system(
                 size: spec.size * context.scale,
                 weight: spec.weight,
-                design: spec.mono ? .monospaced : .default
+                design: spec.mono ? .hgMono : .default
             ))
             .foregroundStyle(context.color ?? Color.white.opacity(0.8))
             .lineLimit(context.nowrap ? 1 : nil)
@@ -121,6 +121,9 @@ private struct MockupChildren: View {
 private struct PhoneCanvas: View {
     let node: MockupNode
     let context: MockupContext
+    /// 오른쪽에서 왼쪽으로 읽는 언어에서는 목업도 거울처럼 놓인다. leading 정렬이 오른쪽 끝이 되므로
+    /// 문서의 left · right 거리도 같은 쪽으로 밀어야 한다.
+    @Environment(\.layoutDirection) private var direction
 
     var body: some View {
         ZStack {
@@ -185,8 +188,9 @@ private struct PhoneCanvas: View {
 
     private func offsetX(_ box: MockupBox) -> CGFloat {
         if box.centerX { return 0 }
-        if let left = box.left { return left }
-        if let right = box.right { return -right }
+        let mirror: CGFloat = direction == .rightToLeft ? -1 : 1
+        if let left = box.left { return left * mirror }
+        if let right = box.right { return -right * mirror }
         return 0
     }
 
@@ -202,6 +206,7 @@ private struct FlowLayout: View {
     let node: MockupNode
     let layout: MockupBox.Layout
     let context: MockupContext
+    @Environment(\.layoutDirection) private var direction
 
     var body: some View {
         switch layout {
@@ -235,7 +240,7 @@ private struct FlowLayout: View {
             .frame(width: 0, height: 0)
             .overlay(alignment: .topTrailing) {
                 MockupNodeView(node: child, context: context)
-                    .offset(x: 5 * context.scale, y: -5 * context.scale)
+                    .offset(x: (direction == .rightToLeft ? -5 : 5) * context.scale, y: -5 * context.scale)
             }
     }
 

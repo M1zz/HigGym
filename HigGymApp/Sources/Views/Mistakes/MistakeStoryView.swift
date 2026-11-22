@@ -55,7 +55,7 @@ struct MistakeStoryView: View {
         VStack(alignment: .leading, spacing: 9) {
             HStack(spacing: 7) {
                 Text("실수 #\(mistake.number)")
-                    .font(.system(.caption, design: .monospaced, weight: .bold))
+                    .font(.system(.caption, design: .hgMono, weight: .bold))
                     .foregroundStyle(.hgDim)
                 Label(mistake.severityLabel, systemImage: mistake.level.symbol)
                     .font(.caption.weight(.semibold))
@@ -74,7 +74,7 @@ struct MistakeStoryView: View {
         VStack(alignment: .leading, spacing: 8) {
             Divider().background(Color.hgLine)
             Text("근거 · \(mistake.sources.map(\.index).joined(separator: " · "))")
-                .font(.system(.caption, design: .monospaced))
+                .font(.system(.caption, design: .hgMono))
                 .foregroundStyle(.hgDim)
             MarkdownText(raw: mistake.criterion, font: .footnote, color: .hgDim)
         }

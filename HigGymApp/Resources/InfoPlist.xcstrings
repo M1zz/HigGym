@@ -148,6 +148,12 @@
             "state": "translated",
             "value": "Tasarım Pratiği"
           }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مختبر التصميم"
+          }
         }
       }
     },
@@ -296,6 +302,12 @@
           "stringUnit": {
             "state": "translated",
             "value": "Tasarım Pratiği"
+          }
+        },
+        "ar": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "مختبر التصميم"
           }
         }
       }

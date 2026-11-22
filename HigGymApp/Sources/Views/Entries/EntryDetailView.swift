@@ -84,7 +84,7 @@ struct EntryDetailView: View {
                     .foregroundStyle(.hgAmber)
                 Spacer()
                 Text(part.source)
-                    .font(.system(.caption, design: .monospaced))
+                    .font(.system(.caption, design: .hgMono))
                     .foregroundStyle(.hgDim)
             }
             MarkdownText(raw: part.meaning, font: .footnote, color: .hgText)
@@ -172,7 +172,7 @@ struct EntryDetailView: View {
                         .foregroundStyle(.hgDim)
                 }
                 Spacer()
-                Image(systemName: "chevron.right")
+                Image(systemName: "chevron.forward")
                     .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
             }
@@ -195,7 +195,7 @@ struct EntryDetailView: View {
                             Text(ref.title)
                                 .font(.footnote)
                                 .multilineTextAlignment(.leading)
-                            Image(systemName: "arrow.up.right").font(.caption)
+                            Image(systemName: "arrow.up.forward").font(.caption)
                         }
                         .foregroundStyle(.hgAccent)
                     }
@@ -221,7 +221,7 @@ struct MistakeLinksSection: View {
                 NavigationLink(value: mistake) {
                     HStack(spacing: 9) {
                         Text("#\(mistake.number)")
-                            .font(.system(.caption, design: .monospaced, weight: .bold))
+                            .font(.system(.caption, design: .hgMono, weight: .bold))
                             .foregroundStyle(mistake.level.color)
                         Text(mistake.title)
                             .font(.subheadline)
@@ -229,7 +229,7 @@ struct MistakeLinksSection: View {
                             .multilineTextAlignment(.leading)
                             .lineLimit(2)
                         Spacer(minLength: 0)
-                        Image(systemName: "chevron.right")
+                        Image(systemName: "chevron.forward")
                             .font(.caption.weight(.semibold))
                             .foregroundStyle(.hgDim)
                     }

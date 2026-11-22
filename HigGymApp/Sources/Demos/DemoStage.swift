@@ -209,7 +209,7 @@ private struct DemoGuideSheet: View {
             ForEach(Array(demo.hints.enumerated()), id: \.offset) { index, hint in
                 HStack(alignment: .top, spacing: 9) {
                     Text("\(index + 1)")
-                        .font(.system(.caption, design: .monospaced, weight: .bold))
+                        .font(.system(.caption, design: .hgMono, weight: .bold))
                         .foregroundStyle(.hgGreen)
                         .frame(width: 18, height: 18)
                         .background(Color.hgGreen.opacity(0.14), in: .circle)
@@ -289,7 +289,7 @@ struct DemoLaunchCard: View {
 
                 Spacer(minLength: 4)
 
-                Image(systemName: "chevron.right")
+                Image(systemName: "chevron.forward")
                     .font(.footnote.weight(.semibold))
                     .foregroundStyle(.hgDim)
             }

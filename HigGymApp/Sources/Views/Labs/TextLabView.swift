@@ -105,7 +105,7 @@ struct TextLabView: View {
             .animation(.snappy(duration: 0.2), value: width)
 
             Text("폭 \(Int(width))pt · Dynamic Type \(typeSizeLabel)")
-                .font(.system(.caption, design: .monospaced))
+                .font(.system(.caption, design: .hgMono))
                 .foregroundStyle(.hgDim)
         }
         .frame(maxWidth: .infinity)
@@ -140,7 +140,7 @@ struct TextLabView: View {
             SectionLabel(String(localized: "공간"), accent: .hgAccent)
             VStack(alignment: .leading, spacing: 4) {
                 Text("폭 \(Int(width))pt")
-                    .font(.system(.footnote, design: .monospaced))
+                    .font(.system(.footnote, design: .hgMono))
                     .foregroundStyle(.hgMuted)
                 Slider(value: $width, in: 90...340, step: 1)
                     .tint(.hgAccent)
@@ -163,7 +163,7 @@ struct TextLabView: View {
 
             VStack(alignment: .leading, spacing: 4) {
                 Text("minimumScaleFactor \(scaleFactor, format: .number.precision(.fractionLength(2)))")
-                    .font(.system(.footnote, design: .monospaced))
+                    .font(.system(.footnote, design: .hgMono))
                     .foregroundStyle(.hgMuted)
                 Slider(value: $scaleFactor, in: 0.3...1.0, step: 0.05)
                     .tint(.hgAccent)
@@ -415,7 +415,7 @@ private struct FormatStyleSection: View {
     private func row(_ code: String, _ value: String) -> some View {
         HStack(alignment: .top, spacing: 10) {
             Text(code)
-                .font(.system(.caption, design: .monospaced))
+                .font(.system(.caption, design: .hgMono))
                 .foregroundStyle(.hgDim)
                 .frame(maxWidth: .infinity, alignment: .leading)
             Text(value)

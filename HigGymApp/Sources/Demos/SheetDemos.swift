@@ -180,7 +180,7 @@ private struct SheetDemoScreen: View {
                     if kind == .nonmodal {
                         VStack(alignment: .leading, spacing: 6) {
                             Text("뒤 화면의 밝기 \(Int(brightness * 100))%")
-                                .font(.system(.footnote, design: .monospaced, weight: .semibold))
+                                .font(.system(.footnote, design: .hgMono, weight: .semibold))
                                 .foregroundStyle(.secondary)
                             Slider(value: $brightness)
                             DemoNote(text: String(localized: "시트를 연 채로 이 슬라이더를 움직여 보세요. **뒤가 살아 있다**는 게 이 항목의 전부입니다."))
@@ -260,7 +260,7 @@ private struct DemoSheetBody: View {
                 if kind == .combo || kind == .nonmodal {
                     Section {
                         LabeledContent("현재 단계", value: detent == .large ? "large" : "medium")
-                            .font(.system(.subheadline, design: .monospaced))
+                            .font(.system(.subheadline, design: .hgMono))
                     }
                 }
                 Section("필터") {

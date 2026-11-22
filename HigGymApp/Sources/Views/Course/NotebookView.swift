@@ -106,9 +106,9 @@ struct NotebookView: View {
 
     private var summary: some View {
         HStack(spacing: 18) {
-            stat("쓴 레슨", written.count.formatted())
-            stat("마친 레슨", notebook.completedCount.formatted())
-            stat("전체", Lesson.all.count.formatted())
+            stat("쓴 레슨", written.count.formatted(.number.locale(HGLanguage.locale)))
+            stat("마친 레슨", notebook.completedCount.formatted(.number.locale(HGLanguage.locale)))
+            stat("전체", Lesson.all.count.formatted(.number.locale(HGLanguage.locale)))
             Spacer()
         }
         .padding(14)
@@ -137,7 +137,7 @@ private struct NoteCard: View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(spacing: 8) {
                 Text("\(lesson.number)")
-                    .font(.system(.caption, design: .monospaced, weight: .bold))
+                    .font(.system(.caption, design: .hgMono, weight: .bold))
                     .foregroundStyle(.hgAccent)
                 Text(lesson.title)
                     .font(.callout.weight(.bold))

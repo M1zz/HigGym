@@ -94,7 +94,7 @@ struct LiveQuizPlayView: View {
                     .font(.subheadline.weight(.bold))
                     .foregroundStyle(.hgText)
                 Text(questions.isEmpty ? "" : "\(min(index + 1, questions.count)) / \(questions.count)")
-                    .font(.system(.caption, design: .monospaced))
+                    .font(.system(.caption, design: .hgMono))
                     .foregroundStyle(.hgDim)
             }
 

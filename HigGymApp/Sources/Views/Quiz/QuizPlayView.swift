@@ -62,7 +62,7 @@ struct QuizPlayView: View {
                 ProgressView(value: session.progress)
                     .tint(.hgAccent)
                 Text("\(session.index + 1) / \(session.questions.count)")
-                    .font(.system(.footnote, design: .monospaced))
+                    .font(.system(.footnote, design: .hgMono))
                     .foregroundStyle(.hgDim)
             }
             .padding(.horizontal, 18)
@@ -267,7 +267,7 @@ private struct MockupOption: View {
 
             // 이름을 먼저 읽으면 그림을 보지 않게 되므로 채점 후에만 밝힌다.
             Text(revealed ? title : (entry?.index ?? ""))
-                .font(.system(.caption, design: revealed ? .default : .monospaced, weight: revealed ? .semibold : .regular))
+                .font(.system(.caption, design: revealed ? .default : .hgMono, weight: revealed ? .semibold : .regular))
                 .foregroundStyle(revealed ? Color.hgText : Color.hgDim)
                 .lineLimit(2)
                 .multilineTextAlignment(.center)

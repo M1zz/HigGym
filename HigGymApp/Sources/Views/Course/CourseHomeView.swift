@@ -89,7 +89,7 @@ struct CourseHomeView: View {
                     Spacer()
                     if done > 0 {
                         Text("\(Int(Double(done) / Double(total) * 100))%")
-                            .font(.system(.subheadline, design: .monospaced, weight: .bold))
+                            .font(.system(.subheadline, design: .hgMono, weight: .bold))
                             .foregroundStyle(.hgAccent)
                     }
                 }
@@ -120,7 +120,7 @@ struct CourseHomeView: View {
                                 .lineLimit(2)
                         }
                         Spacer(minLength: 4)
-                        Image(systemName: "chevron.right")
+                        Image(systemName: "chevron.forward")
                             .font(.footnote.weight(.semibold))
                             .foregroundStyle(.hgDim)
                     }
@@ -168,7 +168,7 @@ private struct LessonRow: View {
         Button(action: action) {
             HStack(alignment: .top, spacing: 12) {
                 Text("\(lesson.number)")
-                    .font(.system(.subheadline, design: .monospaced, weight: .bold))
+                    .font(.system(.subheadline, design: .hgMono, weight: .bold))
                     .foregroundStyle(note.isCompleted ? .hgGreen : .hgAccent)
                     .frame(width: 30, height: 30)
                     .background(
@@ -200,7 +200,7 @@ private struct LessonRow: View {
                     ProBadge()
                         .padding(.top, 6)
                 } else {
-                    Image(systemName: "chevron.right")
+                    Image(systemName: "chevron.forward")
                         .font(.footnote.weight(.semibold))
                         .foregroundStyle(.hgDim)
                         .padding(.top, 8)

@@ -104,7 +104,7 @@ struct ToolbarLabView: View {
         } label: {
             VStack(alignment: .leading, spacing: 2) {
                 Text(title).font(.subheadline.weight(.semibold))
-                Text(source).font(.system(.caption, design: .monospaced)).foregroundStyle(.hgDim)
+                Text(source).font(.system(.caption, design: .hgMono)).foregroundStyle(.hgDim)
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 8)
@@ -175,7 +175,7 @@ struct ToolbarLabView: View {
                 SectionLabel(String(localized: "실시간 판정"), accent: .hgGreen)
                 Spacer()
                 Text("\(diagnoses.count)건")
-                    .font(.system(.caption, design: .monospaced))
+                    .font(.system(.caption, design: .hgMono))
                     .foregroundStyle(.hgDim)
             }
             ForEach(diagnoses) { DiagnosisRow(diagnosis: $0) }
