@@ -213,7 +213,7 @@
 		ECA0DD59B8276E7AB7D670A2 /* DemoKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoKit.swift; sourceTree = "<group>"; };
 		F79AF87F982F35EDCD75CC80 /* MockupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockupView.swift; sourceTree = "<group>"; };
 		FEFBE5660F8B685ED2FC9E48 /* QuizResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizResultView.swift; sourceTree = "<group>"; };
-		"TEMP_3B44ED8C-AA70-4858-AF0B-63091C157864" /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
+		"TEMP_71762351-5BE7-4B25-B2C9-23A2F3EDEA9C" /* Version.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Version.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -512,10 +512,10 @@
 			path = Principles;
 			sourceTree = "<group>";
 		};
-		"TEMP_30FC37BD-A6FC-45BE-87FD-21DFC1CF0B6D" /* 디자인실습 */ = {
+		"TEMP_C96ABEF6-E91D-4D09-90BA-83DB4B62A0F9" /* 디자인실습 */ = {
 			isa = PBXGroup;
 			children = (
-				"TEMP_3B44ED8C-AA70-4858-AF0B-63091C157864" /* Version.xcconfig */,
+				"TEMP_71762351-5BE7-4B25-B2C9-23A2F3EDEA9C" /* Version.xcconfig */,
 			);
 			path = "디자인실습";
 			sourceTree = "<group>";
@@ -809,7 +809,7 @@
 		};
 		5711437EF425E4184734E060 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_3B44ED8C-AA70-4858-AF0B-63091C157864" /* Version.xcconfig */;
+			baseConfigurationReference = "TEMP_71762351-5BE7-4B25-B2C9-23A2F3EDEA9C" /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -887,7 +887,7 @@
 		};
 		8FE6E8404CE52551C781809B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = "TEMP_3B44ED8C-AA70-4858-AF0B-63091C157864" /* Version.xcconfig */;
+			baseConfigurationReference = "TEMP_71762351-5BE7-4B25-B2C9-23A2F3EDEA9C" /* Version.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1078,7 +1078,7 @@
 			repositoryURL = "https://github.com/M1zz/LeeoKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 3.47.1;
+				minimumVersion = 3.49.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
