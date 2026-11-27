@@ -6,7 +6,8 @@ import SwiftUI
 /// 그래서 안내는 세 장뿐이고, 그중 한 장을 그 이야기에 쓴다.
 /// 한 번 보면 RootView 의 hasSeenOnboarding 이 켜지고, 설정의 "사용법 다시 보기"로 다시 볼 수 있다.
 struct HigGymOnboardingView: View {
-    let onFinish: () -> Void
+    /// `true` 면 끝까지 넘기지 않고 건너뛰었다.
+    let onFinish: (_ skipped: Bool) -> Void
 
     @State private var page = 0
 
@@ -42,7 +43,7 @@ struct HigGymOnboardingView: View {
             HStack {
                 Spacer()
                 if !isLast {
-                    Button("건너뛰기", action: onFinish)
+                    Button("건너뛰기") { onFinish(true) }
                         .font(.subheadline.weight(.semibold))
                         .foregroundStyle(.hgMuted)
                 }
@@ -60,7 +61,7 @@ struct HigGymOnboardingView: View {
 
             Button {
                 if isLast {
-                    onFinish()
+                    onFinish(false)
                 } else {
                     withAnimation(.snappy(duration: 0.25)) { page += 1 }
                 }

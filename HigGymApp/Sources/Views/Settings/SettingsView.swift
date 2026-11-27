@@ -74,7 +74,7 @@ struct SettingsView: View {
         .navigationTitle("설정")
         .navigationBarTitleDisplayMode(.inline)
         .fullScreenCover(isPresented: $showsOnboarding) { Group {
-            HigGymOnboardingView { showsOnboarding = false }
+            HigGymOnboardingView { _ in showsOnboarding = false }
                 .coverConfined()
         }.arabicLayout() }
         .sheet(isPresented: $showsWhatsNew) { Group {

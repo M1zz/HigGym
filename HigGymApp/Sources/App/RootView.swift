@@ -285,7 +285,10 @@ struct RootView: View {
         .modifier(SatisfactionCheck(isEnabled: asksSatisfaction))
         .modifier(Celebrations(isEnabled: !DebugLaunch.isScripted))
         .fullScreenCover(isPresented: onboardingPresented) { Group {
-            HigGymOnboardingView { hasSeenOnboarding = true }
+            HigGymOnboardingView { skipped in
+                LeeoAnalyticsCenter.track(.custom(name: skipped ? "onboarding_skipped" : "onboarding_completed", parameters: [:]))
+                hasSeenOnboarding = true
+            }
                 .coverConfined()
         }.arabicLayout() }
         .sheet(isPresented: $showsWhatsNew, onDismiss: { WhatsNewContent.markSeen() }) { Group {
